@@ -1,0 +1,2089 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        
+            <meta charset="utf-8">
+            <meta name="robots" content="noindex">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="author" content="Jefferson" />
+            <meta name="date" content="2024-04-20" />
+        
+
+        <title>RevTeX article | Física</title>
+
+        
+    
+    
+            <link rel="stylesheet" href="../../static/styles.css?build_time=1713639355.073832">
+            
+            
+        
+    <link rel="stylesheet" id="customiseCodeCSS" href="../../static/pygmentize.css?build_time=1713639355.073832">
+
+    <link rel="stylesheet" href="../../static/print.css?build_time=1713639355.073832">
+
+
+        
+    
+			<script>
+				var chirun_static_url = new URL('../../static?build_time=1713639355.073832', location.href);
+			</script>
+
+            
+                <script defer src="../../static/mathjax_config.js?build_time=1713639355.073832"></script>
+                <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+            
+
+            <script type="module" src="../../static/localisation.js?build_time=1713639355.073832"></script>
+
+            <script defer src="../../static/customisation.js?build_time=1713639355.073832"></script>
+
+            
+
+            
+        
+    <script defer src="../../static/code.js?build_time=1713639355.073832" type="module"></script>
+    <script defer src="../../static/embed_numbas.js?build_time=1713639355.073832" type="module"></script>
+    <script defer src="../../static/embed_qrcode.js?build_time=1713639355.073832" type="module"></script>
+
+
+        <template id="runnable-code-template">
+            <link rel="stylesheet" href="../../static/code.css?build_time=1713639355.073832">
+            <div class="runnable-code-wrapper">
+                <section class="fullscreenable code">
+                    <div id="code"></div>
+                    <button class="fullscreen icon-button" title="Código em tela cheia"><svg class="icon" alt="Fullscreen code" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <section class="fullscreenable output">
+                    <div id="output" aria-live="polite">
+                        <pre class="stdout"></pre>
+                        <pre class="result"></pre>
+                        <div class="images"></div>
+                    </div>
+                    <button class="fullscreen icon-button" title="Saída em tela cheia"><svg class="icon" alt="Fullscreen output" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <div class="buttons">
+                    <button type="button" class="run-code">Run code</button>
+                </div>
+                <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:#ffffff;fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:#ffffff;stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+            </div>
+        </template>
+
+        <template id="embed-numbas-template">
+            <link rel="stylesheet" href="../../static/embed_numbas.css?build_time=1713639355.073832">
+            <details id="wrapper" data-completion-status="incomplete">
+                <summary>
+                    <h1 id="title">Teste a si mesmo</h1>
+                    <div id="completion-status" data-completion-status="unknown">
+                        <span class="complete">Completo</span>
+                        <span class="incomplete">Incompleto</span>
+                    </div>
+                    <label id="score-feedback">
+                        Pontuação:
+                        <progress min="0"></progress>
+                    </label>
+                </summary>
+                <iframe class="embed" title="Numbas"></iframe>
+            </details>
+        </template>
+
+    </head>
+    <body class="" >
+        
+
+        <a class="skip-to-content-link" href="#main-content">Ir para o conteúdo</a>
+        
+            <form id="display-options">
+    <div class="buttons">
+        <button type="button" id="reset-display-options">Redefinir para o padrão</button>
+
+        <a href="https://chirun.org.uk/accessibility-statement/material">Declaração de acessibilidade</a>
+
+        <button type="button" aria-controls="display-options" aria-expanded="false">
+            Fechar
+        </button>
+    </div>
+
+    <div class="inputs">
+        <div class="input-group">
+            <label for="display-options-font-scale">
+                Tamanho de texto
+            </label>
+            <input type="range" min="50" max="600" step="5" value="100" id="display-options-font-scale">
+            <output for="display-options-font-scale">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-spacing-factor">
+                Espaçamento
+            </label>
+            <input type="range" min="0" max="1200" step="5" value="100" id="display-options-spacing-factor">
+            <output for="display-options-spacing-factor">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-font-family">
+                /Fonte do texto
+            </label>
+            <select id="display-options-font-family">
+                <option value="var(--sans-serif-font)" selected>Sans-serif</option>
+                <option value="var(--serif-font)">Serif</option>
+                <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
+                <option value="Comic Sans MS">Comic Sans</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-colour-scheme">
+                Esquema de cores
+            </label>
+            <select id="display-options-colour-scheme">
+                <option value="auto" selected>Automático (default)</option>
+                <option value="light">Texto preto sobre branco</option>
+                <option value="dark">Texto branco sobre preto</option>
+                <option value="custom">Personalizado</option>
+            </select>
+        </div>
+
+        <section id="custom-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-text-colour">
+                    Cor do texto
+                </label>
+                <input type="color" value="#000000" id="display-options-text-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-link-colour">
+                    Cor do link
+                </label>
+                <input type="color" value="#0000ee" id="display-options-link-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour">
+                    Cor do fundo
+                </label>
+                <input type="color" value="#ffffff" id="display-options-bg-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-off">
+                    Cor de fundo silenciada
+                </label>
+                <input type="color" value="#eeeeee" id="display-options-bg-colour-off">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-1">
+                    Cor de destaque 1
+                </label>
+                <input type="color" value="#4caf50" id="display-options-bg-colour-accent-1">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-2">
+                    Cor de destaque 2
+                </label>
+                <input type="color" value="#f6f6ff" id="display-options-bg-colour-accent-2">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-3">
+                    Cor de destaque 3
+                </label>
+                <input type="color" value="#eeffd3" id="display-options-bg-colour-accent-3">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-4">
+                    Cor de destaque 4
+                </label>
+                <input type="color" value="#ffeeee" id="display-options-bg-colour-accent-4">
+            </div>
+        </section>
+
+        <section id="filter-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-filter-sepia">
+                    Filtro sépia
+                </label>
+                <input type="range" min="0" max="100" step="1" value="0" id="display-options-filter-sepia">
+                <output for="display-options-filter-sepia">0%</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-filter-hue-rotate">
+                    Girar matrizes
+                </label>
+                <input type="range" min="0" max="1" step="0.01" value="0" id="display-options-filter-hue-rotate">
+                <output for="display-options-filter-hue-rotate">0 turns</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-invert-images">
+                    Inverter imagens no modo escuro
+                </label>
+                <input type="checkbox" id="display-options-invert-images">
+            </div>
+
+        </section>
+    </div>
+</form>
+        
+
+        <header>
+            
+<button class="icon-button" type="button" aria-controls="display-options" aria-expanded="false" title="Opções de exibição">
+    <svg class="icon" alt="Display options" viewBox="0 0 180 180">
+    <use href="#cog"/>
+</svg>
+</button>
+            
+    
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="../../index.html">Física</a>
+            </li>
+            
+            <li class="breadcrumb-item">
+                <a href="../index.html">Notas</a>
+            </li>
+            
+            <li class="breadcrumb-item active">
+                RevTeX article
+            </li>
+        </ul>
+
+        
+        <p class="pager" id="item-pager">
+            
+            <a rel="prev" href="../latex_notes/index.html">Previous: LaTeX notes</a>
+            
+            
+            <a rel="next" href="../markdown_notes/index.html">Next: Markdown notes</a>
+            
+        </p>
+        
+    </nav>
+    
+
+            
+            
+        </header>
+
+        <main id="main-content">
+            
+    <nav id="sidebar">
+        
+        <ul class="alternative-formats">
+            
+            <li><a href="revtex_article.pdf"download><svg class="icon" alt="PDF" viewBox="0 0 180 180">
+    <use href="#pdf"/>
+</svg> Download como PDF</a></li>
+            
+        </ul>
+        
+
+        <h1>Tabela de Conteúdos</h1>
+        <a class="jump-to-item-content" href="#item-content">Ir para o conteúdo</a>
+        
+            <ol class="table-of-contents">
+                
+                    
+    <li>
+        <a href="#manuscript_title">Manuscript Title</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#sec:level1">I. First-level heading</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#sec:level2">A. Second-level heading: Formatting</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000002">Wide text (A level-3 head)</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000003">Note (Fourth-level head is run in)</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#sec:citeref">B. Citations and References</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000004">Citations</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000005">Syntax</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000006">Eliding repeated information</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000007">The options of the cite command itself</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000008">Example citations</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000009">References</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000010">Example references</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000011">C. Footnotes</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000013">II. Math and Equations</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000017">A. Multiline equations</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000022">A few notes on <span class="ttfamily">tag</span>s</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000023">Wide equations</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000024">III. Cross-referencing</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000027">IV. Floats: Figures, Tables, Videos, etc.</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000034">V. Appendixes</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000035">VI. A little more on appendixes</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#app:subsec">A. A subsection in an appendix</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000038">References</a>
+        
+    </li>
+
+    <li>
+        <a href="#footnot_1">Footnotes</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+                
+            </ol>
+        
+
+    </nav>
+
+    <article class="item-content" id="item-content">
+        <p>
+APS/123-QED 
+</p>
+<p>
+ [Also at ]Physics Department, XYZ University.<a href=""></a>Second.Author@institution.edu Authors’ institution and/or address 
+</p>
+<p>
+MUSO Collaboration
+</p>
+<p>
+ http://www.Second.institution.edu/ Charlie.Author  Second institution and/or address  Third institution, the second for Charlie Author  Authors’ institution and/or address 
+</p>
+<p>
+CLEO Collaboration
+</p>
+<div class="abstract"> An article usually includes an abstract, a concise summary of the work covered at length in the main body of the article. <dl class="description">
+<dt>Usage</dt>
+<dd><p>
+Secondary publications and information retrieval purposes. 
+</p>
+</dd>
+<dt>Structure</dt>
+<dd><p>
+You may use the <span class="ttfamily">description</span> environment to structure your abstract; use the optional argument of the <code class="verbatim">\item</code> command to give the category of each item. 
+</p>
+</dd>
+</dl> </div>
+<div class="titlepage">
+<h1 id="manuscript_title">Manuscript Title</h1>
+<p class="authors">
+<span class="author">Ann Author</span>
+<span class="author">Second Author</span>
+<span class="author">Charlie Author</span>
+<span class="author">Delta Author</span>
+</p>
+<p class="date">April 20, 2024</p>
+<p class="thanks">A footnote to the article title</p>
+</div>
+<section class="section">
+<h2 id="sec:level1">I. First-level heading</h2>
+<p>
+This sample document demonstrates proper use of REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X 4.2 (and ) in mansucripts prepared for submission to APS journals. Further information can be found in the REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X 4.2 documentation included in the distribution or available at <a href="http://journals.aps.org/revtex/">http://journals.aps.org/revtex/</a>. 
+</p>
+<p>
+When commands are referred to in this example file, they are always shown with their required arguments, using normal T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X format. In this format, <code class="verbatim">#1</code>, <code class="verbatim">#2</code>, etc. stand for required author-supplied arguments to commands. For example, in <code class="verbatim">\section{#1}</code> the <code class="verbatim">#1</code> stands for the title text of the author’s section heading, and in <code class="verbatim">\title{#1}</code> the <code class="verbatim">#1</code> stands for the title text of the paper. 
+</p>
+<p>
+Line breaks in section headings at all levels can be introduced using \\. A blank input line tells T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X that the paragraph has ended. Note that top-level section headings are automatically uppercased. If a specific letter or word should appear in lowercase instead, you must escape it using <code class="verbatim">\lowercase{#1}</code>. 
+</p>
+<section class="subsection">
+<h3 id="sec:level2">A. Second-level heading: Formatting</h3>
+<p>
+This file may be formatted in either the <span class="ttfamily">preprint</span> or <span class="ttfamily">reprint</span> style. <span class="ttfamily">reprint</span> format mimics final journal output. Either format may be used for submission purposes. <span class="ttfamily">letter</span> sized paper should be used when submitting to APS journals. 
+</p>
+<section class="subsubsection">
+<h4 id="a0000000002">Wide text (A level-3 head)</h4>
+<p>
+ The <span class="ttfamily">widetext</span> environment will make the text the width of the full page, as on page <a class="ref crossref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#eq:wideeq">*</a>. (Note the use the <code class="verbatim">\pageref{#1}</code> command to refer to the page number.) 
+</p>
+<h4 id="a0000000003">Note (Fourth-level head is run in)</h4>
+<p>
+ The width-changing commands only take effect in two-column formatting. There is no effect if text is in a single column. 
+</p>
+</section>
+</section><section class="subsection">
+<h3 id="sec:citeref">B. Citations and References</h3>
+<p>
+ A citation in text uses the command <code class="verbatim">\cite{#1}</code> or <code class="verbatim">\onlinecite{#1}</code> and refers to an entry in the bibliography. An entry in the bibliography is a reference to another document. 
+</p>
+<section class="subsubsection">
+<h4 id="a0000000004">Citations</h4>
+<p>
+ Because REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X uses the <code class="verbatim">natbib</code> package of Patrick Daly, the entire repertoire of commands in that package are available for your document; see the <code class="verbatim">natbib</code> documentation for further details. Please note that REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X requires version 8.31a or later of <code class="verbatim">natbib</code>. 
+</p>
+<h4 id="a0000000005">Syntax</h4>
+<p>
+ The argument of <code class="verbatim">\cite</code> may be a single <em>key</em>, or may consist of a comma-separated list of keys. The citation <em>key</em> may contain letters, numbers, the dash (-) character, or the period (.) character. New with natbib 8.3 is an extension to the syntax that allows for a star (*) form and two optional arguments on the citation key itself. The syntax of the <code class="verbatim">\cite</code> command is thus (informally stated) 
+</p>
+<blockquote class="quotation"><div class="flushleft"><code class="verbatim">\cite</code> <code class="verbatim">{</code> <em>key</em> <code class="verbatim">}</code>, or<br/><code class="verbatim">\cite</code> <code class="verbatim">{</code> <em>optarg+key</em> <code class="verbatim">}</code>, or<br/><code class="verbatim">\cite</code> <code class="verbatim">{</code> <em>optarg+key</em> <code class="verbatim">,</code> <em>optarg+key</em>…<code class="verbatim">}</code>, </div></blockquote>
+<p>
+where <em>optarg+key</em> signifies 
+</p>
+<blockquote class="quotation"><div class="flushleft"><em>key</em>, or<br/><span class="ttfamily">*</span><em>key</em>, or<br/><span class="ttfamily">[</span><em>pre</em><span class="ttfamily">]</span><em>key</em>, or<br/><span class="ttfamily">[</span><em>pre</em><span class="ttfamily">]</span><span class="ttfamily">[</span><em>post</em><span class="ttfamily">]</span><em>key</em>, or even<br/><span class="ttfamily">*</span><span class="ttfamily">[</span><em>pre</em><span class="ttfamily">]</span><span class="ttfamily">[</span><em>post</em><span class="ttfamily">]</span><em>key</em>. </div></blockquote>
+<p>
+where <em>pre</em> and <em>post</em> is whatever text you wish to place at the beginning and end, respectively, of the bibliographic reference (see Ref. [witten2001] and the two under Ref. [feyn54]). (Keep in mind that no automatic space or punctuation is applied.) It is highly recommended that you put the entire <em>pre</em> or <em>post</em> portion within its own set of braces, for example: <code class="verbatim">\cite</code> <code class="verbatim">{</code> <span class="ttfamily">[</span> <code class="verbatim">{</code><em>text</em><code class="verbatim">}</code><span class="ttfamily">]</span><em>key</em><code class="verbatim">}</code>. The extra set of braces will keep L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X out of trouble if your <em>text</em> contains the comma (,) character. 
+</p>
+<p>
+The star (*) modifier to the <em>key</em> signifies that the reference is to be merged with the previous reference into a single bibliographic entry, a common idiom in APS and AIP articles (see below, Ref. [epr]). When references are merged in this way, they are separated by a semicolon instead of the period (full stop) that would otherwise appear. 
+</p>
+<h4 id="a0000000006">Eliding repeated information</h4>
+<p>
+ When a reference is merged, some of its fields may be elided: for example, when the author matches that of the previous reference, it is omitted. If both author and journal match, both are omitted. If the journal matches, but the author does not, the journal is replaced by <em>ibid.</em>, as exemplified by Ref. [epr]. These rules embody common editorial practice in APS and AIP journals and will only be in effect if the markup features of the APS and AIP BibT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X styles is employed. 
+</p>
+<h4 id="a0000000007">The options of the cite command itself</h4>
+<p>
+ Please note that optional arguments to the <em>key</em> change the reference in the bibliography, not the citation in the body of the document. For the latter, use the optional arguments of the <code class="verbatim">\cite</code> command itself: <code class="verbatim">\cite</code> <span class="ttfamily">*</span><span class="ttfamily">[</span><em>pre-cite</em><span class="ttfamily">]</span><span class="ttfamily">[</span><em>post-cite</em><span class="ttfamily">]</span><code class="verbatim">{</code><em>key-list</em><code class="verbatim">}</code>. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000008">Example citations</h4>
+<p>
+ By default, citations are numerical<span class="cite">
+	[
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#Beutler1994">Beutler(1994a)</a>
+	]
+</span>. Author-year citations are used when the journal is RMP. To give a textual citation, use <code class="verbatim">\onlinecite{#1}</code>: Refs. [][and references therein]witten2001,Bire82. By default, the <span class="ttfamily">natbib</span> package automatically sorts your citations into numerical order and “compresses” runs of three or more consecutive numerical citations. REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X provides the ability to automatically change the punctuation when switching between journal styles that provide citations in square brackets and those that use a superscript style instead. This is done through the <span class="ttfamily">citeautoscript</span> option. For instance, the journal style <span class="ttfamily">prb</span> automatically invokes this option because <i class="itshape">Physical Review B</i> uses superscript-style citations. The effect is to move the punctuation, which normally comes after a citation in square brackets, to its proper position before the superscript. To illustrate, we cite several together <span class="cite">
+	[
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#witten2001">Witten(2001)</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#Berman1983">G. P. Berman and F. M. Izrailev(1983)</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#Davies1998">Davies and Parns(1988)</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#Bire82">Birell and Davies(1982)</a>
+	]
+</span>, and once again in different order (Refs. <span class="cite">
+	[
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#epr">Einstein <em>et al.</em>(1935)Einstein, Podolsky, and Rosen</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#feyn54">Feynman(1954)</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#Bire82">Birell and Davies(1982)</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#Berman1983">G. P. Berman and F. M. Izrailev(1983)</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#witten2001">Witten(2001)</a>
+	, 
+	<a href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#Davies1998">Davies and Parns(1988)</a>
+	]
+</span>). Note that the citations were both compressed and sorted. Futhermore, running this sample file under the <span class="ttfamily">prb</span> option will move the punctuation to the correct place. 
+</p>
+<p>
+When the <code class="verbatim">prb</code> class option is used, the <code class="verbatim">\cite{#1}</code> command displays the reference’s number as a superscript rather than in square brackets. Note that the location of the <code class="verbatim">\cite{#1}</code> command should be adjusted for the reference style: the superscript references in <code class="verbatim">prb</code> style must appear after punctuation; otherwise the reference must appear before any punctuation. This sample was written for the regular (non-<span class="ttfamily">prb</span>) citation style. The command <code class="verbatim">\onlinecite{#1}</code> in the <span class="ttfamily">prb</span> style also displays the reference on the baseline. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000009">References</h4>
+<p>
+ A reference in the bibliography is specified by a <code class="verbatim">\bibitem{#1}</code> command with the same argument as the <code class="verbatim">\cite{#1}</code> command. <code class="verbatim">\bibitem{#1}</code> commands may be crafted by hand or, preferably, generated by BibT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X. REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X 4.2 includes BibT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X style files <code class="verbatim">apsrev4-2.bst</code>, <code class="verbatim">apsrmp4-2.bst</code> appropriate for <i class="itshape">Physical Review</i> and <i class="itshape">Reviews of Modern Physics</i>, respectively. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000010">Example references</h4>
+<p>
+ This sample file employs the <code class="verbatim">\bibliography</code> command, which formats the <span class="ttfamily">.bbl</span> file and specifies which bibliographic databases are to be used by BibT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X  (one of these should be by arXiv convention <span class="ttfamily">.bib</span>). Running BibT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X (via <span class="ttfamily">bibtex </span>) after the first pass of L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X produces the file <span class="ttfamily">.bbl</span> which contains the automatically formatted <code class="verbatim">\bibitem</code> commands (including extra markup information via <code class="verbatim">\bibinfo</code> and <code class="verbatim">\bibfield</code> commands). If not using BibT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X, you will have to create the <code class="verbatim">thebibiliography</code> environment and its <code class="verbatim">\bibitem</code> commands by hand. 
+</p>
+<p>
+Numerous examples of the use of the APS bibliographic entry types appear in the bibliography of this sample document. You can refer to the <span class="ttfamily">.bib</span> file, and compare its information to the formatted bibliography itself. 
+</p>
+</section>
+</section><section class="subsection">
+<h3 id="a0000000011">C. Footnotes</h3>
+<p>
+Footnotes, produced using the <code class="verbatim">\footnote{#1}</code> command, usually integrated into the bibliography alongside the other entries. Numerical citation styles do this<a class="footnote" href="#a0000000012" id="a0000000012-reference">
+<sup class="footnotemark">1</sup>
+</a>; author-year citation styles place the footnote at the bottom of the text column. Note: due to the method used to place footnotes in the bibliography, <em>you must re-run BibT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X every time you change any of your document’s footnotes</em>. 
+</p>
+</section>
+</section><section class="section">
+<h2 id="a0000000013">II. Math and Equations</h2>
+<p>
+ Inline math may be typeset using the <code class="verbatim">$</code> delimiters. Bold math symbols may be achieved using the <code class="verbatim">bm</code> package and the <code class="verbatim">\bm{#1}</code> command it supplies. For instance, a bold \(\alpha \) can be typeset as <code class="verbatim">$\bm{\alpha}$</code> giving \(\bm {\alpha }\). Fraktur and Blackboard (or open face or double struck) characters should be typeset using the <code class="verbatim">\mathfrak{#1}</code> and <code class="verbatim">\mathbb{#1}</code> commands respectively. Both are supplied by the <span class="ttfamily">amssymb</span> package. For example, <code class="verbatim">$\mathbb{R}$</code> gives \(\mathbb {R}\) and <code class="verbatim">$\mathfrak{G}$</code> gives \(\mathfrak {G}\) 
+</p>
+<p>
+In L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X there are many different ways to display equations, and a few preferred ways are noted below. Displayed math will center by default. Use the class option <code class="verbatim">fleqn</code> to flush equations left. 
+</p>
+<p>
+Below we have numbered single-line equations; this is the most common type of equation in <i class="itshape">Physical Review</i>: 
+</p>
+<div id="a0000000014">
+<div class="eqnarrayid" id="a0000000015"></div><div class="eqnarrayid" id="eq:one"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{1} \chi _+(p)\lesssim {\bf [}2|{\bf p}|(|{\bf p}|+p_z){\bf ]}^{-1/2} \left( \begin{array}{c} |{\bf p}|+p_z\\ px+ip_y \end{array}\right)\; , \\ 
+\tag{2}\left\{ \mathbb {1}234567890abc123\alpha \beta \gamma \delta 1234556\alpha \beta \frac{1\sum ^{a}_{b}}{A^2}\right\} \label{eq:one}. 
+\end{align}
+</script>
+</div>
+<p>
+ Note the open one in Eq. (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#eq:one">2</a>). 
+</p>
+<p>
+Not all numbered equations will fit within a narrow column this way. The equation number will move down automatically if it cannot fit on the same line with a one-line equation: 
+</p>
+<div class="eqn" id="a0000000016">
+<script type="math/tex; mode=display">\begin{equation}\left\{  ab12345678abc123456abcdef\alpha \beta \gamma \delta 1234556\alpha \beta \frac{1\sum ^{a}_{b}}{A^2}\right\} .\tag{3}\end{equation}</script>
+</div>
+<p>
+When the <code class="verbatim">\label{#1}</code> command is used [cf. input for Eq. (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#eq:one">2</a>)], the equation can be referred to in text without knowing the equation number that T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X will assign to it. Just use <code class="verbatim">\ref{#1}</code>, where <code class="verbatim">#1</code> is the same name that used in the <code class="verbatim">\label{#1}</code> command. 
+</p>
+<p>
+Unnumbered single-line equations can be typeset using the <code class="verbatim">\[</code>, <code class="verbatim">\]</code> format: 
+</p>
+<span class="dmath">\[ g^+g^+ \rightarrow g^+g^+g^+g^+ \dots ~ ,~ ~ q^+q^+\rightarrow q^+g^+g^+ \dots ~ .  \]</span>
+<section class="subsection">
+<h3 id="a0000000017">A. Multiline equations</h3>
+<p>
+Multiline equations are obtained by using the <code class="verbatim">eqnarray</code> environment. Use the <code class="verbatim">\nonumber</code> command at the end of each line to avoid assigning a number: 
+</p>
+<div id="a0000000018">
+<div class="eqnarrayid" id="a0000000019"></div><script type="math/tex; mode=display">
+\begin{align}
+ {\cal M}=& & ig_Z^2(4E_1E_2)^{1/2}(l_i^2)^{-1} \delta _{\sigma _1,-\sigma _2} (g_{\sigma _2}^e)^2\chi _{-\sigma _2}(p_2)\nonumber \\ 
+\tag{4}& & \times [\epsilon _jl_i\epsilon _i]_{\sigma _1}\chi _{\sigma _1}(p_1), 
+\end{align}
+</script>
+</div>
+<div id="a0000000020">
+<div class="eqnarrayid" id="a0000000021"></div><script type="math/tex; mode=display">
+\begin{align}
+ \sum \vert M^{\text{viol}}_g \vert ^2& =& g^{2n-4}_S(Q^2)~ N^{n-2} (N^2-1)\nonumber \\ 
+\tag{5}& & \times \left( \sum _{i<j}\right) \sum _{\text{perm}} \frac{1}{S_{12}} \frac{1}{S_{12}} \sum _\tau c^f_\tau ~ . 
+\end{align}
+</script>
+</div>
+<p>
+<b class="bfseries">Note:</b> Do not use <code class="verbatim">\label{#1}</code> on a line of a multiline equation if <code class="verbatim">\nonumber</code> is also used on that line. Incorrect cross-referencing will result. Notice the use <code class="verbatim">\text{#1}</code> for using a Roman font within a math environment. 
+</p>
+<p>
+To set a multiline equation without <em>any</em> equation numbers, use the <code class="verbatim">\begin{eqnarray*}</code>, <code class="verbatim">\end{eqnarray*}</code> format: 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  \sum \vert M^{\text{viol}}_g \vert ^2& =& g^{2n-4}_S(Q^2)~ N^{n-2} (N^2-1)\\ & & \times \left( \sum _{i<j}\right) \left( \sum _{\text{perm}}\frac{1}{S_{12}S_{23}S_{n1}} \right) \frac{1}{S_{12}}~ . \end{eqnarray*}</script></span>
+<h4 id="a0000000022">A few notes on <span class="ttfamily">tag</span>s</h4>
+<p>
+<code class="verbatim">\tag{#1}</code> requires the <span class="ttfamily">amsmath</span> package. Place the <code class="verbatim">\tag{#1}</code> command before the <code class="verbatim">\label{#1}</code>, if any. The numbering produced by <code class="verbatim">\tag{#1}</code> <i class="itshape">does not affect</i> the automatic numbering in REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X; therefore, the number must be known ahead of time, and it must be manually adjusted if other equations are added. <code class="verbatim">\tag{#1}</code> works with both single-line and multiline equations. <code class="verbatim">\tag{#1}</code> should only be used in exceptional cases—do not use it to number many equations in your paper. Please note that this feature of the <span class="ttfamily">amsmath</span> package is <em>not</em> compatible with the <span class="ttfamily">hyperref</span> (6.77u) package. 
+</p>
+<section class="subsubsection">
+<h4 id="a0000000023">Wide equations</h4>
+<p>
+ The equation that follows is set in a wide format, i.e., it spans the full page. The wide format is reserved for long equations that cannot easily be set in a single column:  
+</p>
+<div class="eqn" id="eq:wideeq">
+<script type="math/tex; mode=display">\begin{equation}{\cal R}^{(\text{d})}= g_{\sigma _2}^e \left( \frac{[\Gamma ^Z(3,21)]_{\sigma _1}}{Q_{12}^2-M_W^2} +\frac{[\Gamma ^Z(13,2)]_{\sigma _1}}{Q_{13}^2-M_W^2} \right) + x_WQ_e \left( \frac{[\Gamma ^\gamma (3,21)]_{\sigma _1}}{Q_{12}^2-M_W^2} +\frac{[\Gamma ^\gamma (13,2)]_{\sigma _1}}{Q_{13}^2-M_W^2} \right)\; . \label{eq:wideeq}\tag{6}\end{equation}</script>
+</div>
+<p>
+  This is typed to show how the output appears in wide format. (Incidentally, since there is no blank line between the <span class="ttfamily">equation</span> environment above and the start of this paragraph, this paragraph is not indented.) 
+</p>
+</section>
+</section>
+</section><section class="section">
+<h2 id="a0000000024">III. Cross-referencing</h2>
+<p>
+ REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X will automatically number such things as sections, footnotes, equations, figure captions, and table captions. In order to reference them in text, use the <code class="verbatim">\label{#1}</code> and <code class="verbatim">\ref{#1}</code> commands. To reference a particular page, use the <code class="verbatim">\pageref{#1}</code> command. 
+</p>
+<p>
+The <code class="verbatim">\label{#1}</code> should appear within the section heading, within the footnote text, within the equation, or within the table or figure caption. The <code class="verbatim">\ref{#1}</code> command is used in text at the point where the reference is to be displayed. Some examples: Section <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#sec:level1">I.</a> on page <a class="ref crossref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#sec:level1">*</a>, Table <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table1">1</a>,
+</p>
+<div class="table" id="tab:table1">
+<figcaption>
+<span class="caption_title">Table</span>
+<span class="caption_ref">1</span>
+<span class="caption_text">A table that fits into a single column of a two-column layout. Note that REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X 4 adjusts the intercolumn spacing so that the table fills the entire width of the column. Table captions are numbered automatically. This table illustrates left-, center-, decimal- and right-aligned columns, along with the use of the <span class="ttfamily">ruledtabular</span> environment which sets the Scotch (double) rules above and below the alignment, per APS style. </span>
+</figcaption> <table class="tabular">
+<tr><td colspan="" rowspan="" style="text-align:left"><p>
+<span class="rmfamily">Left<a class="footnote" href="#a0000000025" id="a0000000025-reference">
+<sup class="footnotemark">2</sup>
+</a></span>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+<span class="rmfamily">Centered<a class="footnote" href="#a0000000026" id="a0000000026-reference">
+<sup class="footnotemark">3</sup>
+</a></span>
+</p>
+</td>
+<td colspan="1" rowspan="" style="text-align:center"><p>
+<span class="rmfamily">Decimal</span>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:right"><p>
+<span class="rmfamily">Right</span>
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:left"><p>
+1 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.001 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:right"><p>
+ 4
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:left"><p>
+10 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 20 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 30 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:right"><p>
+ 40
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:left"><p>
+100 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 200 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 300.0 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:right"><p>
+ 400
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+ and Fig. <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#fig:epsart">1</a>.
+</p>
+<figure id="fig:epsart">
+<p>
+<img alt="\includegraphics{fig_1}" src="images/img-0001.png"/>
+</p>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">1</span>
+<span class="caption_text"> A figure caption. The figure captions are automatically numbered.</span>
+</figcaption>
+</figure>
+</section><section class="section">
+<h2 id="a0000000027">IV. Floats: Figures, Tables, Videos, etc.</h2>
+<p>
+ Figures and tables are usually allowed to “float”, which means that their placement is determined by L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X, while the document is being typeset. 
+</p>
+<p>
+Use the <span class="ttfamily">figure</span> environment for a figure, the <span class="ttfamily">table</span> environment for a table. In each case, use the <code class="verbatim">\caption</code> command within to give the text of the figure or table caption along with the <code class="verbatim">\label</code> command to provide a key for referring to this figure or table. The typical content of a figure is an image of some kind; that of a table is an alignment.
+</p>
+<figure id="fig:wide">
+<p>
+<img alt="\includegraphics{fig_2}" src="images/img-0002.png"/>
+</p>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">2</span>
+<span class="caption_text">Use the figure* environment to get a wide figure that spans the page in <span class="ttfamily">twocolumn</span> formatting.</span>
+</figcaption>
+</figure>
+<div class="table" id="tab:table3">
+<figcaption>
+<span class="caption_title">Table</span>
+<span class="caption_ref">2</span>
+<span class="caption_text">This is a wide table that spans the full page width in a two-column layout. It is formatted using the <span class="ttfamily">table*</span> environment. It also demonstates the use of \<span class="ttfamily">multicolumn</span> in rows with entries that span more than one column.</span>
+</figcaption> <table class="tabular">
+<tr><td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="2" rowspan="" style="text-align:center"><p>
+\(D_{4h}^1\)
+</p>
+</td>
+<td colspan="2" rowspan="" style="text-align:center"><p>
+\(D_{4h}^5\)
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Ion
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+1st alternative
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+2nd alternative
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+lst alternative 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+2nd alternative
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+K
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+\((2e)+(2f)\)
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+\((4i)\) 
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+\((2c)+(2d)\)
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+\((4f)\) 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Mn
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((2g)\)<a class="footnote" href="#a0000000028" id="a0000000028-reference">
+<sup class="footnotemark">4</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((a)+(b)+(c)+(d)\)
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((4e)\)
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((2a)+(2b)\)
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Cl
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((a)+(b)+(c)+(d)\)
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((2g)\)<a class="footnote" href="#footnotes">
+<sup class="footnotemark">7</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((4e)^{\text{a}}\)
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+He
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((8r)^{\text{a}}\)
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((4j)^{\text{a}}\)
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((4g)^{\text{a}}\)
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Ag
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((4k)^{\text{a}}\)
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\((4h)^{\text{a}}\)
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+Insert an image using either the <span class="ttfamily">graphics</span> or <span class="ttfamily">graphix</span> packages, which define the <code class="verbatim">\includegraphics{#1}</code> command. (The two packages differ in respect of the optional arguments used to specify the orientation, scaling, and translation of the image.) To create an alignment, use the <span class="ttfamily">tabular</span> environment. 
+</p>
+<p>
+The best place to locate the <span class="ttfamily">figure</span> or <span class="ttfamily">table</span> environment is immediately following its first reference in text; this sample document illustrates this practice for Fig. <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#fig:epsart">1</a>, which shows a figure that is small enough to fit in a single column. 
+</p>
+<p>
+In exceptional cases, you will need to move the float earlier in the document, as was done with Table <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table3">2</a>: L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X’s float placement algorithms need to know about a full-page-width float earlier. 
+</p>
+<p>
+Fig. <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#fig:wide">2</a> has content that is too wide for a single column, so the <span class="ttfamily">figure*</span> environment has been used.
+</p>
+<div class="table" id="tab:table4">
+<figcaption>
+<span class="caption_title">Table</span>
+<span class="caption_ref">3</span>
+<span class="caption_text">Numbers in columns Three–Five are aligned with the “d” column specifier (requires the <span class="ttfamily">dcolumn</span> package). Non-numeric entries (those entries without a “.”) in a “d” column are aligned on the decimal point. Use the “D” specifier for more complex layouts. </span>
+</figcaption> <table class="tabular">
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+ One
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Two
+</p>
+</td>
+<td colspan="1" rowspan="" style="text-align:center"><p>
+<span class="rmfamily">Three</span>
+</p>
+</td>
+<td colspan="1" rowspan="" style="text-align:center"><p>
+<span class="rmfamily">Four</span>
+</p>
+</td>
+<td colspan="1" rowspan="" style="text-align:center"><p>
+<span class="rmfamily">Five</span>
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+one
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+two
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+<div class="mbox" id="a0000000029" style="width: ">three</div>
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+<div class="mbox" id="a0000000030" style="width: ">four</div>
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+<div class="mbox" id="a0000000031" style="width: ">five</div>
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+He
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+2
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.77234 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 45672. 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.69 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+C<a class="footnote" href="#a0000000032" id="a0000000032-reference">
+<sup class="footnotemark">5</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+C<a class="footnote" href="#a0000000033" id="a0000000033-reference">
+<sup class="footnotemark">6</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 12537.64 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 37.66345 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 86.37 
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+The content of a table is typically a <span class="ttfamily">tabular</span> environment, giving rows of type in aligned columns. Column entries separated by <code class="verbatim">&amp;</code>’s, and each row ends with \\. The required argument for the <span class="ttfamily">tabular</span> environment specifies how data are aligned in the columns. For instance, entries may be centered, left-justified, right-justified, aligned on a decimal point. Extra column-spacing may be be specified as well, although REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X 4 sets this spacing so that the columns fill the width of the table. Horizontal rules are typeset using the <code class="verbatim">\hline</code> command. The doubled (or Scotch) rules that appear at the top and bottom of a table can be achieved enclosing the <span class="ttfamily">tabular</span> environment within a <span class="ttfamily">ruledtabular</span> environment. Rows whose columns span multiple columns can be typeset using the <code class="verbatim">\multicolumn{#1}{#2}{#3}</code> command (for example, see the first row of Table <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table3">2</a>).
+</p>
+<p>
+Tables <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table1">1</a>, <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table3">2</a>, <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table4">3</a>, and <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table2">4</a>
+</p>
+<div class="table" id="tab:table2">
+<figcaption>
+<span class="caption_title">Table</span>
+<span class="caption_ref">4</span>
+<span class="caption_text"> A table with numerous columns that still fits into a single column. Here, several entries share the same footnote. Inspect the L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X input for this table to see exactly how it is done.</span>
+</figcaption> <table class="tabular">
+<tr><td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\(r_c\) ()
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\(r_0\) ()
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\(\kappa r_0\)
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\(r_c\) () 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\(r_0\) ()
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+\(\kappa r_0\)
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+Cu
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+ 0.800 
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+ 14.10 
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+ 2.550 
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+Sn<a class="footnote" href="#footnotes">
+<sup class="footnotemark">8</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+ 0.680 
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+ 1.870 
+</p>
+</td>
+<td colspan="" rowspan="" style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:center"><p>
+ 3.700 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Ag
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.990 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 15.90 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.710 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Pb<a class="footnote" href="#footnotes">
+<sup class="footnotemark">9</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.450 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 1.930 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.760 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Au
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 1.150 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 15.90 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.710 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Ca<a class="footnote" href="#footnotes">
+<sup class="footnotemark">10</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.750 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.170 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.560 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Mg
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.490 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 17.60 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.200 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Sr<a class="footnote" href="#footnotes">
+<sup class="footnotemark">11</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.900 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.370 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.720 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Zn
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.300 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 15.20 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.970 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Li<a class="footnote" href="#footnotes">
+<sup class="footnotemark">2</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.380 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 1.730 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.830 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Cd
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.530 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 17.10 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.160 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Na<a class="footnote" href="#footnotes">
+<sup class="footnotemark">5</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.760 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.110 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.120 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Hg
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.550 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 17.80 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.220 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+K<a class="footnote" href="#footnotes">
+<sup class="footnotemark">5</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 1.120 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.620 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.480 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Al
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.230 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 15.80 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.240 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Rb<a class="footnote" href="#footnotes">
+<sup class="footnotemark">3</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 1.330 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.800 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.590 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Ga
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.310 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 16.70 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.330 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Cs<a class="footnote" href="#footnotes">
+<sup class="footnotemark">4</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 1.420 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.030 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.740 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+In
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.460 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 18.40 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.500 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+Ba<a class="footnote" href="#footnotes">
+<sup class="footnotemark">5</sup>
+</a>
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.960 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 2.460 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.780 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:center"><p>
+Tl
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 0.480 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 18.90 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"><p>
+ 3.550 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="" rowspan="" style="text-align:center"> </td>
+<td colspan="" rowspan="" style="text-align:center"> </td>
+</tr>
+</table>
+</div>
+<p>
+ show various effects. A table that fits in a single column employs the <span class="ttfamily">table</span> environment. Table <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table3">2</a> is a wide table, set with the <span class="ttfamily">table*</span> environment. Long tables may need to break across pages. The most straightforward way to accomplish this is to specify the <code class="verbatim">[H]</code> float placement on the <span class="ttfamily">table</span> or <span class="ttfamily">table*</span> environment. However, the  package <span class="ttfamily">longtable</span> allows headers and footers to be specified for each page of the table. A simple example of the use of <span class="ttfamily">longtable</span> can be found in the file <span class="ttfamily">summary.tex</span> that is included with the REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X 4 distribution. 
+</p>
+<p>
+There are two methods for setting footnotes within a table (these footnotes will be displayed directly below the table rather than at the bottom of the page or in the bibliography). The easiest and preferred method is just to use the <code class="verbatim">\footnote{#1}</code> command. This will automatically enumerate the footnotes with lowercase roman letters. However, it is sometimes necessary to have multiple entries in the table share the same footnote. In this case, there is no choice but to manually create the footnotes using <code class="verbatim">\footnotemark[#1]</code> and <code class="verbatim">\footnotetext[#1]{#2}</code>. <span class="ttfamily">#1</span> is a numeric value. Each time the same value for <span class="ttfamily">#1</span> is used, the same mark is produced in the table. The <code class="verbatim">\footnotetext[#1]{#2}</code> commands are placed after the <span class="ttfamily">tabular</span> environment. Examine the L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X source and output for Tables <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table1">1</a> and <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table2">4</a> for examples. 
+</p>
+<p>
+<i class="itshape">Physical Review</i> style requires that the initial citation of figures or tables be in numerical order in text, so don’t cite Fig. <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#fig:wide">2</a> until Fig. <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#fig:epsart">1</a> has been cited. 
+</p>
+<p>
+ We wish to acknowledge the support of the author community in using REVT<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X, offering suggestions and encouragement, testing new versions, ….  
+</p>
+</section><section class="section">
+<h2 id="a0000000034">V. Appendixes</h2>
+<p>
+To start the appendixes, use the <code class="verbatim">\appendix</code> command. This signals that all following section commands refer to appendixes instead of regular sections. Therefore, the <code class="verbatim">\appendix</code> command should be used only once—to setup the section commands to act as appendixes. Thereafter normal section commands are used. The heading for a section can be left empty. For example, 
+</p>
+<pre class="verbatim">
+\appendix
+\section{}
+</pre>
+<p>
+ will produce an appendix heading that says “APPENDIX A” and 
+</p>
+<pre class="verbatim">
+\appendix
+\section{Background}
+</pre>
+<p>
+ will produce an appendix heading that says “APPENDIX A: BACKGROUND” (note that the colon is set automatically). 
+</p>
+<p>
+If there is only one appendix, then the letter “A” should not appear. This is suppressed by using the star version of the appendix command (<code class="verbatim">\appendix*</code> in the place of <code class="verbatim">\appendix</code>). 
+</p>
+</section><section class="section">
+<h2 id="a0000000035">VI. A little more on appendixes</h2>
+<p>
+Observe that this appendix was started by using 
+</p>
+<pre class="verbatim">
+\section{A little more on appendixes}
+</pre>
+<p>
+Note the equation number in an appendix: 
+</p>
+<div class="eqn" id="a0000000036">
+<script type="math/tex; mode=display">\begin{equation}E=mc^2.\tag{7}\end{equation}</script>
+</div>
+<section class="subsection">
+<h3 id="app:subsec">A. A subsection in an appendix</h3>
+<p>
+You can use a subsection or subsubsection in an appendix. Note the numbering: we are now in Appendix <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#app:subsec">A.</a>. 
+</p>
+<p>
+Note the equation numbers in this appendix: 
+</p>
+<div id="appa">
+<div class="eqnarrayid" id="a0000000037"></div><div class="eqnarrayid" id="appb"></div><div class="eqnarrayid" id="appc"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{8} E& =& mc, \label{appa} \\ 
+\tag{9}E& =& mc^2, \label{appb} \\ 
+\tag{10}E& \gtrsim &  mc^3. \label{appc} 
+\end{align}
+</script>
+</div>
+<p>
+ They turn out to be Eqs. (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#appa">8</a>), (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#appb">9</a>), and (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#appc">10</a>). 
+</p>
+</section>
+</section><section class="section bibliography">
+<h2 id="a0000000038">References</h2>
+<ul class="bibliography">
+<li id="witten2001" style="list-style: none"> <div class="bibcite">[Witten(2001)]</div> <p>
+author author E. Witten,   (year 2001), <a href="https://arxiv.org/abs/hep-th/0106109">hep-th/0106109</a> .3000 
+</p>
+</li>
+<li id="feyn54" style="list-style: none"> <div class="bibcite">[Feynman(1954)]</div> <p>
+author author R. P. Feynman,  journal journal Phys. Rev. <b class="bfseries">volume 94</b>, pages 262 (year 1954).3000 
+</p>
+</li>
+<li id="epr" style="list-style: none"> <div class="bibcite">[Einstein <em>et al.</em>(1935)Einstein, Podolsky, and Rosen]</div> <p>
+author author A. Einstein, author Yu. Podolsky, and author N. Rosen (collaboration EPR),  journal journal Phys. Rev. <b class="bfseries">volume 47</b>, pages 777 (year 1935).3000 
+</p>
+</li>
+<li id="Beutler1994" style="list-style: none"> <div class="bibcite">[Beutler(1994a)]</div> <p>
+author author E. Beutler, in  <em>booktitle Williams Hematology</em>, Vol. volume 2, editor edited by editor E. Beutler, editor M. A. Lichtman, editor B. W. Coller, and editor T. S. Kipps (publisher McGraw-Hill, address New York, year 1994) Chap. chapter 7, pp. pages 654–662, edition 5th ed.
+</p>
+</li>
+<li id="Bire82" style="list-style: none"> <div class="bibcite">[Birell and Davies(1982)]</div> <p>
+author author N. D. Birell and author P. C. W. Davies,  <em>title Quantum Fields in Curved Space</em> (publisher Cambridge University Press, year 1982).3000 
+</p>
+</li>
+<li id="Berman1983" style="list-style: none"> <div class="bibcite">[G. P. Berman and F. M. Izrailev(1983)]</div> <p>
+author author J. G. P. Berman and author J. F. M. Izrailev, title title Stability of nonlinear modes,  journal journal Physica D <b class="bfseries">volume 88</b>, pages 445 (year 1983).3000 
+</p>
+</li>
+<li id="Davies1998" style="list-style: none"> <div class="bibcite">[Davies and Parns(1988)]</div> <p>
+author author E. B. Davies and author L. Parns, title title Trapped modes in acoustic waveguides,  journal journal Q. J. Mech. Appl. Math. <b class="bfseries">volume 51</b>, pages 477 (year 1988).3000 
+</p>
+</li>
+<li id="Note1" style="list-style: none"> <div class="bibcite">[Note1()]</div> <p>
+note Automatically placing footnotes into the bibliography requires using BibTeX to compile the bibliography.
+</p>
+</li>
+<li id="Beutler1994a" style="list-style: none"> <div class="bibcite">[Beutler(1994b)]</div> <p>
+author author E. Beutler, in  <em>booktitle Williams Hematology</em>, Vol. volume 2, editor edited by editor E. Beutler, editor M. A. Lichtman, editor B. W. Coller, and editor T. S. Kipps (publisher McGraw-Hill, address New York, year 1994) edition 5th ed., Chap. chapter 7, pp. pages 654–662.3000 
+</p>
+</li>
+<li id="inbook-full" style="list-style: none"> <div class="bibcite">[Knuth(1973)]</div> <p>
+author author D. E. Knuth, in  <em>booktitle Fundamental Algorithms</em>, series The Art of Computer Programming, Vol. volume 1 (publisher Addison-Wesley, address Reading, Massachusetts, year 1973) type Section chapter 1.2, pp. pages 10–119, edition 2nd ed., note a full INBOOK entry.3000 
+</p>
+</li>
+<li id="Smith2005" style="list-style: none"> <div class="bibcite">[Smith and Johnson(2005)]</div> <p>
+author author J. S. Smith and author G. W. Johnson,  journal journal Philos. Trans. R. Soc. London, Ser. B <b class="bfseries">volume 777</b>, pages 1395 (year 2005).3000 
+</p>
+</li>
+<li id="Smith2010" style="list-style: none"> <div class="bibcite">[Smith <em>et al.</em>(2010a)Smith, Johnson, and Miller]</div> <p>
+author author W. J. Smith, author T. J. Johnson, and author B. G. Miller, title title Surface chemistry and preferential crystal orientation on a silicon surface (year 2010a), note J. Appl. Phys. (unpublished).3000 
+</p>
+</li>
+<li id="Smith2010a" style="list-style: none"> <div class="bibcite">[Smith <em>et al.</em>(2010b)Smith, Johnson, and Klein]</div> <p>
+author author V. K. Smith, author K. Johnson, and author M. O. Klein, title title Surface chemistry and preferential crystal orientation on a silicon surface (year 2010b), note J. Appl. Phys. (submitted).3000 
+</p>
+</li>
+<li id="unpublished-full" style="list-style: none"> <div class="bibcite">[Ünderwood <em>et al.</em>(1988)Ünderwood, Ñet, and P̄ot]</div> <p>
+author author U. Ünderwood, author N. Ñet, and author P. P̄ot, title title Lower bounds for wishful research results (year 1988), note talk at Fanstord University (A full UNPUBLISHED entry).3000 
+</p>
+</li>
+<li id="JohnsonMillerSmith2007" style="list-style: none"> <div class="bibcite">[Johnson <em>et al.</em>(2007)Johnson, Miller, and Smith]</div> <p>
+author author M. P. Johnson, author K. L. Miller, and author K. Smith,  howpublished personal communication (year 2007).3000 
+</p>
+</li>
+<li id="Smith2007" style="list-style: none"> <div class="bibcite">[Smith(2007a)]</div> <p>
+editor J. Smith, ed.,  <em>title AIP Conf. Proc.</em>, Vol. volume 841 (year 2007).3000 
+</p>
+</li>
+<li id="proceedings-full" style="list-style: none"> <div class="bibcite">[Oz and Yannakakis(1983)]</div> <p>
+editor W. V. Oz and editor M. Yannakakis, eds.,  <em>title Proc. Fifteenth Annual</em>, series All ACM Conferences No. number 17, organization ACM (publisher Academic Press, address Boston, year 1983) note a full PROCEEDINGS entry.3000 
+</p>
+</li>
+<li id="Burstyn2004" style="list-style: none"> <div class="bibcite">[Burstyn(2004)]</div> <p>
+author author Y. Burstyn, title title Proceedings of the 5th International Molecular Beam Epitaxy Conference, Santa Fe, NM (year 2004), note (unpublished).3000 
+</p>
+</li>
+<li id="Quinn2001" style="list-style: none"> <div class="bibcite">[Quinn(2001)]</div> <p>
+editor B. Quinn, ed.,  <em>title Proceedings of the 2003 Particle Accelerator Conference, Portland, OR, 12-16 May 2005</em> (publisher Wiley, address New York, year 2001) note albeit the conference was held in 2005, it was the 2003 conference, and the proceedings were published in 2001; go figure.3000 
+</p>
+</li>
+<li id="Agarwal2001" style="list-style: none"> <div class="bibcite">[Agarwal(2001)]</div> <p>
+author author A. G. Agarwal, title title Proceedings of the Fifth Low Temperature Conference, Madison, WI, 1999,  journal journal Semiconductors <b class="bfseries">volume 66</b>, pages 1238 (year 2001).3000 
+</p>
+</li>
+<li id="SmithDA01" style="list-style: none"> <div class="bibcite">[Smith(2001)]</div> <p>
+author author R. Smith, title title Hummingbirds are our friends,  journal journal J. Appl. Phys. (these proceedings)  (year 2001), note abstract No. DA-01.3000 
+</p>
+</li>
+<li id="Smith2007a" style="list-style: none"> <div class="bibcite">[Smith(2007b)]</div> <p>
+author author J. Smith,  journal journal Proc. SPIE <b class="bfseries">volume 124</b>, pages 367 (year 2007b), note required title is missing.3000 
+</p>
+</li>
+<li id="techreport-full" style="list-style: none"> <div class="bibcite">[Térrific(1988)]</div> <p>
+author author T. Térrific,  <em>title An \(O(n \log n / \!  \log \log n)\) Sorting Algorithm</em>, type Wishful Research Result number 7 (institution Fanstord University, address Computer Science Department, Fanstord, California, year 1988) note a full TECHREPORT entry.3000 
+</p>
+</li>
+<li id="Nelson1999" style="list-style: none"> <div class="bibcite">[Nelson(1999a)]</div> <p>
+author author J. Nelson,  type TWI Report number 666/1999 (year Jan. 1999) note required institution missing.3000 
+</p>
+</li>
+<li id="Fields2005" style="list-style: none"> <div class="bibcite">[Fields(2005)]</div> <p>
+author author W. K. Fields,  type ECE Report No. number AL944 (year 2005) note required institution missing.3000 
+</p>
+</li>
+<li id="Zalkins2008" style="list-style: none"> <div class="bibcite">[Zalkins(2008)]</div> <p>
+author author Y. M. Zalkins,  howpublished e-print arXiv:cond-mat/040426 (year 2008).3000 
+</p>
+</li>
+<li id="Nelson2005" style="list-style: none"> <div class="bibcite">[Nelson(2005)]</div> <p>
+author author J. Nelson,  howpublished U.S. Patent No. 5,693,000 (year 12 Dec. 2005).3000 
+</p>
+</li>
+<li id="Nelson1999a" style="list-style: none"> <div class="bibcite">[Nelson(1999b)]</div> <p>
+author author J. K. Nelson,  type M.S. thesis, school New York University (year 1999b).3000 
+</p>
+</li>
+<li id="mastersthesis-full" style="list-style: none"> <div class="bibcite">[Masterly(1988)]</div> <p>
+author author É. Masterly, <em>title Mastering Thesis Writing</em>,  type Master’s project, school Stanford University, address English Department (year 1988), note a full MASTERSTHESIS entry.3000 
+</p>
+</li>
+<li id="Smith2003" style="list-style: none"> <div class="bibcite">[Smith(2003)]</div> <p>
+author author S. M. Smith,  type Ph.D. thesis, school Massachusetts Institute of Technology (year 2003).3000 
+</p>
+</li>
+<li id="KawaLin2003" style="list-style: none"> <div class="bibcite">[Kawa and Lin(2003)]</div> <p>
+author author S. R. Kawa and author S.-J. Lin,  journal journal J. Geophys. Res. <b class="bfseries">volume 108</b>, pages 4201 (year 2003), note DOI:10.1029/2002JD002268.3000 
+</p>
+</li>
+<li id="phdthesis-full" style="list-style: none"> <div class="bibcite">[Phony-Baloney(1988)]</div> <p>
+author author F. P. Phony-Baloney, <em>title Fighting Fire with Fire: Festooning French Phrases</em>,  type PhD dissertation, school Fanstord University, address Department of French (year 1988), note a full PHDTHESIS entry.3000 
+</p>
+</li>
+<li id="book-full" style="list-style: none"> <div class="bibcite">[Knuth(1981)]</div> <p>
+author author D. E. Knuth,  <em>title Seminumerical Algorithms</em>, edition 2nd ed., series The Art of Computer Programming, Vol. volume 2 (publisher Addison-Wesley, address Reading, Massachusetts, year 1981) note a full BOOK entry.3000 
+</p>
+</li>
+<li id="booklet-full" style="list-style: none"> <div class="bibcite">[Knvth(1988)]</div> <p>
+author author J. C. Knvth,  title The programming of computer art, howpublished Vernier Art Center, address Stanford, California (year 1988), note a full BOOKLET entry.3000 
+</p>
+</li>
+<li id="ballagh2000" style="list-style: none"> <div class="bibcite">[Ballagh and Savage(2000a)]</div> <p>
+author author R. Ballagh and author C. Savage, title Bose-einstein condensation: from atomic physics to quantum fluids, proceedings of the 13th physics summer school (publisher World Scientific, address Singapore, year 2000) <a href="https://arxiv.org/abs/cond-mat/0008070">cond-mat/0008070</a> .3000 
+</p>
+</li>
+<li id="ballagh2000a" style="list-style: none"> <div class="bibcite">[Ballagh and Savage(2000b)]</div> <p>
+author author R. Ballagh and author C. Savage, title title Bose-einstein condensation: from atomic physics to quantum fluids, in  <em>booktitle Proceedings of the 13th Physics Summer School</em>, editor edited by editor C. Savage and editor M. Das (publisher World Scientific, address Singapore, year 2000) <a href="https://arxiv.org/abs/cond-mat/0008070">cond-mat/0008070</a> .3000 
+</p>
+</li>
+<li id="Magnetism" style="list-style: none"> <div class="bibcite">[Opechowski and Guccione(1965a)]</div> <p>
+author author W. Opechowski and author R. Guccione, title Introduction to the theory of normal metals, in  <em>booktitle Magnetism</em>, Vol. volume IIa, editor edited by editor G. T. Rado and editor H. Suhl (publisher Academic Press, address New York, year 1965) p. pages 105.3000 
+</p>
+</li>
+<li id="Magnetisma" style="list-style: none"> <div class="bibcite">[Opechowski and Guccione(1965b)]</div> <p>
+author author W. Opechowski and author R. Guccione, title title Introduction to the theory of normal metals, in  <em>booktitle Magnetism</em>, Vol. volume IIa, editor edited by editor G. T. Rado and editor H. Suhl (publisher Academic Press, address New York, year 1965) p. pages 105.3000 
+</p>
+</li>
+<li id="Magnetismb" style="list-style: none"> <div class="bibcite">[Opechowski and Guccione(1965c)]</div> <p>
+author author W. Opechowski and author R. Guccione, title title Introduction to the theory of normal metals, in  <em>booktitle Magnetism</em>, Vol. volume IIa, editor edited by editor G. T. Rado and editor H. Suhl (publisher Academic Press, address New York, year 1965) p. pages 105.3000 
+</p>
+</li>
+<li id="Smith80" style="list-style: none"> <div class="bibcite">[Smith(1980a)]</div> <p>
+author author J. M. Smith, title Molecular dynamics (publisher Academic, address New York, year 1980).3000 
+</p>
+</li>
+<li id="ZS71" style="list-style: none"> <div class="bibcite">[Zakharov and Shabat(1971)]</div> <p>
+author author V. E. Zakharov and author A. B. Shabat, title title Exact theory of two-dimensional self-focusing and one-dimensional self-modulation of waves in nonlinear media,  journal journal Zh. Eksp. Teor. Fiz. <b class="bfseries">volume 61</b>, pages 118 (year 1971), [Sov. Phys. JETP <b class="bfseries">34</b>, 62 (1972)].3000 
+</p>
+</li>
+<li id="Smith80a" style="list-style: none"> <div class="bibcite">[Smith(1980b)]</div> <p>
+author author J. M. Smith, in  <em>booktitle Molecular Dynamics</em>, editor edited by editor C. Brown (publisher Academic, address New York, year 1980).3000 
+</p>
+</li>
+<li id="incollection-full" style="list-style: none"> <div class="bibcite">[Lincoll(1977)]</div> <p>
+author author D. D. Lincoll, title title Semigroups of recurrences, in  <em>booktitle High Speed Computer and Algorithm Organization</em>, series and number series Fast Computers No. number 23, editor edited by editor D. J. Lipcoll, editor D. H. Lawrie, and editor A. H. Sameh (publisher Academic Press, address New York, year 1977) edition 3rd ed., type Part chapter 3, pp. pages 179–183, note a full INCOLLECTION entry.3000 
+</p>
+</li>
+<li id="inproceedings-full" style="list-style: none"> <div class="bibcite">[Oaho <em>et al.</em>(1983)Oaho, Ullman, and Yannakakis]</div> <p>
+author author A. V. Oaho, author J. D. Ullman, and author M. Yannakakis, title title On notions of information transfer in VLSI circuits, in  <em>booktitle Proc. Fifteenth Annual ACM</em>, address Boston, 1982, series and number series All ACM Conferences No. number 17, editor edited by editor W. V. Oz and editor M. Yannakakis, organization ACM (publisher Academic Press, address New York, year 1983) pp. pages 133–139, note a full INPROCEDINGS entry.3000 
+</p>
+</li>
+<li id="manual-full" style="list-style: none"> <div class="bibcite">[Manmaker(1986)]</div> <p>
+author author L. Manmaker,  <em>title The Definitive Computer Manual</em>, organization Chips-R-Us, address Silicon Valley, edition silver ed. (year 1986), note a full MANUAL entry.3000 
+</p>
+</li>
+</ul>
+</section>
+<footer id="footnotes">
+<h2 id="footnot_1">Footnotes</h2>
+<ol>
+<li id="a0000000012"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000012-reference">^</a> Automatically placing footnotes into the bibliography requires using BibTeX to compile the bibliography.</li>
+<li id="a0000000025"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000025-reference">^</a> Note a.</li>
+<li id="a0000000026"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000026-reference">^</a> Note b.</li>
+<li id="a0000000028"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000028-reference">^</a> The \(z\) parameter of these positions is \(z\sim \frac{1}{4}\).</li>
+<li id="a0000000032"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000032-reference">^</a> Some tables require footnotes.</li>
+<li id="a0000000033"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000033-reference">^</a> Some tables need more than one footnote.</li>
+<li id="a0000000039"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000039-reference">^</a> Here’s the first, from Ref. feyn54.</li>
+<li id="a0000000040"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000040-reference">^</a> Here’s the second.</li>
+<li id="a0000000041"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000041-reference">^</a> Here’s the third.</li>
+<li id="a0000000042"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000042-reference">^</a> Here’s the fourth.</li>
+<li id="a0000000043"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000043-reference">^</a> And etc.</li>
+</ol>
+</footer>
+<script id="plastex-labels" type="application/json">{"sec:level1": {"ref": "I.", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#sec:level1"}, "sec:level2": {"ref": "A.", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#sec:level2"}, "sec:citeref": {"ref": "B.", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#sec:citeref"}, "eq:one": {"ref": "2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#eq:one"}, "eq:wideeq": {"ref": "6", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#eq:wideeq"}, "tab:table1": {"ref": "1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table1"}, "fig:epsart": {"ref": "1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#fig:epsart"}, "fig:wide": {"ref": "2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#fig:wide"}, "tab:table3": {"ref": "2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table3"}, "tab:table4": {"ref": "3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table4"}, "tab:table2": {"ref": "4", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#tab:table2"}, "app:subsec": {"ref": "A.", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#app:subsec"}, "appa": {"ref": "8", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#appa"}, "appb": {"ref": "9", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#appb"}, "appc": {"ref": "10", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/revtex/build/default-port/notas/revtex_article/index.html#appc"}}</script>
+    </article>
+
+        </main>
+
+		
+		<footer>
+	<hr>
+
+    <nav id="footer-nav">
+        <a href="#">Voltar para o topo</a>
+    </nav>
+
+    <div id="footer-text">
+        <p>Gerado usando <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.1.0, escrito pela Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
+        <p>Esta página foi gerada pela última vez em: 2024-04-20</p>
+        
+        
+        
+    </div>
+</footer>
+		
+
+        
+
+        <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:#ffffff;fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:#ffffff;stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+    </body>
+</html>

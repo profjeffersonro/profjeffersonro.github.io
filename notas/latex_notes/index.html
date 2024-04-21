@@ -1,0 +1,1556 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        
+            <meta charset="utf-8">
+            <meta name="robots" content="noindex">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="author" content="Jefferson" />
+            <meta name="date" content="2024-04-20" />
+        
+
+        <title>LaTeX notes | Física</title>
+
+        
+    
+    
+            <link rel="stylesheet" href="../../static/styles.css?build_time=1713639355.073832">
+            
+            
+        
+    <link rel="stylesheet" id="customiseCodeCSS" href="../../static/pygmentize.css?build_time=1713639355.073832">
+
+    <link rel="stylesheet" href="../../static/print.css?build_time=1713639355.073832">
+
+
+        
+    
+			<script>
+				var chirun_static_url = new URL('../../static?build_time=1713639355.073832', location.href);
+			</script>
+
+            
+                <script defer src="../../static/mathjax_config.js?build_time=1713639355.073832"></script>
+                <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+            
+
+            <script type="module" src="../../static/localisation.js?build_time=1713639355.073832"></script>
+
+            <script defer src="../../static/customisation.js?build_time=1713639355.073832"></script>
+
+            
+
+            
+        
+    <script defer src="../../static/code.js?build_time=1713639355.073832" type="module"></script>
+    <script defer src="../../static/embed_numbas.js?build_time=1713639355.073832" type="module"></script>
+    <script defer src="../../static/embed_qrcode.js?build_time=1713639355.073832" type="module"></script>
+
+
+        <template id="runnable-code-template">
+            <link rel="stylesheet" href="../../static/code.css?build_time=1713639355.073832">
+            <div class="runnable-code-wrapper">
+                <section class="fullscreenable code">
+                    <div id="code"></div>
+                    <button class="fullscreen icon-button" title="Código em tela cheia"><svg class="icon" alt="Fullscreen code" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <section class="fullscreenable output">
+                    <div id="output" aria-live="polite">
+                        <pre class="stdout"></pre>
+                        <pre class="result"></pre>
+                        <div class="images"></div>
+                    </div>
+                    <button class="fullscreen icon-button" title="Saída em tela cheia"><svg class="icon" alt="Fullscreen output" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <div class="buttons">
+                    <button type="button" class="run-code">Run code</button>
+                </div>
+                <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:#ffffff;fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:#ffffff;stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+            </div>
+        </template>
+
+        <template id="embed-numbas-template">
+            <link rel="stylesheet" href="../../static/embed_numbas.css?build_time=1713639355.073832">
+            <details id="wrapper" data-completion-status="incomplete">
+                <summary>
+                    <h1 id="title">Teste a si mesmo</h1>
+                    <div id="completion-status" data-completion-status="unknown">
+                        <span class="complete">Completo</span>
+                        <span class="incomplete">Incompleto</span>
+                    </div>
+                    <label id="score-feedback">
+                        Pontuação:
+                        <progress min="0"></progress>
+                    </label>
+                </summary>
+                <iframe class="embed" title="Numbas"></iframe>
+            </details>
+        </template>
+
+    </head>
+    <body class="" >
+        
+
+        <a class="skip-to-content-link" href="#main-content">Ir para o conteúdo</a>
+        
+            <form id="display-options">
+    <div class="buttons">
+        <button type="button" id="reset-display-options">Redefinir para o padrão</button>
+
+        <a href="https://chirun.org.uk/accessibility-statement/material">Declaração de acessibilidade</a>
+
+        <button type="button" aria-controls="display-options" aria-expanded="false">
+            Fechar
+        </button>
+    </div>
+
+    <div class="inputs">
+        <div class="input-group">
+            <label for="display-options-font-scale">
+                Tamanho de texto
+            </label>
+            <input type="range" min="50" max="600" step="5" value="100" id="display-options-font-scale">
+            <output for="display-options-font-scale">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-spacing-factor">
+                Espaçamento
+            </label>
+            <input type="range" min="0" max="1200" step="5" value="100" id="display-options-spacing-factor">
+            <output for="display-options-spacing-factor">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-font-family">
+                /Fonte do texto
+            </label>
+            <select id="display-options-font-family">
+                <option value="var(--sans-serif-font)" selected>Sans-serif</option>
+                <option value="var(--serif-font)">Serif</option>
+                <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
+                <option value="Comic Sans MS">Comic Sans</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-colour-scheme">
+                Esquema de cores
+            </label>
+            <select id="display-options-colour-scheme">
+                <option value="auto" selected>Automático (default)</option>
+                <option value="light">Texto preto sobre branco</option>
+                <option value="dark">Texto branco sobre preto</option>
+                <option value="custom">Personalizado</option>
+            </select>
+        </div>
+
+        <section id="custom-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-text-colour">
+                    Cor do texto
+                </label>
+                <input type="color" value="#000000" id="display-options-text-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-link-colour">
+                    Cor do link
+                </label>
+                <input type="color" value="#0000ee" id="display-options-link-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour">
+                    Cor do fundo
+                </label>
+                <input type="color" value="#ffffff" id="display-options-bg-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-off">
+                    Cor de fundo silenciada
+                </label>
+                <input type="color" value="#eeeeee" id="display-options-bg-colour-off">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-1">
+                    Cor de destaque 1
+                </label>
+                <input type="color" value="#4caf50" id="display-options-bg-colour-accent-1">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-2">
+                    Cor de destaque 2
+                </label>
+                <input type="color" value="#f6f6ff" id="display-options-bg-colour-accent-2">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-3">
+                    Cor de destaque 3
+                </label>
+                <input type="color" value="#eeffd3" id="display-options-bg-colour-accent-3">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-4">
+                    Cor de destaque 4
+                </label>
+                <input type="color" value="#ffeeee" id="display-options-bg-colour-accent-4">
+            </div>
+        </section>
+
+        <section id="filter-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-filter-sepia">
+                    Filtro sépia
+                </label>
+                <input type="range" min="0" max="100" step="1" value="0" id="display-options-filter-sepia">
+                <output for="display-options-filter-sepia">0%</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-filter-hue-rotate">
+                    Girar matrizes
+                </label>
+                <input type="range" min="0" max="1" step="0.01" value="0" id="display-options-filter-hue-rotate">
+                <output for="display-options-filter-hue-rotate">0 turns</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-invert-images">
+                    Inverter imagens no modo escuro
+                </label>
+                <input type="checkbox" id="display-options-invert-images">
+            </div>
+
+        </section>
+    </div>
+</form>
+        
+
+        <header>
+            
+<button class="icon-button" type="button" aria-controls="display-options" aria-expanded="false" title="Opções de exibição">
+    <svg class="icon" alt="Display options" viewBox="0 0 180 180">
+    <use href="#cog"/>
+</svg>
+</button>
+            
+    
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="../../index.html">Física</a>
+            </li>
+            
+            <li class="breadcrumb-item">
+                <a href="../index.html">Notas</a>
+            </li>
+            
+            <li class="breadcrumb-item active">
+                LaTeX notes
+            </li>
+        </ul>
+
+        
+        <p class="pager" id="item-pager">
+            
+            <a rel="prev" href="../index.html">Previous: Notas</a>
+            
+            
+            <a rel="next" href="../revtex_article/index.html">Next: RevTeX article</a>
+            
+        </p>
+        
+    </nav>
+    
+
+            
+            
+        </header>
+
+        <main id="main-content">
+            
+    <nav id="sidebar">
+        
+        <ul class="alternative-formats">
+            
+            <li><a href="latex_notes.pdf"download><svg class="icon" alt="PDF" viewBox="0 0 180 180">
+    <use href="#pdf"/>
+</svg> Download como PDF</a></li>
+            
+        </ul>
+        
+
+        <h1>Tabela de Conteúdos</h1>
+        <a class="jump-to-item-content" href="#item-content">Ir para o conteúdo</a>
+        
+            <ol class="table-of-contents">
+                
+                    
+    <li>
+        <a href="#chap:first">1 First-order ordinary differential equations</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#sec:first:sep">1.1 Separable ODEs</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#subsec:first:sepsimple">1.1.1 A simple solution</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#_example_1_1_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.1</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solution_">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#subsec:first:sepmethod">1.1.2 Separation of variables</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#_example_1_2_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.2</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solutio_1">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_example_1_3_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.3</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solutio_2">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_example_1_4_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.4</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solutio_3">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#sec:first:hom">1.2 Homogeneous ODEs</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#_example_1_5_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.5</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solutio_4">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#sec:first:linear">1.3 Linear first-order ODEs</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#subsec:first:linearform">1.3.1 Terminology</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#_note_">
+<span class="thmcaption note_thmcaption">
+    Note
+    </span>
+</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#subsec:first:linearint">1.3.2 The integrating factor method</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#_example_1_6_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.6</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solutio_5">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#subsec:first:linearexist">1.3.3 Existence and uniqueness</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#_not_1">
+<span class="thmcaption note_thmcaption">
+    Note
+    </span>
+</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#sec:first:iso">1.4 Isoclines</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#_example_1_7_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.7</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solutio_6">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_example_1_8_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.8</span>
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#_solutio_7">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+                
+            </ol>
+        
+
+    </nav>
+
+    <article class="item-content" id="item-content">
+        <!-- Latex Chapter/Part -->
+<h1 id="chap:first">1 First-order ordinary differential equations</h1>
+<section class="section">
+<h2 id="sec:first:sep">1.1 Separable ODEs</h2>
+<p>
+A <b class="bf">separable</b> first-order ODE can be written in the form 
+</p>
+<div class="eqn" id="eqn:first:separable">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:separable} y'=g(x)h(y).\tag{1.1}\end{equation}</script>
+</div>
+<p>
+ We will assume that \(g(x)\) is continuous over some range of values of \(x\), e.g. \(x\in (a,b)\), possibly the whole real line \((-\infty ,\infty )\). Continuity of \(g(x)\) ensures that we can take the necessary integrals. 
+</p>
+<section class="subsection">
+<h3 id="subsec:first:sepsimple">1.1.1 A simple solution</h3>
+<p>
+Any (constant) solution of the equation \(h(y)=0\) is also a possible solution of (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:separable">1.1</a>). 
+</p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:sepspecial">
+<h5 class="thmheading example_thmheading" id="_example_1_1_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.1</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ Show that \(y=n\pi \) (\(n\in \mathbb {Z}\)) is a possible solution of the first-order ODE, 
+</p>
+<span class="dmath">\[  y'=x\sin (y).  \]</span>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000002">
+<h5 class="thmheading solution_thmheading" id="_solution_">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+Here \(g(x)=x\) and \(h(y)=\sin (y)\). Now, \(h(y)=\sin (y)=0\) if \(y=n\pi \) (where \(n\in \mathbb {Z}\)), so the right-hand side of the ODE is zero. Clearly \(y=n\pi \) (constant) \(\forall x\) \(\Longrightarrow \) \(y'=0\) (i.e. the left-hand side is also zero). Therefore \(y=n\pi \) is a possible solution. 
+</p>
+</div></div></p>
+</section><section class="subsection">
+<h3 id="subsec:first:sepmethod">1.1.2 Separation of variables</h3>
+<p>
+To derive a more general solution, we must assume that \(h(y)\neq 0\), so that we can divide each side by \(h(y)\), 
+</p>
+<span class="dmath">\[  \frac{y'}{h(y)}=g(x).  \]</span>
+<p>
+ Integrating each side with respect to \(x\), 
+</p>
+<span class="dmath">\[  \int \frac{y'}{h(y)}~ {\rm d} x=\int g(x)~ {\rm d}x.  \]</span>
+<p>
+ since \(\mathrm{d}y=y'\, \mathrm{d}x\), this implies that 
+</p>
+<div class="eqn" id="eqn:first:sepsolution">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:sepsolution} \int \frac{{\rm d}y}{h(y)}=\int g(x)~ {\rm d}x.\tag{1.2}\end{equation}</script>
+</div>
+<p>
+ Evaluating these integrals leads to a solution for \(y(x)\). Sometimes the general solution will contain solutions of \(h(y)=0\), but this is not always the case. 
+</p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:separable1">
+<h5 class="thmheading example_thmheading" id="_example_1_2_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.2</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ Find the general solution to 
+</p>
+<span class="dmath">\[  y'=x(y+1)^2.  \]</span>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000003">
+<h5 class="thmheading solution_thmheading" id="_solutio_1">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+Clearly \(y=-1\) is a possible constant solution. If \(y\neq -1\), we separate variables, 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  \int \frac{{\rm d}y}{(y+1)^2}& =& \int x~ {\rm d}x\\ \Longrightarrow -\frac{1}{y+1} & =&  \frac{x^2}{2} + C, \end{eqnarray*}</script></span>
+<p>
+ where C is an arbitrary constant of integration. Rearranging this expression, 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  -\frac{2}{y+1} & =&  x^2+2C\\ \Longrightarrow y+1 & =&  -\frac{2}{x^2+2C}\\ \Longrightarrow y & =&  -1 - \left(\frac{2}{x^2+D}\right), \end{eqnarray*}</script></span>
+<p>
+where \(D=2C\) is a rescaled constant. Alongside the special solution \(y=-1\), this is the most general solution to this first order ODE. Different values of \(D\) lead to a family of <b class="bf">solution curves</b> (or <b class="bf">integral curves</b>) in the \(xy\)-plane. <br/>
+</p>
+<p>
+<b class="bf">Check (not lectured):</b> Differentiating this function, we see that 
+</p>
+<span class="dmath">\[  y' = \frac{4x}{\left(x^2+D\right)^2} = x(y+1)^2,  \]</span>
+<p>
+as required.<br/>
+</p>
+</div></div></p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:separable2">
+<h5 class="thmheading example_thmheading" id="_example_1_3_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.3</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ Find the general solution of the ODE \(y'=(y+xy)/x^2\) and then the particular solution which passes through the point \((1,1)\), i.e. \(y(1)=1\). 
+</p>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000004">
+<h5 class="thmheading solution_thmheading" id="_solutio_2">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+We have 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  y'& =& \frac{(y+xy)}{x^2} \\ & =& \frac{(1+x)y}{x^2}. \end{eqnarray*}</script></span>
+<p>
+ Clearly \(y=0\) is a possible solution, but this is incompatible with \(y(1)=1\) so can be ignored. Assuming \(y\neq 0\), separation of variables leads to 
+</p>
+<span class="dmath">\[  \int \frac{{\rm d}y}{y}=\int \left(\frac{1+x}{x^2}\right){\rm d}x = \int \left(\frac{1}{x^2}+\frac{1}{x}\right)\, \mathrm{d}x \Longrightarrow \ln |y|=-\frac{1}{x}+\ln |x| + C  \]</span>
+<p>
+ (where \(C\) is the constant of integration). Taking the exponential of both sides, 
+</p>
+<span class="dmath">\[  |y|=\exp \left[-\frac{1}{x}+\ln |x| + C\right]=|x|\exp \left[-\frac{1}{x}+C\right]= |x|\exp [C]\exp \left[-\frac{1}{x}\right],  \]</span>
+<p>
+ where \(\displaystyle {\exp (x)\equiv \mathrm{e}^x}\). Dropping the modulus operators from both sides, 
+</p>
+<span class="dmath">\[  y = \pm \, x \exp [C]\exp \left[-\frac{1}{x}\right].  \]</span>
+<p>
+ Absorbing the plus/minus sign into a new constant \(D\) (where \(|D|=\exp [C]\)), 
+</p>
+<span class="dmath">\[  y=D x \exp \left[-\frac{1}{x}\right].  \]</span>
+<p>
+ If \(y(1)=1\), this implies that 
+</p>
+<span class="dmath">\[  1=D\cdot 1 \cdot \exp [-1] \equiv D\mathrm{e}^{-1} \Rightarrow D=\mathrm{e}.  \]</span>
+<p>
+ So the required solution is, 
+</p>
+<span class="dmath">\[  y=\mathrm{e}x\exp \left[-\frac{1}{x}\right] = x \exp \left[1-\frac{1}{x}\right] \left(\equiv x \mathrm{e}^{\left[1-\left(1/x\right)\right]}\right).  \]</span>
+</div></div></p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:radio">
+<h5 class="thmheading example_thmheading" id="_example_1_4_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.4</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ If \(N(t)\) is the size of a radioactive sample at time \(t\), then 
+</p>
+<span class="dmath">\[  \frac{\mathrm{d}N}{\mathrm{d}t} = -\alpha N,  \]</span>
+<p>
+ where \(\alpha \) is a positive constant. How long does it take for half the sample to decay? 
+</p>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000005">
+<h5 class="thmheading solution_thmheading" id="_solutio_3">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+Assuming that \(N\neq 0\), we again proceed by separating variables (note the change of notation!): 
+</p>
+<span class="dmath">\[  \int \frac{{\rm d}N}{N}=-\alpha \int \, \mathrm{d}t \Longrightarrow \ln |N| = -\alpha t + C,  \]</span>
+<p>
+ where \(C\) is a constant of integration. Hence, 
+</p>
+<span class="dmath">\[  |N(t)| = \mathrm{e}^C \mathrm{e}^{-\alpha t} \Longrightarrow N(t) =\pm \, \mathrm{e}^C \mathrm{e}^{-\alpha t}\Longrightarrow N(t) = A \mathrm{e}^{-\alpha t},  \]</span>
+<p>
+ where \(A\) is a new constant (\(|A|=\mathrm{e}^C\)) into which the plus/minus sign has been absorbed. If \(N(0)=N_0\) (initial sample size) then, 
+</p>
+<span class="dmath">\[  N_0 = A \mathrm{e}^0 = A \Longrightarrow N(t) = N_0 \mathrm{e}^{-\alpha t}.  \]</span>
+<p>
+Let \(t_h\) be the length of time it takes for half the sample to decay, i.e. \(N(t_h) = N_0/2\). This implies that, 
+</p>
+<span class="dmath">\[  \frac{N_0}{2} = N(t_h) = N_0 \mathrm{e}^{-\alpha t_h}.  \]</span>
+<p>
+ Hence 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  \frac{1}{2} & =&  \mathrm{e}^{-\alpha t_h}\\ \mbox{(taking logs)}\; \Longrightarrow \ln \left[\frac{1}{2}\right] & =&  -\alpha t_h\\ \Longrightarrow \ln 1 - \ln 2 & =&  -\alpha t_h \quad \mbox{(recall that $\ln (x/y)=\ln x - \ln y)$}\\ \Longrightarrow 0 - \ln 2 & =&  -\alpha t_h\\ \Longrightarrow t_h & =&  \frac{\ln 2}{\alpha }. \end{eqnarray*}</script></span>
+<p>
+This is the time it takes for half the sample to decay (known as the sample’s <b class="bf">half-life</b>). 
+</p>
+</div></div></p>
+</section>
+</section><section class="section">
+<h2 id="sec:first:hom">1.2 Homogeneous ODEs</h2>
+<p>
+A <b class="bf">homogeneous</b> first-order ODE can be written in the form 
+</p>
+<div class="eqn" id="eqn:first:homoneode">
+<script type="math/tex; mode=display">\begin{equation}y'=f(x,y)=F\left(\frac{y}{x} \right). \label{eqn:first:homoneode}\tag{1.3}\end{equation}</script>
+</div>
+<p>
+ We will assume that \(F(y/x)\) is a continuous function of its argument. <br/>
+</p>
+<p>
+<b class="bf">Idea:</b> Define a new variable, \(v(x)\), such that 
+</p>
+<div class="eqn" id="eqn:first:homoneodeidea">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:homoneodeidea} y(x)=xv(x).\tag{1.4}\end{equation}</script>
+</div>
+<p>
+ Rewriting (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneode">1.3</a>) in terms of \(v(x)\) and \(x\), 
+</p>
+<span class="dmath">\[  y'=F\left(\frac{y}{x}\right) \Longrightarrow \left(xv\right)'=F(v) \Longrightarrow xv' + v = F(v).  \]</span>
+<p>
+Hence, 
+</p>
+<div class="eqn" id="eqn:first:homoneodesolution">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:homoneodesolution} xv' = F(v) - v,\tag{1.5}\end{equation}</script>
+</div>
+<p>
+ which can be solved by separating variables. 
+</p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:hom">
+<h5 class="thmheading example_thmheading" id="_example_1_5_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.5</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ Find the general solution to \(y'=(y^2+2xy)/x^2\). Then find the specific solution satisfying \(y(1)=0.5\). 
+</p>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000006">
+<h5 class="thmheading solution_thmheading" id="_solutio_4">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+Rearranging this equation, 
+</p>
+<span class="dmath">\[  y'=\left(\frac{y}{x}\right)^2+2\left(\frac{y}{x}\right) \equiv F\left(\frac{y}{x}\right).  \]</span>
+<p>
+This is a homogeneous, first-order ODE, so we set \(y(x)=xv(x)\). Following the procedure leading to (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneodesolution">1.5</a>), 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  \left(xv\right)' & =&  v^2+2v \\ \Longrightarrow xv' + v & =&  v^2 +2v\\ \Longrightarrow xv' & =&  v^2+v\\ \Longrightarrow xv' & =&  v(1+v). \end{eqnarray*}</script></span>
+<p>
+ Separating variables and integrating both sides, 
+</p>
+<span class="dmath">\begin{equation*}  \int \frac{{\rm d}v}{v(1+v)}=\int \frac{{\rm d}x}{x}. \end{equation*}</span>
+<p>
+ Note that we have implicitly assumed that \(v=y/x\neq 0\) and \(v=y/x\neq -1\). Neither of these special solutions are consistent with \(y(1)=0.5\), so this is valid. 
+</p>
+<p>
+To evaluate the integral on the left-hand side, use a partial fractions decomposition, 
+</p>
+<span class="dmath">\[  \frac{1}{v(1+v)}\equiv \frac{A}{v}+\frac{B}{1+v},  \]</span>
+<p>
+where \(A\) and \(B\) are constants. Hence, 
+</p>
+<span class="dmath">\[  \frac{1}{v(1+v)} = \frac{A(1+v)+Bv}{v(1+v)} = \frac{A + (A+B)v}{v(1+v)}.  \]</span>
+<p>
+ For this to be true for <b class="bf">any</b> \(v\), we require that \(A=1\) and \(A+B=0 \Longrightarrow B=-A=-1\). Therefore 
+</p>
+<span class="dmath">\[  \frac{1}{v(1+v)}=\frac{1}{v}-\frac{1}{1+v}.  \]</span>
+<p>
+ Substituting this into the separated ODE, 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  \int \left[\frac{1}{v}-\frac{1}{1+v}\right]\, \mathrm{d}v & =&  \int \frac{{\rm d}x}{x}\\ \Longrightarrow \ln |v|-\ln |1+v|& =& \ln |x|+C, \end{eqnarray*}</script></span>
+<p>
+ where \(C\) is a constant. Hence 
+</p>
+<span class="dmath">\[  \ln \left|\frac{v}{1+v}\right| = \ln |x| + C \Longrightarrow \frac{v}{1+v} = \pm \exp \left[\ln |x|+C\right] = \pm \mathrm{e}^C |x| = Dx,  \]</span>
+<p>
+ where \(D\) is a new constant. Rearranging, 
+</p>
+<span class="dmath">\[  \frac{v}{1+v} = Dx \Longrightarrow v = Dx(1+v) \Longrightarrow v(1 - Dx) = Dx \Longrightarrow v = \frac{Dx}{1-Dx}.  \]</span>
+<p>
+Recalling that \(v=y/x\), this leads to the general solution 
+</p>
+<span class="dmath">\[  \frac{y}{x} = \frac{Dx}{1-Dx} \Longrightarrow y = \frac{Dx^2}{1-Dx}.  \]</span>
+<p>
+Now, given that \(y(1)=0.5\), 
+</p>
+<span class="dmath">\[  \frac{1}{2} = \frac{D}{1-D} \Longrightarrow 1-D = 2D \Longrightarrow 3D = 1 \Longrightarrow D= \frac{1}{3}.  \]</span>
+<p>
+Hence, 
+</p>
+<span class="dmath">\[  y = \frac{\frac{1}{3}x^2}{1- \frac{1}{3}x} = \frac{x^2}{3-x},  \]</span>
+<p>
+ which is the required answer. 
+</p>
+</div></div></p>
+</section><section class="section">
+<h2 id="sec:first:linear">1.3 Linear first-order ODEs</h2>
+<section class="subsection">
+<h3 id="subsec:first:linearform">1.3.1 Terminology</h3>
+<p>
+  Recalling our definition of a linear operator, 
+</p>
+<span class="dmath">\[  L(y) = c_n(x)y^{(n)} + c_{n-1}(x)y^{(n-1)}+\ldots + c_1(x)y' + c_0(x)y  \]</span>
+<p>
+(where the \(c_i(x)\) are specified functions of \(x\)), any <b class="bf">linear first-order ODE</b> can be written in the form 
+</p>
+<div class="eqn" id="eqn:first:pregenerallinear">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:pregenerallinear} L(y)\equiv c_1(x)y'+c_0(x)y = f(x),\tag{1.6}\end{equation}</script>
+</div>
+<p>
+ where \(f(x)\) is another given function of \(x\). Without loss of generality, we shall assume \(c_1(x)\neq 0\). 
+</p>
+<p>
+<div class="thmwrapper note_thmwrapper" id="a0000000007">
+<h5 class="thmheading note_thmheading" id="_note_">
+<span class="thmcaption note_thmcaption">
+    Note
+    </span>
+</h5>
+<div class="thmcontent note_thmcontent">
+<p>
+The case of \(c_1(x)=0\) is trivial, i.e. \(\displaystyle {c_0(x)y = f(x) \Longrightarrow y = \frac{f(x)}{c_0(x)}}\). 
+</p>
+</div></div></p>
+<p>
+Dividing (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:pregenerallinear">1.6</a>) by \(c_1(x)\), 
+</p>
+<div class="eqn" id="eqn:first:generallinear">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:generallinear} y'+p(x)y = q(x),\tag{1.7}\end{equation}</script>
+</div>
+<p>
+ where \(p(x)=c_0(x)/c_1(x)\) and \(q(x)=f(x)/c_1(x)\). This is the most general form for a (non-trivial) first-order linear ODE. 
+</p>
+</section><section class="subsection">
+<h3 id="subsec:first:linearint">1.3.2 The integrating factor method</h3>
+<p>
+  The challenge is to solve \(y'+p(x)y = q(x)\). We shall assume that \(p(x)\) and \(q(x)\) are continuous (and hence integrable) over some interval \((a,b)\), possibly the whole real line \((-\infty ,\infty )\). Let 
+</p>
+<span class="dmath">\[  P(x) = \int p(x)\, \mathrm{d}x.  \]</span>
+<p>
+ For any \(x\in (a,b)\), the fundamental theorem of calculus tells us that 
+</p>
+<span class="dmath">\[  P'(x) = p(x).  \]</span>
+<p>
+ This implies that 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  \frac{\mathrm{d}}{\mathrm{d}x}\left[y\mathrm{e}^{P(x)}\right] & =&  y'\mathrm{e}^{P(x)} + P'(x)y \mathrm{e}^{P(x)}\\ & =&  y'\mathrm{e}^{P(x)} + p(x)y \mathrm{e}^{P(x)}\\ & =&  \left[y'+p(x)y\right] \mathrm{e}^{P(x)}. \end{eqnarray*}</script></span>
+<p>
+The quantity \(\displaystyle {\mathrm{e}^{P(x)}\equiv \exp \left[P(x)\right]}\) is known as the <b class="bf">integrating factor</b>. As we have just shown, if we multiply our original ODE by this integrating factor, i.e. 
+</p>
+<span class="dmath">\[  \left[y'+p(x)y\right] \mathrm{e}^{P(x)}=q(x) \mathrm{e}^{P(x)},  \]</span>
+<p>
+ this is equivalent to 
+</p>
+<div class="eqn" id="eqn:first:preintfactor">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:preintfactor} \frac{\mathrm{d}}{\mathrm{d}x}\left[y\mathrm{e}^{P(x)}\right] = q(x) \mathrm{e}^{P(x)}.\tag{1.8}\end{equation}</script>
+</div>
+<p>
+Integrating this equation, 
+</p>
+<span class="dmath">\[  y\mathrm{e}^{P(x)} = C + \int \left[q(x) \mathrm{e}^{P(x)}\right]\, \mathrm{d}x,  \]</span>
+<p>
+ where \(C\) is a constant. Hence, recalling that \(\displaystyle {P(x)=\int p(x)\, \mathrm{d}x}\), 
+</p>
+<div class="eqn" id="eqn:first:intfactor">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:intfactor} y = C \mathrm{e}^{-P(x)} + \mathrm{e}^{-P(x)}\int \left[q(x) \mathrm{e}^{P(x)}\right]\, \mathrm{d}x.\tag{1.9}\end{equation}</script>
+</div>
+<p>
+This is the general solution. The term proportional to \(C\) is often referred to as the <b class="bf">complementary function</b>, whilst the rest of the right-hand side is known as the <b class="bf">particular integral</b>. 
+</p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:intfac">
+<h5 class="thmheading example_thmheading" id="_example_1_6_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.6</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ Find the general solutions of the following first-order ODEs:<br/>
+</p>
+<table class="tabular">
+<tr><td colspan="" rowspan="" style="text-align:right"><p>
+ i) 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:left"><p>
+ \(\displaystyle {y’+\frac{y}{x} = x}\);
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:right"><p>
+ii) 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:left"><p>
+ \(\displaystyle {5xy’+6y = 1+x^2}\). 
+</p>
+</td>
+</tr>
+</table>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000008">
+<h5 class="thmheading solution_thmheading" id="_solutio_5">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+i) This equation is already in the form \(y' + p(x)y = q(x)\). Here, \(p(x)=1/x\) and \(q(x)=x\). Clearly, 
+</p>
+<span class="dmath">\[  P(x) = \int p(x)\, \mathrm{d}x= \int \frac{\mathrm{d}x}{x}= \ln |x|  \]</span>
+<p>
+ (note that the integrating factor is simply a computational tool, so we can ignore any constants of integration here). Hence, 
+</p>
+<span class="dmath">\[  \mathrm{e}^{P(x)} = \mathrm{e}^{\ln |x|} = |x|.  \]</span>
+<p>
+Without loss of generality, we can ignore the modulus operator here, setting \(\displaystyle {\mathrm{e}^{P(x)}=x}\) (this is because a negative integrating factor would also work in the same way). Multiplying our original equation by this integrating factor, we obtain the following ODE: 
+</p>
+<span class="dmath">\[  x\left(y'+\frac{y}{x}\right) = x^2 \Longrightarrow xy' + y = x^2.  \]</span>
+<p>
+ Referrring to (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:preintfactor">1.8</a>), we have already shown that this is equivalent to 
+</p>
+<span class="dmath">\[  \frac{\mathrm{d}}{\mathrm{d}x}\left[y\mathrm{e}^{P(x)}\right] = q(x) \mathrm{e}^{P(x)} \Longrightarrow \frac{\mathrm{d}}{\mathrm{d}x}\left[xy\right] = x^2.  \]</span>
+<p>
+Integrating this equation, 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  xy & =&  C+ \frac{x^3}{3}\quad \mbox{(where $C$ is constant)}\\ \Longrightarrow y & =&  \frac{C}{x} +\frac{x^2}{3}, \end{eqnarray*}</script></span>
+<p>
+ which is the required result.<br/>
+</p>
+<p>
+[<b class="bf">Check:</b> \(\displaystyle {y’+\frac{y}{x}=-\frac{C}{x^2}+\frac{2x}{3}+\frac{C}{x^2}+\frac{x}{3}=x}\), as required.] <br/>
+</p>
+<p>
+ii) This equation (\(\displaystyle {5xy’+6y = 1+x^2}\)) is not in the correct form to apply the integrating factor directly. Dividing through by \(5x\), 
+</p>
+<span class="dmath">\[  y' + \frac{6y}{5x} = \frac{1}{5x} + \frac{x}{5},  \]</span>
+<p>
+ so \(p(x)=6/5x\) and \(q(x)=(1/5x)+(x/5)\). Here, 
+</p>
+<span class="dmath">\[  P(x) = \int p(x)\, \mathrm{d}x= \int \frac{\mathrm{6d}x}{5x}= \frac{6}{5}\ln |x|= \ln \left(|x|^{6/5}\right).  \]</span>
+<p>
+ Hence, 
+</p>
+<span class="dmath">\[  \mathrm{e}^{P(x)} = |x|^{6/5}.  \]</span>
+<p>
+ Again we can drop the modulus operator, so that \(\displaystyle {\mathrm{e}^{P(x)}=x^{6/5}}\). Applying this integrating factor, 
+</p>
+<span class="dmath">\[  x^{6/5}y' + \frac{6yx^{1/5}}{5} = x^{6/5} \left(\frac{1}{5x} + \frac{x}{5}\right),  \]</span>
+<p>
+ which, by (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:preintfactor">1.8</a>), is equivalent to 
+</p>
+<span class="dmath">\[  \frac{\mathrm{d}}{\mathrm{d}x} \left[x^{6/5}y\right]= \frac{x^{1/5}}{5} + \frac{x^{11/5}}{5}.  \]</span>
+<p>
+ Integrating each side of this equation, 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  x^{6/5}y & =&  C + \frac{x^{6/5}}{6}+\frac{x^{16/5}}{16}\quad \mbox{(where $C$ is constant)}\\ \Longrightarrow y & =&  Cx^{-6/5} + \frac{1}{6} + \frac{x^2}{16}, \end{eqnarray*}</script></span>
+<p>
+ which is the required solution.<br/>
+</p>
+<p>
+[<b class="bf">Check:</b> \(\displaystyle {5xy’+6y=-6Cx^{-6/5}+\frac{5x^2}{8}+6Cx^{-6/5}+1+\frac{3x^2}{8}=1+x^2}\), as required.] <br/>
+</p>
+</div></div></p>
+</section><section class="subsection">
+<h3 id="subsec:first:linearexist">1.3.3 Existence and uniqueness</h3>
+<p>
+<b class="bf">Theorem:</b> If the functions \(p(x)\) and \(q(x)\) are continuous \(\forall x \in (a,b)\), then there exists a unique function \(y(x)\), defined on the open interval \(a {\lt} x {\lt} b\), satisfying the linear first-order ODE 
+</p>
+<span class="dmath">\[  y'+p(x)y=q(x), \quad y\left(x_0\right)=y_0,  \]</span>
+<p>
+ for some given \(x_0\in (a,b)\) and \(y_0\in \mathbb {R}\). <br/>
+</p>
+<p>
+<b class="bf">Proof:</b> Existence has already been demonstrated by the construction of an explicit solution (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:intfactor">1.9</a>). For uniqueness, we assume that there are two solutions \(y_1(x)\) and \(y_2(x)\). Consider the function \(Y(x)=y_1(x)-y_2(x)\). Clearly 
+</p>
+<span><script type="math/tex; mode=display">\begin{eqnarray*}  Y' + p(x)Y & =&  \left(y_1-y_2\right)' + p(x)\left(y_1-y_2\right)\\ & =&  \left[y_1'+p(x)y_1\right] - \left[y_2'+p(x)y_2\right]\\ & =&  q(x)-q(x)\\ \Longrightarrow Y' + p(x)Y & =&  0, \end{eqnarray*}</script></span>
+<p>
+whilst \(\displaystyle {Y\left(x_0\right) = y_1\left(x_0\right)-y_2\left(x_0\right) = y_0-y_0 = 0}\). Obviously \(Y=0\) is a possible solution of this ODE, in which case \(y_1(x)=y_2(x)\) (i.e. the solution is unique). For \(Y\neq 0\), separation of variables leads to 
+</p>
+<span class="dmath">\[  Y' = -p(x)Y \iff \int \frac{\mathrm{d}Y}{Y} = -\int p(x)\, \mathrm{d}x \iff \ln |Y| = C-P(x),  \]</span>
+<p>
+ (where, as before. \(\displaystyle {P(x) = \int p(x)\, \mathrm{d}x}\) and \(C\) is a constant). Rearranging this expression, we see that 
+</p>
+<span class="dmath">\[  Y = A\mathrm{e}^{-P(x)},  \]</span>
+<p>
+ where \(A\) is a redefined constant. The only way that this can be compatible with \(Y(0)=0\) is if \(A=0 \Longrightarrow Y(x)=0 \; \forall x\). This again implies that \(y_1(x)=y_2(x)\), i.e. unique solution. 
+</p>
+<p>
+<div class="thmwrapper note_thmwrapper" id="a0000000009">
+<h5 class="thmheading note_thmheading" id="_not_1">
+<span class="thmcaption note_thmcaption">
+    Note
+    </span>
+</h5>
+<div class="thmcontent note_thmcontent">
+<p>
+Linearity is crucial to this result. There are many <b class="bf">nonlinear</b> ODEs for which solutions are not unique. For example, consider the following differentiable function, 
+</p>
+<span class="dmath">\[  y(x)=\left\{ \begin{array}{l} 0 \hspace{0.83in} \mbox{if} \hspace{0.1in} x\le C \\ (x-C)^2 \hspace{0.3in} \mbox{if} \hspace{0.1in} x {\gt} C, \end{array} \right\}   \]</span>
+<p>
+where \(C\) is <b class="bf">any</b> positive constant (i.e. \(C\ge 0\)). For any valid choice of \(C\) (of which there are infinitely many), this function satisfies the nonlinear ODE 
+</p>
+<span class="dmath">\[  y'=2\sqrt{y},  \]</span>
+<p>
+ subject to \(y(0)=0\). 
+</p>
+</div></div></p>
+</section>
+</section><section class="section">
+<h2 id="sec:first:iso">1.4 Isoclines</h2>
+<p>
+Consider an equation of the form \(y'=f(x,y)\). The function \(f(x,y)\) defines the <b class="bf">slope</b> of the solution curve at each point in the \(xy\)-plane. Lines of constant slope, known as <b class="bf">isoclines</b>, satisfy 
+</p>
+<div class="eqn" id="eqn:first:isocline">
+<script type="math/tex; mode=display">\begin{equation}\label{eqn:first:isocline} f(x,y)=m,\tag{1.10}\end{equation}</script>
+</div>
+<p>
+ where \(m\) is a constant (\(m\in \mathbb {R}\)). Isoclines can be used to sketch the solution curves. 
+</p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:iso">
+<h5 class="thmheading example_thmheading" id="_example_1_7_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.7</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ Consider the following ODE: 
+</p>
+<span class="dmath">\[  y' = y+2x.  \]</span>
+<p>
+By finding the isoclines, sketch some integral curves (i.e. solution curves) for this ODE (<b class="bf">Exercise:</b> show that the general solution is \(\displaystyle {y=A\mathrm{e}^x-2-2x}\), where \(A\) is a constant). 
+</p>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000010">
+<h5 class="thmheading solution_thmheading" id="_solutio_6">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+The isoclines correspond to 
+</p>
+<span class="dmath">\[  y+2x =m \Longrightarrow y=m-2x.  \]</span>
+<p>
+ These are straight lines on which the slope of the solution curve is \(m\). The short line elements (or <b class="bf">flow vectors</b>) on the sketch indicate the corresponding <b class="bf">direction field</b>, i.e. the slope of the solution curves at each point in space. By connecting these, we can sketch the solution. 
+</p>
+</div></div></p>
+<p>
+<div class="thmwrapper example_thmwrapper" id="ex:first:iso2">
+<h5 class="thmheading example_thmheading" id="_example_1_8_">
+<span class="thmcaption example_thmcaption">
+    Example
+    </span>
+<span class="thmlabel example_thmlabel">1.8</span>
+</h5>
+<div class="thmcontent example_thmcontent">
+<p>
+ Find the isoclines and sketch some solution curves for the following ODE, 
+</p>
+<span class="dmath">\[  y' =-\frac{x}{y}.  \]</span>
+<p>
+ Check your solution curves by finding the exact solution. 
+</p>
+</div></div></p>
+<p>
+<div class="thmwrapper solution_thmwrapper" id="a0000000011">
+<h5 class="thmheading solution_thmheading" id="_solutio_7">
+<span class="thmcaption solution_thmcaption">
+    Solution
+    </span>
+</h5>
+<div class="thmcontent solution_thmcontent">
+<p>
+The isoclines are given by 
+</p>
+<span class="dmath">\[  -\frac{x}{y} = m \Longrightarrow y = -\frac{x}{m},  \]</span>
+<p>
+ which are straight lines, of gradient \(-1/m\), passing through the origin. 
+</p>
+<p>
+Connecting up the flow vectors (see sketch) we obtain the solution curves. These look like concentric circles, centred at the origin. To find the exact solution, we can separate variables: 
+</p>
+<span class="dmath">\[  \int y\, \mathrm{d}y = -\int x \, \mathrm{d}x \Longrightarrow \frac{y^2}{2} = - \frac{x^2}{2}+C,  \]</span>
+<p>
+ where \(C\) is a constant of integration. Rearranging, 
+</p>
+<span class="dmath">\[  y^2+x^2 = 2C,  \]</span>
+<p>
+ which describes a circle, centred at the origin in the \(xy\)-plane, of radius \(\sqrt{2C}\). This is consistent with the solution curves obtained from the isoclines. 
+</p>
+</div></div></p>
+<p>
+<b class="bf">Terminology:</b> Consider an ODE of the form 
+</p>
+<span class="dmath">\[  y' =\frac{g(x,y)}{h(x,y)},  \]</span>
+<p>
+with isoclines defined by 
+</p>
+<span class="dmath">\[  \frac{g(x,y)}{h(x,y)} = m.  \]</span>
+<p>
+ Lines of zero slope (i.e. \(m=0\)) are defined by \(g(x,y)=0\), whilst lines of infinite slope (i.e. \(1/m=0\)) are defined by \(h(x,y)=0\). If 
+</p>
+<span class="dmath">\[  g(x,y)=h(x,y)=0  \]</span>
+<p>
+ at any point in the \(xy\)-plane, then the point is said to be <b class="bf">singular</b>. At this point, the slope is not single-valued: it lies on both the \(m=0\) and \(1/m=0\) isoclines. In Example <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:iso2">1.8</a>, <b class="bf">all</b> of the isoclines intersect at the origin, which is the only singular point in this case. See handout for a more complicated example. 
+</p>
+</section>
+<script id="plastex-labels" type="application/json">{"chap:first": {"ref": "1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#chap:first"}, "sec:first:sep": {"ref": "1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:sep"}, "eqn:first:separable": {"ref": "1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:separable"}, "subsec:first:sepsimple": {"ref": "1.1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:sepsimple"}, "ex:first:sepspecial": {"ref": "1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:sepspecial"}, "subsec:first:sepmethod": {"ref": "1.1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:sepmethod"}, "eqn:first:sepsolution": {"ref": "1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:sepsolution"}, "ex:first:separable1": {"ref": "1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:separable1"}, "ex:first:separable2": {"ref": "1.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:separable2"}, "ex:first:radio": {"ref": "1.4", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:radio"}, "sec:first:hom": {"ref": "1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:hom"}, "eqn:first:homoneode": {"ref": "1.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneode"}, "eqn:first:homoneodeidea": {"ref": "1.4", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneodeidea"}, "eqn:first:homoneodesolution": {"ref": "1.5", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneodesolution"}, "ex:first:hom": {"ref": "1.5", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:hom"}, "sec:first:linear": {"ref": "1.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:linear"}, "subsec:first:linearform": {"ref": "1.3.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:linearform"}, "eqn:first:pregenerallinear": {"ref": "1.6", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:pregenerallinear"}, "eqn:first:generallinear": {"ref": "1.7", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:generallinear"}, "subsec:first:linearint": {"ref": "1.3.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:linearint"}, "eqn:first:preintfactor": {"ref": "1.8", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:preintfactor"}, "eqn:first:intfactor": {"ref": "1.9", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:intfactor"}, "ex:first:intfac": {"ref": "1.6", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:intfac"}, "subsec:first:linearexist": {"ref": "1.3.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:linearexist"}, "sec:first:iso": {"ref": "1.4", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:iso"}, "eqn:first:isocline": {"ref": "1.10", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:isocline"}, "ex:first:iso": {"ref": "1.7", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:iso"}, "ex:first:iso2": {"ref": "1.8", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:iso2"}}</script>
+    </article>
+
+        </main>
+
+		
+		<footer>
+	<hr>
+
+    <nav id="footer-nav">
+        <a href="#">Voltar para o topo</a>
+    </nav>
+
+    <div id="footer-text">
+        <p>Gerado usando <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.1.0, escrito pela Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
+        <p>Esta página foi gerada pela última vez em: 2024-04-20</p>
+        
+        
+        
+    </div>
+</footer>
+		
+
+        
+
+        <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:#ffffff;fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:#ffffff;stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+    </body>
+</html>
