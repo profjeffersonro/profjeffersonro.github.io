@@ -1,13 +1,13 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         
             <meta charset="utf-8">
             <meta name="robots" content="noindex">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <meta name="author" content="Jefferson" />
-            <meta name="date" content="2024-04-21" />
+            <meta name="date" content="2024-04-28" />
         
 
         <title>LaTeX notes | Física</title>
@@ -15,41 +15,41 @@
         
     
     
-            <link rel="stylesheet" href="../../static/styles.css?build_time=1713750415.531115">
+            <link rel="stylesheet" href="../../static/styles.css?build_time=1714280807.134208">
             
             
         
-    <link rel="stylesheet" id="customiseCodeCSS" href="../../static/pygmentize.css?build_time=1713750415.531115">
+    <link rel="stylesheet" id="customiseCodeCSS" href="../../static/pygmentize.css?build_time=1714280807.134208">
 
-    <link rel="stylesheet" href="../../static/print.css?build_time=1713750415.531115">
+    <link rel="stylesheet" href="../../static/print.css?build_time=1714280807.134208">
 
 
         
     
 			<script>
-				var chirun_static_url = new URL('../../static?build_time=1713750415.531115', location.href);
+				var chirun_static_url = new URL('../../static?build_time=1714280807.134208', location.href);
 			</script>
 
             
-                <script defer src="../../static/mathjax_config.js?build_time=1713750415.531115"></script>
+                <script defer src="../../static/mathjax_config.js?build_time=1714280807.134208"></script>
                 <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
             
 
-            <script type="module" src="../../static/localisation.js?build_time=1713750415.531115"></script>
+            <script type="module" src="../../static/localisation.js?build_time=1714280807.134208"></script>
 
-            <script defer src="../../static/customisation.js?build_time=1713750415.531115"></script>
+            <script defer src="../../static/customisation.js?build_time=1714280807.134208"></script>
 
             
 
             
         
-    <script defer src="../../static/code.js?build_time=1713750415.531115" type="module"></script>
-    <script defer src="../../static/embed_numbas.js?build_time=1713750415.531115" type="module"></script>
-    <script defer src="../../static/embed_qrcode.js?build_time=1713750415.531115" type="module"></script>
+    <script defer src="../../static/code.js?build_time=1714280807.134208" type="module"></script>
+    <script defer src="../../static/embed_numbas.js?build_time=1714280807.134208" type="module"></script>
+    <script defer src="../../static/embed_qrcode.js?build_time=1714280807.134208" type="module"></script>
 
 
         <template id="runnable-code-template">
-            <link rel="stylesheet" href="../../static/code.css?build_time=1713750415.531115">
+            <link rel="stylesheet" href="../../static/code.css?build_time=1714280807.134208">
             <div class="runnable-code-wrapper">
                 <section class="fullscreenable code">
                     <div id="code"></div>
@@ -68,7 +68,7 @@
 </svg></button>
                 </section>
                 <div class="buttons">
-                    <button type="button" class="run-code">Run code</button>
+                    <button type="button" class="run-code">Rodar código</button>
                 </div>
                 <svg
    width="180"
@@ -230,16 +230,16 @@
         </template>
 
         <template id="embed-numbas-template">
-            <link rel="stylesheet" href="../../static/embed_numbas.css?build_time=1713750415.531115">
+            <link rel="stylesheet" href="../../static/embed_numbas.css?build_time=1714280807.134208">
             <details id="wrapper" data-completion-status="incomplete">
                 <summary>
-                    <h1 id="title">Teste a si mesmo</h1>
+                    <h1 id="title">Teste</h1>
                     <div id="completion-status" data-completion-status="unknown">
                         <span class="complete">Completo</span>
                         <span class="incomplete">Incompleto</span>
                     </div>
                     <label id="score-feedback">
-                        Pontuação:
+                        Pontuação
                         <progress min="0"></progress>
                     </label>
                 </summary>
@@ -255,7 +255,7 @@
         
             <form id="display-options">
     <div class="buttons">
-        <button type="button" id="reset-display-options">Redefinir para o padrão</button>
+        <button type="button" id="reset-display-options">Padrão</button>
 
         <a href="https://chirun.org.uk/accessibility-statement/material">Declaração de acessibilidade</a>
 
@@ -283,7 +283,7 @@
 
         <div class="input-group">
             <label for="display-options-font-family">
-                /Fonte do texto
+                Tamanho da fonte
             </label>
             <select id="display-options-font-family">
                 <option value="var(--sans-serif-font)" selected>Sans-serif</option>
@@ -298,7 +298,7 @@
                 Esquema de cores
             </label>
             <select id="display-options-colour-scheme">
-                <option value="auto" selected>Automático (default)</option>
+                <option value="auto" selected>Automático</option>
                 <option value="light">Texto preto sobre branco</option>
                 <option value="dark">Texto branco sobre preto</option>
                 <option value="custom">Personalizado</option>
@@ -315,14 +315,14 @@
 
             <div class="input-group">
                 <label for="display-options-link-colour">
-                    Cor do link
+                    Cor de link
                 </label>
                 <input type="color" value="#0000ee" id="display-options-link-colour">
             </div>
 
             <div class="input-group">
                 <label for="display-options-bg-colour">
-                    Cor do fundo
+                    Cor de fundo
                 </label>
                 <input type="color" value="#ffffff" id="display-options-bg-colour">
             </div>
@@ -374,10 +374,10 @@
 
             <div class="input-group">
                 <label for="display-options-filter-hue-rotate">
-                    Girar matrizes
+                    Girar matizes
                 </label>
                 <input type="range" min="0" max="1" step="0.01" value="0" id="display-options-filter-hue-rotate">
-                <output for="display-options-filter-hue-rotate">0 turns</output>
+                <output for="display-options-filter-hue-rotate">0 turnos</output>
             </div>
 
             <div class="input-group">
@@ -394,7 +394,7 @@
 
         <header>
             
-<button class="icon-button" type="button" aria-controls="display-options" aria-expanded="false" title="Opções de exibição">
+<button class="icon-button" type="button" aria-controls="display-options" aria-expanded="false" title="Display options">
     <svg class="icon" alt="Display options" viewBox="0 0 180 180">
     <use href="#cog"/>
 </svg>
@@ -419,10 +419,10 @@
         
         <p class="pager" id="item-pager">
             
-            <a rel="prev" href="../index.html">Previous: Notas</a>
+            <a rel="prev" href="../index.html">Anterior: Notas</a>
             
             
-            <a rel="next" href="../revtex_article/index.html">Next: RevTeX article</a>
+            <a rel="next" href="../revtex_article/index.html">Próximo: RevTeX article</a>
             
         </p>
         
@@ -441,12 +441,12 @@
             
             <li><a href="latex_notes.pdf"download><svg class="icon" alt="PDF" viewBox="0 0 180 180">
     <use href="#pdf"/>
-</svg> Download como PDF</a></li>
+</svg> Download em PDF</a></li>
             
         </ul>
         
 
-        <h1>Tabela de Conteúdos</h1>
+        <h1>Table of Contents</h1>
         <a class="jump-to-item-content" href="#item-content">Ir para o conteúdo</a>
         
             <ol class="table-of-contents">
@@ -744,12 +744,6 @@
 <section class="section">
 <h2 id="sec:first:sep">1.1 Separable ODEs</h2>
 <p>
-A equação diferencial separável de primeira ordem pode ser escrita na seguinte forma: 
-</p>
-<p>
-Esse é um teste. 
-</p>
-<p>
 A <b class="bf">separable</b> first-order ODE can be written in the form 
 </p>
 <div class="eqn" id="eqn:first:separable">
@@ -761,7 +755,7 @@ A <b class="bf">separable</b> first-order ODE can be written in the form
 <section class="subsection">
 <h3 id="subsec:first:sepsimple">1.1.1 A simple solution</h3>
 <p>
-Any (constant) solution of the equation \(h(y)=0\) is also a possible solution of (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:separable">1.1</a>). 
+Any (constant) solution of the equation \(h(y)=0\) is also a possible solution of (<a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:separable">1.1</a>). 
 </p>
 <p>
 <div class="thmwrapper example_thmwrapper" id="ex:first:sepspecial">
@@ -967,7 +961,7 @@ A <b class="bf">homogeneous</b> first-order ODE can be written in the form
 <script type="math/tex; mode=display">\begin{equation}\label{eqn:first:homoneodeidea} y(x)=xv(x).\tag{1.4}\end{equation}</script>
 </div>
 <p>
- Rewriting (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneode">1.3</a>) in terms of \(v(x)\) and \(x\), 
+ Rewriting (<a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:homoneode">1.3</a>) in terms of \(v(x)\) and \(x\), 
 </p>
 <span class="dmath">\[  y'=F\left(\frac{y}{x}\right) \Longrightarrow \left(xv\right)'=F(v) \Longrightarrow xv' + v = F(v).  \]</span>
 <p>
@@ -1005,7 +999,7 @@ Rearranging this equation,
 </p>
 <span class="dmath">\[  y'=\left(\frac{y}{x}\right)^2+2\left(\frac{y}{x}\right) \equiv F\left(\frac{y}{x}\right).  \]</span>
 <p>
-This is a homogeneous, first-order ODE, so we set \(y(x)=xv(x)\). Following the procedure leading to (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneodesolution">1.5</a>), 
+This is a homogeneous, first-order ODE, so we set \(y(x)=xv(x)\). Following the procedure leading to (<a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:homoneodesolution">1.5</a>), 
 </p>
 <span><script type="math/tex; mode=display">\begin{eqnarray*}  \left(xv\right)' & =&  v^2+2v \\ \Longrightarrow xv' + v & =&  v^2 +2v\\ \Longrightarrow xv' & =&  v^2+v\\ \Longrightarrow xv' & =&  v(1+v). \end{eqnarray*}</script></span>
 <p>
@@ -1085,7 +1079,7 @@ The case of \(c_1(x)=0\) is trivial, i.e. \(\displaystyle {c_0(x)y = f(x) \Longr
 </p>
 </div></div></p>
 <p>
-Dividing (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:pregenerallinear">1.6</a>) by \(c_1(x)\), 
+Dividing (<a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:pregenerallinear">1.6</a>) by \(c_1(x)\), 
 </p>
 <div class="eqn" id="eqn:first:generallinear">
 <script type="math/tex; mode=display">\begin{equation}\label{eqn:first:generallinear} y'+p(x)y = q(x),\tag{1.7}\end{equation}</script>
@@ -1184,7 +1178,7 @@ Without loss of generality, we can ignore the modulus operator here, setting \(\
 </p>
 <span class="dmath">\[  x\left(y'+\frac{y}{x}\right) = x^2 \Longrightarrow xy' + y = x^2.  \]</span>
 <p>
- Referrring to (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:preintfactor">1.8</a>), we have already shown that this is equivalent to 
+ Referrring to (<a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:preintfactor">1.8</a>), we have already shown that this is equivalent to 
 </p>
 <span class="dmath">\[  \frac{\mathrm{d}}{\mathrm{d}x}\left[y\mathrm{e}^{P(x)}\right] = q(x) \mathrm{e}^{P(x)} \Longrightarrow \frac{\mathrm{d}}{\mathrm{d}x}\left[xy\right] = x^2.  \]</span>
 <p>
@@ -1214,7 +1208,7 @@ ii) This equation (\(\displaystyle {5xy’+6y = 1+x^2}\)) is not in the correct 
 </p>
 <span class="dmath">\[  x^{6/5}y' + \frac{6yx^{1/5}}{5} = x^{6/5} \left(\frac{1}{5x} + \frac{x}{5}\right),  \]</span>
 <p>
- which, by (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:preintfactor">1.8</a>), is equivalent to 
+ which, by (<a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:preintfactor">1.8</a>), is equivalent to 
 </p>
 <span class="dmath">\[  \frac{\mathrm{d}}{\mathrm{d}x} \left[x^{6/5}y\right]= \frac{x^{1/5}}{5} + \frac{x^{11/5}}{5}.  \]</span>
 <p>
@@ -1238,7 +1232,7 @@ ii) This equation (\(\displaystyle {5xy’+6y = 1+x^2}\)) is not in the correct 
  for some given \(x_0\in (a,b)\) and \(y_0\in \mathbb {R}\). <br/>
 </p>
 <p>
-<b class="bf">Proof:</b> Existence has already been demonstrated by the construction of an explicit solution (<a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:intfactor">1.9</a>). For uniqueness, we assume that there are two solutions \(y_1(x)\) and \(y_2(x)\). Consider the function \(Y(x)=y_1(x)-y_2(x)\). Clearly 
+<b class="bf">Proof:</b> Existence has already been demonstrated by the construction of an explicit solution (<a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:intfactor">1.9</a>). For uniqueness, we assume that there are two solutions \(y_1(x)\) and \(y_2(x)\). Consider the function \(Y(x)=y_1(x)-y_2(x)\). Clearly 
 </p>
 <span><script type="math/tex; mode=display">\begin{eqnarray*}  Y' + p(x)Y & =&  \left(y_1-y_2\right)' + p(x)\left(y_1-y_2\right)\\ & =&  \left[y_1'+p(x)y_1\right] - \left[y_2'+p(x)y_2\right]\\ & =&  q(x)-q(x)\\ \Longrightarrow Y' + p(x)Y & =&  0, \end{eqnarray*}</script></span>
 <p>
@@ -1374,10 +1368,10 @@ with isoclines defined by
 </p>
 <span class="dmath">\[  g(x,y)=h(x,y)=0  \]</span>
 <p>
- at any point in the \(xy\)-plane, then the point is said to be <b class="bf">singular</b>. At this point, the slope is not single-valued: it lies on both the \(m=0\) and \(1/m=0\) isoclines. In Example <a class="ref" href="../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:iso2">1.8</a>, <b class="bf">all</b> of the isoclines intersect at the origin, which is the only singular point in this case. See handout for a more complicated example. 
+ at any point in the \(xy\)-plane, then the point is said to be <b class="bf">singular</b>. At this point, the slope is not single-valued: it lies on both the \(m=0\) and \(1/m=0\) isoclines. In Example <a class="ref" href="../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:iso2">1.8</a>, <b class="bf">all</b> of the isoclines intersect at the origin, which is the only singular point in this case. See handout for a more complicated example. 
 </p>
 </section>
-<script id="plastex-labels" type="application/json">{"chap:first": {"ref": "1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#chap:first"}, "sec:first:sep": {"ref": "1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:sep"}, "eqn:first:separable": {"ref": "1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:separable"}, "subsec:first:sepsimple": {"ref": "1.1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:sepsimple"}, "ex:first:sepspecial": {"ref": "1.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:sepspecial"}, "subsec:first:sepmethod": {"ref": "1.1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:sepmethod"}, "eqn:first:sepsolution": {"ref": "1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:sepsolution"}, "ex:first:separable1": {"ref": "1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:separable1"}, "ex:first:separable2": {"ref": "1.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:separable2"}, "ex:first:radio": {"ref": "1.4", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:radio"}, "sec:first:hom": {"ref": "1.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:hom"}, "eqn:first:homoneode": {"ref": "1.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneode"}, "eqn:first:homoneodeidea": {"ref": "1.4", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneodeidea"}, "eqn:first:homoneodesolution": {"ref": "1.5", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:homoneodesolution"}, "ex:first:hom": {"ref": "1.5", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:hom"}, "sec:first:linear": {"ref": "1.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:linear"}, "subsec:first:linearform": {"ref": "1.3.1", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:linearform"}, "eqn:first:pregenerallinear": {"ref": "1.6", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:pregenerallinear"}, "eqn:first:generallinear": {"ref": "1.7", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:generallinear"}, "subsec:first:linearint": {"ref": "1.3.2", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:linearint"}, "eqn:first:preintfactor": {"ref": "1.8", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:preintfactor"}, "eqn:first:intfactor": {"ref": "1.9", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:intfactor"}, "ex:first:intfac": {"ref": "1.6", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:intfac"}, "subsec:first:linearexist": {"ref": "1.3.3", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#subsec:first:linearexist"}, "sec:first:iso": {"ref": "1.4", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#sec:first:iso"}, "eqn:first:isocline": {"ref": "1.10", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#eqn:first:isocline"}, "ex:first:iso": {"ref": "1.7", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:iso"}, "ex:first:iso2": {"ref": "1.8", "url": "../../home/jefferson/Documentos/chirun-new/sample_course-master/latex/build/default-port/notas/latex_notes/index.html#ex:first:iso2"}}</script>
+<script id="plastex-labels" type="application/json">{"chap:first": {"ref": "1", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#chap:first"}, "sec:first:sep": {"ref": "1.1", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#sec:first:sep"}, "eqn:first:separable": {"ref": "1.1", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:separable"}, "subsec:first:sepsimple": {"ref": "1.1.1", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#subsec:first:sepsimple"}, "ex:first:sepspecial": {"ref": "1.1", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:sepspecial"}, "subsec:first:sepmethod": {"ref": "1.1.2", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#subsec:first:sepmethod"}, "eqn:first:sepsolution": {"ref": "1.2", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:sepsolution"}, "ex:first:separable1": {"ref": "1.2", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:separable1"}, "ex:first:separable2": {"ref": "1.3", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:separable2"}, "ex:first:radio": {"ref": "1.4", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:radio"}, "sec:first:hom": {"ref": "1.2", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#sec:first:hom"}, "eqn:first:homoneode": {"ref": "1.3", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:homoneode"}, "eqn:first:homoneodeidea": {"ref": "1.4", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:homoneodeidea"}, "eqn:first:homoneodesolution": {"ref": "1.5", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:homoneodesolution"}, "ex:first:hom": {"ref": "1.5", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:hom"}, "sec:first:linear": {"ref": "1.3", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#sec:first:linear"}, "subsec:first:linearform": {"ref": "1.3.1", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#subsec:first:linearform"}, "eqn:first:pregenerallinear": {"ref": "1.6", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:pregenerallinear"}, "eqn:first:generallinear": {"ref": "1.7", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:generallinear"}, "subsec:first:linearint": {"ref": "1.3.2", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#subsec:first:linearint"}, "eqn:first:preintfactor": {"ref": "1.8", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:preintfactor"}, "eqn:first:intfactor": {"ref": "1.9", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:intfactor"}, "ex:first:intfac": {"ref": "1.6", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:intfac"}, "subsec:first:linearexist": {"ref": "1.3.3", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#subsec:first:linearexist"}, "sec:first:iso": {"ref": "1.4", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#sec:first:iso"}, "eqn:first:isocline": {"ref": "1.10", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#eqn:first:isocline"}, "ex:first:iso": {"ref": "1.7", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:iso"}, "ex:first:iso2": {"ref": "1.8", "url": "../../home/jefferson/Documentos/sample_course-master/latex/build/default/notas/latex_notes/index.html#ex:first:iso2"}}</script>
     </article>
 
         </main>
@@ -1392,7 +1386,7 @@ with isoclines defined by
 
     <div id="footer-text">
         <p>Gerado usando <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.1.0, escrito pela Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
-        <p>Esta página foi gerada pela última vez em: 2024-04-21</p>
+        <p>Esta página foi gerada em: 2024-04-28</p>
         
         
         
