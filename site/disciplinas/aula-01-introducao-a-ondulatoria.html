@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01 - Introdução à Ondulatória | Portal de Física</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\(', '\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics']
+        },
+        tex: {
+            packages: {'[+]': ['ams', 'physics']}
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Portal de Física
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Ondas</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 01 - Introdução à Ondulatória</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Ondas</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="content/aulas/ondas/aula-01/aula-01.pdf" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        <div class="aula-content tex2jax_process"><h1 id="objetivos-da-aula" class="mt-4 mb-3 text-primary">Objetivos da Aula</h1><ul class="mb-3"><li>Compreender o conceito de onda e suas características fundamentais.</li><li>Classificar as ondas segundo sua natureza, direção de propagação e dimensão.</li><li>Conhecer o espectro eletromagnético e suas aplicações.</li><li>Aplicar o conhecimento adquirido na resolução de exercícios práticos.</li></ul><h1 id="introdução" class="mt-4 mb-3 text-primary">Introdução</h1><p class="mb-3">A ondulatória é a área da Física que estuda os fenômenos relacionados às <strong>ondas</strong>. Ondas estão presentes em nosso dia a dia: ouvimos sons, vemos luz, sentimos vibrações e usamos internet — tudo isso envolve diferentes tipos de ondas.</p><p class="mb-3">Nesta aula, você aprenderá a <strong>classificar as ondas</strong>, compreender suas características e reconhecer exemplos de cada tipo, com foco especial nas <strong>ondas eletromagnéticas</strong>.</p><p class="mb-3"><strong>O que é uma onda?</strong></p><p class="mb-3">Uma <strong>onda</strong> é uma <strong>perturbação que se propaga em um meio</strong>, transportando <strong>energia</strong> sem transportar matéria de forma permanente.</p><figure class="text-center my-4"><img src="images/def-onda.gif" alt="Onda. Fonte:gifsdafisica" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda. Fonte:<a href="https://gifsdefisicacom.wordpress.com/wp-content/uploads/2018/12/0dk2nfgiphy.gif">gifsdafisica</a></figcaption></figure><p class="mb-3"><strong>Exemplo:</strong></p><ul class="mb-3"><li>Uma pedra lançada em um lago provoca ondas na água: a energia da queda se propaga em forma de onda, mas a água apenas oscila localmente e não se move com a onda.</li></ul><figure class="text-center my-4"><img src="images/água.gif" alt="Onda na água. Fonte:gifsdafisica" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda na água. Fonte:<a href="https://usagif.com/wp-content/uploads/gifs/water-55.gif">gifsdafisica</a></figcaption></figure><h1 id="classificação-das-ondas" class="mt-4 mb-3 text-primary">Classificação das Ondas</h1><p class="mb-3">As ondas podem ser classificadas segundo três critérios principais: <strong>natureza</strong>, <strong>direção de propagação</strong> e <strong>dimensão</strong>.</p><h2 id="classificação-quanto-à-natureza" class="mt-4 mb-3 text-secondary">Classificação quanto à natureza:</h2><ul class="mb-3"><li><strong>Ondas Mecânicas</strong>: precisam de um meio material para se propagar. <strong>Exemplos</strong>: som no ar, ondas em uma corda, ondas na água.</li></ul><figure class="text-center my-4"><img src="images/pressão.gif" alt="Som: onda de pressão no ar. Fonte:wikimedia." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Som: onda de pressão no ar. Fonte:<a href="https://upload.wikimedia.org/wikipedia/commons/4/43/GIF_ONDA_PRESION.gif">wikimedia.</a></figcaption></figure><ul class="mb-3"><li><strong>Ondas Eletromagnéticas</strong>: não precisam de meio material; propagam-se no vácuo. <strong>Exemplos</strong>: luz, micro-ondas, raios X, ondas de rádio.</li></ul><figure class="text-center my-4"><img src="images/onda-EM.gif" alt="Onda eletromagnética. Fonte:ufabc" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda eletromagnética. Fonte:<a href="https://radiacoes-ionizantes.propg.ufabc.edu.br/wp-content/uploads/2023/07/EM-Wave.gif">ufabc</a></figcaption></figure><p class="mb-3"><strong>Espectro Eletromagnético</strong></p><p class="mb-3">As <strong>ondas eletromagnéticas</strong> são compostas por campos elétricos e magnéticos oscilantes e se propagam no vácuo com velocidade constante:</p><p class="mb-3"><span class="math display">\[ c = 3{,}0 \times 10^8 \ \text{m/s} \]</span></p><p class="mb-3">Elas variam de acordo com a <strong>frequência</strong> e o <strong>comprimento de onda</strong>, formando o chamado <strong>espectro eletromagnético</strong>.</p><figure class="text-center my-4"><img src="images/espectro-EM.png" alt="Espectro eletromagnético. Fonte:wikimedia" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Espectro eletromagnético. Fonte:<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Espectro_EM_pt.svg/1050px-Espectro_EM_pt.svg.png">wikimedia</a></figcaption></figure><h1 id="espectro-eletromagnético-características-e-aplicações" class="mt-4 mb-3 text-primary">Espectro Eletromagnético: Características e Aplicações</h1><p class="mb-3">As ondas eletromagnéticas podem ser classificadas conforme seu tipo e aplicação, desde as mais suaves como as ondas de rádio até as mais energéticas, como os raios gama. A seguir, apresentamos uma explicação didática de cada faixa do espectro, com exemplos e curiosidades relevantes ao cotidiano.</p><p class="mb-3"><strong>1. Ondas de Rádio</strong></p><ul class="mb-3"><li>São utilizadas em sistemas de comunicação como rádio AM e FM.</li><li>As <strong>ondas AM</strong> (amplitude modulada) têm maior alcance, mas menor qualidade de som.</li><li>As <strong>ondas FM</strong> (frequência modulada) possuem melhor qualidade sonora, mas menor alcance.</li><li>Usadas também em torres de telefonia, rádio amador, e radiocomunicação militar.</li></ul><figure class="text-center my-4"><img src="images/rádio.gif" alt="Ondas de Rádio. Fonte:wikimedia" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Ondas de Rádio. Fonte:<a href="https://pt.m.wikipedia.org/wiki/Ficheiro:Dipole_xmting_antenna_animation_4_408x318x150ms.gif">wikimedia</a></figcaption></figure><p class="mb-3"><strong>2. Micro-ondas</strong></p><ul class="mb-3"><li>Utilizadas em <strong>fornos de micro-ondas</strong>, que agitam moléculas de água nos alimentos, aquecendo-os rapidamente.</li><li>Por segurança, o forno possui uma <strong>tela metálica na porta</strong> que impede a passagem das micro-ondas para o exterior.</li><li>São também responsáveis pelo funcionamento do <strong>Wi-Fi</strong> e de sistemas de radar.</li></ul><figure class="text-center my-4"><img src="images/micro-ondas.png" alt="Micro-ondas. Fonte:imirante" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Micro-ondas. Fonte:<a href="https://imagens.imirante.com.br/imagens/noticias/oestado/2021/03/29/1617015517-179296918.jpg?fm=webp&amp;s=462550e766dccb0c65f968730aea662a">imirante</a></figcaption></figure><p class="mb-3"><strong>3. Infravermelho (IV)</strong></p><ul class="mb-3"><li>Emite calor e é utilizado em <strong>controles remotos</strong>, <strong>sensores de presença</strong> e em <strong>visão noturna</strong>.</li><li>Câmeras térmicas detectam essa radiação para formar imagens com base na temperatura dos objetos.</li><li>Também usado em alarmes de segurança e em portões automáticos.</li></ul><figure class="text-center my-4"><img src="images/infravermelho.gif" alt="Infravermelho. Fonte:tenor" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Infravermelho. Fonte:<a href="https://media.tenor.com/hjSzm-L_1a4AAAAM/infrared-fart.gif">tenor</a></figcaption></figure><p class="mb-3"><strong>4. Luz Visível</strong></p><ul class="mb-3"><li>É a única faixa que conseguimos enxergar com os olhos humanos.</li><li>Composta pelas cores do <strong>arco-íris</strong>: vermelho, laranja, amarelo, verde, azul, anil e violeta.</li><li>Cada cor representa uma energia diferente, com o <strong>vermelho sendo a menos energética</strong> e o <strong>violeta a mais energética</strong> dentro da luz visível.</li></ul><figure class="text-center my-4"><img src="images/luz-visível.png" alt="Luz visível. Fonte:PharmaVie" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Luz visível. Fonte:<a href="https://i0.wp.com/pharmavie.com.br/wp-content/uploads/2022/10/image-40.png?h=561&amp;ssl=1">PharmaVie</a></figcaption></figure><p class="mb-3"><strong>5. Ultravioleta (UV)</strong></p><ul class="mb-3"><li>Invisível ao olho humano, mas emitida pelo <strong>Sol</strong>.</li><li>É dividida em <strong>UVA, UVB e UVC</strong>: <ul class="mb-3"><li><strong>UVA</strong> penetra profundamente na pele (envelhecimento).</li><li><strong>UVB</strong> causa queimaduras e pode gerar câncer de pele.</li><li><strong>UVC</strong> é extremamente perigosa, mas é bloqueada pela <strong>camada de ozônio</strong>.</li></ul></li><li>O <strong>protetor solar</strong> serve para absorver ou refletir parte dessa radiação.</li></ul><figure class="text-center my-4"><img src="images/ultravioleta.png" alt="Ultravioleta. Fonte:brasilescola" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Ultravioleta. Fonte:<a href="https://s1.static.brasilescola.uol.com.br/be/2025/04/1-ilustracao-dos-tres-tipos-de-radiacao-ultravioleta-emitidos-pelo-sol-sobre-a-terra.jpg">brasilescola</a></figcaption></figure><p class="mb-3"><strong>6. Raios X</strong></p><ul class="mb-3"><li>Muito utilizados na medicina, em <strong>radiografias</strong> e <strong>tomografias</strong>, por sua capacidade de atravessar tecidos e revelar estruturas internas do corpo.</li><li>Também usados em aeroportos para inspecionar bagagens.</li><li>Em excesso, podem causar danos às células, por isso o uso é controlado e protegido por <strong>equipamentos de chumbo</strong>.</li></ul><figure class="text-center my-4"><img src="images/raios-x.gif" alt="Raios-X. Fonte:glbimg" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Raios-X. Fonte:<a href="https://s2.glbimg.com/Cvf_dc4JlOnzLVrx3Y4jvZkXwkM=/e.glbimg.com/og/ed/f/original/2014/08/11/gifosso.gif">glbimg</a></figcaption></figure><p class="mb-3"><strong>7. Raios Gama (<span class="math inline">\(\gamma\)</span>)</strong></p><ul class="mb-3"><li>São os mais penetrantes e perigosos do espectro.</li><li>Utilizados no <strong>tratamento de câncer</strong> (radioterapia), pois conseguem destruir células tumorais.</li><li>Também presentes em <strong>explosões nucleares</strong> e em eventos astronômicos extremos.</li><li>Estão associados a acidentes como os de: <ul class="mb-3"><li><strong>Chernobyl (1986)</strong>: reator nuclear explodiu, liberando grande quantidade de radiação.</li><li><strong>Fukushima (2011)</strong>: tsunami causou falhas nos sistemas de resfriamento da usina.</li><li><strong>Goiânia (1987)</strong>: acidente com o material radioativo césio-137, retirado de um aparelho médico abandonado.</li></ul></li><li>Também estão presentes nas <strong>bombas atômicas</strong> lançadas sobre Hiroshima e Nagasaki em 1945, que usaram urânio e plutônio para gerar energia devastadora.</li></ul><figure class="text-center my-4"><img src="images/raios-gama.png" alt="Raios Gama. Fonte:brasilescola" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Raios Gama. Fonte:<a href="https://s1.static.brasilescola.uol.com.br/img/2018/02/pen.jpg">brasilescola</a></figcaption></figure><p class="mb-3"><strong>Radiações Ionizantes e Não Ionizantes</strong></p><ul class="mb-3"><li><strong>Radiações não ionizantes</strong>: possuem <strong>menor energia</strong> e <strong>não conseguem arrancar elétrons dos átomos</strong>. <ul class="mb-3"><li><strong>Exemplos</strong>: ondas de rádio, micro-ondas, infravermelho, luz visível.</li><li>Em geral, não causam danos ao DNA das células.</li></ul></li><li><strong>Radiações ionizantes</strong>: possuem <strong>alta energia</strong> e são capazes de <strong>ionizar átomos</strong>, ou seja, retirar elétrons, o que pode danificar células e causar mutações. <ul class="mb-3"><li><strong>Exemplos</strong>: ultravioleta (UVB e UVC), raios X e raios gama.</li><li>O contato excessivo com essas radiações requer proteção rigorosa.</li></ul></li></ul><h2 id="classificação-quanto-à-direção-de-propagação" class="mt-4 mb-3 text-secondary">Classificação quanto à direção de propagação:</h2><p class="mb-3">As ondas podem ser classificadas pela relação entre a vibração das partículas e sua direção de propagação. Vejamos os três tipos principais:</p><p class="mb-3"><strong>Ondas Transversais</strong></p><p class="mb-3"><strong>Característica</strong>: Partículas vibram perpendicularmente (90°) à direção de propagação.</p><p class="mb-3"><strong>Exemplos</strong>:</p><ul class="mb-3"><li>Onda em corda esticada.</li><li>Ondas eletromagnéticas.</li></ul><figure class="text-center my-4"><img src="images/corda.gif" alt="Onda em uma corda. Fonte:wikimedia" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda em uma corda. Fonte:<a href="https://upload.wikimedia.org/wikipedia/commons/a/ac/Onda_Transversal_en_una_cuerda.gif">wikimedia</a></figcaption></figure><p class="mb-3"><strong>Ondas Longitudinais</strong></p><p class="mb-3"><strong>Característica</strong>: Partículas vibram paralelamente à direção de propagação (compressão/expansão).</p><p class="mb-3"><strong>Exemplos</strong>:</p><ul class="mb-3"><li>Ondas sonoras.</li><li>Onda em mola.</li></ul><figure class="text-center my-4"><img src="images/mola.gif" alt="Onda em uma mola. Fonte:gifsdefisicacom" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda em uma mola. Fonte:<a href="https://gifsdefisicacom.wordpress.com/wp-content/uploads/2019/09/im1-1.gif">gifsdefisicacom</a></figcaption></figure><p class="mb-3"><strong>Ondas Mistas</strong></p><p class="mb-3"><strong>Característica</strong>: Combinação de movimentos transversais e longitudinais.</p><p class="mb-3"><strong>Exemplos</strong>:</p><ul class="mb-3"><li>Ondas oceânicas superficiais.</li><li>Ondas sísmicas Rayleigh.</li></ul><figure class="text-center my-4"><img src="images/mista.gif" alt="Onda na superfície da água. Fonte:tiagojp" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda na superfície da água. Fonte:<a href="https://tiagojp.com.br/wp-content/uploads/2023/08/gif-onda-mista.gif">tiagojp</a></figcaption></figure><h2 id="classificação-quanto-à-dimensão-de-propagação" class="mt-4 mb-3 text-secondary">Classificação quanto à dimensão de propagação:</h2><ul class="mb-3"><li><strong>Unidimensionais</strong>: propagam-se em uma única direção. <strong>Exemplo</strong>: vibração em uma corda.</li></ul><figure class="text-center my-4"><img src="images/onda-1d.gif" alt="Onda Unidimensional. Fonte:wikimedia" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda Unidimensional. Fonte:<a href="https://upload.wikimedia.org/wikipedia/commons/1/1f/Wave_equation_1D_fixed_endpoints.gif">wikimedia</a></figcaption></figure><ul class="mb-3"><li><strong>Bidimensionais</strong>: propagam-se em duas direções sobre uma superfície. <strong>Exemplo</strong>: ondas na superfície da água.</li></ul><figure class="text-center my-4"><img src="images/onda-2d.gif" alt="Onda Bidimensional. Fonte:wikimedia" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda Bidimensional. Fonte:<a href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Ondes_compression_2d_20_petit.gif?20061117150444">wikimedia</a></figcaption></figure><ul class="mb-3"><li><strong>Tridimensionais</strong>: propagam-se em todas as direções no espaço. <strong>Exemplos</strong>: luz ambiente, som se espalhando em uma sala.</li></ul><figure class="text-center my-4"><img src="images/onda-3d.gif" alt="Onda Tridimensional. Fonte:wikimedia" / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Onda Tridimensional. Fonte:<a href="https://upload.wikimedia.org/wikipedia/commons/7/7e/Spherical_Wave.gif">wikimedia</a></figcaption></figure><p class="mb-3"><strong>Exemplo</strong></p><p class="mb-3">Classifique as ondas a seguir com relação à sua natureza, direção de propagação e dimensão.</p><ol type="a"><li><strong>Som:</strong></li><li><strong>Ondas de rádio:</strong></li><li><strong>Superfície de um lago:</strong></li><li><strong>Corda de violão</strong>:</li><li><strong>Mola com movimento horizontal:</strong></li><li><strong>Luz visível:</strong></li></ol><p class="mb-3"><strong>Resposta</strong></p><ol type="a"><li><strong>Som:</strong>: mecânica, longitudinal e tridimensional.</li><li><strong>Ondas de rádio:</strong> eletromagnética, transversal e tridimensional.</li><li><strong>Superfície de um lago:</strong> mecânica, mista e bidimensional.</li><li><strong>Corda de violão:</strong> mecânica, transversal e unidimensional.</li><li><strong>Mola com movimento horizontal:</strong> mecânica, longitudinal e unidimensional.</li><li><strong>Luz visível:</strong> eletromagnética, transversal e tridimensional.</li></ol><h1 id="conclusão" class="mt-4 mb-3 text-primary">Conclusão</h1><p class="mb-3">Ao longo desta aula, exploramos os <strong>fundamentos da ondulatória</strong>, compreendendo o que são ondas, suas <strong>características principais</strong> e <strong>formas de classificação</strong>: quanto à natureza, à direção de propagação e à dimensão.</p><p class="mb-3">Destacamos especialmente as <strong>ondas eletromagnéticas</strong>, que não precisam de um meio material para se propagar, estão presentes em tecnologias do cotidiano e se distribuem no espectro que vai das <strong>ondas de rádio aos raios gama</strong>.</p><p class="mb-3">Entendemos também a diferença entre <strong>radiações ionizantes e não ionizantes</strong>, e como isso está relacionado à <strong>segurança em aplicações médicas, industriais e nucleares</strong>.</p><p class="mb-3">Esse conhecimento é fundamental para a compreensão de fenômenos naturais e tecnológicos, preparando o caminho para temas como <strong>reflexão, refração, interferência e difração</strong>.</p><h1 id="exercícios" class="mt-4 mb-3 text-primary">Exercícios</h1><p class="mb-3"><strong>1</strong>. Qual das opções a seguir representa uma onda <strong>eletromagnética</strong>?</p><ol type="a"><li>Onda em uma mola.</li><li>Onda em uma corda.</li><li>Som no ar.</li><li>Onda em uma corda vibrante.</li><li>Luz solar.</li></ol><p class="mb-3"><strong>2</strong>. A radiação responsável pela <strong>formação da vitamina D</strong>, mas também capaz de provocar câncer de pele é:</p><ol type="a"><li>Infravermelho.</li><li>Micro-ondas.</li><li>Luz visível.</li><li>Ultravioleta.</li><li>Onda de rádio.</li></ol><p class="mb-3"><strong>3</strong>. As ondas sonoras no ar são classificadas como:</p><ol type="a"><li>Mecânicas, transversais e unidimensionais.</li><li>Mecânicas, longitudinais e tridimensionais.</li><li>Eletromagnéticas, longitudinais e bidimensionais.</li><li>Eletromagnéticas, transversais e tridimensionais.</li><li>Mecânicas, mistas e unidimensionais.</li></ol><p class="mb-3"><strong>4</strong>. Assinale a alternativa que <strong>não</strong> representa uma radiação <strong>ionizante</strong>:</p><ol type="a"><li>Micro-ondas.</li><li>Raios Gama.</li><li>Raios X.</li><li>Ultravioleta UVC.</li><li>Radiação nuclear.</li></ol><p class="mb-3"><strong>5</strong>. A radiação usada em controles remotos e sensores de presença é:</p><ol type="a"><li>Infravermelho.</li><li>Raios X.</li><li>Ultravioleta.</li><li>Micro-ondas.</li><li>Ondas de rádio.</li></ol><p class="mb-3"><strong>6</strong>. Marque a opção que apreesenta <strong>apenas</strong> as radiações <strong>ionizontes</strong> do espectro eletromagnético.</p><ol type="a"><li>Raios gama, Raios X e Micro-ondas.</li><li>Luz visível, Ondas de Rádio e Infravermelho.</li><li>Ultravioleta, Raios X e Raios Gama.</li><li>Infravermelho, Ultravioleta e Ondas de Rádio.</li><li>Micro-ondas, Raios X e Ultravioleta.</li></ol><p class="mb-3"><strong>7</strong>. As <strong>ondas de rádio</strong> são utilizadas principalmente em:</p><ol type="a"><li>Radiografias médicas.</li><li>Comunicação sonora e transmissão de dados.</li><li>Sinais de Wi-Fi.</li><li>Esterilização de materiais hospitalares.</li><li>Micro-ondas residenciais.</li></ol><p class="mb-3"><strong>8</strong>. O que justifica o uso de <strong>proteção de chumbo</strong> em exames de raio X?</p><ol type="a"><li>A radiação é visível e pode cegar.</li><li>A radiação pode alterar a pressão sanguínea.</li><li>A radiação aquece os ossos.</li><li>A radiação causa resfriamento do corpo.</li><li>A radiação é ionizante e pode danificar tecidos.</li></ol><p class="mb-3"><strong>9</strong>. A onda que <strong>não precisa de meio material</strong> para se propagar é:</p><ol type="a"><li>Onda sonora.</li><li>Onda na água.</li><li>Ondas de rádio.</li><li>Vibração de mola.</li><li>Onda em corda.</li></ol><p class="mb-3"><strong>10</strong>. As ondas são perturbações que se propagam transportando:</p><ol type="a"><li>Massa.</li><li>Carga Elétrica.</li><li>Gravidade.</li><li>Energia.</li><li>Matéria.</li></ol><h1 id="gabarito" class="mt-4 mb-3 text-primary">Gabarito</h1><div class="line-block">1.E | 2.D | 3.B | 4.A | 5.A | 6.C | 7.B | 8.E | 9.C | 10.D |</div><h1 id="referências" class="mt-4 mb-3 text-primary">Referências</h1><ul class="mb-3"><li>GASPAR, Adriano. <em>Física: volume 2: ondas e termologia</em>. São Paulo: Ática, 2010..</li><li>HEY, J. Douglas. <em>Física para o Ensino Médio: volume 2</em>. São Paulo: Scipione, 2009..</li><li>SÓ FÍSICA. <em>Ondas - Conceitos</em>. Disponível em: <a href="https://www.sofisica.com.br/conteudos/Ondas" class="uri">https://www.sofisica.com.br/conteudos/Ondas</a>. Acesso em: 6 ago. 2025..</li><li>WIKIPÉDIA. <em>Espectro eletromagnético</em>. Disponível em: <a href="https://pt.wikipedia.org/wiki/Espectro_eletromagn%C3%A9tico" class="uri">https://pt.wikipedia.org/wiki/Espectro_eletromagn%C3%A9tico</a>. Acesso em: 6 ago. 2025..</li><li>WIKIPÉDIA. <em>Onda (física)</em>. Disponível em: <a href="https://pt.wikipedia.org/wiki/Onda_(f%C3%ADsica)" class="uri">https://pt.wikipedia.org/wiki/Onda_(f%C3%ADsica)</a>. Acesso em: 6 ago. 2025.</li></ul></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Portal de Física</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/seu-usuario" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Portal de Física. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initializeMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.startup.promise.then(() => {
+                    if (document.querySelector('.tex2jax_process')) {
+                        MathJax.typesetPromise().catch((err) => {
+                            console.log('MathJax erro:', err.message);
+                        });
+                    }
+                }).catch((err) => {
+                    console.error('MathJax falhou ao carregar:', err);
+                });
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            } else {
+                console.warn('MathJax não está disponível');
+            }
+        }
+        
+        if (typeof MathJax !== 'undefined') {
+            initializeMathJax();
+        } else {
+            window.addEventListener('MathJaxLoaded', initializeMathJax);
+        }
+    });
+    </script>
+</body>
+</html>

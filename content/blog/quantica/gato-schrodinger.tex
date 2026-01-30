@@ -1,0 +1,136 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  a4paper,
+  12pt]{article}
+\usepackage{xcolor}
+\usepackage[top=20mm,left=40mm,bottom=20mm,right=40mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{brazilian}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{cancel}
+\usepackage[version=4]{mhchem}
+\usepackage{tgtermes}
+\usepackage{gensymb}
+\DeclareUnicodeCharacter{00B0}{\degree}
+\usepackage{caption}
+\captionsetup{font=footnotesize}
+\usepackage{indentfirst}
+\setlength{\parindent}{1cm}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={O Paradoxo do Gato de Schrödinger},
+  pdfauthor={Jefferson Rodrigues de Oliveira},
+  pdflang={pt-BR},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{O Paradoxo do Gato de Schrödinger}
+\author{Jefferson Rodrigues de Oliveira}
+\date{24/11/2024}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{O Gato de Schrödinger}\label{o-gato-de-schruxf6dinger}
+
+O experimento mental do \textbf{Gato de Schrödinger} foi proposto por
+Erwin Schrödinger em 1935 para ilustrar o problema da interpretação da
+mecânica quântica.
+
+\subsection{O Experimento Mental}\label{o-experimento-mental}
+
+Schrödinger imaginou um gato dentro de uma caixa fechada com um
+mecanismo quântico:
+
+\begin{itemize}
+\tightlist
+\item
+  Um átomo radioativo pode decair ou não dentro de um intervalo de
+  tempo.
+\item
+  O decaimento ativa um detector que libera veneno, matando o gato.
+\item
+  Se não houver decaimento, o gato permanece vivo.
+\end{itemize}
+
+Segundo a \textbf{interpretação de Copenhague}, antes da observação, o
+gato está em um estado de \textbf{superposição}:
+
+\[
+|\psi\rangle = \frac{1}{\sqrt{2}} (|vivo\rangle + |morto\rangle)
+\]
+
+Somente ao abrir a caixa, a função de onda ``colapsa'' e o gato passa a
+estar definitivamente vivo ou morto.
+
+\subsection{Interpretações da Mecânica
+Quântica}\label{interpretauxe7uxf5es-da-mecuxe2nica-quuxe2ntica}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Copenhague}: O sistema fica em superposição até a observação.
+\item
+  \textbf{Muitos Mundos}: Cada possibilidade gera um universo paralelo
+  onde o gato está vivo em um e morto no outro.
+\item
+  \textbf{De Broglie-Bohm}: A partícula sempre tem um estado definido,
+  mas segue uma trajetória oculta.
+\end{enumerate}
+
+\subsection{Conclusão}\label{conclusuxe3o}
+
+O experimento de Schrödinger é um símbolo das interpretações da mecânica
+quântica e dos paradoxos associados à medição e à superposição.
+
+\end{document}

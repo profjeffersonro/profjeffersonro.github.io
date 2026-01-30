@@ -1,0 +1,143 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  a4paper,
+  12pt]{article}
+\usepackage{xcolor}
+\usepackage[top=20mm,left=40mm,bottom=20mm,right=40mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{brazilian}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{cancel}
+\usepackage[version=4]{mhchem}
+\usepackage{tgtermes}
+\usepackage{gensymb}
+\DeclareUnicodeCharacter{00B0}{\degree}
+\usepackage{caption}
+\captionsetup{font=footnotesize}
+\usepackage{indentfirst}
+\setlength{\parindent}{1cm}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Algoritmos Quânticos},
+  pdfauthor={Jefferson Rodrigues de Oliveira},
+  pdflang={pt-BR},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Algoritmos Quânticos}
+\author{Jefferson Rodrigues de Oliveira}
+\date{01/02/2025}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{Algoritmos Quânticos}\label{algoritmos-quuxe2nticos}
+
+Os \textbf{algoritmos quânticos} exploram as propriedades da computação
+quântica, como superposição e emaranhamento, para resolver problemas de
+forma mais eficiente do que algoritmos clássicos.
+
+\subsection{Fundamentos da Computação
+Quântica}\label{fundamentos-da-computauxe7uxe3o-quuxe2ntica}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Qubits}: Diferentemente dos bits clássicos (0 ou 1), os qubits
+  podem estar em \textbf{superposição} de ambos os estados.
+\item
+  \textbf{Emaranhamento}: Qubits podem ser correlacionados de forma que
+  o estado de um afeta o do outro instantaneamente.
+\item
+  \textbf{Portas Lógicas Quânticas}: Operam sobre qubits de maneira
+  diferente das portas lógicas clássicas.
+\end{itemize}
+
+\subsection{Algoritmos Principais}\label{algoritmos-principais}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Algoritmo de Deutsch-Jozsa}: Resolve um problema específico em
+  tempo constante, enquanto um algoritmo clássico necessitaria de
+  múltiplas consultas.
+\item
+  \textbf{Algoritmo de Shor}: Fatoriza números inteiros em tempo
+  polinomial, ameaçando a segurança da criptografia RSA.
+\item
+  \textbf{Algoritmo de Grover}: Encontra um elemento em uma lista não
+  ordenada em tempo \(O(\sqrt{N})\), mais rápido que a busca clássica
+  \(O(N)\).
+\end{enumerate}
+
+\subsection{Aplicações Futuras}\label{aplicauxe7uxf5es-futuras}
+
+Os algoritmos quânticos prometem avanços em áreas como:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Criptografia e segurança cibernética}
+\item
+  \textbf{Simulação de moléculas para química e medicina}
+\item
+  \textbf{Otimização de sistemas complexos}
+\end{itemize}
+
+\subsection{Conclusão}\label{conclusuxe3o}
+
+Embora ainda em desenvolvimento, a computação quântica tem o potencial
+de revolucionar a ciência e a tecnologia, resolvendo problemas
+intratáveis para computadores clássicos.
+
+\end{document}

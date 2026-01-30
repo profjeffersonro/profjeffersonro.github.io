@@ -1,0 +1,292 @@
+/* style.css */
+/* Este arquivo complementa o Bootstrap */
+
+/* Tipografia */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Cards com efeito hover */
+.card {
+    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd;
+}
+
+/* Navbar personalizada */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Jumbotron/Hero section */
+.jumbotron {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
+}
+
+.jumbotron h1 {
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteúdo das aulas e posts */
+.aula-content, .blog-content {
+    font-size: 1.1rem;
+}
+
+.aula-content h1,
+.aula-content h2,
+.aula-content h3,
+.blog-content h1,
+.blog-content h2,
+.blog-content h3 {
+    color: #2c3e50;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+.aula-content p,
+.blog-content p {
+    margin-bottom: 1.2em;
+    text-align: justify;
+}
+
+/* Imagens responsivas */
+.aula-content img,
+.blog-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1.5rem auto;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Figuras com legendas */
+.aula-content figure,
+.blog-content figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.aula-content figcaption,
+.blog-content figcaption {
+    font-style: italic;
+    color: #666;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Código e pré-formatação */
+.aula-content pre,
+.blog-content pre {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.2rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.aula-content code,
+.blog-content code {
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+}
+
+/* Tabelas */
+.aula-content table,
+.blog-content table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.aula-content th,
+.blog-content th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.aula-content td,
+.blog-content td,
+.aula-content th,
+.blog-content th {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+/* Listas */
+.aula-content ul,
+.blog-content ul,
+.aula-content ol,
+.blog-content ol {
+    margin: 1.2rem 0;
+    padding-left: 2rem;
+}
+
+.aula-content li,
+.blog-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Botões personalizados */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #68428f 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border: none;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+}
+
+/* Breadcrumb personalizado */
+.breadcrumb {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background: #2c3e50 !important;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #86b7fe !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 2rem 1rem !important;
+        margin-bottom: 2rem;
+    }
+    
+    .display-4 {
+        font-size: 2.2rem;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .aula-content, .blog-content {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 0;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .jumbotron h1 {
+        font-size: 1.8rem;
+    }
+    
+    .aula-content h1,
+    .blog-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .aula-content h2,
+    .blog-content h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Animações suaves */
+.card, .btn, .nav-link {
+    transition: all 0.3s ease;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Contêineres responsivos para fórmulas matemáticas */
+.math-container {
+    overflow-x: auto;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Estilos para blocos de citação */
+blockquote {
+    border-left: 4px solid #0d6efd;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #555;
+}

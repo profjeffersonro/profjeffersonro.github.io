@@ -1,0 +1,195 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./introducao.tex
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-11-02>
+(/opt/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/opt/texlive/2024/texmf-dist/tex/latex/base/size10.clo))
+(/opt/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/opt/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/base/textcomp.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/lmodern.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/upquote/upquote.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/opt/texlive/2024/texmf-dist/tex/latex/parskip/parskip.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)))
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def)
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/nil.ldf))
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/locale/pt/babel-brazilian.tex)
+(/opt/texlive/2024/texmf-dist/tex/latex/bookmark/bookmark.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/opt/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/opt/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty)
+(/opt/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(/opt/texlive/2024/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/opt/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def)
+(/opt/texlive/2024/texmf-dist/tex/latex/url/url.sty)
+(/opt/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/opt/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/opt/texlive/2024/texmf-dist/tex/latex/bookmark/bkm-pdftex.def))
+(/opt/texlive/2024/texmf-dist/tex/latex/xurl/xurl.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file introducao.aux.
+(/opt/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/opt/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+No file introducao.toc.
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd)
+[1{/opt/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/opt/texlive
+/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/opt/texlive/2024/texmf-dist/fon
+ts/enc/dvips/lm/lm-ts1.enc}{/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-
+mathit.enc}{/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/opt/tex
+live/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/opt/texlive/2024/texmf-
+dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[2] (./introducao.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )</opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></opt/texlive/
+2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></opt/texlive/2024/texmf-dist/
+fonts/type1/public/lm/lmex10.pfb></opt/texlive/2024/texmf-dist/fonts/type1/publ
+ic/lm/lmmi10.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
+</opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></opt/texlive/202
+4/texmf-dist/fonts/type1/public/lm/lmr17.pfb></opt/texlive/2024/texmf-dist/font
+s/type1/public/lm/lmr7.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/lm/
+lmsy10.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
+Output written on introducao.pdf (2 pages, 168727 bytes).
+Transcript written on introducao.log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./introducao.tex
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-11-02>
+(/opt/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/opt/texlive/2024/texmf-dist/tex/latex/base/size10.clo))
+(/opt/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/opt/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/base/textcomp.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/lmodern.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/upquote/upquote.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/opt/texlive/2024/texmf-dist/tex/latex/parskip/parskip.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)))
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def)
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/nil.ldf))
+(/opt/texlive/2024/texmf-dist/tex/generic/babel/locale/pt/babel-brazilian.tex)
+(/opt/texlive/2024/texmf-dist/tex/latex/bookmark/bookmark.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/opt/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/opt/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+(/opt/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty)
+(/opt/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(/opt/texlive/2024/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/opt/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def)
+(/opt/texlive/2024/texmf-dist/tex/latex/url/url.sty)
+(/opt/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/opt/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/opt/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/opt/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/opt/texlive/2024/texmf-dist/tex/latex/bookmark/bkm-pdftex.def))
+(/opt/texlive/2024/texmf-dist/tex/latex/xurl/xurl.sty)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./introducao.aux)
+(/opt/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/opt/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/opt/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/opt/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg) (./introducao.toc
+) (/opt/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd)
+[1{/opt/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/opt/texlive
+/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/opt/texlive/2024/texmf-dist/fon
+ts/enc/dvips/lm/lm-ts1.enc}{/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-
+mathit.enc}{/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+[2{/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/opt/texlive/
+2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] (./introducao.aux) )</opt/te
+xlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></opt/texlive/2024/texmf
+-dist/fonts/type1/public/lm/lmbx12.pfb></opt/texlive/2024/texmf-dist/fonts/type
+1/public/lm/lmex10.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi
+10.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></opt/texl
+ive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></opt/texlive/2024/texmf-di
+st/fonts/type1/public/lm/lmr17.pfb></opt/texlive/2024/texmf-dist/fonts/type1/pu
+blic/lm/lmr7.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
+></opt/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
+Output written on introducao.pdf (2 pages, 170466 bytes).
+Transcript written on introducao.log.

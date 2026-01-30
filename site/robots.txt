@@ -1,0 +1,7 @@
+# robots.txt para GitHub Pages
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://profjeffersonro.github.io/sitemap.xml

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Portal de Física</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\(', '\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics']
+        },
+        tex: {
+            packages: {'[+]': ['ams', 'physics']}
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Portal de Física
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        <!-- content/home/home.html -->
+<div class="row justify-content-center">
+    <div class="col-lg-10 col-xl-8">
+        <!-- Cabeçalho com foto e apresentação -->
+        <div class="text-center mb-5">
+            <div class="mb-4">
+                <!-- Você pode adicionar sua foto aqui -->
+                <!-- <img src="images/foto-perfil.jpg" alt="Jefferson Rodrigues" class="rounded-circle shadow" width="150" height="150"> -->
+                <div class="d-inline-block p-4 rounded-circle bg-primary bg-opacity-10">
+                    <i class="bi bi-person-badge display-1 text-primary"></i>
+                </div>
+            </div>
+            <h1 class="display-5 fw-bold">Olá, eu sou Jefferson Rodrigues de Oliveira</h1>
+            <p class="lead text-muted">Professor de Física e Criador deste Portal</p>
+        </div>
+
+        <!-- Sobre mim -->
+        <div class="card shadow-sm border-0 mb-5">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="card-title mb-4">
+                    <i class="bi bi-person-circle text-primary me-2"></i>Sobre Mim
+                </h2>
+                <p class="card-text fs-5">
+                    Sou apaixonado por Física e Educação. Entusiasta em Matemática e Computação. Com formação em Física pela Universidade de Brasília, 
+                    tenho dedicado minha carreira ao Ensino e à produção de materiais educacionais que tornem 
+                    a física acessível e interessante para todos os estudantes.
+                </p>
+                <p class="card-text fs-5">
+                    Minha missão é desmistificar conceitos complexos e mostrar como a física está presente 
+                    no nosso dia a dia, desde os fenômenos mais simples até as teorias mais avançadas.
+                </p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-mortarboard-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Formação</h5>
+                                <p class="mb-0 text-muted">Licenciatura e Bacharel em Física.</p>
+                                <p class="mb-0 text-muted">Especialista em Ensino de Ciências Exatas.</p>
+                                <p class="mb-0 text-muted">Mestre em Ensino de Física.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-clock-history text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Experiência</h5>
+                                <p class="mb-0 text-muted">10+ anos ensinando Física em escolas públicas e particulares.</p>
+                                <p class="mb-0 text-muted">Atualmente, professor efetivo do IFSP Campus Registro.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-geo-alt-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Localização</h5>
+                                <p class="mb-0 text-muted">Brasil - Registro/SP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-heart-fill text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5 class="mb-1">Áreas de Interesse</h5>
+                                <p class="mb-0 text-muted">Física, Educação, Matemática e Computação.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sobre o Portal -->
+        <div class="card shadow-sm border-0 mb-5">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="card-title mb-4">
+                    <i class="bi bi-easel-fill text-primary me-2"></i>Sobre o Portal de Física
+                </h2>
+                <p class="card-text fs-5 mb-4">
+                    Este portal nasceu da necessidade de organizar e compartilhar minhas notas de aula de 
+                    forma acessível e estruturada. Aqui você encontrará:
+                </p>
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <span class="badge bg-primary rounded-circle p-2">
+                                    <i class="bi bi-book fs-5"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h5>Notas de Aula Completas</h5>
+                                <p class="text-muted">Material didático organizado por disciplina, com explicações detalhadas e exemplos práticos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <span class="badge bg-success rounded-circle p-2">
+                                    <i class="bi bi-file-earmark-pdf fs-5"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h5>PDFs para Download</h5>
+                                <p class="text-muted">Todas as aulas disponíveis em formato PDF para estudo offline.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <span class="badge bg-info rounded-circle p-2">
+                                    <i class="bi bi-newspaper fs-5"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h5>Blog Científico</h5>
+                                <p class="text-muted">Artigos sobre descobertas recentes, curiosidades e aplicações da física no cotidiano.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <span class="badge bg-warning rounded-circle p-2">
+                                    <i class="bi bi-diagram-3 fs-5"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h5>Conteúdo Organizado</h5>
+                                <p class="text-muted">Estrutura clara e progressiva, ideal para estudantes de todos os níveis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Como usar o portal -->
+        <div class="card shadow-sm border-0 mb-5">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="card-title mb-4">
+                    <i class="bi bi-compass-fill text-primary me-2"></i>Como Usar Este Portal
+                </h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="mb-3">
+                                <span class="display-6 text-primary">1</span>
+                            </div>
+                            <h5>Explore as Disciplinas</h5>
+                            <p class="text-muted">Navegue pelas disciplinas disponíveis e selecione a área que deseja estudar.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="mb-3">
+                                <span class="display-6 text-primary">2</span>
+                            </div>
+                            <h5>Escolha a Aula</h5>
+                            <p class="text-muted">Selecione a aula específica dentro da disciplina escolhida.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="mb-3">
+                                <span class="display-6 text-primary">3</span>
+                            </div>
+                            <h5>Estude e Baixe</h5>
+                            <p class="text-muted">Leia online ou baixe o PDF para estudar quando e onde quiser.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão para começar -->
+        <div class="text-center py-5">
+            <div class="mb-4">
+                <i class="bi bi-rocket-takeoff display-1 text-primary"></i>
+            </div>
+            <h2 class="mb-4">Pronto para Começar sua Jornada na Física?</h2>
+            <p class="lead mb-4">Acesse agora as disciplinas e comece seus estudos com material de qualidade.</p>
+            <a href="/disciplinas/" class="btn btn-primary btn-lg px-5 py-3">
+                <i class="bi bi-book me-2"></i>Começar a Estudar
+            </a>
+            <p class="text-muted mt-3 small">Totalmente gratuito • Material atualizado • Acesso ilimitado</p>
+        </div>
+
+        <!-- Contato rápido -->
+        <div class="card border-primary border-2">
+            <div class="card-body text-center p-4">
+                <h4 class="card-title mb-3">
+                    <i class="bi bi-chat-dots-fill text-primary me-2"></i>Entre em Contato
+                </h4>
+                <p class="card-text mb-4">
+                    Tem sugestões, dúvidas ou quer colaborar com o portal? 
+                    Ficarei feliz em conversar!
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="mailto:jefferson.rodrigues@ifsp.edu.br" class="btn btn-outline-primary">
+                        <i class="bi bi-envelope me-2"></i>Email
+                    </a>
+                    <a href="https://github.com/seu-usuario" class="btn btn-outline-dark" target="_blank">
+                        <i class="bi bi-github me-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos adicionais específicos para a home -->
+<style>
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+    
+    .badge.rounded-circle {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .display-6 {
+        font-weight: bold;
+        width: 60px;
+        height: 60px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid var(--bs-primary);
+        border-radius: 50%;
+    }
+</style>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Portal de Física</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/seu-usuario" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Portal de Física. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initializeMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.startup.promise.then(() => {
+                    if (document.querySelector('.tex2jax_process')) {
+                        MathJax.typesetPromise().catch((err) => {
+                            console.log('MathJax erro:', err.message);
+                        });
+                    }
+                }).catch((err) => {
+                    console.error('MathJax falhou ao carregar:', err);
+                });
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            } else {
+                console.warn('MathJax não está disponível');
+            }
+        }
+        
+        if (typeof MathJax !== 'undefined') {
+            initializeMathJax();
+        } else {
+            window.addEventListener('MathJaxLoaded', initializeMathJax);
+        }
+    });
+    </script>
+</body>
+</html>
