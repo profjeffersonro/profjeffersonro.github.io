@@ -10,10 +10,10 @@ disciplinas:
   aulas:
   - name: Aula 01 - Cinemática
     html: content/aulas/mecanica-classica/aula-01/aula-01.html
-    pdf: https://drive.google.com/file/d/1zll3QPjX0pC4VXQlGM7FDYLqn6_40j0t/view?usp=drivesdk
+    pdf: https://drive.google.com/file/d/1V1e0EN5j0cUmlBZCL6b1w03uWnQv8RXV/view?usp=drivesdk
   - name: Aula 02 - Dinâmica
     html: content/aulas/mecanica-classica/aula-02/aula-02.html
-    pdf: https://drive.google.com/file/d/1nO4Ejyr_AoVPKVSubQuYKl7Zod-PCmDm/view?usp=drivesdk
+    pdf: https://drive.google.com/file/d/1K8d-eHmzYgv8QMaxg--QYahkno0Hj7XD/view?usp=drivesdk
   - name: Aula 03 - Dinâmica
     html: content/aulas/mecanica-classica/aula-03/aula-03.html
     pdf: https://drive.google.com/file/d/148Y3x5B_OyNfOo9XQnfGTjNmJ89i4Wjn/view?usp=drivesdk
@@ -27,7 +27,7 @@ disciplinas:
   aulas:
   - name: Aula 01 - Introdução
     html: content/aulas/termologia/aula-01/termo-1.html
-    pdf: https://drive.google.com/file/d/1zll3QPjX0pC4VXQlGM7FDYLqn6_40j0t/view?usp=drivesdk
+    pdf: https://drive.google.com/file/d/1V1e0EN5j0cUmlBZCL6b1w03uWnQv8RXV/view?usp=drivesdk
 - disciplina: Eletromagnetismo
   aulas:
   - name: Aula 01 - Campo Elétrico
@@ -37,7 +37,7 @@ disciplinas:
   aulas:
   - name: Aula 01 - Introdução à Ondulatória
     html: content/aulas/ondas/aula-01/ondas-01.html
-    pdf: https://drive.google.com/file/d/1zll3QPjX0pC4VXQlGM7FDYLqn6_40j0t/view?usp=drivesdk
+    pdf: https://drive.google.com/file/d/1V1e0EN5j0cUmlBZCL6b1w03uWnQv8RXV/view?usp=drivesdk
 blog:
   posts:
   - title: Introdução à Teoria da Relatividade
