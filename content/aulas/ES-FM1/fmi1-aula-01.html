@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física Moderna 1</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+Moderna 1</h1>
+                                
+                                <h2 class="document-subtitle display-6">Concepções
+Históricas</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos-de-aprendizagem">OBJETIVOS DE
+                APRENDIZAGEM</h1>
+                <p>Ao final desta aula, você será capaz de: -
+                Identificar as principais limitações da física clássica
+                no final do século XIX. - Descrever os cinco problemas
+                experimentais que levaram à crise na física. - Explicar
+                como cada “nuvem” no horizonte exigiu novas abordagens
+                teóricas. - Relacionar os problemas históricos com
+                conceitos fundamentais da física quântica. - Reconhecer
+                a importância do método científico na evolução das
+                teorias físicas.</p>
+                <h1
+                id="introdução-o-mito-da-física-completa">INTRODUÇÃO: O
+                MITO DA FÍSICA “COMPLETA”</h1>
+                <p>No alvorecer do século XX, a comunidade científica
+                respirava um ar de triunfalismo. A famosa declaração
+                atribuída ao físico Albert A. Michelson, em 1894, ecoava
+                o sentimento predominante:</p>
+                <blockquote>
+                <p>“A física está praticamente completa, restando apenas
+                medidas cada vez mais precisas.”</p>
+                </blockquote>
+                <p>Essa confiança parecia justificada pelos
+                impressionantes sucessos da física clássica:</p>
+                <ul>
+                <li><strong>Mecânica Newtoniana</strong> explicava com
+                precisão desde o movimento de projéteis até as órbitas
+                planetárias.<br />
+                </li>
+                <li><strong>Eletromagnetismo de Maxwell</strong>
+                unificava eletricidade, magnetismo e óptica em um
+                conjunto elegante de equações.<br />
+                </li>
+                <li><strong>Termodinâmica e Mecânica
+                Estatística</strong> descreviam máquinas térmicas,
+                gases, motores e a própria revolução industrial.</li>
+                </ul>
+                <p>Porém, essa aparente completude era uma ilusão. Em
+                uma conferência de 1900, o físico <strong>Lord
+                Kelvin</strong> usou uma metáfora que se tornaria
+                famosa: o céu da física parecia claro e azul, mas havia
+                <strong>“pequenas nuvens no horizonte”</strong> que
+                anunciavam tempestades. Originalmente, Kelvin falava de
+                <strong>duas nuvens</strong>:</p>
+                <ol type="1">
+                <li>Os resultados negativos do experimento de
+                <strong>Michelson–Morley</strong> sobre o éter.<br />
+                </li>
+                <li>As discrepâncias entre a teoria clássica e os dados
+                da <strong>radiação de corpo negro</strong>.</li>
+                </ol>
+                <p>Hoje sabemos que, além dessas duas, outras anomalias
+                se somavam, formando um conjunto de <strong>crises
+                experimentais</strong> que abriram espaço para a Física
+                Moderna. Nesta aula, vamos organizar essas dificuldades
+                em <strong>cinco “nuvens negras”</strong> que
+                perturbavam a física clássica no fim do século XIX.</p>
+                <h1 id="as-nuvens-de-kelvin-e-a-crise-ampliada">AS
+                “NUVENS” DE KELVIN E A CRISE AMPLIADA</h1>
+                <p>Do ponto de vista historiográfico, nem todos os
+                autores concordam que houve uma “crise dramática”
+                claramente percebida na época; a ideia de uma “crise da
+                física clássica” é, em parte, uma reconstrução
+                posterior, útil pedagogicamente para mostrar limites e
+                rupturas de teorias.</p>
+                <p>Entretanto, é fato que:</p>
+                <ul>
+                <li>Havia <strong>resultados experimentais
+                robustos</strong> que <strong>não se encaixavam</strong>
+                nos modelos clássicos.</li>
+                <li>Alguns físicos (Kelvin, Planck, Lorentz, Poincaré,
+                entre outros) <strong>percebiam tensões
+                conceituais</strong> crescentes.</li>
+                <li>Soluções apenas “técnicas” não resolviam o problema;
+                era preciso <strong>mudar o modo de pensar</strong> o
+                mundo físico.</li>
+                </ul>
+                <p>Ao longo das próximas subseções, vamos olhar para
+                <strong>cinco problemas concretos</strong> que, juntos,
+                mostram como o “céu azul” da física clássica estava, na
+                verdade, cheio de nuvens densas.</p>
+                <h1 id="nuvem-1-a-catastrofe-do-ultravioleta">NUVEM 1 –
+                A CATASTROFE DO ULTRAVIOLETA</h1>
+                <h2 id="o-problema-físico-radiação-de-corpo-negro">1.1 O
+                problema físico: radiação de corpo negro</h2>
+                <p>Imagine um forno ideal, opaco, com um pequeno
+                orifício: qualquer radiação que entra é absorvida e, em
+                equilíbrio térmico, a radiação que sai pelo orifício é
+                chamada de <strong>radiação de corpo negro</strong>. Na
+                virada do século XIX para o XX, vários laboratórios
+                mediam com precisão:</p>
+                <ul>
+                <li>Como a <strong>intensidade da radiação</strong>
+                depende do <strong>comprimento de onda</strong>.<br />
+                </li>
+                <li>Como esse espectro muda quando a
+                <strong>temperatura</strong> do corpo aumenta.</li>
+                </ul>
+                <p>Experimentalmente, as curvas sempre apresentavam o
+                mesmo comportamento geral: - A intensidade cresce com o
+                comprimento de onda, atinge um <strong>máximo</strong> e
+                depois <strong>decai</strong> nas regiões de alta
+                frequência (ultravioleta).</p>
+                <h2
+                id="a-tentativa-clássica-rayleighjeans-e-equipartição">1.2
+                A tentativa clássica: Rayleigh–Jeans e equipartição</h2>
+                <p>Usando: - Eletromagnetismo de Maxwell<br />
+                - Mecânica estatística clássica (teorema da
+                equipartição)</p>
+                <p>Lord Rayleigh e James Jeans obtiveram uma fórmula
+                para a densidade de energia que funcionava <strong>bem
+                em baixas frequências</strong>, mas:</p>
+                <ul>
+                <li>Predizia que, para comprimentos de onda curtos
+                (ultravioleta), a energia iria <strong>aumentar sem
+                limite</strong>, levando a uma energia total
+                <strong>infinita</strong>.</li>
+                </ul>
+                <p>Esse resultado absurdo ficou conhecido como
+                <strong>“catástrofe do ultravioleta”</strong>: segundo a
+                teoria clássica, qualquer objeto quente deveria emitir
+                uma quantidade infinita de energia em radiação de alta
+                frequência — o que obviamente não ocorre.</p>
+                <h2 id="a-ruptura-de-planck-1900">1.3 A ruptura de
+                Planck (1900)</h2>
+                <p>Max Planck, tentando ajustar a teoria aos dados
+                experimentais, fez uma hipótese que, à época, considerou
+                quase um “truque matemático”:</p>
+                <ul>
+                <li><p>Ele supôs que os osciladores de carga nas paredes
+                do corpo negro <strong>não podem trocar energia de forma
+                contínua</strong>, mas apenas em <strong>múltiplos
+                inteiros</strong> de um “quantum” de energia:<br />
+                </p>
+                <p><span
+                class="math display"><em>E</em><sub><em>n</em></sub> = <em>n</em> <em>h</em><em>ν</em>,  <em>n</em> = 0, 1, 2, …</span>
+                onde <span class="math inline"><em>h</em></span> é a
+                hoje famosa <strong>constante de
+                Planck</strong>.</p></li>
+                </ul>
+                <p>Com essa hipótese, Planck obteve uma fórmula que:</p>
+                <ul>
+                <li><strong>Reproduzia perfeitamente</strong> os dados
+                experimentais para todas as frequências.<br />
+                </li>
+                <li>Eliminava a catástrofe do ultravioleta.</li>
+                </ul>
+                <p>Mais tarde, percebeu-se que essa hipótese não era
+                apenas um truque: ela marcava o <strong>nascimento da
+                teoria quântica</strong> e inaugurava a ideia de
+                <strong>quantização da energia</strong>.</p>
+                <h1 id="nuvem-2-o-éter-luminífero-fantasma">NUVEM 2 – O
+                ÉTER LUMINÍFERO FANTASMA</h1>
+                <h2 id="a-necessidade-do-éter">2.1 A necessidade do
+                éter</h2>
+                <p>Como as ondas sonoras precisam de um meio material
+                (ar, água, etc.), acreditava-se que as <strong>ondas
+                eletromagnéticas</strong> também precisavam de um meio
+                para se propagar: o <strong>éter
+                luminífero</strong>.</p>
+                <p>Características esperadas do éter: - Preenchia todo o
+                espaço.<br />
+                - Era extremamente rígido para sustentar ondas de alta
+                frequência.<br />
+                - Quase não interagia com a matéria (para não frear
+                planetas, por exemplo).</p>
+                <p>Na prática, era um meio com propriedades
+                <strong>contraditórias e pouco físicas</strong>, mas
+                amplamente aceito por falta de alternativa.</p>
+                <h2 id="o-experimento-de-michelsonmorley-1887">2.2 O
+                experimento de Michelson–Morley (1887)</h2>
+                <p>Se a Terra se move através do éter, deveríamos
+                conseguir detectar um <strong>“vento de éter”</strong>
+                que afetaria a velocidade da luz em diferentes direções.
+                Michelson e Morley construíram um interferômetro
+                extremamente sensível para medir essa diferença.</p>
+                <p>Resultado:</p>
+                <ul>
+                <li>Nenhuma variação detectável na velocidade da
+                luz.<br />
+                </li>
+                <li>O experimento retornou um <strong>resultado
+                nulo</strong> — a luz parecia ter a mesma velocidade em
+                todas as direções.</li>
+                </ul>
+                <h2 id="consequências-conceituais">2.3 Consequências
+                conceituais</h2>
+                <p>Esse resultado minou a ideia de:</p>
+                <ul>
+                <li>Um <strong>referencial absoluto</strong> de repouso
+                (o éter).<br />
+                </li>
+                <li>Uma descrição clássica de espaço e tempo como
+                absolutos.</li>
+                </ul>
+                <p>Surgiram tentativas de salvar o éter (como a
+                contração de Lorentz–FitzGerald), mas o quadro
+                conceitual ficou cada vez mais tenso até que, em 1905,
+                Einstein propôs a <strong>Teoria da Relatividade
+                Especial</strong>, abandonando o éter e elevando a
+                velocidade da luz a uma constante fundamental.</p>
+                <p>Embora a relatividade não seja o foco principal deste
+                curso, é importante perceber que <strong>uma das
+                “nuvens” de Kelvin levou à outra grande teoria
+                moderna</strong>, paralela à quântica.</p>
+                <h1 id="nuvem-3-espectros-atômicos-desordenados">NUVEM 3
+                – ESPECTROS ATÔMICOS DESORDENADOS</h1>
+                <h2 id="o-surgimento-da-espectroscopia">3.1 O surgimento
+                da espectroscopia</h2>
+                <p>Na segunda metade do século XIX, com o trabalho de
+                <strong>Bunsen</strong> e <strong>Kirchhoff</strong>, a
+                análise do espectro de luz emitido por gases excitados
+                se tornou uma ferramenta poderosa:</p>
+                <ul>
+                <li>Gases aquecidos ou submetidos a descargas elétricas
+                emitem luz que, ao passar por um prisma, se decompõe em
+                <strong>linhas brilhantes bem definidas</strong>
+                (espectros de emissão).<br />
+                </li>
+                <li>Na luz solar ou de estrelas, vemos <strong>linhas
+                escuras de absorção</strong>, indicando frequências
+                específicas retiradas de um espectro quase
+                contínuo.</li>
+                </ul>
+                <p>Cada elemento químico apresenta um <strong>“código de
+                barras”</strong> característico — uma assinatura
+                espectral única.</p>
+                <h2 id="fórmulas-empíricas-sem-teoria">3.2 Fórmulas
+                empíricas sem teoria</h2>
+                <p>Para o hidrogênio, o professor de matemática
+                <strong>Johann Balmer</strong> (1885) encontrou uma
+                fórmula simples para o comprimento de onda das linhas na
+                região visível. Mais tarde, <strong>Rydberg</strong>
+                generalizou essa fórmula.</p>
+                <p>Problema:</p>
+                <ul>
+                <li>As fórmulas eram <strong>empíricas</strong>,
+                ajustavam os dados, mas <strong>não havia explicação
+                física</strong>.<br />
+                </li>
+                <li>A eletrodinâmica clássica sugeria que elétrons em
+                órbitas deveriam emitir radiação em um espectro
+                <strong>contínuo</strong>, não em linhas discretas.</li>
+                </ul>
+                <h2 id="a-resposta-provisória-de-bohr-1913">3.3 A
+                resposta provisória de Bohr (1913)</h2>
+                <p>Niels Bohr, combinando ideias clássicas e a hipótese
+                quântica de Planck, propôs que:</p>
+                <ul>
+                <li><p>Elétrons só podem ocupar certas <strong>órbitas
+                estacionárias</strong> em torno do núcleo, com energias
+                quantizadas.<br />
+                </p></li>
+                <li><p>Ao “pular” de uma órbita para outra, emitem ou
+                absorvem um fóton com energia<br />
+                </p>
+                <p><span
+                class="math display"><em>E</em><sub><em>f</em></sub> − <em>E</em><sub><em>i</em></sub> = <em>h</em><em>ν</em>.</span></p></li>
+                </ul>
+                <p>O modelo de Bohr explicou com sucesso:</p>
+                <ul>
+                <li>As linhas espectrais do hidrogênio.<br />
+                </li>
+                <li>O valor das constantes de Balmer e Rydberg.</li>
+                </ul>
+                <p>No entanto, o modelo ainda era
+                <strong>híbrido</strong> (meio clássico, meio quântico)
+                e se mostraria insuficiente para átomos mais complexos.
+                Mesmo assim, foi um passo crucial rumo à
+                <strong>mecânica quântica completa</strong>.</p>
+                <h1 id="nuvem-4-a-estabilidade-dos-átomos">NUVEM 4 – A
+                ESTABILIDADE DOS ÁTOMOS</h1>
+                <h2 id="do-pudim-de-passas-ao-núcleo">4.1 Do “pudim de
+                passas” ao núcleo</h2>
+                <p>Após a descoberta do elétron por J. J. Thomson
+                (1897), surgiu o chamado modelo <strong>“pudim de
+                passas”</strong>:</p>
+                <ul>
+                <li>A carga positiva estaria espalhada por uma
+                esfera.<br />
+                </li>
+                <li>Elétrons (cargas negativas) se distribuiriam dentro
+                dela, como passas em um pudim.</li>
+                </ul>
+                <p>O experimento de espalhamento de partículas alfa
+                realizado por <strong>Rutherford, Geiger e
+                Marsden</strong> (1909) mostrou, porém, que:</p>
+                <ul>
+                <li>A maior parte da massa e da carga positiva do átomo
+                está concentrada em um <strong>núcleo muito
+                pequeno</strong>.<br />
+                </li>
+                <li>A matéria é, em grande parte,
+                <strong>vazia</strong>.</li>
+                </ul>
+                <p>Nascia o <strong>modelo nuclear de
+                Rutherford</strong>: elétrons orbitando um núcleo
+                compacto, como planetas em torno do Sol.</p>
+                <h2 id="o-problema-da-instabilidade-clássica">4.2 O
+                problema da instabilidade clássica</h2>
+                <p>De acordo com a eletrodinâmica clássica:</p>
+                <ul>
+                <li>Uma carga elétrica que se move em trajetória curva
+                (como um elétron orbitando) deve <strong>emitir radiação
+                continuamente</strong>, perdendo energia.<br />
+                </li>
+                <li>Com isso, o elétron deveria espiralar em direção ao
+                núcleo em um tempo da ordem de (10^{-11}) s.</li>
+                </ul>
+                <p>Ou seja: <strong>átomos clássicos seriam
+                instáveis</strong>, a matéria colapsaria rapidamente — o
+                que contraria completamente a realidade física (átomos,
+                moléculas, sólidos, nós mesmos!).</p>
+                <h2 id="a-solução-quântica-inicial">4.3 A solução
+                quântica inicial</h2>
+                <p>Mais uma vez, o modelo de <strong>Bohr</strong> entra
+                como solução provisória:</p>
+                <ul>
+                <li>Elétrons em órbitas estacionárias <strong>não emitem
+                radiação</strong>, mesmo estando acelerados.<br />
+                </li>
+                <li>Somente as <strong>transições entre órbitas</strong>
+                levam à emissão ou absorção de fótons.</li>
+                </ul>
+                <p>Esse postulado é abertamente
+                <strong>anticlássico</strong>, mas funciona
+                fenomenologicamente. Só com a <strong>mecânica quântica
+                de Schrödinger, Heisenberg e outros</strong> é que a
+                estabilidade atômica ganha uma explicação mais profunda,
+                associada ao caráter <strong>ondulatório da
+                matéria</strong> e aos <strong>níveis de energia
+                quantizados</strong> em potenciais ligados.</p>
+                <h1 id="nuvem-5-o-efeito-fotoelétrico-misterioso">NUVEM
+                5 – O EFEITO FOTOELÉTRICO MISTERIOSO</h1>
+                <h2 id="observações-iniciais">5.1 Observações
+                iniciais</h2>
+                <p>Desde o fim do século XIX, fenômenos curiosos eram
+                observados:</p>
+                <ul>
+                <li>Placas metálicas carregadas perdiam carga quando
+                iluminadas com luz adequada.<br />
+                </li>
+                <li>Em certos arranjos, a luz fazia surgir uma
+                <strong>corrente elétrica</strong>, mesmo sem diferença
+                de potencial aplicada.</li>
+                </ul>
+                <p>Heinrich Hertz (1887) e, depois, Hallwachs e Lenard
+                estudaram o fenômeno com mais detalhe, mostrando
+                que:</p>
+                <ul>
+                <li>A luz pode <strong>arrancar elétrons</strong> de
+                superfícies metálicas.<br />
+                </li>
+                <li>A corrente gerada depende de propriedades da luz e
+                do material.</li>
+                </ul>
+                <h2
+                id="previsões-clássicas-vs.-resultados-experimentais">5.2
+                Previsões clássicas vs. resultados experimentais</h2>
+                <p>Do ponto de vista das ondas clássicas:</p>
+                <ul>
+                <li>A energia transportada pela onda aumenta com a
+                <strong>intensidade da luz</strong>.<br />
+                </li>
+                <li>Seria natural esperar que, aumentando a intensidade,
+                <strong>qualquer frequência</strong> acabasse arrancando
+                elétrons (bastaria esperar tempo suficiente).</li>
+                </ul>
+                <p>Mas os experimentos mostravam:</p>
+                <ol type="1">
+                <li>Existe uma <strong>frequência de corte</strong>:
+                abaixo dela, <strong>nenhum elétron é ejetado</strong>,
+                por mais intensa que seja a luz.<br />
+                </li>
+                <li>A <strong>energia cinética máxima</strong> dos
+                elétrons depende da <strong>frequência</strong>, não da
+                intensidade.<br />
+                </li>
+                <li>O efeito começa <strong>quase
+                instantaneamente</strong>, sem um tempo de “acumulação”
+                de energia.</li>
+                </ol>
+                <p>Tudo isso é <strong>incompatível</strong> com a
+                descrição puramente ondulatória da luz.</p>
+                <h2 id="a-interpretação-de-einstein-1905">5.3 A
+                interpretação de Einstein (1905)</h2>
+                <p>Einstein deu um passo ousado: levou a sério a ideia
+                de Planck de que energia vem em “pacotes” e a aplicou
+                <strong>não apenas à matéria, mas à própria
+                luz</strong>.</p>
+                <p>Postulados:</p>
+                <ul>
+                <li><p>A luz é composta por <strong>quanta</strong>
+                (mais tarde chamados de <strong>fótons</strong>), cada
+                um com energia<br />
+                </p>
+                <p><span
+                class="math display"><em>E</em> = <em>h</em><em>ν</em>.</span></p></li>
+                <li><p>Cada fóton interage basicamente com <strong>um
+                único elétron</strong> no metal.<br />
+                </p></li>
+                <li><p>Parte da energia é usada para vencer a
+                <strong>função trabalho</strong> do metal (<span
+                class="math inline"><em>ϕ</em></span>), e o resto
+                aparece como energia cinética do elétron.</p></li>
+                </ul>
+                <p>A equação de Einstein para o efeito fotoelétrico é:
+                <span class="math display"><em>E</em><sub>cin,
+                máx</sub> = <em>h</em><em>ν</em> − <em>ϕ</em>.</span></p>
+                <p>Essa descrição:</p>
+                <ul>
+                <li>Explica a existência da <strong>frequência de
+                corte</strong> (<span
+                class="math inline"><em>ν</em><sub>corte</sub> = <em>ϕ</em>/<em>h</em></span>).<br />
+                </li>
+                <li>Justifica por que a intensidade afeta a
+                <strong>quantidade</strong> de elétrons emitidos, mas
+                não sua energia máxima.<br />
+                </li>
+                <li>Confere ao fóton um papel central e reforça a ideia
+                de <strong>natureza corpuscular da luz</strong>.</li>
+                </ul>
+                <p>Em 1921, Einstein recebeu o <strong>Prêmio Nobel de
+                Física</strong> não pela relatividade, mas justamente
+                por essa explicação do efeito fotoelétrico.</p>
+                <h1 id="exercícios-de-fixação">EXERCÍCIOS DE
+                FIXAÇÃO</h1>
+                <h3 id="questão-1">Questão 1</h3>
+                <p>Qual fenômeno demonstrou de forma mais direta que a
+                luz deve ser tratada como composta por quanta de energia
+                (fótons) em certas situações?</p>
+                <ol type="a">
+                <li>A catástrofe do ultravioleta<br />
+                </li>
+                <li>O experimento de Michelson–Morley<br />
+                </li>
+                <li>O efeito fotoelétrico<br />
+                </li>
+                <li>Os espectros atômicos</li>
+                </ol>
+                <p><strong>Resposta:</strong> c</p>
+                <h3 id="questão-2">Questão 2</h3>
+                <p>O experimento de Michelson–Morley teve como principal
+                consequência histórica:</p>
+                <ol type="a">
+                <li>A descoberta do elétron<br />
+                </li>
+                <li>A comprovação da existência do éter<br />
+                </li>
+                <li>A crise da ideia de um meio luminífero
+                absoluto<br />
+                </li>
+                <li>O abandono da quantização da energia</li>
+                </ol>
+                <p><strong>Resposta:</strong> c</p>
+                <h3 id="questão-3">Questão 3</h3>
+                <p>A “catástrofe do ultravioleta” referia-se ao fato de
+                que a teoria clássica previa:</p>
+                <ol type="a">
+                <li>Átomos instáveis<br />
+                </li>
+                <li>Radiação infinita em altas frequências<br />
+                </li>
+                <li>Velocidade da luz variável<br />
+                </li>
+                <li>Espectros atômicos contínuos</li>
+                </ol>
+                <p><strong>Resposta:</strong> b</p>
+                <h3 id="questão-4">Questão 4</h3>
+                <p>O modelo atômico de Rutherford falhava em
+                explicar:</p>
+                <ol type="a">
+                <li>A existência do núcleo atômico<br />
+                </li>
+                <li>A estabilidade dos átomos<br />
+                </li>
+                <li>A neutralidade elétrica dos átomos<br />
+                </li>
+                <li>Os espectros de absorção</li>
+                </ol>
+                <p><strong>Resposta:</strong> b</p>
+                <h3 id="questão-5">Questão 5</h3>
+                <p>A quantização da energia foi inicialmente proposta
+                para explicar:</p>
+                <ol type="a">
+                <li>O efeito fotoelétrico<br />
+                </li>
+                <li>A radiação de corpo negro<br />
+                </li>
+                <li>Os espectros atômicos<br />
+                </li>
+                <li>A estabilidade atômica</li>
+                </ol>
+                <p><strong>Resposta:</strong> b</p>
+                <h3 id="questão-6">Questão 6</h3>
+                <p>Sobre os espectros atômicos, assinale a alternativa
+                correta:</p>
+                <ol type="a">
+                <li>A física clássica explica naturalmente a existência
+                de linhas discretas.<br />
+                </li>
+                <li>As fórmulas de Balmer e Rydberg foram inicialmente
+                deduzidas a partir da teoria de Bohr.<br />
+                </li>
+                <li>Cada elemento químico apresenta um espectro
+                característico, o que permitiu inclusive identificar
+                elementos em estrelas.<br />
+                </li>
+                <li>O espectro de corpo negro é sempre formado apenas
+                por linhas discretas.</li>
+                </ol>
+                <p><strong>Resposta:</strong> c</p>
+                <h3 id="questão-7">Questão 7</h3>
+                <p>Qual das alternativas <strong>não</strong> representa
+                uma das “nuvens” que contribuíram para a crise da física
+                clássica?</p>
+                <ol type="a">
+                <li>A radiação de corpo negro.<br />
+                </li>
+                <li>O efeito fotoelétrico.<br />
+                </li>
+                <li>A descoberta da expansão do Universo.<br />
+                </li>
+                <li>A estabilidade dos átomos.</li>
+                </ol>
+                <p><strong>Resposta:</strong> c</p>
+                <h1 id="vídeos-recomendados-aprofundamento">VÍDEOS
+                RECOMENDADOS (APROFUNDAMENTO)</h1>
+                <ul>
+                <li><p><strong>Física Quântica – Aula 01 – Breve
+                História da Física Quântica (UNIVESP)</strong><br />
+                Introdução histórica semelhante à desta aula, com foco
+                nos anos 1900–1930.<br />
+                Link:
+                https://www.youtube.com/watch?v=rFFdL6LP2mE</p></li>
+                <li><p><strong>Origens do Mundo Quântico – Física para
+                Poetas (Ciência Todo Dia)</strong><br />
+                Episódio em português que discute a crise da física
+                clássica e o nascimento da quântica.<br />
+                Link: https://www.youtube.com/watch?v=SgGz5gwCPlM
+                :contentReference<span
+                data-index="0">oaicite:0</span></p></li>
+                <li><p><strong>O Efeito Fotoelétrico Explicado (O Nobel
+                de Einstein)</strong><br />
+                Vídeo com visualizações didáticas do efeito
+                fotoelétrico.<br />
+                Link: https://www.youtube.com/watch?v=USGENeYkBd4
+                :contentReference<span
+                data-index="1">oaicite:1</span></p></li>
+                <li><p><strong>Experimento de Michelson–Morley – Éter
+                luminífero</strong><br />
+                Vídeo em português explicando o contexto histórico e o
+                experimento.<br />
+                Link: https://www.youtube.com/watch?v=7cHthImtUxo
+                :contentReference<span
+                data-index="2">oaicite:2</span></p></li>
+                </ul>
+                <h1 id="simulações-interativas">SIMULAÇÕES
+                INTERATIVAS</h1>
+                <ul>
+                <li><p><strong>Radiação de Corpo Negro – PhET
+                (Universidade do Colorado)</strong><br />
+                Explore como o espectro de um corpo negro depende da
+                temperatura.<br />
+                Link:
+                https://phet.colorado.edu/pt/simulations/blackbody-spectrum
+                :contentReference<span
+                data-index="3">oaicite:3</span></p></li>
+                <li><p><strong>Efeito Fotoelétrico – PhET</strong><br />
+                Simulação interativa para testar materiais, frequências
+                e intensidades de luz.<br />
+                Link:
+                https://phet.colorado.edu/pt_BR/simulations/photoelectric
+                :contentReference<span
+                data-index="4">oaicite:4</span></p></li>
+                </ul>
+                <hr />
+                <h1
+                id="leituras-e-materiais-para-aprofundamento">LEITURAS E
+                MATERIAIS PARA APROFUNDAMENTO</h1>
+                <h2 id="história-e-crise-da-física-clássica">1. História
+                e crise da física clássica</h2>
+                <ul>
+                <li><p><strong>“História da Física” –
+                CBPF</strong><br />
+                Livro de divulgação em português, com uma seção sobre a
+                origem da teoria quântica e a “crise” da física
+                clássica.<br />
+                PDF (acesso aberto):
+                https://www.gov.br/cbpf/pt-br/divulgacao-cientifica/livros/historia-da-fisica.pdf
+                :contentReference<span
+                data-index="5">oaicite:5</span></p></li>
+                <li><p><strong>Artigo: “Duas nuvens ainda fazem sombra
+                na reputação de Lorde Kelvin” (RBEF)</strong><br />
+                Discussão histórica sobre as famosas “duas nuvens” de
+                Kelvin, útil para problematizar o mito da crise.<br />
+                Link:
+                https://www.scielo.br/j/rbef/a/rsCBz6n6nTMPwHgqXJzBZ5h/
+                :contentReference<span
+                data-index="6">oaicite:6</span></p></li>
+                <li><p><strong>Ostermann &amp; Moreira – Revisão sobre
+                ensino de Física Moderna</strong><br />
+                Clássico da área de ensino que discute, entre outras
+                coisas, como a narrativa da crise aparece (ou não) nos
+                livros didáticos.<br />
+                PDF:
+                https://lume.ufrgs.br/bitstream/handle/10183/141158/000294300.pdf
+                :contentReference<span
+                data-index="7">oaicite:7</span></p></li>
+                </ul>
+                <h2
+                id="corpo-negro-catástrofe-do-ultravioleta-e-planck">2.
+                Corpo negro, catástrofe do ultravioleta e Planck</h2>
+                <ul>
+                <li><p><strong>Texto em português sobre corpo negro e
+                catástrofe do ultravioleta (Brasil
+                Escola)</strong><br />
+                Introdução acessível para estudantes.<br />
+                Link: https://www.todamateria.com.br/fisica-moderna/
+                (seção sobre corpo negro e Planck)
+                :contentReference<span
+                data-index="8">oaicite:8</span></p></li>
+                <li><p><strong>Artigo/nota: “Catástrofe do ultravioleta”
+                (Wikipédia em português)</strong><br />
+                Bom para revisar fórmulas e contexto histórico.<br />
+                Link:
+                https://pt.wikipedia.org/wiki/Cat%C3%A1strofe_do_ultravioleta
+                :contentReference<span
+                data-index="9">oaicite:9</span></p></li>
+                </ul>
+                <h2 id="narrativas-gerais-da-revolução-quântica">3.
+                Narrativas gerais da revolução quântica</h2>
+                <ul>
+                <li><p><strong>George Gamow – <em>Thirty Years that
+                Shook Physics: The Story of Quantum
+                Theory</em></strong><br />
+                Livro clássico de divulgação, em inglês, contando a
+                história da teoria quântica de forma envolvente.<br />
+                Versão digital (archive.org):
+                https://archive.org/details/ThirtyYearsThatShookPhysics-TheBirthOfQuantamTheory
+                :contentReference<span
+                data-index="10">oaicite:10</span></p></li>
+                <li><p><strong>Artigo “Mecânica quântica: uma nova
+                imagem do mundo” (Ciência Hoje)</strong><br />
+                Discussão conceitual e histórica em português, com foco
+                em significado físico e filosófico da mecânica
+                quântica.<br />
+                Link:
+                https://cienciahoje.org.br/artigo/mecanica-quantica-uma-nova-imagem-do-mundo/
+                :contentReference<span
+                data-index="11">oaicite:11</span></p></li>
+                </ul>
+                <hr />
+                <h1
+                id="sugestão-de-leitura-crítica-para-licenciandos">SUGESTÃO
+                DE LEITURA CRÍTICA PARA LICENCIANDOS</h1>
+                <p>Para gerar debate em sala (metodologia ativa), você
+                pode pedir que os estudantes leiam ao menos um dos
+                textos abaixo e discutam:</p>
+                <ul>
+                <li><p><strong>“Física Moderna e Contemporânea:
+                Propostas de trabalho para o Ensino Médio”</strong> –
+                discute diferentes formas de introduzir FMC sem cair em
+                simplificações excessivas.<br />
+                PDF:
+                https://www.diaadiaeducacao.pr.gov.br/portals/cadernospde/pdebusca/producoes_pde/2014/2014_unicentro_fis_artigo_robson_lima_oliveira.pdf
+                :contentReference<span
+                data-index="12">oaicite:12</span></p></li>
+                <li><p><strong>Produtos educacionais e sequências
+                didáticas sobre crise da física clássica</strong>
+                (UTFPR, UNB, etc.) – utilizam a narrativa das “nuvens”
+                como eixo para projetos investigativos e júris simulados
+                em Física Moderna. :contentReference<span
+                data-index="13">oaicite:13</span></p></li>
+                </ul>
+                <p>Sugestão de atividade:<br />
+                &gt; Organize um <strong>debate em grupos</strong>:
+                “Houve de fato uma ‘crise da física clássica’ percebida
+                pelos físicos da época, ou essa é uma reconstrução
+                didática posterior?”<br />
+                &gt; Cada grupo deve usar pelo menos <strong>uma fonte
+                histórica</strong> e <strong>uma fonte
+                didático-pedagógica</strong> das leituras sugeridas.</p>
+                <hr />
+                <h2 id="conclusão">CONCLUSÃO</h2>
+                <p>As cinco “nuvens” que perturbavam o céu aparentemente
+                claro da física clássica representavam muito mais do que
+                problemas técnicos — eram <strong>sintomas de limites
+                conceituais profundos</strong>. Cada uma delas apontava
+                para algo que a física clássica <strong>não conseguia
+                acomodar</strong>:</p>
+                <ul>
+                <li>A radiação de corpo negro exigiu a
+                <strong>quantização da energia</strong>.<br />
+                </li>
+                <li>O fracasso do éter abriu caminho para <strong>novos
+                conceitos de espaço e tempo</strong>.<br />
+                </li>
+                <li>Os espectros atômicos discretos anunciaram a
+                <strong>quantização de níveis de energia</strong>.<br />
+                </li>
+                <li>A estabilidade dos átomos pedia uma teoria onde
+                orbitas clássicas fossem substituídas por
+                <strong>estados quânticos</strong>.<br />
+                </li>
+                <li>O efeito fotoelétrico mostrou que, em muitos
+                contextos, a luz se comporta como
+                <strong>fótons</strong>, não apenas como ondas.</li>
+                </ul>
+                <p>A resolução dessas questões não veio por correções
+                incrementais, mas por uma <strong>revolução
+                conceitual</strong> que deu origem à física quântica (e
+                à relatividade). Essa história ensina que:</p>
+                <blockquote>
+                <p>A ciência não avança apenas acumulando dados, mas
+                também <strong>reformulando perguntas</strong> e
+                <strong>abandonando pressupostos</strong> quando eles
+                deixam de funcionar.</p>
+                </blockquote>
+                <p>Na próxima aula, vamos focar em <strong>um desses
+                marcos específicos: a quantização da carga elétrica e a
+                descoberta do elétron</strong>, conectando o contexto
+                histórico com os conceitos físicos que fundamentam a
+                Física Moderna.</p>
+                <hr />
+                <h2 id="referências-bibliográficas">REFERÊNCIAS
+                BIBLIOGRÁFICAS</h2>
+                <ol type="1">
+                <li>KUHN, T. S. <em>A Estrutura das Revoluções
+                Científicas</em>. Perspectiva, 2013.<br />
+                </li>
+                <li>ISAACSON, W. <em>Einstein: Sua Vida, Seu
+                Universo</em>. Companhia das Letras, 2007.<br />
+                </li>
+                <li>GAMOW, G. <em>Trinta Anos que Abalaram a
+                Física</em>. Dover, 1985.<br />
+                </li>
+                <li>HEISENBERG, W. <em>A Parte e o Todo</em>.
+                Contraponto, 1996.<br />
+                </li>
+                <li>PLANCK, M. <em>The Theory of Heat Radiation</em>.
+                Dover, 1959.<br />
+                </li>
+                <li>EINSTEIN, A. “On a Heuristic Viewpoint Concerning
+                the Production and Transformation of Light”. <em>Annalen
+                der Physik</em>, 1905.<br />
+                </li>
+                <li>MICHELSON, A. A.; MORLEY, E. W. “On the Relative
+                Motion of the Earth and the Luminiferous Ether”.
+                <em>American Journal of Science</em>, 1887.<br />
+                </li>
+                <li>OSTERMANN, F.; MOREIRA, M. A. “Uma revisão
+                bibliográfica sobre a área de pesquisa ‘Física Moderna e
+                Contemporânea no Ensino Médio’”. UFRGS, 2000.<br />
+                </li>
+                <li>SCHULZ, P. A. “Duas nuvens ainda fazem sombra na
+                reputação de Lord Kelvin”. <em>Revista Brasileira de
+                Ensino de Física</em>, 2007.</li>
+                </ol>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Concepções
+Históricas</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>

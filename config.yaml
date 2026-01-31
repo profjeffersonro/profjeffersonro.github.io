@@ -8,56 +8,22 @@ home:
   html: "content/home/home.html"
   
 disciplinas:
-  - disciplina: "Mecânica Clássica"
+  - disciplina: "Termodinâmica 1"
     aulas:
-      - name: "Aula 01 - Cinemática"
-        html: "content/aulas/mecanica-classica/aula-01/mec-aula-01.html"
-        pdf: "content/aulas/mecanica-classica/aula-01/mec-aula-01.pdf"
-      - name: "Aula 02 - Dinâmica"
-        html: "content/aulas/mecanica-classica/aula-02/mec-aula-02.html"
-        pdf: "content/aulas/mecanica-classica/aula-02/mec-aula-02.pdf"
-      - name: "Aula 03 - Dinâmica"
-        html: "content/aulas/mecanica-classica/aula-03/mec-aula-03.html"
-        pdf: "content/aulas/mecanica-classica/aula-03/mec-aula-03.pdf"
-      - name: "Aula 04 - Dinâmica"
-        html: "content/aulas/mecanica-classica/aula-04/mec-aula-04.html"
-        pdf: "content/aulas/mecanica-classica/aula-04/mec-aula-04.pdf"
-      - name: "Aula 05 - Dinâmica"
-        html: "content/aulas/mecanica-classica/aula-05/mec-aula-05.html"
-        pdf: "content/aulas/mecanica-classica/aula-05/mec-aula-05.pdf"
+      - name: "Aula 01 - Conceitos Iniciais"
+        html: "/home/jefferson/Documentos/GitHubPages/novo-portal/content/aulas/EM-Termo1/termo1-aula-01.html"
+        pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/aulas/EM-Termo1/termo1-aula-01.pdf"
 
-  - disciplina: "Termologia"
+  - disciplina: "Física Moderna 1"
     aulas:
-      - name: "Aula 01 - Introdução"
-        html: "content/aulas/termologia/aula-01/termo-aula-01.html"
-        pdf: "content/aulas/termologia/aula-01/termo-aula-01.pdf"
+      - name: "Aula 01 - Concepções Históricas"
+        html: "/home/jefferson/Documentos/GitHubPages/novo-portal/content/aulas/ES-FM1/fmi1-aula-01.html"
+        pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/aulas/ES-FM1/fmi1-aula-01.pdf"
 
-  - disciplina: "Eletromagnetismo"
-    aulas:
-      - name: "Aula 01 - Campo Elétrico"
-        html: "content/aulas/eletromagnetismo/aula-01/eletro-aula-01.html"
-        pdf: "content/aulas/eletromagnetismo/aula-01/eletro-aula-01.pdf"
-
-  - disciplina: "Ondas"
-    aulas:
-      - name: "Aula 01 - Introdução à Ondulatória"
-        html: "content/aulas/ondas/aula-01/ondas-aula-01.html"
-        pdf: "content/aulas/ondas/aula-01/ondas-aula-01.pdf"
 blog:
   posts:
-    - title: "Introdução à Teoria da Relatividade"
-      date: "25/01/2025"
-      html: "content/blog/relatividade/introducao.html"
-      pdf: "content/blog/relatividade/introducao.pdf"
-    - title: "O Paradoxo do Gato de Schrödinger"
-      date: "24/11/2024"
-      html: "content/blog/quantica/gato-schrodinger.html"
-      pdf: "content/blog/quantica/gato-schrodinger.pdf"
     - title: "Algoritmos Quânticos"
       date: "01/02/2025"
-      html: "content/blog/computacao/algoritmos-quanticos.html"
-      pdf: "content/blog/computacao/algoritmos-quanticos.pdf"
-    - title: "Óptica"
-      date: "23/01/2026"
-      html: "content/blog/optica-geometrica/optica.html"
-      pdf: "content/blog/optica-geometrica/optica.pdf"
+      html: "/home/jefferson/Documentos/GitHubPages/novo-portal/content/blog/computacão/algoritmos-quânticos.html"
+      pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/blog/computacão/algoritmos-quânticos.pdf"
+
