@@ -11,19 +11,19 @@ disciplinas:
   - disciplina: "Termodinâmica 1"
     aulas:
       - name: "Aula 01 - Conceitos Iniciais"
-        html: "content/aulas/EM-Termo1/termo1-aula-01.html"
+        html: "/home/jefferson/Documentos/GitHubPages/novo-portal/content/aulas/EM-Termo1/termo1-aula-01.html"
         pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/aulas/EM-Termo1/termo1-aula-01.pdf"
 
   - disciplina: "Física Moderna 1"
     aulas:
       - name: "Aula 01 - Concepções Históricas"
-        html: "content/aulas/ES-FM1/fmi1-aula-01.html"
+        html: "/home/jefferson/Documentos/GitHubPages/novo-portal/content/aulas/ES-FM1/fmi1-aula-01.html"
         pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/aulas/ES-FM1/fmi1-aula-01.pdf"
 
 blog:
   posts:
     - title: "Algoritmos Quânticos"
       date: "01/02/2025"
-      html: "content/blog/computacão/algoritmos-quânticos.html"
+      html: "/home/jefferson/Documentos/GitHubPages/novo-portal/content/blog/computacão/algoritmos-quânticos.html"
       pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/blog/computacão/algoritmos-quânticos.pdf"
 
