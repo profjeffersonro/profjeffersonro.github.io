@@ -1,58 +1,63 @@
-author: Jefferson Rodrigues de Oliveira
+site_title: "Meu Portal"
+author: "Jefferson Rodrigues de Oliveira"
+email: "jefferson.rodrigues@ifsp.edu.br"
+css: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+javascript: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+
+home:
+  html: "content/home/home.html"
+  
+disciplinas:
+  - disciplina: "Mecânica Clássica"
+    aulas:
+      - name: "Aula 01 - Cinemática"
+        html: "content/aulas/mecanica-classica/aula-01/mec-aula-01.html"
+        pdf: "content/aulas/mecanica-classica/aula-01/mec-aula-01.pdf"
+      - name: "Aula 02 - Dinâmica"
+        html: "content/aulas/mecanica-classica/aula-02/mec-aula-02.html"
+        pdf: "content/aulas/mecanica-classica/aula-02/mec-aula-02.pdf"
+      - name: "Aula 03 - Dinâmica"
+        html: "content/aulas/mecanica-classica/aula-03/mec-aula-03.html"
+        pdf: "content/aulas/mecanica-classica/aula-03/mec-aula-03.pdf"
+      - name: "Aula 04 - Dinâmica"
+        html: "content/aulas/mecanica-classica/aula-04/mec-aula-04.html"
+        pdf: "content/aulas/mecanica-classica/aula-04/mec-aula-04.pdf"
+      - name: "Aula 05 - Dinâmica"
+        html: "content/aulas/mecanica-classica/aula-05/mec-aula-05.html"
+        pdf: "content/aulas/mecanica-classica/aula-05/mec-aula-05.pdf"
+
+  - disciplina: "Termologia"
+    aulas:
+      - name: "Aula 01 - Introdução"
+        html: "content/aulas/termologia/aula-01/termo-aula-01.html"
+        pdf: "content/aulas/termologia/aula-01/termo-aula-01.pdf"
+
+  - disciplina: "Eletromagnetismo"
+    aulas:
+      - name: "Aula 01 - Campo Elétrico"
+        html: "content/aulas/eletromagnetismo/aula-01/eletro-aula-01.html"
+        pdf: "content/aulas/eletromagnetismo/aula-01/eletro-aula-01.pdf"
+
+  - disciplina: "Ondas"
+    aulas:
+      - name: "Aula 01 - Introdução à Ondulatória"
+        html: "content/aulas/ondas/aula-01/ondas-aula-01.html"
+        pdf: "content/aulas/ondas/aula-01/ondas-aula-01.pdf"
 blog:
   posts:
-  - date: 25/01/2025
-    html: content/blog/relatividade/introducao.html
-    pdf: https://drive.google.com/file/d/1ulXn51wFP9-ZCv8-f9FbChuiGoMSykNt/view?usp=drivesdk
-    title: Introdução à Teoria da Relatividade
-  - date: 24/11/2024
-    html: content/blog/quantica/gato-schrodinger.html
-    pdf: https://drive.google.com/file/d/1n0Vgzzsi-DV3-_2Yms5ztqniy1s8BDMk/view?usp=drivesdk
-    title: O Paradoxo do Gato de Schrödinger
-  - date: 01/02/2025
-    html: content/blog/computacao/algoritmos-quanticos.html
-    pdf: https://drive.google.com/file/d/1wavsDpjQ-UEiPhpwJ4VUxpid1Gyg8STC/view?usp=drivesdk
-    title: Algoritmos Quânticos
-  - date: 23/01/2026
-    html: content/blog/optica-geometrica/opt-3.html
-    pdf: content/blog/optica-geometrica/opt-3.pdf
-    title: Óptica
-css: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
-disciplinas:
-- aulas:
-  - html: content/aulas/mecanica-classica/aula-01/mec-aula-01.html
-    name: Aula 01 - Cinemática
-    pdf: https://drive.google.com/file/d/12LdLtpsntKOYUnyKkJWz3CShUlCBJWVz/view?usp=drivesdk
-  - html: content/aulas/mecanica-classica/aula-02/mec-aula-02.html
-    name: Aula 02 - Dinâmica
-    pdf: https://drive.google.com/file/d/1HqcxbFfdrKm46qw2kVKKE7E71ViwA6NK/view?usp=drivesdk
-  - html: content/aulas/mecanica-classica/aula-03/mec-aula-03.html
-    name: Aula 03 - Dinâmica
-    pdf: https://drive.google.com/file/d/1Q-Af8EJ94gKn_N2a_Fz_f3qw6uakxwP3/view?usp=drivesdk
-  - html: content/aulas/mecanica-classica/aula-04/mec-aula-04.html
-    name: Aula 04 - Dinâmica
-    pdf: https://drive.google.com/file/d/1x5UcaLCISgf7mfnTc5TuDtYJSZk76Stn/view?usp=drivesdk
-  - html: content/aulas/mecanica-classica/aula-05/mec-aula-05.html
-    name: Aula 05 - Dinâmica
-    pdf: https://drive.google.com/file/d/191ssPJmUyBfNFCrzz_4DNiWhAj1WGn_I/view?usp=drivesdk
-  disciplina: Mecânica Clássica
-- aulas:
-  - html: content/aulas/termologia/aula-01/termo-aula-01.html
-    name: Aula 01 - Introdução
-    pdf: https://drive.google.com/file/d/1WjUchXCG7zARz7XGwwhW1lAkrDaCO_CT/view?usp=drivesdk
-  disciplina: Termologia
-- aulas:
-  - html: content/aulas/eletromagnetismo/aula-01/eletro-aula-01.html
-    name: Aula 01 - Campo Elétrico
-    pdf: https://drive.google.com/file/d/18X-eeDr5caVhTjAkeKGWLZZltmQDXpx6/view?usp=drivesdk
-  disciplina: Eletromagnetismo
-- aulas:
-  - html: content/aulas/ondas/aula-01/eletro-ondas-01.html
-    name: Aula 01 - Introdução à Ondulatória
-    pdf: https://drive.google.com/file/d/18X-eeDr5caVhTjAkeKGWLZZltmQDXpx6/view?usp=drivesdk
-  disciplina: Ondas
-email: jefferson.rodrigues@ifsp.edu.br
-home:
-  html: content/home/home.html
-javascript: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js
-site_title: Meu Portal
+    - title: "Introdução à Teoria da Relatividade"
+      date: "25/01/2025"
+      html: "content/blog/relatividade/introducao.html"
+      pdf: "content/blog/relatividade/introducao.pdf"
+    - title: "O Paradoxo do Gato de Schrödinger"
+      date: "24/11/2024"
+      html: "content/blog/quantica/gato-schrodinger.html"
+      pdf: "content/blog/quantica/gato-schrodinger.pdf"
+    - title: "Algoritmos Quânticos"
+      date: "01/02/2025"
+      html: "content/blog/computacao/algoritmos-quanticos.html"
+      pdf: "content/blog/computacao/algoritmos-quanticos.pdf"
+    - title: "Óptica"
+      date: "23/01/2026"
+      html: "content/blog/optica-geometrica/optica.html"
+      pdf: "content/blog/optica-geometrica/optica.pdf"
