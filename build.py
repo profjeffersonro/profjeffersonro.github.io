@@ -639,7 +639,7 @@ def generate_html_page(title, content, config, active_page=None):
                     <p class="small mb-2">
                         <i class="bi bi-envelope"></i> {config['email']}<br>
                         <i class="bi bi-github"></i> 
-                        <a href="https://github.com/seu-usuario" class="text-white">GitHub</a>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
                     </p>
                 </div>
             </div>
