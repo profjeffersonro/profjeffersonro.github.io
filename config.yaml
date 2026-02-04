@@ -12,7 +12,7 @@ disciplinas:
     aulas:
       - name: "Aula 01 - Conceitos Iniciais"
         html: "content/aulas/EM-Termo1/termo1-aula-01.html"
-        pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/aulas/EM-Termo1/termo1-aula-01.pdf"
+        pdf: "https://drive.google.com/file/d/1STykwEAsGI5jbQjLWq6GV5ctQu9VK-yS/view?usp=drivesdk"
 
   - disciplina: "Física Moderna 1"
     aulas:
