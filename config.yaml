@@ -17,7 +17,7 @@ disciplinas:
   - disciplina: "Física Moderna 1"
     aulas:
       - name: "Aula 01 - Concepções Históricas"
-        html: "content/aulas/ES-FM1/fmi1-aula-01.html"
+        html: "content/aulas/ES-FM1/fmi-aula-01.html"
         pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/aulas/ES-FM1/fmi1-aula-01.pdf"
 
 blog:

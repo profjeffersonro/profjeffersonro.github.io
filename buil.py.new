@@ -55,53 +55,26 @@ def adjust_paths_for_github_pages(html_content, repo_name=None):
 
 def get_github_repo_info():
     """
-    Detecta informações do repositório GitHub baseado no ambiente (Actions ou local).
-
+    Detecta informações do repositório GitHub baseado no ambiente.
+    
     Returns:
         tuple: (repo_name, is_github_pages, base_url)
-            - repo_name: nome do repositório (ex.: 'novo-portal' ou 'profjeffersonro.github.io')
-            - is_github_pages: True se parece ser build para GitHub Pages
-            - base_url: '/' para repo do tipo USERNAME.github.io, ou '/repo/' para repositório comum
     """
-    # 1) GitHub Actions (fonte de verdade no CI)
+    # Verificar se está rodando no GitHub Actions
     if os.environ.get('GITHUB_ACTIONS') == 'true':
         repo = os.environ.get('GITHUB_REPOSITORY', '')
         if repo:
             repo_name = repo.split('/')[-1]
+            
+            # Verificar se é um repositório .github.io (está na raiz)
             if repo_name.endswith('.github.io'):
                 return repo_name, True, '/'
-            return repo_name, True, f'/{repo_name}/'
-
-    # 2) Local: tenta descobrir pelo git remote (evita base_url errada no GitHub Pages)
-    repo_name = None
-    try:
-        remote = subprocess.check_output(
-            ['git', 'config', '--get', 'remote.origin.url'],
-            stderr=subprocess.DEVNULL,
-            text=True
-        ).strip()
-
-        # formatos comuns:
-        # - https://github.com/user/repo.git
-        # - git@github.com:user/repo.git
-        # - https://github.com/user/repo
-        m = re.search(r'[:/](?P<user>[^/]+)/(?P<repo>[^/]+?)(?:\.git)?$', remote)
-        if m:
-            repo_name = m.group('repo')
-    except Exception:
-        pass
-
-    # Heurística: se existe .github/ ou CNAME, estamos preparando para Pages
-    is_pages = Path('.github').exists() or Path('CNAME').exists()
-
-    if repo_name:
-        if repo_name.endswith('.github.io'):
-            return repo_name, is_pages, '/'
-        return repo_name, is_pages, f'/{repo_name}/'
-
-    # fallback total
+            else:
+                # Repositório normal, precisa de base path
+                return repo_name, True, f'/{repo_name}/'
+    
+    # Local development
     return None, False, '/'
-
 
 def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.github.io/"):
     """
@@ -314,6 +287,7 @@ def create_output_structure():
         # Criar subdiretórios
         (output_dir / 'css').mkdir(exist_ok=True)
         (output_dir / 'js').mkdir(exist_ok=True)
+    (output_dir / 'images').mkdir(exist_ok=True)  # assets globais (inclui subpastas como thumbs/)
         (output_dir / 'disciplinas').mkdir(exist_ok=True)
         (output_dir / 'blog').mkdir(exist_ok=True)
         
@@ -540,6 +514,62 @@ def copy_images_with_cache(content_path, output_path, cache, file_hashes, conten
         # ✅ MUITO IMPORTANTE: registrar imagem no cache
         update_cache_entry(cache, str(dest_file), [str(img_file)])
 
+    return copied
+
+
+
+def copy_site_images_dir_with_cache(output_dir, cache, file_hashes):
+    """Copia a pasta global ./images (recursiva) para site/images, preservando subpastas (ex.: thumbs/).
+
+    ✅ Independente do diretório de execução (cwd): resolve relativo ao arquivo build.py.
+    ✅ Incremental por hash + registro no cache.
+    """
+    project_root = Path(__file__).resolve().parent
+    source_root = project_root / 'images'
+
+    # Fallback: caso rode a partir de outro local e o build.py esteja em subpasta
+    if not source_root.exists():
+        alt = Path.cwd() / 'images'
+        if alt.exists():
+            source_root = alt
+        else:
+            print(f"    ⚠️  Pasta images/ não encontrada em: {source_root} nem em {alt}")
+            return 0
+
+    dest_root = Path(output_dir) / 'images'
+    dest_root.mkdir(parents=True, exist_ok=True)
+
+    copied = 0
+
+    for src in source_root.rglob('*'):
+        if not src.is_file():
+            continue
+
+        rel = src.relative_to(source_root)
+        dst = dest_root / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+
+        current_hash = calculate_file_hash(str(src))
+
+        needs_copy = True
+        if dst.exists() and BUILD_MODE == 'incremental':
+            old_hash = file_hashes.get(str(src))
+            if old_hash == current_hash:
+                needs_copy = False
+
+        if needs_copy:
+            try:
+                shutil.copy2(src, dst)
+                file_hashes[str(src)] = current_hash
+                copied += 1
+            except Exception as e:
+                print(f"    ❌ Erro ao copiar {src}: {e}")
+
+        # Registrar no cache para evitar arquivos órfãos
+        update_cache_entry(cache, str(dst), [str(src)])
+
+    if copied:
+        print(f"    ✅ Copiados {copied} arquivos de {source_root} → {dest_root}")
     return copied
 
 def create_slug(text):
@@ -1638,6 +1668,12 @@ def main():
         # Copiar arquivos estáticos
         print("\n📦 Copiando arquivos estáticos:")
         static_copied, static_skipped = copy_static_files_with_cache(output_dir, cache, file_hashes)
+    print("
+🖼 Copiando pasta global images/ para o site:")
+    global_images_copied = copy_site_images_dir_with_cache(output_dir, cache, file_hashes)
+    total_generated += global_images_copied
+    if global_images_copied == 0:
+        print("    (nada para copiar)")
         total_generated += static_copied
         total_skipped += static_skipped
         

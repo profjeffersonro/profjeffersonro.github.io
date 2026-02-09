@@ -290,3 +290,95 @@ blockquote {
     font-style: italic;
     color: #555;
 }
+
+
+/* ============================================
+   FIX: Questões do Pandoc (definition list)
+   Estrutura gerada: <dl><dt>1.1)</dt><dd> Enunciado ...</dd></dl>
+   Objetivo: "1.1) Enunciado..." na MESMA linha (GitHub Pages)
+   Aplicar tanto em .aula-content quanto em .blog-content
+   ============================================ */
+.aula-content dl, .blog-content dl {
+  margin: 1.2rem 0;
+}
+
+.aula-content dl > dt, .blog-content dl > dt {
+  display: inline;
+  font-weight: 700;
+  margin-right: 0.35rem;
+}
+
+.aula-content dl > dd, .blog-content dl > dd {
+  display: inline;
+  margin: 0;
+}
+
+/* Se o <dd> começar com <p>, mantém inline */
+.aula-content dl > dd > p:first-child,
+.blog-content dl > dd > p:first-child {
+  display: inline;
+  margin: 0;
+}
+
+/* Garante quebra depois de cada questão */
+.aula-content dl > dd::after,
+.blog-content dl > dd::after {
+  content: "";
+  display: block;
+  margin-bottom: 1.0rem;
+}
+
+/* Listas dentro da questão descem normalmente */
+.aula-content dl > dd > ol,
+.aula-content dl > dd > ul,
+.blog-content dl > dd > ol,
+.blog-content dl > dd > ul {
+  display: block;
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+/* ============================================
+   FIX: Alternativas a) (Pandoc)
+   - Exibe "a)" e mantém "a) Enunciado" na mesma linha
+   ============================================ */
+.aula-content ol[type="a"] > li::marker,
+.blog-content ol[type="a"] > li::marker {
+  content: counter(list-item, lower-alpha) ") ";
+  font-weight: 700;
+}
+
+.aula-content ol[type="a"] > li > p,
+.blog-content ol[type="a"] > li > p {
+  display: inline;
+  margin: 0;
+}
+
+/* ============================================
+   FIX DEFINITIVO — Questões numeradas no site
+   Estrutura real do HTML:
+   <p><strong>1.1)</strong> Enunciado...</p>
+   ============================================ */
+
+/* Estilo do "1.1)" */
+.aula-content p > strong:first-child,
+.blog-content p > strong:first-child {
+    font-weight: 700;
+    color: #2c5aa0;
+    margin-right: 0.4rem;
+}
+
+/* Recuo pendente: número "fora" e texto alinhado */
+.aula-content p:has(> strong:first-child),
+.blog-content p:has(> strong:first-child) {
+    margin-left: 1.6rem;
+    text-indent: -1.6rem;
+    margin-bottom: 1rem;
+}
+
+/* Se houver quebra de linha depois do número, evita espaçamento estranho */
+.aula-content p:has(> strong:first-child) > strong:first-child + br,
+.blog-content p:has(> strong:first-child) > strong:first-child + br {
+    display: none;
+}
+

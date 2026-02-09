@@ -354,31 +354,3 @@ blockquote {
   margin: 0;
 }
 
-/* ============================================
-   FIX DEFINITIVO — Questões numeradas no site
-   Estrutura real do HTML:
-   <p><strong>1.1)</strong> Enunciado...</p>
-   ============================================ */
-
-/* Estilo do "1.1)" */
-.aula-content p > strong:first-child,
-.blog-content p > strong:first-child {
-    font-weight: 700;
-    color: #2c5aa0;
-    margin-right: 0.4rem;
-}
-
-/* Recuo pendente: número "fora" e texto alinhado */
-.aula-content p:has(> strong:first-child),
-.blog-content p:has(> strong:first-child) {
-    margin-left: 1.6rem;
-    text-indent: -1.6rem;
-    margin-bottom: 1rem;
-}
-
-/* Se houver quebra de linha depois do número, evita espaçamento estranho */
-.aula-content p:has(> strong:first-child) > strong:first-child + br,
-.blog-content p:has(> strong:first-child) > strong:first-child + br {
-    display: none;
-}
-
