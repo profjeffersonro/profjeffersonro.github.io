@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física Moderna 1</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+Moderna 1</h1>
+                                
+                                <h2 class="document-subtitle display-6">Concepções
+Históricas da Física Moderna</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender o <strong>contexto histórico</strong> do
+                final do século XIX e início do século XX.</li>
+                <li>Reconhecer por que a Física Clássica era considerada
+                <strong>completa</strong> antes de 1900.</li>
+                <li>Identificar os principais <strong>problemas
+                experimentais</strong> que desafiaram o modelo
+                clássico.</li>
+                <li>Explicar o surgimento da <strong>Física
+                Moderna</strong> como resposta a esses limites.</li>
+                <li>Entender a transição do
+                <strong>determinismo</strong> clássico para a
+                interpretação <strong>probabilística</strong> da
+                natureza.</li>
+                <li>Relacionar os principais nomes envolvidos na
+                construção da <strong>Física Moderna</strong> e
+                <strong>Quântica</strong>.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Nesta aula, vamos investigar como a Física, ao final
+                do século XIX, passou de um estado de aparente
+                completude para uma profunda crise conceitual. Mais do
+                que uma simples sucessão de descobertas, esse período
+                representa uma mudança radical na forma de compreender a
+                natureza.</p>
+                <p>Fenômenos experimentais que não se ajustavam às
+                teorias existentes começaram a se acumular, revelando
+                limitações estruturais da Física Clássica. A partir
+                desse cenário, surgiram novas ideias que transformaram
+                profundamente conceitos como energia, matéria,
+                causalidade e previsibilidade, dando origem à Física
+                Moderna e, posteriormente, à Mecânica Quântica.
+                Compreender esse processo histórico é fundamental para
+                perceber que a ciência não avança de forma linear, mas
+                por meio de rupturas, debates e reformulações
+                conceituais profundas.</p>
+                <h1 id="a-ilusão-da-física-completa">A Ilusão Da Física
+                Completa</h1>
+                <p>Ao final do século XIX, a Física era vista como uma
+                ciência <strong>praticamente encerrada</strong>. As
+                teorias existentes haviam sido testadas exaustivamente e
+                apresentavam enorme sucesso explicativo. Segundo essa
+                visão, restaria apenas melhorar a precisão das
+                medições.</p>
+                <p>Essa confiança se apoiava em três grandes
+                pilares:</p>
+                <ul>
+                <li><strong>Mecânica Newtoniana</strong>, que explicava
+                desde a queda dos corpos até o movimento dos
+                planetas;</li>
+                <li><strong>Eletromagnetismo</strong>, consolidado pelas
+                equações de Maxwell;</li>
+                <li><strong>Termodinâmica</strong>, essencial para o
+                desenvolvimento industrial e tecnológico.</li>
+                </ul>
+                <p>Nesse contexto, declarações como a atribuída a
+                <strong>Albert Michelson</strong>, de que “tudo o que
+                restava a fazer era medir com mais precisão”,
+                sintetizavam o espírito da época. Entretanto, como
+                discute Pereira (2015), essa segurança escondia
+                <strong>tensões conceituais profundas</strong> que logo
+                viriam à tona.</p>
+                <h1
+                id="o-horizonte-da-crise-as-nuvens-da-física-clássica">O
+                Horizonte Da Crise: As “nuvens” Da Física Clássica</h1>
+                <p>O físico <strong>Lord Kelvin</strong>, em 1900,
+                utilizou a metáfora de <strong>“nuvens no céu azul da
+                Física”</strong> para se referir a problemas ainda não
+                resolvidos. Hoje sabemos que essas nuvens não eram
+                pequenas: elas indicavam <strong>limites estruturais da
+                Física Clássica</strong>.</p>
+                <h2 id="determinismo-e-absolutismo">Determinismo e
+                Absolutismo</h2>
+                <p>A Física Clássica era fortemente marcada por:</p>
+                <ul>
+                <li>Espaço e tempo <strong>absolutos</strong>;</li>
+                <li>Causalidade estrita (causa -&gt; efeito);</li>
+                <li>Previsibilidade total dos fenômenos;</li>
+                <li>Possibilidade, ao menos em princípio, de medir todas
+                as grandezas com precisão arbitrária.</li>
+                </ul>
+                <p>Essa visão é bem representada pelo chamado
+                <strong>determinismo de Laplace</strong>, segundo o
+                qual, se uma inteligência conhecesse todas as forças e
+                posições do universo, poderia prever passado e futuro
+                com exatidão.</p>
+                <h1 id="o-colapso-do-modelo-clássico">O Colapso Do
+                Modelo Clássico</h1>
+                <p>O colapso do modelo clássico não ocorreu de forma
+                abrupta, mas como resultado do acúmulo de evidências
+                experimentais incompatíveis com suas bases conceituais.
+                A Física Clássica, sustentada pelo determinismo, pela
+                continuidade das grandezas físicas e pela possibilidade
+                de descrição completa dos sistemas, mostrou-se incapaz
+                de explicar fenômenos microscópicos e de alta
+                frequência.</p>
+                <p>Problemas como a radiação de corpo negro, o efeito
+                fotoelétrico, a instabilidade do átomo e os espectros
+                atômicos discretos revelaram que os pressupostos
+                clássicos falhavam em níveis fundamentais. Essas
+                dificuldades não podiam ser resolvidas por ajustes
+                pontuais: exigiam uma reformulação profunda da própria
+                estrutura teórica da Física, abrindo espaço para
+                conceitos como quantização, dualidade onda-partícula e
+                descrição probabilística da natureza.</p>
+                <h2
+                id="radiação-de-corpo-negro-e-a-catástrofe-do-ultravioleta">Radiação
+                de Corpo Negro e a Catástrofe do Ultravioleta</h2>
+                <p>Experimentos mostravam que objetos aquecidos emitem
+                radiação com um espectro bem definido. Contudo:</p>
+                <ul>
+                <li>As previsões clássicas (Rayleigh–Jeans) levavam a
+                <strong>energia infinita</strong> em altas
+                frequências.</li>
+                <li>Esse resultado absurdo ficou conhecido como
+                <strong>catástrofe do ultravioleta</strong>.</li>
+                </ul>
+                <p><strong>Max Planck (1900)</strong> resolveu o
+                problema ao propor que a energia não é emitida de forma
+                contínua, mas em <strong>pacotes discretos</strong>,
+                chamados <strong>quanta</strong>: <span
+                class="math display"><em>E</em> = <em>h</em><em>ν</em></span></p>
+                <p>Mesmo contrariando suas próprias convicções
+                clássicas, Planck inaugurou a <strong>quantização da
+                energia</strong>, marco inicial da Física Quântica.</p>
+                <h2 id="o-efeito-fotoelétrico">O Efeito
+                Fotoelétrico</h2>
+                <p>Estudos de <strong>Philipp Lenard</strong> mostraram
+                que:</p>
+                <ul>
+                <li>A energia dos elétrons ejetados de um metal não
+                dependia da <strong>intensidade da luz</strong>;</li>
+                <li>Existia uma <strong>frequência mínima</strong> para
+                que o efeito ocorresse.</li>
+                </ul>
+                <p>A Física Clássica não explicava esses resultados.</p>
+                <p>Em <strong>1905</strong>, <strong>Albert
+                Einstein</strong> propôs que a luz se comporta como
+                partículas - os <strong>fótons</strong> - cada um com
+                energia <span
+                class="math inline"><em>E</em> = <em>h</em><em>ν</em></span>.
+                Essa explicação confirmou a quantização da radiação e
+                rendeu a Einstein o <strong>Prêmio Nobel de
+                1921</strong>.</p>
+                <h2 id="instabilidade-do-átomo-clássico">Instabilidade
+                do Átomo Clássico</h2>
+                <p>O modelo nuclear de <strong>Rutherford</strong>
+                descrevia o átomo como um núcleo positivo com elétrons
+                em órbita. Porém:</p>
+                <ul>
+                <li>Pela eletrodinâmica clássica, elétrons acelerados
+                deveriam perder energia continuamente;</li>
+                <li>O átomo colapsaria em frações de segundo.</li>
+                </ul>
+                <p>Como a matéria é claramente estável, esse era um
+                paradoxo grave.</p>
+                <h2 id="espectros-atômicos-discretos">Espectros Atômicos
+                Discretos</h2>
+                <p>Experimentos revelavam que átomos emitem e absorvem
+                luz apenas em <strong>frequências específicas</strong>,
+                formando linhas espectrais.</p>
+                <p>A Física Clássica previa espectros contínuos. A
+                solução surgiu com o <strong>modelo de Bohr
+                (1913)</strong>, que introduziu órbitas eletrônicas
+                quantizadas e explicou o espectro do hidrogênio.</p>
+                <h1 id="da-quantização-à-mecânica-quântica">Da
+                Quantização À Mecânica Quântica</h1>
+                <p>A partir dessas rupturas, novos conceitos foram sendo
+                incorporados:</p>
+                <ul>
+                <li><strong>Dualidade onda-partícula</strong> (De
+                Broglie, 1923);</li>
+                <li><strong>Função de onda e estados
+                estacionários</strong> (Schrödinger);</li>
+                <li><strong>Mecânica Matricial</strong>
+                (Heisenberg);</li>
+                <li><strong>Interpretação probabilística</strong>
+                (Born);</li>
+                <li><strong>Princípio da Incerteza</strong> (Heisenberg,
+                1927).</li>
+                </ul>
+                <p>O elétron deixa de ter uma trajetória bem definida e
+                passa a ser descrito por uma <strong>nuvem de
+                probabilidades</strong>, conceito central da Física
+                Quântica moderna.</p>
+                <h1 id="a-conferência-de-solvay-1927">A Conferência De
+                Solvay (1927)</h1>
+                <p>O <strong>5º Congresso de Solvay de Física e
+                Química</strong>, em outubro de <strong>1927</strong>,
+                em Bruxelas, na Bélgica, foi, talvez, a mais famosa
+                conferência científica da história. A recém formulada
+                teoria quântica foi discutida com as personalidades
+                dominantes <strong>Albert Einstein</strong> e
+                <strong>Niels Bohr</strong> (debate Einstein-Bohr). No
+                começo do século 20, essas Conferências reuniam os mais
+                consagrados cientistas da época, e proporcionaram
+                avanços fundamentais para a Física Quântica.</p>
+                <p>Conferência de Solvay de 1927 foi um marco
+                histórico:</p>
+                <ul>
+                <li>Reuniu os principais físicos da época;</li>
+                <li>Consolidou debates fundamentais sobre a Mecânica
+                Quântica;</li>
+                <li>Contou com cientistas como Planck, Einstein, Bohr,
+                Schrödinger, Heisenberg, Dirac, Pauli e Born.</li>
+                </ul>
+                <p>Ali se consolidou a ruptura definitiva com o
+                paradigma clássico.</p>
+                <figure>
+                <img src="https://www.intuicao.com/wp-content/uploads/2018/10/cientistas-inicio-do-seculo-XX.jpg" style="width:80.0%"
+                alt="Conferência de Solvay - 1927. Fonte: intuicao" />
+                <figcaption aria-hidden="true">Conferência de Solvay -
+                1927. Fonte: <a
+                href="https://www.intuicao.com/wp-content/uploads/2018/10/cientistas-inicio-do-seculo-XX.jpg">intuicao</a></figcaption>
+                </figure>
+                <p>Foto de grandes cientistas do início do século XX.
+                Como curiosidade, vale lembrar que 17 dos 29
+                participantes possuíam ou receberiam o Prêmio Nobel.</p>
+                <p><strong>Presentes na foto</strong>: 3ª fila de pé:
+                Auguste Piccard, Émile Henriot, Paul Ehrenfest, Édouard
+                Herzen, Théophile de Donder, Erwin Schrödinger,
+                Jules-Émile Verschaffelt, Wolfgang Pauli, Werner
+                Heisenberg, Ralph Fowler, Léon Brillouin. 2ª fila
+                sentados: Peter Debye, Martin Knudsen, William Bragg,
+                Hendrik Kramers, Paul Dirac, Arthur Compton, Louis de
+                Broglie, Max Born, Niels Bohr. 1ª fila sentados: Irving
+                Langmuir, Max Planck, Marie Curie, Hendrik Lorentz,
+                Albert Einstein, Paul Langevin, Charles Guye, Charles
+                Wilson, Owen Richardson.</p>
+                <h1 id="conclusão">Conclusão</h1>
+                <p>As cinco “nuvens” que perturbavam o céu aparentemente
+                claro da física clássica representavam muito mais do que
+                problemas técnicos — eram <strong>sintomas de limites
+                conceituais profundos</strong>. Cada uma delas apontava
+                para algo que a física clássica <strong>não conseguia
+                acomodar</strong>:</p>
+                <ul>
+                <li>A radiação de corpo negro exigiu a
+                <strong>quantização da energia</strong>.</li>
+                <li>O fracasso do éter abriu caminho para <strong>novos
+                conceitos de espaço e tempo</strong>.</li>
+                <li>Os espectros atômicos discretos anunciaram a
+                <strong>quantização de níveis de energia</strong>.</li>
+                <li>A estabilidade dos átomos pedia uma teoria onde
+                orbitas clássicas fossem substituídas por
+                <strong>estados quânticos</strong>.</li>
+                <li>O efeito fotoelétrico mostrou que, em muitos
+                contextos, a luz se comporta como
+                <strong>fótons</strong>, não apenas como ondas.</li>
+                </ul>
+                <p>A resolução dessas questões não veio por correções
+                incrementais, mas por uma <strong>revolução
+                conceitual</strong> que deu origem à física quântica (e
+                à relatividade). Essa história ensina que:</p>
+                <blockquote>
+                <p>A ciência não avança apenas acumulando dados, mas
+                também <strong>reformulando perguntas</strong> e
+                <strong>abandonando pressupostos</strong> quando eles
+                deixam de funcionar.</p>
+                </blockquote>
+                <p>Na próxima aula, vamos focar em <strong>um desses
+                marcos específicos: a quantização da carga elétrica e a
+                descoberta do elétron</strong>, conectando o contexto
+                histórico com os conceitos físicos que fundamentam a
+                Física Moderna.</p>
+                <h1 id="exercícios-de-fixação">Exercícios De
+                Fixação</h1>
+                <dl>
+                <dt>1.1)</dt>
+                <dd>
+                Explique por que a Física Clássica era considerada
+                praticamente completa ao final do século XIX. Quais
+                fatores históricos e científicos sustentavam essa visão?
+                </dd>
+                <dt>1.2)</dt>
+                <dd>
+                Descreva o significado da metáfora das “nuvens no
+                horizonte”, utilizada por Lord Kelvin, e explique por
+                que ela se mostrou inadequada à luz dos desenvolvimentos
+                posteriores da Física.
+                </dd>
+                <dt>1.3)</dt>
+                <dd>
+                Explique o conceito de determinismo clássico e discuta
+                como ele influenciou a forma de compreender a natureza
+                antes do surgimento da Física Moderna.
+                </dd>
+                <dt>1.4)</dt>
+                <dd>
+                Apresente o problema da radiação de corpo negro e
+                explique por que ele representou uma crise profunda para
+                a Física Clássica.
+                </dd>
+                <dt>1.5)</dt>
+                <dd>
+                Explique a importância da hipótese de quantização da
+                energia proposta por Max Planck e por que ela é
+                considerada o marco inicial da Física Quântica.
+                </dd>
+                <dt>1.6)</dt>
+                <dd>
+                O efeito fotoelétrico mostrou que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A energia dos elétrons depende da intensidade da
+                luz.</li>
+                <li>A luz se comporta exclusivamente como onda.</li>
+                <li>Elétrons não interagem com a luz.</li>
+                <li>O átomo é indivisível.</li>
+                <li>Existe uma frequência mínima para a ejeção de
+                elétrons.</li>
+                </ol>
+                <dl>
+                <dt>1.7)</dt>
+                <dd>
+                A explicação do efeito fotoelétrico levou Albert
+                Einstein a propor que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A luz possui massa.</li>
+                <li>A luz é composta por partículas chamadas
+                fótons.</li>
+                <li>A luz não transporta energia.</li>
+                <li>O elétron não possui carga.</li>
+                <li>O espaço é absoluto.</li>
+                </ol>
+                <dl>
+                <dt>1.8)</dt>
+                <dd>
+                O principal problema do modelo atômico de Rutherford,
+                segundo a Física Clássica, era:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A inexistência do núcleo.</li>
+                <li>A ausência de carga elétrica.</li>
+                <li>A previsão de espectros contínuos.</li>
+                <li>A instabilidade do átomo.</li>
+                <li>A impossibilidade de medir massas.</li>
+                </ol>
+                <dl>
+                <dt>1.9)</dt>
+                <dd>
+                Os espectros atômicos discretos indicavam que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Os elétrons só podiam ocupar certos níveis de
+                energia.</li>
+                <li>A energia era contínua.</li>
+                <li>Todos os átomos eram idênticos.</li>
+                <li>A luz não interagia com a matéria. e O núcleo emitia
+                radiação continuamente.</li>
+                </ol>
+                <dl>
+                <dt>1.10)</dt>
+                <dd>
+                A Conferência de Solvay de 1927 é considerada histórica
+                porque:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Encerrrou os estudos sobre Física.</li>
+                <li>Confirmou o determinismo clássico.</li>
+                <li>Consolidou debates fundamentais da Mecânica
+                Quântica.</li>
+                <li>Descobriu o elétron.</li>
+                <li>Proibiu interpretações probabilísticas.</li>
+                </ol>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>GAMOW, G. <em>Trinta Anos que Abalaram a
+                Física</em>. Dover.</li>
+                <li>HEISENBERG, W. <em>A Parte e o Todo</em>.
+                Contraponto.</li>
+                <li>PEREIRA, Fernando de Candido. <strong>Uma Breve
+                História da Física Moderna e Contemporânea</strong>.
+                <em>Revista Professare</em>, v. 4, n. 3, p. 177–188,
+                2015.</li>
+                <li>YOUNG, H. D. <em>Ótica e Física Moderna</em>.
+                Addison Wesley.</li>
+                </ul>
+                <h1 id="recomendações-de-materiais">Recomendações de
+                Materiais</h1>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="https://www.youtube.com/watch?v=rFFdL6LP2mE" alt="Física Quântica – Aula 01 – Breve História da Física Quântica" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">Física Quântica – Aula 01 – Breve História da Física Quântica</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" target="_blank" rel="noopener noreferrer">UNIVESP</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="https://www.youtube.com/watch?v=SgGz5gwCPlM" alt="Origens do Mundo Quântico – Física para Poetas" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">Origens do Mundo Quântico – Física para Poetas</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" target="_blank" rel="noopener noreferrer">Marcelo Gleiser</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Concepções
+Históricas da Física Moderna</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -240,6 +240,49 @@
             font-weight: 500;
         }
         
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
         /* Listas estilizadas */
         .content-section ul, .content-section ol {
             padding-left: 1.5rem;
@@ -257,6 +300,25 @@
         .content-section ol li::marker {
             color: var(--accent-color);
             font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
         }
         
         /* Figuras e legendas - Seu CSS adaptado */
@@ -460,8 +522,8 @@ de Oliveira
             <!-- Conteúdo principal -->
             <main class="content-section">
                 <h1 id="objetivos-da-aula">Objetivos da Aula</h1>
-                <p>Ao final desta aula, espera-se que o estudante seja
-                capaz de:</p>
+                <p>Ao final desta aula, espera-se que você seja capaz
+                de:</p>
                 <ul>
                 <li>Compreender o que estuda a Termologia e sua
                 importância no cotidiano;</li>
@@ -523,7 +585,7 @@ de Oliveira
                 calor.</p>
                 </blockquote>
                 <figure>
-                <img src="https://gifsdefisicacom.wordpress.com/wp-content/uploads/2019/09/20190930_220311.gif" style="width:40.0%"
+                <img src="images/fig-agitação.gif" style="width:40.0%"
                 alt="Temperatura. Fonte:gifsdafisica" />
                 <figcaption aria-hidden="true">Temperatura. Fonte:<a
                 href="https://gifsdefisicacom.wordpress.com/wp-content/uploads/2019/09/20190930_220311.gif">gifsdafisica</a></figcaption>
@@ -533,7 +595,7 @@ de Oliveira
                 temperatura em uma superfície ou área, usando cores para
                 representar diferentes faixas de temperatura.</p>
                 <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/MonthlyMeanT.gif" style="width:40.0%"
+                <img src="images/fig-mapa.gif" style="width:40.0%"
                 alt="Mapa de Temperatura. Fonte:wikimedia" />
                 <figcaption aria-hidden="true">Mapa de Temperatura.
                 Fonte:<a
@@ -573,7 +635,7 @@ de Oliveira
                 termômetro (corpo C) atinge o equilíbrio com o paciente,
                 indicando assim sua temperatura.</p>
                 <figure>
-                <img src="https://keystagewiki.com/images/6/63/ThermalEquilibrium.gif" style="width:40.0%"
+                <img src="images/fig-equilíbrio.gif" style="width:40.0%"
                 alt="Equilíbrio Térmico. Fonte:keystagewiki" />
                 <figcaption aria-hidden="true">Equilíbrio Térmico.
                 Fonte:<a
@@ -591,7 +653,7 @@ de Oliveira
                 colorido.</li>
                 </ul>
                 <figure>
-                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHllcG1mbGVsYW8xYmVnOXp2aHIwenNxOHV3bG96M2g3aXltNW9raCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FtCUiJkiaJ3e6l8A4r/giphy.gif"
+                <img src="images/fig-termo-vidro.gif"
                 style="width:15.0%"
                 alt="Termômetro de Vidro. Fonte:giphy" />
                 <figcaption aria-hidden="true">Termômetro de Vidro.
@@ -604,7 +666,7 @@ de Oliveira
                 com a temperatura.</li>
                 </ul>
                 <figure>
-                <img src="https://cdn.dribbble.com/userupload/20908619/file/original-4fbaf5f7e690142436afa9002b280ab1.gif"
+                <img src="images/fig-termo-digital.gif"
                 style="width:30.0%"
                 alt="Termômetro Digital. Fonte:dribbble" />
                 <figcaption aria-hidden="true">Termômetro Digital.
@@ -617,7 +679,7 @@ de Oliveira
                 corpo.</li>
                 </ul>
                 <figure>
-                <img src="https://media.tenor.com/fHn1B-_w8yIAAAAM/temperature-basic-temperature.gif"
+                <img src="images/fig-termo-infra.gif"
                 style="width:50.0%"
                 alt="Termômetro Infravermelho . Fonte:tenor" />
                 <figcaption aria-hidden="true">Termômetro Infravermelho
@@ -708,7 +770,7 @@ de Oliveira
                 K</strong>.</li>
                 </ul>
                 <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Water-triple-point-20210210.gif"
+                <img src="images/fig-ponto-triplo-água.gif"
                 style="width:50.0%"
                 alt="Ponto Triplo da Água. Fonte: wikimedia" />
                 <figcaption aria-hidden="true">Ponto Triplo da Água.
@@ -727,24 +789,40 @@ de Oliveira
                 </ul>
                 <h1 id="exercícios-de-fixação">Exercícios de
                 Fixação</h1>
-                <p><strong>1</strong>. Defina Termologia e explique por
-                que esse ramo da Física é fundamental para a compreensão
-                de fenômenos do cotidiano.</p>
-                <p><strong>2</strong>. Explique o conceito físico de
-                temperatura e sua relação com a teoria cinética da
-                matéria.</p>
-                <p><strong>3</strong>. Por que não é correto afirmar que
-                temperatura mede a quantidade de calor de um corpo?
-                Explique.</p>
-                <p><strong>4</strong>. Explique o que é sensação térmica
-                e cite dois fatores físicos que influenciam essa
-                sensação.</p>
-                <p><strong>5</strong>. Dois objetos feitos de materiais
-                diferentes estão à mesma temperatura, mas provocam
-                sensações térmicas distintas ao toque. Explique
-                fisicamente esse fenômeno.</p>
-                <p><strong>6</strong>. Qual termômetro mede a
-                temperatura a partir da radiação emitida pelo corpo?</p>
+                <dl>
+                <dt>1.1)</dt>
+                <dd>
+                Defina Termologia e explique por que esse ramo da Física
+                é fundamental para a compreensão de fenômenos do
+                cotidiano.
+                </dd>
+                <dt>1.2)</dt>
+                <dd>
+                Explique o conceito físico de temperatura e sua relação
+                com a teoria cinética da matéria.
+                </dd>
+                <dt>1.3)</dt>
+                <dd>
+                Por que não é correto afirmar que temperatura mede a
+                quantidade de calor de um corpo? Explique.
+                </dd>
+                <dt>1.4)</dt>
+                <dd>
+                Explique o que é sensação térmica e cite dois fatores
+                físicos que influenciam essa sensação.
+                </dd>
+                <dt>1.5)</dt>
+                <dd>
+                Dois objetos feitos de materiais diferentes estão à
+                mesma temperatura, mas provocam sensações térmicas
+                distintas ao toque. Explique fisicamente esse fenômeno.
+                </dd>
+                <dt>1.6)</dt>
+                <dd>
+                Qual termômetro mede a temperatura a partir da radiação
+                emitida pelo corpo?
+                </dd>
+                </dl>
                 <ol type="a">
                 <li>Termômetro de mercúrio.</li>
                 <li>Termômetro digital.</li>
@@ -752,8 +830,13 @@ de Oliveira
                 <li>Termômetro bimetálico.</li>
                 <li>Termômetro de gás.</li>
                 </ol>
-                <p><strong>7</strong>. A escala utilizada no Sistema
-                Internacional de Unidades é:</p>
+                <dl>
+                <dt>1.7)</dt>
+                <dd>
+                A escala utilizada no Sistema Internacional de Unidades
+                é:
+                </dd>
+                </dl>
                 <ol type="a">
                 <li>Celsius.</li>
                 <li>Fahrenheit.</li>
@@ -761,8 +844,12 @@ de Oliveira
                 <li>Réaumur.</li>
                 <li>Rankine.</li>
                 </ol>
-                <p><strong>8</strong>. Uma característica exclusiva da
-                escala Kelvin é:</p>
+                <dl>
+                <dt>1.8)</dt>
+                <dd>
+                Uma característica exclusiva da escala Kelvin é:
+                </dd>
+                </dl>
                 <ol type="a">
                 <li>usar o grau como unidade.</li>
                 <li>possuir valores negativos.</li>
@@ -771,8 +858,12 @@ de Oliveira
                 Internacional de Unidades.</li>
                 <li>variar conforme o termômetro.</li>
                 </ol>
-                <p><strong>9</strong>. Sobre a escala Fahrenheit, é
-                correto afirmar que:</p>
+                <dl>
+                <dt>1.9)</dt>
+                <dd>
+                Sobre a escala Fahrenheit, é correto afirmar que:
+                </dd>
+                </dl>
                 <ol type="a">
                 <li>Possui como ponto de fusão do gelo a temperatura de
                 0 °F.</li>
@@ -784,8 +875,12 @@ de Oliveira
                 <li>Apresenta como ponto de fusão do gelo 32 °F e ponto
                 de ebulição da água 212 °F.</li>
                 </ol>
-                <p><strong>10</strong>. A escala Celsius é caracterizada
-                corretamente por:</p>
+                <dl>
+                <dt>1.10)</dt>
+                <dd>
+                A escala Celsius é caracterizada corretamente por:
+                </dd>
+                </dl>
                 <ol type="a">
                 <li>Ser uma escala absoluta, sem valores negativos.</li>
                 <li>Ter como ponto zero o zero absoluto.</li>
