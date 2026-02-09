@@ -55,53 +55,26 @@ def adjust_paths_for_github_pages(html_content, repo_name=None):
 
 def get_github_repo_info():
     """
-    Detecta informações do repositório GitHub baseado no ambiente (Actions ou local).
-
+    Detecta informações do repositório GitHub baseado no ambiente.
+    
     Returns:
         tuple: (repo_name, is_github_pages, base_url)
-            - repo_name: nome do repositório (ex.: 'novo-portal' ou 'profjeffersonro.github.io')
-            - is_github_pages: True se parece ser build para GitHub Pages
-            - base_url: '/' para repo do tipo USERNAME.github.io, ou '/repo/' para repositório comum
     """
-    # 1) GitHub Actions (fonte de verdade no CI)
+    # Verificar se está rodando no GitHub Actions
     if os.environ.get('GITHUB_ACTIONS') == 'true':
         repo = os.environ.get('GITHUB_REPOSITORY', '')
         if repo:
             repo_name = repo.split('/')[-1]
+            
+            # Verificar se é um repositório .github.io (está na raiz)
             if repo_name.endswith('.github.io'):
                 return repo_name, True, '/'
-            return repo_name, True, f'/{repo_name}/'
-
-    # 2) Local: tenta descobrir pelo git remote (evita base_url errada no GitHub Pages)
-    repo_name = None
-    try:
-        remote = subprocess.check_output(
-            ['git', 'config', '--get', 'remote.origin.url'],
-            stderr=subprocess.DEVNULL,
-            text=True
-        ).strip()
-
-        # formatos comuns:
-        # - https://github.com/user/repo.git
-        # - git@github.com:user/repo.git
-        # - https://github.com/user/repo
-        m = re.search(r'[:/](?P<user>[^/]+)/(?P<repo>[^/]+?)(?:\.git)?$', remote)
-        if m:
-            repo_name = m.group('repo')
-    except Exception:
-        pass
-
-    # Heurística: se existe .github/ ou CNAME, estamos preparando para Pages
-    is_pages = Path('.github').exists() or Path('CNAME').exists()
-
-    if repo_name:
-        if repo_name.endswith('.github.io'):
-            return repo_name, is_pages, '/'
-        return repo_name, is_pages, f'/{repo_name}/'
-
-    # fallback total
+            else:
+                # Repositório normal, precisa de base path
+                return repo_name, True, f'/{repo_name}/'
+    
+    # Local development
     return None, False, '/'
-
 
 def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.github.io/"):
     """
@@ -481,12 +454,15 @@ def read_html_file(file_path, clean_html=True):
 # ============================================================================
 
 def copy_images_with_cache(content_path, output_path, cache, file_hashes, content_type='disciplina'):
-    """
-    Copia imagens para: <output_path>/<content_type>/images
-    - Dedup por nome base (stem)
-    - Se repetir nome (stem), mantém somente .gif (se existir)
-    - Registra no cache para não virar "órfão" no incremental
-    - content_type: 'disciplina' ou 'blog'
+    """Copia a pasta images/ do conteúdo (recursiva) para o site, preservando subpastas (ex.: thumbs/).
+
+    Por que isso é necessário?
+    - Seu caso: images/ pode conter apenas subpastas (ex.: images/thumbs/). O glob('*') antigo via só diretórios
+      e copiava 0 arquivos.
+
+    Mantém:
+    - filtro por extensões
+    - cache por hash
     """
     content_dir = Path(content_path)
     images_dir = content_dir / 'images'
@@ -498,26 +474,24 @@ def copy_images_with_cache(content_path, output_path, cache, file_hashes, conten
         dest_dir = Path(output_path) / 'disciplinas' / 'images'
     else:  # blog
         dest_dir = Path(output_path) / 'blog' / 'images'
-    
+
     dest_dir.mkdir(parents=True, exist_ok=True)
 
     allowed_exts = {'.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp', '.bmp'}
 
-    # 1) agrupar por "stem" (nome sem extensão)
-    candidates_by_stem = {}
-    for img_file in images_dir.glob('*'):
-        if img_file.is_file() and img_file.suffix.lower() in allowed_exts:
-            candidates_by_stem.setdefault(img_file.stem.lower(), []).append(img_file)
-
-    # 2) escolher por stem (preferir gif)
-    selected = []
-    for stem, files in candidates_by_stem.items():
-        gifs = [f for f in files if f.suffix.lower() == '.gif']
-        selected.append(gifs[0] if gifs else files[0])
-
     copied = 0
-    for img_file in selected:
-        dest_file = dest_dir / img_file.name
+
+    # ✅ RECURSIVO: inclui subpastas (thumbs/, etc.)
+    for img_file in images_dir.rglob('*'):
+        if not img_file.is_file():
+            continue
+        if img_file.suffix.lower() not in allowed_exts:
+            continue
+
+        rel = img_file.relative_to(images_dir)   # ex.: thumbs/x.png
+        dest_file = dest_dir / rel               # ex.: site/disciplinas/images/thumbs/x.png
+        dest_file.parent.mkdir(parents=True, exist_ok=True)
+
         current_hash = calculate_file_hash(str(img_file))
 
         needs_copy = True
@@ -526,18 +500,17 @@ def copy_images_with_cache(content_path, output_path, cache, file_hashes, conten
             if old_hash == current_hash:
                 needs_copy = False
 
-        # Copia se necessário
         if needs_copy:
             try:
                 shutil.copy2(img_file, dest_file)
                 file_hashes[str(img_file)] = current_hash
                 copied += 1
-                if BUILD_MODE == 'full' or copied < 10:
-                    print(f"    📸 Copiada: {img_file.name}")
+                if BUILD_MODE == 'full' or copied <= 15:
+                    print(f"    📸 Copiada: images/{rel.as_posix()}")
             except Exception as e:
-                print(f"    ❌ Erro ao copiar {img_file.name}: {str(e)}")
+                print(f"    ❌ Erro ao copiar {img_file}: {e}")
 
-        # ✅ MUITO IMPORTANTE: registrar imagem no cache
+        # registrar no cache
         update_cache_entry(cache, str(dest_file), [str(img_file)])
 
     return copied
