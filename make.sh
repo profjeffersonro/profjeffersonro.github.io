@@ -18,6 +18,12 @@ fi
 PORT=${2:-8000}
 URL="http://localhost:$PORT"
 
+# Detectar nome do repo (para simular GitHub Pages localmente)
+REPO_NAME=$(basename -s .git "$(git config --get remote.origin.url 2>/dev/null)")
+if [[ -n "$REPO_NAME" && "$REPO_NAME" != "profjeffersonro.github.io" ]]; then
+    URL="http://localhost:$PORT/$REPO_NAME/"
+fi
+
 # Função para verificar se a porta está livre
 check_port() {
     if lsof -i :$PORT > /dev/null 2>&1; then
