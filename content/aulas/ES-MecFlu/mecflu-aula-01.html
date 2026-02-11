@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecânica dos Fluidos</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Mecânica
+dos Fluidos</h1>
+                                
+                                <h2 class="document-subtitle display-6">Breve
+História e Conceitos Iniciais</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Definir <strong>fluido</strong> e explicar por que
+                ele escoa sob tensões tangenciais.</li>
+                <li>Diferenciar, com exemplos, <strong>sólidos, líquidos
+                e gases</strong> do ponto de vista mecânico.</li>
+                <li>Reconhecer, em linhas gerais, a <strong>evolução
+                histórica</strong> da Mecânica dos Fluidos.</li>
+                <li>Identificar propriedades importantes dos fluidos,
+                como <strong>massa específica</strong> e
+                <strong>pressão</strong>.</li>
+                <li>Definir corretamente <strong>massa
+                específica</strong> e <strong>densidade aparente
+                (bulk)</strong>.</li>
+                <li>Calcular <strong>pressão</strong> a partir da força
+                normal e da área.</li>
+                </ul>
+                <h1
+                id="introdução-o-que-estuda-a-mecânica-dos-fluidos">Introdução:
+                O que estuda a Mecânica dos Fluidos?</h1>
+                <p>A <strong>Mecânica dos Fluidos</strong> é o ramo da
+                <strong>Física</strong> que estuda o comportamento de
+                <strong>líquidos e gases</strong>, tanto em
+                <strong>repouso</strong> quanto em
+                <strong>movimento</strong>, bem como suas
+                <strong>interações</strong> com superfícies sólidas e
+                com outros fluidos.</p>
+                <p>Ela se divide, de modo geral, em duas grandes
+                áreas:</p>
+                <ul>
+                <li><strong>Estática dos Fluidos</strong>: estuda
+                fluidos em repouso;</li>
+                <li><strong>Dinâmica dos Fluidos</strong>: estuda
+                fluidos em movimento.</li>
+                </ul>
+                <p>Nesta aula inicial, nosso foco estará nos
+                <strong>conceitos fundamentais</strong>, que servirão de
+                base para o estudo sistemático da
+                <strong>hidrostática</strong> e, posteriormente, da
+                <strong>hidrodinâmica</strong>.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif" style="width:80.0%"
+                alt="Movimento de um Fluido. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Movimento de um Fluido.
+                Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif">wikimedia</a>.</figcaption>
+                </figure>
+                <h1 id="conceito-de-fluido">Conceito de fluido</h1>
+                <p>Um fluido, ao contrário de um sólido, é uma
+                substância que pode <strong>escoar</strong>. Os fluidos
+                assumem a forma do recipiente em que são colocados, pois
+                <strong>não resistem a forças paralelas à
+                superfície</strong>.</p>
+                <p>De forma intuitiva, os fluidos incluem
+                <strong>líquidos</strong> e <strong>gases</strong>.</p>
+                <figure>
+                <img src="images/fig-matéria.png" style="width:80.0%"
+                alt="Arranjo de átomos em estados diferentes. Fonte: Çengel e Yunus." />
+                <figcaption aria-hidden="true">Arranjo de átomos em
+                estados diferentes. Fonte: Çengel e Yunus.</figcaption>
+                </figure>
+                <p><strong>Definição formal</strong></p>
+                <p>De forma mais rigorosa, chamamos de
+                <strong>fluido</strong> toda substância que se
+                <strong>deforma continuamente</strong> quando submetida
+                a uma <strong>tensão tangencial</strong>, por menor que
+                ela seja.</p>
+                <ul>
+                <li><strong>Sólidos</strong> resistem a tensões de
+                cisalhamento.</li>
+                <li><strong>Fluidos</strong> não resistem: qualquer
+                cisalhamento provoca escoamento.</li>
+                </ul>
+                <figure>
+                <img src="images/fig-definição-fluidos.png"
+                style="width:90.0%"
+                alt="Cisalhamento em sólido e fluido. Fonte: Fox e McDonald." />
+                <figcaption aria-hidden="true">Cisalhamento em sólido e
+                fluido. Fonte: Fox e McDonald.</figcaption>
+                </figure>
+                <p>Em particular:</p>
+                <ul>
+                <li>Um <strong>líquido</strong> possui volume definido,
+                mas não forma própria.</li>
+                <li>Um <strong>gás</strong> não possui nem forma nem
+                volume definidos.</li>
+                </ul>
+                <h1 id="breve-histórico-da-mecânica-dos-fluidos">Breve
+                histórico da Mecânica dos Fluidos</h1>
+                <p>O desenvolvimento da Mecânica dos Fluidos está ligado
+                às necessidades práticas da humanidade.</p>
+                <ul>
+                <li><strong>Antiguidade</strong>: aquedutos e irrigação;
+                <strong>Arquimedes</strong> e o empuxo.</li>
+                <li><strong>Séculos XVII e XVIII</strong>:
+                <strong>Stevin</strong>, <strong>Pascal</strong>,
+                <strong>Torricelli</strong> e a pressão hidrostática;
+                <strong>Bernoulli</strong> e a conservação da
+                energia.</li>
+                <li><strong>Século XIX</strong>:
+                <strong>Navier</strong>, <strong>Stokes</strong>,
+                <strong>Reynolds</strong>, <strong>Darcy</strong>.</li>
+                <li><strong>Século XX em diante</strong>: aplicações em
+                engenharia, meteorologia, oceanografia, aerodinâmica e
+                bioengenharia.</li>
+                </ul>
+                <h1 id="massa-específica">Massa específica</h1>
+                <p>A <strong>massa específica</strong> <span
+                class="math inline"><em>ρ</em></span> é definida
+                formalmente por:</p>
+                <p><span class="math display">$$\rho = \lim_{\Delta V
+                \to 0} \frac{\Delta m}{\Delta V}$$</span></p>
+                <p>ou, de forma diferencial,</p>
+                <p><span class="math display">$$\boxed{\rho =
+                \frac{dm}{dV}}$$</span></p>
+                <p>No SI:</p>
+                <p><span
+                class="math display">[<em>ρ</em>] = kg/m<sup>3</sup></span></p>
+                <p>Para fluidos <strong>incompressíveis</strong> (bons
+                líquidos), <span class="math inline"><em>ρ</em></span>
+                pode ser considerada constante, levando à forma
+                prática:</p>
+                <p><span class="math display">$$\boxed{\rho =
+                \frac{m}{V}}$$</span></p>
+                <h2
+                id="exemplo-1.1---cálculo-da-massa-específico-de-um-óleo">Exemplo
+                1.1 - Cálculo da massa específico de um óleo</h2>
+                <p>Um tanque contém <span
+                class="math inline">500 L</span> de óleo com massa total
+                de <span class="math inline">430 kg</span>. Sabendo que
+                <span
+                class="math inline">1 L = 10<sup>−3</sup> m<sup>3</sup></span>
+                e que o óleo é homogêneo e incompreensível, determine a
+                massa específica deste óleo.</p>
+                <p><strong>Solução</strong>:</p>
+                <p><span
+                class="math display"><em>V</em> = 500 × 10<sup>−3</sup> m<sup>3</sup> = 0, 500 m<sup>3</sup></span></p>
+                <p><span class="math display">$$\rho =
+                \frac{430\,kg}{0{,}500\,m^{3}} =
+                860\,\text{kg}/\text{m}^3$$</span></p>
+                <p>Portanto, a densidade deste óleo é:</p>
+                <p><span class="math display">$$\boxed{\rho =
+                860\,\text{kg}/\text{m}^3}$$</span></p>
+                <h2
+                id="exemplo-1.2---densidade-média-de-uma-mistura-gasolina-etanol">Exemplo
+                1.2 - Densidade média de uma mistura (gasolina +
+                etanol)</h2>
+                <p>Em um reservatório, mistura-se
+                <strong>gasolina</strong> e <strong>etanol</strong> de
+                modo que:</p>
+                <ul>
+                <li>30,0% do volume total é gasolina.</li>
+                <li>70,0% do volume total é etanol.</li>
+                </ul>
+                <p>Considere as massas específicas:</p>
+                <ul>
+                <li>Gasolina: <span
+                class="math inline"><em>ρ</em><sub><em>g</em></sub> = 740 kg/m<sup>3</sup></span>.</li>
+                <li>Etanol: <span
+                class="math inline"><em>ρ</em><sub><em>e</em></sub> = 790 kg/m<sup>3</sup></span>.</li>
+                </ul>
+                <p>Assumindo que esta representa uma mistura ideal, isto
+                é, sem contração/expansão de volume ao misturar,
+                determine a <strong>massa específica média</strong>
+                <span
+                class="math inline"><em>ρ</em><sub><em>m</em></sub></span>
+                da mistura.</p>
+                <p><strong>Solução</strong>:</p>
+                <p>A massa total é:</p>
+                <p><span
+                class="math display"><em>m</em><sub>tot</sub> = <em>m</em><sub><em>g</em></sub> + <em>m</em><sub><em>e</em></sub> → <em>m</em><sub>tot</sub> = <em>ρ</em><sub><em>g</em></sub><em>V</em><sub><em>g</em></sub> + <em>ρ</em><sub><em>e</em></sub><em>V</em><sub><em>e</em></sub></span></p>
+                <p><span class="math display">$$\rho_{m} =
+                \dfrac{m_\text{tot}}{V_{\text{tot}}}$$</span></p>
+                <p><span class="math display">$$\rho_{m} = \dfrac{\rho_g
+                V_g + \rho_e V_e}{V_\text{tot}} \rightarrow \rho_{m} =
+                \rho_{g}\dfrac{V_g}{V_\text{tot}} +
+                \rho_{e}\dfrac{V_e}{V_\text{tot}}$$</span></p>
+                <p>Como: <span
+                class="math display"><em>V</em><sub><em>g</em></sub>/<em>V</em><sub>tot</sub> = 0, 300</span>
+                e <span
+                class="math display"><em>V</em><sub><em>e</em></sub>/<em>V</em><sub>tot</sub> = 0, 700</span>,
+                pedemos substituir os valores numéricos:</p>
+                <p><span
+                class="math display"><em>ρ</em><sub><em>m</em></sub> = 740 kg/m<sup>3</sup> ⋅ 0, 300 + 790 kg/m<sup>3</sup> ⋅ 0, 700</span></p>
+                <p><span
+                class="math display"><em>ρ</em><sub><em>m</em></sub> = 222 + 553 = 775 kg/m<sup>3</sup></span></p>
+                <p><strong>Resultado final</strong>:</p>
+                <p><span class="math display">$$\boxed{\rho_m =
+                775\,\text{kg}/\text{m}^3}$$</span></p>
+                <p><strong>Comentários</strong>:</p>
+                <p>A massa específica da mistura ficou
+                <strong>entre</strong> as massas específicas dos dois
+                fluidos, como esperado. Além disso, como há maior fração
+                de etanol (70%), o valor final fica mais próximo de
+                <span
+                class="math inline"><em>ρ</em><sub><em>e</em></sub></span>
+                do que de <span
+                class="math inline"><em>ρ</em><sub><em>g</em></sub></span>.</p>
+                <h1 id="pressão-em-um-fluido">Pressão em um fluido</h1>
+                <p>A <strong>pressão</strong> <span
+                class="math inline"><em>p</em></span> em um ponto é
+                definida como o limite da razão entre a força
+                <strong>normal</strong> exercida sobre uma superfície e
+                a área dessa superfície, quando a área tende a zero:</p>
+                <p><span class="math display">$$p = \lim_{\Delta A \to
+                0} \frac{\Delta F_\perp}{\Delta A}$$</span></p>
+                <p>Na forma diferencial:</p>
+                <p><span class="math display">$$p =
+                \frac{dF_\perp}{dA}$$</span></p>
+                <p>No Sistema Internacional:</p>
+                <p><span
+                class="math display">1 Pa = 1 N/m<sup>2</sup></span></p>
+                <p><strong>Pressão em fluidos em repouso</strong></p>
+                <p>Em um fluido em <strong>equilíbrio</strong>, não
+                existem tensões tangenciais internas. Assim, a pressão
+                atua igualmente em todas as direções e pode ser tratada
+                como uma <strong>grandeza escalar</strong>.</p>
+                <h2
+                id="exemplo-1.3---cálculo-da-pressão-exercida-pela-força-peso">Exemplo
+                1.3 - Cálculo da pressão exercida pela força peso</h2>
+                <p>Uma pessoa de massa <span
+                class="math inline">70 kg</span> apoia-se sobre um único
+                pé, cuja área de contato com o solo é <span
+                class="math inline">150 cm<sup>2</sup></span>. Estime a
+                pressão exercida.</p>
+                <p><strong>Solução</strong>:</p>
+                <p><span
+                class="math display"><em>A</em> = 150 × 10<sup>−4</sup> = 1, 50 × 10<sup>−2</sup> m<sup>2</sup></span></p>
+                <p><span class="math display">$$p = \dfrac{F}{A}
+                \rightarrow p = \dfrac{mg}{A}$$</span></p>
+                <p>Substituindo os valores numéricos:</p>
+                <p><span class="math display">$$p = \dfrac{70\,\text{kg}
+                \cdot 9,8\,\text{m}/\text{s}^{2}}{1{,}50 \times
+                10^{-2}\,\text{m}^{2}} \rightarrow p =
+                4{,}6\times10^{4}\,\text{Pa}$$</span></p>
+                <p>Portanto:</p>
+                <p><span class="math display">$$\boxed{p = 4{,}6 \times
+                10^{4}\,\text{Pa}}$$</span></p>
+                <h2
+                id="exemplo-1.4---cálculo-da-pressão-exercida-por-uma-força-formando-um-ângulo">Exemplo
+                1.4 - Cálculo da pressão exercida por uma força formando
+                um ângulo</h2>
+                <p>Uma força de intensidade <span
+                class="math inline"><em>F</em> = 120 N</span> é aplicada
+                sobre a superfície de uma placa plana de área <span
+                class="math inline"><em>A</em> = 0, 015 m<sup>2</sup></span>
+                fazendo um ângulo de <span
+                class="math inline"><em>θ</em> = 30<sup>∘</sup></span>
+                com a <strong>normal</strong> à placa (isto é, o ângulo
+                é medido em relação à direção perpendicular à
+                superfície).</p>
+                <p>Determine:</p>
+                <ol type="a">
+                <li>A componente normal da força, <span
+                class="math inline"><em>F</em><sub>⟂</sub></span>.</li>
+                <li>A pressão média exercida sobre a placa.</li>
+                </ol>
+                <p><strong>Solução</strong>:</p>
+                <ol type="1">
+                <li>Componente normal da força</li>
+                </ol>
+                <p>Se o ângulo <span
+                class="math inline"><em>θ</em></span> é medido em
+                relação à <strong>normal</strong>, então a componente
+                normal é:</p>
+                <p><span
+                class="math display"><em>F</em><sub>⟂</sub> = <em>F</em>cos <em>θ</em>.</span></p>
+                <p>Substituindo os valores:</p>
+                <p><span
+                class="math display"><em>F</em><sub>⟂</sub> = 120 <em>N</em> cos (30<sup>∘</sup>)</span></p>
+                <p><span
+                class="math display"><em>F</em><sub>⟂</sub> = 104 N</span></p>
+                <p>Logo,</p>
+                <p><span class="math display">$$\boxed{F_\perp =
+                104\,\text{N}}$$</span></p>
+                <ol start="2" type="1">
+                <li>Pressão média exercida</li>
+                </ol>
+                <p>A pressão média é:</p>
+                <p><span class="math display">$$p =
+                \frac{F_\perp}{A}.$$</span></p>
+                <p>Substituindo:</p>
+                <p><span class="math display">$$p =
+                \frac{104}{0{,}015}$$</span></p>
+                <p>Portanto,</p>
+                <p><span class="math display">$$\boxed{p = 6,9 \times
+                10^{3}\ \text{Pa}}$$</span></p>
+                <p><strong>Observação importante</strong>:</p>
+                <p>Se o ângulo fosse informado <strong>em relação ao
+                plano</strong> (isto é, em relação à própria
+                superfície), então a componente normal seria:</p>
+                <p><span
+                class="math display"><em>F</em><sub>⟂</sub> = <em>F</em>sin <em>θ</em></span></p>
+                <p>Pois, nesse caso, <span
+                class="math inline"><em>θ</em></span> seria complementar
+                ao ângulo medido em relação à normal.</p>
+                <p>Em problemas de pressão, sempre verifique
+                <strong>como o ângulo foi definido</strong>, pois a
+                pressão depende exclusivamente da componente
+                <strong>normal</strong> da força.</p>
+                <h1 id="conclusão">Conclusão</h1>
+                <p>Nesta aula introdutória, estabelecemos os
+                <strong>conceitos fundamentais</strong> da Mecânica dos
+                Fluidos, incluindo definições formais de
+                <strong>fluido</strong>, <strong>massa
+                específica</strong> e <strong>pressão</strong>. Esses
+                conceitos servirão de base para o estudo da
+                <strong>estática dos fluidos</strong>, onde analisaremos
+                a variação da pressão em fluidos em repouso e suas
+                aplicações práticas.</p>
+                <h1 id="exercícios-de-fixação">Exercícios De
+                Fixação</h1>
+                <dl>
+                <dt>1.1)</dt>
+                <dd>
+                Um fluido é definido, do ponto de vista mecânico, como
+                uma substância que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Possui sempre volume constante e forma própria.</li>
+                <li>Resiste a tensões normais, mas não a
+                tangenciais.</li>
+                <li>Se deforma continuamente sob qualquer tensão
+                tangencial, por menor que seja.</li>
+                <li>Apresenta apenas deformações elásticas.</li>
+                <li>Não sofre deformações quando submetida a forças
+                externas.</li>
+                </ol>
+                <dl>
+                <dt>1.2)</dt>
+                <dd>
+                A principal diferença mecânica entre sólidos e fluidos
+                está relacionada à:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Capacidade de ocupar volume.</li>
+                <li>Forma geométrica do material.</li>
+                <li>Resistência a forças normais.</li>
+                <li>Resposta às tensões de cisalhamento.</li>
+                <li>Massa específica do material.</li>
+                </ol>
+                <dl>
+                <dt>1.3)</dt>
+                <dd>
+                Um líquido, diferentemente de um gás, caracteriza-se
+                por:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Não possuir forma nem volume definidos.</li>
+                <li>Possuir forma própria, mas não volume definido.</li>
+                <li>Possuir volume definido, mas não forma própria.</li>
+                <li>Não sofrer deformações quando submetido a
+                forças.</li>
+                <li>Resistir permanentemente ao cisalhamento.</li>
+                </ol>
+                <dl>
+                <dt>1.4)</dt>
+                <dd>
+                A pressão em um ponto de um fluido em repouso é definida
+                fisicamente como:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A força total exercida pelo fluido.</li>
+                <li>A razão entre a força tangencial e a área.</li>
+                <li>A força média distribuída pelo volume.</li>
+                <li>A força exercida apenas pelo peso do fluido.</li>
+                <li>A componente normal da força por unidade de
+                área.</li>
+                </ol>
+                <dl>
+                <dt>1.5)</dt>
+                <dd>
+                A definição formal de massa específica
+                </dd>
+                </dl>
+                <p><span class="math display">$$\rho = \lim_{\Delta V
+                \to 0} \frac{\Delta m}{\Delta V}$$</span></p>
+                <p>Indica que a massa específica é:</p>
+                <ol type="a">
+                <li>Uma grandeza local associada a um ponto do
+                fluido.</li>
+                <li>Uma grandeza global do sistema.</li>
+                <li>Uma propriedade que depende da forma do
+                recipiente.</li>
+                <li>Uma grandeza válida apenas para sólidos.</li>
+                <li>Uma grandeza dependente exclusivamente da massa
+                total.</li>
+                </ol>
+                <dl>
+                <dt>1.6)</dt>
+                <dd>
+                Um recipiente contém um fluido homogêneo de massa total
+                igual a <span
+                class="math inline"><em>m</em> = 4, 5 kg</span>,
+                ocupando um volume de <span
+                class="math inline"><em>V</em> = 3, 0 × 10<sup>−3</sup> m<sup>3</sup></span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine a <strong>massa específica</strong> desse
+                fluido em <span
+                class="math inline">kg/m<sup>3</sup></span>.</li>
+                <li>Explique por que, nesse caso, é válido utilizar a
+                expressão <span
+                class="math inline"><em>ρ</em> = <em>m</em>/<em>V</em></span>
+                em vez da definição com limite.</li>
+                </ol>
+                <dl>
+                <dt>1.7)</dt>
+                <dd>
+                Um tanque contém uma mistura ideal formada por dois
+                líquidos:
+                </dd>
+                </dl>
+                <ul>
+                <li>Líquido A, com massa específica <span
+                class="math inline"><em>ρ</em><sub><em>A</em></sub> = 800 kg/m<sup>3</sup></span>,
+                ocupando 20 litros.</li>
+                <li>Líquido B, com massa específica <span
+                class="math inline"><em>ρ</em><sub><em>B</em></sub> = 1000 kg/m<sup>3</sup></span>,
+                ocupando 60 litros.</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a <strong>massa específica média</strong>
+                da mistura em <span
+                class="math inline">kg/m<sup>3</sup></span>.</li>
+                <li>Justifique por que o valor obtido deve estar entre
+                <span
+                class="math inline"><em>ρ</em><sub><em>A</em></sub></span>
+                e <span
+                class="math inline"><em>ρ</em><sub><em>B</em></sub></span>.</li>
+                </ol>
+                <dl>
+                <dt>1.8)</dt>
+                <dd>
+                Uma força normal de intensidade <span
+                class="math inline"><em>F</em> = 500 N</span> é aplicada
+                uniformemente sobre uma superfície plana de área <span
+                class="math inline"><em>A</em> = 0, 020 m<sup>2</sup></span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Calcule a <strong>pressão média</strong> exercida
+                sobre a superfície em Pa.</li>
+                <li>Explique o significado físico do valor obtido no
+                contexto da definição de pressão.</li>
+                </ol>
+                <dl>
+                <dt>1.9)</dt>
+                <dd>
+                Uma força de módulo <span
+                class="math inline"><em>F</em> = 200 N</span> é aplicada
+                sobre uma placa plana de área <span
+                class="math inline"><em>A</em> = 0, 025 m<sup>2</sup></span>,
+                formando um ângulo de <span
+                class="math inline"><em>θ</em> = 45<sup>∘</sup></span>
+                com a <strong>normal</strong> à superfície.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine a <strong>componente normal da
+                força</strong> que atua sobre a placa em N.</li>
+                <li>Calcule a <strong>pressão média</strong> exercida
+                sobre a superfície em Pa.</li>
+                <li>Explique por que apenas a componente normal da força
+                contribui para a pressão.</li>
+                </ol>
+                <dl>
+                <dt>1.10)</dt>
+                <dd>
+                Um fluido exerce uma pressão uniforme de <span
+                class="math inline"><em>p</em> = 3, 0 × 10<sup>4</sup> Pa</span>
+                sobre a base de um reservatório plano cuja área é <span
+                class="math inline"><em>A</em> = 0, 040 m<sup>2</sup></span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine a <strong>força normal</strong> exercida
+                pelo fluido sobre essa base em N.</li>
+                <li>Explique como esse resultado está relacionado com a
+                definição formal de pressão.</li>
+                </ol>
+                <h1 id="recomendações-de-estudo">Recomendações de
+                Estudo</h1>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="images/thumbs/fig-ytb-ctdfluidos.png" alt="A equação mais difícil da Física" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">A equação mais difícil da Física</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer">Ciência Todo Dia</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>GAMOW, G. <em>Trinta Anos que Abalaram a
+                Física</em>. Dover.</li>
+                <li>HEISENBERG, W. <em>A Parte e o Todo</em>.
+                Contraponto.</li>
+                <li>PEREIRA, Fernando de Candido. <strong>Uma Breve
+                História da Física Moderna e Contemporânea</strong>.
+                <em>Revista Professare</em>, v. 4, n. 3, p. 177–188,
+                2015.</li>
+                <li>YOUNG, H. D. <em>Ótica e Física Moderna</em>.
+                Addison Wesley.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Breve História e
+Conceitos Iniciais</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
