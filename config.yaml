@@ -12,22 +12,22 @@ disciplinas:
     aulas:
       - name: "Aula 01 - Conceitos Iniciais"
         html: "content/aulas/EM-Termo1/Aula-01/termo1-aula-01.html"
-        pdf: "https://drive.google.com/file/d/1qfvrt7SlACLkhHmmMeiTkhPvAvIc32_n/view?usp=sharing"
+        pdf: "https://drive.google.com/file/d/1kxr2MRukFEOscdmmH0-JRXcGjSaLzb1Q/view?usp=drive_link"
       - name: "Aula 02 - Escalas Termométricas"
         html: "content/aulas/EM-Termo1/Aula-02/termo1-aula-02.html"
-        pdf: "https://drive.google.com/file/d/1PWIIizlsM2JOED8pMxTRi74ytW0NrWiL/view?usp=sharing"
+        pdf: "https://drive.google.com/file/d/1PWIIizlsM2JOED8pMxTRi74ytW0NrWiL/view?usp=drive_link"
 
   - disciplina: "Física Moderna 1"
     aulas:
       - name: "Aula 01 - Concepções Históricas"
         html: "content/aulas/ES-FM1/Aula-01/fmi-aula-01.html"
-        pdf: "https://drive.google.com/file/d/1Aw5bp4DCLK1IKuLeszzFSsUKkQtmXr-u/view?usp=sharing"
+        pdf: "https://drive.google.com/file/d/1YGTroGD4XQSWcvFXLhyAMctnIWdLhQLV/view?usp=drive_link"
         
   - disciplina: "Mecânica dos Fluidos"
     aulas:
       - name: "Aula 01 - Introdução à Mecânica dos Fluidos"
         html: "content/aulas/ES-MecFlu/Aula-01/mecflu-aula-01.html"
-        pdf: "https://drive.google.com/file/d/1H0WT3FRl-485VHfGQxEGAGe_nVGdB5nK/view?usp=sharing"
+        pdf: "https://drive.google.com/file/d/1H0WT3FRl-485VHfGQxEGAGe_nVGdB5nK/view?usp=drive_link"
 
 blog:
   posts:
