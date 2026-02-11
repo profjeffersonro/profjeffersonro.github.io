@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Escalas
+Termométricas</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender o que são <strong>escalas
+                termométricas</strong>.</li>
+                <li>Identificar as principais escalas: <strong>Celsius,
+                Fahrenheit e Kelvin</strong>.</li>
+                <li>Deduzir matematicamente a relação entre Celsius e
+                Fahrenheit.</li>
+                <li>Realizar conversões entre:
+                <ul>
+                <li>Celsius <span class="math inline">↔︎</span>
+                Fahrenheit.</li>
+                <li>Celsius <span class="math inline">↔︎</span>
+                Kelvin.</li>
+                <li>Fahrenheit <span class="math inline">↔︎</span>
+                Kelvin.</li>
+                </ul></li>
+                <li>Resolver problemas aplicados envolvendo escalas
+                termométricas.</li>
+                <li>Interpretar situações do cotidiano utilizando
+                corretamente as conversões.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Imagine que você está assistindo a um filme americano
+                e o personagem diz:</p>
+                <blockquote>
+                <p>“Está fazendo 95 graus lá fora!”</p>
+                </blockquote>
+                <p>Você pensa:</p>
+                <p>95 graus?! Isso é impossível no Brasil!</p>
+                <p>Mas calma… provavelmente ele está falando em
+                <strong>graus Fahrenheit</strong>, não em Celsius.</p>
+                <p>É exatamente por isso que precisamos compreender as
+                <strong>escalas termométricas</strong>.</p>
+                <p>A temperatura é uma grandeza física associada ao grau
+                de agitação das partículas de um corpo. Para medi-la,
+                utilizamos termômetros que operam com base em uma escala
+                termométrica.</p>
+                <h1
+                id="conversão-celsius-leftrightarrow-fahrenheit">Conversão:
+                Celsius <span class="math inline">↔︎</span>
+                Fahrenheit</h1>
+                <p>Sabemos:</p>
+                <ul>
+                <li>0 °C <span class="math inline">↔︎</span> 32 °F.</li>
+                <li>100 °C <span class="math inline">↔︎</span> 212
+                °F.</li>
+                </ul>
+                <p>Intervalos:</p>
+                <ul>
+                <li>Celsius: 100 divisões.</li>
+                <li>Fahrenheit: 180 divisões.</li>
+                </ul>
+                <p>Logo:</p>
+                <p><span class="math display">$$\dfrac{\theta_C-0}{100}
+                = \dfrac{\theta_F - 32}{180}$$</span></p>
+                <p>Simplificando:</p>
+                <p><span class="math display">$$\dfrac{\theta_C}{5} =
+                \dfrac{\theta_F - 32}{9}$$</span></p>
+                <p>Relação fundamental:</p>
+                <p><span
+                class="math display">$$\boxed{\dfrac{\theta_C}{5} =
+                \dfrac{\theta_F - 32}{9}}$$</span></p>
+                <h2 id="exemplo-2.1---febre-durante-uma-viagem">Exemplo
+                2.1 - Febre durante uma viagem</h2>
+                <p>Você está viajando para os Estados Unidos e começa a
+                se sentir mal. Compra um termômetro em uma farmácia
+                local e ele marca <strong>104 °F</strong>.</p>
+                <p>Você precisa saber: isso é grave?</p>
+                <p>Aplicando a relação:</p>
+                <p><span class="math display">$$\dfrac{\theta_C}{5} =
+                \dfrac{104 - 32}{9}$$</span></p>
+                <p><span class="math display">$$\dfrac{\theta_C}{5} =
+                \dfrac{72}{9}$$</span></p>
+                <p><span class="math display">$$\dfrac{\theta_C}{5} =
+                8$$</span></p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>C</em></sub> = 40°<em>C</em></span></p>
+                <p>Conclusão:</p>
+                <p><strong>40 °C é febre alta.</strong></p>
+                <p>Agora você entende a gravidade da situação. Perceba
+                como a conversão pode ser essencial em uma situação
+                real.</p>
+                <h1
+                id="conversão-celsius-leftrightarrow-kelvin">Conversão:
+                Celsius <span class="math inline">↔︎</span> Kelvin</h1>
+                <p>As divisões das escalas Celsius e Kelvin possuem o
+                mesmo tamanho.</p>
+                <p>Relação:</p>
+                <p><span class="math display">$$\dfrac{\theta_C-0}{5} =
+                \dfrac{\theta_K-273}{5}$$</span></p>
+                <p>Simplificando, temos:</p>
+                <p><span class="math display">$$\boxed{\theta_C =
+                \theta_K - 273}$$</span></p>
+                <h2 id="exemplo-2.2---conservação-criogênica">Exemplo
+                2.2 - Conservação Criogênica</h2>
+                <p>Em um laboratório, pesquisadores armazenam amostras
+                biológicas em nitrogênio líquido a <strong>77
+                K</strong>. Você precisa registrar essa temperatura em
+                graus Celsius para um relatório.</p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>C</em></sub> = 77 − 273</span></p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>C</em></sub> = −196°<em>C</em></span></p>
+                <p>Conclusão:</p>
+                <p>O nitrogênio líquido está a <strong>-196 °C</strong>,
+                uma temperatura extremamente baixa, usada para
+                congelamento instantâneo.</p>
+                <h1
+                id="conversão-fahrenheit-leftrightarrow-kelvin">Conversão:
+                Fahrenheit <span class="math inline">↔︎</span>
+                Kelvin</h1>
+                <p>Combinando as relações:</p>
+                <p><span class="math display">$$\dfrac{\theta_F - 32}{9}
+                = \dfrac{\theta_K - 273}{5}$$</span></p>
+                <p>Relação geral:</p>
+                <p><span class="math display">$$\boxed{\dfrac{\theta_F -
+                32}{9} = \dfrac{\theta_K - 273}{5}}$$</span></p>
+                <h2
+                id="exemplo-2.3---controle-térmico-em-um-laboratório-da-nasa">Exemplo
+                2.3 - Controle térmico em um laboratório da NASA</h2>
+                <p>Durante um experimento em um laboratório da NASA, nos
+                Estados Unidos, a temperatura ambiente é registrada como
+                <strong>68 °F</strong>. Para inserir os dados no sistema
+                internacional, você precisa converter para Kelvin.</p>
+                <p>Usando a relação geral e substituindo:</p>
+                <p><span class="math display">$$\dfrac{68 - 32}{9} =
+                \dfrac{\theta_K - 273}{5}$$</span></p>
+                <p><span class="math display">$$\dfrac{36}{9} =
+                \dfrac{\theta_K - 273}{5}$$</span></p>
+                <p><span class="math display">$$4 = \dfrac{\theta_K -
+                273}{5}$$</span></p>
+                <p>Invertendo os lados:</p>
+                <p><span class="math display">$$\dfrac{\theta_K -
+                273}{5} = 4$$</span></p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>K</em></sub> − 273 = 20</span></p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>K</em></sub> = 20 + 273</span></p>
+                <p>Por fim,</p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>K</em></sub> = 293</span></p>
+                <p>Conclusão:</p>
+                <p>A temperatura do laboratório era <strong>293
+                K</strong>, que corresponde a 20 °C - uma temperatura
+                ambiente confortável.</p>
+                <h1 id="zero-absoluto">Zero absoluto</h1>
+                <p>O zero absoluto corresponde à temperatura de:</p>
+                <p><span class="math display">0 <em>K</em></span></p>
+                <p>ou</p>
+                <p><span
+                class="math display">−273 °<em>C</em></span></p>
+                <p>Ele representa o <strong>menor valor de temperatura
+                teoricamente possível no Universo</strong>.</p>
+                <figure>
+                <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg" style="width:80.0%"
+                alt="Zero absoluto. Fonte: mundo educação." />
+                <figcaption aria-hidden="true">Zero absoluto. Fonte: <a
+                href="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg">mundo
+                educação</a>.</figcaption>
+                </figure>
+                <p>Mas o que isso significa fisicamente?</p>
+                <p>Sabemos que a temperatura está relacionada ao grau de
+                agitação das partículas.</p>
+                <ul>
+                <li>Quanto maior a temperatura, maior a agitação
+                molecular.</li>
+                <li>À medida que a temperatura diminui, essa agitação
+                também diminui.</li>
+                </ul>
+                <p>No zero absoluto, a energia térmica atinge seu valor
+                mínimo possível.</p>
+                <p><strong>Importante destacar</strong>:</p>
+                <ul>
+                <li><p>Segundo a Mecânica Quântica, as partículas não
+                ficam completamente paradas, mesmo a 0 K. Existe sempre
+                uma energia residual chamada <strong>energia de ponto
+                zero</strong>. Portanto, o zero absoluto representa o
+                menor nível possível de energia térmica, e não ausência
+                total de movimento.</p></li>
+                <li><p>A Terceira Lei da Termodinâmica afirma que é
+                impossível atingir exatamente 0 K por meio de processos
+                físicos finitos. Os cientistas conseguem chegar
+                extremamente próximos desse valor, mas nunca atingi-lo
+                exatamente.</p></li>
+                <li><p>A escala Kelvin começa no zero absoluto
+                justamente porque ela é uma <strong>escala
+                absoluta</strong>, ligada diretamente à energia do
+                sistema. Por isso, ela é utilizada nas leis da
+                Termodinâmica.</p></li>
+                </ul>
+                <p>Em resumo:</p>
+                <ul>
+                <li>0 °C é apenas o ponto de congelamento da água.</li>
+                <li>0 °F é um valor definido historicamente.</li>
+                <li>0 K é um limite físico fundamental da natureza.</li>
+                </ul>
+                <p>O zero absoluto não é apenas um número: <strong>ele
+                representa um limite extremo do comportamento da matéria
+                no Universo</strong>.</p>
+                <h1 id="problemas-algébricos">Problemas Algébricos</h1>
+                <p>Agora vamos elevar o nível. Aqui entra um pouco mais
+                de álgebra. Mantenha atenção aos detalhes.</p>
+                <h2
+                id="exemplo-2.4---quando-a-temperatura-celsius-é-o-quíntuplo-da-fahrenheit">Exemplo
+                2.4 - Quando a temperatura Celsius é o quíntuplo da
+                Fahrenheit</h2>
+                <p>Durante o aquecimento de uma substância em uma
+                indústria química, um engenheiro percebe que, em
+                determinado momento, a temperatura em graus Celsius
+                passa a ser o quíntuplo da temperatura em Fahrenheit.
+                Ele precisa registrar essa temperatura para analisar o
+                comportamento da substância.</p>
+                <p>Condição:</p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>C</em></sub> = 5<em>θ</em><sub><em>F</em></sub></span></p>
+                <p>Usando a relação:</p>
+                <p><span class="math display">$$\dfrac{\theta_C}{5} =
+                \dfrac{\theta_F - 32}{9}$$</span></p>
+                <p>Substituindo:</p>
+                <p><span class="math display">$$\dfrac{5\theta_F}{5} =
+                \dfrac{\theta_F - 32}{9}$$</span></p>
+                <p><span class="math display">$$\theta_F =
+                \dfrac{\theta_F - 32}{9}$$</span></p>
+                <p>Multiplicando por 9:</p>
+                <p><span
+                class="math display">9<em>θ</em><sub><em>F</em></sub> = <em>θ</em><sub><em>F</em></sub> − 32</span></p>
+                <p><span
+                class="math display">8<em>θ</em><sub><em>F</em></sub> = −32</span></p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>F</em></sub> = −4°<em>F</em></span></p>
+                <p>Então:</p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>C</em></sub> = 5(−4) = −20°<em>C</em></span></p>
+                <p>Conclusão:</p>
+                <p>Essa condição ocorre a <strong>-20 °C</strong>.</p>
+                <h2
+                id="exemplo-2.5---quando-fahrenheit-é-o-triplo-mais-2-unidades-da-celsius">Exemplo
+                2.5 - Quando Fahrenheit é o triplo mais 2 unidades da
+                Celsius</h2>
+                <p>Em um estudo geológico, um pesquisador descobre que a
+                temperatura de uma rocha obedece à relação:</p>
+                <blockquote>
+                <p>A temperatura em Fahrenheit é o triplo da temperatura
+                em Celsius mais 2 unidades.</p>
+                </blockquote>
+                <p>Ele precisa saber essa temperatura em Kelvin para
+                inserir em um modelo computacional.</p>
+                <p>Condição:</p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>F</em></sub> = 3<em>θ</em><sub><em>C</em></sub> + 2</span></p>
+                <p>Substituindo:</p>
+                <p><span class="math display">$$\dfrac{\theta_C}{5} =
+                \dfrac{3\theta_C + 2 - 32}{9}$$</span></p>
+                <p><span class="math display">$$\dfrac{\theta_C}{5} =
+                \dfrac{3\theta_C - 30}{9}$$</span></p>
+                <p>Multiplicando cruzado:</p>
+                <p><span
+                class="math display">9<em>θ</em><sub><em>C</em></sub> = 5(3<em>θ</em><sub><em>C</em></sub> − 30)</span></p>
+                <p><span
+                class="math display">9<em>θ</em><sub><em>C</em></sub> = 15<em>θ</em><sub><em>C</em></sub> − 150</span></p>
+                <p><span
+                class="math display">−6<em>θ</em><sub><em>C</em></sub> = −150</span></p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>C</em></sub> = 25°<em>C</em></span></p>
+                <p>Convertendo para Kelvin:</p>
+                <p><span
+                class="math display"><em>θ</em><sub><em>K</em></sub> = 25 + 273 = 298<em>K</em></span></p>
+                <p>Conclusão:</p>
+                <p>A temperatura da rocha é <strong>298 K</strong>.</p>
+                <h1 id="conclusão">Conclusão</h1>
+                <p>As escalas termométricas não são apenas fórmulas para
+                decorar.</p>
+                <p>Elas aparecem:</p>
+                <ul>
+                <li>Em viagens internacionais.</li>
+                <li>Na medicina.</li>
+                <li>Em laboratórios científicos.</li>
+                <li>Na indústria.</li>
+                <li>Em pesquisas espaciais.</li>
+                <li>Em processos criogênicos.</li>
+                </ul>
+                <p>Quando você entende a lógica por trás das conversões,
+                você ganha autonomia para interpretar situações
+                reais.</p>
+                <p>E é isso que transforma matemática em ferramenta e
+                Física em compreensão do mundo.</p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>2.1)</dt>
+                <dd>
+                Uma empresa de alimentos mantém seu setor de
+                congelamento a <strong>-18 °C</strong>, temperatura
+                recomendada para conservação de carnes.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine essa temperatura em Kelvin.</li>
+                <li>Determine essa temperatura em Fahrenheit.</li>
+                <li>Essa temperatura está abaixo do ponto de
+                congelamento da água? Justifique numericamente.</li>
+                </ol>
+                <dl>
+                <dt>2.2)</dt>
+                <dd>
+                Em um laboratório na Alemanha, um experimento ocorre a
+                <strong>310 K</strong>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine essa temperatura em graus Celsius.</li>
+                <li>Essa temperatura é próxima à temperatura média do
+                corpo humano (37 °C)?</li>
+                </ol>
+                <dl>
+                <dt>2.3)</dt>
+                <dd>
+                Durante o inverno em Toronto, a previsão do tempo indica
+                <strong>-22 °F</strong>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Converta essa temperatura para graus Celsius.</li>
+                <li>Compare com um inverno típico no sul do Brasil (em
+                torno de 5 °C). Qual é mais frio?</li>
+                </ol>
+                <dl>
+                <dt>2.4)</dt>
+                <dd>
+                Durante o aquecimento de uma substância, um engenheiro
+                observa que, em certo instante, a temperatura em graus
+                Celsius é o <strong>dobro da temperatura em graus
+                Fahrenheit</strong>. Determine essa temperatura em graus
+                Celsius e discuta se ela representa uma condição de
+                aquecimento ou resfriamento.
+                </dd>
+                <dt>2.5)</dt>
+                <dd>
+                Um pesquisador descobre que a temperatura de uma rocha
+                obedece à seguinte relação: “A temperatura em Fahrenheit
+                é igual ao triplo da temperatura em Celsius menos 10
+                unidades.” Determine essa temperatura em Kelvin.
+                </dd>
+                <dt>2.6)</dt>
+                <dd>
+                Em um centro de armazenamento de vacinas, a sala de
+                conservação está regulada para manter as doses a uma
+                temperatura adequada de refrigeração, medida como
+                <strong>-10 °C</strong>. Para configurar um sistema
+                importado dos Estados Unidos, é necessário inserir essa
+                temperatura em Fahrenheit. O valor correto é
+                aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>10 °F.</li>
+                <li>14 °F.</li>
+                <li>18 °F.</li>
+                <li>23 °F.</li>
+                <li>32 °F.</li>
+                </ol>
+                <dl>
+                <dt>2.7)</dt>
+                <dd>
+                Durante o resfriamento de uma substância em um
+                laboratório, observou-se que, em determinado instante, o
+                valor numérico da temperatura em graus Fahrenheit era o
+                dobro do valor numérico da temperatura em graus Celsius.
+                A temperatura nesse instante é aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>-10 °C.</li>
+                <li>-20 °C.</li>
+                <li>-40 °C.</li>
+                <li>-60 °C.</li>
+                <li>-80 °C.</li>
+                </ol>
+                <dl>
+                <dt>2.8)</dt>
+                <dd>
+                Em um centro de pesquisa, um gás ultrafrio foi resfriado
+                até <strong>20 K</strong> acima do zero absoluto. Essa
+                temperatura, expressa em graus Celsius, é
+                aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>-253 °C.</li>
+                <li>-240 °C.</li>
+                <li>-220 °C.</li>
+                <li>-200 °C.</li>
+                <li>-180 °C.</li>
+                </ol>
+                <dl>
+                <dt>2.9)</dt>
+                <dd>
+                Em um experimento térmico, verificou-se que o valor
+                numérico da temperatura em Fahrenheit era igual à
+                temperatura em Celsius diminuída de 8 unidades. Com base
+                nessa condição, a temperatura do sistema em Kelvin é
+                aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>250 K.</li>
+                <li>260 K.</li>
+                <li>270 K.</li>
+                <li>280 K.</li>
+                <li>290 K.</li>
+                </ol>
+                <dl>
+                <dt>2.10)</dt>
+                <dd>
+                O zero absoluto corresponde a -273 °C. Se quisermos
+                expressar essa temperatura na escala Fahrenheit, o valor
+                aproximado será:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>-400 °F.</li>
+                <li>-459 °F.</li>
+                <li>-273 °F.</li>
+                <li>-212 °F.</li>
+                <li>-180 °F.</li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://www.youtube.com/watch?v=0XKh2oT0b5w" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="images/thumbs/fig-ytb-zeroabs.png" alt="Zero absoluto" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">Zero absoluto</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=0XKh2oT0b5w" target="_blank" rel="noopener noreferrer">Ciência Todo Dia</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=0XKh2oT0b5w" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>GASPAR, Alberto. Física: volume único. 2. ed. São
+                Paulo: Ática, 2014.</li>
+                <li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina. Física: termologia, óptica e ondas. São Paulo:
+                FTD, 2016.</li>
+                <li>PIETROCOLA, Maurício et al. Física em contextos:
+                pessoal, social e histórico – volume 2. São Paulo: FTD,
+                2016.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Escalas
+Termométricas</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
