@@ -19,6 +19,12 @@ disciplinas:
       - name: "Aula 01 - Concepções Históricas"
         html: "content/aulas/ES-FM1/fmi-aula-01.html"
         pdf: "https://drive.google.com/file/d/1Aw5bp4DCLK1IKuLeszzFSsUKkQtmXr-u/view?usp=sharing"
+        
+  - disciplina: "Mecânica dos Fluidos"
+    aulas:
+      - name: "Aula 01 - Introdução à Mecânica dos Fluidos"
+        html: "content/aulas/ES-MecFlu/mecflu-aula-01.html"
+        pdf: "https://drive.google.com/file/d/1Aw5bp4DCLK1IKuLeszzFSsUKkQtmXr-u/view?usp=sharing"
 
 blog:
   posts:
