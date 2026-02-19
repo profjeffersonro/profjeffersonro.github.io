@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 - Escalas Termométricas | Meu Portal</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\(', '\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics']
+        },
+        tex: {
+            packages: {'[+]': ['ams', 'physics']}
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Termodinâmica 1</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 02 - Escalas Termométricas</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Termodinâmica 1</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1PWIIizlsM2JOED8pMxTRi74ytW0NrWiL/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        <div class="aula-content tex2jax_process"><div><div><!-- Header --><!-- TOC --><!-- Conteúdo principal --><main class="content-section"><h1 id="objetivos" class="mt-4 mb-3 text-primary">Objetivos</h1><p class="mb-3">Ao final desta aula, você deverá ser capaz de:</p><ul class="mb-3"><li>Compreender o que são <strong>escalas termométricas</strong>.</li><li>Identificar as principais escalas: <strong>Celsius, Fahrenheit e Kelvin</strong>.</li><li>Deduzir matematicamente a relação entre Celsius e Fahrenheit.</li><li>Realizar conversões entre: <ul class="mb-3"><li>Celsius <span class="math inline">↔︎</span> Fahrenheit.</li><li>Celsius <span class="math inline">↔︎</span> Kelvin.</li><li>Fahrenheit <span class="math inline">↔︎</span> Kelvin.</li></ul></li><li>Resolver problemas aplicados envolvendo escalas termométricas.</li><li>Interpretar situações do cotidiano utilizando corretamente as conversões.</li></ul><h1 id="introdução" class="mt-4 mb-3 text-primary">Introdução</h1><p class="mb-3">Imagine que você está assistindo a um filme americano e o personagem diz:</p><blockquote class="blockquote bg-light p-3 border-start border-3 border-primary"><p class="mb-3">“Está fazendo 95 graus lá fora!”</p></blockquote><p class="mb-3">Você pensa:</p><p class="mb-3">95 graus?! Isso é impossível no Brasil!</p><p class="mb-3">Mas calma… provavelmente ele está falando em <strong>graus Fahrenheit</strong>, não em Celsius.</p><p class="mb-3">É exatamente por isso que precisamos compreender as <strong>escalas termométricas</strong>.</p><p class="mb-3">A temperatura é uma grandeza física associada ao grau de agitação das partículas de um corpo. Para medi-la, utilizamos termômetros que operam com base em uma escala termométrica.</p><h1 id="conversão-celsius-leftrightarrow-fahrenheit" class="mt-4 mb-3 text-primary">Conversão: Celsius <span class="math inline">↔︎</span> Fahrenheit</h1><p class="mb-3">Sabemos:</p><ul class="mb-3"><li>0 °C <span class="math inline">↔︎</span> 32 °F.</li><li>100 °C <span class="math inline">↔︎</span> 212 °F.</li></ul><p class="mb-3">Intervalos:</p><ul class="mb-3"><li>Celsius: 100 divisões.</li><li>Fahrenheit: 180 divisões.</li></ul><p class="mb-3">Logo:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C-0}{100} = \dfrac{\theta_F - 32}{180}$$</span></p><p class="mb-3">Simplificando:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}$$</span></p><p class="mb-3">Relação fundamental:</p><p class="mb-3"><span class="math display">$$\boxed{\dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}}$$</span></p><h2 id="exemplo-2.1---febre-durante-uma-viagem" class="mt-4 mb-3 text-secondary">Exemplo 2.1 - Febre durante uma viagem</h2><p class="mb-3">Você está viajando para os Estados Unidos e começa a se sentir mal. Compra um termômetro em uma farmácia local e ele marca <strong>104 °F</strong>.</p><p class="mb-3">Você precisa saber: isso é grave?</p><p class="mb-3">Aplicando a relação:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C}{5} = \dfrac{104 - 32}{9}$$</span></p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C}{5} = \dfrac{72}{9}$$</span></p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C}{5} = 8$$</span></p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>C</em></sub> = 40°<em>C</em></span></p><p class="mb-3">Conclusão:</p><p class="mb-3"><strong>40 °C é febre alta.</strong></p><p class="mb-3">Agora você entende a gravidade da situação. Perceba como a conversão pode ser essencial em uma situação real.</p><h1 id="conversão-celsius-leftrightarrow-kelvin" class="mt-4 mb-3 text-primary">Conversão: Celsius <span class="math inline">↔︎</span> Kelvin</h1><p class="mb-3">As divisões das escalas Celsius e Kelvin possuem o mesmo tamanho.</p><p class="mb-3">Relação:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C-0}{5} = \dfrac{\theta_K-273}{5}$$</span></p><p class="mb-3">Simplificando, temos:</p><p class="mb-3"><span class="math display">$$\boxed{\theta_C = \theta_K - 273}$$</span></p><h2 id="exemplo-2.2---conservação-criogênica" class="mt-4 mb-3 text-secondary">Exemplo 2.2 - Conservação Criogênica</h2><p class="mb-3">Em um laboratório, pesquisadores armazenam amostras biológicas em nitrogênio líquido a <strong>77 K</strong>. Você precisa registrar essa temperatura em graus Celsius para um relatório.</p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>C</em></sub> = 77 − 273</span></p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>C</em></sub> = −196°<em>C</em></span></p><p class="mb-3">Conclusão:</p><p class="mb-3">O nitrogênio líquido está a <strong>-196 °C</strong>, uma temperatura extremamente baixa, usada para congelamento instantâneo.</p><h1 id="conversão-fahrenheit-leftrightarrow-kelvin" class="mt-4 mb-3 text-primary">Conversão: Fahrenheit <span class="math inline">↔︎</span> Kelvin</h1><p class="mb-3">Combinando as relações:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_F - 32}{9} = \dfrac{\theta_K - 273}{5}$$</span></p><p class="mb-3">Relação geral:</p><p class="mb-3"><span class="math display">$$\boxed{\dfrac{\theta_F - 32}{9} = \dfrac{\theta_K - 273}{5}}$$</span></p><h2 id="exemplo-2.3---controle-térmico-em-um-laboratório-da-nasa" class="mt-4 mb-3 text-secondary">Exemplo 2.3 - Controle térmico em um laboratório da NASA</h2><p class="mb-3">Durante um experimento em um laboratório da NASA, nos Estados Unidos, a temperatura ambiente é registrada como <strong>68 °F</strong>. Para inserir os dados no sistema internacional, você precisa converter para Kelvin.</p><p class="mb-3">Usando a relação geral e substituindo:</p><p class="mb-3"><span class="math display">$$\dfrac{68 - 32}{9} = \dfrac{\theta_K - 273}{5}$$</span></p><p class="mb-3"><span class="math display">$$\dfrac{36}{9} = \dfrac{\theta_K - 273}{5}$$</span></p><p class="mb-3"><span class="math display">$$4 = \dfrac{\theta_K - 273}{5}$$</span></p><p class="mb-3">Invertendo os lados:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_K - 273}{5} = 4$$</span></p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>K</em></sub> − 273 = 20</span></p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>K</em></sub> = 20 + 273</span></p><p class="mb-3">Por fim,</p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>K</em></sub> = 293</span></p><p class="mb-3">Conclusão:</p><p class="mb-3">A temperatura do laboratório era <strong>293 K</strong>, que corresponde a 20 °C - uma temperatura ambiente confortável.</p><h1 id="zero-absoluto" class="mt-4 mb-3 text-primary">Zero absoluto</h1><p class="mb-3">O zero absoluto corresponde à temperatura de:</p><p class="mb-3"><span class="math display">0 <em>K</em></span></p><p class="mb-3">ou</p><p class="mb-3"><span class="math display">−273 °<em>C</em></span></p><p class="mb-3">Ele representa o <strong>menor valor de temperatura teoricamente possível no Universo</strong>.</p><figure class="text-center my-4"><img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg" alt="Zero absoluto. Fonte: mundo educação." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Zero absoluto. Fonte: <a href="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg">mundo educação</a>.</figcaption></figure><p class="mb-3">Mas o que isso significa fisicamente?</p><p class="mb-3">Sabemos que a temperatura está relacionada ao grau de agitação das partículas.</p><ul class="mb-3"><li>Quanto maior a temperatura, maior a agitação molecular.</li><li>À medida que a temperatura diminui, essa agitação também diminui.</li></ul><p class="mb-3">No zero absoluto, a energia térmica atinge seu valor mínimo possível.</p><p class="mb-3"><strong>Importante destacar</strong>:</p><ul class="mb-3"><li><p class="mb-3">Segundo a Mecânica Quântica, as partículas não ficam completamente paradas, mesmo a 0 K. Existe sempre uma energia residual chamada <strong>energia de ponto zero</strong>. Portanto, o zero absoluto representa o menor nível possível de energia térmica, e não ausência total de movimento.</p></li><li><p class="mb-3">A Terceira Lei da Termodinâmica afirma que é impossível atingir exatamente 0 K por meio de processos físicos finitos. Os cientistas conseguem chegar extremamente próximos desse valor, mas nunca atingi-lo exatamente.</p></li><li><p class="mb-3">A escala Kelvin começa no zero absoluto justamente porque ela é uma <strong>escala absoluta</strong>, ligada diretamente à energia do sistema. Por isso, ela é utilizada nas leis da Termodinâmica.</p></li></ul><p class="mb-3">Em resumo:</p><ul class="mb-3"><li>0 °C é apenas o ponto de congelamento da água.</li><li>0 °F é um valor definido historicamente.</li><li>0 K é um limite físico fundamental da natureza.</li></ul><p class="mb-3">O zero absoluto não é apenas um número: <strong>ele representa um limite extremo do comportamento da matéria no Universo</strong>.</p><h1 id="problemas-algébricos" class="mt-4 mb-3 text-primary">Problemas Algébricos</h1><p class="mb-3">Agora vamos elevar o nível. Aqui entra um pouco mais de álgebra. Mantenha atenção aos detalhes.</p><h2 id="exemplo-2.4---quando-a-temperatura-celsius-é-o-quíntuplo-da-fahrenheit" class="mt-4 mb-3 text-secondary">Exemplo 2.4 - Quando a temperatura Celsius é o quíntuplo da Fahrenheit</h2><p class="mb-3">Durante o aquecimento de uma substância em uma indústria química, um engenheiro percebe que, em determinado momento, a temperatura em graus Celsius passa a ser o quíntuplo da temperatura em Fahrenheit. Ele precisa registrar essa temperatura para analisar o comportamento da substância.</p><p class="mb-3">Condição:</p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>C</em></sub> = 5<em>θ</em><sub><em>F</em></sub></span></p><p class="mb-3">Usando a relação:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}$$</span></p><p class="mb-3">Substituindo:</p><p class="mb-3"><span class="math display">$$\dfrac{5\theta_F}{5} = \dfrac{\theta_F - 32}{9}$$</span></p><p class="mb-3"><span class="math display">$$\theta_F = \dfrac{\theta_F - 32}{9}$$</span></p><p class="mb-3">Multiplicando por 9:</p><p class="mb-3"><span class="math display">9<em>θ</em><sub><em>F</em></sub> = <em>θ</em><sub><em>F</em></sub> − 32</span></p><p class="mb-3"><span class="math display">8<em>θ</em><sub><em>F</em></sub> = −32</span></p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>F</em></sub> = −4°<em>F</em></span></p><p class="mb-3">Então:</p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>C</em></sub> = 5(−4) = −20°<em>C</em></span></p><p class="mb-3">Conclusão:</p><p class="mb-3">Essa condição ocorre a <strong>-20 °C</strong>.</p><h2 id="exemplo-2.5---quando-fahrenheit-é-o-triplo-mais-2-unidades-da-celsius" class="mt-4 mb-3 text-secondary">Exemplo 2.5 - Quando Fahrenheit é o triplo mais 2 unidades da Celsius</h2><p class="mb-3">Em um estudo geológico, um pesquisador descobre que a temperatura de uma rocha obedece à relação:</p><blockquote class="blockquote bg-light p-3 border-start border-3 border-primary"><p class="mb-3">A temperatura em Fahrenheit é o triplo da temperatura em Celsius mais 2 unidades.</p></blockquote><p class="mb-3">Ele precisa saber essa temperatura em Kelvin para inserir em um modelo computacional.</p><p class="mb-3">Condição:</p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>F</em></sub> = 3<em>θ</em><sub><em>C</em></sub> + 2</span></p><p class="mb-3">Substituindo:</p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C}{5} = \dfrac{3\theta_C + 2 - 32}{9}$$</span></p><p class="mb-3"><span class="math display">$$\dfrac{\theta_C}{5} = \dfrac{3\theta_C - 30}{9}$$</span></p><p class="mb-3">Multiplicando cruzado:</p><p class="mb-3"><span class="math display">9<em>θ</em><sub><em>C</em></sub> = 5(3<em>θ</em><sub><em>C</em></sub> − 30)</span></p><p class="mb-3"><span class="math display">9<em>θ</em><sub><em>C</em></sub> = 15<em>θ</em><sub><em>C</em></sub> − 150</span></p><p class="mb-3"><span class="math display">−6<em>θ</em><sub><em>C</em></sub> = −150</span></p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>C</em></sub> = 25°<em>C</em></span></p><p class="mb-3">Convertendo para Kelvin:</p><p class="mb-3"><span class="math display"><em>θ</em><sub><em>K</em></sub> = 25 + 273 = 298<em>K</em></span></p><p class="mb-3">Conclusão:</p><p class="mb-3">A temperatura da rocha é <strong>298 K</strong>.</p><h1 id="conclusão" class="mt-4 mb-3 text-primary">Conclusão</h1><p class="mb-3">As escalas termométricas não são apenas fórmulas para decorar.</p><p class="mb-3">Elas aparecem:</p><ul class="mb-3"><li>Em viagens internacionais.</li><li>Na medicina.</li><li>Em laboratórios científicos.</li><li>Na indústria.</li><li>Em pesquisas espaciais.</li><li>Em processos criogênicos.</li></ul><p class="mb-3">Quando você entende a lógica por trás das conversões, você ganha autonomia para interpretar situações reais.</p><p class="mb-3">E é isso que transforma matemática em ferramenta e Física em compreensão do mundo.</p><h1 id="exercícios-de-fixação" class="mt-4 mb-3 text-primary">Exercícios de Fixação</h1><dl><dt>2.1)</dt><dd> Uma empresa de alimentos mantém seu setor de congelamento a <strong>-18 °C</strong>, temperatura recomendada para conservação de carnes. </dd></dl><ol type="a"><li>Determine essa temperatura em Kelvin.</li><li>Determine essa temperatura em Fahrenheit.</li><li>Essa temperatura está abaixo do ponto de congelamento da água? Justifique numericamente.</li></ol><dl><dt>2.2)</dt><dd> Em um laboratório na Alemanha, um experimento ocorre a <strong>310 K</strong>. </dd></dl><ol type="a"><li>Determine essa temperatura em graus Celsius.</li><li>Essa temperatura é próxima à temperatura média do corpo humano (37 °C)?</li></ol><dl><dt>2.3)</dt><dd> Durante o inverno em Toronto, a previsão do tempo indica <strong>-22 °F</strong>. </dd></dl><ol type="a"><li>Converta essa temperatura para graus Celsius.</li><li>Compare com um inverno típico no sul do Brasil (em torno de 5 °C). Qual é mais frio?</li></ol><dl><dt>2.4)</dt><dd> Durante o aquecimento de uma substância, um engenheiro observa que, em certo instante, a temperatura em graus Celsius é o <strong>dobro da temperatura em graus Fahrenheit</strong>. Determine essa temperatura em graus Celsius e discuta se ela representa uma condição de aquecimento ou resfriamento. </dd><dt>2.5)</dt><dd> Um pesquisador descobre que a temperatura de uma rocha obedece à seguinte relação: “A temperatura em Fahrenheit é igual ao triplo da temperatura em Celsius menos 10 unidades.” Determine essa temperatura em Kelvin. </dd><dt>2.6)</dt><dd> Em um centro de armazenamento de vacinas, a sala de conservação está regulada para manter as doses a uma temperatura adequada de refrigeração, medida como <strong>-10 °C</strong>. Para configurar um sistema importado dos Estados Unidos, é necessário inserir essa temperatura em Fahrenheit. O valor correto é aproximadamente: </dd></dl><ol type="a"><li>10 °F.</li><li>14 °F.</li><li>18 °F.</li><li>23 °F.</li><li>32 °F.</li></ol><dl><dt>2.7)</dt><dd> Durante o resfriamento de uma substância em um laboratório, observou-se que, em determinado instante, o valor numérico da temperatura em graus Fahrenheit era o dobro do valor numérico da temperatura em graus Celsius. A temperatura nesse instante é aproximadamente: </dd></dl><ol type="a"><li>-10 °C.</li><li>-20 °C.</li><li>-40 °C.</li><li>-60 °C.</li><li>-80 °C.</li></ol><dl><dt>2.8)</dt><dd> Em um centro de pesquisa, um gás ultrafrio foi resfriado até <strong>20 K</strong> acima do zero absoluto. Essa temperatura, expressa em graus Celsius, é aproximadamente: </dd></dl><ol type="a"><li>-253 °C.</li><li>-240 °C.</li><li>-220 °C.</li><li>-200 °C.</li><li>-180 °C.</li></ol><dl><dt>2.9)</dt><dd> Em um experimento térmico, verificou-se que o valor numérico da temperatura em Fahrenheit era igual à temperatura em Celsius diminuída de 8 unidades. Com base nessa condição, a temperatura do sistema em Kelvin é aproximadamente: </dd></dl><ol type="a"><li>250 K.</li><li>260 K.</li><li>270 K.</li><li>280 K.</li><li>290 K.</li></ol><dl><dt>2.10)</dt><dd> O zero absoluto corresponde a -273 °C. Se quisermos expressar essa temperatura na escala Fahrenheit, o valor aproximado será: </dd></dl><ol type="a"><li>-400 °F.</li><li>-459 °F.</li><li>-273 °F.</li><li>-212 °F.</li><li>-180 °F.</li></ol><h1 id="recomendações" class="mt-4 mb-3 text-primary">Recomendações</h1><div class="iframe-card"><a href="https://www.youtube.com/watch?v=0XKh2oT0b5w" target="_blank" rel="noopener noreferrer"><img src="images/thumbs/fig-ytb-zeroabs.png" alt="Zero absoluto" class="img-fluid rounded shadow mb-3"></a><div><div><strong>Zero absoluto</strong><br> Fonte: <a href="https://www.youtube.com/watch?v=0XKh2oT0b5w" target="_blank" rel="noopener noreferrer">Ciência Todo Dia</a></div><div><a href="https://www.youtube.com/watch?v=0XKh2oT0b5w" target="_blank" rel="noopener noreferrer" > Abrir </a></div></div></div><h1 id="referências" class="mt-4 mb-3 text-primary">Referências</h1><ul class="mb-3"><li>GASPAR, Alberto. Física: volume único. 2. ed. São Paulo: Ática, 2014.</li><li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO, Regina. Física: termologia, óptica e ondas. São Paulo: FTD, 2016.</li><li>PIETROCOLA, Maurício et al. Física em contextos: pessoal, social e histórico – volume 2. São Paulo: FTD, 2016.</li></ul></main><!-- Footer --></div></div><!-- Bootstrap JS --><!-- Script para MathJax --></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initializeMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.startup.promise.then(() => {
+                    if (document.querySelector('.tex2jax_process')) {
+                        MathJax.typesetPromise().catch((err) => {
+                            console.log('MathJax erro:', err.message);
+                        });
+                    }
+                }).catch((err) => {
+                    console.error('MathJax falhou ao carregar:', err);
+                });
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            } else {
+                console.warn('MathJax não está disponível');
+            }
+        }
+        
+        if (typeof MathJax !== 'undefined') {
+            initializeMathJax();
+        } else {
+            window.addEventListener('MathJaxLoaded', initializeMathJax);
+        }
+    });
+    </script>
+</body>
+</html>

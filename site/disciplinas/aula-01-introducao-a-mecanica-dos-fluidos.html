@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01 - Introdução à Mecânica dos Fluidos | Meu Portal</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\(', '\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics']
+        },
+        tex: {
+            packages: {'[+]': ['ams', 'physics']}
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Mecânica dos Fluidos</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 01 - Introdução à Mecânica dos Fluidos</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1H0WT3FRl-485VHfGQxEGAGe_nVGdB5nK/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        <div class="aula-content tex2jax_process"><div><div><!-- Header --><!-- TOC --><!-- Conteúdo principal --><main class="content-section"><h1 id="objetivos" class="mt-4 mb-3 text-primary">Objetivos</h1><p class="mb-3">Ao final desta aula, você deverá ser capaz de:</p><ul class="mb-3"><li>Definir <strong>fluido</strong> e explicar por que ele escoa sob tensões tangenciais.</li><li>Diferenciar, com exemplos, <strong>sólidos, líquidos e gases</strong> do ponto de vista mecânico.</li><li>Reconhecer, em linhas gerais, a <strong>evolução histórica</strong> da Mecânica dos Fluidos.</li><li>Identificar propriedades importantes dos fluidos, como <strong>massa específica</strong> e <strong>pressão</strong>.</li><li>Definir corretamente <strong>massa específica</strong> e <strong>densidade aparente (bulk)</strong>.</li><li>Calcular <strong>pressão</strong> a partir da força normal e da área.</li></ul><h1 id="introdução-o-que-estuda-a-mecânica-dos-fluidos" class="mt-4 mb-3 text-primary">Introdução: O que estuda a Mecânica dos Fluidos?</h1><p class="mb-3">A <strong>Mecânica dos Fluidos</strong> é o ramo da <strong>Física</strong> que estuda o comportamento de <strong>líquidos e gases</strong>, tanto em <strong>repouso</strong> quanto em <strong>movimento</strong>, bem como suas <strong>interações</strong> com superfícies sólidas e com outros fluidos.</p><p class="mb-3">Ela se divide, de modo geral, em duas grandes áreas:</p><ul class="mb-3"><li><strong>Estática dos Fluidos</strong>: estuda fluidos em repouso;</li><li><strong>Dinâmica dos Fluidos</strong>: estuda fluidos em movimento.</li></ul><p class="mb-3">Nesta aula inicial, nosso foco estará nos <strong>conceitos fundamentais</strong>, que servirão de base para o estudo sistemático da <strong>hidrostática</strong> e, posteriormente, da <strong>hidrodinâmica</strong>.</p><figure class="text-center my-4"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif" alt="Movimento de um Fluido. Fonte: wikimedia." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Movimento de um Fluido. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif">wikimedia</a>.</figcaption></figure><h1 id="conceito-de-fluido" class="mt-4 mb-3 text-primary">Conceito de fluido</h1><p class="mb-3">Um fluido, ao contrário de um sólido, é uma substância que pode <strong>escoar</strong>. Os fluidos assumem a forma do recipiente em que são colocados, pois <strong>não resistem a forças paralelas à superfície</strong>.</p><p class="mb-3">De forma intuitiva, os fluidos incluem <strong>líquidos</strong> e <strong>gases</strong>.</p><figure class="text-center my-4"><img src="images/fig-matéria.png" alt="Arranjo de átomos em estados diferentes. Fonte: Çengel e Yunus." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Arranjo de átomos em estados diferentes. Fonte: Çengel e Yunus.</figcaption></figure><p class="mb-3"><strong>Definição formal</strong></p><p class="mb-3">De forma mais rigorosa, chamamos de <strong>fluido</strong> toda substância que se <strong>deforma continuamente</strong> quando submetida a uma <strong>tensão tangencial</strong>, por menor que ela seja.</p><ul class="mb-3"><li><strong>Sólidos</strong> resistem a tensões de cisalhamento.</li><li><strong>Fluidos</strong> não resistem: qualquer cisalhamento provoca escoamento.</li></ul><figure class="text-center my-4"><img src="images/fig-definição-fluidos.png" alt="Cisalhamento em sólido e fluido. Fonte: Fox e McDonald." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Cisalhamento em sólido e fluido. Fonte: Fox e McDonald.</figcaption></figure><p class="mb-3">Em particular:</p><ul class="mb-3"><li>Um <strong>líquido</strong> possui volume definido, mas não forma própria.</li><li>Um <strong>gás</strong> não possui nem forma nem volume definidos.</li></ul><h1 id="breve-histórico-da-mecânica-dos-fluidos" class="mt-4 mb-3 text-primary">Breve histórico da Mecânica dos Fluidos</h1><p class="mb-3">O desenvolvimento da Mecânica dos Fluidos está ligado às necessidades práticas da humanidade.</p><ul class="mb-3"><li><strong>Antiguidade</strong>: aquedutos e irrigação; <strong>Arquimedes</strong> e o empuxo.</li><li><strong>Séculos XVII e XVIII</strong>: <strong>Stevin</strong>, <strong>Pascal</strong>, <strong>Torricelli</strong> e a pressão hidrostática; <strong>Bernoulli</strong> e a conservação da energia.</li><li><strong>Século XIX</strong>: <strong>Navier</strong>, <strong>Stokes</strong>, <strong>Reynolds</strong>, <strong>Darcy</strong>.</li><li><strong>Século XX em diante</strong>: aplicações em engenharia, meteorologia, oceanografia, aerodinâmica e bioengenharia.</li></ul><h1 id="massa-específica" class="mt-4 mb-3 text-primary">Massa específica</h1><p class="mb-3">A <strong>massa específica</strong><span class="math inline"><em>ρ</em></span> é definida formalmente por:</p><p class="mb-3"><span class="math display">$$\rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}$$</span></p><p class="mb-3">ou, de forma diferencial,</p><p class="mb-3"><span class="math display">$$\boxed{\rho = \frac{dm}{dV}}$$</span></p><p class="mb-3">No SI:</p><p class="mb-3"><span class="math display">[<em>ρ</em>] = kg/m<sup>3</sup></span></p><p class="mb-3">Para fluidos <strong>incompressíveis</strong> (bons líquidos), <span class="math inline"><em>ρ</em></span> pode ser considerada constante, levando à forma prática:</p><p class="mb-3"><span class="math display">$$\boxed{\rho = \frac{m}{V}}$$</span></p><h2 id="exemplo-1.1---cálculo-da-massa-específico-de-um-óleo" class="mt-4 mb-3 text-secondary">Exemplo 1.1 - Cálculo da massa específico de um óleo</h2><p class="mb-3">Um tanque contém <span class="math inline">500 L</span> de óleo com massa total de <span class="math inline">430 kg</span>. Sabendo que <span class="math inline">1 L = 10<sup>−3</sup> m<sup>3</sup></span> e que o óleo é homogêneo e incompreensível, determine a massa específica deste óleo.</p><p class="mb-3"><strong>Solução</strong>:</p><p class="mb-3"><span class="math display"><em>V</em> = 500 × 10<sup>−3</sup> m<sup>3</sup> = 0, 500 m<sup>3</sup></span></p><p class="mb-3"><span class="math display">$$\rho = \frac{430\,kg}{0{,}500\,m^{3}} = 860\,\text{kg}/\text{m}^3$$</span></p><p class="mb-3">Portanto, a densidade deste óleo é:</p><p class="mb-3"><span class="math display">$$\boxed{\rho = 860\,\text{kg}/\text{m}^3}$$</span></p><h2 id="exemplo-1.2---densidade-média-de-uma-mistura-gasolina-etanol" class="mt-4 mb-3 text-secondary">Exemplo 1.2 - Densidade média de uma mistura (gasolina + etanol)</h2><p class="mb-3">Em um reservatório, mistura-se <strong>gasolina</strong> e <strong>etanol</strong> de modo que:</p><ul class="mb-3"><li>30,0% do volume total é gasolina.</li><li>70,0% do volume total é etanol.</li></ul><p class="mb-3">Considere as massas específicas:</p><ul class="mb-3"><li>Gasolina: <span class="math inline"><em>ρ</em><sub><em>g</em></sub> = 740 kg/m<sup>3</sup></span>.</li><li>Etanol: <span class="math inline"><em>ρ</em><sub><em>e</em></sub> = 790 kg/m<sup>3</sup></span>.</li></ul><p class="mb-3">Assumindo que esta representa uma mistura ideal, isto é, sem contração/expansão de volume ao misturar, determine a <strong>massa específica média</strong><span class="math inline"><em>ρ</em><sub><em>m</em></sub></span> da mistura.</p><p class="mb-3"><strong>Solução</strong>:</p><p class="mb-3">A massa total é:</p><p class="mb-3"><span class="math display"><em>m</em><sub>tot</sub> = <em>m</em><sub><em>g</em></sub> + <em>m</em><sub><em>e</em></sub> → <em>m</em><sub>tot</sub> = <em>ρ</em><sub><em>g</em></sub><em>V</em><sub><em>g</em></sub> + <em>ρ</em><sub><em>e</em></sub><em>V</em><sub><em>e</em></sub></span></p><p class="mb-3"><span class="math display">$$\rho_{m} = \dfrac{m_\text{tot}}{V_{\text{tot}}}$$</span></p><p class="mb-3"><span class="math display">$$\rho_{m} = \dfrac{\rho_g V_g + \rho_e V_e}{V_\text{tot}} \rightarrow \rho_{m} = \rho_{g}\dfrac{V_g}{V_\text{tot}} + \rho_{e}\dfrac{V_e}{V_\text{tot}}$$</span></p><p class="mb-3">Como: <span class="math display"><em>V</em><sub><em>g</em></sub>/<em>V</em><sub>tot</sub> = 0, 300</span> e <span class="math display"><em>V</em><sub><em>e</em></sub>/<em>V</em><sub>tot</sub> = 0, 700</span>, pedemos substituir os valores numéricos:</p><p class="mb-3"><span class="math display"><em>ρ</em><sub><em>m</em></sub> = 740 kg/m<sup>3</sup> ⋅ 0, 300 + 790 kg/m<sup>3</sup> ⋅ 0, 700</span></p><p class="mb-3"><span class="math display"><em>ρ</em><sub><em>m</em></sub> = 222 + 553 = 775 kg/m<sup>3</sup></span></p><p class="mb-3"><strong>Resultado final</strong>:</p><p class="mb-3"><span class="math display">$$\boxed{\rho_m = 775\,\text{kg}/\text{m}^3}$$</span></p><p class="mb-3"><strong>Comentários</strong>:</p><p class="mb-3">A massa específica da mistura ficou <strong>entre</strong> as massas específicas dos dois fluidos, como esperado. Além disso, como há maior fração de etanol (70%), o valor final fica mais próximo de <span class="math inline"><em>ρ</em><sub><em>e</em></sub></span> do que de <span class="math inline"><em>ρ</em><sub><em>g</em></sub></span>.</p><h1 id="pressão-em-um-fluido" class="mt-4 mb-3 text-primary">Pressão em um fluido</h1><p class="mb-3">A <strong>pressão</strong><span class="math inline"><em>p</em></span> em um ponto é definida como o limite da razão entre a força <strong>normal</strong> exercida sobre uma superfície e a área dessa superfície, quando a área tende a zero:</p><p class="mb-3"><span class="math display">$$p = \lim_{\Delta A \to 0} \frac{\Delta F_\perp}{\Delta A}$$</span></p><p class="mb-3">Na forma diferencial:</p><p class="mb-3"><span class="math display">$$p = \frac{dF_\perp}{dA}$$</span></p><p class="mb-3">No Sistema Internacional:</p><p class="mb-3"><span class="math display">1 Pa = 1 N/m<sup>2</sup></span></p><p class="mb-3"><strong>Pressão em fluidos em repouso</strong></p><p class="mb-3">Em um fluido em <strong>equilíbrio</strong>, não existem tensões tangenciais internas. Assim, a pressão atua igualmente em todas as direções e pode ser tratada como uma <strong>grandeza escalar</strong>.</p><h2 id="exemplo-1.3---cálculo-da-pressão-exercida-pela-força-peso" class="mt-4 mb-3 text-secondary">Exemplo 1.3 - Cálculo da pressão exercida pela força peso</h2><p class="mb-3">Uma pessoa de massa <span class="math inline">70 kg</span> apoia-se sobre um único pé, cuja área de contato com o solo é <span class="math inline">150 cm<sup>2</sup></span>. Estime a pressão exercida.</p><p class="mb-3"><strong>Solução</strong>:</p><p class="mb-3"><span class="math display"><em>A</em> = 150 × 10<sup>−4</sup> = 1, 50 × 10<sup>−2</sup> m<sup>2</sup></span></p><p class="mb-3"><span class="math display">$$p = \dfrac{F}{A} \rightarrow p = \dfrac{mg}{A}$$</span></p><p class="mb-3">Substituindo os valores numéricos:</p><p class="mb-3"><span class="math display">$$p = \dfrac{70\,\text{kg} \cdot 9,8\,\text{m}/\text{s}^{2}}{1{,}50 \times 10^{-2}\,\text{m}^{2}} \rightarrow p = 4{,}6\times10^{4}\,\text{Pa}$$</span></p><p class="mb-3">Portanto:</p><p class="mb-3"><span class="math display">$$\boxed{p = 4{,}6 \times 10^{4}\,\text{Pa}}$$</span></p><h2 id="exemplo-1.4---cálculo-da-pressão-exercida-por-uma-força-formando-um-ângulo" class="mt-4 mb-3 text-secondary">Exemplo 1.4 - Cálculo da pressão exercida por uma força formando um ângulo</h2><p class="mb-3">Uma força de intensidade <span class="math inline"><em>F</em> = 120 N</span> é aplicada sobre a superfície de uma placa plana de área <span class="math inline"><em>A</em> = 0, 015 m<sup>2</sup></span> fazendo um ângulo de <span class="math inline"><em>θ</em> = 30<sup>∘</sup></span> com a <strong>normal</strong> à placa (isto é, o ângulo é medido em relação à direção perpendicular à superfície).</p><p class="mb-3">Determine:</p><ol type="a"><li>A componente normal da força, <span class="math inline"><em>F</em><sub>⟂</sub></span>.</li><li>A pressão média exercida sobre a placa.</li></ol><p class="mb-3"><strong>Solução</strong>:</p><ol type="1"><li>Componente normal da força</li></ol><p class="mb-3">Se o ângulo <span class="math inline"><em>θ</em></span> é medido em relação à <strong>normal</strong>, então a componente normal é:</p><p class="mb-3"><span class="math display"><em>F</em><sub>⟂</sub> = <em>F</em>cos <em>θ</em>.</span></p><p class="mb-3">Substituindo os valores:</p><p class="mb-3"><span class="math display"><em>F</em><sub>⟂</sub> = 120 <em>N</em> cos (30<sup>∘</sup>)</span></p><p class="mb-3"><span class="math display"><em>F</em><sub>⟂</sub> = 104 N</span></p><p class="mb-3">Logo,</p><p class="mb-3"><span class="math display">$$\boxed{F_\perp = 104\,\text{N}}$$</span></p><ol start="2" type="1"><li>Pressão média exercida</li></ol><p class="mb-3">A pressão média é:</p><p class="mb-3"><span class="math display">$$p = \frac{F_\perp}{A}.$$</span></p><p class="mb-3">Substituindo:</p><p class="mb-3"><span class="math display">$$p = \frac{104}{0{,}015}$$</span></p><p class="mb-3">Portanto,</p><p class="mb-3"><span class="math display">$$\boxed{p = 6,9 \times 10^{3}\ \text{Pa}}$$</span></p><p class="mb-3"><strong>Observação importante</strong>:</p><p class="mb-3">Se o ângulo fosse informado <strong>em relação ao plano</strong> (isto é, em relação à própria superfície), então a componente normal seria:</p><p class="mb-3"><span class="math display"><em>F</em><sub>⟂</sub> = <em>F</em>sin <em>θ</em></span></p><p class="mb-3">Pois, nesse caso, <span class="math inline"><em>θ</em></span> seria complementar ao ângulo medido em relação à normal.</p><p class="mb-3">Em problemas de pressão, sempre verifique <strong>como o ângulo foi definido</strong>, pois a pressão depende exclusivamente da componente <strong>normal</strong> da força.</p><h1 id="conclusão" class="mt-4 mb-3 text-primary">Conclusão</h1><p class="mb-3">Nesta aula introdutória, estabelecemos os <strong>conceitos fundamentais</strong> da Mecânica dos Fluidos, incluindo definições formais de <strong>fluido</strong>, <strong>massa específica</strong> e <strong>pressão</strong>. Esses conceitos servirão de base para o estudo da <strong>estática dos fluidos</strong>, onde analisaremos a variação da pressão em fluidos em repouso e suas aplicações práticas.</p><h1 id="exercícios-de-fixação" class="mt-4 mb-3 text-primary">Exercícios De Fixação</h1><dl><dt>1.1)</dt><dd> Um fluido é definido, do ponto de vista mecânico, como uma substância que: </dd></dl><ol type="a"><li>Possui sempre volume constante e forma própria.</li><li>Resiste a tensões normais, mas não a tangenciais.</li><li>Se deforma continuamente sob qualquer tensão tangencial, por menor que seja.</li><li>Apresenta apenas deformações elásticas.</li><li>Não sofre deformações quando submetida a forças externas.</li></ol><dl><dt>1.2)</dt><dd> A principal diferença mecânica entre sólidos e fluidos está relacionada à: </dd></dl><ol type="a"><li>Capacidade de ocupar volume.</li><li>Forma geométrica do material.</li><li>Resistência a forças normais.</li><li>Resposta às tensões de cisalhamento.</li><li>Massa específica do material.</li></ol><dl><dt>1.3)</dt><dd> Um líquido, diferentemente de um gás, caracteriza-se por: </dd></dl><ol type="a"><li>Não possuir forma nem volume definidos.</li><li>Possuir forma própria, mas não volume definido.</li><li>Possuir volume definido, mas não forma própria.</li><li>Não sofrer deformações quando submetido a forças.</li><li>Resistir permanentemente ao cisalhamento.</li></ol><dl><dt>1.4)</dt><dd> A pressão em um ponto de um fluido em repouso é definida fisicamente como: </dd></dl><ol type="a"><li>A força total exercida pelo fluido.</li><li>A razão entre a força tangencial e a área.</li><li>A força média distribuída pelo volume.</li><li>A força exercida apenas pelo peso do fluido.</li><li>A componente normal da força por unidade de área.</li></ol><dl><dt>1.5)</dt><dd> A definição formal de massa específica </dd></dl><p class="mb-3"><span class="math display">$$\rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}$$</span></p><p class="mb-3">Indica que a massa específica é:</p><ol type="a"><li>Uma grandeza local associada a um ponto do fluido.</li><li>Uma grandeza global do sistema.</li><li>Uma propriedade que depende da forma do recipiente.</li><li>Uma grandeza válida apenas para sólidos.</li><li>Uma grandeza dependente exclusivamente da massa total.</li></ol><dl><dt>1.6)</dt><dd> Um recipiente contém um fluido homogêneo de massa total igual a <span class="math inline"><em>m</em> = 4, 5 kg</span>, ocupando um volume de <span class="math inline"><em>V</em> = 3, 0 × 10<sup>−3</sup> m<sup>3</sup></span>. </dd></dl><ol type="a"><li>Determine a <strong>massa específica</strong> desse fluido em <span class="math inline">kg/m<sup>3</sup></span>.</li><li>Explique por que, nesse caso, é válido utilizar a expressão <span class="math inline"><em>ρ</em> = <em>m</em>/<em>V</em></span> em vez da definição com limite.</li></ol><dl><dt>1.7)</dt><dd> Um tanque contém uma mistura ideal formada por dois líquidos: </dd></dl><ul class="mb-3"><li>Líquido A, com massa específica <span class="math inline"><em>ρ</em><sub><em>A</em></sub> = 800 kg/m<sup>3</sup></span>, ocupando 20 litros.</li><li>Líquido B, com massa específica <span class="math inline"><em>ρ</em><sub><em>B</em></sub> = 1000 kg/m<sup>3</sup></span>, ocupando 60 litros.</li></ul><ol type="a"><li>Determine a <strong>massa específica média</strong> da mistura em <span class="math inline">kg/m<sup>3</sup></span>.</li><li>Justifique por que o valor obtido deve estar entre <span class="math inline"><em>ρ</em><sub><em>A</em></sub></span> e <span class="math inline"><em>ρ</em><sub><em>B</em></sub></span>.</li></ol><dl><dt>1.8)</dt><dd> Uma força normal de intensidade <span class="math inline"><em>F</em> = 500 N</span> é aplicada uniformemente sobre uma superfície plana de área <span class="math inline"><em>A</em> = 0, 020 m<sup>2</sup></span>. </dd></dl><ol type="a"><li>Calcule a <strong>pressão média</strong> exercida sobre a superfície em Pa.</li><li>Explique o significado físico do valor obtido no contexto da definição de pressão.</li></ol><dl><dt>1.9)</dt><dd> Uma força de módulo <span class="math inline"><em>F</em> = 200 N</span> é aplicada sobre uma placa plana de área <span class="math inline"><em>A</em> = 0, 025 m<sup>2</sup></span>, formando um ângulo de <span class="math inline"><em>θ</em> = 45<sup>∘</sup></span> com a <strong>normal</strong> à superfície. </dd></dl><ol type="a"><li>Determine a <strong>componente normal da força</strong> que atua sobre a placa em N.</li><li>Calcule a <strong>pressão média</strong> exercida sobre a superfície em Pa.</li><li>Explique por que apenas a componente normal da força contribui para a pressão.</li></ol><dl><dt>1.10)</dt><dd> Um fluido exerce uma pressão uniforme de <span class="math inline"><em>p</em> = 3, 0 × 10<sup>4</sup> Pa</span> sobre a base de um reservatório plano cuja área é <span class="math inline"><em>A</em> = 0, 040 m<sup>2</sup></span>. </dd></dl><ol type="a"><li>Determine a <strong>força normal</strong> exercida pelo fluido sobre essa base em N.</li><li>Explique como esse resultado está relacionado com a definição formal de pressão.</li></ol><h1 id="recomendações-de-estudo" class="mt-4 mb-3 text-primary">Recomendações de Estudo</h1><div class="iframe-card"><a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer"><img src="images/thumbs/fig-ytb-ctdfluidos.png" alt="A equação mais difícil da Física" class="img-fluid rounded shadow mb-3"></a><div><div><strong>A equação mais difícil da Física</strong><br> Fonte: <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer">Ciência Todo Dia</a></div><div><a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" > Abrir </a></div></div></div><h1 id="referências" class="mt-4 mb-3 text-primary">Referências</h1><ul class="mb-3"><li>GAMOW, G. <em>Trinta Anos que Abalaram a Física</em>. Dover.</li><li>HEISENBERG, W. <em>A Parte e o Todo</em>. Contraponto.</li><li>PEREIRA, Fernando de Candido. <strong>Uma Breve História da Física Moderna e Contemporânea</strong>. <em>Revista Professare</em>, v. 4, n. 3, p. 177–188, 2015.</li><li>YOUNG, H. D. <em>Ótica e Física Moderna</em>. Addison Wesley.</li></ul></main><!-- Footer --></div></div><!-- Bootstrap JS --><!-- Script para MathJax --></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initializeMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.startup.promise.then(() => {
+                    if (document.querySelector('.tex2jax_process')) {
+                        MathJax.typesetPromise().catch((err) => {
+                            console.log('MathJax erro:', err.message);
+                        });
+                    }
+                }).catch((err) => {
+                    console.error('MathJax falhou ao carregar:', err);
+                });
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            } else {
+                console.warn('MathJax não está disponível');
+            }
+        }
+        
+        if (typeof MathJax !== 'undefined') {
+            initializeMathJax();
+        } else {
+            window.addEventListener('MathJaxLoaded', initializeMathJax);
+        }
+    });
+    </script>
+</body>
+</html>

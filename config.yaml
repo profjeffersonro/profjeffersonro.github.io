@@ -21,7 +21,10 @@ disciplinas:
     aulas:
       - name: "Aula 01 - Concepções Históricas"
         html: "content/aulas/ES-FM1/Aula-01/fmi-aula-01.html"
-        pdf: "https://drive.google.com/file/d/1YGTroGD4XQSWcvFXLhyAMctnIWdLhQLV/view?usp=drive_link"
+        pdf: "https://drive.google.com/file/d/1bW0rkHQ23Kf49jpBb1e377MiUt2riHKu/view?usp=drive_link"
+      - name: "Aula 02 - Quantização da Carga: Experimentos de Thomson"
+        html: "content/aulas/ES-FM1/Aula-02/fmi-aula-02.html"
+        pdf: "https://drive.google.com/file/d/1jO5tlFZUMMGSUxJJQZoq6dt9mvzCs4qo/view?usp=drive_link"
         
   - disciplina: "Mecânica dos Fluidos"
     aulas:

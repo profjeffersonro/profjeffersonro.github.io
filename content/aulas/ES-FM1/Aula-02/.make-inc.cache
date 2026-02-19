@@ -1,0 +1,6 @@
+# Cache do make-inc.sh
+# Formato: arquivo|timestamp|checksum|dependencias
+fmi-aula-02.md->fmi-aula-02-out.md|0|f0c546a7efebe80221583ca8f602d64b767299c91f1b1568160f0a516efbc9aa|images/fig-tubogeissler.png:1771332920,images/fig-tubocrookes.gif:1771332920,images/thumbs/prt-expec.png:1771333390,images/thumbs/prt-simophysics.png:1771467411,images/fig-printpoits.png:1771287753,images/thumbs/ytb-radios-catódicos.png:1771459228,images/thumbs/ytb-exp-thomson.png:1771459229
+fmi-aula-02-out.md->fmi-aula-02.tex|0|883ac1a2e6eccaeb8775c261ec7c099ea490e0b6f42185ac80fc835a78c809c2|images/fig-tubogeissler.png:1771332920,images/fig-tubocrookes.gif:1771332920,images/thumbs/prt-expec.png:1771333390,images/thumbs/prt-simophysics.png:1771467411,images/fig-printpoits.png:1771287753,images/thumbs/ytb-radios-catódicos.png:1771459228,images/thumbs/ytb-exp-thomson.png:1771459229
+fmi-aula-02.tex->fmi-aula-02.pdf|0|65df78b4f67c799a00a86879dbb6c90d0fa32b6fa649922257251bdcb9c59f4d|
+fmi-aula-02-out.md->fmi-aula-02.html|0|883ac1a2e6eccaeb8775c261ec7c099ea490e0b6f42185ac80fc835a78c809c2|images/fig-tubogeissler.png:1771332920,images/fig-tubocrookes.gif:1771332920,images/thumbs/prt-expec.png:1771333390,images/thumbs/prt-simophysics.png:1771467411,images/fig-printpoits.png:1771287753,images/thumbs/ytb-radios-catódicos.png:1771459228,images/thumbs/ytb-exp-thomson.png:1771459229

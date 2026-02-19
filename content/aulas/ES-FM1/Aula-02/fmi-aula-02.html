@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física Moderna 1</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+Moderna 1</h1>
+                                
+                                <h2 class="document-subtitle display-6">Concepções
+Históricas da Física Moderna</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li><strong>Compreender</strong> o contexto histórico
+                que levou à descoberta do elétron no final do século
+                XIX.</li>
+                <li><strong>Explicar</strong>, de forma conceitual e
+                fenomenológica, o funcionamento dos tubos de descarga e
+                a origem dos raios catódicos.</li>
+                <li><strong>Identificar</strong> as evidências
+                experimentais que demonstraram o caráter corpuscular e
+                negativo dos raios catódicos.</li>
+                <li><strong>Descrever</strong> os experimentos de
+                Thomson e interpretar fisicamente como foi determinada a
+                razão entre carga e massa do elétron (<span
+                class="math inline"><em>e</em>/<em>m</em></span>).</li>
+                <li><strong>Compreender</strong> o princípio de
+                funcionamento do espectrômetro de massa e relacionar
+                campos elétricos e magnéticos ao movimento circular de
+                partículas carregadas.</li>
+                <li><strong>Resolver</strong> problemas conceituais e
+                numéricos envolvendo os experimentos estudados.</li>
+                <li><strong>Reconhecer</strong> a importância histórica
+                desses experimentos para a transição da Física Clássica
+                para a Física Moderna.</li>
+                <li><strong>Desenvolver</strong> postura investigativa,
+                compreendendo como hipóteses são testadas
+                experimentalmente na Física.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Caro estudante, vamos começar com uma pergunta
+                simples: <strong>a matéria é realmente contínua? Ou
+                existe um limite fundamental para aquilo que podemos
+                dividir?</strong></p>
+                <p>Desde a Antiguidade, filósofos gregos como Leucipo e
+                Demócrito já se perguntavam sobre a natureza da matéria.
+                Eles propuseram que, ao dividir sucessivamente qualquer
+                porção de matéria, chegaríamos a uma partícula
+                indivisível, chamada <strong>átomo</strong> (do grego
+                <em>átomos</em>, “indivisível”).</p>
+                <p>Durante muitos séculos, essa ideia permaneceu apenas
+                no campo filosófico. Somente no século XIX, com o avanço
+                da experimentação científica, tornou-se possível
+                investigar a estrutura da matéria de forma
+                quantitativa.</p>
+                <p>No final do século XIX, acreditava-se que o átomo era
+                a menor unidade da matéria. No entanto, experimentos
+                envolvendo descargas elétricas em gases revelaram que o
+                átomo não era indivisível. Ele possuía componentes
+                internos.</p>
+                <p>O primeiro desses componentes identificados foi o
+                <strong>elétron</strong>.</p>
+                <p>Nesta aula, estudaremos:</p>
+                <ul>
+                <li>Como surgiu a evidência experimental da existência
+                do elétron;</li>
+                <li>Como o experimento de <strong>Thomson</strong>
+                determinou a razão entre carga e massa do elétron.</li>
+                </ul>
+                <p>Esses experimentos marcam um momento decisivo na
+                transição da Física Clássica para a Física Moderna.</p>
+                <h1 id="descoberta-do-elétron">Descoberta do
+                Elétron</h1>
+                <p>A descoberta do elétron não ocorreu por acaso. Ela
+                foi consequência direta de dois avanços tecnológicos
+                importantes:</p>
+                <ul>
+                <li>O aperfeiçoamento das <strong>bombas de
+                vácuo</strong>;</li>
+                <li>O desenvolvimento das <strong>bobinas de
+                indução</strong>, capazes de gerar altas tensões
+                elétricas.</li>
+                </ul>
+                <p>Esses instrumentos permitiram a construção de
+                <strong>tubos de descarga</strong>, dispositivos
+                fundamentais para o estudo da condução elétrica em
+                gases.</p>
+                <p>Em 1854, Heinrich Geissler desenvolveu um tubo de
+                vidro selado contendo dois eletrodos nas extremidades.
+                Ao aplicar alta tensão entre os eletrodos e reduzir a
+                pressão interna do gás, observava-se um fenômeno
+                luminoso no interior do tubo.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Geissler_tubes_%28switched_on%29.jpg/960px-Geissler_tubes_%28switched_on%29.jpg"
+                style="width:80.0%"
+                alt="Tubo de Geissler. Fonte: wikimedia" />
+                <figcaption aria-hidden="true">Tubo de Geissler. Fonte:
+                <a
+                href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Geissler_tubes_%28switched_on%29.jpg/960px-Geissler_tubes_%28switched_on%29.jpg">wikimedia</a></figcaption>
+                </figure>
+                <p><strong>O que foi observado?</strong></p>
+                <ol type="1">
+                <li>Com pressão moderada, o gás emitia luz — uma
+                descarga elétrica.</li>
+                <li>À medida que o vácuo aumentava:
+                <ul>
+                <li>O brilho inicial diminuía;</li>
+                <li>Surgia uma <strong>luminosidade esverdeada nas
+                paredes do tubo</strong>.</li>
+                </ul></li>
+                </ol>
+                <p>Os físicos da época concluíram que essa luminosidade
+                era produzida por uma radiação invisível proveniente do
+                eletrodo negativo (cátodo).</p>
+                <p>Essa radiação recebeu o nome de <strong>raios
+                catódicos</strong>.</p>
+                <p><strong>Por que a pressão era
+                importante?</strong></p>
+                <p>Sob pressão atmosférica normal, os elétrons colidem
+                frequentemente com partículas do gás, perdendo
+                energia.</p>
+                <p>Quando a pressão diminui:</p>
+                <ul>
+                <li>Há menos colisões;</li>
+                <li>As partículas mantêm sua energia por mais
+                tempo;</li>
+                <li>A descarga ocorre com menor tensão aplicada.</li>
+                </ul>
+                <p>Esse comportamento já sugeria que algo material (e
+                não apenas “luz”) estava sendo transportado dentro do
+                tubo.</p>
+                <h1
+                id="experimentos-de-crookes-evidências-do-caráter-corpuscular">Experimentos
+                de Crookes: evidências do caráter corpuscular</h1>
+                <p>Em 1878, <strong>William Crookes</strong> aprofundou
+                o estudo dos raios catódicos e fez observações
+                fundamentais:</p>
+                <ol type="a">
+                <li><strong>Formação de sombra</strong>: Ao colocar um
+                objeto no caminho do feixe, formava-se uma sombra na
+                parede do tubo. Conclusão: os raios se propagavam em
+                <strong>linha reta</strong>.</li>
+                <li><strong>Desvio por campo elétrico</strong>: Quando
+                submetidos a um campo elétrico, os raios eram desviados
+                na direção da placa positiva. Conclusão: possuíam
+                <strong>carga elétrica negativa</strong>.</li>
+                <li><strong>Movimento de molinete</strong>: Um pequeno
+                cata-vento colocado no interior do tubo girava quando
+                atingido pelos raios. Conclusão: os raios transportavam
+                <strong>momento</strong>, portanto tinham
+                <strong>massa</strong>.</li>
+                <li><strong>Desvio por campo magnético</strong>: A
+                deflexão magnética confirmou que se tratava de
+                partículas carregadas em movimento.</li>
+                </ol>
+                <p><strong>Conclusão de Crookes</strong>: Os raios
+                catódicos não eram simplesmente radiação luminosa. Eles
+                se comportavam como <strong>partículas materiais
+                carregadas negativamente</strong>.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Ampola_de_Crookes.gif"
+                style="width:80.0%"
+                alt="Conclusão de Crookes. Fonte: wikimedia" />
+                <figcaption aria-hidden="true">Conclusão de Crookes.
+                Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/a/a7/Ampola_de_Crookes.gif">wikimedia</a></figcaption>
+                </figure>
+                <p>Faltava, porém, responder:</p>
+                <blockquote>
+                <p>Essas partículas pertencem a um tipo específico de
+                material ou fazem parte de toda matéria?</p>
+                </blockquote>
+                <p>Essa pergunta seria respondida por <strong>J. J.
+                Thomson</strong>.</p>
+                <h1 id="os-dois-experimentos-de-thomson">Os dois
+                experimentos de Thomson</h1>
+                <p>Em 1897, <strong>J. J. Thomson</strong> mediu a razão
+                <span class="math inline"><em>e</em>/<em>m</em></span>
+                entre a carga elétrica e a massa das partículas que
+                constituem os raios catódicos. Utilizamos a notação e
+                para a carga destas partículas, antecipando o fato de
+                que ela iria revelar-se igual à carga do elétron. Porém,
+                na época, isto não era estabelecido; aliás, nem se sabia
+                se esta carga era a mesma para todos os raios catódicos.
+                Semelhantemente, usamos a notação m para a massa das
+                partículas em questão, massa esta que revelará-se também
+                possuir o mesmo valor para todos os raios catódicos.</p>
+                <p>Thomson realizou <strong>dois experimentos
+                distintos</strong>, no qual estudaremos nos tópicos a
+                seguir.</p>
+                <h2 id="primeiro-experimento">Primeiro Experimento</h2>
+                <p>No <strong>primeiro experimento</strong>, os raios
+                catódicos atravessavam um campo magnético uniforme <span
+                class="math inline"><em>B</em></span>, de valor
+                conhecido, perpendicular à sua direção de movimento.
+                Como é sabido, nestas condições, a trajetória das
+                partículas é circular e o seu raio <span
+                class="math inline"><em>R</em></span> pode ser obtido
+                igualando a força centrípeta à força magnética, no qual
+                podemos analisar a partir da simulação:</p>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://www.laboratoriovirtual.fisica.ufc.br/razao-carga-massa-do-eletron" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="images/thumbs/prt-expec.png" alt="Simulação - Expectrômetro de massa" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">Simulação - Expectrômetro de massa</strong><br>
+                      Fonte: <a href="https://www.laboratoriovirtual.fisica.ufc.br/razao-carga-massa-do-eletron" target="_blank" rel="noopener noreferrer">UFC</a>
+                    </div>
+                    <div>
+                      <a href="https://www.laboratoriovirtual.fisica.ufc.br/razao-carga-massa-do-eletron" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>Nesta <strong>simulação</strong> um feixe de elétrons
+                é lançado em uma região onde há um campo magnético (a
+                velocidade de lançamento dos elétrons é sempre
+                perpendicular ao campo magnético). A trajetória dos
+                elétrons pode ser visualizada por uma linha azul. A
+                velocidade dos elétrons pode ser variada, alterando o
+                potencial de aceleração (<span
+                class="math inline"><em>V</em></span>). O campo
+                magnético perpendicular ao plano da figura, pode ser
+                variado dentro de limites preestabelecidos. Uma régua
+                permite medir o diâmetro da trajetória das partículas. A
+                simulação permite calcular a razão entre a carga e a
+                massa do elétron.</p>
+                <p>Podemos afirmar, que nesta disposição, a força
+                magnética desempenha o papel da força centripeta
+                centrípeta:</p>
+                <p><span class="math display">$$
+                evB=\dfrac{mv^{2}}{R}
+                \Rightarrow
+                v=\dfrac{ReB}{m}
+                $$</span></p>
+                <p>Pela conservação da energia (energia potencial
+                elétrica em energia cinética):</p>
+                <p><span class="math display">$$
+                eU = \dfrac{1}{2}mv^{2}
+                \rightarrow
+                v^{2} = \dfrac{2eV}{m}
+                $$</span></p>
+                <p>Substituindo a expressão da velocidade:</p>
+                <p><span class="math display">$$
+                \dfrac{R^{2}e^{2}B^{2}}{m^{2}} = \dfrac{2eU}{m}
+                $$</span></p>
+                <p>Agora, isolando a razão <span
+                class="math inline"><em>e</em>/<em>m</em></span>:</p>
+                <p><span class="math display">$$
+                \boxed{\dfrac{e}{m}=\dfrac{2U}{R^{2}B^{2}}} \qquad (1)
+                $$</span></p>
+                <h3
+                id="conversão-de-unidades-do-campo-magnético">Conversão
+                de Unidades do Campo Magnético</h3>
+                <p>Quando trabalhamos com problemas envolvendo
+                <strong>campo magnético</strong> <span
+                class="math inline"><em>B</em></span>, é fundamental
+                compreender de onde surge sua unidade no SI - o
+                <strong>Tesla (T)</strong> - e como ela pode ser escrita
+                em formas equivalentes.</p>
+                <p>Vamos construir isso de maneira organizada e
+                conceitualmente clara.</p>
+                <p>Em determinadas situações físicas (como no seletor de
+                velocidades) a força elétrica e a força magnética podem
+                ter <strong>mesmo módulo</strong>:</p>
+                <p><span
+                class="math display"><em>q</em><em>E</em> = <em>q</em><em>v</em><em>B</em></span></p>
+                <p>Cancelando a carga <span
+                class="math inline"><em>q</em></span>:</p>
+                <p><span
+                class="math display"><em>E</em> = <em>v</em><em>B</em></span></p>
+                <p>Isolando o campo magnético:</p>
+                <p><span class="math display">$$
+                B = \dfrac{E}{v}
+                $$</span></p>
+                <p>Essa relação será o ponto de partida para a análise
+                dimensional.</p>
+                <p><strong>Obtendo a unidade de Tesla a partir de <span
+                class="math inline"><em>E</em> = <em>F</em>/<em>q</em></span></strong></p>
+                <p>Sabemos que o campo elétrico pode ser escrito
+                como:</p>
+                <p><span class="math display">$$
+                E = \dfrac{F}{q}
+                $$</span></p>
+                <p>Logo, sua unidade é:</p>
+                <p><span class="math display">$$
+                [E] = \dfrac{\text{N}}{\text{C}}
+                $$</span></p>
+                <p>Substituindo na expressão:</p>
+                <p><span class="math display">$$
+                B = \dfrac{E}{v}
+                $$</span></p>
+                <p>Temos:</p>
+                <p><span class="math display">$$
+                [B] = \dfrac{\text{N}/\text{C}}{\text{m}/\text{s}}
+                $$</span></p>
+                <p>Dividir por <span class="math inline">m/s</span>
+                equivale a multiplicar por <span
+                class="math inline">s/m</span>:</p>
+                <p><span class="math display">$$
+                [B] = \dfrac{\text{N}}{\text{C}} \cdot
+                \dfrac{\text{s}}{\text{m}}
+                $$</span></p>
+                <p>Sabendo que:</p>
+                <p><span
+                class="math display">1 N = 1 kg m/s<sup>2</sup></span></p>
+                <p>Substituindo:</p>
+                <p><span class="math display">$$
+                [B] = \dfrac{\text{kg}\,\text{m}/\text{s}^2}{\text{C}}
+                \cdot \dfrac{\text{s}}{\text{m}}
+                $$</span></p>
+                <p>Cancelando <span class="math inline">m</span> e
+                simplificando:</p>
+                <p><span class="math display">$$
+                [B] = \dfrac{\text{kg}}{\text{C}\,\text{s}}
+                $$</span></p>
+                <p>Portanto:</p>
+                <p><span class="math display">$$
+                \boxed{1\,\text{T} =
+                \dfrac{1\,\text{kg}}{\text{C}\,\text{s}}}
+                $$</span></p>
+                <p><strong>Obtendo Tesla a partir de $E =
+                U/d</strong></p>
+                <p>Também podemos escrever o campo elétrico como:</p>
+                <p><span class="math display">$$
+                E = \dfrac{U}{d}
+                $$</span></p>
+                <p>Utilizando novamente:</p>
+                <p><span class="math display">$$
+                B = \dfrac{E}{v}
+                $$</span></p>
+                <p>Substituindo as unidades:</p>
+                <p><span class="math display">$$
+                [B] = \dfrac{\text{V}/\text{m}}{\text{m}/\text{s}}
+                $$</span></p>
+                <p>Multiplicando por <span
+                class="math inline">s/m</span>:</p>
+                <p><span class="math display">$$
+                [B] = \dfrac{\text{V}}{\text{m}} \cdot
+                \dfrac{\text{s}}{\text{m}}
+                $$</span></p>
+                <p><span class="math display">$$
+                [B] = \dfrac{\text{V}\,\text{s}}{\text{m}^2}
+                $$</span></p>
+                <p>Logo:</p>
+                <p><span class="math display">$$
+                \boxed{1\,\text{T} =
+                \dfrac{1\,\text{V}\,\text{s}}{\text{m}^2}}
+                $$</span></p>
+                <p><strong>Conclusão</strong>:</p>
+                <p>O Tesla pode ser expresso de formas equivalentes:</p>
+                <p><span class="math display">$$
+                1\,\text{T} = \dfrac{\text{kg}}{\text{C}\,\text{s}}
+                $$</span></p>
+                <p>ou</p>
+                <p><span class="math display">$$
+                1\,\text{T} = \dfrac{\text{V}\,\text{s}}{\text{m}^2}
+                $$</span></p>
+                <p>Essas expressões mostram que o campo magnético está
+                relacionado:</p>
+                <ul>
+                <li>Ao movimento de cargas elétricas.</li>
+                <li>À força magnética.</li>
+                <li>À diferença de potencial.</li>
+                <li>Ao fluxo magnético.</li>
+                </ul>
+                <p>Assim, compreender essas equivalências não é apenas
+                um exercício algébrico, mas uma forma de perceber a
+                estrutura física por trás da definição da unidade de
+                campo magnético.</p>
+                <h3
+                id="exemplo-2.1-cálculo-da-razão-carga-massa-do-elétron-por-meio-de-uma-simulação">Exemplo
+                2.1: Cálculo da razão carga-massa do elétron por meio de
+                uma simulação</h3>
+                <p>Na simulação disponível em: <a
+                href="https://www.laboratoriovirtual.fisica.ufc.br/razao-carga-massa-do-eletron"
+                class="uri">https://www.laboratoriovirtual.fisica.ufc.br/razao-carga-massa-do-eletron</a>,
+                mantenha a tensão aceleradora fixa em <strong>80
+                V</strong>, o campo magnético em <strong>0,4 mT</strong>
+                e meça o raio do semicirculo formado pelo feixe
+                eletrônico com o auxílio da régua virtual.</p>
+                <p>Com esses dados, determine a razão carga/massa do
+                elétron utilizando a relação:</p>
+                <p><span class="math display">$$
+                \dfrac{e}{m} = \dfrac{2V}{r^2 B^2}
+                $$</span></p>
+                <p><strong>Solução</strong>:</p>
+                <p>Medindo diretamente na simulação, estimamos o raio
+                como:</p>
+                <p><span class="math display"><em>r</em> ≈ 7, 65
+                cm = 7, 65 × 10<sup>−2</sup>m</span></p>
+                <p>O campo magnético deve ser convertido para Tesla:</p>
+                <p><span class="math display">0, 4
+                mT = 4, 0 × 10<sup>−4</sup>T</span></p>
+                <p>Substituindo na expressão:</p>
+                <p><span class="math display">$$
+                \dfrac{e}{m} = \dfrac{2 \times 80\,\bcancel{\text{V}}}{
+                (7{,}65\times 10^{-2})^{2} \,\bcancel{\text{m}^{2}}
+                \times (4\times 10^{-4})^{2}\,\bcancel{\text{T}^{2}}}
+                $$</span></p>
+                <p><span class="math display">$$
+                \cdot
+                \left(\dfrac{\bcancel{1\,\text{T}}}{1\,\bcancel{\text{V}}\,\bcancel{\text{s}}/\bcancel{\text{m}^{2}}}\right)\cdot
+                \left(\dfrac{\bcancel{1\,\text{T}}}{\text{kg}/(\text{C}\,\bcancel{\text{s}})}\right)
+                $$</span></p>
+                <p>Que resulta em:</p>
+                <p><span class="math display">$$
+                \boxed{\dfrac{e}{m} = 1{,}71 \times
+                10^{11}\,\text{C/kg}}
+                $$</span></p>
+                <p><strong>Comparação com o valor teórico</strong></p>
+                <p>O valor atualmente aceito para a razão carga-massa do
+                elétron é:</p>
+                <p><span class="math display">$$
+                \left(\dfrac{e}{m}\right)_{\text{teórico}} = 1{,}76
+                \times 10^{11}\,\text{C/kg}
+                $$</span></p>
+                <p>Observamos que o resultado obtido na simulação é
+                bastante próximo do valor tabelado.</p>
+                <p><strong>Cálculo do erro percentual</strong></p>
+                <p>O erro percentual é dado por:</p>
+                <p><span class="math display">$$
+                E\% = \left| \dfrac{V - v}{V} \right| \times 100\%
+                $$</span></p>
+                <p>onde:</p>
+                <ul>
+                <li><span class="math inline"><em>V</em></span> é o
+                valor teórico.</li>
+                <li><span class="math inline"><em>v</em></span> é o
+                valor experimental.</li>
+                </ul>
+                <p>Substituindo:</p>
+                <p><span class="math display">$$
+                E\% =
+                \left|
+                \dfrac{1{,}76 \times 10^{11} - 1{,}71 \times 10^{11}}
+                {1{,}76 \times 10^{11}}
+                \right|
+                \times 100\%
+                $$</span></p>
+                <p><span class="math display">$$
+                \boxed{E\% = 2{,}84\%}
+                $$</span></p>
+                <p><strong>Discussão do resultado</strong></p>
+                <p>Um erro da ordem de aproximadamente
+                <strong>3%</strong> é bastante satisfatório para uma
+                medida obtida por simulação com leitura manual do
+                raio.</p>
+                <p>A principal fonte de incerteza está na medição do
+                raio, pois:</p>
+                <ul>
+                <li>Depende da percepção visual.</li>
+                <li>Envolve arredondamentos.</li>
+                <li>Pode sofrer pequenas imprecisões na leitura da
+                régua.</li>
+                </ul>
+                <p>Mesmo com essas limitações, o experimento reproduz
+                com excelente aproximação o valor físico real da razão
+                carga-massa do elétron.</p>
+                <h3 id="segundo-experimento">Segundo experimento</h3>
+                <p>O <strong>segundo experimento de Thomson</strong> foi
+                realizado em duas etapas principais.</p>
+                <p><strong>1. Campos elétrico e magnético
+                cruzados</strong></p>
+                <p>Inicialmente, aplicam-se aos raios catódicos dois
+                campos:</p>
+                <ul>
+                <li>Campo elétrico <span
+                class="math inline"><em>E⃗</em></span>.</li>
+                <li>Campo magnético <span
+                class="math inline"><em>B⃗</em></span></li>
+                </ul>
+                <p>Esses campos são:</p>
+                <ul>
+                <li>Perpendiculares entre si.</li>
+                <li>Perpendiculares à direção do feixe eletrônico.</li>
+                </ul>
+                <p>Os valores de <span
+                class="math inline"><em>E</em></span> e <span
+                class="math inline"><em>B</em></span> são ajustados de
+                modo que o feixe <strong>não sofra desvio</strong>.</p>
+                <p>Isso significa que a força elétrica equilibra
+                exatamente a força magnética:</p>
+                <p><span
+                class="math display"><em>e</em><em>E</em> = <em>e</em><em>v</em><em>B</em></span></p>
+                <p>Cancelando a carga <span
+                class="math inline"><em>e</em></span>:</p>
+                <p><span
+                class="math display"><em>E</em> = <em>v</em><em>B</em></span></p>
+                <p>Logo, a velocidade das partículas é:</p>
+                <p><span class="math display">$$
+                \boxed{v = \dfrac{E}{B}}
+                $$</span></p>
+                <p>Essa etapa permite determinar a velocidade do feixe
+                eletrônico.</p>
+                <p><strong>2. Desligando o campo magnético</strong></p>
+                <p>Na segunda etapa, o campo magnético é desligado.</p>
+                <p>Agora atua apenas o campo elétrico <span
+                class="math inline"><em>E</em></span>, na direção
+                transversal <span
+                class="math inline"><em>O</em><em>y</em></span>,
+                enquanto o movimento longitudinal <span
+                class="math inline"><em>O</em><em>x</em></span>
+                permanece uniforme.</p>
+                <p>A velocidade horizontal passa a ser:</p>
+                <p><span class="math display">$$
+                v_x = v = \dfrac{E}{B}
+                $$</span></p>
+                <p><strong>Tempo de permanência entre as
+                placas</strong></p>
+                <p>Se as placas possuem comprimento <span
+                class="math inline"><em>L</em></span>, o tempo que a
+                partícula permanece entre elas é:</p>
+                <p><span class="math display">$$
+                t = \dfrac{L}{v_x}
+                $$</span></p>
+                <p>Substituindo <span
+                class="math inline"><em>v</em><sub><em>x</em></sub></span>:</p>
+                <p><span class="math display">$$
+                t = \dfrac{L}{E/B}
+                $$</span></p>
+                <p><span class="math display">$$
+                \boxed{t = \dfrac{LB}{E}}
+                $$</span></p>
+                <p><strong>Movimento na direção vertical</strong></p>
+                <p>Na direção vertical atua apenas a força elétrica:</p>
+                <p><span
+                class="math display"><em>e</em><em>E</em> = <em>m</em><em>a</em></span></p>
+                <p>Logo, a aceleração é:</p>
+                <p><span class="math display">$$
+                \boxed{a = \dfrac{eE}{m}}
+                $$</span></p>
+                <p>O deslocamento vertical ao sair das placas é dado
+                por:</p>
+                <p><span class="math display">$$
+                y = \dfrac{1}{2} a t^{2}
+                $$</span></p>
+                <p>Substituindo <span
+                class="math inline"><em>a</em></span> e <span
+                class="math inline"><em>t</em></span>:</p>
+                <p><span class="math display">$$
+                y = \dfrac{1}{2}
+                \left( \dfrac{eE}{m} \right)
+                \left( \dfrac{LB}{E} \right)^2
+                $$</span></p>
+                <p>Desenvolvendo:</p>
+                <p><span class="math display">$$
+                y =
+                \dfrac{1}{2}
+                \dfrac{eE}{m}
+                \dfrac{L^2 B^2}{E^2}
+                $$</span></p>
+                <p>Simplificando um fator de <span
+                class="math inline"><em>E</em></span>:</p>
+                <p><span class="math display">$$
+                \boxed{
+                y =
+                \dfrac{e L^2 B^2}{2 m E}
+                }
+                $$</span></p>
+                <p><strong>Substituindo <span
+                class="math inline"><em>E</em> = <em>U</em>/<em>d</em></span></strong></p>
+                <p>Entre placas paralelas, o campo elétrico é:</p>
+                <p><span class="math display">$$
+                E = \dfrac{U}{d}
+                $$</span></p>
+                <p>Substituindo:</p>
+                <p><span class="math display">$$
+                y =
+                \dfrac{e L^2 B^2}{2 m (U/d)}
+                $$</span></p>
+                <p>Multiplicando por <span
+                class="math inline"><em>d</em>/<em>U</em></span>:</p>
+                <p><span class="math display">$$
+                y =
+                \dfrac{e d L^2 B^2}{2 m U}
+                $$</span></p>
+                <p><strong>Determinação da razão
+                carga/massa</strong></p>
+                <p>Isolando <span
+                class="math inline"><em>e</em>/<em>m</em></span>:</p>
+                <p><span class="math display">$$
+                \boxed{
+                \dfrac{e}{m}
+                =
+                \dfrac{2 U y}{d L^2 B^2}
+                }
+                \qquad (2)
+                $$</span></p>
+                <p><strong>Interpretação Física</strong></p>
+                <p>Observe algo muito importante:</p>
+                <ul>
+                <li><span class="math inline"><em>U</em></span> (tensão)
+                é controlada experimentalmente.</li>
+                <li><span class="math inline"><em>B</em></span> (campo
+                magnético) também é ajustável.</li>
+                <li><span class="math inline"><em>d</em></span> é a
+                distância entre as placas.</li>
+                <li><span class="math inline"><em>L</em></span> é o
+                comprimento das placas.</li>
+                <li>apenas <span class="math inline"><em>y</em></span>
+                precisa ser medido experimentalmente.</li>
+                </ul>
+                <p>Assim, ao medir o desvio vertical <span
+                class="math inline"><em>y</em></span>, conseguimos
+                determinar a razão carga/massa do elétron.</p>
+                <p>Esse experimento foi fundamental na história da
+                Física, pois mostrou que as partículas dos raios
+                catódicos eram idênticas independentemente do material
+                do cátodo — evidência clara da existência de uma
+                partícula subatômica universal: o elétron.</p>
+                <p>Uma simulação deste experimento pode ser visualizado
+                a seguir:</p>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://ophysics.com/m2.html" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="images/thumbs/prt-simophysics.png" alt="Relação carga-massa do elétron" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">Relação carga-massa do elétron</strong><br>
+                      Fonte: <a href="https://ophysics.com/m2.html" target="_blank" rel="noopener noreferrer">ophysics</a>
+                    </div>
+                    <div>
+                      <a href="https://ophysics.com/m2.html" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h3
+                id="exemplo-2.2-determinação-da-razão-cargamassa-do-elétron-a-partir-da-simulação">Exemplo
+                2.2 – Determinação da razão carga/massa do elétron a
+                partir da simulação</h3>
+                <p>De acordo com a simulação disponível em: <a
+                href="https://www.geogebra.org/m/e9jddmgz"
+                class="uri">https://www.geogebra.org/m/e9jddmgz</a>,
+                realize os seguintes procedimentos:</p>
+                <ol type="a">
+                <li>Mantenha a tensão em <strong>5 V</strong> e
+                determine o valor do campo magnético (em <span
+                class="math inline"><em>μ</em></span>T) para que a força
+                elétrica seja igual, em módulo, à força magnética.</li>
+                <li>Após determinar o valor de <span
+                class="math inline"><em>B</em></span>, meça a altura
+                <span class="math inline"><em>y</em></span> (em
+                mm).</li>
+                <li>Sabendo que o comprimento entre as placas é <span
+                class="math inline"><em>L</em> = 52</span> mm, determine
+                a razão carga/massa do elétron e seu respectivo erro
+                percentual.</li>
+                </ol>
+                <p>O valor teórico aceito na literatura é: <span
+                class="math display">$$
+                \dfrac{e}{m} = 1{,}76 \times 10^{11}\,\text{C/kg}
+                $$</span></p>
+                <p><strong>Solução</strong>:</p>
+                <ol type="a">
+                <li>Determinação do campo magnético.</li>
+                </ol>
+                <p>Mantendo a tensão constante em <strong>5 V</strong>,
+                ajustamos o campo magnético até que a trajetória do
+                feixe se torne completamente horizontal (ou seja, sem
+                desvio).</p>
+                <p>Isso significa que:</p>
+                <p><span
+                class="math display"><em>e</em><em>E</em> = <em>e</em><em>v</em><em>B</em></span></p>
+                <p>ou seja, as forças elétrica e magnética se
+                equilibram.</p>
+                <p>Por tentativa e erro na simulação, obtém-se:</p>
+                <p><span class="math display">$$
+                \boxed{B = 76\,\mu\text{T}}
+                $$</span></p>
+                <p>Convertendo para Tesla:</p>
+                <p><span
+                class="math display"><em>B</em> = 76 × 10<sup>−6</sup> T</span></p>
+                <ol start="2" type="a">
+                <li>Medição da altura <span
+                class="math inline"><em>y</em></span>.</li>
+                </ol>
+                <p>Para determinar a altura, pode-se utilizar
+                ferramentas computacionais de medição de distância entre
+                pontos, como disponível em: <a
+                href="https://imageonline.io/measure-distance/"
+                class="uri">https://imageonline.io/measure-distance/</a>.
+                A estratégia consiste em:</p>
+                <ol type="1">
+                <li>Definir dois pontos de referência conhecidos;</li>
+                <li>Medir a distância entre dois pontos da
+                trajetória;</li>
+                <li>Converter proporcionalmente para a unidade
+                desejada.</li>
+                </ol>
+                <figure>
+                <img src="images/fig-printpoits.png"
+                alt="Distância entre dos pontos. Fonte: autoria própria" />
+                <figcaption aria-hidden="true">Distância entre dos
+                pontos. Fonte: autoria própria</figcaption>
+                </figure>
+                <p>A partir da medição, obtém-se:</p>
+                <p><span class="math display">$$
+                \boxed{y = 1{,}43\,\text{mm}}
+                $$</span></p>
+                <p>Convertendo para metros:</p>
+                <p><span
+                class="math display"><em>y</em> = 1, 43 × 10<sup>−3</sup> m</span></p>
+                <ol start="3" type="a">
+                <li>Determinação da razão <span
+                class="math inline"><em>e</em>/<em>m</em></span></li>
+                </ol>
+                <p>Utilizando a equação (2):</p>
+                <p><span class="math display">$$
+                \dfrac{e}{m} =
+                \dfrac{2Uy}{dL^2 B^2}
+                $$</span></p>
+                <p>Dados:</p>
+                <ul>
+                <li><span class="math inline"><em>U</em> = 5</span>
+                V.</li>
+                <li><span
+                class="math inline"><em>y</em> = 1, 43 × 10<sup>−3</sup></span>
+                m.</li>
+                <li><span
+                class="math inline"><em>d</em> = 5 × 10<sup>−3</sup></span>
+                m.</li>
+                <li><span
+                class="math inline"><em>L</em> = 52 × 10<sup>−3</sup></span>
+                m.</li>
+                <li><span
+                class="math inline"><em>B</em> = 76 × 10<sup>−6</sup></span>
+                T.</li>
+                </ul>
+                <p>Substituindo:</p>
+                <p><span class="math display">$$
+                \dfrac{e}{m}=\dfrac{2\times 5 \, \bcancel{\text{V}}
+                \times 1,43 \times 10^{-3}\,\bcancel{\text{m}}}{5 \times
+                10^{-3}\,\bcancel{\text{m}}\times (52 \times
+                10^{-3}\,\bcancel{\text{m}})^{2} \times(76\times
+                10^{-6}\,\bcancel{\text{T}})^{2}}
+                $$</span></p>
+                <p><span class="math display">$$
+                \cdot
+                \left(\dfrac{\bcancel{1\,\text{T}}}{1\,\bcancel{\text{V}}\,\bcancel{\text{s}}/\bcancel{\text{m}^{2}}}\right)\cdot
+                \left(\dfrac{\bcancel{1\,\text{T}}}{\text{kg}/(\text{C}\,\bcancel{\text{s}})}\right)
+                $$</span></p>
+                <p>Portanto:</p>
+                <p><span class="math display">$$
+                \boxed{\dfrac{e}{m}= 1{,}83 \times 10^{11}
+                \,\text{C/kg}}
+                $$</span></p>
+                <p><strong>Cálculo do erro percentual</strong></p>
+                <p>O erro percentual é dado por:</p>
+                <p><span class="math display">$$
+                E\% =
+                \left|
+                \dfrac{V - v}{V}
+                \right|
+                \times 100\%
+                $$</span></p>
+                <p>Substituindo os valores:</p>
+                <p><span class="math display">$$
+                E\% =
+                \left|
+                \dfrac{1{,}76 - 1{,}83}{1{,}76}
+                \right|
+                \times 100\%
+                $$</span></p>
+                <p><span class="math display">$$
+                \boxed{
+                E\% = 3{,}98\%
+                }
+                $$</span></p>
+                <p><strong>Discussão do resultado</strong></p>
+                <p>O erro obtido é de aproximadamente
+                <strong>4%</strong>, valor considerado aceitável para
+                uma atividade baseada em simulação com medição
+                manual.</p>
+                <p>A principal fonte de incerteza está:</p>
+                <ul>
+                <li>Na medição da altura <span
+                class="math inline"><em>y</em></span>,</li>
+                <li>Na resolução limitada da imagem.</li>
+                <li>Na conversão de escala entre pixels e
+                milímetros.</li>
+                <li>Em possíveis arredondamentos numéricos.</li>
+                </ul>
+                <p>Mesmo com essas limitações, o experimento reproduz
+                com boa aproximação o valor físico real da razão
+                carga/massa do elétron.</p>
+                <h2 id="resultado-surpreendente">Resultado
+                Surpreendente</h2>
+                <p>Thomson repetiu o experimento com diferentes gases no
+                interior do tubo.</p>
+                <p>O que observou?</p>
+                <ul>
+                <li>O feixe sempre apresentava o mesmo
+                comportamento;</li>
+                <li>A razão entre carga e massa (<span
+                class="math inline"><em>e</em>/<em>m</em></span>) era a
+                mesma;</li>
+                <li>O desvio não dependia do tipo de gás utilizado.</li>
+                </ul>
+                <p>Se as partículas fossem átomos do gás, o desvio
+                deveria variar com a massa. Mas não variava.</p>
+                <p>Thomson concluiu que:</p>
+                <ul>
+                <li>As partículas dos raios catódicos são
+                <strong>idênticas em qualquer material</strong>;</li>
+                <li>São muito mais leves que qualquer átomo
+                conhecido;</li>
+                <li>Estão presentes em toda matéria.</li>
+                </ul>
+                <p>Ele deu a essas partículas o nome já sugerido por G.
+                J. Stoney: <strong>elétrons</strong>.</p>
+                <p>A descoberta do elétron teve consequências
+                profundas:</p>
+                <ul>
+                <li>O átomo deixou de ser indivisível;</li>
+                <li>A matéria passou a ser entendida como composta por
+                partículas menores;</li>
+                <li>Surgiu a necessidade de novos modelos atômicos;</li>
+                <li>Abriu-se o caminho para a Física Moderna.</li>
+                </ul>
+                <p>Além disso, ao medir a razão <span
+                class="math inline"><em>e</em>/<em>m</em></span>,
+                Thomson mostrou que a carga elétrica não é um fenômeno
+                contínuo distribuído na matéria, mas associada a
+                entidades microscópicas bem definidas.</p>
+                <p>A etapa seguinte seria determinar o valor da carga
+                elétrica elementar — tarefa realizada por Millikan.</p>
+                <h1 id="conclusão">Conclusão</h1>
+                <p>Nesta aula, percorremos um dos momentos mais
+                decisivos da história da Física: a descoberta do
+                elétron. O que começou como o estudo de descargas
+                elétricas em gases levou à constatação de que o átomo
+                não era indivisível, como se acreditava durante
+                séculos.</p>
+                <p>Os experimentos com tubos de descarga revelaram que
+                os raios catódicos possuíam massa, carga negativa e
+                comportamento corpuscular. Thomson, ao medir a razão
+                carga/massa (<span
+                class="math inline"><em>e</em>/<em>m</em></span>),
+                demonstrou que essas partículas eram universais —
+                presentes em qualquer material — inaugurando uma nova
+                compreensão da estrutura da matéria.</p>
+                <p>Mais do que um resultado numérico, a determinação de
+                <span class="math inline"><em>e</em>/<em>m</em></span>
+                representou uma mudança de paradigma: a matéria passou a
+                ser entendida como composta por constituintes internos.
+                Esse foi um passo fundamental para o desenvolvimento dos
+                modelos atômicos, da Mecânica Quântica e da Física
+                Moderna como um todo.</p>
+                <p>Do ponto de vista metodológico, vimos também como a
+                Física avança: hipóteses são formuladas, experimentos
+                são cuidadosamente planejados, variáveis são controladas
+                e grandezas são medidas com atenção às incertezas
+                experimentais.</p>
+                <p>Assim, ao final desta aula, não apenas compreendemos
+                como o elétron foi descoberto, mas também como o método
+                científico permite revelar a estrutura mais íntima da
+                natureza.</p>
+                <h1 id="exercícios-de-fixação">Exercícios De
+                Fixação</h1>
+                <dl>
+                <dt>2.1)</dt>
+                <dd>
+                A principal evidência experimental de que os raios
+                catódicos eram constituídos por partículas carregadas
+                foi:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A emissão de luz no interior do tubo.</li>
+                <li>A formação de sombra ao colocar um obstáculo no
+                feixe.</li>
+                <li>A propagação do feixe em todas as direções.</li>
+                <li>A ausência de qualquer desvio sob ação de campos
+                externos.</li>
+                <li>A dependência do feixe com a temperatura
+                ambiente.</li>
+                </ol>
+                <dl>
+                <dt>2.2)</dt>
+                <dd>
+                O fato de os raios catódicos serem desviados em direção
+                à placa positiva indicava que essas partículas:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Eram eletricamente neutras.</li>
+                <li>Possuíam carga positiva.</li>
+                <li>Possuíam carga negativa.</li>
+                <li>Não possuíam massa.</li>
+                <li>Eram ondas eletromagnéticas.</li>
+                </ol>
+                <dl>
+                <dt>2.3)</dt>
+                <dd>
+                No experimento de Crookes, o movimento de um pequeno
+                molinete dentro do tubo indicava que os raios catódicos:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Eram apenas radiação luminosa.</li>
+                <li>Transportavam energia e momento.</li>
+                <li>Não interagiam com a matéria.</li>
+                <li>Eram compostos por átomos neutros.</li>
+                <li>Eram ondas sonoras.</li>
+                </ol>
+                <dl>
+                <dt>2.4)</dt>
+                <dd>
+                No primeiro experimento de Thomson, o raio da trajetória
+                circular das partículas em um campo magnético é
+                determinado igualando:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Força elétrica e força gravitacional.</li>
+                <li>Força magnética e força elétrica.</li>
+                <li>Força magnética e força centrípeta.</li>
+                <li>Força centrípeta e força peso.</li>
+                <li>Força normal e força elétrica.</li>
+                </ol>
+                <dl>
+                <dt>2.5)</dt>
+                <dd>
+                O fato de Thomson obter o mesmo valor de <span
+                class="math inline"><em>e</em>/<em>m</em></span>
+                independentemente do gás utilizado no tubo levou à
+                conclusão de que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Os raios catódicos eram átomos do gás.</li>
+                <li>As partículas dependiam do material do cátodo.</li>
+                <li>As partículas eram universais e presentes em toda
+                matéria.</li>
+                <li>A massa do elétron variava com o gás.</li>
+                <li>O experimento estava incorreto.</li>
+                </ol>
+                <dl>
+                <dt>2.6)</dt>
+                <dd>
+                A principal importância histórica do experimento de
+                Thomson foi:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Demonstrar a existência de prótons.</li>
+                <li>Confirmar que o átomo era indivisível.</li>
+                <li>Medir diretamente a carga elementar.</li>
+                <li>Demonstrar que o átomo possui estrutura
+                interna.</li>
+                <li>Determinar a constante gravitacional.</li>
+                </ol>
+                <dl>
+                <dt>2.7)</dt>
+                <dd>
+                O experimento de Thomson permitiu determinar:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A carga do elétron.</li>
+                <li>A massa do próton.</li>
+                <li>O raio do átomo.</li>
+                <li>A constante de Planck.</li>
+                <li>A razão <span
+                class="math inline"><em>e</em>/<em>m</em></span>.</li>
+                </ol>
+                <dl>
+                <dt>2.8)</dt>
+                <dd>
+                No espectrômetro de massa, o movimento da partícula no
+                campo magnético é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Retilíneo uniforme.</li>
+                <li>Parabólico.</li>
+                <li>Circular.</li>
+                <li>Harmônico.</li>
+                <li>Aleatório.</li>
+                </ol>
+                <dl>
+                <dt>2.9)</dt>
+                <dd>
+                Na simulação disponível em: <a
+                href="https://www.laboratoriovirtual.fisica.ufc.br/razao-carga-massa-do-eletron"
+                class="uri">https://www.laboratoriovirtual.fisica.ufc.br/razao-carga-massa-do-eletron</a>,
+                mantenha a tensão aceleradora fixa em <strong>70
+                V</strong>, o campo magnético em <strong>0,3 mT</strong>
+                e meça o raio do semicirculo formado pelo feixe
+                eletrônico com o auxílio da régua virtual. Com esses
+                dados, determine a razão carga/massa e seu respectivo
+                erro percentual.
+                </dd>
+                <dt>2.10)</dt>
+                <dd>
+                De acordo com a simulação disponível em: <a
+                href="https://www.geogebra.org/m/e9jddmgz"
+                class="uri">https://www.geogebra.org/m/e9jddmgz</a>,
+                realize os seguintes procedimentos:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Mantenha a tensão em <strong>7 V</strong> e
+                determine o valor do campo magnético (em <span
+                class="math inline"><em>μ</em></span>T) para que a força
+                elétrica seja igual, em módulo, à força magnética.</li>
+                <li>Após determinar o valor de <span
+                class="math inline"><em>B</em></span>, meça a altura
+                <span class="math inline"><em>y</em></span> (em mm).
+                Dica: use a ferramenta disponível em: <a
+                href="https://imageonline.io/measure-distance/"
+                class="uri">https://imageonline.io/measure-distance/</a>
+                para determina a altura.</li>
+                <li>Sabendo que o comprimento entre as placas é <span
+                class="math inline"><em>L</em> = 52</span> mm, determine
+                a razão carga/massa do elétron e seu respectivo erro
+                percentual.</li>
+                </ol>
+                <p>O valor teórico aceito na literatura é: <span
+                class="math inline"><em>e</em>/<em>m</em> = 1, 76 × 10<sup>11</sup> C/kg</span>.</p>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://www.youtube.com/watch?v=dxUVpX12vkg" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="images/thumbs/ytb-radios-catódicos.png" alt="Raios catódicos" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">Raios catódicos</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=dxUVpX12vkg" target="_blank" rel="noopener noreferrer">Ervilha Mendel</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=dxUVpX12vkg" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                  <a href="https://www.youtube.com/watch?v=nDyYtgeD3D0" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="images/thumbs/ytb-exp-thomson.png" alt="Experimento de J. J. Thomson" style="display:block; width:100%; height:auto;">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
+                    <div style="line-height:1.25;">
+                      <strong style="color:#222;">Experimento de J. J. Thomson</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=nDyYtgeD3D0" target="_blank" rel="noopener noreferrer">Gerson Oliveira</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=nDyYtgeD3D0" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
+                        Abrir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>Jucimar Física Qântica, entre outros</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Concepções
+Históricas da Física Moderna</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
