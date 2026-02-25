@@ -533,9 +533,6 @@ de Oliveira
                 <li>Identificar propriedades importantes dos fluidos,
                 como <strong>massa específica</strong> e
                 <strong>pressão</strong>.</li>
-                <li>Definir corretamente <strong>massa
-                específica</strong> e <strong>densidade aparente
-                (bulk)</strong>.</li>
                 <li>Calcular <strong>pressão</strong> a partir da força
                 normal e da área.</li>
                 </ul>
@@ -630,41 +627,51 @@ de Oliveira
                 </ul>
                 <h1 id="massa-específica">Massa específica</h1>
                 <p>A <strong>massa específica</strong> <span
-                class="math inline"><em>ρ</em></span> é definida
+                class="math inline">\(\rho\)</span> é definida
                 formalmente por:</p>
-                <p><span class="math display">$$\rho = \lim_{\Delta V
-                \to 0} \frac{\Delta m}{\Delta V}$$</span></p>
+                <p><span class="math display">\[
+                \rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+                \]</span></p>
                 <p>ou, de forma diferencial,</p>
-                <p><span class="math display">$$\boxed{\rho =
-                \frac{dm}{dV}}$$</span></p>
+                <p><span class="math display">\[
+                \boxed{\rho = \frac{dm}{dV}}
+                \]</span></p>
                 <p>No SI:</p>
-                <p><span
-                class="math display">[<em>ρ</em>] = kg/m<sup>3</sup></span></p>
+                <p><span class="math display">\[
+                [\rho] = \text{kg/m}^3
+                \]</span></p>
                 <p>Para fluidos <strong>incompressíveis</strong> (bons
-                líquidos), <span class="math inline"><em>ρ</em></span>
+                líquidos), <span class="math inline">\(\rho\)</span>
                 pode ser considerada constante, levando à forma
                 prática:</p>
-                <p><span class="math display">$$\boxed{\rho =
-                \frac{m}{V}}$$</span></p>
+                <p><span class="math display">\[
+                \boxed{\rho = \frac{m}{V}}
+                \]</span></p>
                 <h2
                 id="exemplo-1.1---cálculo-da-massa-específico-de-um-óleo">Exemplo
                 1.1 - Cálculo da massa específico de um óleo</h2>
                 <p>Um tanque contém <span
-                class="math inline">500 L</span> de óleo com massa total
-                de <span class="math inline">430 kg</span>. Sabendo que
-                <span
-                class="math inline">1 L = 10<sup>−3</sup> m<sup>3</sup></span>
-                e que o óleo é homogêneo e incompreensível, determine a
-                massa específica deste óleo.</p>
+                class="math inline">\(500\,\text{l}\)</span> de óleo com
+                massa total de <span
+                class="math inline">\(430\,\text{kg}\)</span>. Sabendo
+                que <span class="math inline">\(1\,\text{l} =
+                10^{-3}\,\text{m}^3\)</span> e que o óleo é homogêneo e
+                incompreensível, determine a massa específica deste óleo
+                em <span
+                class="math inline">\(\text{kg}/\text{m}^3\)</span>.</p>
                 <p><strong>Solução</strong>:</p>
-                <p><span
-                class="math display"><em>V</em> = 500 × 10<sup>−3</sup> m<sup>3</sup> = 0, 500 m<sup>3</sup></span></p>
-                <p><span class="math display">$$\rho =
-                \frac{430\,kg}{0{,}500\,m^{3}} =
-                860\,\text{kg}/\text{m}^3$$</span></p>
+                <p><span class="math display">\[
+                V = 500 \times 10^{-3} \, \text{m}^{3} =
+                0{,}500\,\text{m}^3
+                \]</span></p>
+                <p><span class="math display">\[
+                \rho = \frac{430\,kg}{0{,}500\,m^{3}} =
+                860\,\text{kg}/\text{m}^3
+                \]</span></p>
                 <p>Portanto, a densidade deste óleo é:</p>
-                <p><span class="math display">$$\boxed{\rho =
-                860\,\text{kg}/\text{m}^3}$$</span></p>
+                <p><span class="math display">\[
+                \boxed{\rho = 860\,\text{kg}/\text{m}^3}
+                \]</span></p>
                 <h2
                 id="exemplo-1.2---densidade-média-de-uma-mistura-gasolina-etanol">Exemplo
                 1.2 - Densidade média de uma mistura (gasolina +
@@ -673,67 +680,81 @@ de Oliveira
                 <strong>gasolina</strong> e <strong>etanol</strong> de
                 modo que:</p>
                 <ul>
-                <li>30,0% do volume total é gasolina.</li>
-                <li>70,0% do volume total é etanol.</li>
+                <li>70,0% do volume total é gasolina.</li>
+                <li>30,0% do volume total é etanol.</li>
                 </ul>
                 <p>Considere as massas específicas:</p>
                 <ul>
-                <li>Gasolina: <span
-                class="math inline"><em>ρ</em><sub><em>g</em></sub> = 740 kg/m<sup>3</sup></span>.</li>
-                <li>Etanol: <span
-                class="math inline"><em>ρ</em><sub><em>e</em></sub> = 790 kg/m<sup>3</sup></span>.</li>
+                <li>Gasolina: <span class="math inline">\(\rho_g =
+                740\,\text{kg/m}^3\)</span>.</li>
+                <li>Etanol: <span class="math inline">\(\rho_e =
+                790\,\text{kg/m}^3\)</span>.</li>
                 </ul>
                 <p>Assumindo que esta representa uma mistura ideal, isto
                 é, sem contração/expansão de volume ao misturar,
                 determine a <strong>massa específica média</strong>
-                <span
-                class="math inline"><em>ρ</em><sub><em>m</em></sub></span>
-                da mistura.</p>
+                <span class="math inline">\(\rho_m\)</span> da mistura
+                em <span
+                class="math inline">\(\text{kg}/\text{m}^3\)</span>.</p>
                 <p><strong>Solução</strong>:</p>
                 <p>A massa total é:</p>
-                <p><span
-                class="math display"><em>m</em><sub>tot</sub> = <em>m</em><sub><em>g</em></sub> + <em>m</em><sub><em>e</em></sub> → <em>m</em><sub>tot</sub> = <em>ρ</em><sub><em>g</em></sub><em>V</em><sub><em>g</em></sub> + <em>ρ</em><sub><em>e</em></sub><em>V</em><sub><em>e</em></sub></span></p>
-                <p><span class="math display">$$\rho_{m} =
-                \dfrac{m_\text{tot}}{V_{\text{tot}}}$$</span></p>
-                <p><span class="math display">$$\rho_{m} = \dfrac{\rho_g
-                V_g + \rho_e V_e}{V_\text{tot}} \rightarrow \rho_{m} =
-                \rho_{g}\dfrac{V_g}{V_\text{tot}} +
-                \rho_{e}\dfrac{V_e}{V_\text{tot}}$$</span></p>
+                <p><span class="math display">\[
+                m_{\text{tot}} = m_g + m_e \rightarrow m_{\text{tot}} =
+                \rho_g V_g + \rho_e V_e
+                \]</span></p>
+                <p><span class="math display">\[
+                \rho_{m} = \dfrac{m_\text{tot}}{V_{\text{tot}}}
+                \]</span></p>
+                <p><span class="math display">\[
+                \rho_{m} = \dfrac{\rho_g V_g + \rho_e V_e}{V_\text{tot}}
+                \rightarrow \rho_{m} = \rho_{g}\dfrac{V_g}{V_\text{tot}}
+                + \rho_{e}\dfrac{V_e}{V_\text{tot}}
+                \]</span></p>
                 <p>Como: <span
-                class="math display"><em>V</em><sub><em>g</em></sub>/<em>V</em><sub>tot</sub> = 0, 300</span>
-                e <span
-                class="math display"><em>V</em><sub><em>e</em></sub>/<em>V</em><sub>tot</sub> = 0, 700</span>,
-                pedemos substituir os valores numéricos:</p>
-                <p><span
-                class="math display"><em>ρ</em><sub><em>m</em></sub> = 740 kg/m<sup>3</sup> ⋅ 0, 300 + 790 kg/m<sup>3</sup> ⋅ 0, 700</span></p>
-                <p><span
-                class="math display"><em>ρ</em><sub><em>m</em></sub> = 222 + 553 = 775 kg/m<sup>3</sup></span></p>
+                class="math inline">\(V_{g}/V_{\text{tot}} =
+                0{,}700\)</span> e <span
+                class="math inline">\(V_{e}/V_{\text{tot}} =
+                0{,}300\)</span>, pedemos substituir os valores
+                numéricos:</p>
+                <p><span class="math display">\[
+                \rho_{m} = 740\,\text{kg}/\text{m}^{3}\cdot 0{,}700 +
+                790\,\text{kg}/\text{m}^{3} \cdot 0{,}300
+                \]</span></p>
+                <p><span class="math display">\[
+                \rho_m = 518 + 237 = 755\,\text{kg}/\text{m}^3
+                \]</span></p>
                 <p><strong>Resultado final</strong>:</p>
-                <p><span class="math display">$$\boxed{\rho_m =
-                775\,\text{kg}/\text{m}^3}$$</span></p>
+                <p><span class="math display">\[
+                \boxed{\rho_m = 755\,\text{kg}/\text{m}^3}
+                \]</span></p>
                 <p><strong>Comentários</strong>:</p>
                 <p>A massa específica da mistura ficou
                 <strong>entre</strong> as massas específicas dos dois
                 fluidos, como esperado. Além disso, como há maior fração
-                de etanol (70%), o valor final fica mais próximo de
-                <span
-                class="math inline"><em>ρ</em><sub><em>e</em></sub></span>
-                do que de <span
-                class="math inline"><em>ρ</em><sub><em>g</em></sub></span>.</p>
+                de gasolina (70%), o valor final fica mais próximo de
+                <span class="math inline">\(\rho_g\)</span> do que de
+                <span class="math inline">\(\rho_e\)</span>.</p>
                 <h1 id="pressão-em-um-fluido">Pressão em um fluido</h1>
                 <p>A <strong>pressão</strong> <span
-                class="math inline"><em>p</em></span> em um ponto é
-                definida como o limite da razão entre a força
-                <strong>normal</strong> exercida sobre uma superfície e
-                a área dessa superfície, quando a área tende a zero:</p>
-                <p><span class="math display">$$p = \lim_{\Delta A \to
-                0} \frac{\Delta F_\perp}{\Delta A}$$</span></p>
+                class="math inline">\(p\)</span> em um ponto é definida
+                como o limite da razão entre a força
+                <strong>normal</strong> (<span
+                class="math inline">\(F_\perp\)</span> )exercida sobre
+                uma superfície e a área dessa superfície (<span
+                class="math inline">\(A\)</span>), quando a área tende a
+                zero:</p>
+                <p><span class="math display">\[
+                p = \lim_{\Delta A \to 0} \frac{\Delta F_\perp}{\Delta
+                A}
+                \]</span></p>
                 <p>Na forma diferencial:</p>
-                <p><span class="math display">$$p =
-                \frac{dF_\perp}{dA}$$</span></p>
+                <p><span class="math display">\[
+                p = \frac{dF_\perp}{dA}
+                \]</span></p>
                 <p>No Sistema Internacional:</p>
-                <p><span
-                class="math display">1 Pa = 1 N/m<sup>2</sup></span></p>
+                <p><span class="math display">\[
+                1\,\text{Pa} = 1\,\text{N/m}^2
+                \]</span></p>
                 <p><strong>Pressão em fluidos em repouso</strong></p>
                 <p>Em um fluido em <strong>equilíbrio</strong>, não
                 existem tensões tangenciais internas. Assim, a pressão
@@ -743,80 +764,94 @@ de Oliveira
                 id="exemplo-1.3---cálculo-da-pressão-exercida-pela-força-peso">Exemplo
                 1.3 - Cálculo da pressão exercida pela força peso</h2>
                 <p>Uma pessoa de massa <span
-                class="math inline">70 kg</span> apoia-se sobre um único
-                pé, cuja área de contato com o solo é <span
-                class="math inline">150 cm<sup>2</sup></span>. Estime a
-                pressão exercida.</p>
+                class="math inline">\(70\,\text{kg}\)</span> apoia-se
+                sobre um único pé, cuja área de contato com o solo é
+                <span class="math inline">\(150\,\text{cm}^2\)</span>.
+                Estime a pressão exercida em Pa.</p>
                 <p><strong>Solução</strong>:</p>
-                <p><span
-                class="math display"><em>A</em> = 150 × 10<sup>−4</sup> = 1, 50 × 10<sup>−2</sup> m<sup>2</sup></span></p>
-                <p><span class="math display">$$p = \dfrac{F}{A}
-                \rightarrow p = \dfrac{mg}{A}$$</span></p>
+                <p><span class="math display">\[
+                A = 150\,\text{cm}^{2} = 150\times10^{-4}\,\text{m}^{2}
+                = 1{,}50\times10^{-2}\,\text{m}^2
+                \]</span></p>
+                <p><span class="math display">\[
+                p = \dfrac{F}{A} \rightarrow p = \dfrac{mg}{A}
+                \]</span></p>
                 <p>Substituindo os valores numéricos:</p>
-                <p><span class="math display">$$p = \dfrac{70\,\text{kg}
-                \cdot 9,8\,\text{m}/\text{s}^{2}}{1{,}50 \times
+                <p><span class="math display">\[
+                p = \dfrac{70\,\text{kg} \cdot
+                9,8\,\text{m}/\text{s}^{2}}{1{,}50 \times
                 10^{-2}\,\text{m}^{2}} \rightarrow p =
-                4{,}6\times10^{4}\,\text{Pa}$$</span></p>
+                4{,}6\times10^{4}\,\text{Pa}
+                \]</span></p>
                 <p>Portanto:</p>
-                <p><span class="math display">$$\boxed{p = 4{,}6 \times
-                10^{4}\,\text{Pa}}$$</span></p>
+                <p><span class="math display">\[
+                \boxed{p = 4{,}6 \times 10^{4}\,\text{Pa}}
+                \]</span></p>
                 <h2
                 id="exemplo-1.4---cálculo-da-pressão-exercida-por-uma-força-formando-um-ângulo">Exemplo
                 1.4 - Cálculo da pressão exercida por uma força formando
                 um ângulo</h2>
                 <p>Uma força de intensidade <span
-                class="math inline"><em>F</em> = 120 N</span> é aplicada
-                sobre a superfície de uma placa plana de área <span
-                class="math inline"><em>A</em> = 0, 015 m<sup>2</sup></span>
-                fazendo um ângulo de <span
-                class="math inline"><em>θ</em> = 30<sup>∘</sup></span>
-                com a <strong>normal</strong> à placa (isto é, o ângulo
-                é medido em relação à direção perpendicular à
+                class="math inline">\(F = 120\,\text{N}\)</span> é
+                aplicada sobre a superfície de uma placa plana de área
+                <span class="math inline">\(A =
+                0{,}015\,\text{m}^2\)</span> fazendo um ângulo de <span
+                class="math inline">\(\theta = 30^\circ\)</span> com a
+                <strong>normal</strong> à placa (isto é, o ângulo é
+                medido em relação à direção perpendicular à
                 superfície).</p>
                 <p>Determine:</p>
                 <ol type="a">
                 <li>A componente normal da força, <span
-                class="math inline"><em>F</em><sub>⟂</sub></span>.</li>
-                <li>A pressão média exercida sobre a placa.</li>
+                class="math inline">\(F_\perp\)</span> em N.</li>
+                <li>A pressão média exercida sobre a placa em Pa.</li>
                 </ol>
                 <p><strong>Solução</strong>:</p>
                 <ol type="1">
                 <li>Componente normal da força</li>
                 </ol>
                 <p>Se o ângulo <span
-                class="math inline"><em>θ</em></span> é medido em
+                class="math inline">\(\theta\)</span> é medido em
                 relação à <strong>normal</strong>, então a componente
                 normal é:</p>
-                <p><span
-                class="math display"><em>F</em><sub>⟂</sub> = <em>F</em>cos <em>θ</em>.</span></p>
+                <p><span class="math display">\[
+                F_\perp = F\cos\theta.
+                \]</span></p>
                 <p>Substituindo os valores:</p>
-                <p><span
-                class="math display"><em>F</em><sub>⟂</sub> = 120 <em>N</em> cos (30<sup>∘</sup>)</span></p>
-                <p><span
-                class="math display"><em>F</em><sub>⟂</sub> = 104 N</span></p>
+                <p><span class="math display">\[
+                F_\perp = 120\,N\,\cos(30^\circ)
+                \]</span></p>
+                <p><span class="math display">\[
+                F_\perp = 104\ \text{N}
+                \]</span></p>
                 <p>Logo,</p>
-                <p><span class="math display">$$\boxed{F_\perp =
-                104\,\text{N}}$$</span></p>
+                <p><span class="math display">\[
+                \boxed{F_\perp = 104\,\text{N}}
+                \]</span></p>
                 <ol start="2" type="1">
                 <li>Pressão média exercida</li>
                 </ol>
                 <p>A pressão média é:</p>
-                <p><span class="math display">$$p =
-                \frac{F_\perp}{A}.$$</span></p>
+                <p><span class="math display">\[
+                p = \frac{F_\perp}{A}.
+                \]</span></p>
                 <p>Substituindo:</p>
-                <p><span class="math display">$$p =
-                \frac{104}{0{,}015}$$</span></p>
+                <p><span class="math display">\[
+                p = \frac{104}{0{,}015}
+                \]</span></p>
                 <p>Portanto,</p>
-                <p><span class="math display">$$\boxed{p = 6,9 \times
-                10^{3}\ \text{Pa}}$$</span></p>
+                <p><span class="math display">\[
+                \boxed{p = 6,9 \times 10^{3}\ \text{Pa}}
+                \]</span></p>
                 <p><strong>Observação importante</strong>:</p>
                 <p>Se o ângulo fosse informado <strong>em relação ao
                 plano</strong> (isto é, em relação à própria
                 superfície), então a componente normal seria:</p>
-                <p><span
-                class="math display"><em>F</em><sub>⟂</sub> = <em>F</em>sin <em>θ</em></span></p>
+                <p><span class="math display">\[
+                F_\perp = F\sin\theta
+                \]</span></p>
                 <p>Pois, nesse caso, <span
-                class="math inline"><em>θ</em></span> seria complementar
+                class="math inline">\(\theta\)</span> seria complementar
                 ao ângulo medido em relação à normal.</p>
                 <p>Em problemas de pressão, sempre verifique
                 <strong>como o ângulo foi definido</strong>, pois a
@@ -901,8 +936,9 @@ de Oliveira
                 A definição formal de massa específica
                 </dd>
                 </dl>
-                <p><span class="math display">$$\rho = \lim_{\Delta V
-                \to 0} \frac{\Delta m}{\Delta V}$$</span></p>
+                <p><span class="math display">\[
+                \rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+                \]</span></p>
                 <p>Indica que a massa específica é:</p>
                 <ol type="a">
                 <li>Uma grandeza local associada a um ponto do
@@ -918,20 +954,19 @@ de Oliveira
                 <dt>1.6)</dt>
                 <dd>
                 Um recipiente contém um fluido homogêneo de massa total
-                igual a <span
-                class="math inline"><em>m</em> = 4, 5 kg</span>,
-                ocupando um volume de <span
-                class="math inline"><em>V</em> = 3, 0 × 10<sup>−3</sup> m<sup>3</sup></span>.
+                igual a <span class="math inline">\(m =
+                4{,}5\,\text{kg}\)</span>, ocupando um volume de <span
+                class="math inline">\(V =
+                3{,}0\times10^{-3}\,\text{m}^3\)</span>.
                 </dd>
                 </dl>
                 <ol type="a">
                 <li>Determine a <strong>massa específica</strong> desse
                 fluido em <span
-                class="math inline">kg/m<sup>3</sup></span>.</li>
+                class="math inline">\(\text{kg}/\text{m}^{3}\)</span>.</li>
                 <li>Explique por que, nesse caso, é válido utilizar a
-                expressão <span
-                class="math inline"><em>ρ</em> = <em>m</em>/<em>V</em></span>
-                em vez da definição com limite.</li>
+                expressão <span class="math inline">\(\rho =
+                m/V\)</span> em vez da definição com limite.</li>
                 </ol>
                 <dl>
                 <dt>1.7)</dt>
@@ -942,29 +977,28 @@ de Oliveira
                 </dl>
                 <ul>
                 <li>Líquido A, com massa específica <span
-                class="math inline"><em>ρ</em><sub><em>A</em></sub> = 800 kg/m<sup>3</sup></span>,
-                ocupando 20 litros.</li>
+                class="math inline">\(\rho_A =
+                800\,\text{kg/m}^3\)</span>, ocupando 20 litros.</li>
                 <li>Líquido B, com massa específica <span
-                class="math inline"><em>ρ</em><sub><em>B</em></sub> = 1000 kg/m<sup>3</sup></span>,
-                ocupando 60 litros.</li>
+                class="math inline">\(\rho_B =
+                1000\,\text{kg/m}^3\)</span>, ocupando 60 litros.</li>
                 </ul>
                 <ol type="a">
                 <li>Determine a <strong>massa específica média</strong>
                 da mistura em <span
-                class="math inline">kg/m<sup>3</sup></span>.</li>
+                class="math inline">\(\text{kg}/\text{m}^{3}\)</span>.</li>
                 <li>Justifique por que o valor obtido deve estar entre
-                <span
-                class="math inline"><em>ρ</em><sub><em>A</em></sub></span>
-                e <span
-                class="math inline"><em>ρ</em><sub><em>B</em></sub></span>.</li>
+                <span class="math inline">\(\rho_A\)</span> e <span
+                class="math inline">\(\rho_B\)</span>.</li>
                 </ol>
                 <dl>
                 <dt>1.8)</dt>
                 <dd>
                 Uma força normal de intensidade <span
-                class="math inline"><em>F</em> = 500 N</span> é aplicada
-                uniformemente sobre uma superfície plana de área <span
-                class="math inline"><em>A</em> = 0, 020 m<sup>2</sup></span>.
+                class="math inline">\(F = 500\,\text{N}\)</span> é
+                aplicada uniformemente sobre uma superfície plana de
+                área <span class="math inline">\(A =
+                0{,}020\,\text{m}^2\)</span>.
                 </dd>
                 </dl>
                 <ol type="a">
@@ -976,12 +1010,11 @@ de Oliveira
                 <dl>
                 <dt>1.9)</dt>
                 <dd>
-                Uma força de módulo <span
-                class="math inline"><em>F</em> = 200 N</span> é aplicada
-                sobre uma placa plana de área <span
-                class="math inline"><em>A</em> = 0, 025 m<sup>2</sup></span>,
-                formando um ângulo de <span
-                class="math inline"><em>θ</em> = 45<sup>∘</sup></span>
+                Uma força de módulo <span class="math inline">\(F =
+                200\,\text{N}\)</span> é aplicada sobre uma placa plana
+                de área <span class="math inline">\(A =
+                0{,}025\,\text{m}^2\)</span>, formando um ângulo de
+                <span class="math inline">\(\theta = 45^\circ\)</span>
                 com a <strong>normal</strong> à superfície.
                 </dd>
                 </dl>
@@ -997,9 +1030,10 @@ de Oliveira
                 <dt>1.10)</dt>
                 <dd>
                 Um fluido exerce uma pressão uniforme de <span
-                class="math inline"><em>p</em> = 3, 0 × 10<sup>4</sup> Pa</span>
-                sobre a base de um reservatório plano cuja área é <span
-                class="math inline"><em>A</em> = 0, 040 m<sup>2</sup></span>.
+                class="math inline">\(p = 3{,}0 \times
+                10^{4}\,\text{Pa}\)</span> sobre a base de um
+                reservatório plano cuja área é <span
+                class="math inline">\(A = 0{,}040\,\text{m}^2\)</span>.
                 </dd>
                 </dl>
                 <ol type="a">
@@ -1010,19 +1044,21 @@ de Oliveira
                 </ol>
                 <h1 id="recomendações-de-estudo">Recomendações de
                 Estudo</h1>
-                <div class="iframe-card" style="width:80%; margin: 1.5rem auto; box-shadow: 0 2px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
                   <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="images/thumbs/fig-ytb-ctdfluidos.png" alt="A equação mais difícil da Física" style="display:block; width:100%; height:auto;">
+                    <img src="./images/thumbs/fig-ytb-ctdfluidos.png" alt="A equação mais difícil da Física" style="display:block; width:100%; height:auto;" loading="lazy">
                   </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666;">
-                    <div style="line-height:1.25;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
                       <strong style="color:#222;">A equação mais difícil da Física</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer">Ciência Todo Dia</a>
+                      Fonte: <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Ciência Todo Dia</a>
                     </div>
                     <div>
                       <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 12px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none;">
-                        Abrir
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
                       </a>
                     </div>
                   </div>
