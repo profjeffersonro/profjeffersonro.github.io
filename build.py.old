@@ -310,29 +310,37 @@ def create_output_structure():
     return output_dir
 
 # ============================================================================
-# FUNÇÕES DE LIMPEZA HTML - VERSÃO HÍBRIDA
+# FUNÇÕES DE LIMPEZA HTML (MANTIDAS)
 # ============================================================================
 
 def remove_mathjax_from_html(html_content):
     """
-    Remove apenas scripts MathJax antigos/duplicados, mas preserva a configuração principal.
-    Mantém o conteúdo matemático em formato correto.
+    Remove todas as referências ao MathJax do HTML.
+    Mantém apenas o conteúdo matemático em formato correto.
     """
-    # Padrões para remover APENAS scripts MathJax antigos/duplicados
     patterns = [
-        r'<script[^>]*src="[^"]*mathjax-config\.js"[^>]*></script>',  # Configs externas
-        r'<script[^>]*>\s*//<!\[CDATA\[\s*MathJax\.Hub\.Config[^<]*</script>',  # Config antiga
-        r'<script[^>]*>\s*MathJax\.(?:Hub\.)?Queue\s*\[[^\]]*\]\s*</script>',  # Queues antigas
-        r'<!--\s*MathJax\s*.*?-->',  # Comentários
+        r'<script[^>]*>\s*(//<!\[CDATA\[\s*)?\s*window\.MathJax[^<]*</script>',
+        r'<script[^>]*src=["\'][^"\']*mathjax[^"\']*["\'][^>]*></script>',
+        r'<script[^>]*id=["\']MathJax-script["\'][^>]*>.*?</script>',
+        r'<script[^>]*>\s*MathJax\.(hub\.)?Config\s*\{[^}]*\}\s*</script>',
+        r'<script[^>]*>\s*MathJax\.(hub\.)?Queue\s*\[[^\]]*\]\s*</script>',
+        r'document\.addEventListener\s*\([^)]*mathjax[^)]*\)',
+        r'MathJax\.(typesetPromise|tex2svg|startup)',
+        r'<!--\s*MathJax\s*.*?-->',
+        r'<!--\s*\(c\)\s*Copyright.*?MathJax.*?-->',
+        r'//<!\[CDATA\[\s*[\s\S]*?//\]\]>',
+        r'<script[^>]*src="[^"]*tex-mml-chtml\.js"[^>]*></script>',
+        r'<script[^>]*src="[^"]*MathJax\.js"[^>]*></script>',
     ]
     
     cleaned = html_content
     for pattern in patterns:
         cleaned = re.sub(pattern, '', cleaned, flags=re.DOTALL | re.IGNORECASE)
     
-    # NÃO remover a configuração principal do MathJax
+    cleaned = re.sub(r'\\\(([^\\]+)\\\)', r'$\1$', cleaned)
+    cleaned = re.sub(r'\\\[([^\\]+)\\\]', r'$$\1$$', cleaned)
+    
     return cleaned
-
 
 def normalize_latex_delimiters(content):
     """
@@ -344,66 +352,10 @@ def normalize_latex_delimiters(content):
     content = re.sub(r'\$\$\s+([^$]+)\s+\$\$', r'$$\1$$', content)
     return content
 
-
-def fix_math_for_github(html_content):
-    """
-    CORREÇÃO ESPECÍFICA PARA MATHJAX.
-    Converte spans de matemática para delimitadores puros \(...\) e \[...\].
-    Preserva todo o resto do HTML.
-    """
-    import re
-    
-    print("    🔧 Aplicando correção MathJax...")
-    
-    # ------------------------------------------------------------------------
-    # PASSO 1: REMOVER SPANS DE MATEMÁTICA, MAS PRESERVAR O CONTEÚDO
-    # ------------------------------------------------------------------------
-    
-    # CASO 1: <span class="math inline">\(...\)</span> → \(...\)
-    pattern1 = r'<span[^>]*class="[^"]*math[^"]*inline[^"]*"[^>]*>(\\\(.*?\\\))</span>'
-    html_content = re.sub(pattern1, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 2: <span class="math display">\[...\]</span> → \[...\]
-    pattern2 = r'<span[^>]*class="[^"]*math[^"]*display[^"]*"[^>]*>(\\\[.*?\\\])</span>'
-    html_content = re.sub(pattern2, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 3: <span class="math">$...$</span> → $...$
-    pattern3 = r'<span[^>]*class="[^"]*math[^"]*"[^>]*>(\$.*?\$)</span>'
-    html_content = re.sub(pattern3, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 4: <span class="math display">$$...$$</span> → $$...$$
-    pattern4 = r'<span[^>]*class="[^"]*math[^"]*display[^"]*"[^>]*>(\$\$.*?\$\$)</span>'
-    html_content = re.sub(pattern4, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 5: Qualquer outro span de matemática restante
-    pattern5 = r'<span[^>]*class="[^"]*math[^"]*"[^>]*>(.*?)</span>'
-    html_content = re.sub(pattern5, r'\1', html_content, flags=re.DOTALL)
-    
-    # ------------------------------------------------------------------------
-    # PASSO 2: CONVERTER DELIMITADORES SIMPLES
-    # ------------------------------------------------------------------------
-    
-    # Converte $$...$$ para \[...\] (display)
-    html_content = re.sub(r'\$\$(.*?)\$\$', r'\\[\1\\]', html_content, flags=re.DOTALL)
-    
-    # Converte $...$ para \(...\) (inline)
-    # Usar abordagem segura: proteger \[...\] já convertidos
-    html_content = re.sub(r'\\\[.*?\\\]', lambda m: '␀' + str(hash(m.group(0))) + '␁', html_content)
-    
-    # Converter $...$ restantes
-    html_content = re.sub(r'\$(.*?)\$', r'\\(\1\\)', html_content, flags=re.DOTALL)
-    
-    # Restaurar \[...\] protegidos
-    html_content = re.sub(r'␀(.*?)␁', lambda m: '\\[' + '\\]', html_content)
-    
-    print("    ✅ Correção MathJax aplicada!")
-    return html_content
-
-
 def clean_pandoc_html_basic(html_content):
     """
-    Limpeza básica de HTML do Pandoc.
-    EXTRAI APENAS O CONTEÚDO PRINCIPAL, sem os containers do Pandoc.
+    Limpeza básica de HTML do Pandoc sem dependências externas.
+    Remove cabeçalhos, rodapés, scripts do MathJax e adapta ao estilo do site.
     """
     content = remove_mathjax_from_html(html_content)
     
@@ -411,7 +363,6 @@ def clean_pandoc_html_basic(html_content):
     if body_match:
         content = body_match.group(1)
     
-    # Padrões para remover - APENAS elementos estruturais do Pandoc
     patterns_to_remove = [
         r'<header[^>]*>.*?</header>',
         r'<footer[^>]*>.*?</footer>',
@@ -419,6 +370,7 @@ def clean_pandoc_html_basic(html_content):
         r'<div[^>]*class="[^"]*document-header[^"]*"[^>]*>.*?</div>',
         r'<div[^>]*class="[^"]*document-footer[^"]*"[^>]*>.*?</div>',
         r'<div[^>]*id="TOC"[^>]*>.*?</div>',
+        r'<script[^>]*>.*?</script>',
         r'<style[^>]*>.*?</style>',
         r'<link[^>]*>',
         r'<meta[^>]*>',
@@ -427,22 +379,36 @@ def clean_pandoc_html_basic(html_content):
     for pattern in patterns_to_remove:
         content = re.sub(pattern, '', content, flags=re.DOTALL | re.IGNORECASE)
     
-    # REMOVER os containers do Pandoc que causam dupla limitação de largura
-    # <div class="container-fluid"> e <div class="container-main col-lg-10 col-xl-8 mx-auto">
-    container_patterns = [
-        r'<div[^>]*class="[^"]*container-fluid[^"]*"[^>]*>',
-        r'<div[^>]*class="[^"]*container-main[^"]*"[^>]*>',
-        r'</div>\s*</div>\s*$',  # Divs de fechamento no final
-    ]
-    
-    for pattern in container_patterns:
-        content = re.sub(pattern, '', content, flags=re.DOTALL | re.IGNORECASE)
-    
-    # Remover atributos style e data-* que podem causar problemas
+    content = re.sub(r'\sclass="[^"]*(container-fluid|mx-auto|justify-content-center|document-)[^"]*"', '', content)
     content = re.sub(r'\sstyle="[^"]*"', '', content)
     content = re.sub(r'\sdata-[a-z-]+="[^"]*"', '', content)
     
-    return content
+    content = normalize_latex_delimiters(content)
+    
+    replacements = [
+        (r'<img([^>]+)>', r'<img\1 class="img-fluid rounded shadow mb-3">'),
+        (r'<table>', r'<table class="table table-bordered table-hover mt-3 mb-4">'),
+        (r'<pre>', r'<pre class="bg-light p-3 rounded border"><code>'),
+        (r'</pre>', r'</code></pre>'),
+        (r'<blockquote>', r'<blockquote class="blockquote bg-light p-3 border-start border-3 border-primary">'),
+        (r'<h1([^>]*)>', r'<h1\1 class="mt-4 mb-3 text-primary">'),
+        (r'<h2([^>]*)>', r'<h2\1 class="mt-4 mb-3 text-secondary">'),
+        (r'<h3([^>]*)>', r'<h3\1 class="mt-3 mb-2">'),
+        (r'<h4([^>]*)>', r'<h4\1 class="mt-2 mb-1">'),
+        (r'<figure>', r'<figure class="text-center my-4">'),
+        (r'<figcaption>', r'<figcaption class="text-muted small mt-2">'),
+        (r'<ul>', r'<ul class="mb-3">'),
+        (r'<ol>', r'<ol class="mb-3">'),
+        (r'<p>', r'<p class="mb-3">'),
+    ]
+    
+    for pattern, replacement in replacements:
+        content = re.sub(pattern, replacement, content, flags=re.IGNORECASE)
+    
+    content = re.sub(r'\s+', ' ', content)
+    content = re.sub(r'>\s+<', '><', content)
+    
+    return f'<div class="aula-content tex2jax_process">{content.strip()}</div>'
 
 def is_pandoc_html(content):
     """Detecta se o HTML foi gerado pelo Pandoc"""
@@ -462,27 +428,15 @@ def is_pandoc_html(content):
             return True
     return False
 
-
 def read_html_file(file_path, clean_html=True):
-    """
-    Lê um arquivo HTML e aplica as correções necessárias.
-    Retorna APENAS o conteúdo principal, sem containers extras.
-    """
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
         if clean_html and is_pandoc_html(content):
-            # Limpeza básica (remove cabeçalhos/rodapés do Pandoc E containers)
             content = clean_pandoc_html_basic(content)
-            
-            # Corrigir spans de matemática
-            content = fix_math_for_github(content)
         
-        # Retornar o conteúdo SEM envolver em divs extras
-        # O template do site já vai fornecer a estrutura correta
         return content
-        
     except FileNotFoundError:
         return f"<p>Conteúdo não encontrado: {file_path}</p>"
     except UnicodeDecodeError:
@@ -491,7 +445,6 @@ def read_html_file(file_path, clean_html=True):
                 content = f.read()
             if clean_html and is_pandoc_html(content):
                 content = clean_pandoc_html_basic(content)
-                content = fix_math_for_github(content)
             return content
         except:
             return f"<p>Erro ao ler arquivo: {file_path}</p>"

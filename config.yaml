@@ -16,6 +16,9 @@ disciplinas:
       - name: "Aula 02 - Escalas Termométricas"
         html: "content/aulas/EM-Termo1/Aula-02/termo1-aula-02.html"
         pdf: "https://drive.google.com/file/d/1SMKy_yDz66XZ-aH1R35iCJ8mAyt28PsZ/view?usp=drive_link" 
+      - name: "Aula 03 - Variação entre Escalas Termométricas e Escalas Arbitrárias"
+        html: "content/aulas/EM-Termo1/Aula-03/termo1-aula-03.html"
+        pdf: "https://drive.google.com/file/d/1VBTwE__4T5X-AlBBJK-rpu8e84GdUF9D/view?usp=drive_link" 
 
   - disciplina: "Física Moderna 1"
     aulas:

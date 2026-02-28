@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Variação
+entre Escalas Termométricas e Escalas Arbitrárias</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender o conceito de <strong>variação de
+                temperatura</strong> em diferentes escalas.</li>
+                <li>Relacionar a <strong>variação</strong> em Celsius,
+                Fahrenheit e Kelvin.</li>
+                <li>Resolver problemas envolvendo <strong>intervalos de
+                temperatura</strong>.</li>
+                <li>Construir e interpretar <strong>escalas
+                termométricas arbitrárias</strong>.</li>
+                <li>Deduzir a relação entre uma escala arbitrária e as
+                escalas convencionais.</li>
+                <li>Aplicar o conceito de <strong>função afim</strong>
+                na construção de escalas.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Até agora, trabalhamos com conversões entre escalas
+                termométricas, ou seja, descobrir qual valor em Celsius
+                corresponde a um valor em Fahrenheit.</p>
+                <p>Mas surge uma pergunta interessante:</p>
+                <blockquote>
+                <p>Se a temperatura aumentar 10 °C, quantos graus
+                Fahrenheit aumentará?</p>
+                </blockquote>
+                <p><strong>Perceba</strong>: não estamos mais procurando
+                um valor específico, mas sim uma
+                <strong>variação</strong> (ou intervalo) de
+                temperatura.</p>
+                <p>Além disso, será que precisamos sempre usar Celsius,
+                Fahrenheit ou Kelvin? E se inventarmos nossa própria
+                escala? Por exemplo, um termômetro maluco que marca 0
+                quando está congelando e 100 quando está fervendo, mas
+                com divisões diferentes?</p>
+                <p>É exatamente isso que vamos explorar nesta aula:
+                <strong>variações entre escalas</strong> e
+                <strong>escalas arbitrárias</strong>.</p>
+                <h1 id="variação-entre-escalas-termométricas">Variação
+                entre Escalas Termométricas</h1>
+                <p>Vamos começar com uma observação importante:</p>
+                <p><strong>A escala Kelvin e a escala Celsius possuem a
+                mesma variação entre os pontos fixos.</strong></p>
+                <p><strong>Pense comigo</strong>: na escala Celsius, a
+                distância entre o ponto de fusão do gelo (0 °C) e o
+                ponto de ebulição da água (100 °C) é de 100 graus. Na
+                escala Kelvin, a distância entre esses mesmos pontos
+                (273 K e 373 K) também é de 100 kelvins.</p>
+                <p>Isso significa que uma variação de 1 °C corresponde
+                exatamente a uma variação de 1 K.</p>
+                <p>Em outras palavras:</p>
+                <p><span class="math display">\[\Delta \theta_C = \Delta
+                T_K\]</span></p>
+                <p>Ou seja, uma variação de 1 °C corresponde exatamente
+                a uma variação de 1 K.</p>
+                <p><strong>Exemplo:</strong> Se a temperatura aumenta de
+                20 °C para 35 °C, em Kelvin aumentou de 293 K para 308
+                K. A variação foi de 15 °C e também 15 K.</p>
+                <p><strong>E como fica a relação entre variações em
+                Celsius e Fahrenheit?</strong></p>
+                <p>Vamos pensar juntos. Se a escala Celsius tem 100
+                divisões entre os pontos fixos e a Fahrenheit tem 180
+                divisões entre os mesmos pontos, então podemos montar
+                uma proporção:</p>
+                <p><span class="math display">\[\dfrac{\Delta
+                \theta_C}{100} = \dfrac{\Delta
+                \theta_F}{180}\]</span></p>
+                <p>Simplificando essa fração (dividindo numerador e
+                denominador por 20), chegamos a:</p>
+                <p><span class="math display">\[\dfrac{\Delta
+                \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</span></p>
+                <p>Esta é a relação entre <strong>variações</strong> de
+                temperatura nas escalas Celsius e Fahrenheit.</p>
+                <p>Podemos reescrever de uma forma ainda mais prática.
+                Se isolarmos <span class="math inline">\(\Delta
+                \theta_F\)</span>, temos:</p>
+                <p><span class="math display">\[\boxed{\Delta \theta_F =
+                1{,}8 \cdot \Delta \theta_C}\]</span></p>
+                <p>Isso significa que cada variação de 1 °C corresponde
+                a uma variação de 1,8 °F. Ou, pensando de outra forma:
+                para cada 5 °C de variação, temos 9 °F de variação.</p>
+                <p><strong>Dica:</strong> Se você preferir, pode usar
+                uma regra de três simples.</p>
+                <h2
+                id="exemplo-3.1---variação-de-temperatura-em-uma-experiência">Exemplo
+                3.1 - Variação de temperatura em uma experiência</h2>
+                <p>Em um experimento de química, a temperatura de uma
+                solução aumenta de 25 °C para 70 °C. Determine:</p>
+                <ol type="a">
+                <li>A variação em Celsius.</li>
+                <li>A variação em Fahrenheit.</li>
+                <li>A variação em Kelvin.</li>
+                </ol>
+                <p><strong>Resolução:</strong></p>
+                <ol type="a">
+                <li><p><span class="math inline">\(\Delta \theta_C = 70
+                - 25 = 45\,°\text{C}\)</span>.</p></li>
+                <li><p>Usando a relação <span
+                class="math inline">\(\Delta \theta_F = 1{,}8 \cdot
+                \Delta \theta_C\)</span>:</p></li>
+                </ol>
+                <p><span class="math display">\[\Delta \theta_F = 1{,}8
+                \cdot 45 = 81\,°\text{F}\]</span></p>
+                <ol start="3" type="a">
+                <li>Como <span class="math inline">\(\Delta T_K = \Delta
+                \theta_C\)</span>, temos <span
+                class="math inline">\(\Delta T_K =
+                45\,\text{K}\)</span>.</li>
+                </ol>
+                <p><strong>Verificando:</strong> Se a temperatura
+                inicial era 25 °C (77 °F) e final 70 °C (158 °F), a
+                variação em Fahrenheit é realmente 158 - 77 = 81 °F.
+                Confirmamos!</p>
+                <h2
+                id="exemplo-3.2---interpretando-uma-variação-em-fahrenheit">Exemplo
+                3.2 - Interpretando uma variação em Fahrenheit</h2>
+                <p>Um noticiário americano informa que a temperatura
+                durante a noite caiu 27 °F. Qual foi essa queda em graus
+                Celsius?</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Sabemos que <span class="math inline">\(\Delta
+                \theta_F = 1{,}8 \cdot \Delta \theta_C\)</span>. Mas
+                aqui temos a variação em Fahrenheit e queremos a
+                variação em Celsius. Basta isolarmos <span
+                class="math inline">\(\Delta \theta_C\)</span>:</p>
+                <p><span class="math display">\[\Delta \theta_C =
+                \dfrac{\Delta \theta_F}{1{,}8}\]</span></p>
+                <p>Substituindo:</p>
+                <p><span class="math display">\[\Delta \theta_C =
+                \dfrac{27}{1{,}8} = 15\,°\text{C}\]</span></p>
+                <p><strong>Conclusão:</strong> Uma queda de 27 °F
+                corresponde a uma queda de 15 °C.</p>
+                <p><strong>Atenção: Cuidado com a confusão!</strong></p>
+                <p>É muito comum os estudantes confundirem:</p>
+                <ul>
+                <li><strong>Conversão de valores:</strong></li>
+                </ul>
+                <p><span class="math display">\[\dfrac{\theta_C}{5} =
+                \dfrac{\theta_F - 32}{9}\]</span></p>
+                <ul>
+                <li><strong>Conversão de variações:</strong></li>
+                </ul>
+                <p><span class="math display">\[\dfrac{\Delta
+                \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</span></p>
+                <p>Ou, de forma mais direta,</p>
+                <p><span class="math display">\[\Delta \theta_F = 1{,}8
+                \cdot \Delta \theta_C\]</span></p>
+                <p>A diferença está no termo “-32”. Para variações, ele
+                desaparece porque é uma constante subtraída nos dois
+                momentos. Afinal, quando calculamos uma variação,
+                estamos subtraindo dois valores que contêm a mesma
+                constante, e ela se anula!</p>
+                <h1 id="escalas-termométricas-arbitrárias">Escalas
+                Termométricas Arbitrárias</h1>
+                <p>Agora vamos entrar em um território mais
+                interessante: <strong>escalas arbitrárias</strong>.</p>
+                <p>Imagine que você é um cientista e decide criar sua
+                própria escala termométrica. Você pode escolher:</p>
+                <ul>
+                <li>Dois pontos fixos (por exemplo, fusão do gelo e
+                ebulição da água).</li>
+                <li>Atribuir valores quaisquer a esses pontos.</li>
+                <li>Dividir o intervalo em qualquer número de
+                partes.</li>
+                </ul>
+                <p>Essa é uma <strong>escala arbitrária</strong>. E
+                podemos relacioná-la com as escalas convencionais usando
+                proporções.</p>
+                <p><strong>A Ideia Fundamental</strong></p>
+                <p>Quando temos duas escalas termométricas quaisquer (A
+                e B), a relação entre elas é <strong>linear</strong>
+                (função do 1° grau). Isso significa que podemos
+                escrever:</p>
+                <p><span class="math display">\[\theta_A = a \cdot
+                \theta_B + b\]</span></p>
+                <p>Ou, de forma mais útil para problemas:</p>
+                <p><span class="math display">\[\dfrac{\theta_A -
+                \theta_{A2}}{\theta_{A1} - \theta_{A2}} =
+                \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} -
+                \theta_{B2}}\]</span></p>
+                <p>Como é mostrado na figura a seguir:</p>
+                <figure>
+                <img src="images/fig-escalas-arb.png"
+                style="width:70.0%"
+                alt="Relação entre escalas arbitrárias. Fonte: autoria própria." />
+                <figcaption aria-hidden="true">Relação entre escalas
+                arbitrárias. Fonte: autoria própria.</figcaption>
+                </figure>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(\theta_{A1}\)</span> e
+                <span class="math inline">\(\theta_{A2}\)</span> são os
+                valores na escala A correspondentes aos pontos
+                fixos.</li>
+                <li><span class="math inline">\(\theta_{B1}\)</span> e
+                <span class="math inline">\(\theta_{B2}\)</span> são os
+                valores na escala B correspondentes aos mesmos pontos
+                fixos.</li>
+                </ul>
+                <h2
+                id="exemplo-3.3---construindo-a-escala-maluca">Exemplo
+                3.3 - Construindo a escala “Maluca”</h2>
+                <p>Um cientista cria um termômetro com uma escala
+                arbitrária chamada “escala X”. Ele define:</p>
+                <ul>
+                <li>No ponto de fusão do gelo (0 °C), o termômetro marca
+                10 °X</li>
+                <li>No ponto de ebulição da água (100 °C), o termômetro
+                marca 40 °X</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a relação entre as escalas Celsius e
+                X.</li>
+                <li>Qual é o valor em °X correspondente a 60 °C?</li>
+                <li>Qual é o valor em °C correspondente a 25 °X?</li>
+                </ol>
+                <p><strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>Usando a proporção:</li>
+                </ol>
+                <p><span class="math display">\[\dfrac{\theta_C - 0}{100
+                - 0} = \dfrac{\theta_X - 10}{40 - 10}\]</span></p>
+                <p><span class="math display">\[\dfrac{\theta_C}{100} =
+                \dfrac{\theta_X - 10}{30}\]</span></p>
+                <p>Simplificando:</p>
+                <p><span class="math display">\[\dfrac{\theta_C}{10} =
+                \dfrac{\theta_X - 10}{3}\]</span></p>
+                <p>Multiplicando cruzado:</p>
+                <p><span class="math display">\[3\theta_C = 10(\theta_X
+                - 10)\]</span></p>
+                <p><span class="math display">\[3\theta_C = 10\theta_X -
+                100\]</span></p>
+                <p><span class="math display">\[10\theta_X = 3\theta_C +
+                100\]</span></p>
+                <p><span class="math display">\[\boxed{\theta_X =
+                \dfrac{3\theta_C + 100}{10}}\]</span></p>
+                <ol start="2" type="a">
+                <li>Para <span class="math inline">\(\theta_C =
+                60\,°\text{C}\)</span>:</li>
+                </ol>
+                <p><span class="math display">\[\theta_X = \dfrac{3
+                \cdot 60 + 100}{10}\]</span></p>
+                <p><span class="math display">\[\theta_X = \dfrac{180 +
+                100}{10}\]</span></p>
+                <p><span class="math display">\[\theta_X =
+                \dfrac{280}{10}\]</span></p>
+                <p><span class="math display">\[\boxed{\theta_X =
+                28\,°\text{X}}\]</span></p>
+                <ol start="3" type="a">
+                <li>Para <span class="math inline">\(\theta_X =
+                25\,°\text{X}\)</span>, usamos a mesma equação:</li>
+                </ol>
+                <p><span class="math display">\[25 = \dfrac{3\theta_C +
+                100}{10}\]</span></p>
+                <p><span class="math display">\[250 = 3\theta_C +
+                100\]</span></p>
+                <p><span class="math display">\[3\theta_C =
+                150\]</span></p>
+                <p><span class="math display">\[\boxed{\theta_C =
+                50\,°\text{C}}\]</span></p>
+                <h2
+                id="exemplo-3.4---termômetro-maluco-invertido">Exemplo
+                3.4 - Termômetro “maluco” invertido</h2>
+                <p>Um termômetro com escala arbitrária Y foi construído
+                de forma que:</p>
+                <ul>
+                <li>No ponto de fusão do gelo (0 °C), marca 40 °Y.</li>
+                <li>No ponto de ebulição da água (100 °C), marca 20
+                °Y.</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a relação entre as escalas Celsius e
+                Y.</li>
+                <li>Essa escala é decrescente? Explique.</li>
+                <li>Determine o valor em °Y correspondente a 50 °C.</li>
+                </ol>
+                <p><strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>Observe que quando a temperatura aumenta (0 °C para
+                100 °C), o valor em Y diminui (40 para 20). Isso indica
+                uma relação decrescente.</li>
+                </ol>
+                <p>Usando a proporção:</p>
+                <p><span class="math display">\[\dfrac{\theta_C - 0}{100
+                - 0} = \dfrac{\theta_Y - 40}{20 - 40}\]</span></p>
+                <p><span class="math display">\[\dfrac{\theta_C}{100} =
+                \dfrac{\theta_Y - 40}{-20}\]</span></p>
+                <p>Simplificando:</p>
+                <p><span class="math display">\[\dfrac{\theta_C}{5} =
+                \dfrac{\theta_Y - 40}{-1}\]</span></p>
+                <p><span class="math display">\[\dfrac{\theta_C}{5} =
+                -(\theta_Y - 40)\]</span></p>
+                <p><span class="math display">\[\dfrac{\theta_C}{5} =
+                -\theta_Y + 40\]</span></p>
+                <p>Multiplicando por 5:</p>
+                <p><span class="math display">\[\theta_C = -5\theta_Y +
+                200\]</span></p>
+                <p>Ou, isolando <span
+                class="math inline">\(\theta_Y\)</span>:</p>
+                <p><span class="math display">\[5\theta_Y = 200 -
+                \theta_C\]</span></p>
+                <p><span class="math display">\[\boxed{\theta_Y =
+                \dfrac{200 - \theta_C}{5}}\]</span></p>
+                <ol start="2" type="a">
+                <li><p>Sim, a escala é decrescente porque o coeficiente
+                de <span class="math inline">\(\theta_C\)</span> na
+                relação é negativo. Quando <span
+                class="math inline">\(\theta_C\)</span> aumenta, <span
+                class="math inline">\(\theta_Y\)</span> diminui. Isso
+                significa que o termômetro Y está marcando ao
+                contrário!</p></li>
+                <li><p>Para <span class="math inline">\(\theta_C =
+                50\,°\text{C}\)</span>:</p></li>
+                </ol>
+                <p><span class="math display">\[\theta_Y = \dfrac{200 -
+                50}{5}\]</span> <span class="math display">\[\theta_Y =
+                \dfrac{150}{5}\]</span> <span
+                class="math display">\[\boxed{\theta_Y =
+                30\,°\text{Y}}\]</span></p>
+                <p><strong>Interpretação:</strong> Em um mesmo banho
+                térmico, enquanto Celsius marca 50 °C, o termômetro Y
+                marca 30 °Y.</p>
+                <h2
+                id="exemplo-3.5---relacionando-duas-escalas-arbitrárias">Exemplo
+                3.5 - Relacionando duas escalas arbitrárias</h2>
+                <p>Um laboratório possui dois termômetros com escalas
+                arbitrárias A e B. Sabe-se que:</p>
+                <ul>
+                <li>Quando A marca 10 °A, B marca 20 °B.</li>
+                <li>Quando A marca 60 °A, B marca 80 °B.</li>
+                </ul>
+                <p>Determine a temperatura em °B quando A marcar 40
+                °A.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Agora estamos relacionando diretamente duas escalas
+                arbitrárias. Usamos a mesma ideia:</p>
+                <p><span class="math display">\[\dfrac{\theta_A -
+                \theta_{A2}}{\theta_{A1} - \theta_{A2}} =
+                \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} -
+                \theta_{B2}}\]</span></p>
+                <p>Onde: - <span class="math inline">\(\theta_{A1} =
+                60\)</span>, <span class="math inline">\(\theta_{B1} =
+                80\)</span>. - <span class="math inline">\(\theta_{A2} =
+                10\)</span>, <span class="math inline">\(\theta_{B2} =
+                20\)</span>.</p>
+                <p>Para <span class="math inline">\(\theta_A =
+                40\)</span>:</p>
+                <p><span class="math display">\[\dfrac{40 - 10}{60 - 10}
+                = \dfrac{\theta_B - 20}{80 - 20}\]</span></p>
+                <p><span class="math display">\[\dfrac{30}{50} =
+                \dfrac{\theta_B - 20}{60}\]</span></p>
+                <p>Simplificando:</p>
+                <p><span class="math display">\[\dfrac{3}{5} =
+                \dfrac{\theta_B - 20}{60}\]</span></p>
+                <p>Multiplicando cruzado:</p>
+                <p><span class="math display">\[5(\theta_B - 20) = 3
+                \cdot 60\]</span></p>
+                <p><span class="math display">\[5\theta_B - 100 =
+                180\]</span></p>
+                <p><span class="math display">\[5\theta_B =
+                280\]</span></p>
+                <p><span class="math display">\[\boxed{\theta_B =
+                56\,°\text{B}}\]</span></p>
+                <p><strong>Conclusão:</strong> Quando o termômetro A
+                marca 40 °A, o termômetro B marca 56 °B.</p>
+                <h2
+                id="construindo-uma-escala-arbitrária-do-zero">Construindo
+                uma Escala Arbitrária do Zero</h2>
+                <p>Vamos agora entender como construir uma escala
+                arbitrária completamente nova.</p>
+                <h2 id="exemplo-3.6---criando-a-escala-z">Exemplo 3.6 -
+                Criando a escala “Z”</h2>
+                <p>Um pesquisador quer criar uma escala Z onde:</p>
+                <ul>
+                <li>O ponto de fusão do gelo (0 °C) corresponda a 0
+                °Z.</li>
+                <li>O ponto de ebulição da água (100 °C) corresponda a
+                50 °Z.</li>
+                </ul>
+                <ol type="a">
+                <li>Escreva a relação entre as escalas Celsius e Z.</li>
+                <li>Qual temperatura em °Z corresponde a 30 °C?</li>
+                <li>Qual temperatura em °C corresponde a 40 °Z?</li>
+                </ol>
+                <p><strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>Usando a proporção:</li>
+                </ol>
+                <p><span class="math display">\[\dfrac{\theta_C - 0}{100
+                - 0} = \dfrac{\theta_Z - 0}{50 - 0}\]</span> <span
+                class="math display">\[\dfrac{\theta_C}{100} =
+                \dfrac{\theta_Z}{50}\]</span></p>
+                <p>Simplificando:</p>
+                <p><span class="math display">\[\dfrac{\theta_C}{2} =
+                \theta_Z\]</span></p>
+                <p>Ou seja:</p>
+                <p><span class="math display">\[\boxed{\theta_Z =
+                \dfrac{\theta_C}{2}}\]</span></p>
+                <ol start="2" type="a">
+                <li>Para <span class="math inline">\(\theta_C =
+                30\,°\text{C}\)</span>:</li>
+                </ol>
+                <p><span class="math display">\[\theta_Z =
+                \dfrac{30}{2}\]</span> <span
+                class="math display">\[\boxed{\theta_Z =
+                15\,°\text{Z}}\]</span></p>
+                <ol start="3" type="a">
+                <li>Para <span class="math inline">\(\theta_Z =
+                40\,°\text{Z}\)</span>:</li>
+                </ol>
+                <p><span class="math display">\[40 =
+                \dfrac{\theta_C}{2}\]</span> <span
+                class="math display">\[\boxed{\theta_C =
+                80\,°\text{C}}\]</span></p>
+                <h2
+                id="exemplo-3.7---quando-uma-escala-arbitrária-coincide-com-celsius">Exemplo
+                3.7 - Quando uma escala arbitrária coincide com
+                Celsius</h2>
+                <p>Considere a escala W definida por:</p>
+                <p><span class="math display">\[\theta_W = 2\theta_C -
+                50\]</span></p>
+                <ol type="a">
+                <li>Qual o valor em W correspondente a 0 °C?</li>
+                <li>Qual o valor em W correspondente a 100 °C?</li>
+                <li>Existe alguma temperatura onde os valores em W e
+                Celsius são iguais?</li>
+                </ol>
+                <p><strong>Resolução:</strong></p>
+                <ol type="a">
+                <li><p>Para <span class="math inline">\(\theta_C =
+                0\,°\text{C}\)</span>: <span
+                class="math display">\[\theta_W = 2 \cdot 0 -
+                50\]</span> <span class="math display">\[\boxed{\theta_W
+                = -50\,°\text{W}}\]</span></p></li>
+                <li><p>Para <span class="math inline">\(\theta_C = 100
+                °C\)</span>: <span class="math display">\[\theta_W = 2
+                \cdot 100 - 50\]</span> <span
+                class="math display">\[\theta_W = 200 - 50\]</span>
+                <span class="math display">\[\boxed{\theta_W =
+                150\,°\text{W}}\]</span></p></li>
+                <li><p>Queremos <span class="math inline">\(\theta_W =
+                \theta_C = x\)</span>: <span class="math display">\[x =
+                2x - 50\]</span> <span class="math display">\[50 = 2x -
+                x\]</span> <span class="math display">\[\boxed{x =
+                50}\]</span></p></li>
+                </ol>
+                <p><strong>Verificação:</strong> Em 50 °C, temos <span
+                class="math inline">\(\theta_W = 2 \cdot 50 - 50
+                \rightarrow \theta_W = 100 - 50 \rightarrow \theta_W =
+                50\,°\text{W}\)</span>. Confirmado!</p>
+                <p><strong>Conclusão:</strong> A temperatura de 50 °C
+                (ou 50 °W) é onde as duas escalas coincidem.</p>
+                <h1 id="variação-em-escalas-arbitrárias">Variação em
+                Escalas Arbitrárias</h1>
+                <p>Assim como nas escalas convencionais, podemos
+                trabalhar com variações em escalas arbitrárias.</p>
+                <h2 id="exemplo-3.8---variação-na-escala-x">Exemplo 3.8
+                - Variação na escala X</h2>
+                <p>Usando a escala X do <strong>exemplo 3.3</strong>,
+                onde:</p>
+                <p><span class="math display">\[\theta_X =
+                \dfrac{3\theta_C + 100}{10}\]</span></p>
+                <p>Determine a relação entre as variações <span
+                class="math inline">\(\Delta \theta_X\)</span> e <span
+                class="math inline">\(\Delta \theta_C\)</span>.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Para dois estados diferentes:</p>
+                <p><span class="math display">\[\theta_{X1} =
+                \dfrac{3\theta_{C1} + 100}{10}\]</span> <span
+                class="math display">\[\theta_{X2} = \dfrac{3\theta_{C2}
+                + 100}{10}\]</span></p>
+                <p>Subtraindo:</p>
+                <p><span class="math display">\[\theta_{X2} -
+                \theta_{X1} = \dfrac{3\theta_{C2} + 100}{10} -
+                \dfrac{3\theta_{C1} + 100}{10}\]</span></p>
+                <p><span class="math display">\[\Delta \theta_X =
+                \dfrac{3(\theta_{C2} - \theta_{C1})}{10}\]</span></p>
+                <p><span class="math display">\[\boxed{\Delta \theta_X =
+                \dfrac{3}{10} \cdot \Delta \theta_C}\]</span></p>
+                <p>Que é exatamente o coeficiente angular da função de
+                primeiro grau!</p>
+                <p><strong>Interpretação:</strong> Cada variação de 10
+                °C corresponde a uma variação de 3 °X.</p>
+                <h2
+                id="exemplo-3.9---variação-na-escala-decrescente-y">Exemplo
+                3.9 - Variação na escala decrescente Y</h2>
+                <p>Usando a escala Y do exemplo 2.2, onde:</p>
+                <p><span class="math display">\[\theta_Y = \dfrac{200 -
+                \theta_C}{5}\]</span></p>
+                <p>determine a relação entre as variações.</p>
+                <p><strong>Resolução:</strong></p>
+                <p><span class="math display">\[\theta_{Y1} = \dfrac{200
+                - \theta_{C1}}{5}\]</span> <span
+                class="math display">\[\theta_{Y2} = \dfrac{200 -
+                \theta_{C2}}{5}\]</span></p>
+                <p>Subtraindo:</p>
+                <p><span class="math display">\[\theta_{Y2} -
+                \theta_{Y1} = \dfrac{200 - \theta_{C2}}{5} - \dfrac{200
+                - \theta_{C1}}{5}\]</span></p>
+                <p><span class="math display">\[\Delta \theta_Y =
+                \dfrac{-\theta_{C2} + \theta_{C1}}{5}\]</span></p>
+                <p><span class="math display">\[\Delta \theta_Y =
+                -\dfrac{\theta_{C2} - \theta_{C1}}{5}\]</span></p>
+                <p><span class="math display">\[\boxed{\Delta \theta_Y =
+                -\dfrac{1}{5} \cdot \Delta \theta_C}\]</span></p>
+                <p>Novamente, a variação é exatamente o termo do
+                coeficinte angular da função. Portanto, a partir de
+                agora, para saber a variação de uma escala com relação à
+                outra, basta analisarmos o <strong>coeficiente
+                angular</strong> da função.</p>
+                <p><strong>Interpretação:</strong> O sinal negativo
+                indica que a variação é inversa. Se a temperatura em
+                Celsius aumenta, a temperatura em Y diminui.</p>
+                <h1 id="resumo-das-fórmulas">Resumo das Fórmulas</h1>
+                <p><strong>Variações:</strong></p>
+                <ul>
+                <li>Celsius <span
+                class="math inline">\(\leftrightarrow\)</span> Kelvin:
+                <span class="math display">\[\Delta T_K = \Delta
+                \theta_C\]</span>.</li>
+                <li>Fahrenheit <span
+                class="math inline">\(\leftrightarrow\)</span> Celsius:
+                <span class="math display">\[\Delta \theta_F = 1{,}8
+                \Delta_C\]</span>.</li>
+                <li>Fahrenheit <span
+                class="math inline">\(\leftrightarrow\)</span> Kelvin:
+                <span class="math display">\[\Delta \theta_F = 1{,}8
+                \Delta_K\]</span>.</li>
+                </ul>
+                <p><strong>Escalas Arbitrárias:</strong></p>
+                <p>Para duas escalas quaisquer A e B, com pontos fixos
+                conhecidos:</p>
+                <p><span class="math display">\[\dfrac{\theta_A -
+                \theta_{A2}}{\theta_{A1} - \theta_{A2}} =
+                \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} -
+                \theta_{B2}}\]</span></p>
+                <p>Para variações em uma escala arbitrária linear:</p>
+                <p><span class="math display">\[\Delta \theta_A = a
+                \cdot \Delta \theta_B\]</span></p>
+                <p>Onde <span class="math inline">\(a\)</span> é o
+                coeficiente angular da relação <span
+                class="math inline">\(\theta_A = a\theta_B +
+                b\)</span>.</p>
+                <h1 id="conclusão">Conclusão</h1>
+                <p>Chegamos ao final da nossa jornada pelas escalas
+                termométricas! Vamos recapitular o que
+                <strong>aprendemos</strong>:</p>
+                <p>Nesta aula, exploramos:</p>
+                <ol type="1">
+                <li><strong>Variações de temperatura</strong> seguem
+                relações diferentes das conversões de valores. Enquanto
+                na conversão usamos:</li>
+                </ol>
+                <p><span class="math display">\[\dfrac{\theta_C}{5} =
+                \dfrac{\theta_F - 32}{9}\]</span></p>
+                <p>Para variações usamos:</p>
+                <p><span class="math display">\[\dfrac{\Delta
+                \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</span>.</p>
+                <ol start="2" type="1">
+                <li><p><strong>Escalas arbitrárias</strong> podem ser
+                construídas escolhendo dois pontos fixos e atribuindo
+                valores quaisquer a eles. A relação entre qualquer
+                escala arbitrária e as escalas convencionais é sempre
+                linear, podendo ser crescente ou decrescente.</p></li>
+                <li><p>A proporção fundamental:</p></li>
+                </ol>
+                <p><span class="math display">\[\dfrac{\theta_A -
+                \theta_{A1}}{\theta_{A2} - \theta_{A1}} =
+                \dfrac{\theta_B - \theta_{B1}}{\theta_{B2} -
+                \theta_{B1}}\]</span></p>
+                <p>É a ferramenta mais poderosa para relacionar
+                quaisquer duas escalas termométricas.</p>
+                <ol start="4" type="1">
+                <li><strong>Variações em escalas arbitrárias</strong>
+                seguem a mesma lógica:</li>
+                </ol>
+                <p><span class="math display">\[\Delta \theta_A = a
+                \cdot \Delta \theta_C\]</span></p>
+                <p>Onde <span class="math inline">\(a\)</span> é o
+                coeficiente angular da relação linear.</p>
+                <p>Dominar esses conceitos permite não apenas resolver
+                problemas de termometria, mas também compreender como
+                qualquer escala de medição pode ser construída e
+                relacionada com outras.</p>
+                <p>Na próxima aula, vamos dar um passo adiante no estudo
+                da Termologia. Agora que já dominamos como a temperatura
+                é medida e como ela varia entre diferentes escalas,
+                vamos investigar: O que acontece com os corpos quando a
+                temperatura deles varia?</p>
+                <p>Até a próxima aula!</p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>3.1)</dt>
+                <dd>
+                Se a temperatura de um corpo aumenta de 20 °C para 50
+                °C, qual foi o aumento correspondente na escala
+                Fahrenheit?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>30 °F.</li>
+                <li>45 °F.</li>
+                <li>54 °F.</li>
+                <li>60 °F.</li>
+                <li>68 °F.</li>
+                </ol>
+                <dl>
+                <dt>3.2)</dt>
+                <dd>
+                Uma variação de 45 °F corresponde a uma variação de
+                quantos graus Celsius?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>9 °C.</li>
+                <li>15 °C.</li>
+                <li>25 °C.</li>
+                <li>40 °C.</li>
+                <li>81 °C.</li>
+                </ol>
+                <dl>
+                <dt>3.3)</dt>
+                <dd>
+                Um termômetro arbitrário X foi construído de forma que:
+                </dd>
+                </dl>
+                <ul>
+                <li>0 °C corresponde a 10 °X.</li>
+                <li>100 °C corresponde a 30 °X.</li>
+                </ul>
+                <p>A temperatura em °X quando o termômetro marca 50 °C
+                é:</p>
+                <ol type="a">
+                <li>15 °X.</li>
+                <li>18 °X.</li>
+                <li>20 °X.</li>
+                <li>22 °X.</li>
+                <li>25 °X.</li>
+                </ol>
+                <dl>
+                <dt>3.4)</dt>
+                <dd>
+                Na escala Y, o ponto de fusão do gelo é 20 °Y e o ponto
+                de ebulição da água é 80 °Y. A relação entre as escalas
+                Celsius e Y é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span class="math inline">\(\theta_Y = 0,6\theta_C +
+                20\)</span>.</li>
+                <li><span class="math inline">\(\theta_Y = 0,8\theta_C +
+                20\)</span>.</li>
+                <li><span class="math inline">\(\theta_Y = 1,2\theta_C +
+                20\)</span>.</li>
+                <li><span class="math inline">\(\theta_Y = 1,5\theta_C +
+                20\)</span>.</li>
+                <li><span class="math inline">\(\theta_Y = 2,0\theta_C +
+                20\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>3.5)</dt>
+                <dd>
+                Se uma escala arbitrária Z é definida por:
+                </dd>
+                </dl>
+                <p><span class="math display">\[\theta_Z = 4\theta_C -
+                50\]</span></p>
+                <p>A variação em °Z correspondente a uma variação de 10
+                °C é:</p>
+                <ol type="a">
+                <li>10 °Z.</li>
+                <li>20 °Z.</li>
+                <li>30 °Z.</li>
+                <li>40 °Z.</li>
+                <li>50 °Z.</li>
+                </ol>
+                <dl>
+                <dt>3.6)</dt>
+                <dd>
+                Em um laboratório, a temperatura de uma amostra varia de
+                -10 °C para 35 °C. Determine:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A variação de temperatura em Celsius.</li>
+                <li>A variação correspondente em Fahrenheit.</li>
+                <li>A variação correspondente em Kelvin.</li>
+                </ol>
+                <dl>
+                <dt>3.7)</dt>
+                <dd>
+                Um termômetro com escala arbitrária A foi construído com
+                as seguintes características:
+                </dd>
+                </dl>
+                <ul>
+                <li>No ponto de gelo (0 °C): 5 °A.</li>
+                <li>No ponto de vapor (100 °C): 35 °A.</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a expressão que relaciona as escalas
+                Celsius e A.</li>
+                <li>Calcule o valor em °A correspondente a 40 °C.</li>
+                <li>Calcule o valor em °C correspondente a 20 °A.</li>
+                </ol>
+                <dl>
+                <dt>3.8)</dt>
+                <dd>
+                Considere uma escala arbitrária B onde:
+                </dd>
+                </dl>
+                <ul>
+                <li>0 °C corresponde a 50 °B.</li>
+                <li>100 °C corresponde a 10 °B.</li>
+                </ul>
+                <ol type="a">
+                <li>Esta escala é crescente ou decrescente?
+                Justifique.</li>
+                <li>Determine a relação <span
+                class="math inline">\(\theta_B =
+                f(\theta_C)\)</span>.</li>
+                <li>Qual temperatura em °B corresponde a 25 °C?</li>
+                </ol>
+                <dl>
+                <dt>3.9)</dt>
+                <dd>
+                Dois termômetros com escalas arbitrárias P e Q
+                apresentam as seguintes correspondências:
+                </dd>
+                </dl>
+                <ul>
+                <li>Quando P = 20 °P, Q = 30 °Q.</li>
+                <li>Quando P = 80 °P, Q = 70 °Q.</li>
+                </ul>
+                <p>Determine o valor em °Q quando P marcar 50 °P.</p>
+                <dl>
+                <dt>3.10)</dt>
+                <dd>
+                Uma escala arbitrária C é definida pela expressão:
+                </dd>
+                </dl>
+                <p><span class="math display">\[\theta_C = 2\theta_F -
+                100\]</span></p>
+                <p>Onde <span class="math inline">\(\theta_F\)</span> é
+                a temperatura em Fahrenheit.</p>
+                <ol type="a">
+                <li>Determine os valores em °C correspondentes a 0 °F e
+                100 °F.</li>
+                <li>Existe alguma temperatura onde as escalas Celsius e
+                Fahrenheit coincidem? Se sim, qual?</li>
+                </ol>
+                <h1 id="respostas">Respostas</h1>
+                <p>Caro estudante, seguem as respostas
+                <strong>completas</strong> e <strong>detalhadas</strong>
+                dos exercícios de fixação da <a
+                href="https://drive.google.com/file/d/1ZVtR8EaclfetXbMQMRsC4U6BCmh7R1yC/view?usp=drive_link">aula
+                anterior</a>.</p>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-enem-gratuito-esc-arb.png" alt="Escalas Arbitrárias" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Escalas Arbitrárias</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Curso Enem Gratuito.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>GASPAR, Alberto. Física: volume único. 2. ed. São
+                Paulo: Ática, 2014.</li>
+                <li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina. Física: termologia, óptica e ondas. São Paulo:
+                FTD, 2016.</li>
+                <li>PIETROCOLA, Maurício et al. Física em contextos:
+                pessoal, social e histórico – volume 2. São Paulo: FTD,
+                2016.</li>
+                <li>SILAS, Joab. Conversão entre escalas termométricas.
+                Brasil Escola. Disponível em: <a
+                href="https://brasilescola.uol.com.br/fisica/conversao-entre-as-escalas.htm"
+                class="uri">https://brasilescola.uol.com.br/fisica/conversao-entre-as-escalas.htm</a>.
+                Acesso em: 27 fev. 2026.</li>
+                <li>WebFísica. Aula 6-38: Introdução à termologia e
+                escalas termométricas. Disponível em: <a
+                href="https://webfisica.com/fisica/curso-de-fisica-basica/aula/6-38"
+                class="uri">https://webfisica.com/fisica/curso-de-fisica-basica/aula/6-38</a>.
+                Acesso em: 27 fev. 2026.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Variação entre
+Escalas Termométricas e Escalas Arbitrárias</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
