@@ -381,4 +381,3 @@ blockquote {
 .blog-content p:has(> strong:first-child) > strong:first-child + br {
     display: none;
 }
-
