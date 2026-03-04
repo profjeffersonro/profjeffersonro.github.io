@@ -381,3 +381,13 @@ blockquote {
 .blog-content p:has(> strong:first-child) > strong:first-child + br {
     display: none;
 }
+
+
+/* ... todo o seu CSS existente ... */
+
+/* CORREÇÃO: Desligar justificação dos parágrafos */
+.aula-content p,
+.blog-content p,
+.content-section p {
+    text-align: left !important;
+}

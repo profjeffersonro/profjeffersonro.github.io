@@ -401,7 +401,7 @@ def clean_pandoc_html_basic(html_content):
     content = re.sub(r'<[^>]+>', preserve_important_classes, content)
     
     # Remover outros atributos indesejados
-    content = re.sub(r'\sstyle="[^"]*"', '', content)
+    # content = re.sub(r'\sstyle="[^"]*"', '', content)
     content = re.sub(r'\sdata-[a-z-]+="[^"]*"', '', content)
     
     content = normalize_latex_delimiters(content)
