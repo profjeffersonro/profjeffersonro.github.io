@@ -439,7 +439,7 @@ def clean_pandoc_html_basic(html_content):
         content = re.sub(pattern, '', content, flags=re.DOTALL | re.IGNORECASE)
     
     # Remover atributos style e data-* que podem causar problemas
-    content = re.sub(r'\sstyle="[^"]*"', '', content)
+    # content = re.sub(r'\sstyle="[^"]*"', '', content)
     content = re.sub(r'\sdata-[a-z-]+="[^"]*"', '', content)
     
     return content

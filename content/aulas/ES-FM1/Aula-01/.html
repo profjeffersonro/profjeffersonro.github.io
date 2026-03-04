@@ -1,117 +1,521 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 01 - Concepções Históricas | Meu Portal</title>
+    <title>Física Moderna 1</title>
     
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="/css/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    
-    <!-- MathJax Centralizado -->
-    <script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\(', '\)']],
-            displayMath: [['$$', '$$'], ['\[', '\]']],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        options: {
-            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            ignoreHtmlClass: 'tex2jax_ignore',
-            processHtmlClass: 'tex2jax_process'
-        },
-        svg: {
-            fontCache: 'global'
-        },
-        loader: {
-            load: ['[tex]/ams', '[tex]/physics']
-        },
-        tex: {
-            packages: {'[+]': ['ams', 'physics']}
-        },
-        startup: {
-            ready: () => {
-                console.log('MathJax is loaded and ready');
-                MathJax.startup.defaultReady();
-                window.dispatchEvent(new Event('MathJaxLoaded'));
-            }
-        }
-    };
-    </script>
+    <!-- MathJax sem configuração -->
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="bi bi-easel"></i> Meu Portal
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/blog/">Blog</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
 
-    <!-- Conteúdo Principal -->
-    <main class="container mt-4">
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
         
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
-                    <li class="breadcrumb-item active">Física Moderna 1</li>
-                </ol>
-            </nav>
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
             
-            <div class="card mb-4">
-                <div class="card-header bg-primary text-white">
-                    <h2 class="mb-0">Aula 01 - Concepções Históricas</h2>
-                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Física Moderna 1</p>
-                </div>
-                <div class="card-body">
-                    
-                <div class="text-center mb-4">
-                    <a href="https://drive.google.com/file/d/1HVOpUChU1AqMkq-2gqXbgfrzgjvJVo7r/view?usp=drive_link" 
-                       class="btn btn-success btn-lg" 
-                       target="_blank" 
-                       rel="noopener noreferrer">
-                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
-                    </a>
-                </div>
-                
-                    <div class="aula-content">
-                        
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
     
-        
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
             <!-- Header -->
-            
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+Moderna 1</h1>
+                                
+                                <h2 class="document-subtitle display-6">Concepções
+Históricas da Física Moderna</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
 
             <!-- TOC -->
             
@@ -225,7 +629,8 @@
                 para a <strong>interpretação probabilística</strong>
                 representa uma das rupturas mais profundas na história
                 da ciência.</p>
-                <p><strong>O Determinismo Clássico: Causa \(\rightarrow\)
+                <p><strong>O Determinismo Clássico: Causa <span
+                class="math inline">\(\rightarrow\)</span>
                 Efeito</strong></p>
                 <p>Na visão clássica, o universo funcionava como um
                 <strong>relógio perfeito</strong>. Conhecidas as
@@ -357,19 +762,19 @@
                 alt="Max Planck (1901). Fonte: Wikimedia Commons." />
                 <figcaption aria-hidden="true">Max Planck (1901). Fonte:
                 <a
-                href="https://upload.wikimedia.org/wikipedia/commons/d/df/Max_Planck_1901.">Wikimedia
+                href="https://upload.wikimedia.org/wikipedia/commons/d/df/Max_Planck_1901.GIF">Wikimedia
                 Commons.</a></figcaption>
                 </figure>
                 <p><strong>Max Planck (1900)</strong> resolveu o
                 problema ao propor que a energia não é emitida de forma
                 contínua, mas em <strong>pacotes discretos</strong>,
                 chamados <strong>quanta</strong>:</p>
-                <p>\[
+                <p><span class="math display">\[
                 E = h\nu
-                \]</p>
-                <p>Onde \(h\) é a
-                constante de Planck (\(6,63
-                \times 10^{-34},\text{J·s}\)).</p>
+                \]</span></p>
+                <p>Onde <span class="math inline">\(h\)</span> é a
+                constante de Planck (<span class="math inline">\(6,63
+                \times 10^{-34},\text{J·s}\)</span>).</p>
                 <p>Mesmo contrariando suas próprias convicções
                 clássicas, Planck inaugurou a <strong>quantização da
                 energia</strong>, marco inicial da Física Quântica.</p>
@@ -405,7 +810,7 @@
                 <p>Em <strong>1905</strong>, <strong>Albert
                 Einstein</strong> propôs que a luz se comporta como
                 partículas - os <strong>fótons</strong> - cada um com
-                energia \(E = h\nu\).
+                energia <span class="math inline">\(E = h\nu\)</span>.
                 Essa explicação confirmou a quantização da radiação e
                 rendeu a Einstein o <strong>Prêmio Nobel de
                 1921</strong>.</p>
@@ -742,7 +1147,14 @@
             </main>
 
             <!-- Footer -->
-            
+            <footer class="document-footer">
+                                <p class="lead mb-3">Concepções
+Históricas da Física Moderna</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
         </div>
     </div>
 
@@ -756,77 +1168,6 @@
                 window.MathJax.typesetPromise();
             }
         });
-    </script>
-
-                    </div>
-                </div>
-            </div>
-            
-            <div class="d-flex justify-content-between">
-                <a href="/disciplinas/" class="btn btn-outline-primary">
-                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
-                </a>
-                <a href="/" class="btn btn-outline-secondary">
-                    <i class="bi bi-house"></i> Ir para Home
-                </a>
-            </div>
-            
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white mt-5 py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="h6">Meu Portal</h5>
-                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5 class="h6">Contato</h5>
-                    <p class="small mb-2">
-                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
-                        <i class="bi bi-github"></i> 
-                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
-                    </p>
-                </div>
-            </div>
-            <div class="text-center mt-2">
-                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- JS Personalizado -->
-    <script src="/js/main.js"></script>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function initializeMathJax() {
-            if (typeof MathJax !== 'undefined') {
-                MathJax.startup.promise.then(() => {
-                    if (document.querySelector('.tex2jax_process')) {
-                        MathJax.typesetPromise().catch((err) => {
-                            console.log('MathJax erro:', err.message);
-                        });
-                    }
-                }).catch((err) => {
-                    console.error('MathJax falhou ao carregar:', err);
-                });
-                window.dispatchEvent(new Event('MathJaxLoaded'));
-            } else {
-                console.warn('MathJax não está disponível');
-            }
-        }
-        
-        if (typeof MathJax !== 'undefined') {
-            initializeMathJax();
-        } else {
-            window.addEventListener('MathJaxLoaded', initializeMathJax);
-        }
-    });
     </script>
 </body>
 </html>

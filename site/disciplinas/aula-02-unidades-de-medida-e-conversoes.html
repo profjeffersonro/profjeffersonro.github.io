@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 - Unidades de Medida e Conversões | Meu Portal</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\(', '\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics']
+        },
+        tex: {
+            packages: {'[+]': ['ams', 'physics']}
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Mecânica dos Fluidos</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 02 - Unidades de Medida e Conversões</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1R6hXrO9L4JE9NrelOfJgao8EAILLrFrB/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        
+    
+        
+            <!-- Header -->
+            
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender o conceito de <strong>grandeza
+                física</strong>, <strong>dimensão</strong> e
+                <strong>unidade de medida</strong>.</li>
+                <li>Identificar as <strong>sete unidades
+                fundamentais</strong> do Sistema Internacional
+                (SI).</li>
+                <li>Diferenciar <strong>unidades primárias</strong>
+                (fundamentais) de <strong>unidades secundárias</strong>
+                (derivadas).</li>
+                <li>Conhecer o <strong>Sistema Inglês</strong> de
+                unidades e suas principais relações com o SI.</li>
+                <li>Aplicar a <strong>técnica de conversão em
+                série</strong> (multiplicação por fatores unitários)
+                para transformar unidades.</li>
+                <li>Realizar conversões envolvendo as unidades
+                fornecidas.</li>
+                <li>Compreender as unidades de
+                <strong>densidade</strong> e <strong>pressão</strong> no
+                SI e no Sistema Inglês.</li>
+                <li>Aplicar o princípio da <strong>homogeneidade
+                dimensional</strong> para verificar equações e
+                determinar unidades de constantes físicas.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Você já parou para pensar como seria o mundo se cada
+                país usasse um padrão diferente para medir as
+                coisas?</p>
+                <p>Na verdade, isso não é um exercício de imaginação:
+                durante séculos, foi exatamente assim que funcionou.
+                Enquanto na França se media distâncias em “toises”, na
+                Inglaterra se usava “pés” e “jardas”, e cada região
+                tinha suas próprias referências. O comércio
+                internacional era uma verdadeira dor de cabeça!</p>
+                <p>Imagine a seguinte situação:</p>
+                <blockquote>
+                <p>Um engenheiro brasileiro recebe uma planta de um
+                equipamento americano. As medidas estão em pés e
+                polegadas, a massa está em libra-massa (lbm) e a pressão
+                está em psi. Ele precisa construir essa peça no Brasil,
+                onde todas as medidas são em metros e quilogramas.</p>
+                </blockquote>
+                <p>O que ele faz? Chuta? Aproxima? Não! Ele utiliza
+                <strong>conversão de unidades</strong>.</p>
+                <p>Nesta aula, vamos aprender exatamente isso: como
+                navegar entre diferentes sistemas de unidades com
+                segurança e precisão. Vamos conhecer o <strong>Sistema
+                Internacional (SI)</strong>, usado em quase todo o
+                mundo, e o <strong>Sistema Inglês</strong>, ainda
+                utilizado em países como os Estados Unidos.</p>
+                <p>Mas não vamos parar por aí. Vamos aprender uma
+                técnica poderosa chamada <strong>conversão em
+                série</strong>, que permite transformar qualquer unidade
+                em outra multiplicando por frações que valem
+                <strong>1</strong>. E, por fim, vamos estudar
+                <strong>homogeneidade dimensional</strong>, uma
+                ferramenta que permite verificar se uma equação física
+                faz sentido antes mesmo de fazer qualquer conta!</p>
+                <h1
+                id="grandezas-físicas-dimensões-e-unidades-de-medida">Grandezas
+                Físicas, Dimensões e Unidades de Medida</h1>
+                <p><strong>O que é uma grandeza física?</strong></p>
+                <p>Grandeza física é tudo aquilo que pode ser
+                <strong>medido</strong> e <strong>quantificado</strong>.
+                Exemplos: comprimento, massa, tempo, temperatura,
+                velocidade, força, pressão, entre outras.</p>
+                <p><strong>O que é dimensão?</strong></p>
+                <p>Dimensão é a <strong>natureza</strong> da grandeza.
+                Por exemplo, comprimento tem dimensão de comprimento,
+                massa tem dimensão de massa. Na análise dimensional,
+                representamos as dimensões com colchetes:</p>
+                <ul>
+                <li>\([L]\) para
+                comprimento.</li>
+                <li>\([M]\) para
+                massa.</li>
+                <li>\([T]\) para
+                tempo.</li>
+                </ul>
+                <p><strong>O que é unidade de medida?</strong></p>
+                <p>Unidade de medida é o <strong>padrão</strong>
+                utilizado para comparar e quantificar uma grandeza. Por
+                exemplo, a grandeza comprimento pode ser medida em
+                metros (\(\text{m}\)),
+                pés (\(\text{pé}\)),
+                polegadas (\(\text{pol}\)), etc.</p>
+                <h2 id="sistema-internacional-de-unidades-si">Sistema
+                Internacional de Unidades (SI)</h2>
+                <p>O Sistema Internacional de Unidades (SI) é o padrão
+                internacional de medição adotado pela maioria dos
+                países. Foi estabelecido em 1960 durante a 11ª
+                Conferência Geral de Pesos e Medidas (CGPM).</p>
+                <h3 id="as-sete-unidades-fundamentais-do-si">As Sete
+                Unidades Fundamentais do SI</h3>
+                <p>O SI é formado por <strong>sete grandezas
+                fundamentais</strong> (ou de base). Todas as demais
+                grandezas físicas são derivadas dessas unidades.</p>
+                <p>As grandezas fundamentais são:</p>
+                <ul>
+                <li><strong>Comprimento</strong> - unidade: metro (\(\text{m}\)).</li>
+                <li><strong>Massa</strong> - unidade: quilograma (\(\text{kg}\)).</li>
+                <li><strong>Tempo</strong> - unidade: segundo (\(\text{s}\)).</li>
+                <li><strong>Corrente elétrica</strong> - unidade: ampère
+                (\(\text{A}\)).</li>
+                <li><strong>Temperatura termodinâmica</strong> -
+                unidade: kelvin (\(\text{K}\)).</li>
+                <li><strong>Quantidade de substância</strong> - unidade:
+                mol (\(\text{mol}\)).</li>
+                <li><strong>Intensidade luminosa</strong> - unidade:
+                candela (\(\text{cd}\)).</li>
+                </ul>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SI_Illustration_Base_Units_and_Constants_Colour_Full.svg" style="width:60.0%"
+                alt="Unidades de base do SI e constantes fundamentais. Fonte:Wikimedia Commons." />
+                <figcaption aria-hidden="true">Unidades de base do SI e
+                constantes fundamentais. Fonte:<a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/SI_Illustration_Base_Units_and_Constants_Colour_Full.svg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <h3 id="unidades-derivadas">Unidades Derivadas</h3>
+                <p>As unidades derivadas são obtidas a partir das
+                unidades fundamentais por meio de combinações
+                matemáticas (multiplicações, divisões e potências).</p>
+                <p>Alguns exemplos importantes no Sistema Internacional
+                são:</p>
+                <ul>
+                <li><p><strong>Área</strong> - metro quadrado (\(\text{m}^{2}\)).</p></li>
+                <li><p><strong>Volume</strong> - metro cúbico (\(\text{m}^{3}\)).</p></li>
+                <li><p><strong>Velocidade</strong> - metro por segundo
+                (\(\text{m}/\text{s}\)).</p></li>
+                <li><p><strong>Aceleração</strong> - metro por segundo
+                ao quadrado (\(\text{m}/\text{s}^{2}\)).</p></li>
+                <li><p><strong>Força</strong> - newton (\(\text{N}\)).</p>
+                <p>\[1\,\text{N} =
+                1\,\text{kg} \cdot
+                \dfrac{\text{m}}{\text{s}^{2}}\]</p></li>
+                <li><p><strong>Pressão</strong> - pascal (\(\text{Pa}\)).</p>
+                <p>\[1\,\text{Pa} =
+                1\,\dfrac{\text{N}}{\text{m}^{2}} =
+                1\,\dfrac{\text{kg}}{\text{m} \cdot
+                \text{s}^{2}}\]</p></li>
+                <li><p><strong>Energia</strong> - joule (\(\text{J}\)).</p>
+                <p>\[1\,\text{J} =
+                1\,\text{N} \cdot \text{m} = 1\,\text{kg} \cdot
+                \dfrac{\text{m}^{2}}{\text{s}^{2}}\]</p></li>
+                <li><p><strong>Potência</strong> - watt (\(\text{W}\)).</p>
+                <p>\[1\,\text{W} =
+                1\,\dfrac{\text{J}}{\text{s}} = 1\,\text{kg} \cdot
+                \dfrac{\text{m}^{2}}{\text{s}^{3}}\]</p></li>
+                </ul>
+                <p><strong>Observação importante:</strong> Note que
+                \(1\,\text{N} = 1\,\text{kg}
+                \cdot \text{m}/\text{s}^{2}\), ou seja, o newton
+                é uma unidade derivada das unidades fundamentais de
+                massa, comprimento e tempo.</p>
+                <h2 id="sistema-inglês-de-unidades">Sistema Inglês de
+                Unidades</h2>
+                <p>O Sistema Inglês (ou Sistema Imperial) é utilizado
+                principalmente nos Estados Unidos, Libéria e Mianmar.
+                Vamos conhecer suas principais unidades e relações.</p>
+                <h3 id="unidades-básicas-no-sistema-inglês">Unidades
+                Básicas no Sistema Inglês</h3>
+                <ul>
+                <li><strong>Comprimento:</strong> pé (\(\text{pé}\)), polegada
+                (\(\text{pol}\)), jarda
+                (\(\text{yd}\)), milha
+                (\(\text{mi}\)).</li>
+                <li><strong>Massa:</strong> libra-massa (\(\text{lbm}\)), slug (\(\text{slug}\)).</li>
+                <li><strong>Força:</strong> libra-força (\(\text{lbf}\)).</li>
+                <li><strong>Tempo:</strong> segundo (\(\text{s}\)) - igual ao
+                SI.</li>
+                </ul>
+                <h3 id="relações-fundamentais-fornecidas">Relações
+                Fundamentais Fornecidas</h3>
+                <p>Vamos organizar as relações fornecidas:</p>
+                <p><strong>Relações de comprimento:</strong></p>
+                <ul>
+                <li>\(1 \, \text{pé} =
+                0\text{,}3048 \, \text{m}\).</li>
+                <li>\(1 \, \text{pé} = 12 \,
+                \text{pol}\).</li>
+                <li>\(1 \, \text{pol} = 2{,}54
+                \, \text{cm}\).</li>
+                </ul>
+                <p><strong>Relações de massa:</strong></p>
+                <ul>
+                <li>\(1 \, \text{lbm} =
+                0\text{,}45359 \, \text{kg}\).</li>
+                <li>\(1 \, \text{slug} =
+                32\text{,}174 \, \text{lbm}\).</li>
+                </ul>
+                <p><strong>Relações de força:</strong></p>
+                <ul>
+                <li>\(1 \, \text{N} = 1 \,
+                \text{kg} \cdot \text{m}/\text{s}^{2}\)
+                (definição do newton).</li>
+                <li>\(1 \, \text{lbf} =
+                32\text{,}174 \, \text{lbm} \cdot
+                \text{pés}/\text{s}^{2}\).</li>
+                <li>\(1 \, \text{lbf} = 1 \,
+                \text{slug} \cdot \text{pés}/\text{s}^{2}\).</li>
+                </ul>
+                <p><strong>Aceleração da gravidade:</strong></p>
+                <ul>
+                <li>\(g = 9\text{,}807 \,
+                \text{m}/\text{s}^{2}\).</li>
+                </ul>
+                <p><strong>Observação importante:</strong> A aceleração
+                da gravidade \(g =
+                9\text{,}807 \, \text{m}/\text{s}^{2}\) é um
+                valor padrão aproximado. No Sistema Inglês, a mesma
+                aceleração vale \(g =
+                32\text{,}174 \, \text{pés}/\text{s}^{2}\).</p>
+                <h2
+                id="técnica-de-conversão-de-unidades-em-série">Técnica
+                de Conversão de Unidades em Série</h2>
+                <p>A técnica de conversão em série (ou método do fator
+                unitário) é uma ferramenta poderosa para converter
+                unidades. A ideia é simples: multiplicamos o valor
+                original por frações que valem <strong>1</strong>, mas
+                que estão escritas em unidades diferentes, de modo que
+                as unidades indesejadas se cancelam.</p>
+                <p><strong>O Princípio</strong></p>
+                <p>Se \(1 \, \text{m} = 100 \,
+                \text{cm}\), então:</p>
+                <p>\[\left(\dfrac{1 \,
+                \text{m}}{100 \, \text{cm}}\right) = 1 \quad \text{e}
+                \quad \left(\dfrac{100 \, \text{cm}}{1 \,
+                \text{m}}\right) = 1\]</p>
+                <p>Multiplicar qualquer valor por essas frações não
+                altera o valor real, apenas a unidade em que ele está
+                expresso.</p>
+                <h3
+                id="exemplo-2.1-convertendo-56text2-textkmtexth-para-textmtexts">Exemplo
+                2.1: Convertendo \(56\text{,}2
+                \, \text{km}/\text{h}\) para \(\text{m}/\text{s}\)</h3>
+                <p>Vamos converter \(56\text{,}2 \,
+                \text{km}/\text{h}\) para \(\text{m}/\text{s}\),
+                mantendo os algarismos significativos.</p>
+                <p><strong>Passo 1:</strong> Escrevemos o valor original
+                e multiplicamos por fatores de conversão que valem 1,
+                organizando para cancelar as unidades indesejadas.</p>
+                <p>\[56\text{,}2 \,
+                \dfrac{\text{km}}{\text{h}} = 56\text{,}2 \,
+                \dfrac{\cancel{\text{km}}}{\cancel{\text{h}}} \times
+                \left(\dfrac{1000 \, \text{m}}{1 \,
+                \cancel{\text{km}}}\right) \times \left(\dfrac{1 \,
+                \cancel{\text{h}}}{3600 \, \text{s}}\right)\]</p>
+                <p><strong>Passo 2:</strong> Cancelamos as unidades e
+                realizamos as operações de uma só vez, agrupando todos
+                os fatores:</p>
+                <p>\[56\text{,}2 \,
+                \dfrac{\text{km}}{\text{h}} = \dfrac{56\text{,}2 \times
+                1000}{3600} \, \dfrac{\text{m}}{\text{s}}\]</p>
+                <p>Primeiro, calculamos o numerador:</p>
+                <p>\[56\text{,}2 \times 1000
+                = 56\,200\]</p>
+                <p>Agora, dividimos pelo denominador:</p>
+                <p>\[\dfrac{56\,200}{3600} =
+                15\text{,}61111... \,
+                \dfrac{\text{m}}{\text{s}}\]</p>
+                <p><strong>Passo 3:</strong> Analisamos os algarismos
+                significativos:</p>
+                <ul>
+                <li>\(56\text{,}2\)
+                possui <strong>3 algarismos significativos</strong></li>
+                <li>\(1000\) é um
+                número exato (definição: \(1
+                \, \text{km} = 1000 \, \text{m}\))</li>
+                <li>\(3600\) é um
+                número exato (definição: \(1
+                \, \text{h} = 3600 \, \text{s}\))</li>
+                </ul>
+                <p>Portanto, o resultado deve ter <strong>3 algarismos
+                significativos</strong>.</p>
+                <p>O resultado obtido é \(15\text{,}61111...\).
+                Identificando os algarismos:</p>
+                <ul>
+                <li>\(1\) e \(5\) são os dois primeiros
+                algarismos</li>
+                <li>O terceiro algarismo (duvidoso) é \(6\)</li>
+                <li>O próximo algarismo (quarto) é \(1\), que é menor que \(5\)</li>
+                </ul>
+                <p>Pela regra de arredondamento, quando o algarismo
+                seguinte ao último significativo é menor que \(5\), mantemos o último
+                algarismo significativo.</p>
+                <p>Assim, mantemos o \(6\) e descartamos os
+                demais:</p>
+                <p>\[15\text{,}61111...
+                \approx 15\text{,}6\]</p>
+                <p><strong>Passo 4:</strong> Resultado final:</p>
+                <p>\[\boxed{56\text{,}2 \,
+                \text{km}/\text{h} = 15\text{,}6 \,
+                \text{m}/\text{s}}\]</p>
+                <p><strong>Interpretação:</strong> Uma velocidade de
+                \(56\text{,}2 \,
+                \text{km}/\text{h}\) equivale a \(15\text{,}6 \,
+                \text{m}/\text{s}\) no Sistema Internacional.
+                Esta é uma conversão muito útil no dia a dia,
+                especialmente em problemas de cinemática e dinâmica.</p>
+                <h3
+                id="exemplo-2.2-convertendo-0text95-microsséculo-para-minutos">Exemplo
+                2.2: Convertendo \(0\text{,}95\) microsséculo
+                para minutos</h3>
+                <p>Vamos fazer uma conversão um pouco diferente e
+                divertida: converter <strong>\(0\text{,}95\)
+                microsséculo</strong> para minutos.</p>
+                <p>Primeiro, precisamos entender o que é um microsséculo
+                (\(\mu
+                \text{sec}\)):</p>
+                <ul>
+                <li>\(1\,\text{século} =
+                100\,\text{anos}\)</li>
+                <li>\(1\,\mu =
+                10^{-6}\) (prefixo micro)</li>
+                <li>\(1\) ano \(= 365{,}25\) dias
+                (considerando anos bissextos)</li>
+                <li>\(1\) dia \(= 24\) horas</li>
+                <li>\(1\) hora \(= 60\) minutos</li>
+                </ul>
+                <p><strong>Passo 1:</strong> Escrevemos a sequência de
+                conversões usando o método do fator unitário:</p>
+                <p>\[0\text{,}95 \,
+                \mu\text{sec} = 0\text{,}95 \,
+                \cancel{\mu}\cancel{\text{sec}} \times
+                \left(\dfrac{10^{-6}}{1 \, \cancel{\mu}}\right) \times
+                \left(\dfrac{100 \, \cancel{\text{anos}}}{1 \,
+                \cancel{\text{século}}}\right)\]</p>
+                <p>\[\times
+                \left(\dfrac{365{,}25 \, \cancel{\text{dias}}}{1 \,
+                \cancel{\text{ano}}}\right) \times \left(\dfrac{24 \,
+                \cancel{\text{horas}}}{1 \, \cancel{\text{dia}}}\right)
+                \times \left(\dfrac{60 \, \text{min}}{1 \,
+                \cancel{\text{hora}}}\right)\]</p>
+                <p><strong>Passo 2:</strong> Cancelamos todas as
+                unidades, restando apenas minutos:</p>
+                <p>\[0\text{,}95 \,
+                \mu\text{sec} = 0\text{,}95 \times 10^{-6} \times 100
+                \times 365{,}25 \times 24 \times 60 \,
+                \text{min}\]</p>
+                <p><strong>Passo 3:</strong> Realizamos os cálculos de
+                uma só vez, agrupando os fatores:</p>
+                <p>Primeiro, agrupamos as potências de 10 e os
+                fatores:</p>
+                <p>\[0\text{,}95 \times
+                10^{-6} \times 100 = 0\text{,}95 \times 10^{-4} = 9{,}5
+                \times 10^{-5}\]</p>
+                <p>Agora, multiplicamos sequencialmente:</p>
+                <p>\[9{,}5 \times 10^{-5}
+                \times 365{,}25 = 3{,}469875 \times 10^{-2}\]</p>
+                <p>\[3{,}469875 \times
+                10^{-2} \times 24 = 0{,}83277\]</p>
+                <p>\[0{,}83277 \times 60 =
+                49{,}9662 \, \text{min}\]</p>
+                <p>Portanto:</p>
+                <p>\[0\text{,}95 \,
+                \mu\text{sec} = 49{,}9662 \, \text{min}\]</p>
+                <p><strong>Passo 4:</strong> Analisamos os algarismos
+                significativos:</p>
+                <ul>
+                <li>\(0\text{,}95\)
+                possui <strong>2 algarismos significativos</strong></li>
+                <li>\(10^{-6}\) é
+                potência de 10 exata (não limita)</li>
+                <li>\(100\) é número
+                exato (definição de século)</li>
+                <li>\(365{,}25\) possui
+                5 algarismos significativos</li>
+                <li>\(24\) e \(60\) são números exatos
+                (definições)</li>
+                </ul>
+                <p>O resultado deve ter <strong>2 algarismos
+                significativos</strong>, pois o fator com menor número
+                de algarismos significativos é \(0\text{,}95\).</p>
+                <p>Observando \(49{,}9662\), o segundo
+                algarismo é o \(9\)
+                (algarismo das unidades). O próximo algarismo é \(9\) (maior que 5), portanto
+                devemos arredondar para cima:</p>
+                <p>\[49{,}9662 \approx 50 \,
+                \text{min}\]</p>
+                <p><strong>Passo 5:</strong> Resultado final:</p>
+                <p>\[\boxed{0\text{,}95 \,
+                \mu\text{sec} = 50 \, \text{min}}\]</p>
+                <p><strong>Interpretação e curiosidade:</strong></p>
+                <p>Um microsséculo (\(10^{-6}\) século)
+                corresponde a:</p>
+                <p>\[1 \, \mu\text{sec} =
+                10^{-6} \times 100 \text{ anos} = 10^{-4} \text{
+                anos}\]</p>
+                <p>\[10^{-4} \text{ anos} =
+                10^{-4} \times 365{,}25 \times 24 \times 60 \approx
+                52{,}6 \text{ minutos}\]</p>
+                <p>Portanto, um microsséculo equivale a aproximadamente
+                <strong>52,6 minutos</strong>. O valor \(0\text{,}95 \,
+                \mu\text{sec}\) corresponde a \(0\text{,}95 \times 52{,}6 \approx
+                50\) minutos.</p>
+                <p><strong>Curiosidade:</strong> Um microsséculo
+                corresponde aproximadamente ao tempo de uma aula típica
+                (50 minutos)! Esta é uma forma divertida de perceber
+                como unidades diferentes podem se relacionar de maneiras
+                inesperadas.</p>
+                <h2
+                id="unidades-de-densidademassa-específica-e-pressão">Unidades
+                de Densidade/Massa Específica e Pressão</h2>
+                <p><strong>Densidade (Massa Específica)</strong></p>
+                <p><strong>Densidade</strong> é a relação entre
+                <strong>massa</strong> e <strong>volume</strong>:</p>
+                <p>\[\boxed{\rho =
+                \dfrac{m}{V}}\]</p>
+                <p><strong>No Sistema Internacional (SI):</strong></p>
+                <ul>
+                <li>Unidade: \(\text{kg}/\text{m}^{3}\)
+                (quilograma por metro cúbico).</li>
+                </ul>
+                <p><strong>No Sistema Inglês:</strong></p>
+                <ul>
+                <li>Unidades comuns: \(\text{lbm}/\text{pé}^{3}\)
+                (libra-massa por pé cúbico) ou \(\text{slug}/\text{pé}^{3}\)
+                (slug por pé cúbico).</li>
+                </ul>
+                <p><strong>Pressão</strong></p>
+                <p><strong>Pressão</strong> é a relação entre
+                <strong>força</strong> e <strong>área</strong>:</p>
+                <p>\[\boxed{P =
+                \dfrac{F}{A}}\]</p>
+                <p><strong>No Sistema Internacional (SI):</strong></p>
+                <ul>
+                <li>Unidade: \(1\,\text{Pa}\) (pascal)
+                \(= 1\,\text{N}/\text{m}^{2} =
+                1\,\text{kg}/(\text{m} \cdot
+                \text{s}^{2})\).</li>
+                </ul>
+                <p><strong>No Sistema Inglês:</strong></p>
+                <ul>
+                <li>Unidade comum: \(\text{psi}\) (libra-força
+                por polegada quadrada) \(=
+                \text{lbf}/\text{pol}^{2}\).</li>
+                <li>Outra unidade: \(\text{psf}\) (libra-força
+                por pé quadrado) \(=
+                \text{lbf}/\text{pé}^{2}\).</li>
+                </ul>
+                <p><strong>Outras unidades de pressão:</strong></p>
+                <ul>
+                <li>\(1\,\text{atm}\)
+                (atmosfera): \(1 \, \text{atm}
+                = 101325 \, \text{Pa} = 1,01325\times 10^{5}\,\text{Pa}
+                = 1,01325\,\text{MPa}\).</li>
+                <li>\(1\,\text{mmHg}\)
+                (milímetro de mercúrio): \(760
+                \, \text{mmHg} = 1 \, \text{atm}\).</li>
+                </ul>
+                <h3
+                id="exemplo-2.3-convertendo-a-densidade-da-água-997-textkgtextm3-para-textlbmtextpol3">Exemplo
+                2.3: Convertendo a densidade da água \(997 \,
+                \text{kg}/\text{m}^{3}\) para \(\text{lbm}/\text{pol}^{3}\)</h3>
+                <p>Vamos fazer uma conversão interessante: converter a
+                densidade da água <strong>\(997 \,
+                \text{kg}/\text{m}^{3}\)</strong> para
+                <strong>\(\text{lbm}/\text{pol}^{3}\)</strong>.</p>
+                <p>Primeiro, precisamos organizar as relações de
+                conversão necessárias:</p>
+                <ul>
+                <li>\(1 \, \text{lbm} =
+                0{,}45359 \, \text{kg}\).</li>
+                <li>\(1 \, \text{m} =
+                39{,}3701 \, \text{pol}\) (já que \(1 \, \text{pol} = 0{,}0254 \,
+                \text{m}\)).</li>
+                </ul>
+                <p><strong>Passo 1:</strong> Escrevemos a sequência de
+                conversões:</p>
+                <p>\[997 \,
+                \dfrac{\text{kg}}{\text{m}^{3}} = 997 \,
+                \dfrac{\cancel{\text{kg}}}{\cancel{\text{m}^{3}}} \times
+                \left(\dfrac{1 \, \text{lbm}}{0{,}45359 \,
+                \cancel{\text{kg}}}\right) \times \left(\dfrac{1 \,
+                \cancel{\text{m}}}{39{,}3701 \,
+                \text{pol}}\right)^{3}\]</p>
+                <p><strong>Passo 2:</strong> Calculamos e cancelamos as
+                unidades:</p>
+                <p>\[997 \,
+                \dfrac{\text{kg}}{\text{m}^{3}} =
+                \left(\dfrac{997}{0{,}45359 \times 39{,}3701^{3}}\right)
+                \, \dfrac{\text{lbm}}{\text{pol}^{3}}\]</p>
+                <p>Calculando \(39{,}3701^{3}\):</p>
+                <p>\[39{,}3701^{3} =
+                39{,}3701 \times 39{,}3701 \times 39{,}3701 =
+                61\,023{,}7\]</p>
+                <p>Portanto:</p>
+                <p>\[\rho =
+                \frac{997}{0{,}45359 \times 61\,023{,}7} \,
+                \frac{\text{lbm}}{\text{pol}^{3}}\]</p>
+                <p>Calculando o denominador:</p>
+                <p>\[0{,}45359 \times
+                61\,023{,}7 = 27\,680\]</p>
+                <p>\[\rho =
+                \frac{997}{27\,680} = 0{,}03601 \,
+                \frac{\text{lbm}}{\text{pol}^{3}}\]</p>
+                <p><strong>Passo 3:</strong> Analisando os algarismos
+                significativos:</p>
+                <ul>
+                <li>\(997\) possui 3
+                algarismos significativos</li>
+                <li>\(0{,}45359\)
+                possui 5 algarismos significativos</li>
+                <li>\(39{,}3701\)
+                possui 6 algarismos significativos</li>
+                <li>O resultado deve ter 3 algarismos
+                significativos</li>
+                </ul>
+                <p>Portanto:</p>
+                <p>\[\rho = 0{,}0360 \,
+                \frac{\text{lbm}}{\text{pol}^{3}}\]</p>
+                <p><strong>Passo 4:</strong> Resultado final:</p>
+                <p>\[\boxed{997 \,
+                \dfrac{\text{kg}}{\text{m}^{3}} = 0{,}0360 \,
+                \dfrac{\text{lbm}}{\text{pol}^{3}}}\]</p>
+                <p><strong>Interpretação:</strong> A densidade da água é
+                de aproximadamente \(0{,}0360
+                \, \text{lbm}/\text{pol}^{3}\) no sistema inglês
+                de unidades.</p>
+                <h3
+                id="exemplo-2.4-convertendo-32-textpsi-para-textatm">Exemplo
+                2.4: Convertendo \(32 \,
+                \text{psi}\) para \(\text{atm}\)</h3>
+                <p>Vamos converter uma pressão de <strong>\(32 \, \text{psi}\)</strong>
+                (libras-força por polegada quadrada) para
+                <strong>atmosferas (\(\text{atm}\))</strong>.</p>
+                <p>Primeiro, precisamos organizar as relações de
+                conversão necessárias:</p>
+                <ul>
+                <li>\(1 \, \text{lbf} =
+                32{,}174 \, \text{lbm} \cdot
+                \text{pés}/\text{s}^{2}\) (definição da
+                libra-força)</li>
+                <li>\(1 \, \text{lbm} =
+                0{,}45359 \, \text{kg}\)</li>
+                <li>\(1 \, \text{pé} =
+                0{,}3048 \, \text{m}\)</li>
+                <li>\(1 \, \text{pé} = 12 \,
+                \text{pol}\)</li>
+                <li>\(1 \, \text{atm} = 101325
+                \, \text{Pa}\)</li>
+                <li>\(1\,\text{Pa} =
+                1\,\text{N}/\text{m}^{2}\)</li>
+                <li>\(1\,\text{N} =
+                1\,\text{kg} \cdot \text{m}/\text{s}^{2}\)</li>
+                </ul>
+                <p><strong>Passo 1:</strong> Escrevemos a sequência de
+                conversões, lembrando que \(\text{psi} =
+                \text{lbf}/\text{pol}^{2}\):</p>
+                <p>\[32 \,
+                \dfrac{\text{lbf}}{\text{pol}^{2}} = 32 \,
+                \dfrac{\cancel{\text{lbf}}}{\cancel{\text{pol}^{2}}}
+                \times \left(\dfrac{32{,}174 \, \cancel{\text{lbm}}
+                \cdot \cancel{\text{pé}}/\cancel{\text{s}^{2}}}{1 \,
+                \cancel{\text{lbf}}}\right)\]</p>
+                <p>\[\times
+                \left(\dfrac{0{,}45359 \, \cancel{\text{kg}}}{1 \,
+                \cancel{\text{lbm}}}\right) \times \left(\dfrac{1 \,
+                \cancel{\text{N}}}{1 \, \cancel{\text{kg}} \cdot
+                \cancel{\text{m}}/\cancel{\text{s}^{2}}}\right) \times
+                \left(\dfrac{1 \, \cancel{\text{Pa}}}{1 \,
+                \cancel{\text{N}}/\cancel{\text{m}^{2}}}\right)\]</p>
+                <p>\[\times \left(\dfrac{1 \,
+                \text{atm}}{101325 \, \cancel{\text{Pa}}}\right) \times
+                \left(\dfrac{12 \, \cancel{\text{pol}}}{1 \,
+                \cancel{\text{pé}}}\right)^{2} \times \left(\dfrac{1 \,
+                \cancel{\text{pé}}}{0{,}3048 \,
+                \cancel{\text{m}}}\right)\]</p>
+                <p><strong>Passo 2:</strong> Agrupamos todos os fatores
+                numéricos em uma única expressão, tomando cuidado com as
+                potências:</p>
+                <p>\[32 \, \text{psi} = 32
+                \times 32{,}174 \times 0{,}45359 \times
+                \frac{12^{2}}{101325 \times 0{,}3048} \,
+                \text{atm}\]</p>
+                <p>Calculando \(12^{2} =
+                144\).</p>
+                <p><strong>Passo 3:</strong> Realizamos os cálculos de
+                uma só vez, agrupando numerador e denominador:</p>
+                <p><strong>Numerador:</strong> \(32 \times 32{,}174 \times
+                0{,}45359 \times 144\)</p>
+                <p>Calculando passo a passo (mantendo todas as
+                casas):</p>
+                <p>\[32 \times 32{,}174 =
+                1\,029{,}568\] \[1\,029{,}568 \times 0{,}45359 =
+                467{,}00\] \[467{,}00
+                \times 144 = 67\,248\]</p>
+                <p><strong>Denominador:</strong> \(101325 \times
+                0{,}3048\)</p>
+                <p>\[101325 \times 0{,}3048 =
+                30\,883{,}86\]</p>
+                <p><strong>Divisão final:</strong></p>
+                <p>\[\frac{67\,248}{30\,883{,}86} =
+                2{,}177 \, \text{atm}\]</p>
+                <p><strong>Passo 4:</strong> Analisamos os algarismos
+                significativos:</p>
+                <ul>
+                <li>\(32\) possui
+                <strong>2 algarismos significativos</strong></li>
+                <li>\(32{,}174\) possui
+                5 algarismos significativos</li>
+                <li>\(0{,}45359\)
+                possui 5 algarismos significativos</li>
+                <li>\(144\) é derivado
+                de \(12^{2}\), onde
+                \(12\) é número exato
+                (definição: \(1 \, \text{pé} =
+                12 \, \text{pol}\))</li>
+                <li>\(101325\) é valor
+                definido (1 atm = 101325 Pa exato)</li>
+                <li>\(0{,}3048\) é
+                número exato (definição: \(1
+                \, \text{pé} = 0{,}3048 \, \text{m}\))</li>
+                </ul>
+                <p>O fator limitante é \(32\), com <strong>2
+                algarismos significativos</strong>. Portanto, o
+                resultado deve ter 2 algarismos significativos.</p>
+                <p>\(2{,}177\) com 2
+                algarismos significativos: o primeiro algarismo é \(2\), o segundo é \(1\). O terceiro algarismo é
+                \(7\) (maior que 5),
+                portanto arredondamos para cima:</p>
+                <p>\[2{,}177 \approx
+                2{,}2\]</p>
+                <p><strong>Passo 5:</strong> Resultado final:</p>
+                <p>\[\boxed{32 \, \text{psi}
+                = 2{,}2 \, \text{atm}}\]</p>
+                <p><strong>Interpretação física:</strong></p>
+                <p>Uma pressão de \(32 \,
+                \text{psi}\) corresponde a aproximadamente \(2{,}2\) atmosferas. Isso
+                significa que é um pouco mais que o dobro da pressão
+                atmosférica ao nível do mar (que é \(1 \, \text{atm} \approx 14{,}7 \,
+                \text{psi}\)).</p>
+                <p><strong>Verificação rápida:</strong> Sabendo que
+                \(1 \, \text{atm} \approx
+                14{,}7 \, \text{psi}\), podemos fazer uma
+                conversão aproximada:</p>
+                <p>\[32 \, \text{psi} \div
+                14{,}7 \, \text{psi/atm} \approx 2{,}18 \,
+                \text{atm}\]</p>
+                <p>O que confirma nosso resultado de \(2{,}2 \, \text{atm}\).</p>
+                <p><strong>Aplicação prática:</strong> Esta conversão é
+                comum em manômetros de pneus de automóveis (geralmente
+                medidos em psi) e em aplicações industriais que utilizam
+                a atmosfera como unidade de referência.</p>
+                <h1 id="homogeneidade-dimensional">Homogeneidade
+                Dimensional</h1>
+                <p>Um princípio fundamental da Física é que <strong>uma
+                equação só faz sentido se os dois lados tiverem a mesma
+                dimensão</strong>. Não podemos somar metros com
+                quilogramas, nem igualar força com volume.</p>
+                <p><strong>O Princípio da Homogeneidade</strong></p>
+                <p>Em qualquer equação física válida, as dimensões do
+                lado esquerdo devem ser iguais às dimensões do lado
+                direito.</p>
+                <h2
+                id="exemplo-2.5-determinando-a-unidade-de-uma-constante">Exemplo
+                2.5: Determinando a unidade de uma constante</h2>
+                <p>Considere a seguinte equação da mecânica dos fluidos
+                para a velocidade do som em um gás:</p>
+                <p>\[v = \sqrt{\dfrac{k \cdot
+                R \cdot T}{M}}\]</p>
+                <p>Onde:</p>
+                <ul>
+                <li>\(v\) é a
+                velocidade do som (\(\text{m}/\text{s}\)).</li>
+                <li>\(k\) é uma
+                constante adimensional (razão de calores
+                específicos).</li>
+                <li>\(R\) é a constante
+                universal dos gases.</li>
+                <li>\(T\) é a
+                temperatura (\(\text{K}\)).</li>
+                <li>\(M\) é a massa
+                molar (\(\text{kg}/\text{mol}\)).</li>
+                </ul>
+                <p><strong>Pergunta:</strong> Qual deve ser a unidade de
+                \(R\) para que a
+                equação seja dimensionalmente homogênea?</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Escrevemos as dimensões de cada termo:</p>
+                <ul>
+                <li>\([v] = L \cdot
+                T^{-1}\) (comprimento por tempo).</li>
+                <li>\([k] = 1\)
+                (adimensional).</li>
+                <li>\([T] = \Theta\)
+                (temperatura).</li>
+                <li>\([M] = M \cdot
+                N^{-1}\) (massa por quantidade de substância) -
+                em unidades: \(\text{kg}/\text{mol}\).</li>
+                </ul>
+                <p>Queremos encontrar \([R]\) tal que:</p>
+                <p>\[[v] = \sqrt{\dfrac{[k]
+                \cdot [R] \cdot [T]}{[M]}}\]</p>
+                <p>Elevando ambos os lados ao quadrado:</p>
+                <p>\[[v]^{2} = \dfrac{[R]
+                \cdot [T]}{[M]}\]</p>
+                <p>Substituindo as dimensões conhecidas:</p>
+                <p>\[(L \cdot T^{-1})^{2} =
+                \dfrac{[R] \cdot \Theta}{M \cdot N^{-1}}\]</p>
+                <p>\[L^{2} \cdot T^{-2} =
+                \dfrac{[R] \cdot \Theta \cdot N}{M}\]</p>
+                <p>Isolando \([R]\):</p>
+                <p>\[[R] = \dfrac{L^{2} \cdot
+                T^{-2} \cdot M}{\Theta \cdot N}\]</p>
+                <p>Em unidades do SI, isso significa:</p>
+                <p>\[[R] =
+                \dfrac{\text{m}^{2}}{\text{s}^{2}} \cdot
+                \dfrac{\text{kg}}{\text{K} \cdot
+                \text{mol}}\]</p>
+                <p>Ou seja:</p>
+                <p>\[\boxed{R =
+                \dfrac{\text{J}}{\text{K} \cdot
+                \text{mol}}}\]</p>
+                <p>De fato, a constante universal dos gases \(R\) vale aproximadamente
+                \(8\text{,}314 \,
+                \text{J}/(\text{mol} \cdot \text{K})\).</p>
+                <h1 id="conclusão">Conclusão</h1>
+                <p>Nesta aula, aprendemos que:</p>
+                <ol type="1">
+                <li><p><strong>Grandezas físicas</strong> são tudo o que
+                pode ser medido, e cada grandeza possui
+                <strong>dimensões</strong> que representam sua
+                natureza.</p></li>
+                <li><p>O <strong>Sistema Internacional (SI)</strong> é
+                baseado em sete unidades fundamentais, e todas as outras
+                unidades são derivadas dessas.</p></li>
+                <li><p>O <strong>Sistema Inglês</strong> utiliza
+                unidades como pé, libra-massa e libra-força, com
+                relações específicas que devem ser memorizadas ou
+                consultadas.</p></li>
+                <li><p>A <strong>técnica de conversão em série</strong>
+                (fatores unitários) é uma ferramenta poderosa:
+                multiplicamos o valor original por frações que valem 1,
+                cancelando unidades indesejadas até obter a unidade
+                desejada.</p></li>
+                <li><p><strong>Densidade</strong> (\(\text{kg}/\text{m}^{3}\) no
+                SI, \(\text{lbm}/\text{pé}^{3}\)
+                no Sistema Inglês) e <strong>pressão</strong> (\(\text{Pa}\) no SI, \(\text{psi}\) no Sistema
+                Inglês) são grandezas derivadas importantes na mecânica
+                dos fluidos.</p></li>
+                <li><p>A <strong>homogeneidade dimensional</strong> é um
+                princípio fundamental: os dois lados de uma equação
+                física devem ter a mesma dimensão. Isso nos permite
+                verificar equações e determinar unidades de
+                constantes.</p></li>
+                </ol>
+                <p>Na próxima aula, aplicaremos esses conceitos
+                diretamente aos problemas de mecânica dos fluidos, como
+                cálculo de pressão hidrostática, empuxo e equação de
+                Bernoulli.</p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <p>Nas questões a seguir, use os seguintes fatores de
+                conversão:</p>
+                <ul>
+                <li>\(1 \, \text{lbf} = 32,174
+                \, \text{lbm} \, \text{pés}/\text{s}^{2}\).</li>
+                <li>\(1 \, \text{lbm} =
+                0\text{,}45359 \, \text{kg}\).</li>
+                <li>\(1 \, \text{slug} =
+                32\text{,}174 \, \text{lbm}\)</li>
+                <li>\(1 \, \text{pé} =
+                0{,}3048 \, \text{m}\).</li>
+                <li>\(1 \, \text{pé} = 12 \,
+                \text{pol}\).</li>
+                <li>\(1 \, \text{atm} = 101325
+                \, \text{Pa}\).</li>
+                <li>\(1\,\text{Pa} =
+                1\,\text{N}/\text{m}^{2}\).</li>
+                <li>\(1\,\text{N} =
+                1\,\text{kg}\,\text{m}/\text{s}^{2}\).</li>
+                <li>\(1\,\text{atm} =
+                760\,\text{mmHg}\).</li>
+                </ul>
+                <dl>
+                <dt>2.1)</dt>
+                <dd>
+                A unidade de pressão no Sistema Internacional é o pascal
+                (\(\text{Pa}\)). Em
+                unidades fundamentais, \(1 \,
+                \text{Pa}\) equivale a:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>\(1 \, \text{kg} \cdot
+                \text{m}/\text{s}^{2}\).</li>
+                <li>\(1 \, \text{kg}/(\text{m}
+                \cdot \text{s}^{2})\).</li>
+                <li>\(1 \, \text{kg} \cdot
+                \text{m}^{2}/\text{s}^{2}\).</li>
+                <li>\(1 \, \text{kg} \cdot
+                \text{s}^{2}/\text{m}\).</li>
+                <li>\(1 \,
+                \text{kg}^{2}/(\text{m} \cdot
+                \text{s}^{2})\).</li>
+                </ol>
+                <dl>
+                <dt>2.2)</dt>
+                <dd>
+                Um slug é uma unidade de massa no Sistema Inglês.
+                Sabendo que \(1 \, \text{slug}
+                = 32\text{,}174 \, \text{lbm}\) e \(1 \, \text{lbm} = 0\text{,}45359
+                \, \text{kg}\), um slug equivale a
+                aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>\(14\text{,}59 \,
+                \text{kg}\).</li>
+                <li>\(1\text{,}46 \,
+                \text{kg}\).</li>
+                <li>\(32\text{,}17 \,
+                \text{kg}\).</li>
+                <li>\(0\text{,}4536 \,
+                \text{kg}\).</li>
+                <li>\(70\text{,}9 \,
+                \text{kg}\).</li>
+                </ol>
+                <dl>
+                <dt>2.3)</dt>
+                <dd>
+                Se \(1 \, \text{pé} =
+                0\text{,}3048 \, \text{m}\), então \(100 \, \text{pés}^{2}\)
+                equivalem a aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>\(3\text{,}05 \,
+                \text{m}^{2}\).</li>
+                <li>\(30\text{,}48 \,
+                \text{m}^{2}\).</li>
+                <li>\(9\text{,}29 \,
+                \text{m}^{2}\).</li>
+                <li>\(92\text{,}9 \,
+                \text{m}^{2}\).</li>
+                <li>\(304\text{,}8 \,
+                \text{m}^{2}\).</li>
+                </ol>
+                <dl>
+                <dt>2.4)</dt>
+                <dd>
+                Uma força de \(100 \,
+                \text{lbf}\) equivale a aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>\(44\text{,}4 \,
+                \text{N}\).</li>
+                <li>\(44\text{,}5 \,
+                \text{N}\).</li>
+                <li>\(45 \,
+                \text{N}\).</li>
+                <li>\(444 \,
+                \text{N}\).</li>
+                <li>\(445 \,
+                \text{N}\).</li>
+                </ol>
+                <dl>
+                <dt>2.5)</dt>
+                <dd>
+                A vazão volumétrica \(V\) em um tubo é dada por
+                \(V = A \cdot v\), onde
+                \(A\) é área e \(v\) é velocidade. Qual é a
+                unidade de \(V\) no SI.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>\(\text{m}/\text{s}\).</li>
+                <li>\(\text{m}^{2}/\text{s}\).</li>
+                <li>\(\text{m}\,\text{s}^{2}\).</li>
+                <li>\(\text{m}^{3}\,\text{s}\).</li>
+                <li>\(\text{m}^{3}/\text{s}\).</li>
+                </ol>
+                <dl>
+                <dt>2.6)</dt>
+                <dd>
+                Converta a aceleração da gravidade \(g = 9\text{,}807 \,
+                \text{m}/\text{s}^{2}\) para \(\text{pés}/\text{s}^{2}\).
+                </dd>
+                <dt>2.7)</dt>
+                <dd>
+                A massa específica da água é aproximadamente \(997 \,
+                \text{kg}/\text{m}^{3}\) (a \(25^{\circ}\text{C}\)).
+                Converta este valor para:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>\(\text{kg}/\text{m}^{3}\).</li>
+                <li>\(\text{lbm}/\text{pé}^{3}\).</li>
+                <li>\(\text{slug}/\text{pé}^{3}\).</li>
+                </ol>
+                <dl>
+                <dt>2.8)</dt>
+                <dd>
+                A viscosidade dinâmica de um fluido é dada por \(\mu = 1\text{,}2 \times 10^{-3} \,
+                \text{Pa} \cdot \text{s}\). Converta para \(\text{lbm}/(\text{pé} \cdot
+                \text{s})\). Use as relações fornecidas nos
+                exercícios anteriores.
+                </dd>
+                <dt>2.9)</dt>
+                <dd>
+                Em mecânica dos fluidos, a equação de Bernoulli é dada
+                por:
+                </dd>
+                </dl>
+                <p>\[P + \dfrac{1}{2}\rho
+                v^{2} + \rho g h = \text{constante}\]</p>
+                <p>Verifique a homogeneidade dimensional desta equação,
+                mostrando que todos os termos têm dimensão de
+                pressão.</p>
+                <dl>
+                <dt>2 10)</dt>
+                <dd>
+                Uma expressão empírica para a força de arrasto em um
+                corpo é \(F = k \cdot \rho
+                \cdot A \cdot v^{2}\), onde \(\rho\) é densidade, \(A\) é área, \(v\) é velocidade e \(k\) é uma constante.
+                Determine a unidade de \(k\) no SI para que a
+                equação seja dimensionalmente homogênea.
+                </dd>
+                </dl>
+                <h1 id="respostas">Respostas</h1>
+                <p>Caro estudante, seguem as respostas
+                <strong>completas</strong> e <strong>detalhadas</strong>
+                dos exercícios de fixação da <a
+                href="https://drive.google.com/file/d/1h0pyqsaucaSSvR79QUuDNmA9oxFOmegH/view?usp=drive_link">aula
+                anterior</a>.</p>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=L1YU6B9ofwc" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/fig-ytb-boson-si.png" alt="Unidades de Medida e o Sistema Internacional de Unidades" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Unidades de Medida e o Sistema Internacional de Unidades</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=L1YU6B9ofwc" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Bóson Ciências, Cérebro e Aprendizagem.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=L1YU6B9ofwc" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=O_6_o9NI_lY" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-engenharia-unidades.png" alt="Exercício Como Fazer Transformação de Unidades" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Exercício Como Fazer Transformação de Unidades</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=O_6_o9NI_lY" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Engenharia e Cia: Acadêmico.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=O_6_o9NI_lY" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>ÇENGEL, Yunus A.; CIMBALA, John M. <strong>Mecânica
+                dos fluidos: fundamentos e aplicações</strong>. Porto
+                Alegre: AMGH, 2015.</li>
+                <li>FOX, Robert W.; MCDONALD, Alan T.; PRITCHARD, Philip
+                J. <strong>Introdução à mecânica dos fluidos</strong>.
+                Rio de Janeiro: LTC, 2014.</li>
+                <li>MUNSON, Bruce R. et al. <strong>Fundamentos da
+                mecânica dos fluidos</strong>. Rio de Janeiro: LTC,
+                2013.</li>
+                <li>SISTEMA INTERNACIONAL DE UNIDADES. In: WIKIPÉDIA: a
+                enciclopédia livre. [San Francisco, CA: Wikimedia
+                Foundation], 2026. Disponível em: <a
+                href="https://pt.wikipedia.org/wiki/Sistema_Internacional_de_Unidades"
+                class="uri">https://pt.wikipedia.org/wiki/Sistema_Internacional_de_Unidades</a>.
+                Acesso em: 02 mar. 2026.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initializeMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.startup.promise.then(() => {
+                    if (document.querySelector('.tex2jax_process')) {
+                        MathJax.typesetPromise().catch((err) => {
+                            console.log('MathJax erro:', err.message);
+                        });
+                    }
+                }).catch((err) => {
+                    console.error('MathJax falhou ao carregar:', err);
+                });
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            } else {
+                console.warn('MathJax não está disponível');
+            }
+        }
+        
+        if (typeof MathJax !== 'undefined') {
+            initializeMathJax();
+        } else {
+            window.addEventListener('MathJaxLoaded', initializeMathJax);
+        }
+    });
+    </script>
+</body>
+</html>
