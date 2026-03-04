@@ -421,7 +421,11 @@ def clean_pandoc_html_basic(html_content):
         (r'<figcaption>', r'<figcaption class="text-muted small mt-2">'),
         (r'<ul>', r'<ul class="mb-3">'),
         (r'<ol>', r'<ol class="mb-3">'),
-        (r'<p>', r'<p class="mb-3">'),
+        # CORREÇÃO COMPLETA PARA PARÁGRAFOS
+        (r'<p>', r'<p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">'),
+        # CORREÇÃO PARA NEGRITO (strong) - garantir que não fique azul
+        (r'<strong>', r'<strong style="font-weight: bold; color: #333333;">'),
+        (r'<strong([^>]*)>', lambda m: f'<strong{m.group(1)} style="font-weight: bold; color: #333333;">'),
     ]
     
     for pattern, replacement in replacements:
