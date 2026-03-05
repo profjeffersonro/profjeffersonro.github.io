@@ -107,7 +107,914 @@
                 </div>
                 
                     <div class="aula-content">
-                        <div class="aula-content tex2jax_process"><div><div><!-- Header --><!-- TOC --><!-- Conteúdo principal --><main><h1 id="objetivos" class="mt-4 mb-3 text-primary">Objetivos</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ao final desta aula, você deverá ser capaz de:</p><ul class="mb-3"><li>Compreender o <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">campo de estudo</strong> da Mecânica dos Fluidos e sua importância em aplicações cotidianas, tecnológicas e científicas.</li><li>Definir <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">fluido</strong> do ponto de vista mecânico e explicar por que ele se deforma continuamente sob ação de tensões tangenciais.</li><li>Diferenciar, com exemplos práticos, o comportamento mecânico de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">sólidos, líquidos e gases</strong>.</li><li>Conhecer, em linhas gerais, a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">evolução histórica</strong> da Mecânica dos Fluidos e seus principais protagonistas.</li><li>Definir e calcular a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">massa específica</strong> (ou densidade absoluta) de corpos homogêneos e misturas.</li><li>Definir <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">pressão</strong> e calcular a pressão média exercida por forças normais sobre superfícies, inclusive quando a força é aplicada com inclinação.</li><li>Aplicar corretamente os conceitos de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">algarismos significativos</strong> e realizar <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">cálculos diretos</strong> para evitar erros de arredondamento.</li></ul><h1 id="introdução" class="mt-4 mb-3 text-primary">Introdução</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Você já parou para pensar na quantidade de situações que envolvem o comportamento de fluidos no seu dia a dia?</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Desde o simples ato de tomar um copo d’água até o voo de um avião, passando pelo funcionamento do sistema circulatório, pelos freios hidráulicos de um carro, pelas previsões meteorológicas e até pela brincadeira de soprar a tampa de uma caneta, a Mecânica dos Fluidos está presente.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Mas, afinal, o que é um <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">fluido</strong>? Por que a água flui e o gelo, não? O que faz um avião voar? Como a pressão age nos pneus do carro? Por que os rios correm mais rápido em alguns trechos e mais devagar em outros?</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Essas perguntas, e muitas outras, são respondidas pela <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Mecânica dos Fluidos</strong>, o ramo da Física que estuda o comportamento de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">líquidos e gases</strong>, tanto em <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">repouso</strong> quanto em <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">movimento</strong>, bem como suas interações com superfícies sólidas e com outros fluidos.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A Mecânica dos Fluidos se divide, de modo geral, em duas grandes áreas:</p><ul class="mb-3"><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Estática dos Fluidos (Hidrostática)</strong>: estuda fluidos em repouso, como a pressão no fundo de uma piscina ou o empuxo que mantém um navio flutuando.</li><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Dinâmica dos Fluidos (Hidrodinâmica)</strong>: estuda fluidos em movimento, como o escoamento de água em canos, o fluxo de ar sobre uma asa de avião ou a circulação do sangue nas artérias.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Nesta aula inicial, nosso foco estará nos <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">conceitos fundamentais</strong>, a própria definição de fluido, as propriedades como massa específica e pressão, e um passeio pela história dessa ciência, que servirão de base para o estudo sistemático da hidrostática e, posteriormente, da hidrodinâmica.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ao final desta jornada, você não apenas compreenderá melhor o mundo ao seu redor, como também estará preparado para resolver problemas práticos e para as próximas etapas do curso.</p><h1 id="conceito-de-fluido" class="mt-4 mb-3 text-primary">Conceito de fluido</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Um fluido, ao contrário de um sólido, é uma substância que pode <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">escoar</strong>. Os fluidos assumem a forma do recipiente em que são colocados, pois <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">não resistem a forças paralelas à superfície</strong>.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">De forma intuitiva, os fluidos incluem <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">líquidos</strong> e <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">gases</strong>.</p><figure class="text-center my-4"><img src="images/fig-matéria.png" style="width:80.0%" alt="Arranjo de átomos em estados diferentes. Fonte: Çengel e Yunus." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Arranjo de átomos em estados diferentes. Fonte: Çengel e Yunus.</figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Definição formal</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">De forma mais rigorosa, chamamos de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">fluido</strong> toda substância que se <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">deforma continuamente</strong> quando submetida a uma <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">tensão tangencial</strong>, por menor que ela seja.</p><ul class="mb-3"><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Sólidos</strong> resistem a tensões de cisalhamento.</li><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Fluidos</strong> não resistem: qualquer cisalhamento provoca escoamento.</li></ul><figure class="text-center my-4"><img src="images/fig-definição-fluidos.png" style="width:90.0%" alt="Cisalhamento em sólido e fluido. Fonte: Fox e McDonald." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Cisalhamento em sólido e fluido. Fonte: Fox e McDonald.</figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Em particular:</p><ul class="mb-3"><li>Um <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">líquido</strong> possui volume definido, mas não forma própria.</li><li>Um <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">gás</strong> não possui nem forma nem volume definidos.</li></ul><h1 id="breve-história-da-mecânica-dos-fluidos" class="mt-4 mb-3 text-primary">Breve História da Mecânica dos Fluidos</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A Mecânica dos Fluidos, como muitos ramos da Física, desenvolveu-se a partir de necessidades práticas e, posteriormente, consolidou-se como ciência através de experimentos e formulações matemáticas. Vamos conhecer os principais marcos dessa jornada.</p><h2 id="antiguidade-as-primeiras-aplicações" class="mt-4 mb-3 text-secondary">Antiguidade: As Primeiras Aplicações</h2><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Archimedes_%28Idealportrait%29.jpg" style="width:40.0%" alt="Retrato de Arquimedes de Siracusa (287-212 a.C.). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Arquimedes de Siracusa (287-212 a.C.). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Archimedes_%28Idealportrait%29.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Arquimedes de Siracusa</strong> é considerado um dos precursores. Seu famoso princípio — <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">“todo corpo imerso em um fluido sofre um empuxo igual ao peso do fluido deslocado”</strong> — foi o primeiro tratamento quantitativo dado a um fenômeno envolvendo fluidos. Reza a lenda que ele teria descoberto esse princípio ao entrar em uma banheira e, eufórico, saído correndo nu pelas ruas gritando “Eureka!” (achei!).</p><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Archimede_bain.jpg" style="width:50.0%" alt="Ilustração de Arquimedes na banheira descobrindo o princípio do empuxo. Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Ilustração de Arquimedes na banheira descobrindo o princípio do empuxo. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Archimede_bain.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Na mesma época, os romanos já construíam <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">aquedutos</strong> e sistemas de abastecimento de água, demonstrando conhecimento empírico de escoamento em canais, ainda que sem uma base teórica formal.</p><h2 id="idade-média-e-renascimento-avanços-práticos" class="mt-4 mb-3 text-secondary">Idade Média e Renascimento: Avanços Práticos</h2><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_self.jpg" style="width:30.0%" alt="Retrato de Leonardo da Vinci (1452-1519). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Leonardo da Vinci (1452-1519). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_self.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Durante a Idade Média, o desenvolvimento da Mecânica dos Fluidos esteve ligado à construção de moinhos d’água, canais de navegação e sistemas de irrigação. No Renascimento, <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Leonardo da Vinci</strong> fez observações detalhadas do escoamento da água, desenhando <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">fluxos, redemoinhos e turbulências</strong> em seus cadernos. Ele compreendeu intuitivamente a conservação da massa em escoamentos, mas suas observações não foram formalizadas matematicamente.</p><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_RCIN_912660%2C_Studies_of_water_c.1510-12.jpg" style="width:30.0%" alt="Estudos de hidrodinâmica de Leonardo da Vinci mostrando padrões de escoamento de água. Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Estudos de hidrodinâmica de Leonardo da Vinci mostrando padrões de escoamento de água. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_RCIN_912660%2C_Studies_of_water_c.1510-12.jpg">Wikimedia Commons.</a></figcaption></figure><h2 id="século-xvii-a-pressão-em-foco" class="mt-4 mb-3 text-secondary">Século XVII: A Pressão em Foco</h2><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Evangelista_Torricelli_by_Lorenzo_Lippi_%28circa_1647%2C_Galleria_Silvano_Lodi_%26_Due%29.jpg" style="width:30.0%" alt="Retrato de Evangelista Torricelli (1608-1647). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Evangelista Torricelli (1608-1647). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Evangelista_Torricelli_by_Lorenzo_Lippi_%28circa_1647%2C_Galleria_Silvano_Lodi_%26_Due%29.jpg">Wikimedia Commons.</a></figcaption></figure><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Torricelli_experiment_schema.svg" style="width:20.0%" alt="Esquema do experimento de Torricelli com barômetro de mercúrio. Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Esquema do experimento de Torricelli com barômetro de mercúrio. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Torricelli_experiment_schema.svg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Evangelista Torricelli</strong>, aluno de Galileu, inventou o <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">barômetro de mercúrio</strong> e demonstrou que o ar tem peso. A experiência de Torricelli (1643) criou vácuo no topo de um tubo de mercúrio, provando que a pressão atmosférica sustenta a coluna líquida.</p><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Blaise_pascal.jpg" style="width:40.0%" alt="Retrato de Blaise Pascal (1623-1662). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Blaise Pascal (1623-1662). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Blaise_pascal.jpg">Wikimedia Commons.</a></figcaption></figure><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hydraulic_press.svg" style="width:40.0%" alt="Esquema de funcionamento de uma prensa hidráulica baseada na Lei de Pascal. Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Esquema de funcionamento de uma prensa hidráulica baseada na Lei de Pascal. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Hydraulic_press.svg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Blaise Pascal</strong> formulou a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Lei de Pascal</strong>: a pressão aplicada a um fluido em equilíbrio transmite-se integralmente a todos os pontos do fluido e às paredes do recipiente. Essa lei é a base do funcionamento de prensas hidráulicas, elevadores de carros e freios de automóveis.</p><h2 id="século-xviii-a-equação-de-bernoulli" class="mt-4 mb-3 text-secondary">Século XVIII: A Equação de Bernoulli</h2><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Daniel_Bernoulli_001.jpg" style="width:30.0%" alt="Retrato de Daniel Bernoulli (1700-1782). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Daniel Bernoulli (1700-1782). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Daniel_Bernoulli_001.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Daniel Bernoulli</strong>, em sua obra <em>Hydrodynamica</em> (1738), estabeleceu a relação entre pressão, velocidade e altura em um fluido em movimento, conhecida hoje como <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Equação de Bernoulli</strong>. Embora sua dedução original fosse mais conceitual que matemática, ela representa a aplicação do princípio da conservação da energia aos fluidos.</p><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonhard_Euler_2.jpg" style="width:30.0%" alt="Retrato de Leonhard Euler (1707-1783). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Leonhard Euler (1707-1783). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Leonhard_Euler_2.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Paralelamente, <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Leonhard Euler</strong>, contemporâneo e amigo de Bernoulli, desenvolveu as equações diferenciais que descrevem o movimento de fluidos ideais (sem viscosidade), as chamadas <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Equações de Euler</strong>, dando à Mecânica dos Fluidos uma base matemática rigorosa.</p><h2 id="século-xix-viscosidade-e-turbulência" class="mt-4 mb-3 text-secondary">Século XIX: Viscosidade e Turbulência</h2><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Claude-Louis_Navier.jpg" style="width:30.0%" alt="Retrato de Claude-Louis Navier (1785-1836). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Claude-Louis Navier (1785-1836). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Claude-Louis_Navier.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Claude-Louis Navier</strong>, engenheiro e físico francês, iniciou os trabalhos que levariam às equações fundamentais da dinâmica dos fluidos viscosos.</p><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/George_Gabriel_Stokes.jpg" style="width:30.0%" alt="Retrato de George Gabriel Stokes (1819-1903). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de George Gabriel Stokes (1819-1903). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/George_Gabriel_Stokes.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">George Gabriel Stokes</strong>, físico e matemático irlandês, generalizou as equações de Euler para incluir os efeitos da viscosidade, resultando nas famosas <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Equações de Navier-Stokes</strong>, que até hoje são a base da Dinâmica dos Fluidos e um dos maiores desafios matemáticos da Física (seu comportamento para escoamentos turbulentos é tema do Prêmio do Milênio).</p><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osborne_Reynolds.jpg" style="width:30.0%" alt="Retrato de Osborne Reynolds (1842-1912). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Osborne Reynolds (1842-1912). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Osborne_Reynolds.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Osborne Reynolds</strong>, através de experimentos cuidadosos, identificou a transição entre escoamento <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">laminar</strong> (suave e ordenado) e <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">turbulento</strong> (caótico e com redemoinhos). Ele introduziu um número adimensional, hoje chamado <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Número de Reynolds</strong>, que permite prever qual regime de escoamento ocorrerá.</p><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Henry_Darcy.jpg" style="width:30.0%" alt="Retrato de Henry Darcy (1803-1858). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Henry Darcy (1803-1858). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Henry_Darcy.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Henry Darcy</strong>, engenheiro francês, estudou o escoamento em tubos e meios porosos, dando nome à <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Lei de Darcy</strong>, fundamental para hidrologia e engenharia de petróleo.</p><h2 id="século-xx-em-diante-a-era-moderna" class="mt-4 mb-3 text-secondary">Século XX em diante: A Era Moderna</h2><figure class="text-center my-4"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig_Prandtl_1904.jpg" style="width:40.0%" alt="Retrato de Ludwig Prandtl (1875-1953). Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Retrato de Ludwig Prandtl (1875-1953). Fonte: <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig_Prandtl_1904.jpg">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Ludwig Prandtl</strong>, considerado o pai da aerodinâmica moderna, desenvolveu o conceito de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">camada limite</strong>, que explica como a viscosidade afeta o escoamento próximo a superfícies sólidas.</p><figure class="text-center my-4"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif" style="width:40.0%" alt="Simulação computacional de escoamento de fluido ao redor de uma asa. Fonte: Wikimedia Commons." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Simulação computacional de escoamento de fluido ao redor de uma asa. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif">Wikimedia Commons.</a></figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A aviação comercial, a exploração espacial, a meteorologia, a oceanografia e a bioengenharia são áreas que dependem fundamentalmente da Mecânica dos Fluidos. Atualmente, a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Fluidodinâmica Computacional (CFD)</strong> permite simular escoamentos complexos em computadores, desde o fluxo sanguíneo em artérias até a aerodinâmica de carros de Fórmula 1 e foguetes.</p><h1 id="massa-específica" class="mt-4 mb-3 text-primary">Massa específica</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">massa específica</strong><span class="math">\(\rho\)</span> é definida formalmente por:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">ou, de forma diferencial,</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \boxed{\rho = \frac{dm}{dV}} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">No SI:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ [\rho] = \text{kg/m}^3 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para fluidos <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">incompressíveis</strong> (bons líquidos), <span class="math">\(\rho\)</span> pode ser considerada constante, levando à forma prática:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \boxed{\rho = \frac{m}{V}} \]</span></p><h2 id="exemplo-1.1---cálculo-da-massa-específico-de-um-óleo" class="mt-4 mb-3 text-secondary">Exemplo 1.1 - Cálculo da massa específico de um óleo</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Um tanque contém <span class="math">\(500\,\text{l}\)</span> de óleo com massa total de <span class="math">\(430\,\text{kg}\)</span>. Sabendo que <span class="math">\(1\,\text{l} = 10^{-3}\,\text{m}^3\)</span> e que o óleo é homogêneo e incomprensível, determine a massa específica deste óleo em <span class="math">\(\text{kg}/\text{m}^3\)</span>.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Solução</strong>:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ V = 500 \times 10^{-3} \, \text{m}^{3} = 0{,}500\,\text{m}^3 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho = \frac{430\,kg}{0{,}500\,m^{3}} = 860\,\text{kg}/\text{m}^3 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Portanto, a densidade deste óleo é:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \boxed{\rho = 860\,\text{kg}/\text{m}^3} \]</span></p><h2 id="exemplo-1.2---densidade-média-de-uma-mistura-gasolina-etanol" class="mt-4 mb-3 text-secondary">Exemplo 1.2 - Densidade média de uma mistura (gasolina + etanol)</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Em um reservatório, mistura-se <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">gasolina</strong> e <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">etanol</strong> de modo que:</p><ul class="mb-3"><li>70,0% do volume total é gasolina.</li><li>30,0% do volume total é etanol.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Considere as massas específicas:</p><ul class="mb-3"><li>Gasolina: <span class="math">\(\rho_g = 740\,\text{kg/m}^3\)</span>.</li><li>Etanol: <span class="math">\(\rho_e = 790\,\text{kg/m}^3\)</span>.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Assumindo que esta representa uma mistura ideal, isto é, sem contração/expansão de volume ao misturar, determine a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">massa específica média</strong><span class="math">\(\rho_m\)</span> da mistura em <span class="math">\(\text{kg}/\text{m}^3\)</span>.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Método 1: Média Ponderada (mais rápido e prático)</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para misturas ideais, a massa específica média é a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">média ponderada</strong> das massas específicas dos componentes, usando as <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">frações volumétricas</strong> como pesos:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = \rho_g \cdot f_g + \rho_e \cdot f_e \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Onde: - <span class="math">$f_g = 0{,}700$</span> (fração volumétrica de gasolina) - <span class="math">$f_e = 0{,}300$</span> (fração volumétrica de etanol)</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Substituindo os valores em uma única expressão:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = 740 \times 0{,}700 + 790 \times 0{,}300 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Calculando de uma só vez:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = 518 + 237 = 755\,\text{kg/m}^3 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Análise de algarismos significativos:</strong></p><ul class="mb-3"><li><span class="math">$740$</span> possui <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">3 algarismos significativos</strong></li><li><span class="math">$790$</span> possui <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">3 algarismos significativos</strong></li><li><span class="math">$0{,}700$</span> e <span class="math">$0{,}300$</span> são frações exatas (derivadas de 70,0% e 30,0%, que têm 3 algarismos significativos)</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">O resultado deve ter <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">3 algarismos significativos</strong>: <span class="math">\(755\,\text{kg/m}^3\)</span> já está com 3 algarismos.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Método 2: Dedução algébrica (conceitual)</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A massa total da mistura é a soma das massas de cada componente:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ m_{\text{tot}} = m_g + m_e \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Como <span class="math">\(m = \rho \cdot V\)</span>, temos:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ m_{\text{tot}} = \rho_g V_g + \rho_e V_e \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A massa específica média é definida como:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = \frac{m_{\text{tot}}}{V_{\text{tot}}} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Substituindo:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = \frac{\rho_g V_g + \rho_e V_e}{V_{\text{tot}}} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Reorganizando:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = \rho_g \cdot \frac{V_g}{V_{\text{tot}}} + \rho_e \cdot \frac{V_e}{V_{\text{tot}}} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">As frações volumétricas são exatamente:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \frac{V_g}{V_{\text{tot}}} = 0{,}700 \quad \text{e} \quad \frac{V_e}{V_{\text{tot}}} = 0{,}300 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Portanto:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = \rho_g \cdot 0{,}700 + \rho_e \cdot 0{,}300 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Substituindo os valores numéricos em uma única expressão:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = 740 \times 0{,}700 + 790 \times 0{,}300 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Calculando diretamente:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho_m = 518 + 237 = 755\,\text{kg/m}^3 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resultado Final</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">$$ </p><h1 id="pressão-em-um-fluido" class="mt-4 mb-3 text-primary">Pressão em um fluido</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">pressão</strong><span class="math">$p$</span> em um ponto é definida como o limite da razão entre a força <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">normal</strong> (<span class="math">\(F_\perp\)</span> )exercida sobre uma superfície e a área dessa superfície (<span class="math">$A$</span>), quando a área tende a zero:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ p = \lim_{\Delta A \to 0} \frac{\Delta F_\perp}{\Delta A} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Na forma diferencial:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ p = \frac{dF_\perp}{dA} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">No Sistema Internacional:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ 1\,\text{Pa} = 1\,\text{N/m}^2 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Pressão em fluidos em repouso</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Em um fluido em <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">equilíbrio</strong>, não existem tensões tangenciais internas. Assim, a pressão atua igualmente em todas as direções e pode ser tratada como uma <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">grandeza escalar</strong>.</p><h2 id="exemplo-1.3---cálculo-da-pressão-exercida-pela-força-peso" class="mt-4 mb-3 text-secondary">Exemplo 1.3 - Cálculo da pressão exercida pela força peso</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Uma pessoa de massa <span class="math">\(70\,\text{kg}\)</span> apoia-se sobre um único pé, cuja área de contato com o solo é <span class="math">\(150\,\text{cm}^2\)</span>. Estime a pressão exercida em Pa.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Solução</strong>:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ A = 150\,\text{cm}^{2} = 150\times10^{-4}\,\text{m}^{2} = 1{,}50\times10^{-2}\,\text{m}^2 \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ p = \dfrac{F}{A} \rightarrow p = \dfrac{mg}{A} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Usando o valor paroximado para acelaração da gravidade <span class="math">\(g = 9,8\, m/s^{2}\)</span> e substituindo os valores numéricos:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ p = \dfrac{70\,\text{kg} \cdot 9,8\,\text{m}/\text{s}^{2}}{1{,}50 \times 10^{-2}\,\text{m}^{2}} \rightarrow p = 4{,}6\times10^{4}\,\text{Pa} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Portanto:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \boxed{p = 4{,}6 \times 10^{4}\,\text{Pa}} \]</span></p><h2 id="exemplo-1.4---cálculo-da-pressão-exercida-por-uma-força-formando-um-ângulo" class="mt-4 mb-3 text-secondary">Exemplo 1.4 - Cálculo da pressão exercida por uma força formando um ângulo</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Uma força de intensidade <span class="math">\(F = 120\,\text{N}\)</span> é aplicada sobre a superfície de uma placa plana de área <span class="math">\(A = 0{,}015\,\text{m}^2\)</span> fazendo um ângulo de <span class="math">\(\theta = 30^\circ\)</span> com a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">normal</strong> à placa (isto é, o ângulo é medido em relação à direção perpendicular à superfície).</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Determine:</p><ol type="a"><li>A componente normal da força, <span class="math">\(F_\perp\)</span> em N.</li><li>A pressão média exercida sobre a placa em Pa.</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Solução</strong>:</p><ol type="1"><li>Componente normal da força</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Se o ângulo <span class="math">\(\theta\)</span> é medido em relação à <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">normal</strong>, então a componente normal é:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ F_\perp = F\cos\theta. \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Substituindo os valores:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ F_\perp = 120\,N\,\cos(30^\circ) \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ F_\perp = 104\ \text{N} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Logo,</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \boxed{F_\perp = 104\,\text{N}} \]</span></p><ol start="2" type="1"><li>Pressão média exercida</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A pressão média é:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ p = \frac{F_\perp}{A}. \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Substituindo:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ p = \frac{104}{0{,}015} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Portanto,</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \boxed{p = 6,9 \times 10^{3}\ \text{Pa}} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Observação importante</strong>:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Se o ângulo fosse informado <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">em relação ao plano</strong> (isto é, em relação à própria superfície), então a componente normal seria:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ F_\perp = F\sin\theta \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Pois, nesse caso, <span class="math">\(\theta\)</span> seria complementar ao ângulo medido em relação à normal.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Em problemas de pressão, sempre verifique <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">como o ângulo foi definido</strong>, pois a pressão depende exclusivamente da componente <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">normal</strong> da força.</p><h1 id="conclusão" class="mt-4 mb-3 text-primary">Conclusão</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Nesta aula introdutória, estabelecemos os <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">conceitos fundamentais</strong> da Mecânica dos Fluidos, incluindo definições formais de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">fluido</strong>, <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">massa específica</strong> e <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">pressão</strong>. Esses conceitos servirão de base para o estudo da <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">estática dos fluidos</strong>, onde analisaremos a variação da pressão em fluidos em repouso e suas aplicações práticas.</p><h1 id="exercícios-de-fixação" class="mt-4 mb-3 text-primary">Exercícios De Fixação</h1><dl><dt>1.1)</dt><dd> Um fluido é definido, do ponto de vista mecânico, como uma substância que: </dd></dl><ol type="a"><li>Possui sempre volume constante e forma própria.</li><li>Resiste a tensões normais, mas não a tangenciais.</li><li>Se deforma continuamente sob qualquer tensão tangencial, por menor que seja.</li><li>Apresenta apenas deformações elásticas.</li><li>Não sofre deformações quando submetida a forças externas.</li></ol><dl><dt>1.2)</dt><dd> A principal diferença mecânica entre sólidos e fluidos está relacionada à: </dd></dl><ol type="a"><li>Capacidade de ocupar volume.</li><li>Forma geométrica do material.</li><li>Resistência a forças normais.</li><li>Resposta às tensões de cisalhamento.</li><li>Massa específica do material.</li></ol><dl><dt>1.3)</dt><dd> Um líquido, diferentemente de um gás, caracteriza-se por: </dd></dl><ol type="a"><li>Não possuir forma nem volume definidos.</li><li>Possuir forma própria, mas não volume definido.</li><li>Possuir volume definido, mas não forma própria.</li><li>Não sofrer deformações quando submetido a forças.</li><li>Resistir permanentemente ao cisalhamento.</li></ol><dl><dt>1.4)</dt><dd> A pressão em um ponto de um fluido em repouso é definida fisicamente como: </dd></dl><ol type="a"><li>A força total exercida pelo fluido.</li><li>A razão entre a força tangencial e a área.</li><li>A força média distribuída pelo volume.</li><li>A força exercida apenas pelo peso do fluido.</li><li>A componente normal da força por unidade de área.</li></ol><dl><dt>1.5)</dt><dd> A definição formal de massa específica </dd></dl><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[ \rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V} \]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Indica que a massa específica é:</p><ol type="a"><li>Uma grandeza local associada a um ponto do fluido.</li><li>Uma grandeza global do sistema.</li><li>Uma propriedade que depende da forma do recipiente.</li><li>Uma grandeza válida apenas para sólidos.</li><li>Uma grandeza dependente exclusivamente da massa total.</li></ol><dl><dt>1.6)</dt><dd> Um recipiente contém um fluido homogêneo de massa total igual a <span class="math">\(m = 4{,}5\,\text{kg}\)</span>, ocupando um volume de <span class="math">\(V = 3{,}0\times10^{-3}\,\text{m}^3\)</span>. </dd></dl><ol type="a"><li>Determine a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">massa específica</strong> desse fluido em <span class="math">\(\text{kg}/\text{m}^{3}\)</span>.</li><li>Explique por que, nesse caso, é válido utilizar a expressão <span class="math">\(\rho = m/V\)</span> em vez da definição com limite.</li></ol><dl><dt>1.7)</dt><dd> Um tanque contém uma mistura ideal formada por dois líquidos: </dd></dl><ul class="mb-3"><li>Líquido A, com massa específica <span class="math">\(\rho_A = 800\,\text{kg/m}^3\)</span>, ocupando 20 litros.</li><li>Líquido B, com massa específica <span class="math">\(\rho_B = 1000\,\text{kg/m}^3\)</span>, ocupando 60 litros.</li></ul><ol type="a"><li>Determine a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">massa específica média</strong> da mistura em <span class="math">\(\text{kg}/\text{m}^{3}\)</span>.</li><li>Justifique por que o valor obtido deve estar entre <span class="math">\(\rho_A\)</span> e <span class="math">\(\rho_B\)</span>.</li></ol><dl><dt>1.8)</dt><dd> Uma força normal de intensidade <span class="math">\(F = 500\,\text{N}\)</span> é aplicada uniformemente sobre uma superfície plana de área <span class="math">\(A = 0{,}020\,\text{m}^2\)</span>. </dd></dl><ol type="a"><li>Calcule a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">pressão média</strong> exercida sobre a superfície em Pa.</li><li>Explique o significado físico do valor obtido no contexto da definição de pressão.</li></ol><dl><dt>1.9)</dt><dd> Uma força de módulo <span class="math">\(F = 200\,\text{N}\)</span> é aplicada sobre uma placa plana de área <span class="math">\(A = 0{,}025\,\text{m}^2\)</span>, formando um ângulo de <span class="math">\(\theta = 45^\circ\)</span> com a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">normal</strong> à superfície. </dd></dl><ol type="a"><li>Determine a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">componente normal da força</strong> que atua sobre a placa em N.</li><li>Calcule a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">pressão média</strong> exercida sobre a superfície em Pa.</li><li>Explique por que apenas a componente normal da força contribui para a pressão.</li></ol><dl><dt>1.10)</dt><dd> Um fluido exerce uma pressão uniforme de <span class="math">\(p = 3{,}0 \times 10^{4}\,\text{Pa}\)</span> sobre a base de um reservatório plano cuja área é <span class="math">\(A = 0{,}040\,\text{m}^2\)</span>. </dd></dl><ol type="a"><li>Determine a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">força normal</strong> exercida pelo fluido sobre essa base em N.</li><li>Explique como esse resultado está relacionado com a definição formal de pressão.</li></ol><h1 id="recomendações" class="mt-4 mb-3 text-primary">Recomendações</h1><div style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;"><a href="https://www.youtube.com/watch?v=szIGum_FbyE" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;"><img src="./images/thumbs/fig-ytb-historyfluids.png" alt="History of Fluid Mechanics" style="display:block; width:100%; height:auto;" loading="lazy" class="img-fluid rounded shadow mb-3"></a><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;"><div style="line-height:1.25; min-width:200px;"><strong style="color:#222;" style="font-weight: bold; color: #333333;">History of Fluid Mechanics</strong><br> Fonte: <a href="https://www.youtube.com/watch?v=szIGum_FbyE" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Engineering Theory.</a></div><div><a href="https://www.youtube.com/watch?v=szIGum_FbyE" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'"> Abrir ↗ </a></div></div></div><div style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;"><a href="https://www.youtube.com/watch?v=OUqMmIGvH44" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;"><img src="./images/thumbs/fig-ytb-coroarei.png" alt="Arquimedes e a Coroa do Rei Hierão" style="display:block; width:100%; height:auto;" loading="lazy" class="img-fluid rounded shadow mb-3"></a><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;"><div style="line-height:1.25; min-width:200px;"><strong style="color:#222;" style="font-weight: bold; color: #333333;">Arquimedes e a Coroa do Rei Hierão</strong><br> Fonte: <a href="https://www.youtube.com/watch?v=OUqMmIGvH44" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Oficiencia.</a></div><div><a href="https://www.youtube.com/watch?v=OUqMmIGvH44" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'"> Abrir ↗ </a></div></div></div><div style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;"><a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;"><img src="./images/thumbs/fig-ytb-ctdfluidos.png" alt="A equação mais difícil da Física" style="display:block; width:100%; height:auto;" loading="lazy" class="img-fluid rounded shadow mb-3"></a><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;"><div style="line-height:1.25; min-width:200px;"><strong style="color:#222;" style="font-weight: bold; color: #333333;">A equação mais difícil da Física</strong><br> Fonte: <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Ciência Todo Dia.</a></div><div><a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'"> Abrir ↗ </a></div></div></div><h1 id="referências" class="mt-4 mb-3 text-primary">Referências</h1><ul class="mb-3"><li>BIRD, R. Byron; STEWART, Warren E.; LIGHTFOOT, Edwin N. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Fenômenos de transporte</strong>. 2. ed. Rio de Janeiro: LTC, 2004.</li><li>BRUNETTI, Franco. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Mecânica dos fluidos</strong>. 2. ed. São Paulo: Pearson Prentice Hall, 2008.</li><li>ÇENGEL, Yunus A.; CIMBALA, John M. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Mecânica dos fluidos: fundamentos e aplicações</strong>. 3. ed. Porto Alegre: AMGH, 2015.</li><li>FOX, Robert W.; MCDONALD, Alan T.; PRITCHARD, Philip J. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Introdução à mecânica dos fluidos</strong>. 8. ed. Rio de Janeiro: LTC, 2014.</li><li>MUNSON, Bruce R.; YOUNG, Donald F.; OKIISHI, Theodore H. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Fundamentos da mecânica dos fluidos</strong>. 4. ed. São Paulo: Edgard Blücher, 2004.</li><li>POTTER, Merle C.; WIGGERT, David C. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Mecânica dos fluidos</strong>. 3. ed. São Paulo: Cengage Learning, 2014.</li><li>ROUSE, Hunter; INCE, Simon. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">History of hydraulics</strong>. Iowa: Iowa Institute of Hydraulic Research, 1957.</li><li>TOKATY, G. A. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">A history and philosophy of fluid mechanics</strong>. New York: Dover Publications, 1994.</li><li>TRUESDELL, Clifford. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Essays in the history of mechanics</strong>. Berlin: Springer-Verlag, 1968.</li><li>WHITE, Frank M. <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Mecânica dos fluidos</strong>. 8. ed. Porto Alegre: AMGH, 2018.</li></ul></main><!-- Footer --></div></div><!-- Bootstrap JS --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><!-- Script para MathJax --><script> document.addEventListener('DOMContentLoaded', function() { if (window.MathJax) { window.MathJax.typesetPromise(); } }); </script></div>
+                        
+    
+        
+            <!-- Header -->
+            
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender o <strong>campo de estudo</strong> da
+                Mecânica dos Fluidos e sua importância em aplicações
+                cotidianas, tecnológicas e científicas.</li>
+                <li>Definir <strong>fluido</strong> do ponto de vista
+                mecânico e explicar por que ele se deforma continuamente
+                sob ação de tensões tangenciais.</li>
+                <li>Diferenciar, com exemplos práticos, o comportamento
+                mecânico de <strong>sólidos, líquidos e
+                gases</strong>.</li>
+                <li>Conhecer, em linhas gerais, a <strong>evolução
+                histórica</strong> da Mecânica dos Fluidos e seus
+                principais protagonistas.</li>
+                <li>Definir e calcular a <strong>massa
+                específica</strong> (ou densidade absoluta) de corpos
+                homogêneos e misturas.</li>
+                <li>Definir <strong>pressão</strong> e calcular a
+                pressão média exercida por forças normais sobre
+                superfícies, inclusive quando a força é aplicada com
+                inclinação.</li>
+                <li>Aplicar corretamente os conceitos de
+                <strong>algarismos significativos</strong> e realizar
+                <strong>cálculos diretos</strong> para evitar erros de
+                arredondamento.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                Você já parou para pensar na quantidade de situações
+                que envolvem o comportamento de fluidos no seu dia a
+                dia?</p>
+                Desde o simples ato de tomar um copo d’água até o voo
+                de um avião, passando pelo funcionamento do sistema
+                circulatório, pelos freios hidráulicos de um carro,
+                pelas previsões meteorológicas e até pela brincadeira de
+                soprar a tampa de uma caneta, a Mecânica dos Fluidos
+                está presente.</p>
+                Mas, afinal, o que é um <strong>fluido</strong>? Por
+                que a água flui e o gelo, não? O que faz um avião voar?
+                Como a pressão age nos pneus do carro? Por que os rios
+                correm mais rápido em alguns trechos e mais devagar em
+                outros?</p>
+                Essas perguntas, e muitas outras, são respondidas
+                pela <strong>Mecânica dos Fluidos</strong>, o ramo da
+                Física que estuda o comportamento de <strong>líquidos e
+                gases</strong>, tanto em <strong>repouso</strong> quanto
+                em <strong>movimento</strong>, bem como suas interações
+                com superfícies sólidas e com outros fluidos.</p>
+                A Mecânica dos Fluidos se divide, de modo geral, em
+                duas grandes áreas:</p>
+                <ul>
+                <li><strong>Estática dos Fluidos
+                (Hidrostática)</strong>: estuda fluidos em repouso, como
+                a pressão no fundo de uma piscina ou o empuxo que mantém
+                um navio flutuando.</li>
+                <li><strong>Dinâmica dos Fluidos
+                (Hidrodinâmica)</strong>: estuda fluidos em movimento,
+                como o escoamento de água em canos, o fluxo de ar sobre
+                uma asa de avião ou a circulação do sangue nas
+                artérias.</li>
+                </ul>
+                Nesta aula inicial, nosso foco estará nos
+                <strong>conceitos fundamentais</strong>, a própria
+                definição de fluido, as propriedades como massa
+                específica e pressão, e um passeio pela história dessa
+                ciência, que servirão de base para o estudo sistemático
+                da hidrostática e, posteriormente, da hidrodinâmica.</p>
+                Ao final desta jornada, você não apenas compreenderá
+                melhor o mundo ao seu redor, como também estará
+                preparado para resolver problemas práticos e para as
+                próximas etapas do curso.</p>
+                <h1 id="conceito-de-fluido">Conceito de fluido</h1>
+                Um fluido, ao contrário de um sólido, é uma
+                substância que pode <strong>escoar</strong>. Os fluidos
+                assumem a forma do recipiente em que são colocados, pois
+                <strong>não resistem a forças paralelas à
+                superfície</strong>.</p>
+                De forma intuitiva, os fluidos incluem
+                <strong>líquidos</strong> e <strong>gases</strong>.</p>
+                <figure>
+                <img src="images/fig-matéria.png" style="width:80.0%"
+                alt="Arranjo de átomos em estados diferentes. Fonte: Çengel e Yunus." />
+                <figcaption aria-hidden="true">Arranjo de átomos em
+                estados diferentes. Fonte: Çengel e Yunus.</figcaption>
+                </figure>
+                <strong>Definição formal</strong></p>
+                De forma mais rigorosa, chamamos de
+                <strong>fluido</strong> toda substância que se
+                <strong>deforma continuamente</strong> quando submetida
+                a uma <strong>tensão tangencial</strong>, por menor que
+                ela seja.</p>
+                <ul>
+                <li><strong>Sólidos</strong> resistem a tensões de
+                cisalhamento.</li>
+                <li><strong>Fluidos</strong> não resistem: qualquer
+                cisalhamento provoca escoamento.</li>
+                </ul>
+                <figure>
+                <img src="images/fig-definição-fluidos.png"
+                style="width:90.0%"
+                alt="Cisalhamento em sólido e fluido. Fonte: Fox e McDonald." />
+                <figcaption aria-hidden="true">Cisalhamento em sólido e
+                fluido. Fonte: Fox e McDonald.</figcaption>
+                </figure>
+                Em particular:</p>
+                <ul>
+                <li>Um <strong>líquido</strong> possui volume definido,
+                mas não forma própria.</li>
+                <li>Um <strong>gás</strong> não possui nem forma nem
+                volume definidos.</li>
+                </ul>
+                <h1 id="breve-história-da-mecânica-dos-fluidos">Breve
+                História da Mecânica dos Fluidos</h1>
+                A Mecânica dos Fluidos, como muitos ramos da Física,
+                desenvolveu-se a partir de necessidades práticas e,
+                posteriormente, consolidou-se como ciência através de
+                experimentos e formulações matemáticas. Vamos conhecer
+                os principais marcos dessa jornada.</p>
+                <h2
+                id="antiguidade-as-primeiras-aplicações">Antiguidade: As
+                Primeiras Aplicações</h2>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Archimedes_%28Idealportrait%29.jpg" style="width:40.0%"
+                alt="Retrato de Arquimedes de Siracusa (287-212 a.C.). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Arquimedes de
+                Siracusa (287-212 a.C.). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Archimedes_%28Idealportrait%29.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Arquimedes de Siracusa</strong> é considerado
+                um dos precursores. Seu famoso princípio — <strong>“todo
+                corpo imerso em um fluido sofre um empuxo igual ao peso
+                do fluido deslocado”</strong> — foi o primeiro
+                tratamento quantitativo dado a um fenômeno envolvendo
+                fluidos. Reza a lenda que ele teria descoberto esse
+                princípio ao entrar em uma banheira e, eufórico, saído
+                correndo nu pelas ruas gritando “Eureka!” (achei!).</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Archimede_bain.jpg"
+                style="width:50.0%"
+                alt="Ilustração de Arquimedes na banheira descobrindo o princípio do empuxo. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Ilustração de Arquimedes
+                na banheira descobrindo o princípio do empuxo. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Archimede_bain.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                Na mesma época, os romanos já construíam
+                <strong>aquedutos</strong> e sistemas de abastecimento
+                de água, demonstrando conhecimento empírico de
+                escoamento em canais, ainda que sem uma base teórica
+                formal.</p>
+                <h2
+                id="idade-média-e-renascimento-avanços-práticos">Idade
+                Média e Renascimento: Avanços Práticos</h2>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_self.jpg" style="width:30.0%"
+                alt="Retrato de Leonardo da Vinci (1452-1519). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Leonardo da
+                Vinci (1452-1519). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_self.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                Durante a Idade Média, o desenvolvimento da Mecânica
+                dos Fluidos esteve ligado à construção de moinhos
+                d’água, canais de navegação e sistemas de irrigação. No
+                Renascimento, <strong>Leonardo da Vinci</strong> fez
+                observações detalhadas do escoamento da água, desenhando
+                <strong>fluxos, redemoinhos e turbulências</strong> em
+                seus cadernos. Ele compreendeu intuitivamente a
+                conservação da massa em escoamentos, mas suas
+                observações não foram formalizadas matematicamente.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_RCIN_912660%2C_Studies_of_water_c.1510-12.jpg"
+                style="width:30.0%"
+                alt="Estudos de hidrodinâmica de Leonardo da Vinci mostrando padrões de escoamento de água. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Estudos de hidrodinâmica
+                de Leonardo da Vinci mostrando padrões de escoamento de
+                água. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_RCIN_912660%2C_Studies_of_water_c.1510-12.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <h2 id="século-xvii-a-pressão-em-foco">Século XVII: A
+                Pressão em Foco</h2>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Evangelista_Torricelli_by_Lorenzo_Lippi_%28circa_1647%2C_Galleria_Silvano_Lodi_%26_Due%29.jpg" style="width:30.0%"
+                alt="Retrato de Evangelista Torricelli (1608-1647). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Evangelista
+                Torricelli (1608-1647). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Evangelista_Torricelli_by_Lorenzo_Lippi_%28circa_1647%2C_Galleria_Silvano_Lodi_%26_Due%29.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Torricelli_experiment_schema.svg"
+                style="width:20.0%"
+                alt="Esquema do experimento de Torricelli com barômetro de mercúrio. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Esquema do experimento de
+                Torricelli com barômetro de mercúrio. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Torricelli_experiment_schema.svg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Evangelista Torricelli</strong>, aluno de
+                Galileu, inventou o <strong>barômetro de
+                mercúrio</strong> e demonstrou que o ar tem peso. A
+                experiência de Torricelli (1643) criou vácuo no topo de
+                um tubo de mercúrio, provando que a pressão atmosférica
+                sustenta a coluna líquida.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Blaise_pascal.jpg" style="width:40.0%"
+                alt="Retrato de Blaise Pascal (1623-1662). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Blaise Pascal
+                (1623-1662). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Blaise_pascal.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hydraulic_press.svg"
+                style="width:60.0%"
+                alt="Esquema de funcionamento de uma prensa hidráulica baseada na Lei de Pascal. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Esquema de funcionamento
+                de uma prensa hidráulica baseada na Lei de Pascal.
+                Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Hydraulic_press.svg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Blaise Pascal</strong> formulou a <strong>Lei
+                de Pascal</strong>: a pressão aplicada a um fluido em
+                equilíbrio transmite-se integralmente a todos os pontos
+                do fluido e às paredes do recipiente. Essa lei é a base
+                do funcionamento de prensas hidráulicas, elevadores de
+                carros e freios de automóveis.</p>
+                <h2 id="século-xviii-a-equação-de-bernoulli">Século
+                XVIII: A Equação de Bernoulli</h2>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Daniel_Bernoulli_001.jpg" style="width:30.0%"
+                alt="Retrato de Daniel Bernoulli (1700-1782). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Daniel
+                Bernoulli (1700-1782). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Daniel_Bernoulli_001.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Daniel Bernoulli</strong>, em sua obra
+                <em>Hydrodynamica</em> (1738), estabeleceu a relação
+                entre pressão, velocidade e altura em um fluido em
+                movimento, conhecida hoje como <strong>Equação de
+                Bernoulli</strong>. Embora sua dedução original fosse
+                mais conceitual que matemática, ela representa a
+                aplicação do princípio da conservação da energia aos
+                fluidos.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonhard_Euler_2.jpg" style="width:30.0%"
+                alt="Retrato de Leonhard Euler (1707-1783). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Leonhard Euler
+                (1707-1783). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Leonhard_Euler_2.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                Paralelamente, <strong>Leonhard Euler</strong>,
+                contemporâneo e amigo de Bernoulli, desenvolveu as
+                equações diferenciais que descrevem o movimento de
+                fluidos ideais (sem viscosidade), as chamadas
+                <strong>Equações de Euler</strong>, dando à Mecânica dos
+                Fluidos uma base matemática rigorosa.</p>
+                <h2 id="século-xix-viscosidade-e-turbulência">Século
+                XIX: Viscosidade e Turbulência</h2>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Claude-Louis_Navier.jpg" style="width:30.0%"
+                alt="Retrato de Claude-Louis Navier (1785-1836). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Claude-Louis
+                Navier (1785-1836). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Claude-Louis_Navier.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Claude-Louis Navier</strong>, engenheiro e
+                físico francês, iniciou os trabalhos que levariam às
+                equações fundamentais da dinâmica dos fluidos
+                viscosos.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/George_Gabriel_Stokes.jpg" style="width:30.0%"
+                alt="Retrato de George Gabriel Stokes (1819-1903). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de George Gabriel
+                Stokes (1819-1903). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/George_Gabriel_Stokes.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>George Gabriel Stokes</strong>, físico e
+                matemático irlandês, generalizou as equações de Euler
+                para incluir os efeitos da viscosidade, resultando nas
+                famosas <strong>Equações de Navier-Stokes</strong>, que
+                até hoje são a base da Dinâmica dos Fluidos e um dos
+                maiores desafios matemáticos da Física (seu
+                comportamento para escoamentos turbulentos é tema do
+                Prêmio do Milênio).</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osborne_Reynolds.jpg" style="width:30.0%"
+                alt="Retrato de Osborne Reynolds (1842-1912). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Osborne
+                Reynolds (1842-1912). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Osborne_Reynolds.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Osborne Reynolds</strong>, através de
+                experimentos cuidadosos, identificou a transição entre
+                escoamento <strong>laminar</strong> (suave e ordenado) e
+                <strong>turbulento</strong> (caótico e com redemoinhos).
+                Ele introduziu um número adimensional, hoje chamado
+                <strong>Número de Reynolds</strong>, que permite prever
+                qual regime de escoamento ocorrerá.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Henry_Darcy.jpg" style="width:30.0%"
+                alt="Retrato de Henry Darcy (1803-1858). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Henry Darcy
+                (1803-1858). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Henry_Darcy.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Henry Darcy</strong>, engenheiro francês,
+                estudou o escoamento em tubos e meios porosos, dando
+                nome à <strong>Lei de Darcy</strong>, fundamental para
+                hidrologia e engenharia de petróleo.</p>
+                <h2 id="século-xx-em-diante-a-era-moderna">Século XX em
+                diante: A Era Moderna</h2>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig_Prandtl_1904.jpg" style="width:50.0%"
+                alt="Retrato de Ludwig Prandtl (1875-1953). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Ludwig Prandtl
+                (1875-1953). Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig_Prandtl_1904.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Ludwig Prandtl</strong>, considerado o pai da
+                aerodinâmica moderna, desenvolveu o conceito de
+                <strong>camada limite</strong>, que explica como a
+                viscosidade afeta o escoamento próximo a superfícies
+                sólidas.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif" style="width:50.0%"
+                alt="Simulação computacional de escoamento de fluido ao redor de uma asa. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Simulação computacional
+                de escoamento de fluido ao redor de uma asa. Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Flow_around_a_wing.gif">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                A aviação comercial, a exploração espacial, a
+                meteorologia, a oceanografia e a bioengenharia são áreas
+                que dependem fundamentalmente da Mecânica dos Fluidos.
+                Atualmente, a <strong>Fluidodinâmica Computacional
+                (CFD)</strong> permite simular escoamentos complexos em
+                computadores, desde o fluxo sanguíneo em artérias até a
+                aerodinâmica de carros de Fórmula 1 e foguetes.</p>
+                <h1 id="massa-específica">Massa específica</h1>
+                A <strong>massa específica</strong> \(\rho\) é definida
+                formalmente por:</p>
+                \[
+                \rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+                \]</p>
+                ou, de forma diferencial,</p>
+                \[
+                \boxed{\rho = \frac{dm}{dV}}
+                \]</p>
+                No SI:</p>
+                \[
+                [\rho] = \text{kg/m}^3
+                \]</p>
+                Para fluidos <strong>incompressíveis</strong> (bons
+                líquidos), \(\rho\)
+                pode ser considerada constante, levando à forma
+                prática:</p>
+                \[
+                \boxed{\rho = \frac{m}{V}}
+                \]</p>
+                <h2
+                id="exemplo-1.1---cálculo-da-massa-específico-de-um-óleo">Exemplo
+                1.1 - Cálculo da massa específico de um óleo</h2>
+                Um tanque contém \(500\,\text{l}\) de óleo com
+                massa total de \(430\,\text{kg}\). Sabendo
+                que \(1\,\text{l} =
+                10^{-3}\,\text{m}^3\) e que o óleo é homogêneo e
+                incomprensível, determine a massa específica deste óleo
+                em \(\text{kg}/\text{m}^3\).</p>
+                <strong>Solução</strong>:</p>
+                \[
+                V = 500 \times 10^{-3} \, \text{m}^{3} =
+                0{,}500\,\text{m}^3
+                \]</p>
+                \[
+                \rho = \frac{430\,kg}{0{,}500\,m^{3}} =
+                860\,\text{kg}/\text{m}^3
+                \]</p>
+                Portanto, a densidade deste óleo é:</p>
+                \[
+                \boxed{\rho = 860\,\text{kg}/\text{m}^3}
+                \]</p>
+                <h2
+                id="exemplo-1.2---densidade-média-de-uma-mistura-gasolina-etanol">Exemplo
+                1.2 - Densidade média de uma mistura (gasolina +
+                etanol)</h2>
+                Em um reservatório, mistura-se
+                <strong>gasolina</strong> e <strong>etanol</strong> de
+                modo que:</p>
+                <ul>
+                <li>70,0% do volume total é gasolina.</li>
+                <li>30,0% do volume total é etanol.</li>
+                </ul>
+                Considere as massas específicas:</p>
+                <ul>
+                <li>Gasolina: \(\rho_g =
+                740\,\text{kg/m}^3\).</li>
+                <li>Etanol: \(\rho_e =
+                790\,\text{kg/m}^3\).</li>
+                </ul>
+                Assumindo que esta representa uma mistura ideal, isto
+                é, sem contração/expansão de volume ao misturar,
+                determine a <strong>massa específica média</strong>
+                \(\rho_m\) da mistura
+                em \(\text{kg}/\text{m}^3\).</p>
+                <strong>Método 1: Média Ponderada (mais rápido e
+                prático)</strong></p>
+                Para misturas ideais, a massa específica média é a
+                <strong>média ponderada</strong> das massas específicas
+                dos componentes, usando as <strong>frações
+                volumétricas</strong> como pesos:</p>
+                \[
+                \rho_m = \rho_g \cdot f_g + \rho_e \cdot f_e
+                \]</p>
+                Onde: - \(f_g =
+                0{,}700\) (fração volumétrica de gasolina) -
+                \(f_e = 0{,}300\)
+                (fração volumétrica de etanol)</p>
+                Substituindo os valores em uma única expressão:</p>
+                \[
+                \rho_m = 740 \times 0{,}700 + 790 \times 0{,}300
+                \]</p>
+                Calculando de uma só vez:</p>
+                \[
+                \rho_m = 518 + 237 = 755\,\text{kg/m}^3
+                \]</p>
+                <strong>Análise de algarismos
+                significativos:</strong></p>
+                <ul>
+                <li>\(740\) possui
+                <strong>3 algarismos significativos</strong></li>
+                <li>\(790\) possui
+                <strong>3 algarismos significativos</strong></li>
+                <li>\(0{,}700\) e \(0{,}300\) são frações
+                exatas (derivadas de 70,0% e 30,0%, que têm 3 algarismos
+                significativos)</li>
+                </ul>
+                O resultado deve ter <strong>3 algarismos
+                significativos</strong>: \(755\,\text{kg/m}^3\) já
+                está com 3 algarismos.</p>
+                <strong>Método 2: Dedução algébrica
+                (conceitual)</strong></p>
+                A massa total da mistura é a soma das massas de cada
+                componente:</p>
+                \[
+                m_{\text{tot}} = m_g + m_e
+                \]</p>
+                Como \(m = \rho \cdot
+                V\), temos:</p>
+                \[
+                m_{\text{tot}} = \rho_g V_g + \rho_e V_e
+                \]</p>
+                A massa específica média é definida como:</p>
+                \[
+                \rho_m = \frac{m_{\text{tot}}}{V_{\text{tot}}}
+                \]</p>
+                Substituindo:</p>
+                \[
+                \rho_m = \frac{\rho_g V_g + \rho_e V_e}{V_{\text{tot}}}
+                \]</p>
+                Reorganizando:</p>
+                \[
+                \rho_m = \rho_g \cdot \frac{V_g}{V_{\text{tot}}} +
+                \rho_e \cdot \frac{V_e}{V_{\text{tot}}}
+                \]</p>
+                As frações volumétricas são exatamente:</p>
+                \[
+                \frac{V_g}{V_{\text{tot}}} = 0{,}700 \quad \text{e}
+                \quad \frac{V_e}{V_{\text{tot}}} = 0{,}300
+                \]</p>
+                Portanto:</p>
+                \[
+                \rho_m = \rho_g \cdot 0{,}700 + \rho_e \cdot 0{,}300
+                \]</p>
+                Substituindo os valores numéricos em uma única
+                expressão:</p>
+                \[
+                \rho_m = 740 \times 0{,}700 + 790 \times 0{,}300
+                \]</p>
+                Calculando diretamente:</p>
+                \[
+                \rho_m = 518 + 237 = 755\,\text{kg/m}^3
+                \]</p>
+                <strong>Resultado Final</strong></p>
+                \(\) </p>
+                <h1 id="pressão-em-um-fluido">Pressão em um fluido</h1>
+                A <strong>pressão</strong> \(p\) em um ponto é definida
+                como o limite da razão entre a força
+                <strong>normal</strong> (\(F_\perp\) )exercida sobre
+                uma superfície e a área dessa superfície (\(A\)), quando a área tende a
+                zero:</p>
+                \[
+                p = \lim_{\Delta A \to 0} \frac{\Delta F_\perp}{\Delta
+                A}
+                \]</p>
+                Na forma diferencial:</p>
+                \[
+                p = \frac{dF_\perp}{dA}
+                \]</p>
+                No Sistema Internacional:</p>
+                \[
+                1\,\text{Pa} = 1\,\text{N/m}^2
+                \]</p>
+                <strong>Pressão em fluidos em repouso</strong></p>
+                Em um fluido em <strong>equilíbrio</strong>, não
+                existem tensões tangenciais internas. Assim, a pressão
+                atua igualmente em todas as direções e pode ser tratada
+                como uma <strong>grandeza escalar</strong>.</p>
+                <h2
+                id="exemplo-1.3---cálculo-da-pressão-exercida-pela-força-peso">Exemplo
+                1.3 - Cálculo da pressão exercida pela força peso</h2>
+                Uma pessoa de massa \(70\,\text{kg}\) apoia-se
+                sobre um único pé, cuja área de contato com o solo é
+                \(150\,\text{cm}^2\).
+                Estime a pressão exercida em Pa.</p>
+                <strong>Solução</strong>:</p>
+                \[
+                A = 150\,\text{cm}^{2} = 150\times10^{-4}\,\text{m}^{2}
+                = 1{,}50\times10^{-2}\,\text{m}^2
+                \]</p>
+                \[
+                p = \dfrac{F}{A} \rightarrow p = \dfrac{mg}{A}
+                \]</p>
+                Usando o valor paroximado para acelaração da
+                gravidade \(g = 9,8\,
+                m/s^{2}\) e substituindo os valores
+                numéricos:</p>
+                \[
+                p = \dfrac{70\,\text{kg} \cdot
+                9,8\,\text{m}/\text{s}^{2}}{1{,}50 \times
+                10^{-2}\,\text{m}^{2}} \rightarrow p =
+                4{,}6\times10^{4}\,\text{Pa}
+                \]</p>
+                Portanto:</p>
+                \[
+                \boxed{p = 4{,}6 \times 10^{4}\,\text{Pa}}
+                \]</p>
+                <h2
+                id="exemplo-1.4---cálculo-da-pressão-exercida-por-uma-força-formando-um-ângulo">Exemplo
+                1.4 - Cálculo da pressão exercida por uma força formando
+                um ângulo</h2>
+                Uma força de intensidade \(F = 120\,\text{N}\) é
+                aplicada sobre a superfície de uma placa plana de área
+                \(A =
+                0{,}015\,\text{m}^2\) fazendo um ângulo de \(\theta = 30^\circ\) com a
+                <strong>normal</strong> à placa (isto é, o ângulo é
+                medido em relação à direção perpendicular à
+                superfície).</p>
+                Determine:</p>
+                <ol type="a">
+                <li>A componente normal da força, \(F_\perp\) em N.</li>
+                <li>A pressão média exercida sobre a placa em Pa.</li>
+                </ol>
+                <strong>Solução</strong>:</p>
+                <ol type="1">
+                <li>Componente normal da força</li>
+                </ol>
+                Se o ângulo \(\theta\) é medido em
+                relação à <strong>normal</strong>, então a componente
+                normal é:</p>
+                \[
+                F_\perp = F\cos\theta.
+                \]</p>
+                Substituindo os valores:</p>
+                \[
+                F_\perp = 120\,N\,\cos(30^\circ)
+                \]</p>
+                \[
+                F_\perp = 104\ \text{N}
+                \]</p>
+                Logo,</p>
+                \[
+                \boxed{F_\perp = 104\,\text{N}}
+                \]</p>
+                <ol start="2" type="1">
+                <li>Pressão média exercida</li>
+                </ol>
+                A pressão média é:</p>
+                \[
+                p = \frac{F_\perp}{A}.
+                \]</p>
+                Substituindo:</p>
+                \[
+                p = \frac{104}{0{,}015}
+                \]</p>
+                Portanto,</p>
+                \[
+                \boxed{p = 6,9 \times 10^{3}\ \text{Pa}}
+                \]</p>
+                <strong>Observação importante</strong>:</p>
+                Se o ângulo fosse informado <strong>em relação ao
+                plano</strong> (isto é, em relação à própria
+                superfície), então a componente normal seria:</p>
+                \[
+                F_\perp = F\sin\theta
+                \]</p>
+                Pois, nesse caso, \(\theta\) seria complementar
+                ao ângulo medido em relação à normal.</p>
+                Em problemas de pressão, sempre verifique
+                <strong>como o ângulo foi definido</strong>, pois a
+                pressão depende exclusivamente da componente
+                <strong>normal</strong> da força.</p>
+                <h1 id="conclusão">Conclusão</h1>
+                Nesta aula introdutória, estabelecemos os
+                <strong>conceitos fundamentais</strong> da Mecânica dos
+                Fluidos, incluindo definições formais de
+                <strong>fluido</strong>, <strong>massa
+                específica</strong> e <strong>pressão</strong>. Esses
+                conceitos servirão de base para o estudo da
+                <strong>estática dos fluidos</strong>, onde analisaremos
+                a variação da pressão em fluidos em repouso e suas
+                aplicações práticas.</p>
+                <h1 id="exercícios-de-fixação">Exercícios De
+                Fixação</h1>
+                <dl>
+                <dt>1.1)</dt>
+                <dd>
+                Um fluido é definido, do ponto de vista mecânico, como
+                uma substância que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Possui sempre volume constante e forma própria.</li>
+                <li>Resiste a tensões normais, mas não a
+                tangenciais.</li>
+                <li>Se deforma continuamente sob qualquer tensão
+                tangencial, por menor que seja.</li>
+                <li>Apresenta apenas deformações elásticas.</li>
+                <li>Não sofre deformações quando submetida a forças
+                externas.</li>
+                </ol>
+                <dl>
+                <dt>1.2)</dt>
+                <dd>
+                A principal diferença mecânica entre sólidos e fluidos
+                está relacionada à:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Capacidade de ocupar volume.</li>
+                <li>Forma geométrica do material.</li>
+                <li>Resistência a forças normais.</li>
+                <li>Resposta às tensões de cisalhamento.</li>
+                <li>Massa específica do material.</li>
+                </ol>
+                <dl>
+                <dt>1.3)</dt>
+                <dd>
+                Um líquido, diferentemente de um gás, caracteriza-se
+                por:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Não possuir forma nem volume definidos.</li>
+                <li>Possuir forma própria, mas não volume definido.</li>
+                <li>Possuir volume definido, mas não forma própria.</li>
+                <li>Não sofrer deformações quando submetido a
+                forças.</li>
+                <li>Resistir permanentemente ao cisalhamento.</li>
+                </ol>
+                <dl>
+                <dt>1.4)</dt>
+                <dd>
+                A pressão em um ponto de um fluido em repouso é definida
+                fisicamente como:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A força total exercida pelo fluido.</li>
+                <li>A razão entre a força tangencial e a área.</li>
+                <li>A força média distribuída pelo volume.</li>
+                <li>A força exercida apenas pelo peso do fluido.</li>
+                <li>A componente normal da força por unidade de
+                área.</li>
+                </ol>
+                <dl>
+                <dt>1.5)</dt>
+                <dd>
+                A definição formal de massa específica
+                </dd>
+                </dl>
+                \[
+                \rho = \lim_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+                \]</p>
+                Indica que a massa específica é:</p>
+                <ol type="a">
+                <li>Uma grandeza local associada a um ponto do
+                fluido.</li>
+                <li>Uma grandeza global do sistema.</li>
+                <li>Uma propriedade que depende da forma do
+                recipiente.</li>
+                <li>Uma grandeza válida apenas para sólidos.</li>
+                <li>Uma grandeza dependente exclusivamente da massa
+                total.</li>
+                </ol>
+                <dl>
+                <dt>1.6)</dt>
+                <dd>
+                Um recipiente contém um fluido homogêneo de massa total
+                igual a \(m =
+                4{,}5\,\text{kg}\), ocupando um volume de \(V =
+                3{,}0\times10^{-3}\,\text{m}^3\).
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine a <strong>massa específica</strong> desse
+                fluido em \(\text{kg}/\text{m}^{3}\).</li>
+                <li>Explique por que, nesse caso, é válido utilizar a
+                expressão \(\rho =
+                m/V\) em vez da definição com limite.</li>
+                </ol>
+                <dl>
+                <dt>1.7)</dt>
+                <dd>
+                Um tanque contém uma mistura ideal formada por dois
+                líquidos:
+                </dd>
+                </dl>
+                <ul>
+                <li>Líquido A, com massa específica \(\rho_A =
+                800\,\text{kg/m}^3\), ocupando 20 litros.</li>
+                <li>Líquido B, com massa específica \(\rho_B =
+                1000\,\text{kg/m}^3\), ocupando 60 litros.</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a <strong>massa específica média</strong>
+                da mistura em \(\text{kg}/\text{m}^{3}\).</li>
+                <li>Justifique por que o valor obtido deve estar entre
+                \(\rho_A\) e \(\rho_B\).</li>
+                </ol>
+                <dl>
+                <dt>1.8)</dt>
+                <dd>
+                Uma força normal de intensidade \(F = 500\,\text{N}\) é
+                aplicada uniformemente sobre uma superfície plana de
+                área \(A =
+                0{,}020\,\text{m}^2\).
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Calcule a <strong>pressão média</strong> exercida
+                sobre a superfície em Pa.</li>
+                <li>Explique o significado físico do valor obtido no
+                contexto da definição de pressão.</li>
+                </ol>
+                <dl>
+                <dt>1.9)</dt>
+                <dd>
+                Uma força de módulo \(F =
+                200\,\text{N}\) é aplicada sobre uma placa plana
+                de área \(A =
+                0{,}025\,\text{m}^2\), formando um ângulo de
+                \(\theta = 45^\circ\)
+                com a <strong>normal</strong> à superfície.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine a <strong>componente normal da
+                força</strong> que atua sobre a placa em N.</li>
+                <li>Calcule a <strong>pressão média</strong> exercida
+                sobre a superfície em Pa.</li>
+                <li>Explique por que apenas a componente normal da força
+                contribui para a pressão.</li>
+                </ol>
+                <dl>
+                <dt>1.10)</dt>
+                <dd>
+                Um fluido exerce uma pressão uniforme de \(p = 3{,}0 \times
+                10^{4}\,\text{Pa}\) sobre a base de um
+                reservatório plano cuja área é \(A = 0{,}040\,\text{m}^2\).
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Determine a <strong>força normal</strong> exercida
+                pelo fluido sobre essa base em N.</li>
+                <li>Explique como esse resultado está relacionado com a
+                definição formal de pressão.</li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=szIGum_FbyE" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/fig-ytb-historyfluids.png" alt="History of Fluid Mechanics" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">History of Fluid Mechanics</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=szIGum_FbyE" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Engineering Theory.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=szIGum_FbyE" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=OUqMmIGvH44" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/fig-ytb-coroarei.png" alt="Arquimedes e a Coroa do Rei Hierão" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Arquimedes e a Coroa do Rei Hierão</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=OUqMmIGvH44" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Oficiencia.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=OUqMmIGvH44" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/fig-ytb-ctdfluidos.png" alt="A equação mais difícil da Física" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">A equação mais difícil da Física</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Ciência Todo Dia.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=DlDb_zWZC_w" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>BIRD, R. Byron; STEWART, Warren E.; LIGHTFOOT, Edwin
+                N. <strong>Fenômenos de transporte</strong>. 2. ed. Rio
+                de Janeiro: LTC, 2004.</li>
+                <li>BRUNETTI, Franco. <strong>Mecânica dos
+                fluidos</strong>. 2. ed. São Paulo: Pearson Prentice
+                Hall, 2008.</li>
+                <li>ÇENGEL, Yunus A.; CIMBALA, John M. <strong>Mecânica
+                dos fluidos: fundamentos e aplicações</strong>. 3.
+                ed. Porto Alegre: AMGH, 2015.</li>
+                <li>FOX, Robert W.; MCDONALD, Alan T.; PRITCHARD, Philip
+                J. <strong>Introdução à mecânica dos fluidos</strong>.
+                8. ed. Rio de Janeiro: LTC, 2014.</li>
+                <li>MUNSON, Bruce R.; YOUNG, Donald F.; OKIISHI,
+                Theodore H. <strong>Fundamentos da mecânica dos
+                fluidos</strong>. 4. ed. São Paulo: Edgard Blücher,
+                2004.</li>
+                <li>POTTER, Merle C.; WIGGERT, David C. <strong>Mecânica
+                dos fluidos</strong>. 3. ed. São Paulo: Cengage
+                Learning, 2014.</li>
+                <li>ROUSE, Hunter; INCE, Simon. <strong>History of
+                hydraulics</strong>. Iowa: Iowa Institute of Hydraulic
+                Research, 1957.</li>
+                <li>TOKATY, G. A. <strong>A history and philosophy of
+                fluid mechanics</strong>. New York: Dover Publications,
+                1994.</li>
+                <li>TRUESDELL, Clifford. <strong>Essays in the history
+                of mechanics</strong>. Berlin: Springer-Verlag,
+                1968.</li>
+                <li>WHITE, Frank M. <strong>Mecânica dos
+                fluidos</strong>. 8. ed. Porto Alegre: AMGH, 2018.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+
                     </div>
                 </div>
             </div>

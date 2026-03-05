@@ -107,7 +107,812 @@
                 </div>
                 
                     <div class="aula-content">
-                        <div class="aula-content tex2jax_process"><div><div><!-- Header --><!-- TOC --><!-- Conteúdo principal --><main><h1 id="objetivos" class="mt-4 mb-3 text-primary">Objetivos</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ao final desta aula, você deverá ser capaz de:</p><ul class="mb-3"><li>Compreender o conceito de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">variação de temperatura</strong> em diferentes escalas.</li><li>Relacionar a <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">variação</strong> em Celsius, Fahrenheit e Kelvin.</li><li>Resolver problemas envolvendo <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">intervalos de temperatura</strong>.</li><li>Construir e interpretar <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">escalas termométricas arbitrárias</strong>.</li><li>Deduzir a relação entre uma escala arbitrária e as escalas convencionais.</li><li>Aplicar o conceito de <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">função afim</strong> na construção de escalas.</li></ul><h1 id="introdução" class="mt-4 mb-3 text-primary">Introdução</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Até agora, trabalhamos com conversões entre escalas termométricas, ou seja, descobrir qual valor em Celsius corresponde a um valor em Fahrenheit.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Mas surge uma pergunta interessante:</p><blockquote class="blockquote bg-light p-3 border-start border-3 border-primary"><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Se a temperatura aumentar 10 °C, quantos graus Fahrenheit aumentará?</p></blockquote><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Perceba</strong>: não estamos mais procurando um valor específico, mas sim uma <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">variação</strong> (ou intervalo) de temperatura.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Além disso, será que precisamos sempre usar Celsius, Fahrenheit ou Kelvin? E se inventarmos nossa própria escala? Por exemplo, um termômetro maluco que marca 0 quando está congelando e 100 quando está fervendo, mas com divisões diferentes?</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">É exatamente isso que vamos explorar nesta aula: <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">variações entre escalas</strong> e <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">escalas arbitrárias</strong>.</p><h1 id="variação-entre-escalas-termométricas" class="mt-4 mb-3 text-primary">Variação entre Escalas Termométricas</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Vamos começar com uma observação importante:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">A escala Kelvin e a escala Celsius possuem a mesma variação entre os pontos fixos.</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Pense comigo</strong>: na escala Celsius, a distância entre o ponto de fusão do gelo (0 °C) e o ponto de ebulição da água (100 °C) é de 100 graus. Na escala Kelvin, a distância entre esses mesmos pontos (273 K e 373 K) também é de 100 kelvins.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Isso significa que uma variação de 1 °C corresponde exatamente a uma variação de 1 K.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Em outras palavras:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_C = \Delta T_K\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ou seja, uma variação de 1 °C corresponde exatamente a uma variação de 1 K.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Exemplo:</strong> Se a temperatura aumenta de 20 °C para 35 °C, em Kelvin aumentou de 293 K para 308 K. A variação foi de 15 °C e também 15 K.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">E como fica a relação entre variações em Celsius e Fahrenheit?</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Vamos pensar juntos. Se a escala Celsius tem 100 divisões entre os pontos fixos e a Fahrenheit tem 180 divisões entre os mesmos pontos, então podemos montar uma proporção:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\Delta \theta_C}{100} = \dfrac{\Delta \theta_F}{180}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Simplificando essa fração (dividindo numerador e denominador por 20), chegamos a:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\Delta \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Esta é a relação entre <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">variações</strong> de temperatura nas escalas Celsius e Fahrenheit.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Podemos reescrever de uma forma ainda mais prática. Se isolarmos <span class="math">\(\Delta \theta_F\)</span>, temos:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\Delta \theta_F = 1{,}8 \cdot \Delta \theta_C}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Isso significa que cada variação de 1 °C corresponde a uma variação de 1,8 °F. Ou, pensando de outra forma: para cada 5 °C de variação, temos 9 °F de variação.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Dica:</strong> Se você preferir, pode usar uma regra de três simples.</p><h2 id="exemplo-3.1---variação-de-temperatura-em-uma-experiência" class="mt-4 mb-3 text-secondary">Exemplo 3.1 - Variação de temperatura em uma experiência</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Em um experimento de química, a temperatura de uma solução aumenta de 25 °C para 70 °C. Determine:</p><ol type="a"><li>A variação em Celsius.</li><li>A variação em Fahrenheit.</li><li>A variação em Kelvin.</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><ol type="a"><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\(\Delta \theta_C = 70 - 25 = 45\,°\text{C}\)</span>.</p></li><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Usando a relação <span class="math">\(\Delta \theta_F = 1{,}8 \cdot \Delta \theta_C\)</span>:</p></li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_F = 1{,}8 \cdot 45 = 81\,°\text{F}\]</span></p><ol start="3" type="a"><li>Como <span class="math">\(\Delta T_K = \Delta \theta_C\)</span>, temos <span class="math">\(\Delta T_K = 45\,\text{K}\)</span>.</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Verificando:</strong> Se a temperatura inicial era 25 °C (77 °F) e final 70 °C (158 °F), a variação em Fahrenheit é realmente 158 - 77 = 81 °F. Confirmamos!</p><h2 id="exemplo-3.2---interpretando-uma-variação-em-fahrenheit" class="mt-4 mb-3 text-secondary">Exemplo 3.2 - Interpretando uma variação em Fahrenheit</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Um noticiário americano informa que a temperatura durante a noite caiu 27 °F. Qual foi essa queda em graus Celsius?</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Sabemos que <span class="math">\(\Delta \theta_F = 1{,}8 \cdot \Delta \theta_C\)</span>. Mas aqui temos a variação em Fahrenheit e queremos a variação em Celsius. Basta isolarmos <span class="math">\(\Delta \theta_C\)</span>:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_C = \dfrac{\Delta \theta_F}{1{,}8}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Substituindo:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_C = \dfrac{27}{1{,}8} = 15\,°\text{C}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Conclusão:</strong> Uma queda de 27 °F corresponde a uma queda de 15 °C.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Atenção: Cuidado com a confusão!</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">É muito comum os estudantes confundirem:</p><ul class="mb-3"><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Conversão de valores:</strong></li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}\]</span></p><ul class="mb-3"><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Conversão de variações:</strong></li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\Delta \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ou, de forma mais direta,</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_F = 1{,}8 \cdot \Delta \theta_C\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A diferença está no termo “-32”. Para variações, ele desaparece porque é uma constante subtraída nos dois momentos. Afinal, quando calculamos uma variação, estamos subtraindo dois valores que contêm a mesma constante, e ela se anula!</p><h1 id="escalas-termométricas-arbitrárias" class="mt-4 mb-3 text-primary">Escalas Termométricas Arbitrárias</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Agora vamos entrar em um território mais interessante: <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">escalas arbitrárias</strong>.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Imagine que você é um cientista e decide criar sua própria escala termométrica. Você pode escolher:</p><ul class="mb-3"><li>Dois pontos fixos (por exemplo, fusão do gelo e ebulição da água).</li><li>Atribuir valores quaisquer a esses pontos.</li><li>Dividir o intervalo em qualquer número de partes.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Essa é uma <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">escala arbitrária</strong>. E podemos relacioná-la com as escalas convencionais usando proporções.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">A Ideia Fundamental</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Quando temos duas escalas termométricas quaisquer (A e B), a relação entre elas é <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">linear</strong> (função do 1° grau). Isso significa que podemos escrever:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_A = a \cdot \theta_B + b\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ou, de forma mais útil para problemas:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_A - \theta_{A2}}{\theta_{A1} - \theta_{A2}} = \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} - \theta_{B2}}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Como é mostrado na figura a seguir:</p><figure class="text-center my-4"><img src="images/fig-escalas-arb.png" style="width:70.0%" alt="Relação entre escalas arbitrárias. Fonte: autoria própria." / class="img-fluid rounded shadow mb-3"><figcaption aria-hidden="true">Relação entre escalas arbitrárias. Fonte: autoria própria.</figcaption></figure><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Onde:</p><ul class="mb-3"><li><span class="math">\(\theta_{A1}\)</span> e <span class="math">\(\theta_{A2}\)</span> são os valores na escala A correspondentes aos pontos fixos.</li><li><span class="math">\(\theta_{B1}\)</span> e <span class="math">\(\theta_{B2}\)</span> são os valores na escala B correspondentes aos mesmos pontos fixos.</li></ul><h2 id="exemplo-3.3---construindo-a-escala-maluca" class="mt-4 mb-3 text-secondary">Exemplo 3.3 - Construindo a escala “Maluca”</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Um cientista cria um termômetro com uma escala arbitrária chamada “escala X”. Ele define:</p><ul class="mb-3"><li>No ponto de fusão do gelo (0 °C), o termômetro marca 10 °X</li><li>No ponto de ebulição da água (100 °C), o termômetro marca 40 °X</li></ul><ol type="a"><li>Determine a relação entre as escalas Celsius e X.</li><li>Qual é o valor em °X correspondente a 60 °C?</li><li>Qual é o valor em °C correspondente a 25 °X?</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><ol type="a"><li>Usando a proporção:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C - 0}{100 - 0} = \dfrac{\theta_X - 10}{40 - 10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{100} = \dfrac{\theta_X - 10}{30}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Simplificando:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{10} = \dfrac{\theta_X - 10}{3}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Multiplicando cruzado:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[3\theta_C = 10(\theta_X - 10)\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[3\theta_C = 10\theta_X - 100\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[10\theta_X = 3\theta_C + 100\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\theta_X = \dfrac{3\theta_C + 100}{10}}\]</span></p><ol start="2" type="a"><li>Para <span class="math">\(\theta_C = 60\,°\text{C}\)</span>:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_X = \dfrac{3 \cdot 60 + 100}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_X = \dfrac{180 + 100}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_X = \dfrac{280}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\theta_X = 28\,°\text{X}}\]</span></p><ol start="3" type="a"><li>Para <span class="math">\(\theta_X = 25\,°\text{X}\)</span>, usamos a mesma equação:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[25 = \dfrac{3\theta_C + 100}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[250 = 3\theta_C + 100\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[3\theta_C = 150\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\theta_C = 50\,°\text{C}}\]</span></p><h2 id="exemplo-3.4---termômetro-maluco-invertido" class="mt-4 mb-3 text-secondary">Exemplo 3.4 - Termômetro “maluco” invertido</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Um termômetro com escala arbitrária Y foi construído de forma que:</p><ul class="mb-3"><li>No ponto de fusão do gelo (0 °C), marca 40 °Y.</li><li>No ponto de ebulição da água (100 °C), marca 20 °Y.</li></ul><ol type="a"><li>Determine a relação entre as escalas Celsius e Y.</li><li>Essa escala é decrescente? Explique.</li><li>Determine o valor em °Y correspondente a 50 °C.</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><ol type="a"><li>Observe que quando a temperatura aumenta (0 °C para 100 °C), o valor em Y diminui (40 para 20). Isso indica uma relação decrescente.</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Usando a proporção:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C - 0}{100 - 0} = \dfrac{\theta_Y - 40}{20 - 40}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{100} = \dfrac{\theta_Y - 40}{-20}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Simplificando:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{5} = \dfrac{\theta_Y - 40}{-1}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{5} = -(\theta_Y - 40)\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{5} = -\theta_Y + 40\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Multiplicando por 5:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_C = -5\theta_Y + 200\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ou, isolando <span class="math">\(\theta_Y\)</span>:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[5\theta_Y = 200 - \theta_C\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\theta_Y = \dfrac{200 - \theta_C}{5}}\]</span></p><ol start="2" type="a"><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Sim, a escala é decrescente porque o coeficiente de <span class="math">\(\theta_C\)</span> na relação é negativo. Quando <span class="math">\(\theta_C\)</span> aumenta, <span class="math">\(\theta_Y\)</span> diminui. Isso significa que o termômetro Y está marcando ao contrário!</p></li><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para <span class="math">\(\theta_C = 50\,°\text{C}\)</span>:</p></li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_Y = \dfrac{200 - 50}{5}\]</span><span class="math">\[\theta_Y = \dfrac{150}{5}\]</span><span class="math">\[\boxed{\theta_Y = 30\,°\text{Y}}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Interpretação:</strong> Em um mesmo banho térmico, enquanto Celsius marca 50 °C, o termômetro Y marca 30 °Y.</p><h2 id="exemplo-3.5---relacionando-duas-escalas-arbitrárias" class="mt-4 mb-3 text-secondary">Exemplo 3.5 - Relacionando duas escalas arbitrárias</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Um laboratório possui dois termômetros com escalas arbitrárias A e B. Sabe-se que:</p><ul class="mb-3"><li>Quando A marca 10 °A, B marca 20 °B.</li><li>Quando A marca 60 °A, B marca 80 °B.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Determine a temperatura em °B quando A marcar 40 °A.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Agora estamos relacionando diretamente duas escalas arbitrárias. Usamos a mesma ideia:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_A - \theta_{A2}}{\theta_{A1} - \theta_{A2}} = \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} - \theta_{B2}}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Onde: - <span class="math">\(\theta_{A1} = 60\)</span>, <span class="math">\(\theta_{B1} = 80\)</span>. - <span class="math">\(\theta_{A2} = 10\)</span>, <span class="math">\(\theta_{B2} = 20\)</span>.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para <span class="math">\(\theta_A = 40\)</span>:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{40 - 10}{60 - 10} = \dfrac{\theta_B - 20}{80 - 20}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{30}{50} = \dfrac{\theta_B - 20}{60}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Simplificando:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{3}{5} = \dfrac{\theta_B - 20}{60}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Multiplicando cruzado:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[5(\theta_B - 20) = 3 \cdot 60\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[5\theta_B - 100 = 180\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[5\theta_B = 280\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\theta_B = 56\,°\text{B}}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Conclusão:</strong> Quando o termômetro A marca 40 °A, o termômetro B marca 56 °B.</p><h2 id="construindo-uma-escala-arbitrária-do-zero" class="mt-4 mb-3 text-secondary">Construindo uma Escala Arbitrária do Zero</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Vamos agora entender como construir uma escala arbitrária completamente nova.</p><h2 id="exemplo-3.6---criando-a-escala-z" class="mt-4 mb-3 text-secondary">Exemplo 3.6 - Criando a escala “Z”</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Um pesquisador quer criar uma escala Z onde:</p><ul class="mb-3"><li>O ponto de fusão do gelo (0 °C) corresponda a 0 °Z.</li><li>O ponto de ebulição da água (100 °C) corresponda a 50 °Z.</li></ul><ol type="a"><li>Escreva a relação entre as escalas Celsius e Z.</li><li>Qual temperatura em °Z corresponde a 30 °C?</li><li>Qual temperatura em °C corresponde a 40 °Z?</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><ol type="a"><li>Usando a proporção:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C - 0}{100 - 0} = \dfrac{\theta_Z - 0}{50 - 0}\]</span><span class="math">\[\dfrac{\theta_C}{100} = \dfrac{\theta_Z}{50}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Simplificando:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{2} = \theta_Z\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Ou seja:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\theta_Z = \dfrac{\theta_C}{2}}\]</span></p><ol start="2" type="a"><li>Para <span class="math">\(\theta_C = 30\,°\text{C}\)</span>:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_Z = \dfrac{30}{2}\]</span><span class="math">\[\boxed{\theta_Z = 15\,°\text{Z}}\]</span></p><ol start="3" type="a"><li>Para <span class="math">\(\theta_Z = 40\,°\text{Z}\)</span>:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[40 = \dfrac{\theta_C}{2}\]</span><span class="math">\[\boxed{\theta_C = 80\,°\text{C}}\]</span></p><h2 id="exemplo-3.7---quando-uma-escala-arbitrária-coincide-com-celsius" class="mt-4 mb-3 text-secondary">Exemplo 3.7 - Quando uma escala arbitrária coincide com Celsius</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Considere a escala W definida por:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_W = 2\theta_C - 50\]</span></p><ol type="a"><li>Qual o valor em W correspondente a 0 °C?</li><li>Qual o valor em W correspondente a 100 °C?</li><li>Existe alguma temperatura onde os valores em W e Celsius são iguais?</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><ol type="a"><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para <span class="math">\(\theta_C = 0\,°\text{C}\)</span>: <span class="math">\[\theta_W = 2 \cdot 0 - 50\]</span><span class="math">\[\boxed{\theta_W = -50\,°\text{W}}\]</span></p></li><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para <span class="math">\(\theta_C = 100 °C\)</span>: <span class="math">\[\theta_W = 2 \cdot 100 - 50\]</span><span class="math">\[\theta_W = 200 - 50\]</span><span class="math">\[\boxed{\theta_W = 150\,°\text{W}}\]</span></p></li><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Queremos <span class="math">\(\theta_W = \theta_C = x\)</span>: <span class="math">$$x = 2x - 50$$</span><span class="math">$$50 = 2x - x$$</span><span class="math">\[\boxed{x = 50}\]</span></p></li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Verificação:</strong> Em 50 °C, temos <span class="math">\(\theta_W = 2 \cdot 50 - 50 \rightarrow \theta_W = 100 - 50 \rightarrow \theta_W = 50\,°\text{W}\)</span>. Confirmado!</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Conclusão:</strong> A temperatura de 50 °C (ou 50 °W) é onde as duas escalas coincidem.</p><h1 id="variação-em-escalas-arbitrárias" class="mt-4 mb-3 text-primary">Variação em Escalas Arbitrárias</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Assim como nas escalas convencionais, podemos trabalhar com variações em escalas arbitrárias.</p><h2 id="exemplo-3.8---variação-na-escala-x" class="mt-4 mb-3 text-secondary">Exemplo 3.8 - Variação na escala X</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Usando a escala X do <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">exemplo 3.3</strong>, onde:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_X = \dfrac{3\theta_C + 100}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Determine a relação entre as variações <span class="math">\(\Delta \theta_X\)</span> e <span class="math">\(\Delta \theta_C\)</span>.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para dois estados diferentes:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_{X1} = \dfrac{3\theta_{C1} + 100}{10}\]</span><span class="math">\[\theta_{X2} = \dfrac{3\theta_{C2} + 100}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Subtraindo:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_{X2} - \theta_{X1} = \dfrac{3\theta_{C2} + 100}{10} - \dfrac{3\theta_{C1} + 100}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_X = \dfrac{3(\theta_{C2} - \theta_{C1})}{10}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\Delta \theta_X = \dfrac{3}{10} \cdot \Delta \theta_C}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Que é exatamente o coeficiente angular da função de primeiro grau!</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Interpretação:</strong> Cada variação de 10 °C corresponde a uma variação de 3 °X.</p><h2 id="exemplo-3.9---variação-na-escala-decrescente-y" class="mt-4 mb-3 text-secondary">Exemplo 3.9 - Variação na escala decrescente Y</h2><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Usando a escala Y do <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">exemplo 3.4</strong>, onde:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_Y = \dfrac{200 - \theta_C}{5}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">determine a relação entre as variações.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Resolução:</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_{Y1} = \dfrac{200 - \theta_{C1}}{5}\]</span><span class="math">\[\theta_{Y2} = \dfrac{200 - \theta_{C2}}{5}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Subtraindo:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_{Y2} - \theta_{Y1} = \dfrac{200 - \theta_{C2}}{5} - \dfrac{200 - \theta_{C1}}{5}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_Y = \dfrac{-\theta_{C2} + \theta_{C1}}{5}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_Y = -\dfrac{\theta_{C2} - \theta_{C1}}{5}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\boxed{\Delta \theta_Y = -\dfrac{1}{5} \cdot \Delta \theta_C}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Novamente, a variação é exatamente o termo do coeficinte angular da função. Portanto, a partir de agora, para saber a variação de uma escala com relação à outra, basta analisarmos o <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">coeficiente angular</strong> da função.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Interpretação:</strong> O sinal negativo indica que a variação é inversa. Se a temperatura em Celsius aumenta, a temperatura em Y diminui.</p><h1 id="resumo-das-fórmulas" class="mt-4 mb-3 text-primary">Resumo das Fórmulas</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Variações:</strong></p><ul class="mb-3"><li>Celsius <span class="math">\(\leftrightarrow\)</span> Kelvin: <span class="math">\[\Delta T_K = \Delta \theta_C\]</span>.</li><li>Fahrenheit <span class="math">\(\leftrightarrow\)</span> Celsius: <span class="math">\[\Delta \theta_F = 1{,}8 \Delta_C\]</span>.</li><li>Fahrenheit <span class="math">\(\leftrightarrow\)</span> Kelvin: <span class="math">\[\Delta \theta_F = 1{,}8 \Delta_K\]</span>.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Escalas Arbitrárias:</strong></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para duas escalas quaisquer A e B, com pontos fixos conhecidos:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_A - \theta_{A2}}{\theta_{A1} - \theta_{A2}} = \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} - \theta_{B2}}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para variações em uma escala arbitrária linear:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_A = a \cdot \Delta \theta_B\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Onde <span class="math">$a$</span> é o coeficiente angular da relação <span class="math">\(\theta_A = a\theta_B + b\)</span>.</p><h1 id="conclusão" class="mt-4 mb-3 text-primary">Conclusão</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Chegamos ao final da nossa jornada pelas escalas termométricas! Vamos recapitular o que <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">aprendemos</strong>:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Nesta aula, exploramos:</p><ol type="1"><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Variações de temperatura</strong> seguem relações diferentes das conversões de valores. Enquanto na conversão usamos:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Para variações usamos:</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\Delta \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</span>.</p><ol start="2" type="1"><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Escalas arbitrárias</strong> podem ser construídas escolhendo dois pontos fixos e atribuindo valores quaisquer a eles. A relação entre qualquer escala arbitrária e as escalas convencionais é sempre linear, podendo ser crescente ou decrescente.</p></li><li><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A proporção fundamental:</p></li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\dfrac{\theta_A - \theta_{A1}}{\theta_{A2} - \theta_{A1}} = \dfrac{\theta_B - \theta_{B1}}{\theta_{B2} - \theta_{B1}}\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">É a ferramenta mais poderosa para relacionar quaisquer duas escalas termométricas.</p><ol start="4" type="1"><li><strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">Variações em escalas arbitrárias</strong> seguem a mesma lógica:</li></ol><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\Delta \theta_A = a \cdot \Delta \theta_C\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Onde <span class="math">$a$</span> é o coeficiente angular da relação linear.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Dominar esses conceitos permite não apenas resolver problemas de termometria, mas também compreender como qualquer escala de medição pode ser construída e relacionada com outras.</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Na próxima aula, vamos dar um passo adiante no estudo da Termologia. Agora que já dominamos como a temperatura é medida e como ela varia entre diferentes escalas, vamos investigar: O que acontece com os corpos quando a temperatura deles varia?</p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Até a próxima aula!</p><h1 id="exercícios-de-fixação" class="mt-4 mb-3 text-primary">Exercícios de Fixação</h1><dl><dt>3.1)</dt><dd> Se a temperatura de um corpo aumenta de 20 °C para 50 °C, qual foi o aumento correspondente na escala Fahrenheit? </dd></dl><ol type="a"><li>30 °F.</li><li>45 °F.</li><li>54 °F.</li><li>60 °F.</li><li>68 °F.</li></ol><dl><dt>3.2)</dt><dd> Uma variação de 45 °F corresponde a uma variação de quantos graus Celsius? </dd></dl><ol type="a"><li>9 °C.</li><li>15 °C.</li><li>25 °C.</li><li>40 °C.</li><li>81 °C.</li></ol><dl><dt>3.3)</dt><dd> Um termômetro arbitrário X foi construído de forma que: </dd></dl><ul class="mb-3"><li>0 °C corresponde a 10 °X.</li><li>100 °C corresponde a 30 °X.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A temperatura em °X quando o termômetro marca 50 °C é:</p><ol type="a"><li>15 °X.</li><li>18 °X.</li><li>20 °X.</li><li>22 °X.</li><li>25 °X.</li></ol><dl><dt>3.4)</dt><dd> Na escala Y, o ponto de fusão do gelo é 20 °Y e o ponto de ebulição da água é 80 °Y. A relação entre as escalas Celsius e Y é: </dd></dl><ol type="a"><li><span class="math">\(\theta_Y = 0,6\theta_C + 20\)</span>.</li><li><span class="math">\(\theta_Y = 0,8\theta_C + 20\)</span>.</li><li><span class="math">\(\theta_Y = 1,2\theta_C + 20\)</span>.</li><li><span class="math">\(\theta_Y = 1,5\theta_C + 20\)</span>.</li><li><span class="math">\(\theta_Y = 2,0\theta_C + 20\)</span>.</li></ol><dl><dt>3.5)</dt><dd> Se uma escala arbitrária Z é definida por: </dd></dl><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_Z = 4\theta_C - 50\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">A variação em °Z correspondente a uma variação de 10 °C é:</p><ol type="a"><li>10 °Z.</li><li>20 °Z.</li><li>30 °Z.</li><li>40 °Z.</li><li>50 °Z.</li></ol><dl><dt>3.6)</dt><dd> Em um laboratório, a temperatura de uma amostra varia de -10 °C para 35 °C. Determine: </dd></dl><ol type="a"><li>A variação de temperatura em Celsius.</li><li>A variação correspondente em Fahrenheit.</li><li>A variação correspondente em Kelvin.</li></ol><dl><dt>3.7)</dt><dd> Um termômetro com escala arbitrária A foi construído com as seguintes características: </dd></dl><ul class="mb-3"><li>No ponto de gelo (0 °C): 5 °A.</li><li>No ponto de vapor (100 °C): 35 °A.</li></ul><ol type="a"><li>Determine a expressão que relaciona as escalas Celsius e A.</li><li>Calcule o valor em °A correspondente a 40 °C.</li><li>Calcule o valor em °C correspondente a 20 °A.</li></ol><dl><dt>3.8)</dt><dd> Considere uma escala arbitrária B onde: </dd></dl><ul class="mb-3"><li>0 °C corresponde a 50 °B.</li><li>100 °C corresponde a 10 °B.</li></ul><ol type="a"><li>Esta escala é crescente ou decrescente? Justifique.</li><li>Determine a relação <span class="math">\(\theta_B = f(\theta_C)\)</span>.</li><li>Qual temperatura em °B corresponde a 25 °C?</li></ol><dl><dt>3.9)</dt><dd> Dois termômetros com escalas arbitrárias P e Q apresentam as seguintes correspondências: </dd></dl><ul class="mb-3"><li>Quando P = 20 °P, Q = 30 °Q.</li><li>Quando P = 80 °P, Q = 70 °Q.</li></ul><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Determine o valor em °Q quando P marcar 50 °P.</p><dl><dt>3.10)</dt><dd> Uma escala arbitrária C é definida pela expressão: </dd></dl><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;"><span class="math">\[\theta_C = 2\theta_F - 100\]</span></p><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Onde <span class="math">\(\theta_F\)</span> é a temperatura em Fahrenheit.</p><ol type="a"><li>Determine os valores em °C correspondentes a 0 °F e 100 °F.</li><li>Existe alguma temperatura onde as escalas C e Fahrenheit coincidem? Se sim, qual?</li></ol><h1 id="respostas" class="mt-4 mb-3 text-primary">Respostas</h1><p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">Caro estudante, seguem as respostas <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">completas</strong> e <strong style="font-weight: bold; color: #333333;" style="font-weight: bold; color: #333333;">detalhadas</strong> dos exercícios de fixação da <a href="https://drive.google.com/file/d/1ZVtR8EaclfetXbMQMRsC4U6BCmh7R1yC/view?usp=drive_link">aula anterior</a>.</p><h1 id="recomendações" class="mt-4 mb-3 text-primary">Recomendações</h1><div style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;"><a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;"><img src="./images/thumbs/ytb-enem-gratuito-esc-arb.png" alt="Escalas Arbitrárias" style="display:block; width:100%; height:auto;" loading="lazy" class="img-fluid rounded shadow mb-3"></a><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;"><div style="line-height:1.25; min-width:200px;"><strong style="color:#222;" style="font-weight: bold; color: #333333;">Escalas Arbitrárias</strong><br> Fonte: <a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Curso Enem Gratuito.</a></div><div><a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'"> Abrir ↗ </a></div></div></div><h1 id="referências" class="mt-4 mb-3 text-primary">Referências</h1><ul class="mb-3"><li>GASPAR, Alberto. Física: volume único. 2. ed. São Paulo: Ática, 2014.</li><li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO, Regina. Física: termologia, óptica e ondas. São Paulo: FTD, 2016.</li><li>PIETROCOLA, Maurício et al. Física em contextos: pessoal, social e histórico – volume 2. São Paulo: FTD, 2016.</li><li>SILAS, Joab. Conversão entre escalas termométricas. Brasil Escola. Disponível em: <a href="https://brasilescola.uol.com.br/fisica/conversao-entre-as-escalas.htm" >https://brasilescola.uol.com.br/fisica/conversao-entre-as-escalas.htm</a>. Acesso em: 27 fev. 2026.</li><li>WebFísica. Aula 6-38: Introdução à termologia e escalas termométricas. Disponível em: <a href="https://webfisica.com/fisica/curso-de-fisica-basica/aula/6-38" >https://webfisica.com/fisica/curso-de-fisica-basica/aula/6-38</a>. Acesso em: 27 fev. 2026.</li></ul></main><!-- Footer --></div></div><!-- Bootstrap JS --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><!-- Script para MathJax --><script> document.addEventListener('DOMContentLoaded', function() { if (window.MathJax) { window.MathJax.typesetPromise(); } }); </script></div>
+                        
+    
+        
+            <!-- Header -->
+            
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender o conceito de <strong>variação de
+                temperatura</strong> em diferentes escalas.</li>
+                <li>Relacionar a <strong>variação</strong> em Celsius,
+                Fahrenheit e Kelvin.</li>
+                <li>Resolver problemas envolvendo <strong>intervalos de
+                temperatura</strong>.</li>
+                <li>Construir e interpretar <strong>escalas
+                termométricas arbitrárias</strong>.</li>
+                <li>Deduzir a relação entre uma escala arbitrária e as
+                escalas convencionais.</li>
+                <li>Aplicar o conceito de <strong>função afim</strong>
+                na construção de escalas.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                Até agora, trabalhamos com conversões entre escalas
+                termométricas, ou seja, descobrir qual valor em Celsius
+                corresponde a um valor em Fahrenheit.</p>
+                Mas surge uma pergunta interessante:</p>
+                <blockquote>
+                Se a temperatura aumentar 10 °C, quantos graus
+                Fahrenheit aumentará?</p>
+                </blockquote>
+                <strong>Perceba</strong>: não estamos mais procurando
+                um valor específico, mas sim uma
+                <strong>variação</strong> (ou intervalo) de
+                temperatura.</p>
+                Além disso, será que precisamos sempre usar Celsius,
+                Fahrenheit ou Kelvin? E se inventarmos nossa própria
+                escala? Por exemplo, um termômetro maluco que marca 0
+                quando está congelando e 100 quando está fervendo, mas
+                com divisões diferentes?</p>
+                É exatamente isso que vamos explorar nesta aula:
+                <strong>variações entre escalas</strong> e
+                <strong>escalas arbitrárias</strong>.</p>
+                <h1 id="variação-entre-escalas-termométricas">Variação
+                entre Escalas Termométricas</h1>
+                Vamos começar com uma observação importante:</p>
+                <strong>A escala Kelvin e a escala Celsius possuem a
+                mesma variação entre os pontos fixos.</strong></p>
+                <strong>Pense comigo</strong>: na escala Celsius, a
+                distância entre o ponto de fusão do gelo (0 °C) e o
+                ponto de ebulição da água (100 °C) é de 100 graus. Na
+                escala Kelvin, a distância entre esses mesmos pontos
+                (273 K e 373 K) também é de 100 kelvins.</p>
+                Isso significa que uma variação de 1 °C corresponde
+                exatamente a uma variação de 1 K.</p>
+                Em outras palavras:</p>
+                \[\Delta \theta_C = \Delta
+                T_K\]</p>
+                Ou seja, uma variação de 1 °C corresponde exatamente
+                a uma variação de 1 K.</p>
+                <strong>Exemplo:</strong> Se a temperatura aumenta de
+                20 °C para 35 °C, em Kelvin aumentou de 293 K para 308
+                K. A variação foi de 15 °C e também 15 K.</p>
+                <strong>E como fica a relação entre variações em
+                Celsius e Fahrenheit?</strong></p>
+                Vamos pensar juntos. Se a escala Celsius tem 100
+                divisões entre os pontos fixos e a Fahrenheit tem 180
+                divisões entre os mesmos pontos, então podemos montar
+                uma proporção:</p>
+                \[\dfrac{\Delta
+                \theta_C}{100} = \dfrac{\Delta
+                \theta_F}{180}\]</p>
+                Simplificando essa fração (dividindo numerador e
+                denominador por 20), chegamos a:</p>
+                \[\dfrac{\Delta
+                \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</p>
+                Esta é a relação entre <strong>variações</strong> de
+                temperatura nas escalas Celsius e Fahrenheit.</p>
+                Podemos reescrever de uma forma ainda mais prática.
+                Se isolarmos \(\Delta
+                \theta_F\), temos:</p>
+                \[\boxed{\Delta \theta_F =
+                1{,}8 \cdot \Delta \theta_C}\]</p>
+                Isso significa que cada variação de 1 °C corresponde
+                a uma variação de 1,8 °F. Ou, pensando de outra forma:
+                para cada 5 °C de variação, temos 9 °F de variação.</p>
+                <strong>Dica:</strong> Se você preferir, pode usar
+                uma regra de três simples.</p>
+                <h2
+                id="exemplo-3.1---variação-de-temperatura-em-uma-experiência">Exemplo
+                3.1 - Variação de temperatura em uma experiência</h2>
+                Em um experimento de química, a temperatura de uma
+                solução aumenta de 25 °C para 70 °C. Determine:</p>
+                <ol type="a">
+                <li>A variação em Celsius.</li>
+                <li>A variação em Fahrenheit.</li>
+                <li>A variação em Kelvin.</li>
+                </ol>
+                <strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>\(\Delta \theta_C = 70
+                - 25 = 45\,°\text{C}\).</p></li>
+                <li>Usando a relação \(\Delta \theta_F = 1{,}8 \cdot
+                \Delta \theta_C\):</p></li>
+                </ol>
+                \[\Delta \theta_F = 1{,}8
+                \cdot 45 = 81\,°\text{F}\]</p>
+                <ol start="3" type="a">
+                <li>Como \(\Delta T_K = \Delta
+                \theta_C\), temos \(\Delta T_K =
+                45\,\text{K}\).</li>
+                </ol>
+                <strong>Verificando:</strong> Se a temperatura
+                inicial era 25 °C (77 °F) e final 70 °C (158 °F), a
+                variação em Fahrenheit é realmente 158 - 77 = 81 °F.
+                Confirmamos!</p>
+                <h2
+                id="exemplo-3.2---interpretando-uma-variação-em-fahrenheit">Exemplo
+                3.2 - Interpretando uma variação em Fahrenheit</h2>
+                Um noticiário americano informa que a temperatura
+                durante a noite caiu 27 °F. Qual foi essa queda em graus
+                Celsius?</p>
+                <strong>Resolução:</strong></p>
+                Sabemos que \(\Delta
+                \theta_F = 1{,}8 \cdot \Delta \theta_C\). Mas
+                aqui temos a variação em Fahrenheit e queremos a
+                variação em Celsius. Basta isolarmos \(\Delta \theta_C\):</p>
+                \[\Delta \theta_C =
+                \dfrac{\Delta \theta_F}{1{,}8}\]</p>
+                Substituindo:</p>
+                \[\Delta \theta_C =
+                \dfrac{27}{1{,}8} = 15\,°\text{C}\]</p>
+                <strong>Conclusão:</strong> Uma queda de 27 °F
+                corresponde a uma queda de 15 °C.</p>
+                <strong>Atenção: Cuidado com a confusão!</strong></p>
+                É muito comum os estudantes confundirem:</p>
+                <ul>
+                <li><strong>Conversão de valores:</strong></li>
+                </ul>
+                \[\dfrac{\theta_C}{5} =
+                \dfrac{\theta_F - 32}{9}\]</p>
+                <ul>
+                <li><strong>Conversão de variações:</strong></li>
+                </ul>
+                \[\dfrac{\Delta
+                \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\]</p>
+                Ou, de forma mais direta,</p>
+                \[\Delta \theta_F = 1{,}8
+                \cdot \Delta \theta_C\]</p>
+                A diferença está no termo “-32”. Para variações, ele
+                desaparece porque é uma constante subtraída nos dois
+                momentos. Afinal, quando calculamos uma variação,
+                estamos subtraindo dois valores que contêm a mesma
+                constante, e ela se anula!</p>
+                <h1 id="escalas-termométricas-arbitrárias">Escalas
+                Termométricas Arbitrárias</h1>
+                Agora vamos entrar em um território mais
+                interessante: <strong>escalas arbitrárias</strong>.</p>
+                Imagine que você é um cientista e decide criar sua
+                própria escala termométrica. Você pode escolher:</p>
+                <ul>
+                <li>Dois pontos fixos (por exemplo, fusão do gelo e
+                ebulição da água).</li>
+                <li>Atribuir valores quaisquer a esses pontos.</li>
+                <li>Dividir o intervalo em qualquer número de
+                partes.</li>
+                </ul>
+                Essa é uma <strong>escala arbitrária</strong>. E
+                podemos relacioná-la com as escalas convencionais usando
+                proporções.</p>
+                <strong>A Ideia Fundamental</strong></p>
+                Quando temos duas escalas termométricas quaisquer (A
+                e B), a relação entre elas é <strong>linear</strong>
+                (função do 1° grau). Isso significa que podemos
+                escrever:</p>
+                \[\theta_A = a \cdot
+                \theta_B + b\]</p>
+                Ou, de forma mais útil para problemas:</p>
+                \[\dfrac{\theta_A -
+                \theta_{A2}}{\theta_{A1} - \theta_{A2}} =
+                \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} -
+                \theta_{B2}}\]</p>
+                Como é mostrado na figura a seguir:</p>
+                <figure>
+                <img src="images/fig-escalas-arb.png"
+                style="width:40.0%"
+                alt="Relação entre escalas arbitrárias. Fonte: autoria própria." />
+                <figcaption aria-hidden="true">Relação entre escalas
+                arbitrárias. Fonte: autoria própria.</figcaption>
+                </figure>
+                Onde:</p>
+                <ul>
+                <li>\(\theta_{A1}\) e
+                \(\theta_{A2}\) são os
+                valores na escala A correspondentes aos pontos
+                fixos.</li>
+                <li>\(\theta_{B1}\) e
+                \(\theta_{B2}\) são os
+                valores na escala B correspondentes aos mesmos pontos
+                fixos.</li>
+                </ul>
+                <h2
+                id="exemplo-3.3---construindo-a-escala-maluca">Exemplo
+                3.3 - Construindo a escala “Maluca”</h2>
+                Um cientista cria um termômetro com uma escala
+                arbitrária chamada “escala X”. Ele define:</p>
+                <ul>
+                <li>No ponto de fusão do gelo (0 °C), o termômetro marca
+                10 °X</li>
+                <li>No ponto de ebulição da água (100 °C), o termômetro
+                marca 40 °X</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a relação entre as escalas Celsius e
+                X.</li>
+                <li>Qual é o valor em °X correspondente a 60 °C?</li>
+                <li>Qual é o valor em °C correspondente a 25 °X?</li>
+                </ol>
+                <strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>Usando a proporção:</li>
+                </ol>
+                \[\dfrac{\theta_C - 0}{100
+                - 0} = \dfrac{\theta_X - 10}{40 - 10}\]</p>
+                \[\dfrac{\theta_C}{100} =
+                \dfrac{\theta_X - 10}{30}\]</p>
+                Simplificando:</p>
+                \[\dfrac{\theta_C}{10} =
+                \dfrac{\theta_X - 10}{3}\]</p>
+                Multiplicando cruzado:</p>
+                \[3\theta_C = 10(\theta_X
+                - 10)\]</p>
+                \[3\theta_C = 10\theta_X -
+                100\]</p>
+                \[10\theta_X = 3\theta_C +
+                100\]</p>
+                \[\boxed{\theta_X =
+                \dfrac{3\theta_C + 100}{10}}\]</p>
+                <ol start="2" type="a">
+                <li>Para \(\theta_C =
+                60\,°\text{C}\):</li>
+                </ol>
+                \[\theta_X = \dfrac{3
+                \cdot 60 + 100}{10}\]</p>
+                \[\theta_X = \dfrac{180 +
+                100}{10}\]</p>
+                \[\theta_X =
+                \dfrac{280}{10}\]</p>
+                \[\boxed{\theta_X =
+                28\,°\text{X}}\]</p>
+                <ol start="3" type="a">
+                <li>Para \(\theta_X =
+                25\,°\text{X}\), usamos a mesma equação:</li>
+                </ol>
+                \[25 = \dfrac{3\theta_C +
+                100}{10}\]</p>
+                \[250 = 3\theta_C +
+                100\]</p>
+                \[3\theta_C =
+                150\]</p>
+                \[\boxed{\theta_C =
+                50\,°\text{C}}\]</p>
+                <h2
+                id="exemplo-3.4---termômetro-maluco-invertido">Exemplo
+                3.4 - Termômetro “maluco” invertido</h2>
+                Um termômetro com escala arbitrária Y foi construído
+                de forma que:</p>
+                <ul>
+                <li>No ponto de fusão do gelo (0 °C), marca 40 °Y.</li>
+                <li>No ponto de ebulição da água (100 °C), marca 20
+                °Y.</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a relação entre as escalas Celsius e
+                Y.</li>
+                <li>Essa escala é decrescente? Explique.</li>
+                <li>Determine o valor em °Y correspondente a 50 °C.</li>
+                </ol>
+                <strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>Observe que quando a temperatura aumenta (0 °C para
+                100 °C), o valor em Y diminui (40 para 20). Isso indica
+                uma relação decrescente.</li>
+                </ol>
+                Usando a proporção:</p>
+                \[\dfrac{\theta_C - 0}{100
+                - 0} = \dfrac{\theta_Y - 40}{20 - 40}\]</p>
+                \[\dfrac{\theta_C}{100} =
+                \dfrac{\theta_Y - 40}{-20}\]</p>
+                Simplificando:</p>
+                \[\dfrac{\theta_C}{5} =
+                \dfrac{\theta_Y - 40}{-1}\]</p>
+                \[\dfrac{\theta_C}{5} =
+                -(\theta_Y - 40)\]</p>
+                \[\dfrac{\theta_C}{5} =
+                -\theta_Y + 40\]</p>
+                Multiplicando por 5:</p>
+                \[\theta_C = -5\theta_Y +
+                200\]</p>
+                Ou, isolando \(\theta_Y\):</p>
+                \[5\theta_Y = 200 -
+                \theta_C\]</p>
+                \[\boxed{\theta_Y =
+                \dfrac{200 - \theta_C}{5}}\]</p>
+                <ol start="2" type="a">
+                <li>Sim, a escala é decrescente porque o coeficiente
+                de \(\theta_C\) na
+                relação é negativo. Quando \(\theta_C\) aumenta, \(\theta_Y\) diminui. Isso
+                significa que o termômetro Y está marcando ao
+                contrário!</p></li>
+                <li>Para \(\theta_C =
+                50\,°\text{C}\):</p></li>
+                </ol>
+                \[\theta_Y = \dfrac{200 -
+                50}{5}\] \[\theta_Y =
+                \dfrac{150}{5}\] \[\boxed{\theta_Y =
+                30\,°\text{Y}}\]</p>
+                <strong>Interpretação:</strong> Em um mesmo banho
+                térmico, enquanto Celsius marca 50 °C, o termômetro Y
+                marca 30 °Y.</p>
+                <h2
+                id="exemplo-3.5---relacionando-duas-escalas-arbitrárias">Exemplo
+                3.5 - Relacionando duas escalas arbitrárias</h2>
+                Um laboratório possui dois termômetros com escalas
+                arbitrárias A e B. Sabe-se que:</p>
+                <ul>
+                <li>Quando A marca 10 °A, B marca 20 °B.</li>
+                <li>Quando A marca 60 °A, B marca 80 °B.</li>
+                </ul>
+                Determine a temperatura em °B quando A marcar 40
+                °A.</p>
+                <strong>Resolução:</strong></p>
+                Agora estamos relacionando diretamente duas escalas
+                arbitrárias. Usamos a mesma ideia:</p>
+                \[\dfrac{\theta_A -
+                \theta_{A2}}{\theta_{A1} - \theta_{A2}} =
+                \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} -
+                \theta_{B2}}\]</p>
+                Onde: - \(\theta_{A1} =
+                60\), \(\theta_{B1} =
+                80\). - \(\theta_{A2} =
+                10\), \(\theta_{B2} =
+                20\).</p>
+                Para \(\theta_A =
+                40\):</p>
+                \[\dfrac{40 - 10}{60 - 10}
+                = \dfrac{\theta_B - 20}{80 - 20}\]</p>
+                \[\dfrac{30}{50} =
+                \dfrac{\theta_B - 20}{60}\]</p>
+                Simplificando:</p>
+                \[\dfrac{3}{5} =
+                \dfrac{\theta_B - 20}{60}\]</p>
+                Multiplicando cruzado:</p>
+                \[5(\theta_B - 20) = 3
+                \cdot 60\]</p>
+                \[5\theta_B - 100 =
+                180\]</p>
+                \[5\theta_B =
+                280\]</p>
+                \[\boxed{\theta_B =
+                56\,°\text{B}}\]</p>
+                <strong>Conclusão:</strong> Quando o termômetro A
+                marca 40 °A, o termômetro B marca 56 °B.</p>
+                <h2
+                id="construindo-uma-escala-arbitrária-do-zero">Construindo
+                uma Escala Arbitrária do Zero</h2>
+                Vamos agora entender como construir uma escala
+                arbitrária completamente nova.</p>
+                <h2 id="exemplo-3.6---criando-a-escala-z">Exemplo 3.6 -
+                Criando a escala “Z”</h2>
+                Um pesquisador quer criar uma escala Z onde:</p>
+                <ul>
+                <li>O ponto de fusão do gelo (0 °C) corresponda a 0
+                °Z.</li>
+                <li>O ponto de ebulição da água (100 °C) corresponda a
+                50 °Z.</li>
+                </ul>
+                <ol type="a">
+                <li>Escreva a relação entre as escalas Celsius e Z.</li>
+                <li>Qual temperatura em °Z corresponde a 30 °C?</li>
+                <li>Qual temperatura em °C corresponde a 40 °Z?</li>
+                </ol>
+                <strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>Usando a proporção:</li>
+                </ol>
+                \[\dfrac{\theta_C - 0}{100
+                - 0} = \dfrac{\theta_Z - 0}{50 - 0}\] \[\dfrac{\theta_C}{100} =
+                \dfrac{\theta_Z}{50}\]</p>
+                Simplificando:</p>
+                \[\dfrac{\theta_C}{2} =
+                \theta_Z\]</p>
+                Ou seja:</p>
+                \[\boxed{\theta_Z =
+                \dfrac{\theta_C}{2}}\]</p>
+                <ol start="2" type="a">
+                <li>Para \(\theta_C =
+                30\,°\text{C}\):</li>
+                </ol>
+                \[\theta_Z =
+                \dfrac{30}{2}\] \[\boxed{\theta_Z =
+                15\,°\text{Z}}\]</p>
+                <ol start="3" type="a">
+                <li>Para \(\theta_Z =
+                40\,°\text{Z}\):</li>
+                </ol>
+                \[40 =
+                \dfrac{\theta_C}{2}\] \[\boxed{\theta_C =
+                80\,°\text{C}}\]</p>
+                <h2
+                id="exemplo-3.7---quando-uma-escala-arbitrária-coincide-com-celsius">Exemplo
+                3.7 - Quando uma escala arbitrária coincide com
+                Celsius</h2>
+                Considere a escala W definida por:</p>
+                \[\theta_W = 2\theta_C -
+                50\]</p>
+                <ol type="a">
+                <li>Qual o valor em W correspondente a 0 °C?</li>
+                <li>Qual o valor em W correspondente a 100 °C?</li>
+                <li>Existe alguma temperatura onde os valores em W e
+                Celsius são iguais?</li>
+                </ol>
+                <strong>Resolução:</strong></p>
+                <ol type="a">
+                <li>Para \(\theta_C =
+                0\,°\text{C}\): \[\theta_W = 2 \cdot 0 -
+                50\] \[\boxed{\theta_W
+                = -50\,°\text{W}}\]</p></li>
+                <li>Para \(\theta_C = 100
+                °C\): \[\theta_W = 2
+                \cdot 100 - 50\] \[\]
+                \[\boxed{\theta_W =
+                150\,°\text{W}}\]</p></li>
+                <li>Queremos \(\theta_W =
+                \theta_C = x\): \[x =
+                2x - 50\] \[50 = 2x -
+                x\] \[\boxed{x =
+                50}\]</p></li>
+                </ol>
+                <strong>Verificação:</strong> Em 50 °C, temos \(\theta_W = 2 \cdot 50 - 50
+                \rightarrow \theta_W = 100 - 50 \rightarrow \theta_W =
+                50\,°\text{W}\). Confirmado!</p>
+                <strong>Conclusão:</strong> A temperatura de 50 °C
+                (ou 50 °W) é onde as duas escalas coincidem.</p>
+                <h1 id="variação-em-escalas-arbitrárias">Variação em
+                Escalas Arbitrárias</h1>
+                Assim como nas escalas convencionais, podemos
+                trabalhar com variações em escalas arbitrárias.</p>
+                <h2 id="exemplo-3.8---variação-na-escala-x">Exemplo 3.8
+                - Variação na escala X</h2>
+                Usando a escala X do <strong>exemplo 3.3</strong>,
+                onde:</p>
+                \[\theta_X =
+                \dfrac{3\theta_C + 100}{10}\]</p>
+                Determine a relação entre as variações \(\Delta \theta_X\) e \(\Delta \theta_C\).</p>
+                <strong>Resolução:</strong></p>
+                Para dois estados diferentes:</p>
+                \[\theta_{X1} =
+                \dfrac{3\theta_{C1} + 100}{10}\] \[\theta_{X2} = \dfrac{3\theta_{C2}
+                + 100}{10}\]</p>
+                Subtraindo:</p>
+                \[\theta_{X2} -
+                \theta_{X1} = \dfrac{3\theta_{C2} + 100}{10} -
+                \dfrac{3\theta_{C1} + 100}{10}\]</p>
+                \[\Delta \theta_X =
+                \dfrac{3(\theta_{C2} - \theta_{C1})}{10}\]</p>
+                \[\boxed{\Delta \theta_X =
+                \dfrac{3}{10} \cdot \Delta \theta_C}\]</p>
+                Que é exatamente o coeficiente angular da função de
+                primeiro grau!</p>
+                <strong>Interpretação:</strong> Cada variação de 10
+                °C corresponde a uma variação de 3 °X.</p>
+                <h2
+                id="exemplo-3.9---variação-na-escala-decrescente-y">Exemplo
+                3.9 - Variação na escala decrescente Y</h2>
+                Usando a escala Y do <strong>exemplo 3.4</strong>,
+                onde:</p>
+                \[\theta_Y = \dfrac{200 -
+                \theta_C}{5}\]</p>
+                determine a relação entre as variações.</p>
+                <strong>Resolução:</strong></p>
+                \[\theta_{Y1} = \dfrac{200
+                - \theta_{C1}}{5}\] \[\theta_{Y2} = \dfrac{200 -
+                \theta_{C2}}{5}\]</p>
+                Subtraindo:</p>
+                \[\theta_{Y2} -
+                \theta_{Y1} = \dfrac{200 - \theta_{C2}}{5} - \dfrac{200
+                - \theta_{C1}}{5}\]</p>
+                \[\Delta \theta_Y =
+                \dfrac{-\theta_{C2} + \theta_{C1}}{5}\]</p>
+                \[\Delta \theta_Y =
+                -\dfrac{\theta_{C2} - \theta_{C1}}{5}\]</p>
+                \[\boxed{\Delta \theta_Y =
+                -\dfrac{1}{5} \cdot \Delta \theta_C}\]</p>
+                Novamente, a variação é exatamente o termo do
+                coeficinte angular da função. Portanto, a partir de
+                agora, para saber a variação de uma escala com relação à
+                outra, basta analisarmos o <strong>coeficiente
+                angular</strong> da função.</p>
+                <strong>Interpretação:</strong> O sinal negativo
+                indica que a variação é inversa. Se a temperatura em
+                Celsius aumenta, a temperatura em Y diminui.</p>
+                <h1 id="resumo-das-fórmulas">Resumo das Fórmulas</h1>
+                <strong>Variações:</strong></p>
+                <ul>
+                <li>Celsius \(\leftrightarrow\) Kelvin:
+                \[\Delta T_K = \Delta
+                \theta_C\].</li>
+                <li>Fahrenheit \(\leftrightarrow\) Celsius:
+                \[\Delta \theta_F = 1{,}8
+                \Delta_C\].</li>
+                <li>Fahrenheit \(\leftrightarrow\) Kelvin:
+                \[\Delta \theta_F = 1{,}8
+                \Delta_K\].</li>
+                </ul>
+                <strong>Escalas Arbitrárias:</strong></p>
+                Para duas escalas quaisquer A e B, com pontos fixos
+                conhecidos:</p>
+                \[\dfrac{\theta_A -
+                \theta_{A2}}{\theta_{A1} - \theta_{A2}} =
+                \dfrac{\theta_B - \theta_{B2}}{\theta_{B1} -
+                \theta_{B2}}\]</p>
+                Para variações em uma escala arbitrária linear:</p>
+                \[\Delta \theta_A = a
+                \cdot \Delta \theta_B\]</p>
+                Onde \(a\) é o
+                coeficiente angular da relação \(\theta_A = a\theta_B +
+                b\).</p>
+                <h1 id="conclusão">Conclusão</h1>
+                Chegamos ao final da nossa jornada pelas escalas
+                termométricas! Vamos recapitular o que
+                <strong>aprendemos</strong>:</p>
+                Nesta aula, exploramos:</p>
+                <ol type="1">
+                <li><strong>Variações de temperatura</strong> seguem
+                relações diferentes das conversões de valores. Enquanto
+                na conversão usamos:</li>
+                </ol>
+                \[\dfrac{\theta_C}{5} =
+                \dfrac{\theta_F - 32}{9}\]</p>
+                Para variações usamos:</p>
+                \[\dfrac{\Delta
+                \theta_C}{5} = \dfrac{\Delta \theta_F}{9}\].</p>
+                <ol start="2" type="1">
+                <li><strong>Escalas arbitrárias</strong> podem ser
+                construídas escolhendo dois pontos fixos e atribuindo
+                valores quaisquer a eles. A relação entre qualquer
+                escala arbitrária e as escalas convencionais é sempre
+                linear, podendo ser crescente ou decrescente.</p></li>
+                <li>A proporção fundamental:</p></li>
+                </ol>
+                \[\dfrac{\theta_A -
+                \theta_{A1}}{\theta_{A2} - \theta_{A1}} =
+                \dfrac{\theta_B - \theta_{B1}}{\theta_{B2} -
+                \theta_{B1}}\]</p>
+                É a ferramenta mais poderosa para relacionar
+                quaisquer duas escalas termométricas.</p>
+                <ol start="4" type="1">
+                <li><strong>Variações em escalas arbitrárias</strong>
+                seguem a mesma lógica:</li>
+                </ol>
+                \[\Delta \theta_A = a
+                \cdot \Delta \theta_C\]</p>
+                Onde \(a\) é o
+                coeficiente angular da relação linear.</p>
+                Dominar esses conceitos permite não apenas resolver
+                problemas de termometria, mas também compreender como
+                qualquer escala de medição pode ser construída e
+                relacionada com outras.</p>
+                Na próxima aula, vamos dar um passo adiante no estudo
+                da Termologia. Agora que já dominamos como a temperatura
+                é medida e como ela varia entre diferentes escalas,
+                vamos investigar: O que acontece com os corpos quando a
+                temperatura deles varia?</p>
+                Até a próxima aula!</p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>3.1)</dt>
+                <dd>
+                Se a temperatura de um corpo aumenta de 20 °C para 50
+                °C, qual foi o aumento correspondente na escala
+                Fahrenheit?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>30 °F.</li>
+                <li>45 °F.</li>
+                <li>54 °F.</li>
+                <li>60 °F.</li>
+                <li>68 °F.</li>
+                </ol>
+                <dl>
+                <dt>3.2)</dt>
+                <dd>
+                Uma variação de 45 °F corresponde a uma variação de
+                quantos graus Celsius?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>9 °C.</li>
+                <li>15 °C.</li>
+                <li>25 °C.</li>
+                <li>40 °C.</li>
+                <li>81 °C.</li>
+                </ol>
+                <dl>
+                <dt>3.3)</dt>
+                <dd>
+                Um termômetro arbitrário X foi construído de forma que:
+                </dd>
+                </dl>
+                <ul>
+                <li>0 °C corresponde a 10 °X.</li>
+                <li>100 °C corresponde a 30 °X.</li>
+                </ul>
+                A temperatura em °X quando o termômetro marca 50 °C
+                é:</p>
+                <ol type="a">
+                <li>15 °X.</li>
+                <li>18 °X.</li>
+                <li>20 °X.</li>
+                <li>22 °X.</li>
+                <li>25 °X.</li>
+                </ol>
+                <dl>
+                <dt>3.4)</dt>
+                <dd>
+                Na escala Y, o ponto de fusão do gelo é 20 °Y e o ponto
+                de ebulição da água é 80 °Y. A relação entre as escalas
+                Celsius e Y é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>\(\theta_Y = 0,6\theta_C +
+                20\).</li>
+                <li>\(\theta_Y = 0,8\theta_C +
+                20\).</li>
+                <li>\(\theta_Y = 1,2\theta_C +
+                20\).</li>
+                <li>\(\theta_Y = 1,5\theta_C +
+                20\).</li>
+                <li>\(\theta_Y = 2,0\theta_C +
+                20\).</li>
+                </ol>
+                <dl>
+                <dt>3.5)</dt>
+                <dd>
+                Se uma escala arbitrária Z é definida por:
+                </dd>
+                </dl>
+                \[\theta_Z = 4\theta_C -
+                50\]</p>
+                A variação em °Z correspondente a uma variação de 10
+                °C é:</p>
+                <ol type="a">
+                <li>10 °Z.</li>
+                <li>20 °Z.</li>
+                <li>30 °Z.</li>
+                <li>40 °Z.</li>
+                <li>50 °Z.</li>
+                </ol>
+                <dl>
+                <dt>3.6)</dt>
+                <dd>
+                Em um laboratório, a temperatura de uma amostra varia de
+                -10 °C para 35 °C. Determine:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A variação de temperatura em Celsius.</li>
+                <li>A variação correspondente em Fahrenheit.</li>
+                <li>A variação correspondente em Kelvin.</li>
+                </ol>
+                <dl>
+                <dt>3.7)</dt>
+                <dd>
+                Um termômetro com escala arbitrária A foi construído com
+                as seguintes características:
+                </dd>
+                </dl>
+                <ul>
+                <li>No ponto de gelo (0 °C): 5 °A.</li>
+                <li>No ponto de vapor (100 °C): 35 °A.</li>
+                </ul>
+                <ol type="a">
+                <li>Determine a expressão que relaciona as escalas
+                Celsius e A.</li>
+                <li>Calcule o valor em °A correspondente a 40 °C.</li>
+                <li>Calcule o valor em °C correspondente a 20 °A.</li>
+                </ol>
+                <dl>
+                <dt>3.8)</dt>
+                <dd>
+                Considere uma escala arbitrária B onde:
+                </dd>
+                </dl>
+                <ul>
+                <li>0 °C corresponde a 50 °B.</li>
+                <li>100 °C corresponde a 10 °B.</li>
+                </ul>
+                <ol type="a">
+                <li>Esta escala é crescente ou decrescente?
+                Justifique.</li>
+                <li>Determine a relação \(\theta_B =
+                f(\theta_C)\).</li>
+                <li>Qual temperatura em °B corresponde a 25 °C?</li>
+                </ol>
+                <dl>
+                <dt>3.9)</dt>
+                <dd>
+                Dois termômetros com escalas arbitrárias P e Q
+                apresentam as seguintes correspondências:
+                </dd>
+                </dl>
+                <ul>
+                <li>Quando P = 20 °P, Q = 30 °Q.</li>
+                <li>Quando P = 80 °P, Q = 70 °Q.</li>
+                </ul>
+                Determine o valor em °Q quando P marcar 50 °P.</p>
+                <dl>
+                <dt>3.10)</dt>
+                <dd>
+                Uma escala arbitrária C é definida pela expressão:
+                </dd>
+                </dl>
+                \[\theta_C = 2\theta_F -
+                100\]</p>
+                Onde \(\theta_F\) é
+                a temperatura em Fahrenheit.</p>
+                <ol type="a">
+                <li>Determine os valores em °C correspondentes a 0 °F e
+                100 °F.</li>
+                <li>Existe alguma temperatura onde as escalas C e
+                Fahrenheit coincidem? Se sim, qual?</li>
+                </ol>
+                <h1 id="respostas">Respostas</h1>
+                Caro estudante, seguem as respostas
+                <strong>completas</strong> e <strong>detalhadas</strong>
+                dos exercícios de fixação da <a
+                href="https://drive.google.com/file/d/1ZVtR8EaclfetXbMQMRsC4U6BCmh7R1yC/view?usp=drive_link">aula
+                anterior</a>.</p>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-enem-gratuito-esc-arb.png" alt="Escalas Arbitrárias" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Escalas Arbitrárias</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Curso Enem Gratuito.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=3YLFMJNkg48" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>GASPAR, Alberto. Física: volume único. 2. ed. São
+                Paulo: Ática, 2014.</li>
+                <li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina. Física: termologia, óptica e ondas. São Paulo:
+                FTD, 2016.</li>
+                <li>PIETROCOLA, Maurício et al. Física em contextos:
+                pessoal, social e histórico – volume 2. São Paulo: FTD,
+                2016.</li>
+                <li>SILAS, Joab. Conversão entre escalas termométricas.
+                Brasil Escola. Disponível em: <a
+                href="https://brasilescola.uol.com.br/fisica/conversao-entre-as-escalas.htm"
+                class="uri">https://brasilescola.uol.com.br/fisica/conversao-entre-as-escalas.htm</a>.
+                Acesso em: 27 fev. 2026.</li>
+                <li>WebFísica. Aula 6-38: Introdução à termologia e
+                escalas termométricas. Disponível em: <a
+                href="https://webfisica.com/fisica/curso-de-fisica-basica/aula/6-38"
+                class="uri">https://webfisica.com/fisica/curso-de-fisica-basica/aula/6-38</a>.
+                Acesso em: 27 fev. 2026.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+
                     </div>
                 </div>
             </div>
