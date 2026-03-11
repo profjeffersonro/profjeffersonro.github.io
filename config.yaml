@@ -28,6 +28,9 @@ disciplinas:
       - name: "Aula 02 - Quantização da Carga: Experimentos de Thomson"
         html: "content/aulas/ES-FM1/Aula-02/fmi-aula-02.html"
         pdf: "https://drive.google.com/file/d/1sclyLmf2b4PVMojhf1FAnlKdScoOT1cQ/view?usp=drive_link" 
+      - name: "Aula 03 - Quantização da Carga: Experimento de Millikan"
+        html: "content/aulas/ES-FM1/Aula-03/fmi-aula-03.html"
+        pdf: "https://drive.google.com/file/d/1sclyLmf2b4PVMojhf1FAnlKdScoOT1cQ/view?usp=drive_link" 
         
   - disciplina: "Mecânica dos Fluidos"
     aulas:
