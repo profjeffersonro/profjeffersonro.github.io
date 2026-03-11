@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03 - Quantização da Carga: Experimento de Millikan | Meu Portal</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\(', '\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics']
+        },
+        tex: {
+            packages: {'[+]': ['ams', 'physics']}
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Física Moderna 1</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 03 - Quantização da Carga: Experimento de Millikan</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Física Moderna 1</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1rKq9cwEij5WhWVHnB0MXRGu_AjEN8PLk/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        
+    
+        
+            <!-- Header -->
+            
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <ul>
+                <li>Compreender o conceito de <strong>quantização da
+                carga elétrica</strong> e seu significado histórico para
+                a <strong>Física</strong>.</li>
+                <li>Conhecer o princípio físico e a <strong>montagem
+                experimental clássica</strong> de Robert Millikan para a
+                determinação da <strong>carga do elétron</strong>.</li>
+                <li>Analisar as <strong>forças atuantes</strong> em uma
+                gota de óleo carregada imersa em um <strong>campo
+                elétrico</strong> e deduzir as equações para o cálculo
+                de sua <strong>carga</strong> e
+                <strong>raio</strong>.</li>
+                <li>Utilizar uma <strong>simulação
+                computacional</strong> para realizar “medidas” de
+                velocidades de gotas de óleo e, a partir delas,
+                determinar a <strong>carga elementar</strong>.</li>
+                <li>Interpretar <strong>graficamente</strong> os
+                resultados experimentais como evidência da
+                <strong>quantização</strong>.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                No início do século XX, uma das questões fundamentais
+                da <strong>Física</strong> era a natureza da
+                <strong>carga elétrica</strong>. Será que ela poderia
+                assumir qualquer valor contínuo, ou existiria uma
+                <strong>unidade fundamental</strong>, indivisível? Em
+                1909, o físico americano <strong>Robert Andrews
+                Millikan</strong>, com a colaboração de Harvey Fletcher,
+                concebeu um experimento engenhoso e preciso que
+                responderia a essa pergunta: o <strong>experimento da
+                gota de óleo</strong>.</p>
+                Millikan não provou apenas a existência dessa
+                <strong>unidade fundamental</strong>, a <strong>carga do
+                elétron</strong>, mas também a mediu com notável
+                precisão para a época. Seu trabalho lhe rendeu o
+                <strong>Prêmio Nobel de Física</strong> em 1923 e
+                solidificou a ideia de que a <strong>carga
+                elétrica</strong> é <strong>quantizada</strong>, ou
+                seja, só pode existir em <strong>múltiplos
+                inteiros</strong> de um valor mínimo \(e = 1,602 \times 10^{-19}\)
+                C.</p>
+                Nesta aula, vamos explorar os <strong>fundamentos
+                teóricos</strong> desse experimento histórico, analisar
+                suas <strong>dificuldades práticas</strong> e,
+                finalmente, utilizar uma <strong>simulação
+                virtual</strong> moderna para refazer os passos de
+                Millikan, coletando e analisando dados que nos levarão à
+                mesma conclusão sobre a <strong>natureza
+                discreta</strong> da carga elétrica.</p>
+                <h1 id="a-história-de-robert-andrews-millikan">A
+                História de Robert Andrews Millikan</h1>
+                <strong>Robert Andrews Millikan</strong> nasceu em
+                1868 em Morrison, Illinois, e teve uma trajetória
+                incomum para um físico: graduou-se em <strong>clássicos
+                gregos</strong> no Oberlin College, tendo aprendido
+                física “por acidente” quando foi convidado a ensinar a
+                disciplina durante a graduação. Após obter seu
+                <strong>doutorado</strong> na Universidade Columbia em
+                1895, estudou na Alemanha e retornou aos Estados Unidos
+                a convite de <strong>Albert A. Michelson</strong> para
+                integrar o recém-criado Laboratório Ryerson na
+                <strong>Universidade de Chicago</strong>, onde
+                permaneceu por 25 anos e desenvolveu seus experimentos
+                mais importantes. Em 1921, Millikan mudou-se para o
+                <strong>Instituto de Tecnologia da Califórnia
+                (Caltech)</strong>, onde atuou como diretor do
+                laboratório de física e presidente do conselho
+                executivo, transformando a instituição em um dos
+                principais centros de pesquisa dos Estados Unidos.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Robert_Andrews_Millikan_1920s.jpg"
+                style="width:50.0%"
+                alt="Robert Millikan - 1920. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Robert Millikan - 1920.
+                Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/b/be/Robert_Andrews_Millikan_1920s.jpg">wikimedia.</a></figcaption>
+                </figure>
+                O experimento que lhe rendeu o <strong>Prêmio Nobel
+                de Física em 1923</strong> foi realizado em colaboração
+                com seu estudante de doutorado <strong>Harvey
+                Fletcher</strong>. Em 1909, eles desenvolveram o célebre
+                <strong>experimento da gota de óleo</strong>, que
+                permitiu medir com precisão a <strong>carga elementar do
+                elétron</strong>. A substituição da água por óleo foi
+                crucial para evitar a evaporação das gotículas durante
+                as observações. Millikan demonstrou que todas as cargas
+                medidas eram <strong>múltiplos inteiros</strong> de um
+                valor fundamental (\(1,592
+                \times 10^{-19}\,C\)), próximo ao valor moderno
+                de \(1,602 \times
+                10^{-19}\,C\). Curiosamente, Millikan
+                inicialmente duvidava da existência do
+                <strong>elétron</strong> como partícula discreta, mas
+                seu próprio experimento convenceu a comunidade
+                científica da <strong>natureza quantizada da carga
+                elétrica</strong>.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Robert_A._Millikan_1924.png"
+                style="width:50.0%"
+                alt="Millikan - Prêmio Nobel. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Millikan - Prêmio Nobel.
+                Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/7/73/Robert_A._Millikan_1924.png">wikimedia.</a></figcaption>
+                </figure>
+                Além desse trabalho seminal, Millikan fez
+                contribuições importantes para a <strong>verificação
+                experimental da equação fotoelétrica de
+                Einstein</strong> (determinando o valor da
+                <strong>constante de Planck</strong>) e cunhou o termo
+                <strong>“raios cósmicos”</strong> para descrever a
+                radiação de origem extraterrestre que investigou no
+                Caltech. Sua carreira, no entanto, não esteve isenta de
+                controvérsias: há debates sobre a <strong>seleção
+                seletiva de dados</strong> em suas publicações do
+                experimento da gota de óleo, além da questão do crédito
+                devido a Harvey Fletcher, cuja contribuição foi por
+                décadas subestimada por um acordo entre ambos. Millikan
+                faleceu em 1953, deixando um legado como um dos
+                <strong>físicos experimentais mais influentes</strong>
+                do século XX.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Millikan_and_Einstein_1932.png"
+                style="width:50.0%"
+                alt="Millikan e Einstein - 1932. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Millikan e Einstein -
+                1932. Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/5/5b/Millikan_and_Einstein_1932.png">wikimedia.</a></figcaption>
+                </figure>
+                <h1 id="o-experimento-de-millikan-princípio-físico">O
+                Experimento de Millikan: Princípio Físico</h1>
+                O experimento baseia-se no <strong>equilíbrio de
+                forças</strong> sobre minúsculas gotas de óleo
+                carregadas, imersas no ar e sujeitas à ação da
+                <strong>gravidade</strong> e de um <strong>campo
+                elétrico</strong> controlado. O aparato consiste em duas
+                placas metálicas paralelas (um
+                <strong>capacitor</strong>) montadas horizontalmente,
+                entre as quais é aplicada uma <strong>diferença de
+                potencial (d.d.p.)</strong> ajustável, criando um
+                <strong>campo elétrico</strong> vertical e uniforme.</p>
+                <strong>Detalhes do Aparato Experimental</strong></p>
+                A câmara principal do experimento é um
+                <strong>capacitor de placas paralelas</strong>
+                cuidadosamente construído para garantir um <strong>campo
+                elétrico uniforme</strong> em seu interior. A placa
+                superior possui um minúsculo orifício por onde as gotas
+                de óleo são introduzidas. Um <strong>pulverizador
+                (atomizador)</strong> é utilizado para borrifar finas
+                gotículas de óleo, geralmente <strong>óleo de
+                silicone</strong> ou de <strong>relógio</strong>,
+                escolhidos por sua baixa volatilidade, evitando a
+                evaporação durante as observações.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Millikan%E2%80%99s_oil-drop_apparatus_1.jpg"
+                style="width:50.0%"
+                alt="Aparato experimental do experimento da gota de óleo. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Aparato experimental do
+                experimento da gota de óleo. Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/6/6f/Millikan%E2%80%99s_oil-drop_apparatus_1.jpg">wikimedia.</a></figcaption>
+                </figure>
+                Todo o conjunto é iluminado lateralmente por uma
+                <strong>fonte de luz potente</strong>, que faz as gotas
+                brilharem contra um fundo escuro. A observação é feita
+                através de uma <strong>luneta de pequeno
+                aumento</strong> acoplada a uma <strong>escala
+                micrométrica</strong> gravada na ocular, permitindo
+                medir com precisão os deslocamentos das gotas. Um
+                <strong>comutador</strong> permite inverter rapidamente
+                a <strong>polaridade</strong> das placas, alterando o
+                sentido da <strong>força elétrica</strong> sobre as
+                gotas carregadas. O sistema é completado por
+                <strong>cronômetros</strong> para medir os tempos de
+                subida e descida, e uma <strong>fonte de tensão
+                variável</strong> que permite ajustar a
+                <strong>intensidade do campo elétrico</strong>.</p>
+                <strong>Fenomenologia do Experimento</strong></p>
+                Ao acionar o pulverizador, finas gotas de óleo são
+                espalhadas acima da placa superior. Algumas delas
+                atravessam o orifício e ingressam no espaço entre as
+                placas do capacitor. Durante o processo de atomização,
+                as gotas adquirem <strong>carga elétrica</strong> devido
+                ao <strong>atrito</strong> com o bico do pulverizador e
+                com o ar – um fenômeno conhecido como
+                <strong>eletrização por atrito</strong>. Dessa forma,
+                cada gota carrega consigo uma pequena quantidade de
+                carga, que pode ser positiva ou negativa.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Simplified_scheme_of_Millikan%E2%80%99s_oil-drop_experiment.svg"
+                style="width:70.0%"
+                alt="Esquema do experimento da gota de óleo. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Esquema do experimento da
+                gota de óleo. Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/e/e0/Simplified_scheme_of_Millikan%E2%80%99s_oil-drop_experiment.svg">wikimedia.</a></figcaption>
+                </figure>
+                Uma vez dentro da câmara, o observador seleciona uma
+                gota que esteja bem focalizada e visível na luneta. O
+                movimento dessa gota pode então ser controlado
+                manipulando-se a <strong>tensão aplicada</strong> às
+                placas. Quando o campo está desligado, a gota cai sob
+                ação exclusiva da <strong>gravidade</strong>,
+                rapidamente atingindo uma <strong>velocidade
+                terminal</strong> constante devido à <strong>resistência
+                do ar</strong> (força de arrasto viscoso). Ao ligar o
+                campo elétrico, a gota pode acelerar para cima ou para
+                baixo, dependendo do <strong>sinal de sua carga</strong>
+                e da <strong>polaridade</strong> das placas. Ajustando a
+                tensão, é possível até mesmo fazer com que a gota fique
+                <strong>estacionária</strong>, situação em que a
+                <strong>força elétrica</strong> equilibra exatamente a
+                <strong>força peso</strong>.</p>
+                <figure>
+                <img src="https://i.makeagif.com/media/7-08-2019/qx8oRN.gif"
+                style="width:70.0%"
+                alt="Animação do experimento. Fonte: makeagif." />
+                <figcaption aria-hidden="true">Animação do experimento.
+                Fonte: <a
+                href="https://i.makeagif.com/media/7-08-2019/qx8oRN.gif">makeagif.</a></figcaption>
+                </figure>
+                O procedimento fundamental consiste em medir, para
+                uma mesma gota, sua <strong>velocidade de
+                descida</strong> sob ação apenas da gravidade (campo
+                desligado) e sua <strong>velocidade de subida</strong>
+                (ou descida mais lenta) quando o campo elétrico está
+                ligado. Invertendo a polaridade com o
+                <strong>comutador</strong>, obtêm-se medidas
+                complementares que, combinadas, permitem determinar
+                tanto o <strong>raio</strong> da gota quanto sua
+                <strong>carga elétrica total</strong>, sem necessidade
+                de conhecer previamente nenhum desses valores.</p>
+                <figure>
+                <img src="images/fig-exp-millikan2.gif"
+                style="width:70.0%"
+                alt="Movimento da gota de óleo. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Movimento da gota de
+                óleo. Fonte: wikimedia.</figcaption>
+                </figure>
+                <h1 id="a-simulação-virtual-realizando-o-experimento">A
+                Simulação Virtual: “Realizando” o Experimento</h1>
+                Para superar as enormes <strong>dificuldades
+                práticas</strong> do experimento real (como a
+                necessidade de horas de coleta e a perda constante de
+                gotas), utilizaremos a <strong>simulação</strong>
+                disponível no <strong><a
+                href="https://www.laboratoriovirtual.fisica.ufc.br/experimento-gota-oleo-millikan">Laboratório
+                Virtual de Física da UFC</a></strong>.</p>
+                A <strong>simulação</strong> reproduz fielmente os
+                princípios do experimento, mas com a conveniência de
+                fornecer instantaneamente as
+                <strong>velocidades</strong> de subida e descida (\(v_1\) e \(v_2\)) para cada gota, sob
+                uma <strong>tensão</strong> \(U\) escolhida pelo usuário.
+                Isso nos permite focar na <strong>análise dos
+                dados</strong>, que é o coração da <strong>descoberta
+                científica</strong>.</p>
+                <h2 id="fundamentos-teóricos">Fundamentos Teóricos</h2>
+                Esta prática simula a experiência feita por Robert
+                Millikan, em 1909, que demonstrou a existência de um
+                valor mínimo para a <strong>carga elétrica</strong>, a
+                <strong>carga elementar</strong>. Essa carga é a
+                <strong>carga do elétron</strong>.</p>
+                Nesta experiência, gotas de óleo produzidas por um
+                <strong>pulverizador</strong> são lançadas em uma região
+                onde existe um <strong>campo elétrico</strong> produzido
+                pela aplicação de uma <strong>diferença de
+                potencial</strong> entre as placas paralelas de um
+                <strong>capacitor</strong>. Devido ao atrito entre o
+                óleo e as paredes do pulverizador, as gotas formadas
+                ficam <strong>eletricamente carregadas</strong>,
+                portanto, sujeitas à ação do campo elétrico.</p>
+                Na realidade, cada gota sofre a ação de quatro
+                forças:</p>
+                <ul>
+                <li><strong>Força peso</strong> (\(F_g\)).</li>
+                <li><strong>Força elétrica</strong> (\(F_e\)).</li>
+                <li><strong>Força de atrito viscoso</strong> com o ar
+                (\(F_v\)).</li>
+                <li><strong>Força do empuxo</strong> (por ser muito
+                menor que as demais, será desprezada nesta
+                análise).</li>
+                </ul>
+                Quase imediatamente após a gota entrar no capacitor,
+                essas forças se equilibram e a gota passa a se mover com
+                <strong>velocidade constante</strong>, denominada
+                <strong>velocidade terminal</strong>.</p>
+                <strong>Forças Atuantes</strong></p>
+                Considerando-se as três forças principais, temos:</p>
+                <ul>
+                <li>A <strong>força viscosa</strong> sobre uma esfera
+                (a gota) de raio \(r\)
+                e velocidade \(v\) em
+                um fluido de viscosidade \(\eta\) é dada pela
+                <strong>lei de Stokes</strong>: \[F_v = 6\pi r \eta
+                v\]</p></li>
+                <li>O <strong>peso</strong> de uma esfera de massa
+                \(m\), volume \(V\) e densidade \(\rho\) no campo
+                gravitacional da Terra é: \[F_g = mg = \rho V g =
+                \frac{4}{3}\pi r^3 \rho g\]</p></li>
+                <li>A <strong>força elétrica</strong> é dada por:
+                \[F_e = qE =
+                \frac{qU}{d}\] onde \(U\) é a
+                <strong>voltagem</strong> entre as placas do capacitor e
+                \(d\) é a
+                <strong>distância</strong> entre elas.</p></li>
+                </ul>
+                <strong>Gota se deslocando para baixo</strong></p>
+                Quando a gota desce, temos:</p>
+                <ul>
+                <li>\(F_v\) (para
+                cima).</li>
+                <li>\(F_g\) (para
+                baixo).</li>
+                <li>\(F_e\) (para
+                baixo).</li>
+                </ul>
+                Somando vetorialmente as três forças e igualando a
+                zero (condição de <strong>equilíbrio dinâmico</strong>
+                com velocidade terminal): \[\]</p>
+                Substituindo as expressões das forças: \[6\pi r \eta v_1 - \frac{4}{3}\pi
+                r^3 \rho g - \frac{qU}{d} = 0\]</p>
+                Isolando a <strong>velocidade terminal de
+                descida</strong> \(v_1\): \[v_1 = \frac{1}{6\pi r
+                \eta}\left(\frac{4}{3}\pi r^3 \rho g +
+                \frac{qU}{d}\right) \quad (1)\]</p>
+                <strong>Gota se deslocando para cima</strong></p>
+                Quando a gota sobe (com a polaridade invertida pelo
+                <strong>comutador</strong>), temos:</p>
+                <ul>
+                <li>\(F_v\) (para
+                baixo).</li>
+                <li>\(F_g\) (para
+                baixo).</li>
+                <li>\(F_e\) (para
+                cima).</li>
+                </ul>
+                A condição de equilíbrio dinâmico é: \[\]</p>
+                Substituindo as expressões: \[\frac{qU}{d} - \frac{4}{3}\pi r^3
+                \rho g - 6\pi r \eta v_2 = 0\]</p>
+                Isolando a <strong>velocidade terminal de
+                subida</strong> \(v_2\): \[v_2 = \frac{1}{6\pi r
+                \eta}\left(\frac{qU}{d} - \frac{4}{3}\pi r^3 \rho
+                g\right) \quad (2)\]</p>
+                <strong>Determinação do Raio e da Carga</strong></p>
+                Combinando as equações (1) e (2) – somando-as e
+                subtraindo-as – obtemos, respectivamente, expressões
+                para o <strong>raio</strong> \(r\) e para a
+                <strong>carga</strong> \(q\) da gota:</p>
+                \[r = C_2 \sqrt{v_1 -
+                v_2}\]</p>
+                \[q = C_1 \frac{v_1 +
+                v_2}{U} \sqrt{v_1 - v_2}\]</p>
+                onde \(C_1\) e \(C_2\) são constantes dadas
+                por:</p>
+                \[C_1 = \frac{9\pi d}{2}
+                \sqrt{\frac{\eta^3}{g\rho}}\]</p>
+                \[C_2 = \frac{3}{2}
+                \sqrt{\frac{\eta}{g\rho}}\]</p>
+                <strong>Constantes do Experimento</strong></p>
+                Utilizando os seguintes valores:</p>
+                <ul>
+                <li>Distância entre as placas do capacitor: \(d =
+                2{,}50\,\text{mm}\).</li>
+                <li>Densidade do óleo de silicone: \(\rho = 1{,}03 \times
+                10^3\,\text{kg/m}^3\).</li>
+                <li>Viscosidade do ar: \(\eta
+                = 1{,}82 \times 10^{-5}\,\text{kg/(m·s)}\).</li>
+                <li>Aceleração da gravidade: \(g =
+                9{,}81\,\text{m/s}^2\).</li>
+                </ul>
+                Obtemos os valores numéricos das constantes:</p>
+                \[C_1 = 2{,}73 \times
+                10^{-11}\,\text{Kg(m/s)}^{1/2}\]</p>
+                \[C_2 = 6{,}37 \times
+                10^{-5}\,\text{(m·s)}^{1/2}\]</p>
+                <strong>Evidência da Quantização</strong></p>
+                Millikan, após medir a carga de diversas gotas, ao
+                representar em um <strong>gráfico</strong> o valor da
+                carga de cada gota em função do raio, observou a
+                formação de <strong>patamares</strong> em intervalos
+                regulares, como ilustrado na figura abaixo.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Milikan_elemantarladung.png"
+                style="width:90.0%"
+                alt="Exemplo de Gráfico. Fonte: wikimedia." />
+                <figcaption aria-hidden="true">Exemplo de Gráfico.
+                Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/e/ec/Milikan_elemantarladung.png">wikimedia.</a></figcaption>
+                </figure>
+                Concluiu-se, então, que a <strong>carga
+                elementar</strong> é <strong>quantizada</strong> e que
+                uma gota poderia conter uma, duas, três, ou mais dessas
+                <strong>unidades fundamentais de carga</strong>. Assim
+                foi possível determinar o valor da <strong>carga do
+                elétron</strong>.</p>
+                <blockquote>
+                <strong>Observação:</strong> O gráfico acima é apenas
+                um exemplo ilustrativo de como se apresentam os
+                resultados do experimento da gota de óleo de Millikan.
+                Este gráfico não é o gráfico original de Millikan.</p>
+                </blockquote>
+                <h1 id="conclusão">Conclusão</h1>
+                O <strong>experimento da gota de óleo de
+                Millikan</strong> é um marco na história da
+                <strong>Física</strong>, não apenas pela beleza de sua
+                concepção, mas pela solidez de sua conclusão. Ao
+                combinar a medida de <strong>forças
+                macroscópicas</strong> (peso, viscosa, elétrica) com a
+                observação do movimento de um objeto
+                <strong>microscópico</strong>, Millikan foi capaz de
+                inferir uma <strong>propriedade fundamental</strong> da
+                matéria em sua escala mais elementar: a
+                <strong>quantização da carga elétrica</strong>.</p>
+                Através da <strong>simulação</strong>, pudemos
+                vivenciar, de forma simplificada, o processo de
+                <strong>coleta e análise de dados</strong> que levou a
+                essa descoberta. Ao calcular as <strong>cargas</strong>
+                de diversas gotas e observar a formação dos
+                <strong>patamares</strong> em um
+                <strong>gráfico</strong>, reproduzimos a evidência
+                central que convenceu o mundo científico da existência
+                do <strong>elétron</strong> como portador de uma
+                <strong>unidade fundamental de carga</strong>.</p>
+                Fica claro que a ciência avança não apenas por
+                grandes <strong>insights teóricos</strong>, mas também
+                pela <strong>engenhosidade experimental</strong> capaz
+                de tornar o invisível, visível, e o imensurável,
+                quantificável. A <strong>carga do elétron</strong>,
+                \(e \approx 1,6 \times
+                10^{-19}\) C, é hoje uma das <strong>constantes
+                fundamentais</strong> da natureza, um pilar sobre o qual
+                se constrói nossa compreensão da estrutura da matéria e
+                do <strong>eletromagnetismo</strong>.</p>
+                <h1 id="exercícios-de-fixação">Exercícios De
+                Fixação</h1>
+                <dl>
+                <dt>2.1)</dt>
+                <dd>
+                Sobre o contexto histórico do experimento da gota de
+                óleo, é correto afirmar que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>O experimento foi realizado em 1909 por Robert
+                Millikan em colaboração com Harvey Fletcher, e Millikan
+                inicialmente duvidava da existência do elétron, mas seu
+                próprio experimento convenceu a comunidade científica da
+                natureza quantizada da carga elétrica.</li>
+                <li>Millikan realizou o experimento sozinho, sem
+                qualquer colaborador, e já acreditava na existência do
+                elétron como partícula discreta antes de seus
+                resultados.</li>
+                <li>O experimento foi realizado por Albert Einstein e
+                Robert Millikan juntos, com o objetivo de confirmar a
+                teoria da relatividade.</li>
+                <li>Millikan realizou seu experimento na Universidade de
+                Cambridge, utilizando gotas de água para evitar
+                problemas com evaporação.</li>
+                <li>O experimento da gota de óleo foi realizado apenas
+                em 1923, após Millikan receber o Prêmio Nobel, como
+                forma de confirmar seus resultados teóricos.</li>
+                </ol>
+                <dl>
+                <dt>2.2)</dt>
+                <dd>
+                Qual foi a principal razão para a substituição da água
+                por óleo no experimento de Millikan?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>O óleo é mais denso que a água, facilitando a
+                visualização das gotas.</li>
+                <li>A água evaporava rapidamente devido ao calor gerado
+                pela fonte de luz, tornando as observações imprecisas,
+                enquanto o óleo de silicone ou de relógio possui baixa
+                volatilidade.</li>
+                <li>O óleo é um isolante elétrico perfeito, enquanto a
+                água conduz eletricidade, interferindo nas medidas.</li>
+                <li>A água congela em temperaturas ambiente, enquanto o
+                óleo permanece líquido.</li>
+                <li>O óleo possui menor viscosidade, permitindo
+                velocidades mais altas e fáceis de medir.</li>
+                </ol>
+                <dl>
+                <dt>2.3)</dt>
+                <dd>
+                O que acontece com uma gota de óleo carregada dentro do
+                capacitor quando as forças que atuam sobre ela se
+                equilibram?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A gota para imediatamente e permanece
+                estacionária.</li>
+                <li>A gota continua em movimento, mas agora com
+                aceleração constante.</li>
+                <li>A gota passa a se mover com velocidade constante,
+                chamada de velocidade terminal.</li>
+                <li>A gota oscila verticalmente entre as placas do
+                capacitor.</li>
+                <li>A gota é ejetada para fora da região entre as
+                placas.</li>
+                </ol>
+                <dl>
+                <dt>2.4)</dt>
+                <dd>
+                O que Millikan observou ao representar em um gráfico os
+                valores das cargas de diversas gotas em função de seus
+                raios?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Uma reta crescente, indicando que gotas maiores
+                possuem sempre cargas proporcionalmente maiores.</li>
+                <li>Pontos distribuídos aleatoriamente, sem qualquer
+                padrão definido.</li>
+                <li>Uma curva exponencial, sugerindo que a carga aumenta
+                com o quadrado do raio.</li>
+                <li>Patamares horizontais em intervalos regulares,
+                indicando que as cargas eram sempre múltiplas inteiras
+                de um valor fundamental.</li>
+                <li>Uma reta decrescente, mostrando que gotas menores
+                possuem mais carga.</li>
+                </ol>
+                <dl>
+                <dt>2.5)</dt>
+                <dd>
+                O conceito de quantização da carga elétrica, demonstrado
+                por Millikan, significa que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A carga elétrica pode assumir qualquer valor real,
+                dependendo do material.</li>
+                <li>A carga elétrica só existe em corpos
+                macroscopicamente grandes.</li>
+                <li>A carga elétrica de um corpo é sempre um múltiplo
+                inteiro de uma unidade fundamental, a carga do elétron
+                (\(e = 1,6 \times
+                10^{-19}\) C).</li>
+                <li>A carga elétrica varia continuamente com a
+                temperatura do corpo.</li>
+                <li>A carga elétrica é uma propriedade exclusiva dos
+                elétrons, não podendo ser encontrada em prótons.</li>
+                </ol>
+                <strong>ATENÇÃO: As questões de 2.6 a 2.10 deverão
+                ser realizadas a partir de uma simulação
+                computacional</strong>.</p>
+                <dl>
+                <dt>2.6)</dt>
+                <dd>
+                Acesse a simulação através do link: <strong><a
+                href="https://www.laboratoriovirtual.fisica.ufc.br/experimento-gota-oleo-millikan">Laboratório
+                Virtual de Física - UFC</a></strong>. Identifique os
+                principais controles da interface: botão <strong>NOVA
+                GOTA</strong>, botão <strong>BORRIFAR</strong>, controle
+                deslizante de <strong>POTENCIAL (U)</strong> e a chave
+                <strong>COMUTADOR</strong>.
+                </dd>
+                </dl>
+                <strong>Pergunta:</strong> Explique, com suas
+                próprias palavras, qual é a função de cada um desses
+                quatro controles na simulação. Como eles se relacionam
+                com os componentes do experimento real?</p>
+                <dl>
+                <dt>2.7)</dt>
+                <dd>
+                Siga o procedimento para gerar uma gota e medir suas
+                velocidades:
+                </dd>
+                </dl>
+                <ol type="1">
+                <li>Clique em <strong>NOVA GOTA</strong> e depois em
+                <strong>BORRIFAR</strong>.</li>
+                <li>Ajuste o <strong>POTENCIAL</strong> para 300 V.</li>
+                <li>Observe e anote o módulo da <strong>velocidade de
+                descida</strong> (\(v_1\)) da gota.</li>
+                <li>Acione o <strong>COMUTADOR</strong> e observe a
+                <strong>velocidade de subida</strong> (\(v_2\)). Anote seu
+                módulo.</li>
+                </ol>
+                <strong>Pergunta:</strong> Considerando que a
+                simulação já fornece os valores das velocidades, quais
+                são as vantagens desse ambiente virtual em relação ao
+                experimento real, que exigia o uso de cronômetros
+                manuais e luneta de observação? Cite ao menos duas
+                vantagens mencionadas no roteiro original.</p>
+                <dl>
+                <dt>2.8)</dt>
+                <dd>
+                Utilizando as <strong>fórmulas</strong> fornecidas no
+                roteiro e as <strong>constantes</strong> \(C_1 = 2,73 \times
+                10^{-11}\) (com unidades adequadas) e \(C_2 = 6,37 \times 10^{-5}\)
+                (com unidades adequadas), calcule o
+                <strong>raio</strong> e a <strong>carga</strong> da gota
+                que você observou na <strong>Questão 2.7</strong>.
+                </dd>
+                </dl>
+                \[r = C_2 \sqrt{v_1 -
+                v_2}\] \[q = C_1
+                \frac{v_1 + v_2}{V} \sqrt{v_1 - v_2}\]</p>
+                <strong>Pergunta:</strong> Apresente os cálculos
+                passo a passo e os resultados obtidos para o raio (em
+                metros) e para a carga (em Coulombs) da gota analisada.
+                Não se esqueça de utilizar as velocidades em m/s e a
+                voltagem em Volts.</p>
+                <dl>
+                <dt>2.9)</dt>
+                <dd>
+                Repita o procedimento da <strong>Questão 2.7</strong>
+                para, no mínimo, <strong>10 gotas diferentes</strong>.
+                Anote em uma tabela os valores de \(V\), \(v_1\) e \(v_2\) para cada gota. Em
+                seguida, calcule o raio e a carga de cada uma delas,
+                utilizando as mesmas fórmulas da <strong>Questão
+                2.8</strong>.
+                </dd>
+                </dl>
+                <strong>Pergunta:</strong> Construa um
+                <strong>gráfico de dispersão</strong> (pode ser em papel
+                milimetrado ou utilizando um software como Excel, Google
+                Planilhas ou similares) com os valores da <strong>carga
+                \(q\) no eixo vertical
+                (Y)</strong> e do <strong>raio \(r\) no eixo horizontal
+                (X)</strong>. Insira o gráfico em sua resposta ou
+                descreva detalhadamente como você o construiu e o padrão
+                observado.</p>
+                <dl>
+                <dt>2.10)</dt>
+                <dd>
+                Observe atentamente o gráfico que você construiu na
+                <strong>Questão 2.9</strong>.
+                </dd>
+                </dl>
+                <strong>Pergunta a):</strong> O que significa o fato
+                de os pontos se agruparem em torno de <strong>linhas
+                horizontais (patamares)</strong>? O que esses patamares
+                representam em termos da teoria da <strong>quantização
+                da carga elétrica</strong>?</p>
+                <strong>Pergunta b):</strong> Identifique no seu
+                gráfico os patamares correspondentes a \(e\), \(2e\) e \(3e\) (se houver). Para cada
+                gota, estime quantas cargas elementares (\(n = 1, 2, 3...\)) ela
+                possui, com base no patamar em que se encontra. Em
+                seguida, calcule o valor experimental da carga do
+                elétron para cada gota usando a relação:</p>
+                \[e_{gota} =
+                \frac{q_{gota}}{n}\]</p>
+                Por fim, calcule o <strong>valor médio</strong> de
+                \(e\) obtido a partir
+                de todas as suas gotas e compare com o valor aceito na
+                literatura (\(e = 1,602 \times
+                10^{-19}\) C). Calcule o erro percentual.</p>
+                \[ \text{E\%} =
+                \left|\dfrac{V_{\text{teórico}} -
+                v_{\text{medido}}}{V_{\text{teórico}}} \right | \times
+                100\% \]</p>
+                <h1 id="recomendações-de-estudo">Recomendações de
+                Estudo</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=eBoTc0deofE" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-exp-millikan.png" alt="Gota de óleo de Millikan - Aula 08" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Gota de óleo de Millikan - Aula 08</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=eBoTc0deofE" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Fórmula de Soluções com Prof. Leonardo Costa.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=eBoTc0deofE" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=xohI5URKRvA" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-sim-millikan.png" alt="Millikan - Experimento da gota de óleo" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Millikan - Experimento da gota de óleo</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=xohI5URKRvA" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">equimicaeq.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=xohI5URKRvA" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="respostas">Respostas</h1>
+                Caro estudante, seguem as respostas
+                <strong>completas</strong> e <strong>detalhadas</strong>
+                dos exercícios de fixação da <a
+                href="https://drive.google.com/file/d/1SvOtVBGHu3BHPjho73v5yRIATFGLAtn9/view?usp=drive_link">aula
+                anterior</a>.</p>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>DIAS, Nildo Loiola. Roteiro para simulação:
+                experiência da gota de óleo de Millikan. [S.l.: s.n.],
+                2026. 8 p. Disponível em: <a
+                href="https://001ede9d-4490-47d9-9863-080a826634bd.filesusr.com/ugd/e02095_a96a19f36ef74a049384941d90265a32.pdf"
+                class="uri">https://001ede9d-4490-47d9-9863-080a826634bd.filesusr.com/ugd/e02095_a96a19f36ef74a049384941d90265a32.pdf</a>.
+                Acesso em: 10 mar. 2026.</li>
+                <li>FLETCHER, Harvey. My work with Millikan on the
+                oil-drop experiment. Physics Today, Melville, v. 35,
+                n. 6, p. 43–47, 1982. <a
+                href="https://doi.org/10.1063/1.2915126"
+                class="uri">https://doi.org/10.1063/1.2915126</a></li>
+                <li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                Fundamentos de Física: óptica e física moderna. 10.
+                ed. Rio de Janeiro: LTC, 2016. v. 4.</li>
+                <li>MILLIKAN, Robert Andrews. On the elementary
+                electrical charge and the Avogadro constant. Physical
+                Review, College Park, v. 2, n. 2, p. 109–143, 1913. <a
+                href="https://doi.org/10.1103/PhysRev.2.109"
+                class="uri">https://doi.org/10.1103/PhysRev.2.109</a></li>
+                <li>NUSSENZVEIG, Herch Moysés. Curso de Física Básica:
+                ótica, relatividade, física quântica. 2. ed. São Paulo:
+                Blucher, 2014. v. 4.</li>
+                <li>TIPLER, Paul Allen; LLEWELLYN, Ralph A. Física
+                Moderna. 6. ed. Rio de Janeiro: LTC, 2017. 530 p.</li>
+                <li>YOUNG, Hugh D.; FREEDMAN, Roger A. Física IV: ótica
+                e física moderna. 14. ed. São Paulo: Addison Wesley,
+                2016. 448</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initializeMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.startup.promise.then(() => {
+                    if (document.querySelector('.tex2jax_process')) {
+                        MathJax.typesetPromise().catch((err) => {
+                            console.log('MathJax erro:', err.message);
+                        });
+                    }
+                }).catch((err) => {
+                    console.error('MathJax falhou ao carregar:', err);
+                });
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            } else {
+                console.warn('MathJax não está disponível');
+            }
+        }
+        
+        if (typeof MathJax !== 'undefined') {
+            initializeMathJax();
+        } else {
+            window.addEventListener('MathJaxLoaded', initializeMathJax);
+        }
+    });
+    </script>
+</body>
+</html>
