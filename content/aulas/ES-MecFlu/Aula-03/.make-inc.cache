@@ -1,0 +1,6 @@
+# Cache do make-inc.sh
+# Formato: arquivo|timestamp|checksum|dependencias
+mecflu-aula-03.md->mecflu-aula-03-out.md|0|faf6a0ca6691ab230058cf2f206771c96568967623c7c17d5a3c7810b454b5dd|images/fig-stevin.png:1773353860,images/fig-stevin-paradoxo.png:1773354935,images/demo-teo-stevin.png:1773358459,images/thumbs/fig-ytb-stevin.png:1773353126,images/thumbs/fig-ytb-mesalva.png:1773353128
+mecflu-aula-03-out.md->mecflu-aula-03.tex|0|6e545fa80dfa3e322b90bc9a6bea29fa2de4ecf1bd70993dc44919af5e259f3f|images/fig-stevin.png:1773353860,images/fig-stevin-paradoxo.png:1773354935,images/demo-teo-stevin.png:1773358459,images/thumbs/fig-ytb-stevin.png:1773353126,images/thumbs/fig-ytb-mesalva.png:1773353128
+mecflu-aula-03.tex->mecflu-aula-03.pdf|0|51b4cd94dbdb74d04826c9ee2ac1f7dd808428a2e9e1a0723e5619bbdc4d554d|
+mecflu-aula-03-out.md->mecflu-aula-03.html|0|6e545fa80dfa3e322b90bc9a6bea29fa2de4ecf1bd70993dc44919af5e259f3f|images/fig-stevin.png:1773353860,images/fig-stevin-paradoxo.png:1773354935,images/demo-teo-stevin.png:1773358459,images/thumbs/fig-ytb-stevin.png:1773353126,images/thumbs/fig-ytb-mesalva.png:1773353128
