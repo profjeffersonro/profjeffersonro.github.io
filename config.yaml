@@ -8,7 +8,7 @@ home:
   html: "content/home/home.html"
   
 disciplinas:
-  - disciplina: "Termodinâmica 1"
+  - disciplina: "Termodinâmica"
     aulas:
       - name: "Aula 01 - Conceitos Iniciais"
         html: "content/aulas/EM-Termo1/Aula-01/termo1-aula-01.html"
@@ -19,6 +19,9 @@ disciplinas:
       - name: "Aula 03 - Variação e Escalas Arbitrárias"
         html: "content/aulas/EM-Termo1/Aula-03/termo1-aula-03.html"
         pdf: "https://drive.google.com/file/d/1VBTwE__4T5X-AlBBJK-rpu8e84GdUF9D/view?usp=drive_link" 
+      - name: "Aula 04 - Dilatação Térmica dos Sólidos"
+        html: "content/aulas/EM-Termo1/Aula-04/termo1-aula-04.html"
+        pdf: "https://drive.google.com/file/d/1rkmVlq5IEYEXnvECwo-_KJsFgemDrN3b/view?usp=drive_link" 
 
   - disciplina: "Física Moderna 1"
     aulas:
