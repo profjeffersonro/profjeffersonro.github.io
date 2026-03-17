@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03 - Teorema de Stevin | Meu Portal</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\(', '\)']],
+            displayMath: [['$$', '$$'], ['\[', '\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics']
+        },
+        tex: {
+            packages: {'[+]': ['ams', 'physics']}
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Mecânica dos Fluidos</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 03 - Teorema de Stevin</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1mZh6_FgNRZnxJRCdBwF-0x0c5gUJ-OMh/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        
+    
+        
+            <!-- Header -->
+            
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender o conceito de <strong>pressão em
+                fluidos</strong> e sua diferença em relação à
+                força.</li>
+                <li>Conhecer o <strong>contexto histórico</strong> e as
+                contribuições de Simon Stevin para a Mecânica dos
+                Fluidos.</li>
+                <li>Enunciar e <strong>demonstrar o Teorema de
+                Stevin</strong> a partir do equilíbrio de forças em um
+                fluido.</li>
+                <li>Calcular a <strong>diferença de pressão</strong>
+                entre dois pontos de um fluido incompressível em
+                equilíbrio.</li>
+                <li>Distinguir <strong>pressão absoluta</strong> de
+                <strong>pressão manométrica</strong> e aplicá-las
+                corretamente.</li>
+                <li>Resolver problemas envolvendo <strong>tanques com
+                múltiplos líquidos imiscíveis</strong> (camadas
+                sobrepostas).</li>
+                <li>Calcular pressões em situações práticas como
+                <strong>mergulho</strong>, <strong>barragens</strong> e
+                <strong>reservatórios</strong>.</li>
+                <li>Realizar conversões entre diferentes sistemas de
+                unidades utilizando <strong>fator de conversão
+                unitário</strong>.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                Você já parou para pensar:</p>
+                <blockquote>
+                Por que as barragens são construídas com formato
+                triangular, muito mais largas na base do que no
+                topo?</p>
+                </blockquote>
+                Ou por que sentimos dor nos ouvidos quando
+                mergulhamos em uma piscina funda?</p>
+                A resposta para esses fenômenos cotidianos está no
+                estudo da <strong>pressão exercida por fluidos em
+                repouso</strong>, um campo da física conhecido como
+                <strong>Hidrostática</strong>.</p>
+                Imagine uma represa segurando um enorme volume de
+                água. A água exerce uma força imensa contra a parede da
+                barragem. Se essa força fosse igual em todos os pontos,
+                a barragem poderia ter a mesma espessura de cima a
+                baixo. No entanto, a natureza nos mostra o contrário: a
+                base é muito mais espessa. Isso acontece porque a
+                <strong>pressão exercida pela água aumenta com a
+                profundidade</strong>. Quanto mais fundo, maior a
+                pressão, e maior a necessidade de reforço
+                estrutural.</p>
+                Nesta aula, vamos desvendar essa relação fundamental
+                entre profundidade e pressão, conhecida como
+                <strong>Teorema de Stevin</strong>. Compreenderemos sua
+                origem, sua demonstração e, principalmente, como
+                aplicá-lo para resolver problemas práticos em
+                engenharia, mergulho e diversas outras áreas, inclusive
+                em situações com diferentes líquidos sobrepostos.</p>
+                Ao final desta aula, você não apenas compreenderá
+                melhor o comportamento dos fluidos em repouso, como
+                também estará preparado para resolver problemas práticos
+                envolvendo cálculo de pressões em tanques, reservatórios
+                e até mesmo em aplicações de mergulho profissional.</p>
+                <h1
+                id="breve-história-da-mecânica-dos-fluidos-simon-stevin">Breve
+                História da Mecânica dos Fluidos: Simon Stevin</h1>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Simon-stevin.jpeg" style="width:40.0%"
+                alt="Retrato de Simon Stevin (1548-1620). Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Retrato de Simon Stevin
+                (1548-1620). Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/7/7f/Simon-stevin.jpeg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <strong>Simon Stevin</strong> (1548-1620) foi um
+                engenheiro, físico e matemático flamengo (atual Bélgica)
+                de enorme importância para a ciência. Antes de Stevin, o
+                estudo da hidrostática era dominado pelas ideias de
+                <strong>Arquimedes</strong>, que focavam na flutuação e
+                no empuxo. Stevin deu um passo crucial ao formalizar o
+                comportamento da <strong>pressão no interior de um
+                fluido</strong>.</p>
+                Além de suas contribuições à física, Stevin foi um
+                inventor notável. Ele projetou um veículo sobre rodas
+                movido a velas (um “carro-vela”) que percorria as praias
+                da Holanda, e também foi responsável pela introdução do
+                uso sistemático de <strong>números decimais</strong> na
+                Europa, simplificando enormemente os cálculos
+                matemáticos.</p>
+                Sua obra mais famosa no campo da hidrostática é
+                <strong>“De Beghinselen des Waterwichts”</strong> (“Os
+                Princípios do Peso da Água”), de 1586. Nela, Stevin
+                enunciou pela primeira vez o princípio que hoje leva seu
+                nome, estabelecendo a base para a engenharia hidráulica
+                moderna.</p>
+                <figure>
+                <img src="https://www.shutterstock.com/image-vector/hydrostatic-paradox-fluid-dynamics-260nw-2646156601.jpg"
+                style="width:80.0%"
+                alt="Ilustração do paradoxo hidrostático de Stevin: a pressão no fundo depende apenas da altura, não da forma do recipiente. Fonte: shutterstock." />
+                <figcaption aria-hidden="true">Ilustração do paradoxo
+                hidrostático de Stevin: a pressão no fundo depende
+                apenas da altura, não da forma do recipiente. Fonte: <a
+                href="https://www.shutterstock.com/image-vector/hydrostatic-paradox-fluid-dynamics-260nw-2646156601.jpg">shutterstock.</a></figcaption>
+                </figure>
+                O <strong>paradoxo hidrostático de Stevin</strong>
+                demonstra que a pressão no fundo de um recipiente
+                depende <strong>apenas da altura da coluna de
+                líquido</strong> e <strong>não da sua forma</strong> ou
+                do volume total. Esta é uma das ideias mais
+                contraintuitivas e brilhantes da história da física.</p>
+                <h1 id="conceito-de-pressão-em-fluidos">Conceito de
+                Pressão em Fluidos</h1>
+                Antes de mergulharmos no teorema, precisamos revisar
+                o conceito fundamental de <strong>pressão</strong>.</p>
+                Conforme vimos na <strong>Aula 01</strong>, a pressão
+                \(p\) em um ponto é
+                definida como o limite da razão entre a força
+                <strong>normal</strong> \(F_\perp\) exercida sobre
+                uma superfície e a área \(A\) dessa superfície,
+                quando a área tende a zero:</p>
+                \[p = \lim_{\Delta A \to
+                0} \frac{\Delta F_\perp}{\Delta A}\]</p>
+                Na forma diferencial:</p>
+                \[\boxed{p =
+                \frac{dF_\perp}{dA}}\]</p>
+                No Sistema Internacional (SI), a unidade de pressão é
+                o <strong>pascal (Pa)</strong> , que equivale a:</p>
+                \[1\,\text{Pa} =
+                1\,\text{N}/\text{m}^2 = 1\,\text{kg}/(\text{m} \cdot
+                \text{s}^2)\]</p>
+                <strong>Outras unidades de pressão
+                importantes:</strong></p>
+                <ul>
+                <li>\(1\,\text{bar} = 1\,
+                \text{MPa} = 100 \,\text{kPa} = 1 \times 10^5
+                \,\text{Pa}\)</li>
+                <li>\(1\,\text{atm} =
+                101325\,\text{Pa} = 101,325 \, \text{kPa} = 1,01325
+                \,\text{MPa}\) (valor exato)</li>
+                <li>\(1\,\text{atm} = 760
+                \,\text{mmHg}\)</li>
+                <li>\(1\,\text{atm} = 14,7
+                \,\text{psi}\) (libra por polegada quadrada -
+                sistema inglês).</li>
+                </ul>
+                <strong>Propriedade fundamental da pressão em fluidos
+                em repouso:</strong></p>
+                Em um fluido em <strong>equilíbrio estático</strong>,
+                não existem tensões tangenciais internas. Assim, a
+                pressão atua <strong>igualmente em todas as
+                direções</strong> e pode ser tratada como uma
+                <strong>grandeza escalar</strong>. Este é um resultado
+                importante: a pressão em um ponto de um fluido em
+                repouso é a mesma em qualquer direção.</p>
+                <h1 id="o-teorema-de-stevin">O Teorema de Stevin</h1>
+                <h2 id="enunciado-do-teorema">Enunciado do Teorema</h2>
+                <strong>“A diferença de pressão entre dois pontos de
+                um fluido incompressível (como a maioria dos líquidos)
+                em equilíbrio estático é proporcional à densidade do
+                fluido e à diferença de profundidade entre os
+                pontos.”</strong></p>
+                Em outras palavras, a pressão aumenta
+                <strong>linearmente</strong> com a profundidade. A
+                pressão independe do formato do recipiente ou do volume
+                total do líquido, dependendo apenas da <strong>altura da
+                coluna líquida</strong> acima do ponto considerado.</p>
+                <h2 id="demonstração-matemática">Demonstração
+                Matemática</h2>
+                Para demonstrar o teorema, considere uma porção
+                imaginária de fluido em forma de disco, com área de
+                seção transversal \(A\)
+                e altura \(\Delta h\),
+                localizada a uma profundidade \(h\) abaixo da superfície
+                livre do líquido. Este “disco” de fluido está em
+                <strong>equilíbrio estático</strong>, portanto, a soma
+                das forças verticais sobre ele deve ser zero.</p>
+                <figure>
+                <img src="images/demo-teo-stevin.png"
+                style="width:80.0%"
+                alt="Diagrama de forças. Fonte: autoria própria." />
+                <figcaption aria-hidden="true">Diagrama de forças.
+                Fonte: autoria própria.</figcaption>
+                </figure>
+                <strong>As forças que atuam sobre esse disco
+                são:</strong></p>
+                <ol type="1">
+                <li><strong>Força devida à pressão do fluido
+                acima</strong> (\(F_1\)): atua para baixo, na
+                face superior do disco.</li>
+                <li><strong>Força devida à pressão do fluido
+                abaixo</strong> (\(F_2\)): atua para cima, na
+                face inferior do disco.</li>
+                <li><strong>Força peso do próprio disco de
+                fluido</strong> (\(W\)): atua para baixo.</li>
+                </ol>
+                A massa do disco de fluido é dada por:</p>
+                \[m = \rho \cdot V = \rho
+                \cdot (A \cdot \Delta h)\]</p>
+                Onde \(\rho\) é a
+                massa específica (densidade) do fluido.</p>
+                O peso é:</p>
+                \[W = m \cdot g = \rho
+                \cdot A \cdot \Delta h \cdot g\]</p>
+                <strong>Condição de Equilíbrio (soma das forças na
+                vertical = 0):</strong></p>
+                Adotando o sentido para cima como positivo:</p>
+                \[\sum F_y = F_2 - F_1 - W
+                = 0\]</p>
+                \[\sum F_y = (P_2 \cdot A)
+                - (P_1 \cdot A) - W = 0\]</p>
+                Substituindo o peso:</p>
+                \[P_2 A - P_1 A - \rho
+                \cdot A \cdot \Delta h \cdot g = 0\]</p>
+                Dividindo todos os termos pela área \(A\) (já que \(A &gt; 0\)):</p>
+                \[P_2 - P_1 - \rho \cdot g
+                \cdot \Delta h = 0\]</p>
+                Rearranjando a equação, chegamos ao <strong>Teorema
+                de Stevin</strong>:</p>
+                \[\boxed{P_2 - P_1 = \rho
+                \cdot g \cdot (h_2 - h_1)}\]</p>
+                Ou, de forma mais comum, considerando \(h_2\) como o ponto mais
+                profundo e \(h_1\) como
+                o ponto mais raso, e \(\Delta
+                h = h_2 - h_1\) a diferença de profundidade:</p>
+                \[\boxed{\Delta P = \rho
+                \cdot g \cdot \Delta h}\]</p>
+                Onde:</p>
+                <ul>
+                <li>\(\Delta P\) é a
+                diferença de pressão entre os dois pontos \((\text{Pa})\).</li>
+                <li>\(\rho\) é a massa
+                específica (densidade) do fluido \((\text{kg}/\text{m}^3)\).</li>
+                <li>\(g\) é a
+                aceleração da gravidade \((\text{m}/\text{s}^2)\).</li>
+                <li>\(\Delta h\) é a
+                diferença de altura (profundidade) entre os pontos \((\text{m})\).</li>
+                </ul>
+                <h2 id="pressão-absoluta-e-pressão-manométrica">Pressão
+                Absoluta e Pressão Manométrica</h2>
+                É importante distinguir dois conceitos
+                fundamentais:</p>
+                <ul>
+                <li><strong>Pressão Manométrica (\(P_{\text{man}}\))</strong>
+                : É a pressão medida em relação à pressão atmosférica
+                local. É a pressão que “excede” a pressão da atmosfera.
+                Quando calibramos um pneu e o manômetro marca \(30\,\text{psi}\), esta é a
+                pressão manométrica.</li>
+                <li><strong>Pressão Absoluta (\(P_{\text{abs}}\))</strong>
+                : É a pressão total em um ponto, incluindo a pressão
+                atmosférica. É a soma da pressão manométrica com a
+                pressão atmosférica.</li>
+                </ul>
+                \[\boxed{P_{\text{abs}} =
+                P_{\text{atm}} + P_{\text{man}}}\]</p>
+                Considerando a superfície do líquido aberta para a
+                atmosfera, a pressão na superfície é a pressão
+                atmosférica (\(P_{\text{atm}}\)). A uma
+                profundidade \(h\), a
+                pressão absoluta é:</p>
+                \[\boxed{P =
+                P_{\text{atm}} + \rho \cdot g \cdot h}\]</p>
+                O termo \(\rho g h\)
+                é a <strong>pressão manométrica</strong> (ou efetiva) na
+                profundidade \(h\).</p>
+                <h2
+                id="generalização-para-múltiplos-líquidos">Generalização
+                para Múltiplos Líquidos</h2>
+                Quando temos camadas de diferentes líquidos
+                <strong>imiscíveis</strong> (que não se misturam), a
+                pressão em um ponto é a <strong>soma das
+                contribuições</strong> de cada camada acima dele. Para
+                um ponto na base de um tanque com \(n\) camadas de líquidos de
+                densidades \(\rho_1, \rho_2,
+                ..., \rho_n\) e alturas \(h_1, h_2, ..., h_n\):</p>
+                \[P = P_{\text{atm}} +
+                \rho_1 g h_1 + \rho_2 g h_2 + ... + \rho_n g
+                h_n\]</p>
+                Ou, de forma geral:</p>
+                \[\boxed{P =
+                P_{\text{atm}} + g \sum_{i=1}^{n} \rho_i
+                h_i}\]</p>
+                <strong>Importante:</strong> A ordem das camadas
+                importa! Líquidos menos densos ficam sobre os mais
+                densos.</p>
+                <h1
+                id="aplicações-práticas-do-teorema-de-stevin">Aplicações
+                Práticas do Teorema de Stevin</h1>
+                O Teorema de Stevin é a base para inúmeros
+                dispositivos e fenômenos:</p>
+                <ol type="1">
+                <li><strong>Barragens:</strong> Como vimos na
+                introdução, a pressão aumenta com a profundidade. Por
+                isso, as barragens são construídas mais largas na base,
+                para suportar as forças muito maiores geradas pela alta
+                pressão nas partes mais fundas.</p></li>
+                <li><strong>Mergulho:</strong> A cada \(10\,\text{m}\) de
+                profundidade na água doce, a pressão aumenta
+                aproximadamente \(1\,\text{atm}\). Os
+                mergulhadores precisam equalizar a pressão nos ouvidos e
+                usar equipamentos que forneçam ar na mesma pressão do
+                ambiente externo para evitar danos pulmonares.</p></li>
+                <li><strong>Projeto de submarinos e estruturas
+                submersas:</strong> As paredes de submarinos e câmaras
+                hiperbáricas devem ser dimensionadas para suportar as
+                enormes pressões em grandes profundidades.</p></li>
+                <li><strong>Indústria petroquímica:</strong> Tanques
+                de armazenamento de combustíveis e produtos químicos são
+                projetados considerando a pressão exercida pelos
+                líquidos em seu interior.</p></li>
+                <li><strong>Sistemas de abastecimento de
+                água:</strong> A pressão da água nas tubulações de um
+                prédio depende da altura do reservatório superior (caixa
+                d’água).</p></li>
+                </ol>
+                <h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
+                Agora, vamos aplicar o Teorema de Stevin em diversos
+                cenários. Em todos os exemplos, utilizaremos o
+                <strong>fator de conversão unitário</strong> para
+                garantir a consistência das unidades e realizaremos o
+                cálculo numérico em uma única etapa, conforme aprendido
+                na Aula 02.</p>
+                <strong>Valores constantes adotados:</strong></p>
+                <ul>
+                <li>\(g =
+                9,807\,\text{m}/\text{s}^2\) (aceleração da
+                gravidade padrão).</li>
+                <li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\) (pressão atmosférica
+                padrão).</li>
+                <li>\(\rho_{\text{agua}} =
+                997\,\text{kg}/\text{m}^3\) (massa específica da
+                água a \(25^\circ\text{C}\)).</li>
+                </ul>
+                <h2 id="exemplo-3.1-pressão-em-um-mergulhador">Exemplo
+                3.1: Pressão em um mergulhador</h2>
+                Um mergulhador está explorando um naufrágio em um
+                lago de água doce a uma profundidade de 18,0 metros.
+                Determine:</p>
+                <ol type="a">
+                <li>A pressão manométrica suportada pelo mergulhador, em
+                <strong>kilopascal</strong> e em
+                <strong>atmosferas</strong>.</li>
+                <li>A pressão absoluta nessa profundidade, em
+                <strong>atmosferas</strong>.</li>
+                <li>A força total exercida pela água, em
+                <strong>kilonewtons</strong>, sobre o corpo do
+                mergulhador, considerando que a área superficial de seu
+                corpo é de aproximadamente \(1,90\,\text{m}^2\).</li>
+                </ol>
+                <strong>Dados:</strong></p>
+                <ul>
+                <li>\(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+                <li>\(g =
+                9,807\,\text{m}/\text{s}^2\).</li>
+                <li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\).</li>
+                </ul>
+                <strong>Resolução:</strong></p>
+                <strong>a) Pressão manométrica (\(P_{\text{man}}\))
+                :</strong></p>
+                \[P_{\text{man}} = \rho
+                \cdot g \cdot h\]</p>
+                Substituindo os valores em uma única expressão:</p>
+                \[P_{\text{man}} =
+                \left(997\,\dfrac{\text{kg}}{\text{m}^3}\right) \cdot
+                \left(9,807\,\dfrac{\text{m}}{\text{s}^2}\right) \cdot
+                (18\,\text{m})\]</p>
+                \[P_{\text{man}} =
+                \left(997 \times 9,807 \times 18 \right) \,
+                \left(\dfrac{\text{kg}}{\text{m}\,\text{s}^{2}}\right)\cdot
+                \left(\dfrac{1\,\text{Pa}}{1\,\dfrac{\text{kg}}{\text{m}\,\text{s}^{2}}}\right)\]</p>
+                Calculando tudo de uma vez só e analisando os
+                algarimos significativos.</p>
+                \[\boxed{P_{\text{man}} =
+                176 \, \text{kPa}}\]</p>
+                Utilizando fator de conversão:</p>
+                \[P_{\text{man}} = 176 \,
+                \text{kPa} \cdot
+                \left(\dfrac{1\,\text{atm}}{101,325\,\text{kPa}}\right)\]</p>
+                \[\boxed{P_{\text{man}} =
+                1,74\,\text{atm}}\]</p>
+                <strong>b) Pressão absoluta (\(P_{\text{abs}}\))
+                :</strong></p>
+                \[P_{\text{abs}} =
+                P_{\text{atm}} + P_{\text{man}}\]</p>
+                \[P_{\text{abs}} =
+                1\,\text{atm} + 1,76\,\text{atm}\]</p>
+                \[\boxed{P_{\text{abs}} =
+                2,76\,\text{atm}}\]</p>
+                <strong>c) Força total sobre o corpo do
+                mergulhador:</strong></p>
+                A pressão é força por área:</p>
+                \[P = \dfrac{F}{A}
+                \Rightarrow F = P \cdot A\]</p>
+                Usaremos a pressão manométrica, pois é a pressão
+                efetiva que age sobre o corpo (a pressão interna do
+                corpo equilibra aproximadamente a pressão
+                atmosférica).</p>
+                \[F = P_{\text{man}} \cdot
+                A = (176\,\text{kPa}) \cdot
+                (1,9\,\text{m}^2)\]</p>
+                Lembrando que \(\text{Pa} =
+                \text{N}/\text{m}^2\):</p>
+                \[F = 176 \times 1,90 \
+                \left(\dfrac{\text{kN}}{\text{m}^2} \cdot
+                \text{m}^2\right)\]</p>
+                \[\boxed{F =
+                334\,\text{kN}}\]</p>
+                <strong>Interpretação física:</strong> A força sobre
+                o corpo do mergulhador é enorme (equivalente ao peso de
+                um objeto de aproximadamente 34 toneladas!), mas ele não
+                sente essa força esmagando-o porque o corpo humano é
+                composto majoritariamente de água e a pressão interna se
+                equaliza com a externa. O desconforto ocorre em
+                cavidades com ar, como ouvidos e pulmões.</p>
+                <h2
+                id="exemplo-3.2-tanque-com-dois-líquidos-imiscíveis">Exemplo
+                3.2: Tanque com dois líquidos imiscíveis</h2>
+                Um grande tanque industrial contém duas camadas de
+                líquidos que não se misturam:</p>
+                <ul>
+                <li>Na parte superior, uma camada de
+                <strong>óleo</strong> com densidade \(\rho_{\text{oleo}} =
+                860\,\text{kg}/\text{m}^3\) e altura \(h_{\text{oleo}} =
+                2,50\,\text{m}\).</li>
+                <li>Na parte inferior, uma camada de
+                <strong>água</strong> com densidade \(\rho_{\text{agua}} =
+                997\,\text{kg}/\text{m}^3\) e altura \(h_{\text{agua}} =
+                3,00\,\text{m}\).</li>
+                </ul>
+                O tanque é aberto para a atmosfera.</p>
+                Determine a pressão absoluta, em kPa, no fundo do
+                tanque.</p>
+                <strong>Dados:</strong></p>
+                <ul>
+                <li>\(g =
+                9,807\,\text{m}/\text{s}^2\).</li>
+                <li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\).</li>
+                </ul>
+                <strong>Resolução:</strong></p>
+                Usando a relação da pressão absoluta de múltiplos
+                líquidos:</p>
+                \[P_{\text{abs}} =
+                P_{\text{atm}} +
+                \sum_{i=1}^{2}P_{\text{man,i}}\]</p>
+                \[P_{\text{abs}} =
+                P_{\text{atm}} +
+                g\sum_{i=1}^{2}\rho_{i}h_{i}\]</p>
+                Substituindo os valroes numéricos:</p>
+                \[P_{\text{abs}} =
+                101,325\,\text{kPa} \Rightarrow\]</p>
+                \[ \Rightarrow + 9,807(860
+                \times 2,50 + 997 \times 3,00)\,\text{Pa}\cdot \left(
+                \dfrac{1\,\text{k}}{10^{3}}\right)\]</p>
+                \[\boxed{P_{\text{abs}} =
+                152\,\text{kPa}}\]</p>
+                <h2
+                id="exemplo-3.3-tanque-com-três-líquidos-sistema-inglês">Exemplo
+                3.3: Tanque com três líquidos (Sistema Inglês)</h2>
+                Um tanque de armazenamento contém três líquidos
+                imiscíveis:</p>
+                <ul>
+                <li><strong>Camada 1 (topo):</strong> Gasolina com
+                densidade \(\rho_{\text{gas}}
+                = 1,32\,\text{slug}/\text{pé}^3\) e altura \(h_1 =
+                4,00\,\text{pés}\).</li>
+                <li><strong>Camada 2:</strong> Água com densidade \(\rho_{\text{agua}} =
+                1,94\,\text{slug}/\text{pé}^3\) e altura \(h_2 =
+                5,00\,\text{pés}\).</li>
+                <li><strong>Camada 3 (fundo):</strong> Glicerina com
+                densidade \(\rho_{\text{gl}} =
+                2,44\,\text{slug}/\text{pés}^3\) e altura \(h_3 =
+                3,00\,\text{pés}\).</li>
+                </ul>
+                O tanque é aberto para a atmosfera. Calcule a pressão
+                absoluta no fundo do tanque em libras por polegada
+                quadrada (psi).</p>
+                <strong>Dados:</strong></p>
+                <ul>
+                <li>\(g =
+                32,174\,\text{pés}/\text{s}^2\).</li>
+                <li>\(1\,\text{lbf} =
+                1\,\text{slug} \cdot
+                \text{pés}/\text{s}^{2}\).</li>
+                <li>\(1\,\text{pés} =
+                12\,\text{pol}\).</li>
+                </ul>
+                <strong>Resolução:</strong></p>
+                A pressão absoluta no fundo será igual a pressão
+                atmosférica mais a soma das contribuições de todas as
+                camadas.</p>
+                \[P_{\text{abs}} =
+                P_{\text{atm}} + \sum_{i=1}^{3}
+                \rho_{i}h_{i}\]</p>
+                \[P_{\text{abs}} =
+                P_{\text{atm}} + g \cdot (\rho_1 h_1 + \rho_2 h_2 +
+                \rho_3 h_3)\]</p>
+                \[P_{\text{abs}} =
+                1\,\text{atm} +
+                \,32,174\,\text{pés}/\text{s}^2\]</p>
+                \[\cdot (1,32 \times 4,00
+                + 1,94 \times 5,00 + 2,44 \times
+                3,00)\,\dfrac{\text{slug}}{\text{pés}^{2}}\]</p>
+                \[P_{\text{abs}} =
+                1\,\text{atm}\cdot
+                \left(\dfrac{14,7\,\text{psi}}{1\,\text{atm}}\right) +
+                \,32,174\,\text{pés}/\text{s}^2 \Rightarrow\]</p>
+                \[\Rightarrow \cdot (1,32
+                \times 4,00 + 1,94 \times 5,00 + 2,44 \times
+                3,00)\,\dfrac{\text{slug}}{\text{pés}^{2}}\]</p>
+                \[P_{\text{abs}} =
+                14,7\,\text{psi} +
+                717\,\dfrac{\text{slug}}{\text{pés}\,\text{s}^{2}}
+                \Rightarrow \]</p>
+                \[\Rightarrow \cdot
+                \left(\dfrac{1\,\text{psi}}{1\,\dfrac{\text{lbf}}{\text{pol}^{2}}}\right)\cdot
+                \left(\dfrac{1\,\text{lbf}}{1\,\text{slug}\,\dfrac{\text{pé}}{\text{s}^{2}}}\right)
+                \cdot
+                \left(\dfrac{1\,\text{pé}}{12\,\text{pol}}\right)^{2}\]</p>
+                \[P_{\text{abs}}=14,7\,\text{psi} +
+                4,98\,\text{psi}\]</p>
+                \[\]</p>
+                <strong>Resposta:</strong> A pressão absoluta no
+                fundo é de \(19,7\,\text{psi}\).</p>
+                <h2
+                id="exemplo-3.4-mergulho-em-água-do-mar-vs.-água-doce">Exemplo
+                3.4: Mergulho em água do mar vs. água doce</h2>
+                Um mergulhador experiente sabe que a pressão aumenta
+                mais rapidamente na água do mar do que na água doce
+                devido à maior densidade da água salgada. Considere:</p>
+                <ul>
+                <li>Densidade da água doce: \(\rho_{\text{doce}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+                <li>Densidade da água do mar: \(\rho_{\text{mar}} =
+                1025\,\text{kg}/\text{m}^3\).</li>
+                <li>\(g =
+                9,807\,\text{m}/\text{s}^2\).</li>
+                <li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\).</li>
+                </ul>
+                Determine a diferença de pressão, em atmosferas,
+                entre a água salgada e a doce a uma profundidade de 100
+                metros.</p>
+                <strong>Resolução:</strong></p>
+                \[P_{\text{sal}} =
+                P_{\text{atm}}+\rho_{\text{sal}}\, g \,h\]</p>
+                \[P_{\text{doce}} =
+                P_{\text{atm}}+\rho_{\text{doce}}\, g \,h\]</p>
+                \[\Delta P =
+                P_{\text{sal}} - P_{\text{doce}}\]</p>
+                \[\Delta P =
+                (P_{\text{atm}}+\rho_{\text{sal}}\, g \,h) -
+                (P_{\text{atm}}+\rho_{\text{doce}}\, g \,h)\]</p>
+                \[\Delta P = g \,h \,
+                (\rho_{\text{sal}} - \rho_{\text{doce}})\]</p>
+                Substituindo os valores numéricos:</p>
+                \[\Delta P = 9,807 \,
+                \dfrac{\text{m}}{\text{s}^{2}} \cdot 100 \,\text{m}
+                \cdot
+                \left(1025-997\right)\,\dfrac{\text{kg}}{\text{m}^{3}}
+                \Rightarrow \]</p>
+                \[\Rightarrow \cdot
+                \left(\dfrac{1\,\text{Pa}}{1\,\dfrac{\text{kg}}{\text{m}\,\text{s}^{2}}}\right)\cdot
+                \left(\dfrac{1\,\text{atm}}{101325\,\text{Pa}}\right)\]</p>
+                \[\boxed{\Delta P =
+                0,271\,\text{atm}}\]</p>
+                <h2 id="exemplo-3.5-lago-com-camada-de-gelo">Exemplo
+                3.5: Lago com camada de gelo</h2>
+                Um lago de água doce está parcialmente congelado.
+                Sobre a superfície da água, há uma camada de gelo com
+                espessura de \(0,8\,\text{m}\). Um
+                pescador faz um furo no gelo e mede a profundidade total
+                até o fundo do lago como sendo \(5,2\,\text{m}\) (incluindo
+                a camada de gelo). Determine a pressão absoluta no fundo
+                do lago em atmosferas.</p>
+                <strong>Dados:</strong></p>
+                <ul>
+                <li>Densidade do gelo: \(\rho_{\text{gelo}} =
+                917\,\text{kg}/\text{m}^3\).</li>
+                <li>Densidade da água: \(\rho_{\text{agua}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+                <li>\(g =
+                9,807\,\text{m}/\text{s}^2\).</li>
+                <li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\).</li>
+                </ul>
+                <strong>Resolução:</strong></p>
+                <strong>1. Identificando as camadas:</strong></p>
+                A profundidade total é \(5,2\,\text{m}\), sendo
+                \(0,8\,\text{m}\) de
+                gelo e o restante de água:</p>
+                \[h_{\text{gelo}} =
+                0,8\,\text{m}\] \[h_{\text{agua}} = 5,2 - 0,8 =
+                4,4\,\text{m}\]</p>
+                <strong>2. Pressão no fundo:</strong></p>
+                A pressão absoluta no fundo é a pressão atmosférica
+                mais a contribuição da coluna de gelo e da coluna de
+                água:</p>
+                \[P_{\text{fundo}} =
+                P_{\text{atm}} + \rho_{\text{gelo}} \cdot g \cdot
+                h_{\text{gelo}} + \rho_{\text{agua}} \cdot g \cdot
+                h_{\text{agua}}\]</p>
+                \[P_{\text{fundo}} =
+                P_{\text{atm}} + g \cdot (\rho_{\text{gelo}}
+                h_{\text{gelo}} + \rho_{\text{agua}}
+                h_{\text{agua}})\]</p>
+                <strong>3. Substituindo os valores
+                numéricos:</strong></p>
+                \[P_{\text{fundo}} =
+                1\,\text{atm} + 9,807 \Rightarrow\] \[\Rightarrow \cdot (917 \times 0,8
+                + 997 \times 4,4)\,\text{Pa}\cdot
+                \left(\dfrac{1\,\text{atm}}{101325\,\text{Pa}}\right)\]</p>
+                <strong>Resultado final:</strong></p>
+                \[\boxed{P_{\text{fundo}}
+                = 1,50 \,\text{atm}}\]</p>
+                <h1 id="conclusão">Conclusão</h1>
+                Nesta aula, exploramos o <strong>Teorema de
+                Stevin</strong>, um pilar fundamental da mecânica dos
+                fluidos. Vimos que a pressão em um ponto de um fluido em
+                equilíbrio depende exclusivamente da
+                <strong>profundidade</strong>, da <strong>densidade do
+                fluido</strong> e da <strong>gravidade local</strong>,
+                sendo <strong>independente da forma do
+                recipiente</strong>.</p>
+                Os principais aprendizados foram:</p>
+                <ol type="1">
+                <li><strong>A pressão aumenta linearmente com a
+                produndidade:</strong> \(\Delta P = \rho g \Delta
+                h\)</p></li>
+                <li><strong>Em sistemas com múltiplos líquidos
+                imiscíveis,</strong> a pressão em um ponto é a soma das
+                contribuições de cada camada acima dele.</p></li>
+                <li><strong>A distinção entre pressão absoluta e
+                manométrica</strong> é fundamental para aplicações
+                práticas: \(P_{\text{abs}} =
+                P_{\text{atm}} + P_{\text{man}}\).</p></li>
+                <li><strong>O teorema se aplica tanto a líquidos
+                quanto a gases,</strong> desde que consideremos as
+                limitações (gases são compressíveis, mas para pequenas
+                alturas podemos aproximar como
+                incompressíveis).</p></li>
+                </ol>
+                Desde a construção de barragens até o mergulho em
+                águas profundas, passando pelo projeto de tanques
+                industriais e aeronaves, o princípio descoberto por
+                <strong>Simon Stevin</strong> há mais de quatro séculos
+                permanece extremamente relevante na engenharia e na
+                ciência modernas.</p>
+                Através da demonstração e dos exemplos resolvidos,
+                tanto no Sistema Internacional quanto no Sistema Inglês,
+                consolidamos a capacidade de aplicar a lei fundamental
+                da hidrostática para calcular pressões e forças em
+                situações práticas diversas.</p>
+                Na próxima aula, aplicaremos estes conceitos ao
+                estudo dos vasos comunicantes, que é uma importante
+                aplicação deste princípio.</p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                Nas questões a seguir, utilize:</p>
+                <ul>
+                <li>\(g =
+                9,807\,\text{m}/\text{s}^2\) (SI) ou \(g =
+                32,174\,\text{pés}/\text{s}^2\) (sistema
+                inglês).</li>
+                <li>\(\rho_{\text{agua}} =
+                997\,\text{kg}/\text{m}^3\) (SI).ou \(\rho_{\text{agua}} =
+                1,94\,\text{slug}/\text{pés}^3\) (sistema
+                inglês).</li>
+                <li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\) (SI) ou \(P_{\text{atm}} =
+                2116\,\text{lbf}/\text{pés}^2\) (sistema inglês,
+                aproximadamente \(14,7\,\text{psi}\)).</li>
+                </ul>
+                <dl>
+                <dt>3.1)</dt>
+                <dd>
+                O Teorema de Stevin estabelece que a diferença de
+                pressão entre dois pontos de um fluido em equilíbrio
+                estático:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Depende da distância horizontal entre os
+                pontos.</li>
+                <li>É inversamente proporcional à densidade do
+                fluido.</li>
+                <li>É proporcional ao volume do recipiente que contém o
+                fluido.</li>
+                <li>É proporcional à diferença de profundidade e à
+                densidade do fluido.</li>
+                <li>Independe da aceleração da gravidade local.</li>
+                </ol>
+                <dl>
+                <dt>3.2)</dt>
+                <dd>
+                Considere três recipientes de formatos diferentes (um
+                cilíndrico, um cônico invertido e um com formato
+                irregular), todos abertos para a atmosfera e preenchidos
+                com o mesmo líquido até a <strong>mesma altura</strong>.
+                Comparando a pressão no fundo dos três recipientes,
+                podemos afirmar que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A pressão é maior no recipiente cilíndrico por ter
+                maior volume.</li>
+                <li>A pressão é maior no recipiente cônico invertido por
+                ter formato mais estreito.</li>
+                <li>A pressão é maior no recipiente irregular por ter
+                forma mais complexa.</li>
+                <li>A pressão é igual nos três recipientes, pois a
+                altura da coluna líquida é a mesma.</li>
+                <li>A pressão no fundo depende apenas da área da base do
+                recipiente.</li>
+                </ol>
+                <dl>
+                <dt>3.3)</dt>
+                <dd>
+                Sobre pressão absoluta e pressão manométrica, é correto
+                afirmar que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A pressão absoluta é sempre menor que a pressão
+                manométrica.</li>
+                <li>A pressão manométrica é a pressão medida em relação
+                ao vácuo absoluto.</li>
+                <li>A pressão absoluta é a soma da pressão atmosférica
+                com a pressão manométrica.</li>
+                <li>Em um ponto submerso, a pressão manométrica
+                independe da profundidade.</li>
+                <li>A pressão atmosférica ao nível do mar é zero na
+                escala manométrica.</li>
+                </ol>
+                <dl>
+                <dt>3.4)</dt>
+                <dd>
+                Quando adicionamos uma camada de óleo (menos denso que a
+                água) sobre a água em um tanque aberto, a pressão no
+                fundo do tanque, em comparação com a situação sem óleo
+                (mesmo nível de água):
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Diminui, pois o óleo é menos denso.</li>
+                <li>Permanece a mesma, pois a pressão depende apenas da
+                água.</li>
+                <li>Aumenta, pois há uma coluna adicional de
+                fluido.</li>
+                <li>Pode aumentar ou diminuir dependendo da espessura da
+                camada de óleo.</li>
+                <li>Fica igual à pressão atmosférica.</li>
+                </ol>
+                <dl>
+                <dt>3.5)</dt>
+                <dd>
+                Considere as seguintes afirmações sobre o Teorema de
+                Stevin:
+                </dd>
+                </dl>
+                I. A pressão em um ponto de um fluido depende do
+                formato do recipiente. II. Em um fluido incompressível
+                em equilíbrio, pontos no mesmo nível horizontal estão
+                sujeitos à mesma pressão. III. A pressão manométrica em
+                um ponto submerso independe da pressão atmosférica.</p>
+                Está(ão) correta(s):</p>
+                <ol type="a">
+                <li>Apenas I.</li>
+                <li>Apenas II.</li>
+                <li>Apenas III.</li>
+                <li>Apenas II e III.</li>
+                <li>I, II e III.</li>
+                </ol>
+                <dl>
+                <dt>3.6)</dt>
+                <dd>
+                Um tanque de armazenamento de água está aberto para a
+                atmosfera e contém água até uma altura de \(8,50\,\text{m}\).
+                Determine:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A pressão manométrica no fundo do tanque, em
+                Pascal.</li>
+                <li>A pressão absoluta no fundo do tanque, em
+                Pascal.</li>
+                <li>Se um ponto A está a \(2\,\text{m}\) de
+                profundidade e um ponto B está a \(6\,\text{m}\) de
+                profundidade, qual a diferença de pressão entre B e
+                A?</li>
+                </ol>
+                <dl>
+                <dt>3.7)</dt>
+                <dd>
+                Um reservatório aberto contém água doce até uma altura
+                de \(22\,\text{pés}\).
+                Determine a pressão absoluta no fundo do tanque em psi.
+                </dd>
+                </dl>
+                <strong>Dados:</strong></p>
+                <ul>
+                <li>\(\rho_{\text{agua}} =
+                1,94\,\text{slug}/\text{pé}^3\).</li>
+                <li>\(g =
+                32,174\,\text{pés}/\text{s}^2\).</li>
+                </ul>
+                <dl>
+                <dt>3.8)</dt>
+                <dd>
+                Um mergulhador profissional está realizando uma inspeção
+                em uma plataforma de petróleo offshore. Ele se encontra
+                a \(25\,\text{m}\) de
+                profundidade em água do mar (\(\rho_{\text{mar}} =
+                1025\,\text{kg}/\text{m}^3\)).
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Calcule a pressão manométrica suportada pelo
+                mergulhador em Pascal.</li>
+                <li>Determine a pressão absoluta nessa profundidade, em
+                Pascal.</li>
+                <li>Se a área da janela de visualização de seu capacete
+                é de \(0,025\,\text{m}^2\), qual a
+                força resultante (para dentro) exercida pela água sobre
+                essa janela? Desconsidere a pressão interna do
+                capacete.</li>
+                </ol>
+                <dl>
+                <dt>3.9)</dt>
+                <dd>
+                Um tanque de processamento químico contém três líquidos
+                imiscíveis, com as seguintes características (do topo
+                para o fundo):
+                </dd>
+                </dl>
+                <strong>Camada 1: Gasolina</strong>:</p>
+                <ul>
+                <li>\(\rho_{\text{gas}} =
+                1,32\,\text{slug}/\text{pés}^3\).</li>
+                <li>\(h_1 =
+                3,5\,\text{pés}\)</li>
+                </ul>
+                <strong>Camada 2: Água</strong>:</p>
+                <ul>
+                <li>\(\rho_{\text{agua}} =
+                1,94\,\text{slug}/\text{pés}^3\).</li>
+                <li>\(h_2 =
+                6,0\,\text{pés}\).</li>
+                </ul>
+                <strong>Camada 3: Tetracloreto de
+                carbono</strong>:</p>
+                <ul>
+                <li>\(\rho_{\text{tet}} =
+                3,09\,\text{slug}/\text{pés}^3\).</li>
+                <li>\(h_3 =
+                2,5\,\text{pés}\).</li>
+                </ul>
+                O tanque é aberto para a atmosfera. Calcule a pressão
+                absoluta no fundo do tanque, em libras por polegada
+                quadrada (psi).</p>
+                <strong>Dados:</strong> \(g
+                = 32,174\,\text{pés}/\text{s}^2\).</p>
+                <dl>
+                <dt>3.10)</dt>
+                <dd>
+                Um submarino de pesquisa oceanográfica está operando no
+                Oceano Atlântico a uma profundidade de \(300\,\text{m}\). A
+                densidade média da água do mar é \(\rho_{\text{mar}} =
+                1025\,\text{kg}/\text{m}^3\).
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Calcule a pressão manométrica suportada pelo casco
+                do submarino, em Pascal.</li>
+                <li>Converta esse valor para atmosferas (\(1\,\text{atm} =
+                101325\,\text{Pa}\)).</li>
+                <li>Converta esse valor para psi (libras por polegada
+                quadrada), sabendo que \(1\,\text{atm} =
+                14,7\,\text{psi}\). Utilize fator de conversão
+                unitário.</li>
+                <li>Se uma janela de observação tem diâmetro de \(30\,\text{cm}\), qual a
+                força total exercida pela água sobre essa janela?
+                Expresse o resultado em Newtons.</li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=CyGcb7cwj2k" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/fig-ytb-stevin.png" alt="Me Salva! HID07 - Hidrostática - Pressão Hidrostática (Lei de Stevin)" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Me Salva! HID07 - Hidrostática - Pressão Hidrostática (Lei de Stevin)</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=CyGcb7cwj2k" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Física com Douglas.</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=CyGcb7cwj2k" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=fv9XsAm-rvA" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/fig-ytb-mesalva.png" alt="Me Salva! HID07 - Hidrostática - Pressão Hidrostática (Lei de Stevin)" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Me Salva! HID07 - Hidrostática - Pressão Hidrostática (Lei de Stevin)</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=fv9XsAm-rvA" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Me Salva!</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=fv9XsAm-rvA" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>BRUNETTI, Franco. Mecânica dos fluidos. 2. ed. São
+                Paulo: Pearson Prentice Hall, 2008.</li>
+                <li>ÇENGEL, Yunus A.; CIMBALA, John M. Mecânica dos
+                fluidos: fundamentos e aplicações. 3. ed. Porto Alegre:
+                AMGH, 2015.</li>
+                <li>FOX, Robert W.; MCDONALD, Alan T.; PRITCHARD, Philip
+                J. Introdução à mecânica dos fluidos. 8. ed. Rio de
+                Janeiro: LTC, 2014.</li>
+                <li>MUNSON, Bruce R.; YOUNG, Donald F.; OKIISHI,
+                Theodore H. Fundamentos da mecânica dos fluidos. 4.
+                ed. São Paulo: Edgard Blücher, 2004.</li>
+                <li>STEVIN, Simon. The Principal Works of Simon Stevin.
+                Amsterdam: C. V. Swets &amp; Zeitlinger, 1955.
+                (Originalmente publicado em 1586).</li>
+                <li>WHITE, Frank M. Mecânica dos fluidos. 8. ed. Porto
+                Alegre: AMGH, 2018.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initializeMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.startup.promise.then(() => {
+                    if (document.querySelector('.tex2jax_process')) {
+                        MathJax.typesetPromise().catch((err) => {
+                            console.log('MathJax erro:', err.message);
+                        });
+                    }
+                }).catch((err) => {
+                    console.error('MathJax falhou ao carregar:', err);
+                });
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            } else {
+                console.warn('MathJax não está disponível');
+            }
+        }
+        
+        if (typeof MathJax !== 'undefined') {
+            initializeMathJax();
+        } else {
+            window.addEventListener('MathJaxLoaded', initializeMathJax);
+        }
+    });
+    </script>
+</body>
+</html>
