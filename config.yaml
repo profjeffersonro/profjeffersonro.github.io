@@ -34,6 +34,9 @@ disciplinas:
       - name: "Aula 03 - Quantização da Carga: Experimento de Millikan"
         html: "content/aulas/ES-FM1/Aula-03/fmi-aula-03.html"
         pdf: "https://drive.google.com/file/d/1rKq9cwEij5WhWVHnB0MXRGu_AjEN8PLk/view?usp=drive_link" 
+      - name: "Aula 04 - Radiação do Corpo Negro"
+        html: "content/aulas/ES-FM1/Aula-04/fmi-aula-04.html"
+        pdf: "https://drive.google.com/file/d/1rKq9cwEij5WhWVHnB0MXRGu_AjEN8PLk/view?usp=drive_link" 
         
   - disciplina: "Mecânica dos Fluidos"
     aulas:
