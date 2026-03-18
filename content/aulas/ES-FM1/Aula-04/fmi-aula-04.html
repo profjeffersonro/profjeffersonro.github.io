@@ -529,7 +529,7 @@ de Oliveira
                 térmica.</li>
                 <li><strong>Analisar</strong> as leis empíricas que
                 descrevem a radiação do corpo negro: Lei de
-                Stefan-Boltzmann e Lei do Deslocamento de Wien.</li>
+                Stefan-Boltzmann e Lei de Wien.</li>
                 <li><strong>Explicar</strong> o problema da “catástrofe
                 do ultravioleta” e por que ele representou um fracasso
                 da Física Clássica.</li>
@@ -622,7 +622,9 @@ de Oliveira
                 mas sim composta por um número inteiro de “elementos de
                 energia” ou <strong>quanta</strong>. A energia de cada
                 quantum seria proporcional à frequência da radiação:</p>
-                <p><span class="math display">\[E = hf\]</span></p>
+                <p><span class="math display">\[
+                E = hf
+                \]</span></p>
                 <p>Onde <span class="math inline">\(h\)</span> é uma
                 nova constante fundamental da natureza, que hoje
                 conhecemos como <strong>constante de
@@ -640,12 +642,12 @@ de Oliveira
                 uma propriedade fundamental da natureza, e não um mero
                 truque.</p>
                 <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Bundesarchiv_Bild_183-R0116-504%2C_Max_Planck.jpg"
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg"
                 style="width:40.0%"
                 alt="Max Planck em 1918, ano em que recebeu o Prêmio Nobel. Fonte: Wikimedia Commons." />
                 <figcaption aria-hidden="true">Max Planck em 1918, ano
                 em que recebeu o Prêmio Nobel. Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/f/fc/Bundesarchiv_Bild_183-R0116-504%2C_Max_Planck.jpg">Wikimedia
+                href="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg">Wikimedia
                 Commons.</a></figcaption>
                 </figure>
                 <p>Por seu trabalho, Planck recebeu o <strong>Prêmio
@@ -732,8 +734,7 @@ de Oliveira
                 class="math inline">\(\epsilon\)</span> é a emissividade
                 (<span class="math inline">\(0 &lt; \epsilon \le
                 1\)</span>).</p>
-                <h3 id="lei-do-deslocamento-de-wien">Lei do Deslocamento
-                de Wien</h3>
+                <h3 id="lei-de-wien">Lei de Wien</h3>
                 <p>Esta lei descreve como a cor (o comprimento de onda)
                 da radiação mais intensa emitida por um corpo negro
                 varia com a temperatura.</p>
@@ -779,9 +780,9 @@ de Oliveira
                 \]</span></p>
                 <p>Onde <span class="math inline">\(u(\lambda)\)</span>
                 é a densidade de energia por unidade de volume e
-                comprimento de onda, e <span
-                class="math inline">\(k\)</span> é a constante de
-                Boltzmann.</p>
+                comprimento de onda, e <span class="math inline">\(k =
+                1,381 \times 10^{-23}\,\text{J/K}\)</span> é a constante
+                de Boltzmann.</p>
                 <p><strong>O Problema:</strong></p>
                 <ul>
                 <li>Para <strong>comprimentos de onda longos</strong>
@@ -823,7 +824,9 @@ de Oliveira
                 <strong>quanta</strong>.</p>
                 <p>A energia de cada “quantum” é proporcional à
                 frequência da radiação:</p>
-                <p><span class="math display">\[E = h f\]</span></p>
+                <p><span class="math display">\[
+                E = hf
+                \]</span></p>
                 <p>onde <span class="math inline">\(f\)</span> é a
                 frequência da radiação e <span
                 class="math inline">\(h\)</span> é uma nova constante
@@ -839,6 +842,12 @@ de Oliveira
                 u(\lambda) = \dfrac{8\pi h c
                 \lambda^{-5}}{e^{hc/(\lambda k T)} - 1}
                 \]</span></p>
+                <p>Que também pode ser escrita em termos da frequência
+                <span class="math inline">\(f\)</span>:</p>
+                <p><span class="math display">\[u(f) = \frac{8\pi h
+                f^3}{c^3} \frac{1}{e^{hf/(kT)} - 1}\]</span></p>
+                <p>Esta forma é particularmente útil quando se trabalha
+                com espectroscopia e física de radiação.</p>
                 <p>Ao contrário da lei clássica, a lei de Planck:</p>
                 <ul>
                 <li><strong>Concordava perfeitamente</strong> com os
@@ -868,6 +877,28 @@ de Oliveira
                 concordância perfeita da curva de Planck com os pontos
                 experimentais. Fonte: Tipler Vol. 4.</figcaption>
                 </figure>
+                <p>A Lei de Wien pode ser obtida encontrando o máximo da
+                função <span class="math inline">\(u(\lambda)\)</span>
+                da Lei de Planck. Derivando <span
+                class="math inline">\(u(\lambda)\)</span> em relação a
+                <span class="math inline">\(\lambda\)</span> e igualando
+                a zero, obtém-se a equação transcendental:</p>
+                <p><span class="math display">\[5(1 - e^{-x}) = x, \quad
+                \text{onde} \quad x = \frac{hc}{\lambda_{\text{máx}} k
+                T}\]</span></p>
+                <p>A solução numérica desta equação é <span
+                class="math inline">\(x \approx 4,965\)</span>, o que
+                leva a:</p>
+                <p><span class="math display">\[\lambda_{\text{máx}} T =
+                \frac{hc}{x k} = b\]</span></p>
+                <p>Substituindo os valores das constantes
+                fundamentais:</p>
+                <p><span class="math display">\[b = \frac{(6,626 \times
+                10^{-34})(2,998 \times 10^8)}{(4,965)(1,381 \times
+                10^{-23})} = 2,898 \times
+                10^{-3}\,\text{m}\,{K}\]</span></p>
+                <p>Este é o valor da <strong>constante de Wien</strong>,
+                que utilizaremos nos problemas.</p>
                 <h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
                 <h2
                 id="exemplo-4.1-determinando-a-temperatura-de-uma-estrela"><strong>Exemplo
@@ -1114,18 +1145,19 @@ de Oliveira
                 <dl>
                 <dt>4.3)</dt>
                 <dd>
-                De acordo com a Lei do Deslocamento de Wien, se a
-                temperatura de um corpo negro dobra, o comprimento de
-                onda de pico (<span
-                class="math inline">\(\lambda_{\text{máx}}\)</span>):
+                A estrela Betelgeuse, na constelação de Órion, tem
+                coloração avermelhada, enquanto a estrela Sirius, na
+                constelação do Cão Maior, tem coloração azulada. Com
+                base na Lei de Wien, o que se pode afirmar sobre as
+                temperaturas superficiais dessas estrelas?
                 </dd>
                 </dl>
                 <ol type="a">
-                <li>Permanece o mesmo.</li>
-                <li>Dobra.</li>
-                <li>É reduzido à metade.</li>
-                <li>Aumenta por um fator de 4.</li>
-                <li>Diminui por um fator de 16.</li>
+                <li>Betelgeuse é mais quente que Sirius.</li>
+                <li>Sirius é mais quente que Betelgeuse.</li>
+                <li>Ambas têm a mesma temperatura.</li>
+                <li>Não é possível relacionar cor com temperatura.</li>
+                <li>Betelgeuse não emite radiação de corpo negro.</li>
                 </ol>
                 <dl>
                 <dt>4.4)</dt>
@@ -1181,6 +1213,13 @@ de Oliveira
                 a temperatura do corpo negro. <strong>Ative as opções
                 “valores”, “rótulos” e “intensidade”</strong> para
                 facilitar suas leituras.</p>
+                <p><strong>Observação sobre algarismos
+                significativos:</strong> Ao registrar suas medidas e
+                realizar os cálculos, mantenha o número de algarismos
+                significativos coerente com a precisão da simulação. A
+                simulação do PhET geralmente fornece valores com 3 ou 4
+                algarismos significativos. Mantenha essa precisão em
+                suas tabelas e cálculos.</p>
                 <p>Para a análise gráfica, você utilizará o site
                 <strong>Curve.fit</strong> (<a href="https://curve.fit/"
                 class="uri">https://curve.fit/</a>), que permite
@@ -1297,19 +1336,22 @@ de Oliveira
                 esperado (<span class="math inline">\(B_{\text{teórico}}
                 = 4\)</span>). O que isso indica sobre a validade da Lei
                 de Stefan-Boltzmann?</li>
-                <li>Converta o valor do parâmetro <span
-                class="math inline">\(A\)</span> (que é o <span
-                class="math inline">\(\sigma_{\text{exp}}\)</span> nas
-                unidades do gráfico) para as unidades do SI (<span
-                class="math inline">\(\text{MW}/(\text{m}^{2}\,\text{K}^{4})\)</span>),
-                lembrando que 1 <span
-                class="math inline">\(\text{MW}/\text{m}^{2}\)</span> =
-                <span class="math inline">\(10^6\)</span> <span
-                class="math inline">\(\text{W}/\text{m}^{2}\)</span>.
-                Este é o seu valor experimental para a constante de
-                Stefan-Boltzmann, <span
-                class="math inline">\(\sigma_{\text{exp}}\)</span>.</li>
+                <li>O parâmetro <span class="math inline">\(A\)</span>
+                obtido na regressão está nas unidades <span
+                class="math inline">\(\text{MW}/(\text{m}^{2}\,\text{K}^{4})\)</span>.
+                Para convertê-lo para as unidades do SI (<span
+                class="math inline">\(\text{W}/(\text{m}^{2}\,\text{K}^{4})\)</span>),
+                multiplique o valor por <span
+                class="math inline">\(10^6\)</span>, pois:</li>
                 </ol>
+                <p><span class="math display">\[1 \,
+                \frac{\text{MW}}{\text{m}^2\,\text{K}^4} = 10^6 \,
+                \frac{\text{W}}{\text{m}^2\,\text{K}^4}\]</span></p>
+                <p>Este é o seu valor experimental para a constante de
+                Stefan-Boltzmann, <span
+                class="math inline">\(\sigma_{\text{exp}}\)</span>, em
+                <span
+                class="math inline">\(\text{W}/(\text{m}^{2}\,\text{K}^{4})\)</span>.</p>
                 <dl>
                 <dt>4.8)</dt>
                 <dd>
