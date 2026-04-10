@@ -52,6 +52,9 @@ disciplinas:
       - name: "Aula 03 - Teorema de Stevin"
         html: "content/aulas/ES-MecFlu/Aula-03/mecflu-aula-03.html"
         pdf: "https://drive.google.com/file/d/1mZh6_FgNRZnxJRCdBwF-0x0c5gUJ-OMh/view?usp=drive_link" 
+      - name: "Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis"
+        html: "content/aulas/ES-MecFlu/Aula-04/mecflu-aula-04.html"
+        pdf: "https://drive.google.com/file/d/1mZh6_FgNRZnxJRCdBwF-0x0c5gUJ-OMh/view?usp=drive_link" 
 
 blog:
   posts:
