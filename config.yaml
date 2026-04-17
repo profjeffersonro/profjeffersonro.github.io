@@ -39,7 +39,7 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1Nn0KP96b6IrCm1vpae5H-PJLWvjE_pS3/view?usp=drive_link" 
       - name: "Aula 05 - Efeito Fotoelétrico"
         html: "content/aulas/ES-FM1/Aula-05/fmi-aula-05.html"
-        pdf: "https://drive.google.com/file/d/1Nn0KP96b6IrCm1vpae5H-PJLWvjE_pS3/view?usp=drive_link" 
+        pdf: "https://drive.google.com/file/d/1lS4vi7C_pSABzBNrMgHILqjhN5Jwuv7e/view?usp=drive_link" 
         
   - disciplina: "Mecânica dos Fluidos"
     aulas:
@@ -54,7 +54,7 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1mZh6_FgNRZnxJRCdBwF-0x0c5gUJ-OMh/view?usp=drive_link" 
       - name: "Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis"
         html: "content/aulas/ES-MecFlu/Aula-04/mecflu-aula-04.html"
-        pdf: "https://drive.google.com/file/d/1mZh6_FgNRZnxJRCdBwF-0x0c5gUJ-OMh/view?usp=drive_link" 
+        pdf: "https://drive.google.com/file/d/1UgUqw9m_cmghVUHV1xHtE8VdEbxjHC-Y/view?usp=drive_link" 
 
 blog:
   posts:
