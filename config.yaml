@@ -22,6 +22,9 @@ disciplinas:
       - name: "Aula 04 - Dilatação Térmica dos Sólidos"
         html: "content/aulas/EM-Termo1/Aula-04/termo1-aula-04.html"
         pdf: "https://drive.google.com/file/d/1rkmVlq5IEYEXnvECwo-_KJsFgemDrN3b/view?usp=drive_link" 
+      - name: "Aula 05 - Calor com Mudança de Temperatura"
+        html: "content/aulas/EM-Termo1/Aula-05/termo-aula-05.html"
+        pdf: "https://drive.google.com/file/d/1rkmVlq5IEYEXnvECwo-_KJsFgemDrN3b/view?usp=drive_link" 
 
   - disciplina: "Física Moderna 1"
     aulas:

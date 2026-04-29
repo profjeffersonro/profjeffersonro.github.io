@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Calor
+com Mudança de Temperatura</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Definir calor como energia térmica em trânsito.</li>
+                <li>Reconhecer situações cotidianas em que ocorre troca
+                de calor.</li>
+                <li>Usar as unidades joule e caloria e fazer conversões
+                simples.</li>
+                <li>Diferenciar capacidade térmica e calor
+                específico.</li>
+                <li>Aplicar a equação fundamental da calorimetria em
+                problemas de calor sensível.</li>
+                <li>Relacionar calor, potência térmica e tempo de
+                aquecimento.</li>
+                <li>Aplicar o princípio das trocas de calor em sistemas
+                isolados.</li>
+                </ul>
+                <h1 id="situação-problema">Situação-Problema</h1>
+                <p>Imagine duas panelas no fogão, ambas recebendo a
+                mesma chama durante o mesmo intervalo de tempo.</p>
+                <p>Uma panela contém pouca água. A outra contém muita
+                água.</p>
+                <p><strong>Pergunta para pensar 1:</strong> qual delas
+                esquenta mais rapidamente?</p>
+                <p>A panela com menos água tende a ter maior aumento de
+                temperatura. Isso acontece porque a mesma quantidade de
+                energia térmica é distribuída em uma massa menor.</p>
+                <p>Agora imagine outra comparação: duas panelas recebem
+                a mesma chama durante o mesmo intervalo de tempo. Uma
+                contém água e a outra contém óleo, ambos com a mesma
+                massa inicial.</p>
+                <p><strong>Pergunta para pensar 2:</strong> qual deles
+                esquenta mais rapidamente?</p>
+                <p>O óleo tende a apresentar maior aumento de
+                temperatura do que a água. Isso acontece porque o calor
+                específico do óleo é menor que o da água. Assim, para a
+                mesma massa e a mesma quantidade de calor recebida, o
+                óleo precisa de menos energia para variar sua
+                temperatura em <span
+                class="math inline">\(1\,^\circ\text{C}\)</span>.</p>
+                <p>Essas duas situações mostram que a variação de
+                temperatura depende da quantidade de calor recebida, da
+                massa do corpo e do material de que ele é feito.</p>
+                <p>Nesta aula, vamos estudar situações em que um corpo
+                recebe ou perde calor e sua temperatura muda. Esse tipo
+                de troca de energia está relacionado ao <strong>calor
+                sensível</strong>.</p>
+                <h1 id="o-que-é-calor">O Que é Calor?</h1>
+                <p>Na Física, <strong>calor</strong> é energia térmica
+                em trânsito, transferida de um corpo para outro por
+                causa de uma diferença de temperatura.</p>
+                <p>Quando dois corpos a temperaturas diferentes são
+                colocados em contato térmico, o calor flui
+                espontaneamente:</p>
+                <ul>
+                <li>do corpo de maior temperatura;</li>
+                <li>para o corpo de menor temperatura;</li>
+                <li>até que ambos atinjam o equilíbrio térmico.</li>
+                </ul>
+                <p>No equilíbrio térmico, os corpos ficam à mesma
+                temperatura e não há mais troca líquida de calor entre
+                eles.</p>
+                <blockquote>
+                <p>Um corpo não “possui calor”. Ele possui energia
+                interna. Calor é o nome dado à energia que passa de um
+                corpo para outro.</p>
+                </blockquote>
+                <h2 id="exemplo-do-cotidiano">Exemplo do Cotidiano</h2>
+                <p>Ao colocar uma colher metálica dentro de uma xícara
+                com café quente, a colher esquenta depois de algum
+                tempo.</p>
+                <p>Isso ocorre porque parte da energia térmica do café é
+                transferida para a colher. O café, que estava a uma
+                temperatura maior, cede calor. A colher, que estava a
+                uma temperatura menor, recebe calor.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SpoonTempProfile.jpg"
+                style="width:90.0%"
+                alt="Perfil de temperatura simulado em uma colher em contato com chá quente. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Perfil de temperatura
+                simulado em uma colher em contato com chá quente. Fonte:
+                <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/SpoonTempProfile.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Na figura, as cores indicam a temperatura em
+                diferentes pontos da colher. A região em contato com o
+                café quente aparece com cores mais quentes, pois recebe
+                energia térmica diretamente do líquido. As partes mais
+                afastadas aparecem com cores mais frias, indicando menor
+                temperatura.</p>
+                <p>Esse tipo de imagem é chamado de <strong>perfil de
+                temperatura</strong>. Ele mostra que a colher não
+                esquenta toda de uma vez: primeiro aquece a extremidade
+                mergulhada no café e, depois, o calor se propaga pelo
+                metal em direção às regiões que ainda estão mais
+                frias.</p>
+                <p>Assim, o gráfico ajuda a visualizar a ideia
+                principal: o calor é energia em trânsito, transferida
+                espontaneamente da região de maior temperatura para a
+                região de menor temperatura.</p>
+                <h1 id="unidades-de-medida-do-calor">Unidades de Medida
+                do Calor</h1>
+                <p>Como calor é uma forma de energia em trânsito, sua
+                unidade no Sistema Internacional é o <strong>joule
+                (J)</strong>.</p>
+                <p>Também é muito comum usar a <strong>caloria
+                (cal)</strong> em problemas de calorimetria.</p>
+                <p>A relação entre essas unidades é:</p>
+                <p><span class="math display">\[
+                \boxed{1\,\text{cal} \approx 4{,}18\,\text{J}}
+                \]</span></p>
+                <p>Em muitos exercícios, também se usa a
+                aproximação:</p>
+                <p><span class="math display">\[
+                1\,\text{cal} \approx 4{,}2\,\text{J}
+                \]</span></p>
+                <h2 id="exemplo-5.1---conversão-de-unidades">Exemplo 5.1
+                - Conversão de Unidades</h2>
+                <p>Converta <span
+                class="math inline">\(500\,\text{cal}\)</span> para
+                joule.</p>
+                <p>Usando <span class="math inline">\(1\,\text{cal}
+                \approx 4{,}18\,\text{J}\)</span>:</p>
+                <p><span class="math display">\[
+                500\,\text{cal} = 500 \cdot 4{,}18\,\text{J}
+                \]</span></p>
+                <p><span class="math display">\[
+                500\,\text{cal} = 2090\,\text{J}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(500\,\text{cal}\)</span>
+                correspondem aproximadamente a <strong>2090
+                J</strong>.</p>
+                <h1 id="capacidade-térmica">Capacidade Térmica</h1>
+                <p>A <strong>capacidade térmica</strong> de um corpo
+                indica a quantidade de calor que esse corpo precisa
+                receber ou perder para que sua temperatura varie <span
+                class="math inline">\(1\,^\circ\text{C}\)</span>.</p>
+                <p>Ela é representada pela letra <span
+                class="math inline">\(C\)</span>.</p>
+                <p><span class="math display">\[
+                \boxed{C = \frac{Q}{\Delta \theta}}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(C\)</span> é a
+                capacidade térmica do corpo;</li>
+                <li><span class="math inline">\(Q\)</span> é a
+                quantidade de calor recebida ou perdida;</li>
+                <li><span class="math inline">\(\Delta \theta = \theta_f
+                - \theta_i\)</span> é a variação de temperatura.</li>
+                </ul>
+                <p>Unidades comuns:</p>
+                <ul>
+                <li><span
+                class="math inline">\(\text{cal}/^\circ\text{C}\)</span>;</li>
+                <li><span
+                class="math inline">\(\text{J}/\text{K}\)</span>.</li>
+                </ul>
+                <p>Quanto maior a capacidade térmica de um corpo, maior
+                a quantidade de calor necessária para produzir a mesma
+                variação de temperatura.</p>
+                <h2 id="exemplo-prático">Exemplo Prático</h2>
+                <p>Uma garrafa cheia de água demora mais para esquentar
+                do que um copo com pouca água, mesmo que ambos estejam
+                expostos ao mesmo Sol.</p>
+                <p>A garrafa cheia tem maior capacidade térmica porque
+                possui mais matéria. Por isso, precisa receber mais
+                calor para apresentar a mesma variação de
+                temperatura.</p>
+                <p>Em laboratório, muitas medidas de calor são feitas
+                com um <strong>calorímetro</strong>. Ele é um recipiente
+                construído para reduzir ao máximo a troca de calor com o
+                ambiente externo. Assim, quando colocamos substâncias
+                dentro dele, podemos considerar que o calor perdido por
+                um corpo é aproximadamente igual ao calor recebido por
+                outro corpo.</p>
+                <p>Na prática, o calorímetro permite estudar misturas de
+                líquidos, aquecimento de materiais e trocas de calor com
+                menor interferência do ambiente. Por isso, ele é muito
+                usado em experimentos de calorimetria.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Calorimeter.svg"
+                style="width:45.0%"
+                alt="Esquema de um calorímetro, instrumento usado em experimentos de calorimetria. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Esquema de um
+                calorímetro, instrumento usado em experimentos de
+                calorimetria. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Calorimeter.svg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <h2 id="exemplo-5.2---capacidade-térmica">Exemplo 5.2 -
+                Capacidade Térmica</h2>
+                <p>Um corpo recebe <span
+                class="math inline">\(600\,\text{cal}\)</span> e sua
+                temperatura aumenta de <span
+                class="math inline">\(20\,^\circ\text{C}\)</span> para
+                <span class="math inline">\(50\,^\circ\text{C}\)</span>.
+                Determine sua capacidade térmica.</p>
+                <p><strong>Dados:</strong></p>
+                <ul>
+                <li><span class="math inline">\(Q =
+                600\,\text{cal}\)</span></li>
+                <li><span class="math inline">\(\Delta \theta = 50 - 20
+                = 30\,^\circ\text{C}\)</span></li>
+                </ul>
+                <p><strong>Cálculo:</strong></p>
+                <p><span class="math display">\[
+                C = \frac{Q}{\Delta \theta}
+                \]</span></p>
+                <p><span class="math display">\[
+                C = \frac{600}{30}
+                \]</span></p>
+                <p><span class="math display">\[
+                C = 20\,\text{cal}/^\circ\text{C}
+                \]</span></p>
+                <p><strong>Resposta:</strong> a capacidade térmica do
+                corpo é <strong><span
+                class="math inline">\(20\,\text{cal}/^\circ\text{C}\)</span></strong>.</p>
+                <h1 id="calor-específico">Calor Específico</h1>
+                <p>O <strong>calor específico</strong> indica a
+                quantidade de calor necessária para variar a temperatura
+                de uma unidade de massa de uma substância em <span
+                class="math inline">\(1\,^\circ\text{C}\)</span>.</p>
+                <p>Ele é representado pela letra <span
+                class="math inline">\(c\)</span>.</p>
+                <p><span class="math display">\[
+                \boxed{c = \frac{C}{m}}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(c\)</span> é o calor
+                específico da substância;</li>
+                <li><span class="math inline">\(C\)</span> é a
+                capacidade térmica do corpo;</li>
+                <li><span class="math inline">\(m\)</span> é a massa do
+                corpo.</li>
+                </ul>
+                <p>Unidades comuns:</p>
+                <ul>
+                <li><span
+                class="math inline">\(\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span>.</li>
+                </ul>
+                <p>O calor específico é uma propriedade do material. Por
+                isso, amostras de massas diferentes de uma mesma
+                substância possuem o mesmo calor específico, desde que
+                estejam nas mesmas condições físicas.</p>
+                <h2 id="tabela-de-calores-específicos">Tabela de Calores
+                Específicos</h2>
+                <p>Valores aproximados à temperatura ambiente:</p>
+                <p><strong>Material | <span
+                class="math inline">\(\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span></strong></p>
+                <ul>
+                <li>Água líquida | 1,00</li>
+                <li>Gelo | 0,50</li>
+                <li>Vapor d’água | 0,48</li>
+                <li>Alumínio | 0,22</li>
+                <li>Vidro | 0,20</li>
+                <li>Ferro | 0,11</li>
+                <li>Cobre | 0,093</li>
+                <li>Chumbo | 0,031</li>
+                </ul>
+                <p>A água tem calor específico alto. Por isso, grandes
+                massas de água aquecem e esfriam lentamente,
+                influenciando o clima de regiões próximas a mares, rios
+                e lagos.</p>
+                <h2 id="exemplo-5.3---calor-específico">Exemplo 5.3 -
+                Calor Específico</h2>
+                <p>Um bloco de massa <span
+                class="math inline">\(200\,\text{g}\)</span> tem
+                capacidade térmica <span
+                class="math inline">\(40\,\text{cal}/^\circ\text{C}\)</span>.
+                Determine o calor específico do material.</p>
+                <p><strong>Dados:</strong></p>
+                <ul>
+                <li><span class="math inline">\(C =
+                40\,\text{cal}/^\circ\text{C}\)</span></li>
+                <li><span class="math inline">\(m =
+                200\,\text{g}\)</span></li>
+                </ul>
+                <p><strong>Cálculo:</strong></p>
+                <p><span class="math display">\[
+                c = \frac{C}{m}
+                \]</span></p>
+                <p><span class="math display">\[
+                c = \frac{40}{200}
+                \]</span></p>
+                <p><span class="math display">\[
+                c = 0{,}20\,\text{cal}/(\text{g}\cdot^\circ\text{C})
+                \]</span></p>
+                <p><strong>Resposta:</strong> o calor específico do
+                material é <strong><span
+                class="math inline">\(0{,}20\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span></strong>.</p>
+                <h2
+                id="capacidade-térmica-e-calor-específico">Capacidade
+                Térmica e Calor Específico</h2>
+                <p>Apesar de estarem relacionados, capacidade térmica e
+                calor específico não são a mesma coisa.</p>
+                <p><strong>Capacidade térmica</strong></p>
+                <ul>
+                <li>Refere-se a um corpo específico.</li>
+                <li>Depende da massa e do material.</li>
+                <li>Exemplo: uma panela cheia de água tem maior
+                capacidade térmica do que a mesma panela com pouca
+                água.</li>
+                </ul>
+                <p><strong>Calor específico</strong></p>
+                <ul>
+                <li>Refere-se ao material.</li>
+                <li>Não depende da quantidade de matéria da
+                amostra.</li>
+                <li>Exemplo: a água tem o mesmo calor específico em um
+                copo ou em uma garrafa, se estiver nas mesmas
+                condições.</li>
+                </ul>
+                <p>Como <span class="math inline">\(C = mc\)</span>,
+                aumentar a massa aumenta a capacidade térmica, mas não
+                altera o calor específico do material.</p>
+                <h1 id="calor-sensível">Calor Sensível</h1>
+                <p>O <strong>calor sensível</strong> é a quantidade de
+                energia térmica que um corpo recebe ou perde quando sua
+                temperatura varia.</p>
+                <p>Exemplos:</p>
+                <ul>
+                <li>água líquida aquecendo de <span
+                class="math inline">\(20\,^\circ\text{C}\)</span> para
+                <span
+                class="math inline">\(80\,^\circ\text{C}\)</span>;</li>
+                <li>uma barra metálica esfriando de <span
+                class="math inline">\(100\,^\circ\text{C}\)</span> para
+                <span
+                class="math inline">\(30\,^\circ\text{C}\)</span>;</li>
+                <li>ar dentro de uma sala sendo aquecido por um
+                aquecedor.</li>
+                </ul>
+                <p>Em todos esses casos, a temperatura muda.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Heat_Transfer.gif"
+                style="width:60.0%"
+                alt="Animação de transferência de calor em uma barra com extremidades a temperaturas diferentes. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Animação de transferência
+                de calor em uma barra com extremidades a temperaturas
+                diferentes. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Heat_Transfer.gif">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Na animação, a barra tem uma extremidade em
+                temperatura mais alta e outra em temperatura mais baixa.
+                A região mais quente transfere energia térmica para as
+                regiões vizinhas mais frias. Com o passar do tempo, essa
+                energia se espalha ao longo da barra.</p>
+                <p>Esse processo ilustra a <strong>condução
+                térmica</strong>, que é a transferência de calor através
+                de um material sem transporte de matéria. No metal, as
+                partículas da região aquecida vibram mais intensamente e
+                transferem parte dessa energia para as partículas
+                vizinhas.</p>
+                <p>Enquanto existir diferença de temperatura entre as
+                partes da barra, haverá fluxo de calor da região mais
+                quente para a região mais fria. O processo tende a
+                continuar até que a barra atinja o equilíbrio térmico,
+                isto é, até que suas diferentes partes fiquem à mesma
+                temperatura.</p>
+                <h1 id="equação-fundamental-da-calorimetria">Equação
+                Fundamental da Calorimetria</h1>
+                <p>Para calcular o calor sensível, usamos:</p>
+                <p><span class="math display">\[
+                \boxed{Q = m \cdot c \cdot \Delta \theta}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(Q\)</span> é a
+                quantidade de calor recebida ou perdida;</li>
+                <li><span class="math inline">\(m\)</span> é a
+                massa;</li>
+                <li><span class="math inline">\(c\)</span> é o calor
+                específico;</li>
+                <li><span class="math inline">\(\Delta \theta = \theta_f
+                - \theta_i\)</span> é a variação de temperatura.</li>
+                </ul>
+                <h2 id="interpretação-do-sinal">Interpretação do
+                Sinal</h2>
+                <ul>
+                <li>Se <span class="math inline">\(\Delta \theta &gt;
+                0\)</span>, então <span class="math inline">\(Q &gt;
+                0\)</span>: o corpo recebe calor.</li>
+                <li>Se <span class="math inline">\(\Delta \theta &lt;
+                0\)</span>, então <span class="math inline">\(Q &lt;
+                0\)</span>: o corpo perde calor.</li>
+                </ul>
+                <p>O sinal de <span class="math inline">\(Q\)</span>
+                indica o sentido da troca de energia térmica.</p>
+                <h2 id="exemplo-5.4---aquecimento-da-água">Exemplo 5.4 -
+                Aquecimento da Água</h2>
+                <p>Qual quantidade de calor é necessária para aquecer
+                <span class="math inline">\(200\,\text{g}\)</span> de
+                água de <span
+                class="math inline">\(20\,^\circ\text{C}\)</span> até
+                <span
+                class="math inline">\(80\,^\circ\text{C}\)</span>?</p>
+                <p>Dado: <span class="math inline">\(c_{\text{água}} =
+                1{,}0\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span>.</p>
+                <p><strong>Dados:</strong></p>
+                <ul>
+                <li><span class="math inline">\(m =
+                200\,\text{g}\)</span></li>
+                <li><span class="math inline">\(c =
+                1{,}0\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span></li>
+                <li><span class="math inline">\(\Delta \theta = 80 - 20
+                = 60\,^\circ\text{C}\)</span></li>
+                </ul>
+                <p><strong>Cálculo:</strong></p>
+                <p><span class="math display">\[
+                Q = m \cdot c \cdot \Delta \theta
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 200 \cdot 1{,}0 \cdot 60
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 12000\,\text{cal}
+                \]</span></p>
+                <p><strong>Resposta:</strong> são necessárias
+                <strong>12000 cal</strong>.</p>
+                <h1 id="potência-térmica">Potência Térmica</h1>
+                <p>A <strong>potência térmica</strong> mede a rapidez
+                com que o calor é transferido.</p>
+                <p>Uma fonte térmica mais potente transfere mais energia
+                por unidade de tempo. Por isso, ela pode aquecer um
+                corpo mais rapidamente, desde que as perdas de energia
+                sejam pequenas.</p>
+                <p><span class="math display">\[
+                \boxed{P = \frac{Q}{\Delta t}}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(P\)</span> é a potência
+                térmica;</li>
+                <li><span class="math inline">\(Q\)</span> é a
+                quantidade de calor transferida;</li>
+                <li><span class="math inline">\(\Delta t\)</span> é o
+                intervalo de tempo.</li>
+                </ul>
+                <p>No Sistema Internacional:</p>
+                <ul>
+                <li><span class="math inline">\(Q\)</span> é medido em
+                joule (J);</li>
+                <li><span class="math inline">\(\Delta t\)</span> é
+                medido em segundo (s);</li>
+                <li><span class="math inline">\(P\)</span> é medido em
+                watt (W).</li>
+                </ul>
+                <p>Como:</p>
+                <p><span class="math display">\[
+                1\,\text{W} = 1\,\text{J}/\text{s}
+                \]</span></p>
+                <p>uma potência de <span
+                class="math inline">\(500\,\text{W}\)</span> significa
+                que a fonte transfere <span
+                class="math inline">\(500\,\text{J}\)</span> de energia
+                a cada segundo.</p>
+                <h2 id="aplicações">Aplicações</h2>
+                <p>A potência térmica aparece em situações como:</p>
+                <ul>
+                <li>chuveiros elétricos;</li>
+                <li>aquecedores;</li>
+                <li>fogões;</li>
+                <li>fornos;</li>
+                <li>ferros de passar roupa;</li>
+                <li>motores e sistemas de refrigeração.</li>
+                </ul>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Water_heater.jpg"
+                style="width:50.0%"
+                alt="Aquecedor de água, exemplo de equipamento em que a potência térmica está relacionada ao tempo de aquecimento. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Aquecedor de água,
+                exemplo de equipamento em que a potência térmica está
+                relacionada ao tempo de aquecimento. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Water_heater.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <h2
+                id="exemplo-5.5---aquecimento-com-potência-conhecida">Exemplo
+                5.5 - Aquecimento com Potência Conhecida</h2>
+                <p>Um aquecedor elétrico de <span
+                class="math inline">\(500\,\text{W}\)</span> transfere
+                energia para <span
+                class="math inline">\(1{,}0\,\text{kg}\)</span> de água.
+                Desprezando perdas, quanto tempo ele leva para elevar a
+                temperatura da água de <span
+                class="math inline">\(20\,^\circ\text{C}\)</span> para
+                <span
+                class="math inline">\(50\,^\circ\text{C}\)</span>?</p>
+                <p>Dados:</p>
+                <ul>
+                <li><span class="math inline">\(m =
+                1{,}0\,\text{kg}\)</span></li>
+                <li><span class="math inline">\(c_{\text{água}} =
+                4180\,\text{J}/(\text{kg}\cdot\text{K})\)</span></li>
+                <li><span class="math inline">\(\Delta \theta = 50 - 20
+                = 30\,\text{K}\)</span></li>
+                <li><span class="math inline">\(P =
+                500\,\text{W}\)</span></li>
+                </ul>
+                <p>Primeiro, calculamos o calor necessário:</p>
+                <p><span class="math display">\[
+                Q = m \cdot c \cdot \Delta \theta
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 1{,}0 \cdot 4180 \cdot 30
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 125400\,\text{J}
+                \]</span></p>
+                <p>Agora usamos a potência:</p>
+                <p><span class="math display">\[
+                P = \frac{Q}{\Delta t}
+                \]</span></p>
+                <p><span class="math display">\[
+                \Delta t = \frac{Q}{P} = \frac{125400}{500}
+                \]</span></p>
+                <p><span class="math display">\[
+                \Delta t = 250{,}8\,\text{s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> aproximadamente
+                <strong>251 s</strong>, ou cerca de <strong>4,2
+                min</strong>.</p>
+                <h2
+                id="exemplo-5.6---capacidade-térmica-calor-e-potência">Exemplo
+                5.6 - Capacidade Térmica, Calor e Potência</h2>
+                <p>Uma amostra de <span
+                class="math inline">\(50\,\text{g}\)</span> de água
+                varia sua temperatura de <span
+                class="math inline">\(5\,^\circ\text{C}\)</span> para
+                <span class="math inline">\(35\,^\circ\text{C}\)</span>
+                em <span class="math inline">\(15\,\text{s}\)</span>.
+                Determine:</p>
+                <ol type="a">
+                <li>a capacidade térmica da amostra, em <span
+                class="math inline">\(\text{cal}/^\circ\text{C}\)</span>;<br />
+                </li>
+                <li>a quantidade total de calor recebida, em cal e em
+                J;<br />
+                </li>
+                <li>a potência térmica média, em W.</li>
+                </ol>
+                <p>Dado: <span class="math inline">\(c_{\text{água}} =
+                1{,}00\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span>
+                e <span class="math inline">\(1\,\text{cal} =
+                4{,}18\,\text{J}\)</span>.</p>
+                <p><strong>Dados:</strong></p>
+                <ul>
+                <li><span class="math inline">\(m =
+                50\,\text{g}\)</span></li>
+                <li><span class="math inline">\(c =
+                1{,}00\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span></li>
+                <li><span class="math inline">\(\Delta \theta = 35 - 5 =
+                30\,^\circ\text{C}\)</span></li>
+                <li><span class="math inline">\(\Delta t =
+                15\,\text{s}\)</span></li>
+                </ul>
+                <p>Primeiro, calculamos a capacidade térmica da
+                amostra:</p>
+                <p><span class="math display">\[
+                C = mc
+                \]</span></p>
+                <p><span class="math display">\[
+                C = 50 \cdot 1{,}00
+                \]</span></p>
+                <p><span class="math display">\[
+                C = 50\,\text{cal}/^\circ\text{C}
+                \]</span></p>
+                <p>Agora, calculamos a quantidade de calor:</p>
+                <p><span class="math display">\[
+                Q = mc\Delta\theta
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 50 \cdot 1{,}00 \cdot 30
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 1500\,\text{cal}
+                \]</span></p>
+                <p>Convertendo para joule:</p>
+                <p><span class="math display">\[
+                Q = 1500 \cdot 4{,}18
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 6270\,\text{J}
+                \]</span></p>
+                <p>Por fim, calculamos a potência térmica média:</p>
+                <p><span class="math display">\[
+                P = \frac{Q}{\Delta t}
+                \]</span></p>
+                <p><span class="math display">\[
+                P = \frac{6270}{15}
+                \]</span></p>
+                <p><span class="math display">\[
+                P = 418\,\text{W}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(C =
+                50\,\text{cal}/^\circ\text{C}\)</span>, <span
+                class="math inline">\(Q = 1500\,\text{cal} =
+                6270\,\text{J}\)</span> e <span class="math inline">\(P
+                = 418\,\text{W}\)</span>.</p>
+                <h1 id="princípio-das-trocas-de-calor">Princípio das
+                Trocas de Calor</h1>
+                <p>Quando corpos a diferentes temperaturas são colocados
+                em contato dentro de um sistema isolado, eles trocam
+                calor até atingir o equilíbrio térmico.</p>
+                <p>Se não há perdas para o ambiente, a soma dos calores
+                trocados é igual a zero:</p>
+                <p><span class="math display">\[
+                \boxed{Q_1 + Q_2 + \ldots + Q_n = 0}
+                \]</span></p>
+                <p>Isso significa que o calor perdido pelos corpos mais
+                quentes é igual, em módulo, ao calor recebido pelos
+                corpos mais frios.</p>
+                <h2 id="exemplo-prático-1">Exemplo Prático</h2>
+                <p>Ao misturar água quente com água fria em um
+                recipiente bem isolado, a água quente perde calor e a
+                água fria recebe calor.</p>
+                <p>Depois de algum tempo, a mistura atinge uma
+                temperatura intermediária, chamada <strong>temperatura
+                de equilíbrio</strong>.</p>
+                <h2 id="exemplo-5.7---mistura-de-água">Exemplo 5.7 -
+                Mistura de Água</h2>
+                <p>Misturam-se <span
+                class="math inline">\(100\,\text{g}\)</span> de água a
+                <span class="math inline">\(80\,^\circ\text{C}\)</span>
+                com <span class="math inline">\(200\,\text{g}\)</span>
+                de água a <span
+                class="math inline">\(20\,^\circ\text{C}\)</span>.
+                Desprezando perdas para o ambiente, determine a
+                temperatura final de equilíbrio.</p>
+                <p>Como é a mesma substância, usamos o mesmo calor
+                específico para as duas porções de água.</p>
+                <p>Para a água quente:</p>
+                <p><span class="math display">\[
+                Q_1 = m_1 c (\theta_f - \theta_1)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_1 = 100c(\theta_f - 80)
+                \]</span></p>
+                <p>Para a água fria:</p>
+                <p><span class="math display">\[
+                Q_2 = m_2 c (\theta_f - \theta_2)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_2 = 200c(\theta_f - 20)
+                \]</span></p>
+                <p>Pelo princípio das trocas de calor:</p>
+                <p><span class="math display">\[
+                Q_1 + Q_2 = 0
+                \]</span></p>
+                <p><span class="math display">\[
+                100c(\theta_f - 80) + 200c(\theta_f - 20) = 0
+                \]</span></p>
+                <p>Como <span class="math inline">\(c\)</span> aparece
+                em todos os termos, podemos simplificar:</p>
+                <p><span class="math display">\[
+                100(\theta_f - 80) + 200(\theta_f - 20) = 0
+                \]</span></p>
+                <p><span class="math display">\[
+                100\theta_f - 8000 + 200\theta_f - 4000 = 0
+                \]</span></p>
+                <p><span class="math display">\[
+                300\theta_f = 12000
+                \]</span></p>
+                <p><span class="math display">\[
+                \theta_f = 40\,^\circ\text{C}
+                \]</span></p>
+                <p><strong>Resposta:</strong> a temperatura final de
+                equilíbrio é <strong><span
+                class="math inline">\(40\,^\circ\text{C}\)</span></strong>.</p>
+                <h2 id="exemplo-5.8---alumínio-em-água">Exemplo 5.8 -
+                Alumínio em Água</h2>
+                <p>Um corpo de alumínio a <span
+                class="math inline">\(135\,^\circ\text{C}\)</span> é
+                colocado em <span
+                class="math inline">\(300\,\text{g}\)</span> de água a
+                <span class="math inline">\(20\,^\circ\text{C}\)</span>.
+                Admitindo que só há troca de calor entre a água e o
+                alumínio, determine a massa do corpo de alumínio sabendo
+                que a temperatura de equilíbrio do sistema é <span
+                class="math inline">\(35\,^\circ\text{C}\)</span>.</p>
+                <p>Dados:</p>
+                <ul>
+                <li><span class="math inline">\(c_{\text{água}} =
+                1{,}00\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span></li>
+                <li><span class="math inline">\(c_{\text{Al}} =
+                0{,}22\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span></li>
+                </ul>
+                <p>A água recebe calor, pois sua temperatura aumenta de
+                <span class="math inline">\(20\,^\circ\text{C}\)</span>
+                para <span
+                class="math inline">\(35\,^\circ\text{C}\)</span>:</p>
+                <p><span class="math display">\[
+                Q_{\text{água}} = m_{\text{água}}
+                c_{\text{água}}(\theta_f - \theta_i)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{\text{água}} = 300 \cdot 1{,}00 \cdot (35 - 20)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{\text{água}} = 4500\,\text{cal}
+                \]</span></p>
+                <p>O alumínio perde calor, pois sua temperatura diminui
+                de <span
+                class="math inline">\(135\,^\circ\text{C}\)</span> para
+                <span
+                class="math inline">\(35\,^\circ\text{C}\)</span>:</p>
+                <p><span class="math display">\[
+                Q_{\text{Al}} = m_{\text{Al}} c_{\text{Al}}(\theta_f -
+                \theta_i)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{\text{Al}} = m_{\text{Al}} \cdot 0{,}22 \cdot (35 -
+                135)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{\text{Al}} = -22m_{\text{Al}}
+                \]</span></p>
+                <p>Pelo princípio das trocas de calor:</p>
+                <p><span class="math display">\[
+                Q_{\text{água}} + Q_{\text{Al}} = 0
+                \]</span></p>
+                <p><span class="math display">\[
+                4500 - 22m_{\text{Al}} = 0
+                \]</span></p>
+                <p><span class="math display">\[
+                22m_{\text{Al}} = 4500
+                \]</span></p>
+                <p><span class="math display">\[
+                m_{\text{Al}} = \frac{4500}{22}
+                \]</span></p>
+                <p><span class="math display">\[
+                m_{\text{Al}} \approx 204{,}5\,\text{g}
+                \]</span></p>
+                <p><strong>Resposta:</strong> a massa do corpo de
+                alumínio é aproximadamente <strong><span
+                class="math inline">\(205\,\text{g}\)</span></strong>.</p>
+                <h1 id="como-resolver-problemas">Como Resolver
+                Problemas</h1>
+                <p>Use este roteiro:</p>
+                <ol type="1">
+                <li>Identifique os corpos envolvidos na troca de
+                calor.</li>
+                <li>Verifique se a temperatura aumenta ou diminui.</li>
+                <li>Calcule <span class="math inline">\(\Delta\theta =
+                \theta_f - \theta_i\)</span> com atenção ao sinal.</li>
+                <li>Use <span class="math inline">\(Q =
+                mc\Delta\theta\)</span> para calcular calor
+                sensível.</li>
+                <li>Se houver potência, use <span
+                class="math inline">\(P = Q/\Delta t\)</span>.</li>
+                <li>Em trocas de calor sem perdas, use <span
+                class="math inline">\(Q_1 + Q_2 + \ldots + Q_n =
+                0\)</span>.</li>
+                <li>Verifique se as unidades são compatíveis antes de
+                substituir os valores.</li>
+                </ol>
+                <h1 id="erros-comuns">Erros Comuns</h1>
+                <ul>
+                <li>Dizer que um corpo “tem calor” em vez de dizer que
+                ele tem energia interna.</li>
+                <li>Confundir calor com temperatura.</li>
+                <li>Confundir capacidade térmica com calor
+                específico.</li>
+                <li>Esquecer que quem esfria tem <span
+                class="math inline">\(Q &lt; 0\)</span>.</li>
+                <li>Misturar calorias com joules sem converter.</li>
+                <li>Usar massa em kg com calor específico em <span
+                class="math inline">\(\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span>.</li>
+                <li>Ignorar perdas de calor quando o problema não
+                autoriza essa simplificação.</li>
+                </ul>
+                <h1 id="resumo-das-fórmulas">Resumo das Fórmulas</h1>
+                <p><strong>Conversão entre caloria e joule</strong></p>
+                <p><span class="math display">\[
+                1\,\text{cal} \approx 4{,}18\,\text{J}
+                \]</span></p>
+                <p><strong>Capacidade térmica</strong></p>
+                <p><span class="math display">\[
+                C = \frac{Q}{\Delta\theta}
+                \]</span></p>
+                <p><strong>Calor específico</strong></p>
+                <p><span class="math display">\[
+                c = \frac{C}{m}
+                \]</span></p>
+                <p><strong>Calor sensível</strong></p>
+                <p><span class="math display">\[
+                Q = mc\Delta\theta
+                \]</span></p>
+                <p><strong>Potência térmica</strong></p>
+                <p><span class="math display">\[
+                P = \frac{Q}{\Delta t}
+                \]</span></p>
+                <p><strong>Trocas de calor em sistema
+                isolado</strong></p>
+                <p><span class="math display">\[
+                Q_1 + Q_2 + \ldots + Q_n = 0
+                \]</span></p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <h2 id="questões-de-múltipla-escolha">Questões de
+                Múltipla Escolha</h2>
+                <dl>
+                <dt>5.1)</dt>
+                <dd>
+                O que é calor?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>É a temperatura de um corpo.</li>
+                <li>É a energia térmica em trânsito entre corpos devido
+                a uma diferença de temperatura.</li>
+                <li>É a energia que um corpo possui por estar
+                quente.</li>
+                <li>É a quantidade de partículas de um corpo.</li>
+                <li>É a mudança de fase de uma substância.</li>
+                </ol>
+                <dl>
+                <dt>5.2)</dt>
+                <dd>
+                Dois corpos, A e B, são colocados em contato térmico. O
+                corpo A está a <span
+                class="math inline">\(80\,^\circ\text{C}\)</span> e o
+                corpo B está a <span
+                class="math inline">\(25\,^\circ\text{C}\)</span>. O
+                calor flui espontaneamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>de B para A, pois B tem menor temperatura.</li>
+                <li>de A para B, pois A tem maior temperatura.</li>
+                <li>de A para B apenas se A tiver menor massa.</li>
+                <li>de B para A apenas se B tiver maior calor
+                específico.</li>
+                <li>nos dois sentidos com a mesma intensidade desde o
+                início.</li>
+                </ol>
+                <dl>
+                <dt>5.3)</dt>
+                <dd>
+                Um corpo recebe <span
+                class="math inline">\(800\,\text{cal}\)</span> e sua
+                temperatura aumenta <span
+                class="math inline">\(40\,^\circ\text{C}\)</span>. Sua
+                capacidade térmica é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(10\,\text{cal}/^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(20\,\text{cal}/^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(40\,\text{cal}/^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(760\,\text{cal}/^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(32000\,\text{cal}/^\circ\text{C}\)</span></li>
+                </ol>
+                <dl>
+                <dt>5.4)</dt>
+                <dd>
+                Duas amostras de mesma massa recebem a mesma quantidade
+                de calor. A amostra X tem calor específico menor que a
+                amostra Y. Desprezando perdas, pode-se afirmar que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>X terá menor variação de temperatura.</li>
+                <li>Y terá maior variação de temperatura.</li>
+                <li>X terá maior variação de temperatura.</li>
+                <li>as duas terão sempre a mesma variação de
+                temperatura.</li>
+                <li>não é possível comparar as variações de
+                temperatura.</li>
+                </ol>
+                <dl>
+                <dt>5.5)</dt>
+                <dd>
+                Uma fonte térmica fornece <span
+                class="math inline">\(1200\,\text{J}\)</span> de energia
+                em <span class="math inline">\(6\,\text{s}\)</span>. A
+                potência térmica média dessa fonte é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(2\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(20\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(200\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(1200\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(7200\,\text{W}\)</span></li>
+                </ol>
+                <h2 id="questões-discursivas">Questões Discursivas</h2>
+                <dl>
+                <dt>5.6)</dt>
+                <dd>
+                Converta <span
+                class="math inline">\(350\,\text{cal}\)</span> para
+                joule. Use <span class="math inline">\(1\,\text{cal} =
+                4{,}18\,\text{J}\)</span>.
+                </dd>
+                <dt>5.7)</dt>
+                <dd>
+                Um corpo recebe <span
+                class="math inline">\(1200\,\text{cal}\)</span> e sua
+                temperatura varia de <span
+                class="math inline">\(20\,^\circ\text{C}\)</span> para
+                <span class="math inline">\(80\,^\circ\text{C}\)</span>.
+                Determine sua capacidade térmica.
+                </dd>
+                <dt>5.8)</dt>
+                <dd>
+                Um bloco de massa <span
+                class="math inline">\(400\,\text{g}\)</span> possui
+                capacidade térmica <span
+                class="math inline">\(88\,\text{cal}/^\circ\text{C}\)</span>.
+                Determine o calor específico do material.
+                </dd>
+                <dt>5.9)</dt>
+                <dd>
+                Uma massa de <span
+                class="math inline">\(250\,\text{g}\)</span> de água é
+                aquecida de <span
+                class="math inline">\(25\,^\circ\text{C}\)</span> para
+                <span class="math inline">\(70\,^\circ\text{C}\)</span>.
+                Sabendo que <span class="math inline">\(c_{\text{água}}
+                =
+                1{,}0\,\text{cal}/(\text{g}\cdot^\circ\text{C})\)</span>,
+                determine a quantidade de calor recebida.
+                </dd>
+                <dt>5.10)</dt>
+                <dd>
+                Misturam-se <span
+                class="math inline">\(150\,\text{g}\)</span> de água a
+                <span class="math inline">\(80\,^\circ\text{C}\)</span>
+                com <span class="math inline">\(300\,\text{g}\)</span>
+                de água a <span
+                class="math inline">\(20\,^\circ\text{C}\)</span>.
+                Desprezando perdas para o ambiente, determine a
+                temperatura final de equilíbrio.
+                </dd>
+                </dl>
+                <h1 id="respostas">Respostas</h1>
+                <p>As respostas completas e detalhadas destes exercícios
+                devem ser preparadas em um arquivo complementar da
+                aula.</p>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=eYCDW-uSBss" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-curso-enem-gratuito-calor-sensivel-capacidade-termica.png" alt="CALORIMETRIA: CALOR SENSÍVEL E CAPACIDADE TÉRMICA" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">CALORIMETRIA: CALOR SENSÍVEL E CAPACIDADE TÉRMICA</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=eYCDW-uSBss" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Curso Enem Gratuito</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=eYCDW-uSBss" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=7aA_rWut9XA" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-fisica-em-toda-parte-calorimetria-aula-2.png" alt="CALORIMETRIA AULA 2: CALOR SENSÍVEL, CALOR ESPECÍFICO E CAPACIDADE TÉRMICA" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">CALORIMETRIA AULA 2: CALOR SENSÍVEL, CALOR ESPECÍFICO E CAPACIDADE TÉRMICA</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=7aA_rWut9XA" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Física em Toda Parte</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=7aA_rWut9XA" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=d3B7YHXP5Fw" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-fisicura-calor-especifico-calor-sensivel.png" alt="CALOR ESPECÍFICO E CALOR SENSÍVEL" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">CALOR ESPECÍFICO E CALOR SENSÍVEL</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=d3B7YHXP5Fw" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Prof. Jhonatan Saraiva - Físicura</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=d3B7YHXP5Fw" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=jkYPF_xPpoU" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-boaro-trocas-de-calor-sem-mudanca-de-fase.png" alt="TROCAS DE CALOR SEM MUDANÇA DE FASE" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">TROCAS DE CALOR SEM MUDANÇA DE FASE</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=jkYPF_xPpoU" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Professor Boaro</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=jkYPF_xPpoU" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina de Fátima Souza. <strong>Física</strong>:
+                termologia, óptica e ondas. 3. ed. São Paulo: FTD,
+                2016.</li>
+                <li>GASPAR, Alberto. <strong>Física</strong>: volume
+                único. 2. ed. São Paulo: Ática, 2014.</li>
+                <li>HEWITT, Paul G. <strong>Física Conceitual</strong>.
+                12. ed. Porto Alegre: Bookman, 2015.</li>
+                <li>PIETROCOLA, Maurício et al. <strong>Física em
+                contextos</strong>: pessoal, social e histórico. São
+                Paulo: FTD, 2016.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Calor, capacidade
+térmica, calor específico, calor sensível, potência térmica e trocas de
+calor</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
