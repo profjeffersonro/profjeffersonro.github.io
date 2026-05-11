@@ -1,8 +1,16 @@
 site_title: "Meu Portal"
+site_url: "https://profjeffersonro.github.io/"
 author: "Jefferson Rodrigues de Oliveira"
 email: "jefferson.rodrigues@ifsp.edu.br"
 css: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 javascript: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+
+analytics:
+  provider: "goatcounter"
+  # Crie um site em https://www.goatcounter.com/ e preencha apenas o subdominio.
+  # Exemplo: se o painel for https://meuportal.goatcounter.com, use code: "meuportal".
+  # Enquanto estiver vazio, nenhum contador externo sera carregado.
+  code: ""
 
 home:
   html: "content/home/home.html"
@@ -64,5 +72,4 @@ blog:
     - title: "Algoritmos Quânticos"
       date: "01/02/2025"
       html: "content/blog/computacão/algoritmos-quânticos.html"
-      pdf: "/home/jefferson/Documentos/Gdrive/gdrive/pdf-GitHubPages/blog/computacão/algoritmos-quânticos.pdf"
-
+      pdf: "https://drive.google.com/file/d/100Qismhl_ZNyF0qnJtvWIr_Jyd_lk9P4/view?usp=drive_link"

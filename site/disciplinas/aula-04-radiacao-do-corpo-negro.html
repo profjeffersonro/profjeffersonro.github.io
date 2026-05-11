@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04 - Radiação do Corpo Negro | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 04 - Radiação do Corpo Negro de Física Moderna 1.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-04-radiacao-do-corpo-negro.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 04 - Radiação do Corpo Negro | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 04 - Radiação do Corpo Negro de Física Moderna 1.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-04-radiacao-do-corpo-negro.html">
+    <meta property="og:site_name" content="Meu Portal">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Física Moderna 1</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 04 - Radiação do Corpo Negro</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Física Moderna 1</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1Nn0KP96b6IrCm1vpae5H-PJLWvjE_pS3/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li><strong>Compreender</strong> o conceito de corpo
+                negro como um modelo ideal para o estudo da radiação
+                térmica.</li>
+<li><strong>Analisar</strong> as leis empíricas que
+                descrevem a radiação do corpo negro: Lei de
+                Stefan-Boltzmann e Lei de Wien.</li>
+<li><strong>Explicar</strong> o problema da “catástrofe
+                do ultravioleta” e por que ele representou um fracasso
+                da Física Clássica.</li>
+<li><strong>Conhecer</strong> a trajetória de Max Planck
+                e o contexto de sua descoberta revolucionária.</li>
+<li><strong>Descrever</strong> a hipótese de Planck
+                sobre a quantização da energia como a solução para o
+                problema do corpo negro.</li>
+<li><strong>Aplicar</strong> as leis da radiação de
+                corpo negro na resolução de problemas práticos e
+                astronômicos.</li>
+<li><strong>Utilizar</strong> uma simulação
+                computacional para verificar experimentalmente as leis
+                de Stefan-Boltzmann e de Wien.</li>
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Na primeira aula deste curso, conhecemos as “nuvens
+                no céu da Física Clássica”, utilizando a metáfora de
+                Lord Kelvin. Uma das mais escuras e ameaçadoras dessas
+                nuvens era o problema da <strong>radiação de corpo
+                negro</strong>. O que parecia ser um problema técnico
+                sobre a luz emitida por objetos aquecidos se tornou o
+                berço da Mecânica Quântica.</p>
+<p>Imagine um ferreiro aquecendo uma peça de metal. À
+                medida que a temperatura aumenta, o metal começa a
+                brilhar em um vermelho opaco, depois laranja, branco e,
+                em temperaturas altíssimas, azulado. Por que a cor muda?
+                Como a energia se distribui nas diferentes cores
+                (frequências) da luz emitida? A Física Clássica tinha
+                respostas erradas para essas perguntas, levando a
+                previsões absurdas.</p>
+<p>Nesta aula, vamos mergulhar nesse problema. Veremos
+                como as leis empíricas de <strong>Stefan, Boltzmann e
+                Wien</strong> descreviam o fenômeno, mas não o
+                explicavam em sua totalidade. Exploraremos o fracasso da
+                teoria clássica, que culminou na famosa “catástrofe do
+                ultravioleta”. Conheceremos a história de <strong>Max
+                Planck</strong>, um físico conservador que, contrariando
+                suas próprias convicções, propôs uma solução ousada. Por
+                fim, estudaremos como a hipótese de que a energia é
+                <strong>quantizada</strong> não apenas resolveu o
+                enigma, mas também acendeu o pavio da revolução
+                quântica.</p>
+<h1 id="a-história-de-max-planck-o-relutante-revolucionário">A
+                História de Max Planck: O Relutante Revolucionário</h1>
+<p><strong>Max Karl Ernst Ludwig Planck</strong> nasceu
+                em 1858 em Kiel, Alemanha, em uma família de tradição
+                acadêmica. Diferentemente da imagem do cientista
+                rebelde, Planck era um homem conservador, profundamente
+                dedicado à música (era um pianista talentoso) e à
+                tradição acadêmica alemã. Ele iniciou seus estudos em
+                Física na Universidade de Munique, onde seu professor
+                Philipp von Jolly aconselhou-o a não seguir a carreira,
+                argumentando que “não havia muito mais o que descobrir
+                na Física”.</p>
+<figure>
+<img alt="Max Planck em 1885. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/1/14/Das_Fotoalbum_f%C3%BCr_Weierstra%C3%9F_032_%28Max_Planck%29.jpg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Max Planck em 1885.
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/1/14/Das_Fotoalbum_f%C3%BCr_Weierstra%C3%9F_032_%28Max_Planck%29.jpg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p><strong>Planck e a Termodinâmica</strong></p>
+<p>Apesar do conselho desanimador, Planck prosseguiu,
+                fascinado pela termodinâmica e pela lei da conservação
+                da energia. Seu doutorado, em 1879, tratou justamente
+                sobre o conceito de entropia. Ao longo da década de
+                1890, Planck voltou sua atenção para o problema da
+                radiação de corpo negro, um dos desafios mais prementes
+                da época. O Instituto de Física Técnica de Berlim
+                (Physikalisch-Technische Reichsanstalt) vinha realizando
+                medidas precisas da radiação térmica, e Planck buscava
+                uma fundamentação teórica para esses resultados.</p>
+<p><strong>O Ano Milagroso de 1900</strong></p>
+<p>Em outubro de 1900, após tomar conhecimento de novas
+                medidas experimentais, Planck encontrou uma fórmula
+                empírica que se ajustava perfeitamente aos dados. Era a
+                lei que hoje leva seu nome. No entanto, essa era apenas
+                uma fórmula matemática. Faltava uma <strong>derivação
+                teórica</strong> que a explicasse.</p>
+<p>Nos dois meses seguintes, Planck trabalhou
+                intensamente para encontrar essa derivação. Foi então
+                que, como ele mesmo descreveu, “um ato de desespero” o
+                levou a uma hipótese que violava toda a física
+                conhecida. Ele propôs que a energia dos osciladores
+                responsáveis pela emissão da radiação não era contínua,
+                mas sim composta por um número inteiro de “elementos de
+                energia” ou <strong>quanta</strong>. A energia de cada
+                quantum seria proporcional à frequência da radiação:</p>
+<p>\[
+                E = hf
+                \]</p>
+<p>Onde \(h\) é uma
+                nova constante fundamental da natureza, que hoje
+                conhecemos como <strong>constante de
+                Planck</strong>.</p>
+<p><strong>Um Revolucionário Contra a
+                Vontade</strong></p>
+<p>É crucial compreender que Planck não estava tentando
+                derrubar a física clássica. Pelo contrário, ele via a
+                quantização como um “artifício matemático”, um recurso
+                temporário para obter a fórmula correta. Nos anos
+                seguintes, ele tentou, sem sucesso, reconciliar sua
+                hipótese com a física clássica. Apenas com os trabalhos
+                posteriores de Einstein (sobre o efeito fotoelétrico) e
+                Bohr (sobre o átomo), ficou claro que a quantização era
+                uma propriedade fundamental da natureza, e não um mero
+                truque.</p>
+<figure>
+<img alt="Max Planck em 1918, ano em que recebeu o Prêmio Nobel. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Max Planck em 1918, ano
+                em que recebeu o Prêmio Nobel. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Por seu trabalho, Planck recebeu o <strong>Prêmio
+                Nobel de Física em 1918</strong>. Sua vida pessoal foi
+                marcada por tragédias: sua primeira esposa faleceu em
+                1909, e um de seus filhos foi executado em 1945 por
+                envolvimento na tentativa de assassinato de Hitler.
+                Apesar disso, Planck permaneceu na Alemanha durante a
+                guerra, tentando preservar a ciência alemã, e faleceu em
+                1947, aos 89 anos. Sua história é um lembrete de que
+                mesmo os mais conservadores podem, involuntariamente,
+                desencadear as mais profundas revoluções.</p>
+<h1 id="fundamentos-teóricos">Fundamentos Teóricos</h1>
+<p>A radiação de corpo negro é a radiação
+                eletromagnética emitida por um objeto ideal, chamado de
+                <strong>corpo negro</strong>, que está em equilíbrio
+                térmico consigo mesmo.</p>
+<h2 id="o-que-é-um-corpo-negro">O que é um Corpo
+                Negro?</h2>
+<p>Um <strong>corpo negro</strong> é um objeto teórico,
+                idealizado, com uma propriedade fundamental: ele
+                <strong>absorve toda a radiação eletromagnética que
+                incide sobre si</strong>, sem refletir nada. Por isso, à
+                temperatura ambiente, ele seria perfeitamente negro.</p>
+<p>No entanto, quando aquecido, um corpo negro se torna
+                um <strong>emissor perfeito</strong>. A radiação que ele
+                emite depende <strong>exclusivamente de sua
+                temperatura</strong>, e não do material de que é feito.
+                Essa universalidade é o que torna o estudo do corpo
+                negro tão poderoso para a Física.</p>
+<p>Na prática, podemos nos aproximar desse comportamento
+                ideal com uma <strong>cavidade</strong> mantida a uma
+                temperatura uniforme, com um pequeno orifício. A
+                radiação que entra pelo orifício tem chance ínfima de
+                escapar, sendo absorvida pelas paredes. A radiação que
+                sai pelo orifício é uma amostra perfeita da radiação
+                interna da cavidade, que está em equilíbrio térmico com
+                as paredes.</p>
+<figure>
+<img alt="Representação esquemática de uma cavidade de corpo negro. O pequeno orifício se comporta como um emissor ideal. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Black_body_realization.svg" style="width:50.0%"/>
+<figcaption aria-hidden="true">Representação esquemática
+                de uma cavidade de corpo negro. O pequeno orifício se
+                comporta como um emissor ideal. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d8/Black_body_realization.svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<h2 id="leis-empíricas-da-radiação-de-corpo-negro">Leis
+                Empíricas da Radiação de Corpo Negro</h2>
+<p>Antes de uma explicação teórica completa, os físicos
+                já haviam deduzido, a partir de dados experimentais,
+                duas leis importantes que descreviam o comportamento da
+                radiação.</p>
+<h3 id="lei-de-stefan-boltzmann">Lei de
+                Stefan-Boltzmann</h3>
+<p>Esta lei relaciona a <strong>potência total</strong>
+                irradiada por um corpo negro com a sua temperatura.</p>
+<ul>
+<li><p><strong>Enunciado:</strong> A potência total
+                irradiada por unidade de área (intensidade \(I\)) de um corpo negro é
+                diretamente proporcional à <strong>quarta
+                potência</strong> de sua temperatura absoluta \(T\).</p></li>
+<li><p><strong>Fórmula:</strong> \[
+                I = \sigma T^4
+                \]</p></li>
+</ul>
+<p>Onde a intensidade \(I\) é a potência emitida
+                por metro quadrado (\(W/m^2\)) e \(\sigma\) é a
+                <strong>constante de Stefan-Boltzmann</strong>:</p>
+<p>\[
+                  \sigma = 5{,}670 \times 10^{-8} \,
+                \text{W}/(\text{m}^2\text{K}^4)
+                \]</p>
+<p>Para um corpo real, que não é um emissor perfeito, a
+                fórmula se torna \(I =
+                \epsilon \sigma T^4\), onde \(\epsilon\) é a emissividade
+                (\(0 &lt; \epsilon \le
+                1\)).</p>
+<h3 id="lei-de-wien">Lei de Wien</h3>
+<p>Esta lei descreve como a cor (o comprimento de onda)
+                da radiação mais intensa emitida por um corpo negro
+                varia com a temperatura.</p>
+<ul>
+<li><p><strong>Enunciado:</strong> O comprimento de onda
+                \(\lambda_{\text{máx}}\) no
+                qual a emissão de radiação é máxima é
+                <strong>inversamente proporcional</strong> à temperatura
+                absoluta \(T\) do corpo
+                negro.</p></li>
+<li><p><strong>Fórmula:</strong> \[
+                \lambda_{\text{máx}} = \frac{b}{T}
+                \]</p></li>
+</ul>
+<p>Onde \(b\) é a
+                <strong>constante da lei de Wien</strong>:</p>
+<p>\[b = 2{,}898 \times
+                10^{-3} \, \text{m}\,\text{K}\] Ou, como o
+                comprimento de onda é frequentemente dado em nanômetros
+                (nm): \[b = 2{,}898 \times
+                10^{6} \, \text{nm}\,\text{K}\]</p>
+<p>É por isso que um objeto mais frio (como uma estrela
+                vermelha) tem seu pico de emissão em comprimentos de
+                onda maiores (luz vermelha ou infravermelho), e um
+                objeto mais quente (como uma estrela azul) tem seu pico
+                em comprimentos de onda menores (luz azul ou
+                ultravioleta).</p>
+<h2 id="a-crise-clássica-a-catástrofe-do-ultravioleta">A
+                Crise Clássica: A Catástrofe do Ultravioleta</h2>
+<p>O grande desafio era explicar teoricamente a forma da
+                curva de distribuição espectral da radiação (intensidade
+                vs. comprimento de onda ou frequência). Os físicos
+                tentaram deduzir essa curva usando a Física
+                Clássica.</p>
+<p>A teoria clássica, que tratava a radiação como ondas
+                e os átomos das paredes da cavidade como osciladores
+                harmônicos com energia contínua, levou à <strong>Lei de
+                Rayleigh-Jeans</strong>:</p>
+<p>\[
+                u(\lambda) = 8\pi k T \lambda^{-4}
+                \]</p>
+<p>Onde \(u(\lambda)\)
+                é a densidade de energia por unidade de volume e
+                comprimento de onda, e \(k =
+                1{,}381 \times 10^{-23}\,\text{J/K}\) é a
+                constante de Boltzmann.</p>
+<p><strong>O Problema:</strong></p>
+<ul>
+<li>Para <strong>comprimentos de onda longos</strong>
+                (\(\lambda\) grande), a
+                fórmula concordava razoavelmente com os dados
+                experimentais.</li>
+<li>Para <strong>comprimentos de onda curtos</strong>
+                (\(\lambda\) pequeno,
+                na região do ultravioleta), a fórmula previa que a
+                densidade de energia <strong>tendia ao infinito</strong>
+                (\(\lim_{\lambda \to 0}
+                u(\lambda) = \infty\)).</li>
+</ul>
+<p>Essa previsão absurda, de que um corpo à temperatura
+                ambiente emitiria uma quantidade infinita de energia na
+                forma de radiação ultravioleta, ficou conhecida como a
+                <strong>“catástrofe do ultravioleta”</strong>. Ela
+                deixava claro que a Física Clássica havia falhado
+                espetacularmente.</p>
+<figure>
+<img alt="Comparação entre a previsão clássica (Lei de Rayleigh-Jeans) e o resultado experimental (curva em forma de sino). Fonte: Halliday e Resnick Vol. 4." src="images/fig-catastrofe-uv.png" style="width:60.0%"/>
+<figcaption aria-hidden="true">Comparação entre a
+                previsão clássica (Lei de Rayleigh-Jeans) e o resultado
+                experimental (curva em forma de sino). Fonte: Halliday e
+                Resnick Vol. 4.</figcaption>
+</figure>
+<h2 id="a-solução-quântica-a-hipótese-de-planck">A
+                Solução Quântica: A Hipótese de Planck</h2>
+<p>Em 1900, Max Planck apresentou uma solução que,
+                embora o incomodasse profundamente, resolveria o
+                problema e mudaria a Física para sempre.</p>
+<p>Planck propôs uma ideia revolucionária: a energia dos
+                osciladores atômicos nas paredes da cavidade (e,
+                portanto, da radiação que eles emitem) não é contínua,
+                mas sim <strong>quantizada</strong>. Ela só pode existir
+                em pacotes discretos, que ele chamou de
+                <strong>quanta</strong>.</p>
+<p>A energia de cada “quantum” é proporcional à
+                frequência da radiação:</p>
+<p>\[
+                E = hf
+                \]</p>
+<p>onde \(f\) é a
+                frequência da radiação e \(h\) é uma nova constante
+                fundamental da natureza, a <strong>constante de
+                Planck</strong>:</p>
+<p>\[h = 6{,}626 \times
+                10^{-34} \, \text{J}\,\text{s}\]</p>
+<p>A partir dessa hipótese, Planck derivou uma nova
+                fórmula para a distribuição espectral da radiação de
+                corpo negro, que hoje conhecemos como a <strong>Lei de
+                Planck</strong>:</p>
+<p>\[
+                u(\lambda) = \dfrac{8\pi h c
+                \lambda^{-5}}{e^{hc/(\lambda k T)} - 1}
+                \]</p>
+<p>Que também pode ser escrita em termos da frequência
+                \(f\):</p>
+<p>\[u(f) = \frac{8\pi h
+                f^3}{c^3} \frac{1}{e^{hf/(kT)} - 1}\]</p>
+<p>Esta forma é particularmente útil quando se trabalha
+                com espectroscopia e física de radiação.</p>
+<p>Ao contrário da lei clássica, a lei de Planck:</p>
+<ul>
+<li><strong>Concordava perfeitamente</strong> com os
+                dados experimentais em todas as faixas de comprimento de
+                onda.</li>
+<li><strong>Resolvia a catástrofe do
+                ultravioleta</strong>, pois para \(\lambda \to 0\), a função
+                também tende a zero (\(\lim_{\lambda \to 0} u(\lambda) =
+                0\)).</li>
+<li>Para comprimentos de onda longos, a fórmula de
+                Planck se reduz à lei de Rayleigh-Jeans, mostrando que a
+                teoria clássica era uma aproximação válida em baixas
+                frequências.</li>
+</ul>
+<p>Planck havia introduzido o conceito de
+                <strong>quantização da energia</strong>, um dos pilares
+                fundamentais da Física Quântica, marcando o fim da
+                hegemonia da visão clássica.</p>
+<figure>
+<img alt="Comparação entre a previsão de Planck e a Lei de Rayleigh-Jeans. Note a concordância perfeita da curva de Planck com os pontos experimentais. Fonte: Tipler Vol. 4." src="images/fig-planck-rayleigh-jeans.png" style="width:70.0%"/>
+<figcaption aria-hidden="true">Comparação entre a
+                previsão de Planck e a Lei de Rayleigh-Jeans. Note a
+                concordância perfeita da curva de Planck com os pontos
+                experimentais. Fonte: Tipler Vol. 4.</figcaption>
+</figure>
+<p>A Lei de Wien pode ser obtida encontrando o máximo da
+                função \(u(\lambda)\)
+                da Lei de Planck. Derivando \(u(\lambda)\) em relação a
+                \(\lambda\) e igualando
+                a zero, obtém-se a equação transcendental:</p>
+<p>\[5(1 - e^{-x}) = x, \quad
+                \text{onde} \quad x = \frac{hc}{\lambda_{\text{máx}} k
+                T}\]</p>
+<p>A solução numérica desta equação é \(x \approx 4{,}965\), o que
+                leva a:</p>
+<p>\[\lambda_{\text{máx}} T =
+                \frac{hc}{x k} = b\]</p>
+<p>Substituindo os valores das constantes
+                fundamentais:</p>
+<p>\[b = \frac{(6{,}626
+                \times 10^{-34})(2{,}998 \times 10^8)}{(4{,}965)(1{,}381
+                \times 10^{-23})} = 2{,}898 \times
+                10^{-3}\,\text{m}\,{K}\]</p>
+<p>Este é o valor da <strong>constante de Wien</strong>,
+                que utilizaremos nos problemas.</p>
+<h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
+<h2 id="exemplo-4.1-determinando-a-temperatura-de-uma-estrela"><strong>Exemplo
+                4.1: Determinando a Temperatura de uma
+                Estrela</strong></h2>
+<p>Uma estrela distante tem seu pico de emissão de
+                radiação em \(\lambda_{\text{máx}} = 400 \,
+                \text{nm}\), que corresponde à cor violeta.
+                Considerando que ela se comporta como um corpo negro,
+                qual é a temperatura aproximada de sua superfície?</p>
+<p><strong>Solução:</strong></p>
+<p>Este é um problema de aplicação direta da Lei de
+                Wien. A fórmula que relaciona o comprimento de onda de
+                pico com a temperatura é:</p>
+<p>\[T =
+                \frac{b}{\lambda_{\text{máx}}}\]</p>
+<p><strong>Passo 1:</strong> Identificar as constantes e
+                os dados. - Comprimento de onda de pico: \(\lambda_{\text{máx}} = 400 \,
+                \text{nm}\). - Constante de Wien: \(b = 2{,}898 \times 10^6 \,
+                \text{nm·K}\) (usaremos esta forma para evitar
+                conversões desnecessárias).</p>
+<p><strong>Passo 2:</strong> Substituir os valores na
+                fórmula. \[T = \frac{2{,}898
+                \times 10^6 \, \text{nm·K}}{400 \,
+                \text{nm}}\]</p>
+<p><strong>Passo 3:</strong> Realizar o cálculo. \[T = \frac{2{,}898 \times
+                10^6}{4{,}00 \times 10^2} \, \text{K}\] \[T = 7{,}245 \times 10^3 \,
+                \text{K}\]</p>
+<p><strong>Passo 4:</strong> Expressar o resultado com
+                notação adequada. \[\boxed{T
+                = 7245 \, \text{K}}\]</p>
+<p><strong>Interpretação:</strong> A temperatura
+                superficial dessa estrela é de aproximadamente
+                <strong>7245 K</strong>, o que a coloca na classe de
+                estrelas mais quentes que o Sol (que tem cerca de 5800
+                K).</p>
+<h2 id="exemplo-4.2-comparando-a-potência-irradiada-por-duas-estrelas"><strong>Exemplo
+                4.2: Comparando a Potência Irradiada por Duas
+                Estrelas</strong></h2>
+<p>Duas estrelas, A e B, são esféricas e possuem o
+                <strong>mesmo raio</strong> \(R\). A estrela A tem
+                temperatura superficial \(T_A
+                = 3000 \, \text{K}\) (avermelhada) e a estrela B
+                tem temperatura \(T_B = 6000
+                \, \text{K}\) (amarelada, como o Sol). Calcule a
+                razão entre a potência total irradiada pela estrela B e
+                pela estrela A, ou seja, determine \(P_B / P_A\).</p>
+<p><strong>Solução:</strong></p>
+<p>Para resolver este problema, precisamos combinar a
+                Lei de Stefan-Boltzmann com a geometria esférica das
+                estrelas.</p>
+<p><strong>Passo 1:</strong> Lembrar das fórmulas
+                fundamentais. - A Lei de Stefan-Boltzmann para a
+                intensidade (potência por unidade de área) é: \(I = \sigma T^4\). - A
+                potência total \(P\)
+                irradiada por uma esfera de raio \(R\) é a intensidade
+                multiplicada pela área da superfície da esfera: \(P = I \cdot A = (\sigma T^4) \cdot
+                (4\pi R^2)\).</p>
+<p><strong>Passo 2:</strong> Escrever a expressão para a
+                potência de cada estrela. Para a estrela A: \(P_A = 4\pi R_A^2 \sigma
+                T_A^4\) Para a estrela B: \(P_B = 4\pi R_B^2 \sigma
+                T_B^4\)</p>
+<p><strong>Passo 3:</strong> Calcular a razão pedida.
+                \[\frac{P_B}{P_A} =
+                \frac{4\pi R_B^2 \sigma T_B^4}{4\pi R_A^2 \sigma
+                T_A^4}\]</p>
+<p><strong>Passo 4:</strong> Simplificar a expressão.
+                Como o raio é o mesmo para ambas (\(R_A = R_B = R\)) e a
+                constante \(\sigma\) e
+                o fator \(4\pi\) são
+                comuns, eles se cancelam: \[\frac{P_B}{P_A} = \left(
+                \frac{T_B}{T_A} \right)^4\]</p>
+<p><strong>Passo 5:</strong> Substituir os valores das
+                temperaturas. \[\frac{P_B}{P_A} = \left(
+                \frac{6000 \, \text{K}}{3000 \, \text{K}} \right)^4 =
+                (2)^4 = 16\]</p>
+<p><strong>Passo 6:</strong> Apresentar o resultado.
+                \[\boxed{\frac{P_B}{P_A} =
+                16}\]</p>
+<p><strong>Interpretação:</strong> A estrela B, por ser
+                duas vezes mais quente que a estrela A, irradia
+                <strong>16 vezes mais energia</strong> por segundo. Este
+                exemplo demonstra o poder da lei \(T^4\) de Stefan-Boltzmann:
+                um pequeno aumento na temperatura leva a um enorme
+                aumento na potência irradiada.</p>
+<h2 id="exemplo-4.3-aplicação-na-indústria---um-forno-industrial"><strong>Exemplo
+                4.3: Aplicação na Indústria - Um Forno
+                Industrial</strong></h2>
+<p>Um forno industrial opera a uma temperatura de \(2000 \, \text{K}\).
+                Considerando seu interior como uma cavidade de corpo
+                negro, determine:</p>
+<ol type="a">
+<li>A intensidade da radiação emitida pelo orifício de
+                inspeção do forno.</li>
+<li>O comprimento de onda no qual a emissão é
+                máxima.</li>
+</ol>
+<p><strong>Solução:</strong></p>
+<p><strong>Passo 1:</strong> Identificar os dados. -
+                Temperatura do forno: \(T =
+                2000 \, \text{K}\) - Constante de
+                Stefan-Boltzmann: \(\sigma =
+                5{,}670 \times 10^{-8} \,
+                \text{W}/(\text{m}^2\,\text{K}^4)\) - Constante
+                de Wien: \(b = 2{,}898 \times
+                10^{-3} \, \text{m}\,\text{K}\)</p>
+<p><strong>Passo 2:</strong> Resolver o item (a) -
+                Intensidade da radiação. Usamos a Lei de
+                Stefan-Boltzmann: \(I = \sigma
+                T^4\). \[I = (5{,}670
+                \times 10^{-8}) \times (2000)^4\] Primeiro,
+                calculamos \(T^4 = (2{,}000
+                \times 10^3)^4 = 16{,}00 \times 10^{12} = 1{,}600 \times
+                10^{13} \, \text{K}^4\). Agora, multiplicamos:
+                \[I = 5{,}670 \times 10^{-8}
+                \times 1{,}600 \times 10^{13}\] \[I = (5{,}670 \times 1{,}600)
+                \times 10^{-8+13}\] \[I = 9{,}072 \times 10^{5} \,
+                \text{W}/\text{m}^2\] Podemos escrever em notação
+                mais compacta: \[\boxed{I =
+                9{,}07 \times 10^{5} \,
+                \text{W}/\text{m}^2}\]</p>
+<p><strong>Passo 3:</strong> Resolver o item (b) -
+                Comprimento de onda de pico. Usamos a Lei de Wien: \(\lambda_{\text{máx}} =
+                \frac{b}{T}\). \[\lambda_{\text{máx}} =
+                \frac{2{,}898 \times 10^{-3} \, \text{m}\,\text{K}}{2000
+                \, \text{K}}\] \[\lambda_{\text{máx}} = 1{,}449
+                \times 10^{-6} \, \text{m}\]</p>
+<p><strong>Passo 4:</strong> Converter para uma unidade
+                mais adequada. O valor obtido está em metros. É comum
+                expressar comprimentos de onda nessa faixa em
+                micrômetros (\(\mu
+                m\)), onde \(1 \, \mu m
+                = 10^{-6} \, m\). \[\lambda_{\text{máx}} = 1{,}449 \,
+                \mu \text{m}\]</p>
+<p><strong>Passo 5:</strong> Apresentar o resultado
+                final. \[\boxed{\lambda_{\text{máx}} =
+                1{,}45 \, \mu \text{m}}\]</p>
+<p><strong>Interpretação:</strong> A intensidade da
+                radiação é de cerca de \(907
+                \, \text{kW}/\text{m}^2\), e a radiação é máxima
+                na região do infravermelho próximo (\(1{,}45 \, \mu \text{m}\)),
+                que não é visível ao olho humano. Por isso, o orifício
+                do forno brilha com uma cor vermelho-alaranjada (parte
+                da cauda da curva que ainda atinge o visível), mas a
+                maior parte da energia está no infravermelho.</p>
+<h1 id="conclusão">Conclusão</h1>
+<p>A radiação de corpo negro foi muito mais do que um
+                simples fenômeno a ser explicado; foi o campo de batalha
+                onde a Física Clássica encontrou seu limite e onde a
+                Física Quântica deu seus primeiros passos.</p>
+<ul>
+<li>As leis empíricas de
+                <strong>Stefan-Boltzmann</strong> e
+                <strong>Wien</strong> forneceram as peças do
+                quebra-cabeça, mas foi a <strong>catástrofe do
+                ultravioleta</strong> que expôs a fragilidade da visão
+                clássica.</li>
+<li>A história de <strong>Max Planck</strong> nos mostra
+                que a ciência avança não apenas por meio de rebeldes,
+                mas também por estudiosos conservadores que, ao tentar
+                resolver um problema específico, são levados a
+                conclusões revolucionárias, muitas vezes contra sua
+                própria vontade.</li>
+<li>A solução de Planck, ao introduzir a ideia de que a
+                energia é <strong>quantizada</strong> (\(E = hf\)), não apenas
+                resolveu o problema teórico, mas também abriu as portas
+                para uma nova compreensão da realidade.</li>
+<li>O conceito de que a energia não é contínua, mas
+                trocada em “pacotes” discretos, foi o primeiro e mais
+                crucial passo em direção à Mecânica Quântica.</li>
+</ul>
+<p>Na história da ciência, a radiação de corpo negro
+                permanece como um exemplo brilhante de como a
+                persistência de um problema experimental, quando
+                confrontada com a ousadia teórica, pode levar a uma
+                mudança de paradigma e revolucionar nosso entendimento
+                do universo.</p>
+<p>Na <strong>próxima aula</strong>, daremos mais um
+                passo nessa revolução: estudaremos o <strong>efeito
+                fotoelétrico</strong>, fenômeno que Einstein explicou em
+                1905 utilizando a hipótese dos quanta de luz (fótons),
+                consolidando definitivamente a ideia da quantização da
+                energia e rendendo-lhe o Prêmio Nobel de Física em
+                1921.</p>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<dl>
+<dt>4.1)</dt>
+<dd>
+                Sobre o conceito de corpo negro, é correto afirmar que:
+                </dd>
+</dl>
+<ol type="a">
+<li>É um objeto que reflete toda a radiação incidente,
+                por isso parece negro.</li>
+<li>É um objeto cuja radiação emitida depende do
+                material de que é feito.</li>
+<li>É um objeto ideal que absorve toda a radiação
+                incidente e cuja emissão depende apenas de sua
+                temperatura.</li>
+<li>É um objeto que só pode ser encontrado na natureza,
+                como o carbono.</li>
+<li>É um objeto que não emite radiação, apenas
+                absorve.</li>
+</ol>
+<dl>
+<dt>4.2)</dt>
+<dd>
+                A Lei de Stefan-Boltzmann estabelece que a intensidade
+                total da radiação emitida por um corpo negro é:
+                </dd>
+</dl>
+<ol type="a">
+<li>Diretamente proporcional à sua temperatura.</li>
+<li>Inversamente proporcional à sua temperatura.</li>
+<li>Diretamente proporcional ao quadrado de sua
+                temperatura.</li>
+<li>Diretamente proporcional à quarta potência de sua
+                temperatura.</li>
+<li>Inversamente proporcional à quarta potência de sua
+                temperatura.</li>
+</ol>
+<dl>
+<dt>4.3)</dt>
+<dd>
+                A estrela Betelgeuse, na constelação de Órion, tem
+                coloração avermelhada, enquanto a estrela Sirius, na
+                constelação do Cão Maior, tem coloração azulada. Com
+                base na Lei de Wien, o que se pode afirmar sobre as
+                temperaturas superficiais dessas estrelas?
+                </dd>
+</dl>
+<ol type="a">
+<li>Betelgeuse é mais quente que Sirius.</li>
+<li>Sirius é mais quente que Betelgeuse.</li>
+<li>Ambas têm a mesma temperatura.</li>
+<li>Não é possível relacionar cor com temperatura.</li>
+<li>Betelgeuse não emite radiação de corpo negro.</li>
+</ol>
+<dl>
+<dt>4.4)</dt>
+<dd>
+                O problema da “catástrofe do ultravioleta” na Física
+                Clássica referia-se à previsão de que:
+                </dd>
+</dl>
+<ol type="a">
+<li>A densidade de energia da radiação tenderia ao
+                infinito para comprimentos de onda muito curtos.</li>
+<li>A densidade de energia da radiação tenderia ao
+                infinito para comprimentos de onda muito longos.</li>
+<li>A energia total irradiada por um corpo negro seria
+                zero.</li>
+<li>A cor da radiação emitida seria sempre a mesma,
+                independentemente da temperatura.</li>
+<li>Não haveria radiação emitida em altas
+                temperaturas.</li>
+</ol>
+<dl>
+<dt>4.5)</dt>
+<dd>
+                A hipótese quântica de Planck para resolver o problema
+                do corpo negro propunha que:
+                </dd>
+</dl>
+<ol type="a">
+<li>A luz se comporta exclusivamente como uma onda.</li>
+<li>A energia dos osciladores atômicos é contínua.</li>
+<li>O átomo era indivisível e não tinha estrutura
+                interna.</li>
+<li>A velocidade da luz não é constante.</li>
+<li>A energia só pode ser emitida ou absorvida em
+                pacotes discretos, chamados quanta, cuja energia é \(E = hf\).</li>
+</ol>
+<p><strong>Instruções gerais para as questões de 4.6 a
+                4.10:</strong></p>
+<p>Para estas questões, você deverá acessar a simulação
+                <strong>“Blackbody Spectrum”</strong> disponível no site
+                de simulações interativas da Universidade do Colorado
+                (PhET), através do seguinte link:</p>
+<blockquote>
+<p><strong>Link para a simulação:</strong> <a class="uri" href="https://phet.colorado.edu/pt_BR/simulations/blackbody-spectrum">https://phet.colorado.edu/pt_BR/simulations/blackbody-spectrum</a></p>
+</blockquote>
+<p>Ao abrir a simulação, familiarize-se com a interface.
+                Você verá um gráfico da intensidade da radiação em
+                função do comprimento de onda, para diferentes
+                temperaturas. Utilize o controle deslizante para ajustar
+                a temperatura do corpo negro. <strong>Ative as opções
+                “valores”, “rótulos” e “intensidade”</strong> para
+                facilitar suas leituras.</p>
+<p><strong>Observação sobre algarismos
+                significativos:</strong> Ao registrar suas medidas e
+                realizar os cálculos, mantenha o número de algarismos
+                significativos coerente com a precisão da simulação. A
+                simulação do PhET geralmente fornece valores com 3 ou 4
+                algarismos significativos. Mantenha essa precisão em
+                suas tabelas e cálculos.</p>
+<p>Para a análise gráfica, você utilizará o site
+                <strong>Curve.fit</strong> (<a class="uri" href="https://curve.fit/">https://curve.fit/</a>), que permite
+                realizar regressões não-lineares de forma simples com
+                diversos modelos pré-definidos. Para cada conjunto de
+                dados, você deverá inserir os valores de x e y, suas
+                respectivas incertezas (que consideraremos como
+                <strong>1% do valor medido</strong>), e selecionar o
+                modelo de regressão adequado para determinar as
+                constantes experimentais.</p>
+<dl>
+<dt>4.6)</dt>
+<dd>
+<strong>Coleta de Dados - Lei de
+                Stefan-Boltzmann.</strong> Na simulação, posicione o
+                marcador de temperatura nos seguintes valores: 2500 K,
+                3000 K, 3500 K, 4000 K, 4500 K, 5000 K, 5500 K, 6000 K,
+                6500 K e 7000 K.
+                </dd>
+</dl>
+<p>Para cada uma dessas temperaturas, observe e anote o
+                valor da <strong>intensidade da radiação (\(I\))</strong> que é
+                mostrado na simulação. Organize esses dados em uma
+                tabela com as seguintes colunas em seu caderno de
+                laboratório:</p>
+<ol type="1">
+<li><strong>Temperatura \(T\) (em K)</strong>.</li>
+<li><strong>Incerteza da Temperatura \(\Delta T\) (em K)</strong>
+                - considere \(\Delta T =
+                0{,}01 \times T\) (1% do valor).</li>
+<li><strong>Intensidade \(I\) (em
+                MW/m²)</strong>.</li>
+<li><strong>Incerteza da Intensidade \(\Delta I\) (em \(\text{MW}/\text{m}^{2}\))</strong>
+                - considere \(\Delta I =
+                0{,}01 \times I\) (1% do valor).</li>
+</ol>
+<p>Lembre-se de que 1 MW/m² = \(10^6\) W/m².</p>
+<dl>
+<dt>4.7)</dt>
+<dd>
+<strong>Análise Gráfica e Determinação da Constante de
+                Stefan-Boltzmann.</strong> Com os dados da tabela da
+                questão anterior, você irá determinar a constante de
+                Stefan-Boltzmann \(\sigma\) utilizando o site
+                Curve.fit.
+                </dd>
+</dl>
+<p><strong>Passo a passo:</strong></p>
+<ol type="1">
+<li>Acesse o site <a class="uri" href="https://curve.fit/">https://curve.fit/</a>.</li>
+<li>No campo <strong>x values</strong>, insira os
+                valores da <strong>Temperatura \(T\) (em K)</strong>.</li>
+<li>No campo <strong>x error</strong>, insira os valores
+                da incerteza \(\Delta
+                T\) (em K).</li>
+<li>No campo <strong>y values</strong>, insira os
+                valores da <strong>Intensidade \(I\) (em \(\text{MW}/\text{m}^{2}\))</strong>.</li>
+<li>No campo <strong>y error</strong>, insira os valores
+                da incerteza \(\Delta
+                I\) (em \(\text{MW}/\text{m}^{2}\)).</li>
+</ol>
+<p>A Lei de Stefan-Boltzmann prevê uma relação do tipo
+                \(I = \sigma T^4\), ou
+                seja, a intensidade é proporcional à <strong>potência
+                4</strong> da temperatura. Esta é uma <strong>lei de
+                potência</strong> (power law) do tipo \(y = A x^B\), onde esperamos
+                que o expoente \(B\)
+                seja igual a 4.</p>
+<ol start="6" type="1">
+<li><p>Na lista de modelos do Curve.fit, selecione a
+                opção <strong>“Power Law”</strong>, que corresponde à
+                função: \[y = A x^B\]
+                onde \(A\) e \(B\) são os parâmetros a
+                serem determinados pela regressão.</p></li>
+<li><p>Execute o ajuste e observe os valores obtidos
+                para os parâmetros:</p>
+<ul>
+<li>O parâmetro <strong>\(A\)</strong> corresponde à
+                constante de Stefan-Boltzmann \(\sigma\) nas unidades do
+                seu gráfico (\(\text{MW}/(\text{m}^{2}\,\text{K}^{4})\)).</li>
+<li>O parâmetro <strong>\(B\)</strong> é o expoente
+                da lei de potência. De acordo com a teoria, ele deve ser
+                igual a 4.</li>
+</ul></li>
+</ol>
+<p><strong>Perguntas:</strong></p>
+<ol type="a">
+<li>Anote os valores obtidos para \(A\) e \(B\) com suas respectivas
+                incertezas.</li>
+<li>O valor do expoente \(B\) está próximo de 4?
+                Calcule o erro percentual em relação ao valor teórico
+                esperado (\(B_{\text{teórico}}
+                = 4\)). O que isso indica sobre a validade da Lei
+                de Stefan-Boltzmann?</li>
+<li>O parâmetro \(A\)
+                obtido na regressão está nas unidades \(\text{MW}/(\text{m}^{2}\,\text{K}^{4})\).
+                Para convertê-lo para as unidades do SI (\(\text{W}/(\text{m}^{2}\,\text{K}^{4})\)),
+                multiplique o valor por \(10^6\), pois:</li>
+</ol>
+<p>\[1 \,
+                \frac{\text{MW}}{\text{m}^2\,\text{K}^4} = 10^6 \,
+                \frac{\text{W}}{\text{m}^2\,\text{K}^4}\]</p>
+<p>Este é o seu valor experimental para a constante de
+                Stefan-Boltzmann, \(\sigma_{\text{exp}}\), em
+                \(\text{W}/(\text{m}^{2}\,\text{K}^{4})\).</p>
+<dl>
+<dt>4.8)</dt>
+<dd>
+<strong>Coleta de Dados - Lei de Wien.</strong> Na
+                simulação, utilize novamente o controle deslizante para
+                ajustar a temperatura do corpo negro para os mesmos
+                valores do experimento anterior: 2500 K, 3000 K, 3500 K,
+                4000 K, 4500 K, 5000 K, 5500 K, 6000 K, 6500 K e 7000 K.
+                </dd>
+</dl>
+<p>Para cada temperatura, observe a curva no gráfico e
+                identifique o ponto mais alto (o pico). Leia e anote o
+                valor do <strong>comprimento de onda correspondente a
+                esse pico (\(\lambda_{\text{máx}}\))</strong>.
+                Organize esses dados em uma tabela com as seguintes
+                colunas em seu caderno de laboratório:</p>
+<ol type="1">
+<li><strong>Temperatura \(T\) (em K)</strong>.</li>
+<li><strong>Incerteza da Temperatura \(\Delta T\) (em K)</strong>
+                - considere \(\Delta T =
+                0{,}01 \times T\) (1% do valor).</li>
+<li><strong>Comprimento de Onda de Pico \(\lambda_{\text{máx}}\) (em
+                nm)</strong>.</li>
+<li><strong>Incerteza do Comprimento de Onda \(\Delta
+                \lambda_{\text{máx}}\) (em nm)</strong> -
+                considere \(\Delta \lambda =
+                0{,}01 \times \lambda_{\text{máx}}\) (1% do
+                valor).</li>
+</ol>
+<dl>
+<dt>4.9)</dt>
+<dd>
+<strong>Análise Gráfica e Determinação da Constante de
+                Wien.</strong> Com os dados da tabela da questão
+                anterior, você irá determinar a constante da Lei de Wien
+                \(b\) utilizando o site
+                Curve.fit.
+                </dd>
+</dl>
+<p><strong>Passo a passo:</strong></p>
+<ol type="1">
+<li>Acesse o site <a class="uri" href="https://curve.fit/">https://curve.fit/</a>.</li>
+<li>No campo <strong>x values</strong>, insira os
+                valores da <strong>Temperatura \(T\) (em K)</strong>.</li>
+<li>No campo <strong>x error</strong>, insira os valores
+                da incerteza \(\Delta
+                T\) (em K).</li>
+<li>No campo <strong>y values</strong>, insira os
+                valores do <strong>Comprimento de Onda de Pico \(\lambda_{\text{máx}}\) (em
+                nm)</strong>.</li>
+<li>No campo <strong>y error</strong>, insira os valores
+                da incerteza \(\Delta
+                \lambda_{\text{máx}}\) (em nm).</li>
+</ol>
+<p>A Lei de Wien prevê uma relação do tipo \(\lambda_{\text{máx}} =
+                b/T\), ou seja, o comprimento de onda de pico é
+                <strong>inversamente proporcional</strong> à
+                temperatura. O Curve.fit possui um modelo específico
+                para este tipo de relação.</p>
+<ol start="6" type="1">
+<li><p>Na lista de modelos do Curve.fit, selecione a
+                opção <strong>“Inverse”</strong>, que corresponde à
+                função: \[y = \frac{A}{x} +
+                B\] onde \(A\) e
+                \(B\) são os parâmetros
+                a serem determinados pela regressão. O parâmetro \(B\) é uma constante
+                aditiva, que idealmente deve ser zero para que a lei se
+                verifique.</p></li>
+<li><p>Execute o ajuste e observe os valores obtidos
+                para os parâmetros:</p>
+<ul>
+<li>O parâmetro <strong>\(A\)</strong> corresponde à
+                constante de Wien \(b\)
+                nas unidades do seu gráfico (\(\text{nm}\,\text{K}\)).</li>
+<li>O parâmetro <strong>\(B\)</strong> é uma
+                constante aditiva. De acordo com a teoria, ele deve ser
+                igual a zero (ou muito próximo de zero).</li>
+</ul></li>
+</ol>
+<p><strong>Perguntas:</strong></p>
+<ol type="a">
+<li>Anote os valores obtidos para \(A\) e \(B\) com suas respectivas
+                incertezas.</li>
+<li>O valor do parâmetro \(B\) está próximo de zero? O
+                que isso indica sobre a adequação do modelo \(y = A/x\) para descrever
+                seus dados?</li>
+<li>Converta o valor do parâmetro \(A\) (que é o \(b_{\text{exp}}\) nas
+                unidades do gráfico) para as unidades do SI (\(\text{m}\,\text{K}\)),
+                lembrando que 1 nm = \(10^{-9}\) m. Este é o seu
+                valor experimental para a constante de Wien, \(b_{\text{exp}}\).</li>
+</ol>
+<dl>
+<dt>4.10)</dt>
+<dd>
+<strong>Comparação com os Valores Teóricos e Análise dos
+                Resultados.</strong> Compare os valores experimentais
+                que você obteve para a constante de Stefan-Boltzmann
+                (\(\sigma_{\text{exp}}\)) e
+                para a constante de Wien (\(b_{\text{exp}}\)) com os
+                valores aceitos na literatura:
+                </dd>
+</dl>
+<ul>
+<li>\(\sigma_{\text{teórico}}
+                = 5{,}670 \times 10^{-8} \,
+                \text{W}/(\text{m}^2\,\text{K}^4)\).</li>
+<li>\(b_{\text{teórico}} =
+                2{,}898 \times 10^{-3} \,
+                \text{m}\,\text{K}\).</li>
+</ul>
+<p>Para cada constante, calcule o erro percentual do seu
+                valor experimental em relação ao valor teórico,
+                utilizando a fórmula:</p>
+<p>\[\text{Erro \%} = \left|
+                \frac{v_{\text{teórico}} -
+                v_{\text{experimental}}}{v_{\text{teórico}}} \right|
+                \times 100\%\]</p>
+<p><strong>Perguntas para discussão:</strong></p>
+<ol type="a">
+<li>Considerando os erros experimentais de 1% e o método
+                de regressão utilizado com os modelos “Power Law” e
+                “Inverse”, seus resultados foram satisfatórios? Os
+                valores dos parâmetros secundários (\(B\) na lei de potência e
+                \(B\) no modelo
+                inverso) ficaram próximos dos valores esperados pela
+                teoria?</li>
+<li>Na questão 4.7, qual a vantagem de utilizar o modelo
+                “Power Law” (\(y = A
+                x^B\)) em vez de forçar um polinômio de 4º grau?
+                Como a obtenção do expoente \(B\) ajuda a verificar a Lei
+                de Stefan-Boltzmann de forma mais direta?</li>
+<li>Na questão 4.9, por que a presença de um parâmetro
+                \(B\) (constante
+                aditiva) diferente de zero no modelo “Inverse” poderia
+                indicar um problema sistemático nas suas medidas ou na
+                própria simulação?</li>
+<li>Com base na precisão da simulação e na análise dos
+                erros e dos parâmetros dos ajustes, o que você conclui
+                sobre a validade das leis de Stefan-Boltzmann e de Wien
+                para descrever a radiação de corpo negro?</li>
+</ol>
+<h1 id="respostas">Respostas</h1>
+<p>Caro estudante, seguem as respostas
+                <strong>completas</strong> e <strong>detalhadas</strong>
+                dos exercícios de fixação da <a href="https://drive.google.com/file/d/18BYVaAmxDp7Bmc-3AIrP6YL2cLHXiRrk/view">aula
+                anterior</a>.</p>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=LKoqBFot_H4" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="A Catástrofe do Ultravioleta" loading="lazy" src="./images/thumbs/ytb-ctd-catástrofe.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">A Catástrofe do Ultravioleta</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=LKoqBFot_H4" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Ciência Todo Dia.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=LKoqBFot_H4" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=kFc2bB0KN2c" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Radiação de Corpo Negro - Max Planck" loading="lazy" src="./images/thumbs/ytb-humor-quântico-corpo-negro.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Radiação de Corpo Negro - Max Planck</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=kFc2bB0KN2c" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Humor Quântico.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=kFc2bB0KN2c" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=Wf2aWQftVZg" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Quântica - Radiação de Corpo Negro" loading="lazy" src="./images/thumbs/ytb-responde-aí-corpo-negro.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Quântica - Radiação de Corpo Negro</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=Wf2aWQftVZg" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Responde Aí.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=Wf2aWQftVZg" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>ANTUNES, Laura Catarina Seco. <strong>Radiação de
+                corpo negro</strong>: lei de Stefan-Boltzmann, lei do
+                deslocamento de Wien. 2012. Relatório de Estágio
+                (Mestrado em Ensino de Física e Química) – Universidade
+                da Beira Interior, Covilhã, 2012.</li>
+<li>CURVE.FIT. <strong>Ferramenta online para regressão
+                e ajuste de curvas</strong>. Disponível em: <a class="uri" href="https://curve.fit/">https://curve.fit/</a>. Acesso em: 17 mar.
+                2026.</li>
+<li>EISBERG, Robert; RESNICK, Robert. <strong>Física
+                quântica</strong>: átomos, moléculas, sólidos, núcleos e
+                partículas. Rio de Janeiro: Campus, 1979.</li>
+<li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <strong>Fundamentos de Física</strong>: óptica e física
+                moderna. 10. ed. Rio de Janeiro: LTC, 2016. v. 4.</li>
+<li>NUSSENZVEIG, Herch Moysés. <strong>Curso de Física
+                Básica</strong>: ótica, relatividade, física quântica.
+                2. ed. São Paulo: Blucher, 2014. v. 4.</li>
+<li>PHET SIMULAÇÕES INTERATIVAS. <strong>Blackbody
+                Spectrum</strong>. Boulder: Universidade do Colorado.
+                Disponível em: <a class="uri" href="https://phet.colorado.edu/pt_BR/simulations/blackbody-spectrum">https://phet.colorado.edu/pt_BR/simulations/blackbody-spectrum</a>.
+                Acesso em: 17 mar. 2026.</li>
+<li>PLANCK, Max. <strong>Scientific autobiography and
+                other papers</strong>. Nova York: Philosophical Library,
+                1949.</li>
+<li>TIPLER, Paul A.; LLEWELLYN, Ralph A. <strong>Física
+                moderna</strong>. 6. ed. Rio de Janeiro: LTC, 2017.</li>
+<li>WIKIPÉDIA. <strong>Max Planck</strong>. Disponível
+                em: <a class="uri" href="https://pt.wikipedia.org/wiki/Max_Planck">https://pt.wikipedia.org/wiki/Max_Planck</a>.
+                Acesso em: 17 mar. 2026.</li>
+<li>YOUNG, Hugh D.; FREEDMAN, Roger A. <strong>Física
+                IV</strong>: ótica e física moderna. 14. ed. São Paulo:
+                Addison Wesley, 2016.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+                    
+                <a href="/disciplinas/aula-03-quantizacao-da-carga-experimento-de-millikan.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+                
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+                    
+                <a href="/disciplinas/aula-05-efeito-fotoeletrico.html" class="btn btn-outline-primary">
+                    Próxima aula <i class="bi bi-arrow-right"></i>
+                </a>
+                
+                </div>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

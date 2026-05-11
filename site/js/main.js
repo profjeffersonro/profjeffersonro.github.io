@@ -33,30 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
         button.setAttribute('rel', 'noopener noreferrer');
     });
     
-    // Função para inicializar MathJax
-    function initializeMathJax() {
-        if (typeof MathJax !== 'undefined') {
-            console.log('MathJax carregado para GitHub Pages');
-            
-            MathJax.startup.promise.then(() => {
-                console.log('MathJax inicializado com sucesso');
-                
-                if (document.querySelector('.tex2jax_process')) {
-                    MathJax.typesetPromise().catch((err) => {
-                        console.log('MathJax erro:', err.message);
-                    });
-                }
-            }).catch((err) => {
-                console.error('MathJax falhou ao carregar:', err);
-            });
-        } else {
-            console.warn('MathJax não está disponível');
-        }
-    }
-    
-    // Inicializar MathJax
-    setTimeout(initializeMathJax, 500);
-    
     // Log para debug (apenas em desenvolvimento)
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         console.log('Desenvolvimento local - Base URL:', BASE_URL);

@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 01 - Concepções Históricas | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 01 - Concepções Históricas de Física Moderna 1.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-01-concepcoes-historicas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 01 - Concepções Históricas | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 01 - Concepções Históricas de Física Moderna 1.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-01-concepcoes-historicas.html">
+    <meta property="og:site_name" content="Meu Portal">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,10 +30,11 @@
     <script>
     window.MathJax = {
         tex: {
-            inlineMath: [['$', '$'], ['\(', '\)']],
-            displayMath: [['$$', '$$'], ['\[', '\]']],
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
             processEscapes: true,
-            processEnvironments: true
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
         },
         options: {
             skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
@@ -36,10 +45,7 @@
             fontCache: 'global'
         },
         loader: {
-            load: ['[tex]/ams', '[tex]/physics']
-        },
-        tex: {
-            packages: {'[+]': ['ams', 'physics']}
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
         },
         startup: {
             ready: () => {
@@ -51,6 +57,7 @@
     };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
     
 </head>
 <body>
@@ -107,67 +114,57 @@
                 </div>
                 
                     <div class="aula-content">
-                        
-    
-        
-            <!-- Header -->
-            
-
-            <!-- TOC -->
-            
-            <!-- Conteúdo principal -->
-            <main class="content-section">
-                <h1 id="objetivos">Objetivos</h1>
-                Ao final desta aula, você deverá ser capaz de:</p>
-                <ul>
-                <li>Compreender o <strong>contexto histórico</strong> do
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li>Compreender o <strong>contexto histórico</strong> do
                 final do século XIX e início do século XX.</li>
-                <li>Reconhecer por que a Física Clássica era considerada
+<li>Reconhecer por que a Física Clássica era considerada
                 <strong>completa</strong> antes de 1900.</li>
-                <li>Identificar os principais <strong>problemas
+<li>Identificar os principais <strong>problemas
                 experimentais</strong> que desafiaram o modelo
                 clássico.</li>
-                <li>Explicar o surgimento da <strong>Física
+<li>Explicar o surgimento da <strong>Física
                 Moderna</strong> como resposta a esses limites.</li>
-                <li>Entender a transição do
+<li>Entender a transição do
                 <strong>determinismo</strong> clássico para a
                 interpretação <strong>probabilística</strong> da
                 natureza.</li>
-                <li>Relacionar os principais nomes envolvidos na
+<li>Relacionar os principais nomes envolvidos na
                 construção da <strong>Física Moderna</strong> e
                 <strong>Quântica</strong>.</li>
-                </ul>
-                <h1 id="introdução">Introdução</h1>
-                Imagine viver em uma época em que os cientistas
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Imagine viver em uma época em que os cientistas
                 acreditavam que <strong>tudo na Física já estava
                 descoberto</strong>. Que restava apenas <strong>medir
                 com mais precisão</strong>, ajustar algumas casas
                 decimais e a ciência estaria, essencialmente,
                 <strong>completa</strong>.</p>
-                Essa não é uma ficção científica: foi
+<p>Essa não é uma ficção científica: foi
                 <strong>exatamente assim que muitos físicos se sentiam
                 no final do século XIX</strong>.</p>
-                As <strong>leis de Newton</strong> explicavam os
+<p>As <strong>leis de Newton</strong> explicavam os
                 movimentos celestes e terrestres. As <strong>equações de
                 Maxwell</strong> unificavam eletricidade, magnetismo e
                 ótica. A <strong>termodinâmica</strong> impulsionava a
                 Revolução Industrial. O edifício da Física parecia
                 <strong>sólido, elegante e… finalizado</strong>.</p>
-                Mas <strong>havia problemas</strong>.</p>
-                <strong>Pequenos</strong> primeiro. Depois,
+<p>Mas <strong>havia problemas</strong>.</p>
+<p><strong>Pequenos</strong> primeiro. Depois,
                 <strong>maiores</strong>. Fenômenos experimentais que
                 teimavam em <strong>não se encaixar</strong> nas teorias
                 existentes começaram a se acumular. Como <strong>nuvens
                 escuras em um céu antes azul</strong>, esses problemas
                 anunciavam uma <strong>tempestade conceitual</strong>
                 que abalaria os alicerces da ciência.</p>
-                Nesta aula, vamos investigar como a Física, ao final
+<p>Nesta aula, vamos investigar como a Física, ao final
                 do século XIX, passou de um estado de <strong>aparente
                 completude</strong> para uma <strong>profunda crise
                 conceitual</strong>. Mais do que uma simples sucessão de
                 descobertas, esse período representa uma <strong>mudança
                 radical</strong> na forma de compreender a natureza.</p>
-                Fenômenos experimentais que não se ajustavam às
+<p>Fenômenos experimentais que não se ajustavam às
                 teorias existentes começaram a se acumular, revelando
                 <strong>limitações estruturais da Física
                 Clássica</strong>. A partir desse cenário, surgiram
@@ -176,7 +173,7 @@
                 previsibilidade</strong>, dando origem à <strong>Física
                 Moderna</strong> e, posteriormente, à <strong>Mecânica
                 Quântica</strong>.</p>
-                Compreender esse processo histórico é fundamental
+<p>Compreender esse processo histórico é fundamental
                 para perceber que <strong>a ciência não avança de forma
                 linear, mas por meio de rupturas, debates e
                 reformulações conceituais profundas</strong>. É também
@@ -185,49 +182,49 @@
                 Schrödinger</strong> e tantos outros — que ousaram
                 <strong>questionar o que parecia
                 inquestionável</strong>.</p>
-                <h1 id="a-ilusão-da-física-completa">A Ilusão Da Física
+<h1 id="a-ilusão-da-física-completa">A Ilusão Da Física
                 Completa</h1>
-                Ao final do século XIX, a Física era vista como uma
+<p>Ao final do século XIX, a Física era vista como uma
                 ciência <strong>praticamente encerrada</strong>. As
                 teorias existentes haviam sido testadas exaustivamente e
                 apresentavam enorme sucesso explicativo. Segundo essa
                 visão, restaria apenas melhorar a precisão das
                 medições.</p>
-                Essa confiança se apoiava em três grandes
+<p>Essa confiança se apoiava em três grandes
                 pilares:</p>
-                <ul>
-                <li><strong>Mecânica Newtoniana</strong>, que explicava
+<ul>
+<li><strong>Mecânica Newtoniana</strong>, que explicava
                 desde a queda dos corpos até o movimento dos
                 planetas.</li>
-                <li><strong>Eletromagnetismo</strong>, consolidado pelas
+<li><strong>Eletromagnetismo</strong>, consolidado pelas
                 equações de Maxwell.</li>
-                <li><strong>Termodinâmica</strong>, essencial para o
+<li><strong>Termodinâmica</strong>, essencial para o
                 desenvolvimento industrial e tecnológico.</li>
-                </ul>
-                Nesse contexto, declarações como a atribuída a
+</ul>
+<p>Nesse contexto, declarações como a atribuída a
                 <strong>Albert Michelson</strong>, de que “tudo o que
                 restava a fazer era medir com mais precisão”,
                 sintetizavam o espírito da época. Entretanto, como
                 discute Pereira (2015), essa segurança escondia
                 <strong>tensões conceituais profundas</strong> que logo
                 viriam à tona.</p>
-                <strong>O Horizonte Da Crise: As “nuvens” Da Física
+<p><strong>O Horizonte Da Crise: As “nuvens” Da Física
                 Clássica</strong></p>
-                O físico <strong>Lord Kelvin</strong>, em 1900,
+<p>O físico <strong>Lord Kelvin</strong>, em 1900,
                 utilizou a metáfora de <strong>“nuvens no céu azul da
                 Física”</strong> para se referir a problemas ainda não
                 resolvidos. Hoje sabemos que essas nuvens não eram
                 pequenas: elas indicavam <strong>limites estruturais da
                 Física Clássica</strong>.</p>
-                <h1 id="a-quebra-da-causalidade-na-mecânica-quântica">A
+<h1 id="a-quebra-da-causalidade-na-mecânica-quântica">A
                 Quebra da Causalidade na Mecânica Quântica</h1>
-                A transição do <strong>determinismo clássico</strong>
+<p>A transição do <strong>determinismo clássico</strong>
                 para a <strong>interpretação probabilística</strong>
                 representa uma das rupturas mais profundas na história
                 da ciência.</p>
-                <strong>O Determinismo Clássico: Causa \(\rightarrow\)
+<p><strong>O Determinismo Clássico: Causa \(\rightarrow\)
                 Efeito</strong></p>
-                Na visão clássica, o universo funcionava como um
+<p>Na visão clássica, o universo funcionava como um
                 <strong>relógio perfeito</strong>. Conhecidas as
                 condições iniciais de um sistema, era possível prever
                 <strong>com exatidão</strong> seu estado futuro. Essa
@@ -236,57 +233,57 @@
                 inteligência que conhecesse todas as forças e posições
                 do universo poderia prever passado e futuro com absoluta
                 certeza.</p>
-                <strong>O Problema Quântico</strong>:</p>
-                No início do século XX, experimentos revelaram que,
+<p><strong>O Problema Quântico</strong>:</p>
+<p>No início do século XX, experimentos revelaram que,
                 no mundo <strong>microscópico</strong>, essa relação
                 direta entre causa e efeito simplesmente <strong>não
                 existe</strong>. Dois pilares fundamentaram essa
                 constatação:</p>
-                <ol type="1">
-                <li><strong>Princípio da Incerteza de Heisenberg
+<ol type="1">
+<li><p><strong>Princípio da Incerteza de Heisenberg
                 (1927)</strong>: não é possível conhecer
                 simultaneamente, com precisão arbitrária, a
                 <strong>posição</strong> e a <strong>velocidade</strong>
                 de uma partícula. Essa não é uma limitação tecnológica,
                 mas uma <strong>propriedade fundamental da
                 natureza</strong>.</p></li>
-                <li><strong>Interpretação probabilística da função de
+<li><p><strong>Interpretação probabilística da função de
                 onda</strong>: a Mecânica Quântica não diz
                 <strong>onde</strong> uma partícula está, mas sim a
                 <strong>probabilidade</strong> de encontrá-la em cada
                 região. Antes da medição, a partícula não tem posição
                 definida — existe como uma <strong>nuvem de
                 probabilidades</strong>.</p></li>
-                </ol>
-                <strong>O Debate Histórico</strong>:</p>
-                Essa indeterminação perturbava profundamente
+</ol>
+<p><strong>O Debate Histórico</strong>:</p>
+<p>Essa indeterminação perturbava profundamente
                 <strong>Albert Einstein</strong>, que declarou:
                 <strong>“Deus não joga dados”</strong>. Para ele, a
                 probabilidade quântica seria apenas reflexo de nossa
                 ignorância sobre “variáveis ocultas”.</p>
-                <strong>Niels Bohr</strong>, por outro lado, defendia
+<p><strong>Niels Bohr</strong>, por outro lado, defendia
                 que a indeterminação é <strong>inerente à
                 natureza</strong> — não existem variáveis ocultas; o
                 mundo quântico é fundamentalmente probabilístico. O
                 debate entre os dois, travado nas <strong>Conferências
                 de Solvay</strong>, tornou-se lendário.</p>
-                <strong>Consequências</strong>:</p>
-                A quebra da causalidade implica que:</p>
-                <ul>
-                <li>O universo <strong>não é um relógio
+<p><strong>Consequências</strong>:</p>
+<p>A quebra da causalidade implica que:</p>
+<ul>
+<li>O universo <strong>não é um relógio
                 perfeito</strong> em sua escala mais fundamental.</li>
-                <li>O ato de <strong>observar</strong> participa da
+<li>O ato de <strong>observar</strong> participa da
                 criação do fenômeno observado.</li>
-                <li>A ciência lida com <strong>probabilidades</strong>
+<li>A ciência lida com <strong>probabilidades</strong>
                 não por ignorância, mas porque a natureza é
                 <strong>fundamentalmente probabilística</strong>.</li>
-                <li>O <strong>determinismo laplaciano</strong> morreu:
+<li>O <strong>determinismo laplaciano</strong> morreu:
                 mesmo uma inteligência infinita não poderia prever
                 tudo.</li>
-                </ul>
-                <h1 id="o-colapso-do-modelo-clássico">O Colapso Do
+</ul>
+<h1 id="o-colapso-do-modelo-clássico">O Colapso Do
                 Modelo Clássico</h1>
-                O colapso do modelo clássico não ocorreu de forma
+<p>O colapso do modelo clássico não ocorreu de forma
                 abrupta, mas como resultado do acúmulo de evidências
                 experimentais incompatíveis com suas bases conceituais.
                 A Física Clássica, sustentada pelo determinismo, pela
@@ -294,7 +291,7 @@
                 de descrição completa dos sistemas, mostrou-se incapaz
                 de explicar fenômenos microscópicos e de alta
                 frequência.</p>
-                Problemas como a detecção do éter, a radiação de
+<p>Problemas como a detecção do éter, a radiação de
                 corpo negro, o efeito fotoelétrico, a instabilidade do
                 átomo e os espectros atômicos discretos revelaram que os
                 pressupostos clássicos falhavam em níveis fundamentais.
@@ -303,33 +300,29 @@
                 estrutura teórica da Física, abrindo espaço para
                 conceitos como quantização, dualidade onda-partícula e
                 descrição probabilística da natureza.</p>
-                <h2 id="o-problema-do-éter-a-primeira-grande-nuvem">O
+<h2 id="o-problema-do-éter-a-primeira-grande-nuvem">O
                 Problema do Éter: A Primeira Grande Nuvem</h2>
-                A Física Clássica assumia que ondas precisavam de um
+<p>A Física Clássica assumia que ondas precisavam de um
                 meio material para se propagar. Se a luz era uma onda
                 eletromagnética, deveria existir algo vibrando no espaço
                 vazio. Esse meio hipotético foi chamado de éter
                 luminífero: uma substância invisível e imponderável que
                 preencheria todo o universo.</p>
-                Em 1887, o experimento de Michelson-Morley tentou
+<p>Em 1887, o experimento de Michelson-Morley tentou
                 detectar o movimento da Terra em relação a esse éter,
                 medindo variações na velocidade da luz em diferentes
                 direções. O resultado foi nulo: a velocidade da luz
                 mostrava-se constante, independentemente da orientação
                 ou do movimento terrestre.</p>
-                <h2
-                id="aparato-original-do-experimento-de-michelsonmorley">Aparato
+<h2 id="aparato-original-do-experimento-de-michelsonmorley">Aparato
                 Original do Experimento de Michelson–Morley</h2>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Michelson_morley_experiment_1887.jpg"
-                style="width:60.0%"
-                alt="Aparato experimental de Michelson–Morley (1887). Fonte: Wikimedia Commons." />
-                <figcaption aria-hidden="true">Aparato experimental de
-                Michelson–Morley (1887). Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Michelson_morley_experiment_1887.jpg">Wikimedia
+<figure>
+<img alt="Aparato experimental de Michelson–Morley (1887). Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Michelson_morley_experiment_1887.jpg" style="width:60.0%"/>
+<figcaption aria-hidden="true">Aparato experimental de
+                Michelson–Morley (1887). Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Michelson_morley_experiment_1887.jpg">Wikimedia
                 Commons.</a></figcaption>
-                </figure>
-                Esse fracasso experimental não era um problema
+</figure>
+<p>Esse fracasso experimental não era um problema
                 técnico menor. Ele indicava que o éter não existia e,
                 portanto, a luz não precisava de meio para se propagar.
                 Isso abalava profundamente a visão clássica, que exigia
@@ -340,143 +333,127 @@
                 “nuvens” de Kelvin e uma das mais reveladoras: mostrava
                 que a Física Clássica não era completa, mas sim
                 vulnerável em suas próprias fundações.</p>
-                <h2
-                id="radiação-de-corpo-negro-e-a-catástrofe-do-ultravioleta">Radiação
+<h2 id="radiação-de-corpo-negro-e-a-catástrofe-do-ultravioleta">Radiação
                 de Corpo Negro e a Catástrofe do Ultravioleta</h2>
-                Experimentos mostravam que objetos aquecidos emitem
+<p>Experimentos mostravam que objetos aquecidos emitem
                 radiação com um espectro bem definido. Contudo:</p>
-                <ul>
-                <li>As previsões clássicas (Rayleigh–Jeans) levavam a
+<ul>
+<li>As previsões clássicas (Rayleigh–Jeans) levavam a
                 <strong>energia infinita</strong> em altas
                 frequências.</li>
-                <li>Esse resultado absurdo ficou conhecido como
+<li>Esse resultado absurdo ficou conhecido como
                 <strong>catástrofe do ultravioleta</strong>.</li>
-                </ul>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg" style="width:40.0%"
-                alt="Max Planck (1918). Fonte: Wikimedia Commons." />
-                <figcaption aria-hidden="true">Max Planck (1918). Fonte:
-                <a
-                href="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg">Wikimedia
+</ul>
+<figure>
+<img alt="Max Planck (1918). Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Max Planck (1918). Fonte:
+                <a href="https://upload.wikimedia.org/wikipedia/commons/9/91/Max_Planck_Nobel_1918.jpg">Wikimedia
                 Commons.</a></figcaption>
-                </figure>
-                <strong>Max Planck (1900)</strong> resolveu o
+</figure>
+<p><strong>Max Planck (1900)</strong> resolveu o
                 problema ao propor que a energia não é emitida de forma
                 contínua, mas em <strong>pacotes discretos</strong>,
                 chamados <strong>quanta</strong>:</p>
-                \[
+<p>\[
                 E = h\nu
                 \]</p>
-                Onde h é a constante de Planck (\(6,63 \times
+<p>Onde h é a constante de Planck (\(6,63 \times
                 10^{-34},\text{J·s}\)).</p>
-                Mesmo contrariando suas próprias convicções
+<p>Mesmo contrariando suas próprias convicções
                 clássicas, Planck inaugurou a <strong>quantização da
                 energia</strong>, marco inicial da Física Quântica.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Black_body.svg"
-                style="width:60.0%"
-                alt="Curva da radiação do Corpo Negro. Fonte: Wikimedia Commons." />
-                <figcaption aria-hidden="true">Curva da radiação do
-                Corpo Negro. Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/1/19/Black_body.svg">Wikimedia
+<figure>
+<img alt="Curva da radiação do Corpo Negro. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/1/19/Black_body.svg" style="width:60.0%"/>
+<figcaption aria-hidden="true">Curva da radiação do
+                Corpo Negro. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/1/19/Black_body.svg">Wikimedia
                 Commons.</a></figcaption>
-                </figure>
-                <h2 id="o-efeito-fotoelétrico">O Efeito
+</figure>
+<h2 id="o-efeito-fotoelétrico">O Efeito
                 Fotoelétrico</h2>
-                Estudos de <strong>Philipp Lenard</strong> mostraram
+<p>Estudos de <strong>Philipp Lenard</strong> mostraram
                 que:</p>
-                <ul>
-                <li>A energia dos elétrons ejetados de um metal não
+<ul>
+<li>A energia dos elétrons ejetados de um metal não
                 dependia da <strong>intensidade da luz</strong>.</li>
-                <li>Existia uma <strong>frequência mínima</strong> para
+<li>Existia uma <strong>frequência mínima</strong> para
                 que o efeito ocorresse.</li>
-                </ul>
-                A Física Clássica não explicava esses resultados.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg"
-                style="width:40.0%"
-                alt="Albert Einstein (1905). Fonte: Wikimedia Commons." />
-                <figcaption aria-hidden="true">Albert Einstein (1905).
-                Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg">Wikimedia
+</ul>
+<p>A Física Clássica não explicava esses resultados.</p>
+<figure>
+<img alt="Albert Einstein (1905). Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Albert Einstein (1905).
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg">Wikimedia
                 Commons.</a></figcaption>
-                </figure>
-                Em <strong>1905</strong>, <strong>Albert
+</figure>
+<p>Em <strong>1905</strong>, <strong>Albert
                 Einstein</strong> propôs que a luz se comporta como
                 partículas - os <strong>fótons</strong> - cada um com
                 energia \(E = h\nu\).
                 Essa explicação confirmou a quantização da radiação e
                 rendeu a Einstein o <strong>Prêmio Nobel de
                 1921</strong>.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Photoelectric_effect.svg"
-                style="width:40.0%"
-                alt="Efeito fotoelétrico. Fonte: Wikimedia Commons." />
-                <figcaption aria-hidden="true">Efeito fotoelétrico.
-                Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/f/f5/Photoelectric_effect.svg">Wikimedia
+<figure>
+<img alt="Efeito fotoelétrico. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Photoelectric_effect.svg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Efeito fotoelétrico.
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f5/Photoelectric_effect.svg">Wikimedia
                 Commons.</a></figcaption>
-                </figure>
-                <h2 id="instabilidade-do-átomo-clássico">Instabilidade
+</figure>
+<h2 id="instabilidade-do-átomo-clássico">Instabilidade
                 do Átomo Clássico</h2>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Geiger1908.jpg" style="width:60.0%"
-                alt="Experimento do espalhamento Rutherford. Fonte: Wikimedia Commons." />
-                <figcaption aria-hidden="true">Experimento do
-                espalhamento Rutherford. Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/7/75/Geiger1908.jpg">Wikimedia
+<figure>
+<img alt="Experimento do espalhamento Rutherford. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/7/75/Geiger1908.jpg" style="width:60.0%"/>
+<figcaption aria-hidden="true">Experimento do
+                espalhamento Rutherford. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/7/75/Geiger1908.jpg">Wikimedia
                 Commons.</a></figcaption>
-                </figure>
-                O modelo nuclear de <strong>Rutherford</strong>
+</figure>
+<p>O modelo nuclear de <strong>Rutherford</strong>
                 descrevia o átomo como um núcleo positivo com elétrons
                 em órbita. Porém:</p>
-                <ul>
-                <li>Pela eletrodinâmica clássica, elétrons acelerados
+<ul>
+<li>Pela eletrodinâmica clássica, elétrons acelerados
                 deveriam perder energia continuamente.</li>
-                <li>O átomo colapsaria em frações de segundo.</li>
-                </ul>
-                Como a matéria é claramente estável, esse era um
+<li>O átomo colapsaria em frações de segundo.</li>
+</ul>
+<p>Como a matéria é claramente estável, esse era um
                 paradoxo grave.</p>
-                <h2 id="espectros-atômicos-discretos">Espectros Atômicos
+<h2 id="espectros-atômicos-discretos">Espectros Atômicos
                 Discretos</h2>
-                Experimentos revelavam que átomos emitem e absorvem
+<p>Experimentos revelavam que átomos emitem e absorvem
                 luz apenas em <strong>frequências específicas</strong>,
                 formando linhas espectrais.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Bohr_Model.svg" style="width:40.0%"
-                alt="Bohr Model of Hydrogen. Fonte: Wikimedia Commons." />
-                <figcaption aria-hidden="true">Bohr Model of Hydrogen.
-                Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Bohr_Model.svg">Wikimedia
+<figure>
+<img alt="Bohr Model of Hydrogen. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Bohr_Model.svg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Bohr Model of Hydrogen.
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Bohr_Model.svg">Wikimedia
                 Commons.</a></figcaption>
-                </figure>
-                A Física Clássica previa espectros contínuos. A
+</figure>
+<p>A Física Clássica previa espectros contínuos. A
                 solução surgiu com o <strong>modelo de Bohr
                 (1913)</strong>, que introduziu órbitas eletrônicas
                 quantizadas e explicou o espectro do hidrogênio.</p>
-                <h1 id="da-quantização-à-mecânica-quântica">Da
+<h1 id="da-quantização-à-mecânica-quântica">Da
                 Quantização À Mecânica Quântica</h1>
-                A partir dessas rupturas, novos conceitos foram sendo
+<p>A partir dessas rupturas, novos conceitos foram sendo
                 incorporados:</p>
-                <ul>
-                <li><strong>Dualidade onda-partícula</strong> (De
+<ul>
+<li><strong>Dualidade onda-partícula</strong> (De
                 Broglie, 1923).</li>
-                <li><strong>Função de onda e estados
+<li><strong>Função de onda e estados
                 estacionários</strong> (Schrödinger).</li>
-                <li><strong>Mecânica Matricial</strong>
+<li><strong>Mecânica Matricial</strong>
                 (Heisenberg).</li>
-                <li><strong>Interpretação probabilística</strong>
+<li><strong>Interpretação probabilística</strong>
                 (Born).</li>
-                <li><strong>Princípio da Incerteza</strong> (Heisenberg,
+<li><strong>Princípio da Incerteza</strong> (Heisenberg,
                 1927).</li>
-                </ul>
-                O elétron deixa de ter uma trajetória bem definida e
+</ul>
+<p>O elétron deixa de ter uma trajetória bem definida e
                 passa a ser descrito por uma <strong>nuvem de
                 probabilidades</strong>, conceito central da Física
                 Quântica moderna.</p>
-                <h1 id="a-conferência-de-solvay-1927">A Conferência De
+<h1 id="a-conferência-de-solvay-1927">A Conferência De
                 Solvay (1927)</h1>
-                O <strong>5º Congresso de Solvay de Física e
+<p>O <strong>5º Congresso de Solvay de Física e
                 Química</strong>, em outubro de <strong>1927</strong>,
                 em Bruxelas, na Bélgica, foi, talvez, a mais famosa
                 conferência científica da história. A recém formulada
@@ -486,288 +463,267 @@
                 começo do século 20, essas Conferências reuniam os mais
                 consagrados cientistas da época, e proporcionaram
                 avanços fundamentais para a Física Quântica.</p>
-                Conferência de Solvay de 1927 foi um marco
+<p>Conferência de Solvay de 1927 foi um marco
                 histórico:</p>
-                <ul>
-                <li>Reuniu os principais físicos da época;</li>
-                <li>Consolidou debates fundamentais sobre a Mecânica
+<ul>
+<li>Reuniu os principais físicos da época;</li>
+<li>Consolidou debates fundamentais sobre a Mecânica
                 Quântica;</li>
-                <li>Contou com cientistas como Planck, Einstein, Bohr,
+<li>Contou com cientistas como Planck, Einstein, Bohr,
                 Schrödinger, Heisenberg, Dirac, Pauli e Born.</li>
-                </ul>
-                Ali se consolidou a ruptura definitiva com o
+</ul>
+<p>Ali se consolidou a ruptura definitiva com o
                 paradigma clássico.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Solvay_conference_1927_%28color%29.jpg/1920px-Solvay_conference_1927_%28color%29.jpg"
-                style="width:80.0%"
-                alt="Conferência de Solvay - 1927. Fonte: wikimedia." />
-                <figcaption aria-hidden="true">Conferência de Solvay -
-                1927. Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Solvay_conference_1927_%28color%29.jpg/1920px-Solvay_conference_1927_%28color%29.jpg">wikimedia</a>.</figcaption>
-                </figure>
-                Foto de grandes cientistas do início do século XX.
+<figure>
+<img alt="Conferência de Solvay - 1927. Fonte: wikimedia." src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Solvay_conference_1927_%28color%29.jpg/1920px-Solvay_conference_1927_%28color%29.jpg" style="width:80.0%"/>
+<figcaption aria-hidden="true">Conferência de Solvay -
+                1927. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Solvay_conference_1927_%28color%29.jpg/1920px-Solvay_conference_1927_%28color%29.jpg">wikimedia</a>.</figcaption>
+</figure>
+<p>Foto de grandes cientistas do início do século XX.
                 Como curiosidade, vale lembrar que 17 dos 29
                 participantes possuíam ou receberiam o <strong>Prêmio
                 Nobel</strong>.</p>
-                <strong>Presentes na foto</strong>:</p>
-                <ul>
-                <li><strong>3ª fila de pé</strong>: Auguste Piccard,
+<p><strong>Presentes na foto</strong>:</p>
+<ul>
+<li><strong>3ª fila de pé</strong>: Auguste Piccard,
                 Émile Henriot, Paul Ehrenfest, Édouard Herzen, Théophile
                 de Donder, Erwin Schrödinger, Jules-Émile Verschaffelt,
                 Wolfgang Pauli, Werner Heisenberg, Ralph Fowler, Léon
                 Brillouin.</li>
-                <li><strong>2ª fila sentados</strong>: Peter Debye,
+<li><strong>2ª fila sentados</strong>: Peter Debye,
                 Martin Knudsen, William Bragg, Hendrik Kramers, Paul
                 Dirac, Arthur Compton, Louis de Broglie, Max Born, Niels
                 Bohr.</li>
-                <li><strong>1ª fila sentados</strong>: Irving Langmuir,
+<li><strong>1ª fila sentados</strong>: Irving Langmuir,
                 Max Planck, Marie Curie, Hendrik Lorentz, Albert
                 Einstein, Paul Langevin, Charles Guye, Charles Wilson,
                 Owen Richardson.</li>
-                </ul>
-                <h1 id="conclusão">Conclusão</h1>
-                As cinco “nuvens” que perturbavam o céu aparentemente
+</ul>
+<h1 id="conclusão">Conclusão</h1>
+<p>As cinco “nuvens” que perturbavam o céu aparentemente
                 claro da física clássica representavam muito mais do que
                 problemas técnicos — eram <strong>sintomas de limites
                 conceituais profundos</strong>. Cada uma delas apontava
                 para algo que a física clássica <strong>não conseguia
                 acomodar</strong>:</p>
-                <ul>
-                <li>A radiação de corpo negro exigiu a
+<ul>
+<li>A radiação de corpo negro exigiu a
                 <strong>quantização da energia</strong>.</li>
-                <li>O fracasso do éter abriu caminho para <strong>novos
+<li>O fracasso do éter abriu caminho para <strong>novos
                 conceitos de espaço e tempo</strong>.</li>
-                <li>Os espectros atômicos discretos anunciaram a
+<li>Os espectros atômicos discretos anunciaram a
                 <strong>quantização de níveis de energia</strong>.</li>
-                <li>A estabilidade dos átomos pedia uma teoria onde
+<li>A estabilidade dos átomos pedia uma teoria onde
                 orbitas clássicas fossem substituídas por
                 <strong>estados quânticos</strong>.</li>
-                <li>O efeito fotoelétrico mostrou que, em muitos
+<li>O efeito fotoelétrico mostrou que, em muitos
                 contextos, a luz se comporta como
                 <strong>fótons</strong>, não apenas como ondas.</li>
-                </ul>
-                A resolução dessas questões não veio por correções
+</ul>
+<p>A resolução dessas questões não veio por correções
                 incrementais, mas por uma <strong>revolução
                 conceitual</strong> que deu origem à física quântica (e
                 à relatividade). Essa história ensina que:</p>
-                <blockquote>
-                A ciência não avança apenas acumulando dados, mas
+<blockquote>
+<p>A ciência não avança apenas acumulando dados, mas
                 também <strong>reformulando perguntas</strong> e
                 <strong>abandonando pressupostos</strong> quando eles
                 deixam de funcionar.</p>
-                </blockquote>
-                Na próxima aula, vamos focar em <strong>um desses
+</blockquote>
+<p>Na próxima aula, vamos focar em <strong>um desses
                 marcos específicos: a quantização da carga elétrica e a
                 descoberta do elétron</strong>, conectando o contexto
                 histórico com os conceitos físicos que fundamentam a
                 Física Moderna.</p>
-                <h1 id="exercícios-de-fixação">Exercícios De
+<h1 id="exercícios-de-fixação">Exercícios De
                 Fixação</h1>
-                <dl>
-                <dt>1.1)</dt>
-                <dd>
+<dl>
+<dt>1.1)</dt>
+<dd>
                 Explique por que a Física Clássica era considerada
                 praticamente completa ao final do século XIX. Quais
                 fatores históricos e científicos sustentavam essa visão?
                 </dd>
-                <dt>1.2)</dt>
-                <dd>
+<dt>1.2)</dt>
+<dd>
                 Descreva o significado da metáfora das “nuvens no
                 horizonte”, utilizada por Lord Kelvin, e explique por
                 que ela se mostrou inadequada à luz dos desenvolvimentos
                 posteriores da Física.
                 </dd>
-                <dt>1.3)</dt>
-                <dd>
+<dt>1.3)</dt>
+<dd>
                 Explique o conceito de determinismo clássico e discuta
                 como ele influenciou a forma de compreender a natureza
                 antes do surgimento da Física Moderna.
                 </dd>
-                <dt>1.4)</dt>
-                <dd>
+<dt>1.4)</dt>
+<dd>
                 Apresente o problema da radiação de corpo negro e
                 explique por que ele representou uma crise profunda para
                 a Física Clássica.
                 </dd>
-                <dt>1.5)</dt>
-                <dd>
+<dt>1.5)</dt>
+<dd>
                 Explique a importância da hipótese de quantização da
                 energia proposta por Max Planck e por que ela é
                 considerada o marco inicial da Física Quântica.
                 </dd>
-                <dt>1.6)</dt>
-                <dd>
+<dt>1.6)</dt>
+<dd>
                 O efeito fotoelétrico mostrou que:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>A energia dos elétrons depende da intensidade da
+</dl>
+<ol type="a">
+<li>A energia dos elétrons depende da intensidade da
                 luz.</li>
-                <li>A luz se comporta exclusivamente como onda.</li>
-                <li>Elétrons não interagem com a luz.</li>
-                <li>O átomo é indivisível.</li>
-                <li>Existe uma frequência mínima para a ejeção de
+<li>A luz se comporta exclusivamente como onda.</li>
+<li>Elétrons não interagem com a luz.</li>
+<li>O átomo é indivisível.</li>
+<li>Existe uma frequência mínima para a ejeção de
                 elétrons.</li>
-                </ol>
-                <dl>
-                <dt>1.7)</dt>
-                <dd>
+</ol>
+<dl>
+<dt>1.7)</dt>
+<dd>
                 A explicação do efeito fotoelétrico levou Albert
                 Einstein a propor que:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>A luz possui massa.</li>
-                <li>A luz é composta por partículas chamadas
+</dl>
+<ol type="a">
+<li>A luz possui massa.</li>
+<li>A luz é composta por partículas chamadas
                 fótons.</li>
-                <li>A luz não transporta energia.</li>
-                <li>O elétron não possui carga.</li>
-                <li>O espaço é absoluto.</li>
-                </ol>
-                <dl>
-                <dt>1.8)</dt>
-                <dd>
+<li>A luz não transporta energia.</li>
+<li>O elétron não possui carga.</li>
+<li>O espaço é absoluto.</li>
+</ol>
+<dl>
+<dt>1.8)</dt>
+<dd>
                 O principal problema do modelo atômico de Rutherford,
                 segundo a Física Clássica, era:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>A inexistência do núcleo.</li>
-                <li>A ausência de carga elétrica.</li>
-                <li>A previsão de espectros contínuos.</li>
-                <li>A instabilidade do átomo.</li>
-                <li>A impossibilidade de medir massas.</li>
-                </ol>
-                <dl>
-                <dt>1.9)</dt>
-                <dd>
+</dl>
+<ol type="a">
+<li>A inexistência do núcleo.</li>
+<li>A ausência de carga elétrica.</li>
+<li>A previsão de espectros contínuos.</li>
+<li>A instabilidade do átomo.</li>
+<li>A impossibilidade de medir massas.</li>
+</ol>
+<dl>
+<dt>1.9)</dt>
+<dd>
                 Os espectros atômicos discretos indicavam que:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>Os elétrons só podiam ocupar certos níveis de
+</dl>
+<ol type="a">
+<li>Os elétrons só podiam ocupar certos níveis de
                 energia.</li>
-                <li>A energia era contínua.</li>
-                <li>Todos os átomos eram idênticos.</li>
-                <li>A luz não interagia com a matéria.</li>
-                <li>O núcleo emitia radiação continuamente.</li>
-                </ol>
-                <dl>
-                <dt>1.10)</dt>
-                <dd>
+<li>A energia era contínua.</li>
+<li>Todos os átomos eram idênticos.</li>
+<li>A luz não interagia com a matéria.</li>
+<li>O núcleo emitia radiação continuamente.</li>
+</ol>
+<dl>
+<dt>1.10)</dt>
+<dd>
                 A Conferência de Solvay de 1927 é considerada histórica
                 porque:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>Encerrrou os estudos sobre Física.</li>
-                <li>Confirmou o determinismo clássico.</li>
-                <li>Consolidou debates fundamentais da Mecânica
+</dl>
+<ol type="a">
+<li>Encerrrou os estudos sobre Física.</li>
+<li>Confirmou o determinismo clássico.</li>
+<li>Consolidou debates fundamentais da Mecânica
                 Quântica.</li>
-                <li>Descobriu o elétron.</li>
-                <li>Proibiu interpretações probabilísticas.</li>
-                </ol>
-                <h1 id="referências">Referências</h1>
-                <ul>
-                <li>GAMOW, G. <em>Trinta Anos que Abalaram a
+<li>Descobriu o elétron.</li>
+<li>Proibiu interpretações probabilísticas.</li>
+</ol>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>GAMOW, G. <em>Trinta Anos que Abalaram a
                 Física</em>. Dover.</li>
-                <li>HEISENBERG, W. <em>A Parte e o Todo</em>.
+<li>HEISENBERG, W. <em>A Parte e o Todo</em>.
                 Contraponto.</li>
-                <li>PEREIRA, Fernando de Candido. <strong>Uma Breve
+<li>PEREIRA, Fernando de Candido. <strong>Uma Breve
                 História da Física Moderna e Contemporânea</strong>.
                 <em>Revista Professare</em>, v. 4, n. 3, p. 177–188,
                 2015.</li>
-                <li>YOUNG, H. D. <em>Ótica e Física Moderna</em>.
+<li>YOUNG, H. D. <em>Ótica e Física Moderna</em>.
                 Addison Wesley.</li>
-                </ul>
-                <h1 id="recomendações">Recomendações</h1>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-historia.png" alt="Física Quântica – Aula 01 – Breve História da Física Quântica" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">Física Quântica – Aula 01 – Breve História da Física Quântica</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">UNIVESP.</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+</ul>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física Quântica – Aula 01 – Breve História da Física Quântica" loading="lazy" src="./images/thumbs/ytb-historia.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física Quântica – Aula 01 – Breve História da Física Quântica</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=rFFdL6LP2mE" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-origem.png" alt="Origens do Mundo Quântico – Física para Poetas" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">Origens do Mundo Quântico – Física para Poetas</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Marcelo Gleiser.</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Origens do Mundo Quântico – Física para Poetas" loading="lazy" src="./images/thumbs/ytb-origem.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Origens do Mundo Quântico – Física para Poetas</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Marcelo Gleiser.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=SgGz5gwCPlM" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=qbDghYtyqUo" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-casualidade.png" alt="Causalidade e FÍSICA QUÂNTICA" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">Causalidade e FÍSICA QUÂNTICA</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=qbDghYtyqUo" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Canal Cientificar.</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=qbDghYtyqUo" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=qbDghYtyqUo" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Causalidade e FÍSICA QUÂNTICA" loading="lazy" src="./images/thumbs/ytb-casualidade.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Causalidade e FÍSICA QUÂNTICA</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=qbDghYtyqUo" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Canal Cientificar.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=qbDghYtyqUo" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-            </main>
-
-            <!-- Footer -->
-            
-        </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Script para MathJax -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.MathJax) {
-                window.MathJax.typesetPromise();
-            }
-        });
-    </script>
-
+</div>
+</div>
+</div>
                     </div>
                 </div>
             </div>
             
-            <div class="d-flex justify-content-between">
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+                    
+                </div>
+                <div class="d-flex flex-wrap gap-2">
                 <a href="/disciplinas/" class="btn btn-outline-primary">
                     <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
                 </a>
                 <a href="/" class="btn btn-outline-secondary">
                     <i class="bi bi-house"></i> Ir para Home
                 </a>
+                    
+                <a href="/disciplinas/aula-02-quantizacao-da-carga-experimentos-de-thomson.html" class="btn btn-outline-primary">
+                    Próxima aula <i class="bi bi-arrow-right"></i>
+                </a>
+                
+                </div>
             </div>
             
     </main>
@@ -800,32 +756,5 @@
     
     <!-- JS Personalizado -->
     <script src="/js/main.js"></script>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function initializeMathJax() {
-            if (typeof MathJax !== 'undefined') {
-                MathJax.startup.promise.then(() => {
-                    if (document.querySelector('.tex2jax_process')) {
-                        MathJax.typesetPromise().catch((err) => {
-                            console.log('MathJax erro:', err.message);
-                        });
-                    }
-                }).catch((err) => {
-                    console.error('MathJax falhou ao carregar:', err);
-                });
-                window.dispatchEvent(new Event('MathJaxLoaded'));
-            } else {
-                console.warn('MathJax não está disponível');
-            }
-        }
-        
-        if (typeof MathJax !== 'undefined') {
-            initializeMathJax();
-        } else {
-            window.addEventListener('MathJaxLoaded', initializeMathJax);
-        }
-    });
-    </script>
 </body>
 </html>

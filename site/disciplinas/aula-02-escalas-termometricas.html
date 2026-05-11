@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 02 - Escalas Termométricas | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 02 - Escalas Termométricas de Termodinâmica.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-02-escalas-termometricas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 02 - Escalas Termométricas | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 02 - Escalas Termométricas de Termodinâmica.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-02-escalas-termometricas.html">
+    <meta property="og:site_name" content="Meu Portal">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,10 +30,11 @@
     <script>
     window.MathJax = {
         tex: {
-            inlineMath: [['$', '$'], ['\(', '\)']],
-            displayMath: [['$$', '$$'], ['\[', '\]']],
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
             processEscapes: true,
-            processEnvironments: true
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
         },
         options: {
             skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
@@ -36,10 +45,7 @@
             fontCache: 'global'
         },
         loader: {
-            load: ['[tex]/ams', '[tex]/physics']
-        },
-        tex: {
-            packages: {'[+]': ['ams', 'physics']}
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
         },
         startup: {
             ready: () => {
@@ -51,6 +57,7 @@
     };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
     
 </head>
 <body>
@@ -107,392 +114,374 @@
                 </div>
                 
                     <div class="aula-content">
-                        
-    
-        
-            <!-- Header -->
-            
-
-            <!-- TOC -->
-            
-            <!-- Conteúdo principal -->
-            <main class="content-section">
-                <h1 id="objetivos">Objetivos</h1>
-                Ao final desta aula, você deverá ser capaz de:</p>
-                <ul>
-                <li>Compreender o que são <strong>escalas
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li>Compreender o que são <strong>escalas
                 termométricas</strong>.</li>
-                <li>Identificar as principais escalas: <strong>Celsius,
+<li>Identificar as principais escalas: <strong>Celsius,
                 Fahrenheit e Kelvin</strong>.</li>
-                <li>Deduzir matematicamente a relação entre Celsius e
+<li>Deduzir matematicamente a relação entre Celsius e
                 Fahrenheit.</li>
-                <li>Realizar conversões entre:
+<li>Realizar conversões entre:
                 <ul>
-                <li>Celsius \(\leftrightarrow\)
+<li>Celsius \(\leftrightarrow\)
                 Fahrenheit.</li>
-                <li>Celsius \(\leftrightarrow\)
+<li>Celsius \(\leftrightarrow\)
                 Kelvin.</li>
-                <li>Fahrenheit \(\leftrightarrow\)
+<li>Fahrenheit \(\leftrightarrow\)
                 Kelvin.</li>
-                </ul></li>
-                <li>Resolver problemas aplicados envolvendo escalas
+</ul></li>
+<li>Resolver problemas aplicados envolvendo escalas
                 termométricas.</li>
-                <li>Interpretar situações do cotidiano utilizando
+<li>Interpretar situações do cotidiano utilizando
                 corretamente as conversões.</li>
-                </ul>
-                <h1 id="introdução">Introdução</h1>
-                Imagine que você está assistindo a um filme americano
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Imagine que você está assistindo a um filme americano
                 e o personagem diz:</p>
-                <blockquote>
-                “Está fazendo 95 graus lá fora!”</p>
-                </blockquote>
-                Você pensa:</p>
-                95 graus?! Isso é impossível no Brasil!</p>
-                Mas calma… provavelmente ele está falando em
+<blockquote>
+<p>“Está fazendo 95 graus lá fora!”</p>
+</blockquote>
+<p>Você pensa:</p>
+<p>95 graus?! Isso é impossível no Brasil!</p>
+<p>Mas calma… provavelmente ele está falando em
                 <strong>graus Fahrenheit</strong>, não em Celsius.</p>
-                É exatamente por isso que precisamos compreender as
+<p>É exatamente por isso que precisamos compreender as
                 <strong>escalas termométricas</strong>.</p>
-                A temperatura é uma grandeza física associada ao grau
+<p>A temperatura é uma grandeza física associada ao grau
                 de agitação das partículas de um corpo. Para medi-la,
                 utilizamos termômetros que operam com base em uma escala
                 termométrica.</p>
-                <h1
-                id="conversão-celsius-leftrightarrow-fahrenheit">Conversão:
+<h1 id="conversão-celsius-leftrightarrow-fahrenheit">Conversão:
                 Celsius \(\leftrightarrow\)
                 Fahrenheit</h1>
-                Sabemos:</p>
-                <ul>
-                <li>0 °C \(\leftrightarrow\) 32
+<p>Sabemos:</p>
+<ul>
+<li>0 °C \(\leftrightarrow\) 32
                 °F.</li>
-                <li>100 °C \(\leftrightarrow\) 212
+<li>100 °C \(\leftrightarrow\) 212
                 °F.</li>
-                </ul>
-                Intervalos:</p>
-                <ul>
-                <li>Celsius: 100 divisões.</li>
-                <li>Fahrenheit: 180 divisões.</li>
-                </ul>
-                Logo:</p>
-                \[
+</ul>
+<p>Intervalos:</p>
+<ul>
+<li>Celsius: 100 divisões.</li>
+<li>Fahrenheit: 180 divisões.</li>
+</ul>
+<p>Logo:</p>
+<p>\[
                 \dfrac{\theta_C-0}{100} = \dfrac{\theta_F - 32}{180}
                 \]</p>
-                Simplificando:</p>
-                \[
+<p>Simplificando:</p>
+<p>\[
                 \dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}
                 \]</p>
-                Relação fundamental:</p>
-                \[
+<p>Relação fundamental:</p>
+<p>\[
                 \boxed{\dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}}
                 \]</p>
-                <h2 id="exemplo-2.1---febre-durante-uma-viagem">Exemplo
+<h2 id="exemplo-2.1---febre-durante-uma-viagem">Exemplo
                 2.1 - Febre durante uma viagem</h2>
-                Você está viajando para os Estados Unidos e começa a
+<p>Você está viajando para os Estados Unidos e começa a
                 se sentir mal. Compra um termômetro em uma farmácia
                 local e ele marca <strong>104 °F</strong>.</p>
-                Você precisa saber: isso é grave?</p>
-                Portanto, vamos converter 104 graus Fahrenheit para
+<p>Você precisa saber: isso é grave?</p>
+<p>Portanto, vamos converter 104 graus Fahrenheit para
                 graus Celsius.</p>
-                Aplicando a relação:</p>
-                \[
+<p>Aplicando a relação:</p>
+<p>\[
                 \dfrac{\theta_C}{5} = \dfrac{104 - 32}{9}
                 \]</p>
-                \[
+<p>\[
                 \dfrac{\theta_C}{5} = \dfrac{72}{9}
                 \]</p>
-                \[
+<p>\[
                 \dfrac{\theta_C}{5} = 8
                 \]</p>
-                \[
+<p>\[
                 \theta_C = 40°C
                 \]</p>
-                Conclusão:</p>
-                <strong>40 °C é considerado febre alta (acima de 37,8
+<p>Conclusão:</p>
+<p><strong>40 °C é considerado febre alta (acima de 37,8
                 °C)</strong>.</p>
-                Agora você entende a gravidade da situação. Perceba
+<p>Agora você entende a gravidade da situação. Perceba
                 como a conversão pode ser essencial em uma situação
                 real.</p>
-                <h1
-                id="conversão-celsius-leftrightarrow-kelvin">Conversão:
+<h1 id="conversão-celsius-leftrightarrow-kelvin">Conversão:
                 Celsius \(\leftrightarrow\)
                 Kelvin</h1>
-                As divisões das escalas Celsius e Kelvin possuem o
+<p>As divisões das escalas Celsius e Kelvin possuem o
                 mesmo tamanho.</p>
-                Relação:</p>
-                \[
+<p>Relação:</p>
+<p>\[
                 \dfrac{\theta_C-0}{5} = \dfrac{\theta_K-273}{5}
                 \]</p>
-                Simplificando, temos:</p>
-                \[
+<p>Simplificando, temos:</p>
+<p>\[
                 \boxed{\theta_C = \theta_K - 273}
                 \]</p>
-                <h2 id="exemplo-2.2---conservação-criogênica">Exemplo
+<h2 id="exemplo-2.2---conservação-criogênica">Exemplo
                 2.2 - Conservação Criogênica</h2>
-                Em um laboratório, pesquisadores armazenam amostras
+<p>Em um laboratório, pesquisadores armazenam amostras
                 biológicas em nitrogênio líquido a <strong>77
                 K</strong>. Você precisa registrar essa temperatura em
                 graus Celsius para um relatório.</p>
-                \[
+<p>\[
                 \theta_C = 77 - 273
                 \]</p>
-                \[
+<p>\[
                 \theta_C = -196°C
                 \]</p>
-                Conclusão:</p>
-                O nitrogênio líquido está a <strong>-196 °C</strong>,
+<p>Conclusão:</p>
+<p>O nitrogênio líquido está a <strong>-196 °C</strong>,
                 uma temperatura extremamente baixa, usada para
                 congelamento instantâneo.</p>
-                <h1
-                id="conversão-fahrenheit-leftrightarrow-kelvin">Conversão:
+<h1 id="conversão-fahrenheit-leftrightarrow-kelvin">Conversão:
                 Fahrenheit \(\leftrightarrow\)
                 Kelvin</h1>
-                Combinando as relações:</p>
-                \[
+<p>Combinando as relações:</p>
+<p>\[
                 \dfrac{\theta_F - 32}{9} = \dfrac{\theta_K - 273}{5}
                 \]</p>
-                Relação geral:</p>
-                \[
+<p>Relação geral:</p>
+<p>\[
                 \boxed{\dfrac{\theta_F - 32}{9} = \dfrac{\theta_K -
                 273}{5}}
                 \]</p>
-                <h2
-                id="exemplo-2.3---controle-térmico-em-um-laboratório-da-nasa">Exemplo
+<h2 id="exemplo-2.3---controle-térmico-em-um-laboratório-da-nasa">Exemplo
                 2.3 - Controle térmico em um laboratório da NASA</h2>
-                Durante um experimento em um laboratório da NASA, nos
+<p>Durante um experimento em um laboratório da NASA, nos
                 Estados Unidos, a temperatura ambiente é registrada como
                 <strong>68 °F</strong>. Para inserir os dados no sistema
                 internacional, você precisa converter para Kelvin.</p>
-                Usando a relação geral e substituindo:</p>
-                \[
+<p>Usando a relação geral e substituindo:</p>
+<p>\[
                 \dfrac{68 - 32}{9} = \dfrac{\theta_K - 273}{5}
                 \]</p>
-                \[
+<p>\[
                 \dfrac{36}{9} = \dfrac{\theta_K - 273}{5}
                 \]</p>
-                \[
+<p>\[
                 4 = \dfrac{\theta_K - 273}{5}
                 \]</p>
-                \[
+<p>\[
                 \dfrac{\theta_K - 273}{5} = 4
                 \]</p>
-                \[
+<p>\[
                 \theta_K - 273= 20
                 \]</p>
-                \[
+<p>\[
                 \theta_K = 20 + 273
                 \]</p>
-                Por fim,</p>
-                \[
+<p>Por fim,</p>
+<p>\[
                 \theta_K = 293
                 \]</p>
-                Conclusão:</p>
-                A temperatura do laboratório era <strong>293
+<p>Conclusão:</p>
+<p>A temperatura do laboratório era <strong>293
                 K</strong>, que corresponde a 20 °C - uma temperatura
                 ambiente confortável.</p>
-                <h1 id="zero-absoluto">Zero absoluto</h1>
-                O zero absoluto corresponde à temperatura de:</p>
-                \[
+<h1 id="zero-absoluto">Zero absoluto</h1>
+<p>O zero absoluto corresponde à temperatura de:</p>
+<p>\[
                 0\,K
                 \]</p>
-                ou</p>
-                \[
+<p>ou</p>
+<p>\[
                 -273\,°C
                 \]</p>
-                Ele representa o <strong>menor valor de temperatura
+<p>Ele representa o <strong>menor valor de temperatura
                 teoricamente possível no Universo</strong>.</p>
-                <figure>
-                <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg" style="width:50.0%"
-                alt="Zero absoluto. Fonte: mundo educação." />
-                <figcaption aria-hidden="true">Zero absoluto. Fonte: <a
-                href="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg">mundo
+<figure>
+<img alt="Zero absoluto. Fonte: mundo educação." src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg" style="width:50.0%"/>
+<figcaption aria-hidden="true">Zero absoluto. Fonte: <a href="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/09/escalas-termometricas.jpg">mundo
                 educação</a>.</figcaption>
-                </figure>
-                Mas o que isso significa fisicamente?</p>
-                Sabemos que a temperatura está relacionada ao grau de
+</figure>
+<p>Mas o que isso significa fisicamente?</p>
+<p>Sabemos que a temperatura está relacionada ao grau de
                 agitação das partículas.</p>
-                <ul>
-                <li>Quanto maior a temperatura, maior a agitação
+<ul>
+<li>Quanto maior a temperatura, maior a agitação
                 molecular.</li>
-                <li>À medida que a temperatura diminui, essa agitação
+<li>À medida que a temperatura diminui, essa agitação
                 também diminui.</li>
-                </ul>
-                No zero absoluto, a energia térmica atinge seu valor
+</ul>
+<p>No zero absoluto, a energia térmica atinge seu valor
                 mínimo possível.</p>
-                <strong>Importante destacar</strong>:</p>
-                <ul>
-                <li>Segundo a Mecânica Quântica, as partículas não
+<p><strong>Importante destacar</strong>:</p>
+<ul>
+<li><p>Segundo a Mecânica Quântica, as partículas não
                 ficam completamente paradas, mesmo a 0 K. Existe sempre
                 uma energia residual chamada <strong>energia de ponto
                 zero</strong>. Portanto, o zero absoluto representa o
                 menor nível possível de energia térmica, e não ausência
                 total de movimento.</p></li>
-                <li>A Terceira Lei da Termodinâmica afirma que é
+<li><p>A Terceira Lei da Termodinâmica afirma que é
                 impossível atingir exatamente 0 K por meio de processos
                 físicos finitos. Os cientistas conseguem chegar
                 extremamente próximos desse valor, mas nunca atingi-lo
                 exatamente.</p></li>
-                <li>A escala Kelvin começa no zero absoluto
+<li><p>A escala Kelvin começa no zero absoluto
                 justamente porque ela é uma <strong>escala
                 absoluta</strong>, ligada diretamente à energia do
                 sistema. Por isso, ela é utilizada nas leis da
                 Termodinâmica.</p></li>
-                </ul>
-                Em resumo:</p>
-                <ul>
-                <li>0 °C é apenas o ponto de congelamento da água.</li>
-                <li>0 °F é um valor definido historicamente.</li>
-                <li>0 K é um limite físico fundamental da natureza.</li>
-                </ul>
-                O zero absoluto não é apenas um número: <strong>ele
+</ul>
+<p>Em resumo:</p>
+<ul>
+<li>0 °C é apenas o ponto de congelamento da água.</li>
+<li>0 °F é um valor definido historicamente.</li>
+<li>0 K é um limite físico fundamental da natureza.</li>
+</ul>
+<p>O zero absoluto não é apenas um número: <strong>ele
                 representa um limite extremo do comportamento da matéria
                 no Universo</strong>.</p>
-                <h1 id="problemas-algébricos">Problemas Algébricos</h1>
-                Agora vamos elevar o nível. Aqui entra um pouco mais
+<h1 id="problemas-algébricos">Problemas Algébricos</h1>
+<p>Agora vamos elevar o nível. Aqui entra um pouco mais
                 de álgebra. Mantenha atenção aos detalhes.</p>
-                <h2
-                id="exemplo-2.4---quando-a-temperatura-celsius-é-o-quíntuplo-da-fahrenheit">Exemplo
+<h2 id="exemplo-2.4---quando-a-temperatura-celsius-é-o-quíntuplo-da-fahrenheit">Exemplo
                 2.4 - Quando a temperatura Celsius é o quíntuplo da
                 Fahrenheit</h2>
-                Durante o aquecimento de uma substância em uma
+<p>Durante o aquecimento de uma substância em uma
                 indústria química, um engenheiro percebe que, em
                 determinado momento, a temperatura em graus Celsius
                 passa a ser o quíntuplo da temperatura em Fahrenheit.
                 Ele precisa registrar essa temperatura para analisar o
                 comportamento da substância.</p>
-                Portanto, vamos usar a condição dada no texto para
+<p>Portanto, vamos usar a condição dada no texto para
                 determinar essa temperatura em graus Celsius.</p>
-                Condição:</p>
-                \[
+<p>Condição:</p>
+<p>\[
                 \theta_C = 5\theta_F
                 \]</p>
-                Usando a relação:</p>
-                \[
+<p>Usando a relação:</p>
+<p>\[
                 \dfrac{\theta_C}{5} = \dfrac{\theta_F - 32}{9}
                 \]</p>
-                Substituindo:</p>
-                \[
+<p>Substituindo:</p>
+<p>\[
                 \dfrac{5\theta_F}{5} = \dfrac{\theta_F - 32}{9}
                 \]</p>
-                \[
+<p>\[
                 \theta_F = \dfrac{\theta_F - 32}{9}
                 \]</p>
-                Multiplicando por 9:</p>
-                \[
+<p>Multiplicando por 9:</p>
+<p>\[
                 9\theta_F = \theta_F - 32
                 \]</p>
-                \[
+<p>\[
                 8\theta_F = -32
                 \]</p>
-                \[
+<p>\[
                 \theta_F = -4°F
                 \]</p>
-                Então:</p>
-                \[
+<p>Então:</p>
+<p>\[
                 \theta_C = 5(-4) = -20°C
                 \]</p>
-                Conclusão:</p>
-                Essa condição ocorre a <strong>-20 °C</strong>.</p>
-                <h2
-                id="exemplo-2.5---quando-fahrenheit-é-o-triplo-mais-2-unidades-da-celsius">Exemplo
+<p>Conclusão:</p>
+<p>Essa condição ocorre a <strong>-20 °C</strong>.</p>
+<h2 id="exemplo-2.5---quando-fahrenheit-é-o-triplo-mais-2-unidades-da-celsius">Exemplo
                 2.5 - Quando Fahrenheit é o triplo mais 2 unidades da
                 Celsius</h2>
-                Em um estudo geológico, um pesquisador descobre que a
+<p>Em um estudo geológico, um pesquisador descobre que a
                 temperatura de uma rocha obedece à relação:</p>
-                <blockquote>
-                A temperatura em Fahrenheit é o triplo da temperatura
+<blockquote>
+<p>A temperatura em Fahrenheit é o triplo da temperatura
                 em Celsius mais 2 unidades.</p>
-                </blockquote>
-                Ele precisa saber essa temperatura em Kelvin para
+</blockquote>
+<p>Ele precisa saber essa temperatura em Kelvin para
                 inserir em um modelo computacional.</p>
-                Condição:</p>
-                \[
+<p>Condição:</p>
+<p>\[
                 \theta_F = 3\theta_C + 2
                 \]</p>
-                Substituindo:</p>
-                \[
+<p>Substituindo:</p>
+<p>\[
                 \dfrac{\theta_C}{5} = \dfrac{3\theta_C + 2 - 32}{9}
                 \]</p>
-                \[
+<p>\[
                 \dfrac{\theta_C}{5} = \dfrac{3\theta_C - 30}{9}
                 \]</p>
-                Multiplicando cruzado:</p>
-                \[
+<p>Multiplicando cruzado:</p>
+<p>\[
                 9\theta_C = 5(3\theta_C - 30)
                 \]</p>
-                \[
+<p>\[
                 9\theta_C = 15\theta_C - 150
                 \]</p>
-                \[
+<p>\[
                 -6\theta_C = -150
                 \]</p>
-                \[
+<p>\[
                 \theta_C = 25°C
                 \]</p>
-                Convertendo para Kelvin:</p>
-                \[
+<p>Convertendo para Kelvin:</p>
+<p>\[
                 \theta_K = 25 + 273 = 298 K
                 \]</p>
-                Conclusão:</p>
-                A temperatura da rocha é <strong>298 K</strong>.</p>
-                <h1 id="conclusão">Conclusão</h1>
-                As escalas termométricas não são apenas fórmulas para
+<p>Conclusão:</p>
+<p>A temperatura da rocha é <strong>298 K</strong>.</p>
+<h1 id="conclusão">Conclusão</h1>
+<p>As escalas termométricas não são apenas fórmulas para
                 decorar.</p>
-                Elas aparecem:</p>
-                <ul>
-                <li>Em viagens internacionais.</li>
-                <li>Na medicina.</li>
-                <li>Em laboratórios científicos.</li>
-                <li>Na indústria.</li>
-                <li>Em pesquisas espaciais.</li>
-                <li>Em processos criogênicos.</li>
-                </ul>
-                Quando você entende a lógica por trás das conversões,
+<p>Elas aparecem:</p>
+<ul>
+<li>Em viagens internacionais.</li>
+<li>Na medicina.</li>
+<li>Em laboratórios científicos.</li>
+<li>Na indústria.</li>
+<li>Em pesquisas espaciais.</li>
+<li>Em processos criogênicos.</li>
+</ul>
+<p>Quando você entende a lógica por trás das conversões,
                 você ganha autonomia para interpretar situações
                 reais.</p>
-                E é isso que transforma matemática em ferramenta e
+<p>E é isso que transforma matemática em ferramenta e
                 Física em compreensão do mundo.</p>
-                <h1 id="exercícios-de-fixação">Exercícios de
+<h1 id="exercícios-de-fixação">Exercícios de
                 Fixação</h1>
-                <dl>
-                <dt>2.1)</dt>
-                <dd>
+<dl>
+<dt>2.1)</dt>
+<dd>
                 Uma empresa de alimentos mantém seu setor de
                 congelamento a <strong>-18 °C</strong>, temperatura
                 recomendada para conservação de carnes.
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>Determine essa temperatura em Kelvin.</li>
-                <li>Determine essa temperatura em Fahrenheit.</li>
-                <li>Essa temperatura está abaixo do ponto de
+</dl>
+<ol type="a">
+<li>Determine essa temperatura em Kelvin.</li>
+<li>Determine essa temperatura em Fahrenheit.</li>
+<li>Essa temperatura está abaixo do ponto de
                 congelamento da água? Justifique numericamente.</li>
-                </ol>
-                <dl>
-                <dt>2.2)</dt>
-                <dd>
+</ol>
+<dl>
+<dt>2.2)</dt>
+<dd>
                 Em um laboratório na Alemanha, um experimento ocorre a
                 <strong>310 K</strong>.
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>Determine essa temperatura em graus Celsius.</li>
-                <li>Essa temperatura é próxima à temperatura média do
+</dl>
+<ol type="a">
+<li>Determine essa temperatura em graus Celsius.</li>
+<li>Essa temperatura é próxima à temperatura média do
                 corpo humano (37 °C)?</li>
-                </ol>
-                <dl>
-                <dt>2.3)</dt>
-                <dd>
+</ol>
+<dl>
+<dt>2.3)</dt>
+<dd>
                 Durante o inverno em Toronto, a previsão do tempo indica
                 <strong>-22 °F</strong>.
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>Converta essa temperatura para graus Celsius.</li>
-                <li>Compare com um inverno típico no sul do Brasil (em
+</dl>
+<ol type="a">
+<li>Converta essa temperatura para graus Celsius.</li>
+<li>Compare com um inverno típico no sul do Brasil (em
                 torno de 5 °C). Qual é mais frio?</li>
-                </ol>
-                <dl>
-                <dt>2.4)</dt>
-                <dd>
+</ol>
+<dl>
+<dt>2.4)</dt>
+<dd>
                 Durante o aquecimento de uma substância, um engenheiro
                 observa que, em certo instante, a temperatura em graus
                 Celsius é o <strong>dobro da temperatura em graus
@@ -501,15 +490,15 @@
                 aquecimento ou resfriamento com relação aos pontos de
                 ebulição e fusão da água.
                 </dd>
-                <dt>2.5)</dt>
-                <dd>
+<dt>2.5)</dt>
+<dd>
                 Um pesquisador descobre que a temperatura de uma rocha
                 obedece à seguinte relação: “A temperatura em Fahrenheit
                 é igual ao triplo da temperatura em Celsius menos 10
                 unidades.” Determine essa temperatura em Kelvin.
                 </dd>
-                <dt>2.6)</dt>
-                <dd>
+<dt>2.6)</dt>
+<dd>
                 Em um centro de armazenamento de vacinas, a sala de
                 conservação está regulada para manter as doses a uma
                 temperatura adequada de refrigeração, medida como
@@ -518,165 +507,153 @@
                 temperatura em Fahrenheit. O valor correto é
                 aproximadamente:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>10 °F.</li>
-                <li>14 °F.</li>
-                <li>18 °F.</li>
-                <li>23 °F.</li>
-                <li>32 °F.</li>
-                </ol>
-                <dl>
-                <dt>2.7)</dt>
-                <dd>
+</dl>
+<ol type="a">
+<li>10 °F.</li>
+<li>14 °F.</li>
+<li>18 °F.</li>
+<li>23 °F.</li>
+<li>32 °F.</li>
+</ol>
+<dl>
+<dt>2.7)</dt>
+<dd>
                 Durante o resfriamento de uma substância em um
                 laboratório, observou-se que, em determinado instante, o
                 valor numérico da temperatura em graus Fahrenheit era o
                 dobro do valor numérico da temperatura em graus Celsius.
                 A temperatura nesse instante é aproximadamente:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>120 °C.</li>
-                <li>130 °C.</li>
-                <li>140 °C.</li>
-                <li>150 °C.</li>
-                <li>160 °C.</li>
-                </ol>
-                <dl>
-                <dt>2.8)</dt>
-                <dd>
+</dl>
+<ol type="a">
+<li>120 °C.</li>
+<li>130 °C.</li>
+<li>140 °C.</li>
+<li>150 °C.</li>
+<li>160 °C.</li>
+</ol>
+<dl>
+<dt>2.8)</dt>
+<dd>
                 Em um centro de pesquisa, um gás ultrafrio foi resfriado
                 até <strong>20 K</strong> acima do zero absoluto. Essa
                 temperatura, expressa em graus Celsius, é
                 aproximadamente:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>-253 °C.</li>
-                <li>-240 °C.</li>
-                <li>-220 °C.</li>
-                <li>-200 °C.</li>
-                <li>-180 °C.</li>
-                </ol>
-                <dl>
-                <dt>2.9)</dt>
-                <dd>
+</dl>
+<ol type="a">
+<li>-253 °C.</li>
+<li>-240 °C.</li>
+<li>-220 °C.</li>
+<li>-200 °C.</li>
+<li>-180 °C.</li>
+</ol>
+<dl>
+<dt>2.9)</dt>
+<dd>
                 Em um experimento térmico, verificou-se que o valor
                 numérico da temperatura em Fahrenheit era igual à
                 temperatura em Celsius diminuída de 8 unidades. Com base
                 nessa condição, a temperatura do sistema em Kelvin é
                 aproximadamente:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>223 K.</li>
-                <li>233 K.</li>
-                <li>243 K.</li>
-                <li>253 K.</li>
-                <li>263 K.</li>
-                </ol>
-                <dl>
-                <dt>2.10)</dt>
-                <dd>
+</dl>
+<ol type="a">
+<li>223 K.</li>
+<li>233 K.</li>
+<li>243 K.</li>
+<li>253 K.</li>
+<li>263 K.</li>
+</ol>
+<dl>
+<dt>2.10)</dt>
+<dd>
                 O zero absoluto corresponde a -273 °C. Se quisermos
                 expressar essa temperatura na escala Fahrenheit, o valor
                 aproximado será:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>-400 °F.</li>
-                <li>-459 °F.</li>
-                <li>-273 °F.</li>
-                <li>-212 °F.</li>
-                <li>-180 °F.</li>
-                </ol>
-                <h1 id="respostas">Respostas</h1>
-                Caro estudante, seguem as respostas
+</dl>
+<ol type="a">
+<li>-400 °F.</li>
+<li>-459 °F.</li>
+<li>-273 °F.</li>
+<li>-212 °F.</li>
+<li>-180 °F.</li>
+</ol>
+<h1 id="respostas">Respostas</h1>
+<p>Caro estudante, seguem as respostas
                 <strong>completas</strong> e <strong>detalhadas</strong>
-                dos exercícios de fixação da <a
-                href="https://drive.google.com/file/d/162DyQA9z94ppYCn8KB9LUj8_zvQZKp-K/view">aula
+                dos exercícios de fixação da <a href="https://drive.google.com/file/d/162DyQA9z94ppYCn8KB9LUj8_zvQZKp-K/view">aula
                 anterior</a>.</p>
-                <h1 id="recomendações">Recomendações</h1>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=dO_nG0ppe4E" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-mesalva1.png" alt="Calorimetria e Termologia: Celsius, Fahrenheit e Kelvin" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">Calorimetria e Termologia: Celsius, Fahrenheit e Kelvin</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=dO_nG0ppe4E" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Me Salva.</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=dO_nG0ppe4E" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=dO_nG0ppe4E" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Calorimetria e Termologia: Celsius, Fahrenheit e Kelvin" loading="lazy" src="./images/thumbs/ytb-mesalva1.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Calorimetria e Termologia: Celsius, Fahrenheit e Kelvin</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=dO_nG0ppe4E" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Me Salva.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=dO_nG0ppe4E" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=yHovbRhDpRs" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-mesalva2.png" alt="Conversão de Temperatura" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">Conversão de Temperatura</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=yHovbRhDpRs" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Me Salva.</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=yHovbRhDpRs" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=yHovbRhDpRs" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Conversão de Temperatura" loading="lazy" src="./images/thumbs/ytb-mesalva2.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Conversão de Temperatura</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=yHovbRhDpRs" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Me Salva.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=yHovbRhDpRs" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <h1 id="referências">Referências</h1>
-                <ul>
-                <li>GASPAR, Alberto. Física: volume único. 2. ed. São
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>GASPAR, Alberto. Física: volume único. 2. ed. São
                 Paulo: Ática, 2014.</li>
-                <li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+<li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
                 Regina. Física: termologia, óptica e ondas. São Paulo:
                 FTD, 2016.</li>
-                <li>PIETROCOLA, Maurício et al. Física em contextos:
+<li>PIETROCOLA, Maurício et al. Física em contextos:
                 pessoal, social e histórico – volume 2. São Paulo: FTD,
                 2016.</li>
-                </ul>
-            </main>
-
-            <!-- Footer -->
-            
-        </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Script para MathJax -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.MathJax) {
-                window.MathJax.typesetPromise();
-            }
-        });
-    </script>
-
+</ul>
                     </div>
                 </div>
             </div>
             
-            <div class="d-flex justify-content-between">
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+                    
+                <a href="/disciplinas/aula-01-conceitos-iniciais.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+                
+                </div>
+                <div class="d-flex flex-wrap gap-2">
                 <a href="/disciplinas/" class="btn btn-outline-primary">
                     <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
                 </a>
                 <a href="/" class="btn btn-outline-secondary">
                     <i class="bi bi-house"></i> Ir para Home
                 </a>
+                    
+                <a href="/disciplinas/aula-03-variacao-e-escalas-arbitrarias.html" class="btn btn-outline-primary">
+                    Próxima aula <i class="bi bi-arrow-right"></i>
+                </a>
+                
+                </div>
             </div>
             
     </main>
@@ -709,32 +686,5 @@
     
     <!-- JS Personalizado -->
     <script src="/js/main.js"></script>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function initializeMathJax() {
-            if (typeof MathJax !== 'undefined') {
-                MathJax.startup.promise.then(() => {
-                    if (document.querySelector('.tex2jax_process')) {
-                        MathJax.typesetPromise().catch((err) => {
-                            console.log('MathJax erro:', err.message);
-                        });
-                    }
-                }).catch((err) => {
-                    console.error('MathJax falhou ao carregar:', err);
-                });
-                window.dispatchEvent(new Event('MathJaxLoaded'));
-            } else {
-                console.warn('MathJax não está disponível');
-            }
-        }
-        
-        if (typeof MathJax !== 'undefined') {
-            initializeMathJax();
-        } else {
-            window.addEventListener('MathJaxLoaded', initializeMathJax);
-        }
-    });
-    </script>
 </body>
 </html>

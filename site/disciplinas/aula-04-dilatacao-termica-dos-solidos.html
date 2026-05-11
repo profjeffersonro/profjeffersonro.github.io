@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 04 - Dilatação Térmica dos Sólidos | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 04 - Dilatação Térmica dos Sólidos de Termodinâmica.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-04-dilatacao-termica-dos-solidos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 04 - Dilatação Térmica dos Sólidos | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 04 - Dilatação Térmica dos Sólidos de Termodinâmica.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-04-dilatacao-termica-dos-solidos.html">
+    <meta property="og:site_name" content="Meu Portal">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,10 +30,11 @@
     <script>
     window.MathJax = {
         tex: {
-            inlineMath: [['$', '$'], ['\(', '\)']],
-            displayMath: [['$$', '$$'], ['\[', '\]']],
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
             processEscapes: true,
-            processEnvironments: true
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
         },
         options: {
             skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
@@ -36,10 +45,7 @@
             fontCache: 'global'
         },
         loader: {
-            load: ['[tex]/ams', '[tex]/physics']
-        },
-        tex: {
-            packages: {'[+]': ['ams', 'physics']}
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
         },
         startup: {
             ready: () => {
@@ -51,6 +57,7 @@
     };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
     
 </head>
 <body>
@@ -107,139 +114,121 @@
                 </div>
                 
                     <div class="aula-content">
-                        
-    
-        
-            <!-- Header -->
-            
-
-            <!-- TOC -->
-            
-            <!-- Conteúdo principal -->
-            <main class="content-section">
-                <h1 id="objetivos">Objetivos</h1>
-                Ao final desta aula, você deverá ser capaz de:</p>
-                <ul>
-                <li>Compreender o fenômeno da <strong>dilatação
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li>Compreender o fenômeno da <strong>dilatação
                 térmica</strong> em sólidos.</li>
-                <li>Explicar a dilatação com base no <strong>modelo
+<li>Explicar a dilatação com base no <strong>modelo
                 cinético-molecular</strong>.</li>
-                <li>Diferenciar e aplicar as fórmulas da dilatação
+<li>Diferenciar e aplicar as fórmulas da dilatação
                 <strong>linear</strong>, <strong>superficial</strong> e
                 <strong>volumétrica</strong>.</li>
-                <li>Relacionar os coeficientes de dilatação (\(\alpha\), \(\beta\), \(\gamma\)).</li>
-                <li>Resolver problemas práticos envolvendo dilatação em
+<li>Relacionar os coeficientes de dilatação (\(\alpha\), \(\beta\), \(\gamma\)).</li>
+<li>Resolver problemas práticos envolvendo dilatação em
                 situações do cotidiano e da engenharia.</li>
-                <li>Identificar aplicações da dilatação em projetos,
+<li>Identificar aplicações da dilatação em projetos,
                 como juntas de dilatação e lâminas bimetálicas.</li>
-                </ul>
-                <h1 id="introdução">Introdução</h1>
-                Imagine a seguinte situação:</p>
-                <blockquote>
-                Você é engenheiro responsável pela construção de uma
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Imagine a seguinte situação:</p>
+<blockquote>
+<p>Você é engenheiro responsável pela construção de uma
                 grande ponte metálica. Durante o projeto, um colega
                 menos experiente sugere que as longas vigas de aço sejam
                 perfeitamente encaixadas e soldadas, sem deixar nenhum
                 espaço entre elas. Você, porém, sabe que isso seria um
                 desastre! Mas por quê?</p>
-                </blockquote>
-                A resposta está em um fenômeno físico que observamos
+</blockquote>
+<p>A resposta está em um fenômeno físico que observamos
                 diariamente: <strong>os corpos sólidos mudam de tamanho
                 quando sua temperatura varia</strong>.</p>
-                No verão escaldante, a ponte se expandiria, as vigas
+<p>No verão escaldante, a ponte se expandiria, as vigas
                 se comprimiriam umas contra as outras, gerando tensões
                 enormes que poderiam entortar a estrutura ou até mesmo
                 rompê-la.</p>
-                É para evitar isso que os engenheiros criam
+<p>É para evitar isso que os engenheiros criam
                 <strong>juntas de dilatação</strong> - espaços
                 intencionais que permitem a expansão e contração seguras
                 da estrutura.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Dehnungsfuge.jpg"
-                style="width:80.0%"
-                alt="Juntas de dilatação em uma ponte. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Juntas de dilatação em
-                uma ponte. Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/d/d6/Dehnungsfuge.jpg">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                Nesta aula, vamos estudar exatamente como calcular
+<figure>
+<img alt="Juntas de dilatação em uma ponte. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Dehnungsfuge.jpg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Juntas de dilatação em
+                uma ponte. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d6/Dehnungsfuge.jpg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Nesta aula, vamos estudar exatamente como calcular
                 essas variações dimensionais e entender por que esse
                 conhecimento é crucial em diversas áreas, desde a
                 construção civil até a odontologia.</p>
-                <h1 id="o-fenômeno-da-dilatação-térmica">O Fenômeno da
+<h1 id="o-fenômeno-da-dilatação-térmica">O Fenômeno da
                 Dilatação Térmica</h1>
-                A <strong>dilatação térmica</strong> é o aumento das
+<p>A <strong>dilatação térmica</strong> é o aumento das
                 dimensões de um corpo quando sua temperatura aumenta. O
                 oposto, a diminuição das dimensões, é chamado de
                 <strong>contração térmica</strong>.</p>
-                <figure>
-                <img src="https://global.kyocera.com/fcworld/assets/images/page/thermaexpan.gif"
-                style="width:80.0%"
-                alt="Dilatação entre materiais distintos. Fonte: kyocera." />
-                <figcaption aria-hidden="true">Dilatação entre materiais
-                distintos. Fonte: <a
-                href="https://global.kyocera.com/fcworld/assets/images/page/thermaexpan.gif">kyocera.</a></figcaption>
-                </figure>
-                <strong>Explicação microscópica:</strong></p>
-                <ul>
-                <li>A temperatura de um corpo está associada à agitação
+<figure>
+<img alt="Dilatação entre materiais distintos. Fonte: kyocera." src="https://global.kyocera.com/fcworld/assets/images/page/thermaexpan.gif" style="width:80.0%"/>
+<figcaption aria-hidden="true">Dilatação entre materiais
+                distintos. Fonte: <a href="https://global.kyocera.com/fcworld/assets/images/page/thermaexpan.gif">kyocera.</a></figcaption>
+</figure>
+<p><strong>Explicação microscópica:</strong></p>
+<ul>
+<li>A temperatura de um corpo está associada à agitação
                 térmica de seus átomos ou moléculas.</li>
-                <li>Quando aquecemos um sólido, a amplitude de vibração
+<li>Quando aquecemos um sólido, a amplitude de vibração
                 das partículas em torno de suas posições de equilíbrio
                 aumenta.</li>
-                <li>Esse aumento na vibração faz com que a
+<li>Esse aumento na vibração faz com que a
                 <strong>distância média</strong> entre as partículas
                 também aumente.</li>
-                <li>Como consequência, o corpo como um todo se
+<li>Como consequência, o corpo como um todo se
                 expande.</li>
-                </ul>
-                <blockquote>
-                <strong>Importante:</strong> Os átomos não aumentam
+</ul>
+<blockquote>
+<p><strong>Importante:</strong> Os átomos não aumentam
                 de tamanho! O que aumenta é o <strong>espaço
                 médio</strong> entre eles.</p>
-                </blockquote>
-                <figure>
-                <img src="https://www.cyberphysics.co.uk/graphics/animations/expansion.gif"
-                style="width:80.0%"
-                alt="Aumento da agitação e espaço médio entre as partículas. Fonte: cyberphysics." />
-                <figcaption aria-hidden="true">Aumento da agitação e
-                espaço médio entre as partículas. Fonte: <a
-                href="https://www.cyberphysics.co.uk/graphics/animations/expansion.gif">cyberphysics.</a></figcaption>
-                </figure>
-                A dilatação depende de três fatores principais:</p>
-                <ol type="1">
-                <li><strong>Material do corpo:</strong> Cada material
+</blockquote>
+<figure>
+<img alt="Aumento da agitação e espaço médio entre as partículas. Fonte: cyberphysics." src="https://www.cyberphysics.co.uk/graphics/animations/expansion.gif" style="width:80.0%"/>
+<figcaption aria-hidden="true">Aumento da agitação e
+                espaço médio entre as partículas. Fonte: <a href="https://www.cyberphysics.co.uk/graphics/animations/expansion.gif">cyberphysics.</a></figcaption>
+</figure>
+<p>A dilatação depende de três fatores principais:</p>
+<ol type="1">
+<li><strong>Material do corpo:</strong> Cada material
                 tem uma capacidade diferente de dilatar (representada
                 pelo coeficiente de dilatação).</li>
-                <li><strong>Variação de temperatura (\(\Delta \theta\)):</strong>
+<li><strong>Variação de temperatura (\(\Delta \theta\)):</strong>
                 Quanto maior a variação, maior a dilatação.</li>
-                <li><strong>Dimensão inicial do corpo (\(L_0\), \(A_0\) ou \(V_0\)):</strong> Corpos
+<li><strong>Dimensão inicial do corpo (\(L_0\), \(A_0\) ou \(V_0\)):</strong> Corpos
                 maiores dilatam mais em termos absolutos.</li>
-                </ol>
-                <h1 id="dilatação-linear">Dilatação Linear</h1>
-                A <strong>dilatação linear</strong> é aquela em que a
+</ol>
+<h1 id="dilatação-linear">Dilatação Linear</h1>
+<p>A <strong>dilatação linear</strong> é aquela em que a
                 variação de tamanho ocorre predominantemente em uma
-                única dimensão. Acontece em corpos onde o comprimento é
-                muito maior que as outras dimensões, como:</p>
-                <ul>
-                <li>Barras, fios, cabos, trilhos de trem, vigas.</li>
-                </ul>
-                <h2 id="a-fórmula-da-dilatação-linear">A Fórmula da
+                única dimensão. Acontece em corpos onde estamos
+                interessados principalmente na variação do comprimento,
+                como:</p>
+<ul>
+<li>Barras, fios, cabos, trilhos de trem, vigas.</li>
+</ul>
+<h2 id="a-fórmula-da-dilatação-linear">A Fórmula da
                 Dilatação Linear</h2>
-                Experimentalmente, verifica-se que a variação do
+<p>Experimentalmente, verifica-se que a variação do
                 comprimento (\(\Delta
                 L\)) é:</p>
-                <ul>
-                <li>Diretamente proporcional ao comprimento inicial
+<ul>
+<li>Diretamente proporcional ao comprimento inicial
                 (\(L_0\)).</li>
-                <li>Diretamente proporcional à variação de temperatura
+<li>Diretamente proporcional à variação de temperatura
                 (\(\Delta
                 \theta\)).</li>
-                <li>Depende do material, através de uma constante
+<li>Depende do material, através de uma constante
                 chamada <strong>coeficiente de dilatação linear (\(\alpha\))</strong>.</li>
-                </ul>
-                <strong>Observação sobre notações</strong>: Nas
+</ul>
+<p><strong>Observação sobre notações</strong>: Nas
                 imagens e figuras ilustrativas desta aula, é comum
                 encontrarmos o comprimento representado pela letra
                 minúscula (\(l\)),
@@ -253,99 +242,144 @@
                 Fique atento a essa diferença ao consultar materiais
                 complementares: o conceito físico é o mesmo, apenas a
                 representação simbólica muda.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Thermal-expansion.svg"
-                style="width:60.0%"
-                alt="Dilatação linear. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Dilatação linear. Fonte:
-                <a
-                href="https://upload.wikimedia.org/wikipedia/commons/9/97/Thermal-expansion.svg">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                Matematicamente:</p>
-                \[
+<figure>
+<img alt="Dilatação linear. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/9/97/Thermal-expansion.svg" style="width:60.0%"/>
+<figcaption aria-hidden="true">Dilatação linear. Fonte:
+                <a href="https://upload.wikimedia.org/wikipedia/commons/9/97/Thermal-expansion.svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Matematicamente:</p>
+<p>\[
                 \boxed{\Delta L = L_0 \cdot \alpha \cdot \Delta \theta}
                 \]</p>
-                Onde:</p>
-                <ul>
-                <li>\(\Delta L = L -
+<p>Onde:</p>
+<ul>
+<li>\(\Delta L = L -
                 L_0\) é a variação do comprimento (na mesma
                 unidade de \(L_0\)).</li>
-                <li>\(L_0\) é o
+<li>\(L_0\) é o
                 comprimento inicial.</li>
-                <li>\(\alpha\) é o
+<li>\(\alpha\) é o
                 coeficiente de dilatação linear (unidade: \(°\text{C}^{-1}\) ou \(K^{-1}\)).</li>
-                <li>\(\Delta \theta = \theta -
+<li>\(\Delta \theta = \theta -
                 \theta_0\) é a variação de temperatura.</li>
-                </ul>
-                O comprimento final (\(L\)) do corpo é:</p>
-                \[
+</ul>
+<p>O comprimento final (\(L\)) do corpo é:</p>
+<p>\[
                 L = L_0 + \Delta L \Rightarrow \boxed{L = L_0 (1 +
                 \alpha \cdot \Delta \theta)}
                 \]</p>
-                <h2
-                id="coeficientes-de-dilatação-linear-alpha-de-alguns-materiais">Coeficientes
+<h2 id="coeficientes-de-dilatação-linear-alpha-de-alguns-materiais">Coeficientes
                 de Dilatação Linear (\(\alpha\)) de Alguns
                 Materiais</h2>
-                Abaixo estão listados os coeficientes de dilatação
+<p>Abaixo estão listados os coeficientes de dilatação
                 linear para alguns materiais comuns. Os valores são
                 aproximados e válidos para uma faixa de temperatura
                 próxima à ambiente.</p>
-                <ul>
-                <li><strong>Alumínio:</strong> \(\alpha = 2{,}3 \times 10^{-5} \,
-                °\text{C}^{-1}\)</li>
-                <li><strong>Aço:</strong> \(\alpha = 1{,}1 \times 10^{-5} \,
-                °\text{C}^{-1}\)</li>
-                <li><strong>Aço inoxidável:</strong> \(\alpha = 1{,}7 \times 10^{-5} \,
-                °\text{C}^{-1}\)</li>
-                <li><strong>Cobre:</strong> \(\alpha = 1{,}7 \times 10^{-5} \,
-                °\text{C}^{-1}\)</li>
-                <li><strong>Concreto:</strong> \(\alpha = 1{,}2 \times 10^{-5} \,
-                °\text{C}^{-1}\)</li>
-                <li><strong>Vidro comum:</strong> \(\alpha = 8{,}5 \times 10^{-6} \,
-                °\text{C}^{-1}\)</li>
-                <li><strong>Vidro pirex:</strong> \(\alpha = 3{,}2 \times 10^{-6} \,
-                °\text{C}^{-1}\)</li>
-                <li><strong>Invar (liga Fe-Ni):</strong> \(\alpha = 9{,}0 \times 10^{-7} \,
-                °\text{C}^{-1}\) (coeficiente muito baixo!)</li>
-                <li><strong>Gelo (0°C):</strong> \(\alpha = 5{,}1 \times 10^{-5} \,
-                °\text{C}^{-1}\)</li>
-                </ul>
-                <blockquote>
-                <strong>Observação:</strong> O Invar é uma liga
+<ul>
+<li><strong>Alumínio:</strong> \(\alpha = 2{,}3 \times 10^{-5} \,
+                °\text{C}^{-1}\).</li>
+<li><strong>Aço:</strong> \(\alpha = 1{,}1 \times 10^{-5} \,
+                °\text{C}^{-1}\).</li>
+<li><strong>Aço inoxidável:</strong> \(\alpha = 1{,}7 \times 10^{-5} \,
+                °\text{C}^{-1}\).</li>
+<li><strong>Cobre:</strong> \(\alpha = 1{,}7 \times 10^{-5} \,
+                °\text{C}^{-1}\).</li>
+<li><strong>Concreto:</strong> \(\alpha = 1{,}2 \times 10^{-5} \,
+                °\text{C}^{-1}\).</li>
+<li><strong>Vidro comum:</strong> \(\alpha = 8{,}5 \times 10^{-6} \,
+                °\text{C}^{-1}\).</li>
+<li><strong>Vidro pirex:</strong> \(\alpha = 3{,}2 \times 10^{-6} \,
+                °\text{C}^{-1}\).</li>
+<li><strong>Invar (liga Fe-Ni):</strong> \(\alpha = 9{,}0 \times 10^{-7} \,
+                °\text{C}^{-1}\) (coeficiente muito baixo!).</li>
+<li><strong>Gelo (0°C):</strong> \(\alpha = 5{,}1 \times 10^{-5} \,
+                °\text{C}^{-1}\).</li>
+</ul>
+<blockquote>
+<p><strong>Observação:</strong> O Invar é uma liga
                 metálica desenvolvida especificamente para ter dilatação
                 quase nula, sendo utilizada em instrumentos de precisão,
                 como relógios e padrões de medida.</p>
-                </blockquote>
-                <h2
-                id="aplicação-o-problema-dos-trilhos-de-trem">Aplicação:
+</blockquote>
+<h2 id="curiosidade-a-torre-eiffel-e-a-dilatação-térmica">Curiosidade:
+                A Torre Eiffel e a Dilatação Térmica</h2>
+<p>Um exemplo fascinante de dilatação térmica em grandes
+                estruturas é a <strong>Torre Eiffel</strong>, em Paris.
+                Construída em ferro, sua altura varia significativamente
+                entre o inverno e o verão devido à dilatação
+                térmica.</p>
+<p>Quando a temperatura aumenta, as moléculas do ferro
+                vibram mais intensamente, aumentando a distância média
+                entre elas. Como resultado, toda a estrutura se expande.
+                No verão parisiense, com temperaturas podendo atingir 40
+                °C, a Torre Eiffel pode chegar a ser até <strong>15 cm
+                mais alta</strong> do que no inverno, quando as
+                temperaturas podem cair próximas de 0 °C.</p>
+<p>Considerando o coeficiente de dilatação linear do
+                ferro (\(\alpha \approx 1{,}2
+                \times 10^{-5} \, °\text{C}^{-1}\)) e a altura
+                aproximada de 300 m, uma variação de 40 °C entre inverno
+                e verão resulta em:</p>
+<p>\[\Delta L = L_0 \cdot
+                \alpha \cdot \Delta \theta = 300 \cdot (1{,}2 \times
+                10^{-5}) \cdot 40 = 0{,}144 \, \text{m} \approx 14 \,
+                \text{cm}\]</p>
+<p>Esse fenômeno é perfeitamente normal e já foi
+                previsto no projeto por Gustave Eiffel. A estrutura foi
+                dimensionada para suportar essas variações sem sofrer
+                danos, demonstrando como o conhecimento da dilatação
+                térmica é essencial até mesmo em ícones da engenharia
+                mundial.</p>
+<figure>
+<img alt="Torre Eiffel. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg" style="width:40.0%"/>
+<figcaption aria-hidden="true">Torre Eiffel. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<h2 id="gráfico-dilatação-linear-temperatura">Gráfico:
+                Dilatação Linear × Temperatura</h2>
+<p>A relação entre a dilatação linear e a variação de
+                temperatura é <strong>diretamente proporcional</strong>,
+                o que significa que o gráfico \(\Delta L \times \Delta
+                \theta\) é uma reta que passa pela origem, com
+                inclinação igual a \(L_0 \cdot
+                \alpha\).</p>
+<figure>
+<img alt="Gráfico da dilatação térmica de metais em função da temperatura - Grüneisen (1910). Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Thermische_Ausdehnung_der_Metalle_-_1910_Gr%C3%BCneisen.png" style="width:60.0%"/>
+<figcaption aria-hidden="true">Gráfico da dilatação
+                térmica de metais em função da temperatura - Grüneisen
+                (1910). Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/f/fc/Thermische_Ausdehnung_der_Metalle_-_1910_Gr%C3%BCneisen.png">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>A interpretação física é clara: quanto maior a
+                variação de temperatura, maior será a dilatação sofrida
+                pelo material, e essa relação é linear
+                (aproximadamente).</p>
+<h2 id="aplicação-o-problema-dos-trilhos-de-trem">Aplicação:
                 O Problema dos Trilhos de Trem</h2>
-                Um dos exemplos mais clássicos e visíveis da
+<p>Um dos exemplos mais clássicos e visíveis da
                 <strong>dilatação térmica</strong> está nos trilhos das
                 ferrovias. Se você já observou trilhos de trem com
                 atenção, provavelmente notou que existem pequenos
                 espaços entre segmentos consecutivos. Esses espaços não
                 são erros de construção, mas sim <strong>juntas de
                 dilatação</strong> intencionais.</p>
-                Em dias muito quentes, o sol aquece os trilhos
+<p>Em dias muito quentes, o sol aquece os trilhos
                 metálicos, fazendo com que cada segmento sofra expansão.
                 Sem as folgas adequadas, os trilhos se comprimiriam uns
                 contra os outros, gerando tensões enormes que poderiam
                 entortá-los ou danificar os dormentes. Em casos
                 extremos, essa compressão pode causar o fenômeno
-                conhecido como “flambagem” ou “trilho solar” , onde o
+                conhecido como “flambagem” ou “trilho solar”, onde o
                 trilho se deforma lateralmente, oferecendo sérios riscos
                 à segurança da composição ferroviária.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Rail_buckle.jpg"
-                style="width:70.0%"
-                alt="Dilatação nos trilhos de um trem. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Dilatação nos trilhos de
-                um trem. Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/b/b8/Rail_buckle.jpg">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                Para dimensionar corretamente essas juntas, os
+<figure>
+<img alt="Dilatação nos trilhos de um trem. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Rail_buckle.jpg" style="width:70.0%"/>
+<figcaption aria-hidden="true">Dilatação nos trilhos de
+                um trem. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/b/b8/Rail_buckle.jpg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Para dimensionar corretamente essas juntas, os
                 engenheiros utilizam exatamente as fórmulas que
                 estudaremos nesta aula. Considerando o comprimento
                 inicial de cada barra de trilho, a variação de
@@ -353,215 +387,244 @@
                 dilatação linear do aço (\(\alpha\)), é possível
                 calcular a folga mínima necessária para que, mesmo no
                 dia mais quente do ano, os trilhos não se comprimam.</p>
-                Em ferrovias modernas, algumas técnicas de soldagem
+<p>Em ferrovias modernas, algumas técnicas de soldagem
                 contínua permitem trilhos mais longos, mas nesses casos
                 as tensões internas são cuidadosamente controladas
                 durante a instalação, demonstrando como o domínio do
                 conceito de dilatação térmica é fundamental para a
                 segurança e eficiência da engenharia de transportes.</p>
-                <h2 id="aplicação-lâminas-bimetálicas">Aplicação:
+<h2 id="aplicação-lâminas-bimetálicas">Aplicação:
                 Lâminas Bimetálicas</h2>
-                As <strong>lâminas bimetálicas</strong> são
+<p>As <strong>lâminas bimetálicas</strong> são
                 dispositivos formados por duas lâminas de metais
                 diferentes (com coeficientes de dilatação diferentes)
                 soldadas rigidamente.</p>
-                <figure>
-                <img src="images/fig-anim-dilatação-lâminas.gif"
-                style="width:50.0%"
-                alt="Animação Lâmina bimetálica. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Animação Lâmina
-                bimetálica. Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/3/37/Bimetal.gif">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                Quando a temperatura aumenta, o metal com maior \(\alpha\) dilata mais que o
+<figure>
+<img alt="Animação Lâmina bimetálica. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/3/37/Bimetal.gif" style="width:50.0%"/>
+<figcaption aria-hidden="true">Animação Lâmina
+                bimetálica. Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Bimetal.gif">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Quando a temperatura aumenta, o metal com maior \(\alpha\) dilata mais que o
                 outro. Como as lâminas estão soldadas, essa diferença de
                 dilatação faz com que o conjunto se curve para o lado do
                 metal de <strong>menor</strong> coeficiente de
                 dilatação.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Bimetallic_stripe.svg"
-                style="width:80.0%"
-                alt="Lâmina bimetálica. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Lâmina bimetálica. Fonte:
-                <a
-                href="https://upload.wikimedia.org/wikipedia/commons/c/cb/Bimetallic_stripe.svg">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                Esse princípio é amplamente utilizado em
-                <strong>Termostatos</strong>, ao curvar, a lâmina abre
+<figure>
+<img alt="Lâmina bimetálica. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Bimetallic_stripe.svg" style="width:80.0%"/>
+<figcaption aria-hidden="true">Lâmina bimetálica. Fonte:
+                <a href="https://upload.wikimedia.org/wikipedia/commons/c/cb/Bimetallic_stripe.svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Esse princípio é amplamente utilizado em
+                <strong>termostatos</strong>: ao curvar, a lâmina abre
                 ou fecha um circuito elétrico, regulando a temperatura
                 de ferros de passar, aquecedores e geladeiras.</p>
-                <h2
-                id="exemplo-4.1---o-problema-do-trilho-de-trem">Exemplo
-                4.1 - O problema do trilho de trem</h2>
-                Um trilho de aço de 20 m de comprimento é instalado
+<h3 id="exemplo-4.1---o-problema-do-trilho-de-trem">Exemplo
+                4.1 - O problema do trilho de trem</h3>
+<p>Um trilho de aço de 20 m de comprimento é instalado
                 em um dia com temperatura de 10 °C. Sabendo que o
                 coeficiente de dilatação linear do aço é \(\alpha = 1{,}1 \times 10^{-5} \,
                 °\text{C}^{-1}\), qual o espaço mínimo que deve
                 ser deixado entre dois trilhos consecutivos para que, em
                 um dia de verão com 40 °C, eles não se comprimam?</p>
-                <strong>Resolução:</strong></p>
-                O problema pede o espaço que compense a expansão de
+<p><strong>Resolução:</strong></p>
+<p>O problema pede o espaço que compense a expansão de
                 <strong>um</strong> trilho. Esse espaço é exatamente a
                 dilatação (\(\Delta
                 L\)) que o trilho sofrerá.</p>
-                <ul>
-                <li>\(L_0 = 20
+<ul>
+<li>\(L_0 = 20
                 \,\text{m}\)</li>
-                <li>\(\alpha = 1{,}1 \times
+<li>\(\alpha = 1{,}1 \times
                 10^{-5} \, °\text{C}^{-1}\)</li>
-                <li>\(\Delta \theta = \theta -
+<li>\(\Delta \theta = \theta -
                 \theta_{0} = 40 - 10 = 30 \,°\text{C}\)</li>
-                </ul>
-                Aplicando a fórmula:</p>
-                \[
+</ul>
+<p>Aplicando a fórmula:</p>
+<p>\[
                 \Delta L = L_0 \cdot \alpha \cdot \Delta \theta
                 \]</p>
-                \[
+<p>\[
                 \Delta L = 20 \cdot (1{,}1 \times 10^{-5}) \cdot 30
                 \]</p>
-                \[
+<p>\[
                 \Delta L = 20 \cdot 3{,}3 \times 10^{-4}
                 \]</p>
-                \[
+<p>\[
                 \Delta L = 6{,}6 \times 10^{-3} \,\text{m} = 0{,}0066
                 \,\text{m}
                 \]</p>
-                Convertendo para milímetros (mais usual para pequenas
+<p>Convertendo para milímetros (mais usual para pequenas
                 folgas):</p>
-                \[
+<p>\[
                 \Delta L = 6{,}6 \,\text{mm}
                 \]</p>
-                <strong>Conclusão:</strong> Deve ser deixado um
+<p><strong>Conclusão:</strong> Deve ser deixado um
                 espaço de <strong>aproximadamente 6,6 mm</strong> entre
                 os trilhos.</p>
-                <h2
-                id="exemplo-4.2---variação-com-temperatura-negativa">Exemplo
-                4.2 - Variação com temperatura negativa</h2>
-                Uma barra de alumínio tem 2,000 m de comprimento a 20
+<h3 id="exemplo-4.2---variação-com-temperatura-negativa">Exemplo
+                4.2 - Variação com temperatura negativa</h3>
+<p>Uma barra de alumínio tem 2,000 m de comprimento a 20
                 °C. Qual será seu comprimento se ela for resfriada a -10
                 °C? Dado: \(\alpha_{Al} =
                 2{,}3 \times 10^{-5} \, °\text{C}^{-1}\).</p>
-                <strong>Resolução:</strong></p>
-                Como a temperatura diminui, a barra sofrerá contração
+<p><strong>Resolução:</strong></p>
+<p>Como a temperatura diminui, a barra sofrerá contração
                 (\(\Delta \theta\)
                 negativo).</p>
-                <ul>
-                <li>\(L_0 = 2{,}000
+<ul>
+<li>\(L_0 = 2{,}000
                 \,\text{m}\)</li>
-                <li>\(\alpha = 2{,}3 \times
+<li>\(\alpha = 2{,}3 \times
                 10^{-5} \, °\text{C}^{-1}\)</li>
-                <li>\(\Delta \theta = \theta -
+<li>\(\Delta \theta = \theta -
                 \theta_{0} = (-10) - 20 = -30 \,°\text{C}\)</li>
-                </ul>
-                Calculando a variação:</p>
-                \[
+</ul>
+<p>Calculando a variação:</p>
+<p>\[
                 \Delta L = 2{,}0 \cdot (2{,}3 \times 10^{-5}) \cdot
                 (-30)
                 \]</p>
-                \[
+<p>\[
                 \Delta L = 2{,}0 \cdot (-6{,}9 \times 10^{-4})
                 \]</p>
-                \[
+<p>\[
                 \Delta L = -13{,}8 \times 10^{-4} = -0{,}00138
                 \,\text{m} = -1{,}38 \,\text{mm}
                 \]</p>
-                O sinal negativo indica contração. O comprimento
+<p>O sinal negativo indica contração. O comprimento
                 final será:</p>
-                \[
+<p>\[
                 L = L_0 + \Delta L = 2{,}000 - 0{,}00138 = 1{,}99862
                 \,\text{m}
                 \]</p>
-                <h1 id="dilatação-superficial">Dilatação
+<h3 id="exemplo-4.3---lâmina-bimetálica">Exemplo 4.3 -
+                Lâmina Bimetálica</h3>
+<p>Uma lâmina bimetálica é composta por uma tira de
+                cobre (\(\alpha_{Cu} = 1{,}7
+                \times 10^{-5} \, °\text{C}^{-1}\)) e uma tira de
+                aço (\(\alpha_{aço} = 1{,}1
+                \times 10^{-5} \, °\text{C}^{-1}\)) soldadas
+                rigidamente, cada uma com comprimento inicial de 10 cm a
+                20 °C. Quando a temperatura aumenta para 120 °C,
+                determine:</p>
+<ol type="a">
+<li>A dilatação de cada lâmina individualmente.</li>
+<li>Para que lado a lâmina bimetálica irá curvar?
+                Justifique.</li>
+</ol>
+<p><strong>Resolução:</strong></p>
+<ol type="a">
+<li>Cálculo das dilatações individuais:</li>
+</ol>
+<p>Para o cobre: - \(L_0 = 10
+                \, \text{cm}\) - \(\Delta \theta = 120 - 20 = 100 \,
+                °\text{C}\) - \(\alpha_{Cu} = 1{,}7 \times 10^{-5}
+                \, °\text{C}^{-1}\)</p>
+<p>\[
+                \Delta L_{Cu} = L_0 \cdot \alpha_{Cu} \cdot \Delta
+                \theta = 10 \cdot (1{,}7 \times 10^{-5}) \cdot 100
+                \] \[
+                \Delta L_{Cu} = 10 \cdot 1{,}7 \times 10^{-3} = 0{,}017
+                \, \text{cm}
+                \]</p>
+<p>Para o aço: - \(\alpha_{aço} = 1{,}1 \times
+                10^{-5} \, °\text{C}^{-1}\)</p>
+<p>\[
+                \Delta L_{aço} = 10 \cdot (1{,}1 \times 10^{-5}) \cdot
+                100 = 10 \cdot 1{,}1 \times 10^{-3} = 0{,}011 \,
+                \text{cm}
+                \]</p>
+<ol start="2" type="a">
+<li>O cobre dilata mais (\(0{,}017 \, \text{cm}\)) que
+                o aço (\(0{,}011 \,
+                \text{cm}\)). Como as lâminas estão soldadas, a
+                lâmina de cobre “empurra” a de aço, fazendo com que o
+                conjunto se curve para o lado do material que dilatou
+                menos. Portanto, a lâmina curvará para o <strong>lado do
+                aço</strong>.</li>
+</ol>
+<p><strong>Conclusão:</strong> Em um termostato, esse
+                movimento de curvatura pode ser usado para abrir ou
+                fechar um contato elétrico, regulando a temperatura.</p>
+<h1 id="dilatação-superficial">Dilatação
                 Superficial</h1>
-                A <strong>dilatação superficial</strong> é o aumento
-                da área de um corpo sólido. Acontece em corpos onde a
-                espessura é desprezível em relação à área, como:</p>
-                <ul>
-                <li>Placas, chapas, pisos, lâminas.</li>
-                </ul>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Thermal_expansion_kfupm.jpg"
-                style="width:60.0%"
-                alt="Dilatação em placas. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Dilatação em placas.
-                Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Thermal_expansion_kfupm.jpg">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                <h2 id="o-comportamento-de-buracos-e-recortes">O
+<p>A <strong>dilatação superficial</strong> é o aumento
+                da área de um corpo sólido. Aplica-se quando estamos
+                interessados na variação da área de um corpo, como
+                em:</p>
+<ul>
+<li>Placas, chapas, pisos, lâminas.</li>
+</ul>
+<h2 id="o-comportamento-de-buracos-e-recortes">O
                 Comportamento de Buracos e Recortes</h2>
-                Uma questão que surge frequentemente é: <strong>o que
+<p>Uma questão que surge frequentemente é: <strong>o que
                 acontece com um buraco em uma placa quando a temperatura
                 aumenta?</strong></p>
-                Intuitivamente, algumas pessoas pensam que o buraco
+<p>Intuitivamente, algumas pessoas pensam que o buraco
                 diminui, pois o material ao redor se expande “para
                 dentro”. Mas isso está <strong>incorreto</strong>!</p>
-                Na realidade, <strong>os buracos dilatam como se
+<p>Na realidade, <strong>os buracos dilatam como se
                 fossem feitos do mesmo material da placa</strong>.</p>
-                <strong>Explicação:</strong> Imagine que o buraco
+<p><strong>Explicação:</strong> Imagine que o buraco
                 está preenchido com o mesmo material da placa. Ao
                 aquecer, esse “disco imaginário” dilataria. Quando
                 retiramos o disco (o buraco), o espaço vazio se comporta
                 da mesma forma, ou seja, também aumenta de tamanho. A
                 expansão do material ao redor “puxa” as bordas do buraco
                 para fora, aumentando sua área.</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Thermal-expansion-aera.svg"
-                style="width:60.0%"
-                alt="Dilatação superficial. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Dilatação superficial.
-                Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/d/da/Thermal-expansion-aera.svg">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                Portanto, as mesmas fórmulas da dilatação superficial
+<figure>
+<img alt="Dilatação superficial. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/d/da/Thermal-expansion-aera.svg" style="width:60.0%"/>
+<figcaption aria-hidden="true">Dilatação superficial.
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/d/da/Thermal-expansion-aera.svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Portanto, as mesmas fórmulas da dilatação superficial
                 se aplicam tanto à área total da placa quanto à área de
                 qualquer recorte ou orifício nela contido.</p>
-                <h2 id="a-fórmula-da-dilatação-superficial">A Fórmula da
+<h2 id="a-fórmula-da-dilatação-superficial">A Fórmula da
                 Dilatação Superficial</h2>
-                Para uma placa de área inicial \(A_0\), aquecida de \(\Delta \theta\), a variação
+<p>Para uma placa de área inicial \(A_0\), aquecida de \(\Delta \theta\), a variação
                 da área (\(\Delta A\))
                 é:</p>
-                <ul>
-                <li>Proporcional à \(A_0\).</li>
-                <li>Proporcional à \(\Delta
+<ul>
+<li>Proporcional à \(A_0\).</li>
+<li>Proporcional à \(\Delta
                 \theta\).</li>
-                <li>Dependente do material, através do
+<li>Dependente do material, através do
                 <strong>coeficiente de dilatação superficial (\(\beta\))</strong>.</li>
-                </ul>
-                \[
+</ul>
+<p>\[
                 \boxed{\Delta A = A_0 \cdot \beta \cdot \Delta \theta}
                 \]</p>
-                Onde:</p>
-                <ul>
-                <li>\(\beta\) é o
+<p>Onde:</p>
+<ul>
+<li>\(\beta\) é o
                 coeficiente de dilatação superficial.</li>
-                </ul>
-                A área final (\(A\))
+</ul>
+<p>A área final (\(A\))
                 é:</p>
-                \[
+<p>\[
                 A = A_0 + \Delta A \Rightarrow \boxed{A = A_0 (1 + \beta
                 \cdot \Delta \theta)}
                 \]</p>
-                <h2 id="relação-entre-beta-e-alpha">Relação entre \(\beta\) e \(\alpha\)</h2>
-                Uma placa pode ser imaginada como uma combinação de
+<h2 id="relação-entre-beta-e-alpha">Relação entre \(\beta\) e \(\alpha\)</h2>
+<p>Uma placa pode ser imaginada como uma combinação de
                 duas dimensões lineares (comprimento e largura). Ao
                 dilatar, cada uma dessas dimensões dilata de acordo com
                 \(\alpha\). A análise
                 matemática mostra que, para materiais isotrópicos (que
                 dilatam igualmente em todas as direções):</p>
-                \[
+<p>\[
                 \boxed{\beta = 2 \cdot \alpha}
                 \]</p>
-                Ou seja, o coeficiente de dilatação superficial é o
+<p>Ou seja, o coeficiente de dilatação superficial é o
                 <strong>dobro</strong> do coeficiente de dilatação
                 linear.</p>
-                <h2
-                id="aplicação-prática-tampas-metálicas-em-potes-de-vidro">Aplicação
+<h2 id="aplicação-prática-tampas-metálicas-em-potes-de-vidro">Aplicação
                 Prática: Tampas Metálicas em Potes de Vidro</h2>
-                Quem nunca enfrentou dificuldade para abrir um pote
+<p>Quem nunca enfrentou dificuldade para abrir um pote
                 de vidro com tampa metálica? A solução caseira mais
                 comum, <strong>mergulhar a tampa em água
                 quente</strong>, é uma excelente aplicação prática da
@@ -570,19 +633,19 @@
                 vidro. Quando aquecida, a tampa dilata mais rapidamente,
                 aumentando seu diâmetro interno e, consequentemente,
                 afrouxando-se do gargalo de vidro.</p>
-                Isso ocorre porque o metal “ganha” dimensões de forma
+<p>Isso ocorre porque o metal “ganha” dimensões de forma
                 mais acentuada que o vidro, rompendo o vedamento e
                 permitindo a abertura com muito menos esforço. O mesmo
                 princípio explica por que, ao resfriar, a tampa se
                 contrai e fica mais apertada, daí a dificuldade maior em
                 abrir potes vindos diretamente da geladeira.</p>
-                É interessante notar que o orifício (espaço vazio
+<p>É interessante notar que o orifício (espaço vazio
                 entre a tampa e o vidro) se comporta exatamente como
                 discutimos na teoria: ele dilata como se fosse feito do
                 metal da tampa. Portanto, ao aquecer a tampa, o espaço
                 interno aumenta, enquanto o vidro, com seu coeficiente
                 menor, praticamente mantém suas dimensões.</p>
-                Esse fenômeno evidencia a importância de
+<p>Esse fenômeno evidencia a importância de
                 <strong>considerar os diferentes coeficientes de
                 dilatação dos materiais em situações
                 cotidianas</strong>. A escolha do metal para tampas não
@@ -591,507 +654,522 @@
                 vidro, que facilita a abertura quando necessário e
                 garante vedação adequada em temperaturas mais
                 baixas.</p>
-                <h2 id="exemplo-4.3---folga-em-piso-de-cerâmica">Exemplo
-                4.3 - Folga em piso de cerâmica</h2>
-                Uma placa de piso de cerâmica tem área de \(1,0 \, \text{m}^{2}\) a 20
-                °C. Sabendo que \(\alpha_{\text{cerâmica}} = 8
-                \times 10^{-6} \, °\text{C}^{-1}\), qual a
-                dilatação da placa se a temperatura chegar a 40 °C em um
-                dia quente?</p>
-                <strong>Resolução:</strong></p>
-                Primeiro, encontramos \(\beta\):</p>
-                \[
+<h2 id="exemplo-4.4---dilatação-de-uma-placa-cerâmica">Exemplo
+                4.4 - Dilatação de uma placa cerâmica</h2>
+<p>Uma placa quadrada de piso de cerâmica possui lado de
+                100 cm a 20 °C. Sabendo que \(\alpha_{\text{cerâmica}} = 8
+                \times 10^{-6} , °\text{C}^{-1}\), qual é a
+                dilatação da área da placa se a temperatura chegar a 40
+                °C em um dia quente?</p>
+<p><strong>Resolução:</strong></p>
+<p>Primeiro, encontramos \(\beta\):</p>
+<p>\[
                 \beta = 2\alpha = 2 \cdot (8 \times 10^{-6}) = 16 \times
                 10^{-6} = 1{,}6 \times 10^{-5} \, °\text{C}^{-1}
                 \]</p>
-                Agora, calculamos a dilatação:</p>
-                <ul>
-                <li>\(A_0 = 1{,}0
+<p>Agora, calculamos a dilatação:</p>
+<ul>
+<li>\(A_0 = 1{,}0
                 \,\text{m}^2\)</li>
-                <li>\(\Delta \theta = 40 - 20
+<li>\(\Delta \theta = 40 - 20
                 = 20\,°\text{C}\)</li>
-                </ul>
-                \[
+</ul>
+<p>\[
                 \Delta A = A_0 \cdot \beta \cdot \Delta \theta
                 \]</p>
-                \[
+<p>\[
                 \Delta A = 1{,}0 \cdot (1{,}6 \times 10^{-5}) \cdot 20
                 \]</p>
-                \[
+<p>\[
                 \Delta A = 3{,}2 \times 10^{-4} \,\text{m}^2
                 \]</p>
-                <strong>Interpretação:</strong> Uma placa de 1 \(\text{m}^{2}\) dilata \(0{,}00032 \,\text{m}^2\),
+<p><strong>Interpretação:</strong> Uma placa de 1 \(\text{m}^{2}\) dilata \(0{,}00032 \,\text{m}^2\),
                 ou <strong>3,2 \(\text{cm}^{2}\)</strong>.
                 Essa pequena dilatação por placa, multiplicada por
                 milhares de placas, justifica a necessidade de juntas de
                 dilatação em pisos grandes.</p>
-                <h2
-                id="exemplo-4.4---dilatação-de-um-orifício-buraco">Exemplo
-                4.4 - Dilatação de um orifício (buraco)</h2>
-                Uma placa de alumínio possui um orifício circular de
+<h2 id="exemplo-4.5---dilatação-de-um-orifício-buraco">Exemplo
+                4.5 - Dilatação de um orifício (buraco)</h2>
+<p>Uma placa de alumínio possui um orifício circular de
                 \(50 \, \text{cm}^{2}\)
                 de área a 20 °C. A placa é aquecida até 120 °C.
                 Determine a área do orifício após o aquecimento. Dado:
                 \(\alpha_{Al} = 2{,}3 \times
                 10^{-5} \, °\text{C}^{-1}\).</p>
-                <strong>Resolução:</strong></p>
-                Primeiro, calculamos \(\beta\) para o
+<p><strong>Resolução:</strong></p>
+<p>Primeiro, calculamos \(\beta\) para o
                 alumínio:</p>
-                \[
+<p>\[
                 \beta = 2\alpha = 2 \cdot (2{,}3 \times 10^{-5}) = 4{,}6
                 \times 10^{-5} \, °\text{C}^{-1}
                 \]</p>
-                Agora, aplicamos a fórmula da dilatação superficial
+<p>Agora, aplicamos a fórmula da dilatação superficial
                 para a área do orifício. Lembre-se: <strong>o buraco
                 dilata como se fosse feito de alumínio</strong>.</p>
-                <ul>
-                <li>\(A_0 = 50 \,
+<ul>
+<li>\(A_0 = 50 \,
                 \text{cm}^{2}\)</li>
-                <li>\(\Delta \theta = 120 - 20
+<li>\(\Delta \theta = 120 - 20
                 = 100 \,°C\)</li>
-                <li>\(\beta = 4{,}6 \times
+<li>\(\beta = 4{,}6 \times
                 10^{-5} \, °\text{C}^{-1}\)</li>
-                </ul>
-                Calculando a variação da área do orifício:</p>
-                \[
+</ul>
+<p>Calculando a variação da área do orifício:</p>
+<p>\[
                 \Delta A = A_0 \cdot \beta \cdot \Delta \theta = 50
                 \cdot (4{,}6 \times 10^{-5}) \cdot 100
                 \]</p>
-                \[
+<p>\[
                 \Delta A = 50 \cdot (4{,}6 \times 10^{-3}) = 0{,}23 \,
                 \text{cm}^{2}
                 \]</p>
-                A área final do orifício será:</p>
-                \[
+<p>A área final do orifício será:</p>
+<p>\[
                 A = A_0 + \Delta A = 50 + 0{,}23 = 50{,}23 \,
                 \text{cm}^{2}
                 \]</p>
-                <strong>Conclusão:</strong> O orifício aumenta sua
+<p><strong>Conclusão:</strong> O orifício aumenta sua
                 área em \(0{,}23 \,
                 \text{cm}^{2}\), passando a ter \(50{,}23 \, \text{cm}^{2}\)
                 a 120 °C.</p>
-                <h1 id="dilatação-volumétrica">Dilatação
+<h1 id="dilatação-volumétrica">Dilatação
                 Volumétrica</h1>
-                A <strong>dilatação volumétrica</strong> é o aumento
+<p>A <strong>dilatação volumétrica</strong> é o aumento
                 do volume de um corpo. Acontece em corpos onde as três
                 dimensões são importantes, como:</p>
-                <ul>
-                <li>Blocos, cubos, esferas, tanques, reservatórios.</li>
-                </ul>
-                <h2 id="a-fórmula-da-dilatação-volumétrica">A Fórmula da
+<ul>
+<li>Blocos, cubos, esferas, tanques, reservatórios.</li>
+</ul>
+<h2 id="a-fórmula-da-dilatação-volumétrica">A Fórmula da
                 Dilatação Volumétrica</h2>
-                Para um corpo de volume inicial \(V_0\), aquecido de \(\Delta \theta\), a variação
+<p>Para um corpo de volume inicial \(V_0\), aquecido de \(\Delta \theta\), a variação
                 do volume (\(\Delta
                 V\)) é:</p>
-                <ul>
-                <li>Proporcional à \(V_0\).</li>
-                <li>Proporcional à \(\Delta
+<ul>
+<li>Proporcional à \(V_0\).</li>
+<li>Proporcional à \(\Delta
                 \theta\).</li>
-                <li>Dependente do material, através do
+<li>Dependente do material, através do
                 <strong>coeficiente de dilatação volumétrica (\(\gamma\))</strong>.</li>
-                </ul>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Thermal-expansion-volume2.svg"
-                style="width:60.0%"
-                alt="Dilatação volumétrico. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Dilatação volumétrico.
-                Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/8/85/Thermal-expansion-volume2.svg">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                \[
+</ul>
+<figure>
+<img alt="Dilatação volumétrica. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/8/85/Thermal-expansion-volume2.svg" style="width:60.0%"/>
+<figcaption aria-hidden="true">Dilatação volumétrica.
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/8/85/Thermal-expansion-volume2.svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>\[
                 \boxed{\Delta V = V_0 \cdot \gamma \cdot \Delta \theta}
                 \]</p>
-                O volume final (\(V\)) é:</p>
-                \[
+<p>O volume final (\(V\)) é:</p>
+<p>\[
                 V = V_0 + \Delta V \Rightarrow \boxed{V = V_0 (1 +
                 \gamma \cdot \Delta \theta)}
                 \]</p>
-                <h2 id="relação-entre-gamma-e-alpha">Relação entre \(\gamma\) e \(\alpha\)</h2>
-                Para sólidos isotrópicos, as três dimensões (altura,
+<h2 id="relação-entre-gamma-e-alpha">Relação entre \(\gamma\) e \(\alpha\)</h2>
+<p>Para sólidos isotrópicos, as três dimensões (altura,
                 largura e profundidade) dilatam linearmente. A análise
                 matemática nos leva à importante relação:</p>
-                \[
+<p>\[
                 \boxed{\gamma = 3 \cdot \alpha}
                 \]</p>
-                <h2
-                id="aplicação-prática-o-anel-de-gravesande">Aplicação
+<h2 id="aplicação-prática-o-anel-de-gravesande">Aplicação
                 Prática: O Anel de Gravesande</h2>
-                O <strong>Anel de Gravesande</strong> é um
+<p>O <strong>Anel de Gravesande</strong> é um
                 experimento clássico que ilustra de forma impressionante
-                a <strong>dilatação volumétrica dos sólidos</strong>. O
-                aparato consiste em uma esfera metálica presa por uma
-                corrente e um anel pelo qual ela passa exatamente quando
-                ambos estão à mesma temperatura.</p>
-                À temperatura ambiente, a esfera atravessa o anel com
-                folga mínima ou justeza. Quando a esfera é aquecida,
-                ocorre dilatação volumétrica: seu volume aumenta em
-                todas as direções, e ela já não consegue mais passar
-                pelo anel. Isso demonstra que o aumento de temperatura
-                provoca expansão tridimensional do material, variando
-                seu volume total conforme a relação \(\Delta V = V_0 \cdot \gamma \cdot
-                \Delta \theta\).</p>
-                <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Gravesande_ring.png"
-                style="width:60.0%"
-                alt="Anel de Gravesande. Fonte: Wikimedia Cammons." />
-                <figcaption aria-hidden="true">Anel de Gravesande.
-                Fonte: <a
-                href="https://upload.wikimedia.org/wikipedia/commons/7/7b/Gravesande_ring.png">Wikimedia
-                Cammons.</a></figcaption>
-                </figure>
-                O experimento fica ainda mais interessante quando se
-                aquece o anel em vez da esfera. Nesse caso, o diâmetro
+                a <strong>dilatação volumétrica dos sólidos</strong> e o
+                comportamento de orifícios. O aparato consiste em uma
+                esfera metálica presa por uma corrente e um anel pelo
+                qual ela passa exatamente quando ambos estão à mesma
+                temperatura.</p>
+<figure>
+<img alt="Anel de Gravesande. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Gravesande_ring.png" style="width:60.0%"/>
+<figcaption aria-hidden="true">Anel de Gravesande.
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/7/7b/Gravesande_ring.png">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p><strong>Experimento 1 - Aquecendo a
+                esfera:</strong></p>
+<p>À temperatura ambiente, a esfera atravessa o anel com
+                folga mínima. Quando a esfera é aquecida, ocorre
+                dilatação volumétrica: seu volume aumenta em todas as
+                direções, e ela já não consegue mais passar pelo anel.
+                Isso demonstra que o aumento de temperatura provoca
+                expansão tridimensional do material.</p>
+<p><strong>Experimento 2 - Aquecendo o
+                anel:</strong></p>
+<p>Se, em vez da esfera, aquecermos o anel, o diâmetro
                 interno do anel também dilata (assim como os buracos nas
-                placas), permitindo que a esfera fria, que antes não
-                passava, agora atravesse o anel aquecido.</p>
-                O Anel de Gravesande evidencia dois conceitos
-                fundamentais: primeiro, que <strong>a dilatação ocorre
-                em todas as direções (volumétrica)</strong>; segundo,
-                que <strong>cavidades e orifícios dilatam como se fossem
-                preenchidos pelo material que os circunda</strong>.</p>
-                Esse experimento é amplamente utilizado em
-                laboratórios didáticos para demonstrar, de forma visual
-                e concreta, os princípios da dilatação térmica dos
-                sólidos, reforçando a compreensão dos coeficientes de
-                dilatação e suas aplicações práticas.</p>
-                <h2
-                id="exemplo-4.5---dilatação-de-um-bloco-maciço">Exemplo
-                4.5 - Dilatação de um bloco maciço</h2>
-                Um bloco maciço de alumínio tem volume de \(2000 \, \text{cm}^{3}\) a
+                placas). Neste caso, a esfera fria, que antes não
+                passava (se o anel estivesse frio), agora atravessa o
+                anel aquecido com folga.</p>
+<p>O Anel de Gravesande evidencia dois conceitos
+                fundamentais:</p>
+<ol type="1">
+<li><strong>A dilatação ocorre em todas as direções
+                (volumétrica)</strong>.</li>
+<li><strong>Cavidades e orifícios dilatam como se fossem
+                preenchidos pelo material que os circunda</strong>.</li>
+</ol>
+<h2 id="exemplo-4.6---dilatação-de-um-bloco-maciço">Exemplo
+                4.6 - Dilatação de um bloco maciço</h2>
+<p>Um bloco maciço de alumínio tem volume de \(2000 \, \text{cm}^{3}\) a
                 20 °C. Determine:</p>
-                <ol type="a">
-                <li>O coeficiente de dilatação volumétrica do alumínio,
+<ol type="a">
+<li>O coeficiente de dilatação volumétrica do alumínio,
                 sabendo que \(\alpha_{Al} =
                 2{,}3 \times 10^{-5} \, °\text{C}^{-1}\).</li>
-                <li>A variação de volume sofrida pelo bloco quando
+<li>A variação de volume sofrida pelo bloco quando
                 aquecido até 120 °C.</li>
-                <li>O volume final do bloco.</li>
-                </ol>
-                <strong>Resolução:</strong></p>
-                <ol type="a">
-                <li>Cálculo de \(\gamma\):</li>
-                </ol>
-                \[
+<li>O volume final do bloco.</li>
+</ol>
+<p><strong>Resolução:</strong></p>
+<ol type="a">
+<li>Cálculo de \(\gamma\):</li>
+</ol>
+<p>\[
                 \gamma = 3\alpha = 3 \cdot (2{,}3 \times 10^{-5}) =
                 6{,}9 \times 10^{-5} \, °\text{C}^{-1}
                 \]</p>
-                <ol start="2" type="a">
-                <li>Cálculo da variação de volume:</li>
-                </ol>
-                <ul>
-                <li>\(V_0 = 2000 \,
+<ol start="2" type="a">
+<li>Cálculo da variação de volume:</li>
+</ol>
+<ul>
+<li>\(V_0 = 2000 \,
                 \text{cm}^{3}\)</li>
-                <li>\(\Delta \theta = 120 - 20
+<li>\(\Delta \theta = 120 - 20
                 = 100 \,°C\)</li>
-                <li>\(\gamma = 6{,}9 \times
+<li>\(\gamma = 6{,}9 \times
                 10^{-5} \, °\text{C}^{-1}\)</li>
-                </ul>
-                \[
+</ul>
+<p>\[
                 \Delta V = V_0 \cdot \gamma \cdot \Delta \theta
                 \]</p>
-                \[
+<p>\[
                 \Delta V = 2000 \cdot (6{,}9 \times 10^{-5}) \cdot 100
                 \]</p>
-                \[
+<p>\[
                 \Delta V = 2000 \cdot (6{,}9 \times 10^{-3})
                 \]</p>
-                \[
+<p>\[
                 \Delta V = 13{,}8 \, \text{cm}^{3}
                 \]</p>
-                <ol start="3" type="a">
-                <li>Volume final:</li>
-                </ol>
-                \[
+<ol start="3" type="a">
+<li>Volume final:</li>
+</ol>
+<p>\[
                 V = V_0 + \Delta V = 2000 + 13{,}8 = 2013{,}8 \,
                 \text{cm}^{3}
                 \]</p>
-                <strong>Conclusão:</strong> O bloco sofre um aumento
+<p><strong>Conclusão:</strong> O bloco sofre um aumento
                 de <strong>13,8 \(\text{cm}^{3}\)</strong> em
                 seu volume, passando a ocupar <strong>2013,8 \(\text{cm}^{3}\)</strong> a
                 120 °C.</p>
-                <h2
-                id="exemplo-4.6---aplicação-tanque-esférico-de-armazenamento-criogênico">Exemplo
-                4.6 - Aplicação: Tanque esférico de armazenamento
+<h2 id="exemplo-4.7---aplicação-tanque-esférico-de-armazenamento-criogênico">Exemplo
+                4.7 - Aplicação: Tanque esférico de armazenamento
                 criogênico</h2>
-                Um tanque esférico de aço inoxidável utilizado para
-                armazenar nitrogênio líquido tem raio interno de \(1,5 \, m\) a -196 °C
+<p>Um tanque esférico de aço inoxidável utilizado para
+                armazenar nitrogênio líquido tem raio interno de \(1{,}5 \, m\) a -196 °C
                 (temperatura de operação). Devido a uma parada para
                 manutenção, o tanque é aquecido até a temperatura
                 ambiente de 25 °C. Sabendo que o coeficiente de
                 dilatação linear do aço inoxidável é \(\alpha = 1{,}7 \times 10^{-5} \,
                 °\text{C}^{-1}\), determine:</p>
-                <ol type="a">
-                <li>O coeficiente de dilatação volumétrica do aço.</li>
-                <li>O volume interno do tanque a -196 °C.</li>
-                <li>A variação do volume interno quando o tanque é
+<ol type="a">
+<li>O coeficiente de dilatação volumétrica do aço.</li>
+<li>O volume interno do tanque a -196 °C (use \(\pi = 3{,}1416\)).</li>
+<li>A variação do volume interno quando o tanque é
                 aquecido até 25 °C.</li>
-                <li>O volume interno do tanque a 25 °C.</li>
-                </ol>
-                <strong>Resolução:</strong></p>
-                <ol type="a">
-                <li>Cálculo de \(\gamma\):</li>
-                </ol>
-                \[
+<li>O volume interno do tanque a 25 °C.</li>
+</ol>
+<p><strong>Resolução:</strong></p>
+<ol type="a">
+<li>Cálculo de \(\gamma\):</li>
+</ol>
+<p>\[
                 \gamma = 3\alpha = 3 \cdot (1{,}7 \times 10^{-5}) =
                 5{,}1 \times 10^{-5} \, °\text{C}^{-1}
                 \]</p>
-                <ol start="2" type="a">
-                <li>Volume da esfera a -196 °C (\(V_0\)):</li>
-                </ol>
-                O volume de uma esfera é dado por \(V = \frac{4}{3}\pi R^3\).
-                Portanto:</p>
-                \[
-                V_0 = \frac{4}{3}\pi (1{,}5)^3 = \frac{4}{3}\pi \cdot
-                3{,}375 = 4{,}5\pi \approx 14{,}14 \, \text{m}^{3}
-                \]</p>
-                <ol start="3" type="a">
-                <li>Variação de temperatura e de volume:</li>
-                </ol>
-                <ul>
-                <li>\(\Delta \theta = \theta -
+<ol start="2" type="a">
+<li>Volume da esfera a -196 °C (\(V_0\)):</li>
+</ol>
+<p>A fórmula do volume de uma esfera é: \[V = \frac{4}{3}\pi
+                R^3\]</p>
+<p>Substituindo \(R = 1{,}5 \,
+                \text{m}\) e \(\pi =
+                3{,}1416\):</p>
+<p>\[V_0 = \frac{4}{3} \cdot
+                3{,}1416 \cdot (1{,}5)^3\]</p>
+<p>Primeiro, calculamos \(R^3
+                = (1{,}5)^3 = 3{,}375 \, \text{m}^3\)</p>
+<p>\[V_0 = \frac{4}{3} \cdot
+                3{,}1416 \cdot 3{,}375\]</p>
+<p>\[V_0 = \frac{4}{3} \cdot
+                10{,}6029\]</p>
+<p>\[V_0 = 4 \cdot 3{,}5343 =
+                14{,}1372 \, \text{m}^3\]</p>
+<p>Portanto, o volume interno do tanque a -196 °C é
+                aproximadamente <strong>14,14 m³</strong>.</p>
+<ol start="3" type="a">
+<li>Variação de temperatura e de volume:</li>
+</ol>
+<ul>
+<li>\(\Delta \theta = \theta -
                 \theta_{0} = 25 - (-196) = 221 \,°C\) (uma
                 variação enorme!)</li>
-                <li>\(\gamma = 5{,}1 \times
+<li>\(\gamma = 5{,}1 \times
                 10^{-5} \, °\text{C}^{-1}\)</li>
-                </ul>
-                Aplicando a fórmula:</p>
-                \[
-                \Delta V = V_0 \cdot \gamma \cdot \Delta \theta =
-                14{,}14 \cdot (5{,}1 \times 10^{-5}) \cdot 221
+<li>\(V_0 = 14{,}1372 \,
+                \text{m}^3\)</li>
+</ul>
+<p>Aplicando a fórmula da dilatação volumétrica:</p>
+<p>\[
+                \Delta V = V_0 \cdot \gamma \cdot \Delta \theta
                 \]</p>
-                \[
-                \Delta V = 14{,}14 \cdot (5{,}1 \times 10^{-5} \cdot
-                221)
+<p>\[
+                \Delta V = 14{,}1372 \cdot (5{,}1 \times 10^{-5}) \cdot
+                221
                 \]</p>
-                Primeiro, calculamos \(5{,}1 \times 10^{-5} \cdot 221 =
-                5{,}1 \times 10^{-5} \cdot 2{,}21 \times 10^2 = 11{,}271
-                \times 10^{-3} = 0{,}011271\)</p>
-                Agora:</p>
-                \[
-                \Delta V = 14{,}14 \cdot 0{,}011271 \approx 0{,}159 \,
-                \text{m}^{3}
+<p>Calculando passo a passo:</p>
+<p>Primeiro, \(5{,}1 \times
+                10^{-5} \cdot 221 = 5{,}1 \times 10^{-5} \cdot 2{,}21
+                \times 10^2 = (5{,}1 \cdot 2{,}21) \times 10^{-3} =
+                11{,}271 \times 10^{-3} = 0{,}011271\)</p>
+<p>Agora: \[
+                \Delta V = 14{,}1372 \cdot 0{,}011271 = 0{,}1593 \,
+                \text{m}^3
                 \]</p>
-                <ol start="4" type="a">
-                <li>Volume final a 25 °C:</li>
-                </ol>
-                \[
-                V = V_0 + \Delta V = 14{,}14 + 0{,}159 = 14{,}299 \,
-                \text{m}^{3}
+<p>Convertendo para litros (1 m³ = 1000 L): \[
+                \Delta V = 0{,}1593 \, \text{m}^3 \times 1000 = 159{,}3
+                \, \text{litros}
                 \]</p>
-                <strong>Conclusão:</strong> O volume interno do
-                tanque aumenta em aproximadamente <strong>0,159 \(\text{m}^{3}\)</strong>
-                (159 litros) quando aquecido do nitrogênio líquido até a
-                temperatura ambiente. Projetos de engenharia criogênica
-                devem considerar essa enorme variação volumétrica para
-                evitar tensões mecânicas e falhas estruturais.</p>
-                <h2
-                id="exemplo-4.7---determinando-beta-a-partir-de-gamma">Exemplo
-                4.7 - Determinando \(\beta\) a partir de \(\gamma\)</h2>
-                Um determinado material possui coeficiente de
+<ol start="4" type="a">
+<li>Volume final a 25 °C:</li>
+</ol>
+<p>\[
+                V = V_0 + \Delta V = 14{,}1372 + 0{,}1593 = 14{,}2965 \,
+                \text{m}^3
+                \]</p>
+<p><strong>Conclusão:</strong> O volume interno do
+                tanque aumenta em aproximadamente <strong>0,1593
+                m³</strong> (159,3 litros) quando aquecido do nitrogênio
+                líquido até a temperatura ambiente. Projetos de
+                engenharia criogênica devem considerar essa enorme
+                variação volumétrica para evitar tensões mecânicas e
+                falhas estruturais.</p>
+<h2 id="exemplo-4.8---relação-entre-coeficientes">Exemplo
+                4.8 - Relação entre coeficientes</h2>
+<p>Um determinado material possui coeficiente de
                 dilatação volumétrica \(\gamma
                 = 4{,}5 \times 10^{-5} \, °\text{C}^{-1}\).
                 Determine:</p>
-                <ol type="a">
-                <li>O coeficiente de dilatação linear \(\alpha\) do material.</li>
-                <li>O coeficiente de dilatação superficial \(\beta\) do material.</li>
-                </ol>
-                <strong>Resolução:</strong></p>
-                <ol type="a">
-                <li>Sabemos que \(\gamma =
+<ol type="a">
+<li>O coeficiente de dilatação linear \(\alpha\) do material.</li>
+<li>O coeficiente de dilatação superficial \(\beta\) do material.</li>
+</ol>
+<p><strong>Resolução:</strong></p>
+<ol type="a">
+<li>Sabemos que \(\gamma =
                 3\alpha\). Portanto:</li>
-                </ol>
-                \[
+</ol>
+<p>\[
                 \alpha = \frac{\gamma}{3} = \frac{4{,}5 \times
                 10^{-5}}{3} = 1{,}5 \times 10^{-5} \, °\text{C}^{-1}
                 \]</p>
-                <ol start="2" type="a">
-                <li>Sabemos que \(\beta =
+<ol start="2" type="a">
+<li>Sabemos que \(\beta =
                 2\alpha\). Portanto:</li>
-                </ol>
-                \[
+</ol>
+<p>\[
                 \beta = 2 \cdot (1{,}5 \times 10^{-5}) = 3{,}0 \times
                 10^{-5} \, °\text{C}^{-1}
                 \]</p>
-                <strong>Interpretação:</strong> Conhecendo qualquer
+<p><strong>Interpretação:</strong> Conhecendo qualquer
                 um dos coeficientes, podemos determinar os outros dois
                 através das relações \(\beta =
                 2\alpha\) e \(\gamma =
                 3\alpha\).</p>
-                <h1
-                id="aplicações-práticas-da-dilatação-em-sólidos">Aplicações
+<h1 id="aplicações-práticas-da-dilatação-em-sólidos">Aplicações
                 Práticas da Dilatação em Sólidos</h1>
-                A dilatação térmica não é apenas um conceito
+<p>A dilatação térmica não é apenas um conceito
                 abstrato; ela está presente em inúmeras situações do
                 cotidiano e da tecnologia.</p>
-                <ol type="1">
-                <li><strong>Juntas de Dilatação</strong>: como no
+<ol type="1">
+<li><p><strong>Juntas de Dilatação</strong>: como no
                 problema inicial da ponte, são espaços vazios deixados
                 em pontes, trilhos, pisos e calçadas para permitir a
                 expansão térmica sem danos à estrutura.</p></li>
-                <li><strong>Lâminas Bimetálicas</strong>: conforme
+<li><p><strong>Lâminas Bimetálicas</strong>: conforme
                 discutido na seção de dilatação linear, são usadas em
                 termostatos, pisca-piscas e termômetros
                 metálicos.</p></li>
-                <li><strong>Tampas de vidro de conservas</strong>:
+<li><p><strong>Tampas de vidro de conservas</strong>:
                 aquecer a tampa metálica de um pote de vidro faz com que
                 ela dilate mais que o vidro (pois o metal tem \(\alpha\) maior),
                 facilitando a abertura.</p></li>
-                <li><strong>Fios elétricos</strong>: em dias quentes,
+<li><p><strong>Fios elétricos</strong>: em dias quentes,
                 os fios de transmissão de energia dilatam e podem ficar
                 mais “frouxos”. Em dias frios, contraem e ficam mais
                 esticados. Os postes são projetados para suportar essas
                 variações de tensão.</p></li>
-                <li><strong>Odontologia</strong>: O material usado em
+<li><p><strong>Odontologia</strong>: O material usado em
                 obturações dentárias deve ter coeficiente de dilatação
                 próximo ao do dente para evitar que, ao tomar um café
                 quente ou um sorvete frio, a obturação dilate ou
                 contraia de forma diferente do dente, criando
                 fissuras.</p></li>
-                <li><strong>Indústria Metalúrgica</strong>: No
+<li><p><strong>Indústria Metalúrgica</strong>: No
                 processo de encaixe por contração térmica, peças
                 metálicas são aquecidas para dilatar e permitir o
                 encaixe. Ao resfriar, contraem e ficam firmemente
                 unidas.</p></li>
-                <li><strong>Engenharia Criogênica</strong>: como
+<li><p><strong>Engenharia Criogênica</strong>: como
                 visto no <strong>Exemplo 4.6</strong>, tanques e
                 tubulações que operam em temperaturas extremamente
                 baixas devem ser projetados considerando a enorme
                 contração que sofrerão quando resfriados até a
                 temperatura de operação.</p></li>
-                </ol>
-                <h1 id="resumo-das-fórmulas">Resumo das Fórmulas</h1>
-                <ul>
-                <li><strong>Dilatação Linear:</strong> \[\Delta L = L_0 \cdot \alpha \cdot
+<li><p><strong>Torre Eiffel</strong>: como visto na
+                curiosidade, a altura da Torre Eiffel pode variar até 15
+                cm entre o inverno e o verão devido à dilatação térmica
+                do ferro.</p></li>
+</ol>
+<h1 id="resumo-das-fórmulas">Resumo das Fórmulas</h1>
+<ul>
+<li><strong>Dilatação Linear:</strong> \[\Delta L = L_0 \cdot \alpha \cdot
                 \Delta \theta\] \[L =
                 L_0(1 + \alpha \Delta \theta)\]</li>
-                <li><strong>Dilatação Superficial:</strong> \[\Delta A = A_0 \cdot \beta \cdot
+<li><strong>Dilatação Superficial:</strong> \[\Delta A = A_0 \cdot \beta \cdot
                 \Delta \theta\] \[A =
                 A_0(1 + \beta \Delta \theta)\]</li>
-                <li><strong>Dilatação Volumétrica:</strong> \[\Delta V = V_0 \cdot \gamma \cdot
+<li><strong>Dilatação Volumétrica:</strong> \[\Delta V = V_0 \cdot \gamma \cdot
                 \Delta \theta\] \[V =
                 V_0(1 + \gamma \Delta \theta)\]</li>
-                <li><strong>Relação entre os coeficientes:</strong>
-                \[\]</li>
-                </ul>
-                <h1 id="conclusão">Conclusão</h1>
-                Nesta aula, exploramos como o aumento da temperatura
+<li><strong>Relação entre os coeficientes:</strong>
+\[\boxed{\dfrac{\alpha}{1}=\dfrac{\beta}{2}=\dfrac{\gamma}{3}}\]
+                ou, explicitamente: \[\beta =
+                2\alpha \quad \text{e} \quad \gamma =
+                3\alpha\]</li>
+</ul>
+<h1 id="conclusão">Conclusão</h1>
+<p>Nesta aula, exploramos como o aumento da temperatura
                 afeta as dimensões dos corpos sólidos. Vimos que a
                 dilatação é uma consequência direta do aumento da
                 agitação molecular e que pode ser calculada com precisão
                 usando fórmulas simples.</p>
-                Compreendemos que:</p>
-                <ul>
-                <li>A dilatação <strong>linear</strong> se aplica a fios
+<p>Compreendemos que:</p>
+<ul>
+<li>A dilatação <strong>linear</strong> se aplica a fios
                 e barras, onde apenas uma dimensão é relevante, e tem
                 aplicações importantes como nas lâminas
                 bimetálicas.</li>
-                <li>A dilatação <strong>superficial</strong> se aplica a
+<li>A dilatação <strong>superficial</strong> se aplica a
                 chapas e placas, e um aspecto fundamental é que
                 <strong>buracos e recortes dilatam como se fossem
                 preenchidos pelo material da placa</strong>.</li>
-                <li>A dilatação <strong>volumétrica</strong> se aplica a
+<li>A dilatação <strong>volumétrica</strong> se aplica a
                 blocos e corpos tridimensionais, sendo crucial em
                 projetos de engenharia que envolvem grandes variações de
                 temperatura, como tanques criogênicos.</li>
-                </ul>
-                Aprendemos a importante relação entre os coeficientes
+</ul>
+<p>Aprendemos a importante relação entre os coeficientes
                 (\(\beta = 2\alpha\) e
                 \(\gamma = 3\alpha\)),
                 que nos permite determinar qualquer um dos coeficientes
                 conhecendo apenas o coeficiente de dilatação linear do
                 material.</p>
-                Vimos também como esses conceitos são vitais na
+<p>Vimos também como esses conceitos são vitais na
                 engenharia, na construção civil e em diversas aplicações
                 tecnológicas, desde simples potes de conserva até
-                complexos sistemas de armazenamento criogênico.</p>
-                Ignorar a dilatação térmica pode levar a falhas
+                complexos sistemas de armazenamento criogênico, passando
+                por ícones da engenharia como a Torre Eiffel.</p>
+<p>Ignorar a dilatação térmica pode levar a falhas
                 estruturais catastróficas. Dominar seu cálculo é,
                 portanto, essencial para qualquer profissional das áreas
                 de exatas.</p>
-                Na próxima aula, estudaremos a <strong>dilatação dos
+<p>Na próxima aula, estudaremos a <strong>dilatação dos
                 líquidos</strong>, que apresenta particularidades
                 importantes, como a necessidade de considerar a
                 dilatação do recipiente que os contém.</p>
-                <h1 id="exercícios-de-fixação">Exercícios de
+<h1 id="exercícios-de-fixação">Exercícios de
                 Fixação</h1>
-                <dl>
-                <dt>4.1)</dt>
-                <dd>
+<dl>
+<dt>4.1)</dt>
+<dd>
                 O que é dilatação térmica e por que ela ocorre?
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>É o aumento do volume de um material devido à
+</dl>
+<ol type="a">
+<li>É o aumento do volume de um material devido à
                 diminuição da temperatura.</li>
-                <li>É a variação das dimensões de um material devido à
+<li>É a variação das dimensões de um material devido à
                 mudança na pressão.</li>
-                <li>É a variação das dimensões de um material devido à
+<li>É a variação das dimensões de um material devido à
                 mudança na temperatura.</li>
-                <li>É a contração de um material quando aquecido.</li>
-                <li>É a mudança na densidade de um material sem
+<li>É a contração de um material quando aquecido.</li>
+<li>É a mudança na densidade de um material sem
                 alteração de temperatura.</li>
-                </ol>
-                <dl>
-                <dt>4.2)</dt>
-                <dd>
+</ol>
+<dl>
+<dt>4.2)</dt>
+<dd>
                 Por que é importante considerar a dilatação térmica na
                 construção de pontes e trilhos de trem?
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>Para evitar que os materiais se contraiam em
+</dl>
+<ol type="a">
+<li>Para evitar que os materiais se contraiam em
                 temperaturas baixas.</li>
-                <li>Para garantir que os materiais não se dilatem em
+<li>Para garantir que os materiais não se dilatem em
                 temperaturas altas.</li>
-                <li>Para aumentar a resistência dos materiais ao
+<li>Para aumentar a resistência dos materiais ao
                 calor.</li>
-                <li>Para reduzir o custo de construção.</li>
-                <li>Para permitir a expansão e contração sem danos à
+<li>Para reduzir o custo de construção.</li>
+<li>Para permitir a expansão e contração sem danos à
                 estrutura.</li>
-                </ol>
-                <dl>
-                <dt>4.3)</dt>
-                <dd>
+</ol>
+<dl>
+<dt>4.3)</dt>
+<dd>
                 É comum as pessoas terem dificuldade para abrir um vidro
                 de conserva. Uma maneira simples de destravar a tampa,
                 sem danificá-la, permitindo o seu desenroscar sem a
                 necessidade de aplicação de grande força, é:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>Colocar o vidro de conserva numa vasilha com água
+</dl>
+<ol type="a">
+<li>Colocar o vidro de conserva numa vasilha com água
                 gelada, de modo que somente a tampa fique em contato com
                 a água.</li>
-                <li>Colocar o vidro de conserva numa vasilha com água
+<li>Colocar o vidro de conserva numa vasilha com água
                 quente, de modo que somente o vidro fique em contato com
                 a água.</li>
-                <li>Mergulhar totalmente o vidro de conserva numa
+<li>Mergulhar totalmente o vidro de conserva numa
                 vasilha com água gelada.</li>
-                <li>Colocar o vidro de conserva numa geladeira.</li>
-                <li>Colocar o vidro de conserva numa vasilha com água
+<li>Colocar o vidro de conserva numa geladeira.</li>
+<li>Colocar o vidro de conserva numa vasilha com água
                 quente, de modo que somente a tampa fique em contato com
                 a água.</li>
-                </ol>
-                <dl>
-                <dt>4.4)</dt>
-                <dd>
+</ol>
+<dl>
+<dt>4.4)</dt>
+<dd>
                 Uma barra de alumínio tem 100 cm a 0 °C. Qual o
                 acréscimo de comprimento dessa barra quando sua
                 temperatura chega a 100 °C? (Dado: \(\alpha_{Al} = 2{,}4 \times 10^{-5}
                 \, °\text{C}^{-1}\))
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>0,12 cm.</li>
-                <li>0,24 cm.</li>
-                <li>0,36 cm.</li>
-                <li>0,48 cm.</li>
-                <li>0,60 cm.</li>
-                </ol>
-                <dl>
-                <dt>4.5)</dt>
-                <dd>
+</dl>
+<ol type="a">
+<li>0,12 cm.</li>
+<li>0,24 cm.</li>
+<li>0,36 cm.</li>
+<li>0,48 cm.</li>
+<li>0,60 cm.</li>
+</ol>
+<dl>
+<dt>4.5)</dt>
+<dd>
                 Um cubo de alumínio com coeficiente de dilatação linear
                 de \(2 \times 10^{-5} \,
                 °\text{C}^{-1}\) tem aresta de 10 cm quando à
@@ -1099,25 +1177,25 @@
                 \(\text{cm}^{3}\),
                 aproximadamente:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>1006 \(\text{cm}^{3}\).</li>
-                <li>1010 \(\text{cm}^{3}\).</li>
-                <li>1003 \(\text{cm}^{3}\).</li>
-                <li>1020 \(\text{cm}^{3}\).</li>
-                <li>1008 \(\text{cm}^{3}\).</li>
-                </ol>
-                <dl>
-                <dt>4.6)</dt>
-                <dd>
+</dl>
+<ol type="a">
+<li>1006 \(\text{cm}^{3}\).</li>
+<li>1010 \(\text{cm}^{3}\).</li>
+<li>1003 \(\text{cm}^{3}\).</li>
+<li>1020 \(\text{cm}^{3}\).</li>
+<li>1008 \(\text{cm}^{3}\).</li>
+</ol>
+<dl>
+<dt>4.6)</dt>
+<dd>
                 Uma barra metálica de 150 cm de comprimento a 15 °C é
                 aquecida até 115 °C, sofrendo uma dilatação de 0,27 cm.
                 Determine o coeficiente de dilatação linear do material
                 e identifique, com base na tabela fornecida em aula,
                 qual poderia ser esse metal.
                 </dd>
-                <dt>4.7)</dt>
-                <dd>
+<dt>4.7)</dt>
+<dd>
                 Em uma ferrovia, os trilhos de aço (\(\alpha = 1,1 \times 10^{-5} \,
                 °\text{C}^{-1}\)) têm 25 m de comprimento cada e
                 são instalados a 15 °C. Sabendo que a temperatura máxima
@@ -1126,24 +1204,23 @@
                 milímetros, para que não haja compressão. Explique por
                 que essa folga é necessária.
                 </dd>
-                <dt>4.8)</dt>
-                <dd>
+<dt>4.8)</dt>
+<dd>
                 Uma placa quadrada de alumínio (\(\alpha = 2,3 \times 10^{-5} \,
                 °\text{C}^{-1}\)) tem lado de 50 cm a 20 °C.
                 Determine:
                 </dd>
-                </dl>
-                <ol type="a">
-                <li>O coeficiente de dilatação superficial do
+</dl>
+<ol type="a">
+<li>O coeficiente de dilatação superficial do
                 alumínio.</li>
-                <li>A área da placa a 20 °C em \(\text{cm}^{2}\).</li>
-                <li>A área da placa quando aquecida a 120 °C em
-                $^{2}.</li>
-                <li>O aumento percentual da área.</li>
-                </ol>
-                <dl>
-                <dt>4.9)</dt>
-                <dd>
+<li>A área da placa a 20 °C em \(\text{cm}^{2}\).</li>
+<li>A área da placa quando aquecida a 120 °C em \(\text{cm}^{2}\).</li>
+<li>O aumento percentual da área.</li>
+</ol>
+<dl>
+<dt>4.9)</dt>
+<dd>
                 Uma chapa de aço (\(\alpha =
                 1,2 \times 10^{-5} \, °\text{C}^{-1}\)) possui um
                 orifício circular de 30 \(\text{cm}^{2}\) de área a
@@ -1152,159 +1229,151 @@
                 seguida, explique por que o orifício aumenta de tamanho,
                 mesmo sendo um “vazio” na placa.
                 </dd>
-                <dt>4.10)</dt>
-                <dd>
+<dt>4.10)</dt>
+<dd>
                 Um bloco maciço de cobre (\(\alpha = 1,7 \times 10^{-5} \,
                 °\text{C}^{-1}\)) tem volume de 800 \(\text{cm}^{3}\) a 10 °C.
                 Determine o volume do bloco quando sua temperatura
-                atingir 210 °C em \(\text{cm}^3\).
+                atingir 210 °C em \(\text{cm}^{3}\).
                 </dd>
-                </dl>
-                <h1 id="respostas">Respostas</h1>
-                Caro estudante, seguem as respostas
+</dl>
+<h1 id="respostas">Respostas</h1>
+<p>Caro estudante, seguem as respostas
                 <strong>completas</strong> e <strong>detalhadas</strong>
-                dos exercícios de fixação da <a
-                href="https://drive.google.com/file/d/1nL60ju6QSDs9yL-0N3wtk6anGr7ZRukm/view?usp=drive_link">aula
+                dos exercícios de fixação da <a href="https://drive.google.com/file/d/1nL60ju6QSDs9yL-0N3wtk6anGr7ZRukm/view?usp=drive_link">aula
                 anterior</a>.</p>
-                <h1 id="recomendações">Recomendações</h1>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=w3NXGoZhMus" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-enem-gratuito-dilatação.png" alt="DILATAÇÃO TÉRMICA SUPERFICIAL E VOLUMÉTRICA" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">DILATAÇÃO TÉRMICA SUPERFICIAL E VOLUMÉTRICA</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=w3NXGoZhMus" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Curso Enem Gratuito</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=w3NXGoZhMus" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=fg3MC5AXBbE" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="DILATAÇÃO TÉRMICA LINEAR" loading="lazy" src="./images/thumbs/ytb-enem-gratuito-dilatação-linear.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">DILATAÇÃO TÉRMICA LINEAR</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=fg3MC5AXBbE" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Curso Enem Gratuito</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=fg3MC5AXBbE" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=v_WQOb7LPfQ" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-descomplica-dilatação.png" alt="DILATAÇÃO TÉRMICA - DICA ENEM - Prof Thales" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">DILATAÇÃO TÉRMICA - DICA ENEM - Prof Thales</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=v_WQOb7LPfQ" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Descomplica</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=v_WQOb7LPfQ" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=w3NXGoZhMus" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="DILATAÇÃO TÉRMICA SUPERFICIAL E VOLUMÉTRICA" loading="lazy" src="./images/thumbs/ytb-enem-gratuito-dilatação-supvol.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">DILATAÇÃO TÉRMICA SUPERFICIAL E VOLUMÉTRICA</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=w3NXGoZhMus" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Curso Enem Gratuito</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=w3NXGoZhMus" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
-                  <a href="https://www.youtube.com/watch?v=YI_khGcCPTM" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
-                    <img src="./images/thumbs/ytb-boaro-dilatacão-sólidos-boaro.png" alt="DILATAÇÃO TÉRMICA DOS SÓLIDOS" style="display:block; width:100%; height:auto;" loading="lazy">
-                  </a>
-                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
-                    <div style="line-height:1.25; min-width:200px;">
-                      <strong style="color:#222;">DILATAÇÃO TÉRMICA DOS SÓLIDOS</strong><br>
-                      Fonte: <a href="https://www.youtube.com/watch?v=YI_khGcCPTM" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Professor Boaro</a>
-                    </div>
-                    <div>
-                      <a href="https://www.youtube.com/watch?v=YI_khGcCPTM" target="_blank" rel="noopener noreferrer"
-                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
-                         onmouseover="this.style.background='#f0f0f0'"
-                         onmouseout="this.style.background='#fff'">
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=v_WQOb7LPfQ" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="DILATAÇÃO TÉRMICA - DICA ENEM - Prof Thales" loading="lazy" src="./images/thumbs/ytb-descomplica-dilatação.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">DILATAÇÃO TÉRMICA - DICA ENEM - Prof Thales</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=v_WQOb7LPfQ" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Descomplica</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=v_WQOb7LPfQ" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
                         Abrir ↗
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <h1 id="referências">Referências</h1>
-                <ul>
-                <li>BC CAMPUS. <strong>Thermal Expansion of Solids and
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=YI_khGcCPTM" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="DILATAÇÃO TÉRMICA DOS SÓLIDOS" loading="lazy" src="./images/thumbs/ytb-boaro-dilatacão-sólidos-boaro.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">DILATAÇÃO TÉRMICA DOS SÓLIDOS</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=YI_khGcCPTM" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Professor Boaro</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=YI_khGcCPTM" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>BC CAMPUS. <strong>Thermal Expansion of Solids and
                 Liquids</strong>. In: College Physics. Victoria:
-                BCcampus, 2012. Disponível em: <a
-                href="https://pressbooks.bccampus.ca/test3/chapter/thermal-expansion-of-solids-and-liquids/"
-                class="uri">https://pressbooks.bccampus.ca/test3/chapter/thermal-expansion-of-solids-and-liquids/</a>.
+                BCcampus, 2012. Disponível em: <a class="uri" href="https://pressbooks.bccampus.ca/test3/chapter/thermal-expansion-of-solids-and-liquids/">https://pressbooks.bccampus.ca/test3/chapter/thermal-expansion-of-solids-and-liquids/</a>.
                 Acesso em: 17 mar. 2026.</li>
-                <li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
-                Regina. Física: termologia, óptica e ondas. São Paulo:
-                FTD, 2016.</li>
-                <li>GASPAR, Alberto. Física: volume único. 2. ed. São
-                Paulo: Ática, 2014.</li>
-                <li>HARVARD UNIVERSITY. <strong>Thermal
+<li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina de Fátima Souza. <strong>Física</strong>:
+                termologia, óptica e ondas. 3. ed. São Paulo: FTD, 2016.
+                336 p. ISBN 978-8532297891.</li>
+<li>GASPAR, Alberto. <strong>Física</strong>: volume
+                único. 2. ed. São Paulo: Ática, 2014. 616 p. ISBN
+                978-8508136542.</li>
+<li>HARVARD UNIVERSITY. <strong>Thermal
                 Expansion</strong>. In: Harvard Natural Sciences Lecture
                 Demonstrations. Cambridge: Harvard University, 2024.
-                Disponível em: <a
-                href="https://sciencedemonstrations.fas.harvard.edu/search/site/hot-and-world-gas-allocate"
-                class="uri">https://sciencedemonstrations.fas.harvard.edu/search/site/hot-and-world-gas-allocate</a>.
+                Disponível em: <a class="uri" href="https://sciencedemonstrations.fas.harvard.edu/search/site/hot-and-world-gas-allocate">https://sciencedemonstrations.fas.harvard.edu/search/site/hot-and-world-gas-allocate</a>.
                 Acesso em: 17 mar. 2026.</li>
-                <li>HEWITT, Paul G. <strong>Física Conceitual</strong>.
+<li>HEWITT, Paul G. <strong>Física Conceitual</strong>.
                 12. ed. Porto Alegre: Bookman, 2015. 820 p. ISBN
                 978-8582603412.</li>
-                <li>KHAN ACADEMY. <strong>Linear expansion</strong>.
-                Mountain View: Khan Academy, 2024. Disponível em: <a
-                href="https://www.khanacademy.org/science/up-class-11-physics/x3a9a44f124d01cf7:thermal-properties-of-matter/x3a9a44f124d01cf7:thermal-expansion/v/linear-expansion-class-11-india-physics-khan-academy"
-                class="uri">https://www.khanacademy.org/science/up-class-11-physics/x3a9a44f124d01cf7:thermal-properties-of-matter/x3a9a44f124d01cf7:thermal-expansion/v/linear-expansion-class-11-india-physics-khan-academy</a>.
+<li>KHAN ACADEMY. <strong>Linear expansion</strong>.
+                Mountain View: Khan Academy, 2024. Disponível em: <a class="uri" href="https://www.khanacademy.org/science/up-class-11-physics/x3a9a44f124d01cf7:thermal-properties-of-matter/x3a9a44f124d01cf7:thermal-expansion/v/linear-expansion-class-11-india-physics-khan-academy">https://www.khanacademy.org/science/up-class-11-physics/x3a9a44f124d01cf7:thermal-properties-of-matter/x3a9a44f124d01cf7:thermal-expansion/v/linear-expansion-class-11-india-physics-khan-academy</a>.
                 Acesso em: 17 mar. 2026.</li>
-                <li>KHAN ACADEMY. <strong>Intro to thermal
+<li>KHAN ACADEMY. <strong>Intro to thermal
                 expansion</strong>. Mountain View: Khan Academy, 2024.
-                Disponível em: <a
-                href="https://www.khanacademy.org/science/in-in-class11th-physics/in-in-thermal-properties-of-matter/in-in-thermal-expansion-in-solids/v/intro-to-thermal-expansion-class-11-india-physics-khan-academy"
-                class="uri">https://www.khanacademy.org/science/in-in-class11th-physics/in-in-thermal-properties-of-matter/in-in-thermal-expansion-in-solids/v/intro-to-thermal-expansion-class-11-india-physics-khan-academy</a>.
+                Disponível em: <a class="uri" href="https://www.khanacademy.org/science/in-in-class11th-physics/in-in-thermal-properties-of-matter/in-in-thermal-expansion-in-solids/v/intro-to-thermal-expansion-class-11-india-physics-khan-academy">https://www.khanacademy.org/science/in-in-class11th-physics/in-in-thermal-properties-of-matter/in-in-thermal-expansion-in-solids/v/intro-to-thermal-expansion-class-11-india-physics-khan-academy</a>.
                 Acesso em: 17 mar. 2026.</li>
-                <li>MICHIGAN STATE UNIVERSITY. <strong>Thermal Expansion
+<li>MICHIGAN STATE UNIVERSITY. <strong>Thermal Expansion
                 of Solids and Liquids</strong>. In: Introductory Physics
                 for the Health and Life Sciences I. East Lansing: MSU,
-                2024. Disponível em: <a
-                href="https://openbooks.lib.msu.edu/collegephysics1/chapter/thermal-expansion-of-solids-and-liquids-2/"
-                class="uri">https://openbooks.lib.msu.edu/collegephysics1/chapter/thermal-expansion-of-solids-and-liquids-2/</a>.
+                2024. Disponível em: <a class="uri" href="https://openbooks.lib.msu.edu/collegephysics1/chapter/thermal-expansion-of-solids-and-liquids-2/">https://openbooks.lib.msu.edu/collegephysics1/chapter/thermal-expansion-of-solids-and-liquids-2/</a>.
                 Acesso em: 17 mar. 2026.</li>
-                <li>MOZAIK EDUCATION. <strong>Thermal expansion of solid
+<li>MOZAIK EDUCATION. <strong>Thermal expansion of solid
                 materials and liquids</strong>. Szeged: Mozaik
-                Education, 2024. Disponível em: <a
-                href="https://hr.mozaweb.com/en-US"
-                class="uri">https://hr.mozaweb.com/en-US</a>. Acesso em:
+                Education, 2024. Disponível em: <a class="uri" href="https://hr.mozaweb.com/en-US">https://hr.mozaweb.com/en-US</a>. Acesso em:
                 17 mar. 2026.</li>
-                <li>PIETROCOLA, Maurício et al. Física em contextos:
-                pessoal, social e histórico – volume 2. São Paulo: FTD,
-                2016.</li>
-                </ul>
-            </main>
-
-            <!-- Footer -->
-            
-        </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Script para MathJax -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.MathJax) {
-                window.MathJax.typesetPromise();
-            }
-        });
-    </script>
-
+<li>PIETROCOLA, Maurício et al. <strong>Física em
+                contextos</strong>: pessoal, social e histórico. 1.
+                ed. São Paulo: FTD, 2016. 304 p. v. 2. ISBN
+                978-8532296320.</li>
+</ul>
                     </div>
                 </div>
             </div>
             
-            <div class="d-flex justify-content-between">
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+                    
+                <a href="/disciplinas/aula-03-variacao-e-escalas-arbitrarias.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+                
+                </div>
+                <div class="d-flex flex-wrap gap-2">
                 <a href="/disciplinas/" class="btn btn-outline-primary">
                     <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
                 </a>
                 <a href="/" class="btn btn-outline-secondary">
                     <i class="bi bi-house"></i> Ir para Home
                 </a>
+                    
+                <a href="/disciplinas/aula-05-calor-com-mudanca-de-temperatura.html" class="btn btn-outline-primary">
+                    Próxima aula <i class="bi bi-arrow-right"></i>
+                </a>
+                
+                </div>
             </div>
             
     </main>
@@ -1337,32 +1406,5 @@
     
     <!-- JS Personalizado -->
     <script src="/js/main.js"></script>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function initializeMathJax() {
-            if (typeof MathJax !== 'undefined') {
-                MathJax.startup.promise.then(() => {
-                    if (document.querySelector('.tex2jax_process')) {
-                        MathJax.typesetPromise().catch((err) => {
-                            console.log('MathJax erro:', err.message);
-                        });
-                    }
-                }).catch((err) => {
-                    console.error('MathJax falhou ao carregar:', err);
-                });
-                window.dispatchEvent(new Event('MathJaxLoaded'));
-            } else {
-                console.warn('MathJax não está disponível');
-            }
-        }
-        
-        if (typeof MathJax !== 'undefined') {
-            initializeMathJax();
-        } else {
-            window.addEventListener('MathJaxLoaded', initializeMathJax);
-        }
-    });
-    </script>
 </body>
 </html>

@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis de Mecânica dos Fluidos.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-04-vasos-comunicantes-com-liquidos-imisciveis.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis de Mecânica dos Fluidos.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-04-vasos-comunicantes-com-liquidos-imisciveis.html">
+    <meta property="og:site_name" content="Meu Portal">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Mecânica dos Fluidos</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1UgUqw9m_cmghVUHV1xHtE8VdEbxjHC-Y/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li>Compreender o <strong>princípio dos vasos
+                comunicantes</strong> e sua relação com o Teorema de
+                Stevin.</li>
+<li>Analisar o comportamento de <strong>líquidos
+                miscíveis e imiscíveis</strong> em vasos
+                comunicantes.</li>
+<li>Determinar a <strong>altura de colunas
+                líquidas</strong> em tubos em forma de
+                <strong>U</strong> com diferentes líquidos.</li>
+<li>Aplicar os conceitos de vasos comunicantes em
+                situações práticas como <strong>caixas d’água</strong>,
+                <strong>níveis hidrostáticos</strong>.</li>
+<li>Resolver problemas envolvendo <strong>tubos em U com
+                múltiplos líquidos imiscíveis</strong> utilizando os
+                <strong>métodos do Fluxo e do Equilíbrio</strong>.</li>
+<li>Realizar conversões entre diferentes sistemas de
+                unidades com <strong>consistência
+                dimensional</strong>.</li>
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Você já reparou como funciona o sistema de
+                abastecimento de água de um edifício? A água sobe até a
+                caixa d’água localizada no topo e, de lá, desce para
+                todos os andares. Se você abrir uma torneira no décimo
+                andar e outra no térreo, notará que a pressão no térreo
+                é maior. Mas o que acontece se você conectar dois
+                reservatórios por um tubo na base? O nível da água se
+                igualará nos dois, independentemente de seus
+                formatos.</p>
+<blockquote>
+<p>Por que os níveis de um mesmo líquido em recipientes
+                interligados se igualam?</p>
+</blockquote>
+<p>Ou ainda: por que em um tubo em forma de “U” com dois
+                líquidos diferentes, as alturas das colunas são
+                inversamente proporcionais às suas densidades?</p>
+<p>A resposta para essas perguntas está no
+                <strong>princípio dos vasos comunicantes</strong>, uma
+                consequência direta do Teorema de Stevin que estudamos
+                na aula anterior.</p>
+<p>Nesta aula, vamos explorar esse princípio fascinante
+                e suas aplicações práticas, focando em sistemas com
+                <strong>líquidos imiscíveis</strong> e <strong>pressão
+                atmosférica</strong> atuando nas superfícies livres.
+                Além disso, apresentaremos os <strong>dois principais
+                métodos de resolução</strong> de problemas envolvendo
+                vasos comunicantes: o <strong>Método do Fluxo</strong> e
+                o <strong>Método do Equilíbrio</strong>.</p>
+<h1 id="o-princípio-dos-vasos-comunicantes">O Princípio
+                dos Vasos Comunicantes</h1>
+<p><strong>Definição</strong></p>
+<p><strong>Vasos comunicantes</strong> são recipientes
+                de diferentes formas e volumes, interligados entre si na
+                base ou por meio de tubulações, formando um sistema
+                único onde o fluido pode circular livremente entre
+                eles.</p>
+<p>O princípio dos vasos comunicantes estabelece
+                que:</p>
+<blockquote>
+<p><strong>Em um sistema de vasos comunicantes contendo
+                um mesmo líquido em equilíbrio estático, a pressão em
+                todos os pontos situados em um mesmo plano horizontal é
+                a mesma, e os níveis do líquido em todos os recipientes
+                são iguais, independentemente da forma ou volume de cada
+                um.</strong></p>
+</blockquote>
+<figure>
+<img alt="Vasos comunicantes. Fonte: Wikimedia Commons." src="https://upload.wikimedia.org/wikipedia/commons/2/20/ANIMvasicomunicanti.gif" style="width:70.0%"/>
+<figcaption aria-hidden="true">Vasos comunicantes.
+                Fonte: <a href="https://upload.wikimedia.org/wikipedia/commons/2/20/ANIMvasicomunicanti.gif">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p><strong>Demonstração a partir do Teorema de
+                Stevin</strong></p>
+<p>Considere dois recipientes de formatos diferentes (um
+                cilíndrico e um cônico) conectados por um tubo na base.
+                Ambos estão abertos para a atmosfera e contêm o mesmo
+                líquido.</p>
+<figure>
+<img alt="Vasos com o mesmo líquido. Fonte: autoria própria." src="images/vaso-cil-cone.png" style="width:70.0%"/>
+<figcaption aria-hidden="true">Vasos com o mesmo
+                líquido. Fonte: autoria própria.</figcaption>
+</figure>
+<p><strong>Objetivo:</strong> Demonstrar que os níveis
+                do líquido nos dois recipientes são iguais.</p>
+<p><strong>Passo 1: Identificar os pontos de
+                interesse</strong></p>
+<ul>
+<li><strong>Ponto A:</strong> Superfície do líquido no
+                recipiente da esquerda.</li>
+<li><strong>Ponto B:</strong> Superfície do líquido no
+                recipiente da direita.</li>
+<li><strong>Ponto C:</strong> Fundo do recipiente da
+                esquerda.</li>
+<li><strong>Ponto D:</strong> Fundo do recipiente da
+                direita (mesmo nível horizontal de C).</li>
+</ul>
+<p><strong>Passo 2: Aplicar o Teorema de
+                Stevin</strong></p>
+<p>Pelo Teorema de Stevin, a diferença de pressão entre
+                dois pontos em um mesmo fluido depende apenas da
+                diferença de altura entre eles.</p>
+<p><strong>Da superfície até o fundo no recipiente
+                esquerdo:</strong></p>
+<p>\[P_C = P_A + \rho g
+                h_1\]</p>
+<p><strong>Da superfície até o fundo no recipiente
+                direito:</strong></p>
+<p>\[P_D = P_B + \rho g
+                h_2\]</p>
+<p><strong>Passo 3: Igualar as pressões no
+                fundo</strong></p>
+<p>Os pontos C e D estão no <strong>mesmo nível
+                horizontal</strong> e dentro do <strong>mesmo
+                fluido</strong> (o líquido se comunica livremente pelo
+                tubo de ligação). Portanto, pelo princípio dos vasos
+                comunicantes, as pressões em C e D são iguais:</p>
+<p>\[P_C = P_D\]</p>
+<p>Substituindo as expressões:</p>
+<p>\[P_A + \rho g h_1 = P_B +
+                \rho g h_2\]</p>
+<p><strong>Passo 4: Simplificar a equação</strong></p>
+<ul>
+<li><strong>Pressão atmosférica:</strong> Os pontos A e
+                B estão na superfície livre do líquido, ambos expostos à
+                atmosfera. Portanto:</li>
+</ul>
+<p>\[P_A = P_{\text{atm}}
+                \quad \text{e} \quad P_B = P_{\text{atm}}\]</p>
+<p>Substituindo:</p>
+<p>\[P_{\text{atm}} + \rho g
+                h_1 = P_{\text{atm}} + \rho g h_2\]</p>
+<p>Cancelando \(P_{\text{atm}}\) em ambos
+                os lados:</p>
+<p>\[\rho g h_1 = \rho g
+                h_2\]</p>
+<ul>
+<li><strong>Densidade e gravidade:</strong> O fluido é o
+                mesmo (\(\rho \neq 0\))
+                e a aceleração da gravidade é constante (\(g \neq 0\)). Portanto,
+                podemos cancelar \(\rho\) e \(g\):</li>
+</ul>
+<p>\[h_1 = h_2\]</p>
+<p><strong>Passo 5: Conclusão</strong></p>
+<p>\[\boxed{h_1 =
+                h_2}\]</p>
+<p><strong>Interpretação:</strong> As alturas das
+                colunas líquidas nos dois recipientes são iguais. Isso
+                significa que, independentemente da forma ou volume dos
+                recipientes, o líquido se nivela à mesma altura em todos
+                os vasos comunicantes abertos para a atmosfera.</p>
+<p><strong>Importante: Condições para a Igualdade dos
+                Níveis</strong></p>
+<p>A igualdade dos níveis ocorre <strong>apenas
+                quando</strong>:</p>
+<ol type="1">
+<li>O sistema está em <strong>equilíbrio
+                estático</strong> (fluido em repouso).</li>
+<li>O <strong>mesmo fluido</strong> (mesma densidade)
+                ocupa todos os recipientes.</li>
+<li>Todos os recipientes estão <strong>abertos para a
+                atmosfera</strong> ou submetidos à mesma pressão na
+                superfície livre.</li>
+</ol>
+<p>Se houver <strong>diferentes fluidos</strong> ou
+                <strong>diferentes pressões</strong> nas superfícies
+                livres, os níveis não serão iguais!</p>
+<h1 id="tubo-em-u-com-líquidos-imiscíveis">Tubo em U com
+                Líquidos Imiscíveis</h1>
+<p>Quando dois líquidos <strong>imiscíveis</strong> (que
+                não se misturam) são colocados em um tubo em U, eles se
+                organizam de acordo com suas densidades: o líquido
+                <strong>mais denso</strong> ocupa a parte inferior, e o
+                líquido <strong>menos denso</strong> fica
+                sobreposto.</p>
+<p><strong>Análise do Equilíbrio</strong></p>
+<p>Considere um tubo em <strong>U</strong> contendo dois
+                líquidos imiscíveis: <strong>água (mais densa)</strong>
+                e <strong>óleo (menos denso)</strong>. O óleo flutua
+                sobre a água em ambos os ramos.</p>
+<p>Para determinar a relação entre as alturas das
+                colunas, aplicamos o Teorema de Stevin entre dois pontos
+                no <strong>mesmo nível horizontal</strong> dentro do
+                <strong>mesmo fluido</strong> (no caso, dentro da água,
+                na interface).</p>
+<p>Escolhendo o ponto \(1\) no ramo direito (dentro
+                da água) e ponto \(2\)
+                na interface água-óleo, no mesmo nível horizontal, temos
+                que \(P_1 = P_1\)
+                (mesmo fluido, mesmo nível).</p>
+<p><strong>Cálculo das pressões:</strong></p>
+<ul>
+<li>\(P_1\) = pressão
+                atmosférica + pressão da coluna de óleo acima do ponto
+                1</li>
+<li>\(P_2\) = pressão
+                atmosférica + pressão da coluna de água acima do ponto
+                2</li>
+</ul>
+<p>\[P_{\text{atm}} + \rho_1
+                \cdot g \cdot h_1 = P_{\text{atm}} + \rho_2 \cdot g
+                \cdot h_2\]</p>
+<p>Em que:</p>
+<ul>
+<li>\(h_1\) representa
+                a altura da coluna de água.</li>
+<li>\(h_2\) representa
+                a altura do óleo.</li>
+<li>\(\rho_1\)
+                representa a densidade da água.</li>
+<li>\(\rho_2\)
+                representa a densidade do óleo.</li>
+</ul>
+<p>Cancelando \(P_{\text{atm}}\) e \(g\):</p>
+<p>\[\boxed{\rho_1 \cdot h_1
+                = \rho_2 \cdot h_2}\]</p>
+<p>Ou, de forma equivalente:</p>
+<p>\[\boxed{\dfrac{h_1}{h_2}
+                = \dfrac{\rho_2}{\rho_1}}\]</p>
+<p><strong>Interpretação:</strong> As alturas das
+                colunas são <strong>inversamente proporcionais</strong>
+                às densidades dos líquidos. O líquido menos denso forma
+                uma coluna mais alta.</p>
+<p><strong>Quando temos três ou mais líquidos imiscíveis
+                em um tubo em U, a análise segue o mesmo princípio. A
+                pressão em um plano horizontal dentro de um mesmo fluido
+                deve ser igual em ambos os ramos</strong>.</p>
+<h1 id="aplicações-práticas-dos-vasos-comunicantes">Aplicações
+                Práticas dos Vasos Comunicantes</h1>
+<ol type="1">
+<li>Sistemas de Abastecimento de Água</li>
+</ol>
+<p>O princípio dos vasos comunicantes é fundamental no
+                projeto de sistemas de distribuição de água. Em
+                edifícios, a caixa d’água superior e as torneiras formam
+                um sistema de vasos comunicantes. A água flui da caixa
+                (nível mais alto) para as torneiras (nível mais baixo)
+                até que o equilíbrio seja estabelecido. Quanto maior a
+                diferença de altura, maior a pressão na torneira.</p>
+<figure>
+<img alt="Croqui esquemático de um Sistema de Abastecimento de Água. Fonte: Ric Ambietal." src="https://ricambiental.com.br/wp-content/uploads/2025/04/Sistema-de-Abastecimento-de-Agua-com-aducao-por-bombas-eletricas.jpg.webp" style="width:90.0%"/>
+<figcaption aria-hidden="true">Croqui esquemático de um
+                Sistema de Abastecimento de Água. Fonte: <a href="https://ricambiental.com.br/wp-content/uploads/2025/04/Sistema-de-Abastecimento-de-Agua-com-aducao-por-bombas-eletricas.jpg.webp">Ric
+                Ambietal.</a></figcaption>
+</figure>
+<ol start="2" type="1">
+<li>Nível Hidrostático</li>
+</ol>
+<p>O <strong>nível hidrostático</strong> é um
+                instrumento de medição de nível que utiliza o princípio
+                dos vasos comunicantes. Consiste em uma mangueira
+                transparente preenchida com água. Quando as duas
+                extremidades estão abertas, os níveis de água nas duas
+                extremidades se igualam, permitindo determinar pontos em
+                uma mesma cota horizontal, mesmo a grandes distâncias. É
+                amplamente utilizado em construções civis e
+                topografia.</p>
+<figure>
+<img alt="Mangueira de nível. Fonte: Fatos interessantes." src="https://scontent.fpoa10-1.fna.fbcdn.net/v/t39.30808-6/520527419_1331973222294199_224486205338675841_n.jpg?_nc_cat=102&amp;ccb=1-7&amp;_nc_sid=7b2446&amp;_nc_ohc=EGbbW0owwLEQ7kNvwHcm55V&amp;_nc_oc=AdpQFxNedGEcrDY24yTFaUaG9jssYlGcNzgSw0aqiU6IELSJQmYSE1LueRDykPsjols&amp;_nc_zt=23&amp;_nc_ht=scontent.fpoa10-1.fna&amp;_nc_gid=W_ubb7Lye3KZ2GMqDsXvDA&amp;_nc_ss=7a389&amp;oh=00_Af2en3HK0ZCavlONe9lvbrPtKfo63lFTMsAYXJa9wC19cA&amp;oe=69DF4406" style="width:70.0%"/>
+<figcaption aria-hidden="true">Mangueira de nível.
+                Fonte: <a href="https://scontent.fpoa10-1.fna.fbcdn.net/v/t39.30808-6/520527419_1331973222294199_224486205338675841_n.jpg?_nc_cat=102&amp;ccb=1-7&amp;_nc_sid=7b2446&amp;_nc_ohc=EGbbW0owwLEQ7kNvwHcm55V&amp;_nc_oc=AdpQFxNedGEcrDY24yTFaUaG9jssYlGcNzgSw0aqiU6IELSJQmYSE1LueRDykPsjols&amp;_nc_zt=23&amp;_nc_ht=scontent.fpoa10-1.fna&amp;_nc_gid=W_ubb7Lye3KZ2GMqDsXvDA&amp;_nc_ss=7a389&amp;oh=00_Af2en3HK0ZCavlONe9lvbrPtKfo63lFTMsAYXJa9wC19cA&amp;oe=69DF4406">Fatos
+                interessantes.</a></figcaption>
+</figure>
+<ol start="3" type="1">
+<li>Medidores de Pressão</li>
+</ol>
+<p>Além dos manômetros de tubo em U, outros dispositivos
+                baseados no princípio dos vasos comunicantes
+                incluem:</p>
+<ul>
+<li><strong>Barômetro de mercúrio:</strong> mede a
+                pressão atmosférica pela altura da coluna de mercúrio em
+                um tubo fechado.</li>
+<li><strong>Manômetro de Bourdon:</strong> embora
+                utilize um mecanismo diferente, a calibração é baseada
+                em princípios hidrostáticos.</li>
+<li><strong>Manômetro de diafragma:</strong> utiliza a
+                deformação de um diafragma para indicar pressão.</li>
+</ul>
+<ol start="4" type="1">
+<li>Chafarizes e Fontes</li>
+</ol>
+<p>Fontes ornamentais que utilizam o princípio dos vasos
+                comunicantes são conhecidas como <strong>fontes de
+                Heron</strong> ou <strong>fontes heroicas</strong>.
+                Utilizando um sistema de vasos interligados, a água pode
+                ser elevada a uma altura maior que a do reservatório de
+                alimentação, criando jatos d’água.</p>
+<ol start="5" type="1">
+<li>Sistemas de Freio Hidráulico</li>
+</ol>
+<p>Embora mais relacionados ao Princípio de Pascal (que
+                veremos em aulas futuras), os sistemas de freio
+                hidráulico utilizam vasos comunicantes para transmitir
+                pressão de forma igual em todas as direções,
+                amplificando forças.</p>
+<h1 id="métodos-de-resolução-de-problemas-com-vasos-comunicantes">Métodos
+                de Resolução de Problemas com Vasos Comunicantes</h1>
+<p>Na prática da hidrostática, especialmente em
+                problemas envolvendo vasos comunicantes e tubos em U,
+                existem <strong>dois métodos principais</strong> para
+                determinar pressões, diferenças de altura ou densidades
+                de fluidos. Ambos são equivalentes e levam ao mesmo
+                resultado, mas cada um possui características que podem
+                torná-lo mais adequado dependendo da situação.</p>
+<h2 id="método-1-método-do-equilíbrio-ou-método-das-superfícies-isotrópicas">Método
+                1: Método do Equilíbrio (ou Método das Superfícies
+                Isotrópicas)</h2>
+<p>Este método baseia-se no fato fundamental da
+                hidrostática: em um <strong>mesmo fluido em
+                equilíbrio</strong>, todos os pontos situados em um
+                <strong>mesmo plano horizontal</strong> estão submetidos
+                à <strong>mesma pressão</strong>.</p>
+<p><strong>Procedimento:</strong></p>
+<ol type="1">
+<li>Identificar um <strong>plano horizontal de
+                referência</strong> que passe por um ponto estratégico
+                (geralmente uma interface entre fluidos ou um ponto onde
+                se deseja igualar pressões).</li>
+<li>Calcular a pressão nesse plano a partir de cada lado
+                do sistema, percorrendo o caminho mais curto até a
+                superfície ou ponto de pressão conhecida.</li>
+<li><strong>Igualar</strong> as duas expressões, pois a
+                pressão no mesmo plano horizontal no mesmo fluido é
+                única.</li>
+</ol>
+<p><strong>Vantagens:</strong></p>
+<ul>
+<li>Mais direto e conciso em sistemas com poucos
+                fluidos</li>
+<li>Reduz o número de passos algébricos</li>
+<li>Facilita a visualização das relações entre
+                variáveis</li>
+</ul>
+<p><strong>Desvantagens:</strong></p>
+<ul>
+<li>Requer habilidade para identificar o plano
+                horizontal adequado</li>
+<li>Em sistemas com múltiplos fluidos, pode ser
+                necessário considerar mais de um plano de
+                referência</li>
+<li>Pode ser menos intuitivo para iniciantes</li>
+</ul>
+<h2 id="método-2-método-do-fluxo-ou-método-da-coluna">Método
+                2: Método do Fluxo (ou Método da Coluna)</h2>
+<p>Este método consiste em <strong>percorrer um caminho
+                contínuo</strong> através do fluido, partindo de um
+                ponto de pressão conhecida até um ponto de interesse,
+                <strong>somando ou subtraindo</strong> as contribuições
+                hidrostáticas \(\rho g \Delta
+                h\) à medida que se avança.</p>
+<p><strong>Princípio Fundamental do Método do
+                Fluxo</strong></p>
+<p>Ao percorrer um caminho contínuo do ponto \(A\) até o ponto \(B\), a <strong>soma
+                algébrica de todas as contribuições de pressão</strong>
+                é sempre igual a <strong>zero</strong>:</p>
+<p>\[\boxed{P_A + \sum (\pm
+                \rho g \Delta h) - P_B = 0}\]</p>
+<p><strong>Determinação dos sinais:</strong> As pressões
+                \(P_A\) e \(P_B\) e as contribuições
+                \(\sum (\pm \rho g \Delta
+                h)\) são <strong>tratadas com seus sinais
+                algébricos</strong>, determinados <strong>pelo sentido
+                do caminho percorrido</strong>: - <strong>Ao
+                descer</strong> no fluido, a pressão aumenta: adicione
+                \(+ \rho g \Delta h\).
+                - <strong>Ao subir</strong> no fluido, a pressão
+                diminui: adicione \(- \rho g
+                \Delta h\). - As pressões \(P_A\) e \(P_B\) refletem o sentido e
+                referência da trajetória.</p>
+<p><strong>Regras práticas:</strong></p>
+<ul>
+<li>Ao <strong>descer</strong> no fluido, a pressão
+                <strong>aumenta</strong>: \(+
+                \rho g \Delta h\).</li>
+<li>Ao <strong>subir</strong> no fluido, a pressão
+                <strong>diminui</strong>: \(-
+                \rho g \Delta h\).</li>
+<li>Ao se mover <strong>horizontalmente</strong> dentro
+                do <strong>mesmo fluido</strong>, a pressão
+                <strong>permanece constante</strong>.</li>
+<li>Ao passar de um fluido para outro, deve-se
+                considerar a densidade do fluido no trecho
+                percorrido.</li>
+<li>No final, <strong>a soma total é igual a
+                zero</strong>.</li>
+</ul>
+<p><strong>Vantagens:</strong></p>
+<ul>
+<li>Método sistemático e de fácil visualização
+                física</li>
+<li>Reduz erros em problemas complexos com múltiplos
+                fluidos</li>
+<li>Permite verificar cada contribuição
+                individualmente</li>
+<li>Funciona tanto para vasos comunicantes abertos
+                quanto para manômetros</li>
+</ul>
+<p><strong>Desvantagens</strong></p>
+<ul>
+<li>Pode tornar-se longo em sistemas com muitas camadas
+                fluidas</li>
+<li>Requer atenção cuidadosa aos sinais ao subir e
+                descer</li>
+</ul>
+<h2 id="comparação-entre-os-métodos">Comparação entre os
+                Métodos</h2>
+<p><strong>Método do Fluxo:</strong></p>
+<ul>
+<li><strong>Abordagem:</strong> Percorre um caminho
+                contínuo somando contribuições.</li>
+<li><strong>Complexidade:</strong> Sistemático, mas pode
+                ser mais extenso.</li>
+<li><strong>Melhor para:</strong> Problemas com
+                múltiplas camadas fluidas.</li>
+<li><strong>Erro comum:</strong> Esquecer de alternar
+                sinais ao subir/descer.</li>
+<li><strong>Visualização:</strong> Segue o fluxo físico
+                do fluido.</li>
+</ul>
+<p><strong>Método do Equilíbrio:</strong></p>
+<ul>
+<li><strong>Abordagem:</strong> Iguala pressões em um
+                plano horizontal comum.</li>
+<li><strong>Complexidade:</strong> Mais direto em
+                sistemas simples.</li>
+<li><strong>Melhor para:</strong> Problemas com
+                interfaces bem definidas.</li>
+<li><strong>Erro comum:</strong> Escolher um plano que
+                não esteja no mesmo fluido.</li>
+<li><strong>Visualização:</strong> Baseia-se em
+                princípio fundamental.</li>
+</ul>
+<h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
+<p>Agora vamos aplicar os conceitos de vasos
+                comunicantes em problemas práticos envolvendo líquidos
+                imiscíveis e pressão atmosférica. A estrutura será a
+                seguinte:</p>
+<ul>
+<li><strong>Exemplo 4.1:</strong> Resolução por
+                <strong>ambos os métodos</strong> (Fluxo e Equilíbrio)
+                para demonstrar a equivalência das abordagens.</li>
+<li><strong>Exemplos 4.2 e 4.3:</strong> Utilizaremos
+                apenas o <strong>Método do Fluxo</strong> para manter a
+                agilidade didática.</li>
+</ul>
+<p>Escolha o método que julgar mais adequado para sua
+                compreensão e aplicação prática.</p>
+<p><strong>Valores constantes adotados:</strong></p>
+<ul>
+<li>\(g =
+                9{,}807\,\text{m}/\text{s}^2 = 32{,}271
+                \text{pés}/\text{s}^{2}\) (aceleração da
+                gravidade padrão).</li>
+<li>\(P_{\text{atm}} = 1 \,
+                atm = 101325\,\text{Pa} = 101{,}125 \,\text{kPa} =
+                14{,}4 \, \text{psi}\) (pressão atmosférica
+                padrão).</li>
+</ul>
+<h2 id="exemplo-4.1-tubo-em-u-com-dois-líquidos">Exemplo
+                4.1: Tubo em U com dois líquidos</h2>
+<p>Um tubo em “U” contém água e óleo. O óleo (menos
+                denso) ocupa a parte superior do ramo esquerdo (de
+                acordo com a figura a seguir). A altura da coluna de
+                óleo no ramo esquerdo é \(h_{\text{o}} =
+                25{,}0\,\text{cm}\). Determine a altura da coluna
+                de água no ramo direito (\(h_{\text{a}}\)), em cm,
+                sabendo que o óleo está em equilíbrio com a água.</p>
+<figure>
+<img alt="Vasos com dois líquidos. Fonte: autoria própria." src="images/tubo-u-óleo-água.png" style="width:60.0%"/>
+<figcaption aria-hidden="true">Vasos com dois líquidos.
+                Fonte: autoria própria.</figcaption>
+</figure>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(\rho_{\text{o}} =
+                860\,\text{kg}/\text{m}^3\).</li>
+<li>\(\rho_{\text{a}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+</ul>
+<p><strong>Resolução pelo Método do Fluxo</strong></p>
+<p><strong>Passo 1:</strong> Percorremos um caminho
+                partindo da superfície do óleo (ramo esquerdo) até a
+                superfície da água (ramo direito).</p>
+<ul>
+<li><strong>Partida:</strong> Pressão atmosférica (\(P_{\text{atm}}\)).</li>
+<li><strong>Descendo pelo óleo:</strong> \(+ \rho_{\text{o}} g
+                h_{\text{o}}\).</li>
+<li><strong>Subindo pela água:</strong> \(- \rho_{\text{a}} g
+                h_{\text{a}}\).</li>
+<li><strong>Chegada:</strong> Pressão atmosférica (\(P_{\text{atm}}\)).</li>
+</ul>
+<p><strong>Passo 2:</strong> Aplicar o princípio do
+                fluxo:</p>
+<p>\[ \cancel{P_{\text{atm}}}
+                + \rho_{\text{o}} g h_{\text{o}} - \rho_{\text{a}} g
+                h_{\text{a}} - \cancel{P_{\text{atm}}} = 0\]</p>
+<p><strong>Passo 3:</strong> Simplificar. Cancelando
+                \(P_{\text{atm}}\):</p>
+<p>\[\rho_{\text{o}} g
+                h_{\text{o}} - \rho_{\text{a}} g h_{\text{a}} =
+                0\]</p>
+<p><strong>Passo 4:</strong> Isolar \(h_{\text{a}}\). Colocando
+                \(g\) em evidência:</p>
+<p>\[g (\rho_{\text{o}}
+                h_{\text{o}} - \rho_{\text{a}} h_{\text{a}}) =
+                0\]</p>
+<p>Como \(g \neq 0\),
+                podemos dividir ambos os lados por \(g\):</p>
+<p>\[\rho_{\text{o}}
+                h_{\text{o}} - \rho_{\text{a}} h_{\text{a}} =
+                0\]</p>
+<p>\[\rho_{\text{o}}
+                h_{\text{o}} = \rho_{\text{a}} h_{\text{a}}\]</p>
+<p>\[h_{\text{a}} =
+                \frac{\rho_{\text{o}}}{\rho_{\text{a}}} \cdot
+                h_{\text{o}}\]</p>
+<p><strong>Passo 5:</strong> Substituir os dados
+                numéricos:</p>
+<p>\[h_{\text{a}} =
+                \frac{860}{997} \cdot 25{,}0 =
+                21{,}6\,\text{cm}\]</p>
+<p>\[\boxed{h_{\text{a}} =
+                21{,}6\,\text{cm}}\]</p>
+<p><strong>Resolução pelo Método do
+                Equilíbrio</strong>:</p>
+<p><strong>Passo 1:</strong> Identificamos o plano
+                horizontal que passa pela interface óleo-água no ramo
+                esquerdo. Este mesmo plano, no ramo direito, está dentro
+                da água.</p>
+<p><strong>Passo 2:</strong> Calculamos a pressão nesse
+                plano vindo do ramo esquerdo:</p>
+<p>\[P_{\text{esq}} =
+                P_{\text{atm}} + \rho_{\text{o}} \cdot g \cdot
+                h_{\text{o}}\]</p>
+<p><strong>Passo 3:</strong> Calculamos a pressão nesse
+                plano vindo do ramo direito:</p>
+<p>\[P_{\text{dir}} =
+                P_{\text{atm}} + \rho_{\text{água}} \cdot g \cdot
+                h_{\text{água}}\]</p>
+<p><strong>Passo 4:</strong> Igualamos as pressões
+                (mesmo fluido, mesmo nível):</p>
+<p>\[P_{\text{atm}} +
+                \rho_{\text{o}} g h_{\text{o}} = P_{\text{atm}} +
+                \rho_{\text{água}} g h_{\text{água}}\]</p>
+<p>\[\rho_{\text{o}}
+                h_{\text{o}} = \rho_{\text{água}}
+                h_{\text{água}}\]</p>
+<p><strong>Passo 5:</strong> Isolando \(h_{\text{água}}\):</p>
+<p>\[h_{\text{água}} =
+                \frac{860}{997} \cdot 25{,}0 \,\text{cm}\]</p>
+<p>\[\boxed{h_{\text{água}} =
+                21{,}6\,\text{cm}}\]</p>
+<p><strong>Interpretação:</strong> A coluna de água é
+                menor que a coluna de óleo (\(21{,}6\,\text{cm} &lt;
+                25{,}0\,\text{cm}\)) porque a água é mais densa
+                que o óleo. Isso está de acordo com a relação inversa
+                entre altura e densidade: quanto maior a densidade,
+                menor a altura da coluna para equilibrar a mesma
+                pressão.</p>
+<p><strong>Ambos os métodos conduzem ao mesmo
+                resultado</strong>, demonstrando sua equivalência
+                matemática e conceitual.</p>
+<p><strong>Nos Exemplos a seguir, vamos adotar apenas o
+                método do fluxo (caminho). Ficará a cargo do estudante
+                desenvolver, caso queira, o método do
+                equilíbio.</strong></p>
+<h2 id="exemplo-4.2-tubo-em-u-com-mercúrio-e-água-sistema-inglês">Exemplo
+                4.2: Tubo em U com mercúrio e água (Sistema Inglês)</h2>
+<p>Um tubo em “U” contém mercúrio e água. A água (menos
+                densa) ocupa a parte superior do ramo direito. A altura
+                da coluna de água no ramo direito é \(h_{\text{a}} =
+                15{,}0\,\text{pol}\). Determine a densidade do
+                mercúrio em \(\text{slug}/\text{pé}^3\),
+                sabendo que a altura da coluna de mercúrio no ramo
+                esquerdo é \(h_{\text{Hg}} =
+                1{,}10\,\text{pol}\) e o sistema está em
+                equilíbrio. Compare o valor encontrado da densidade do
+                mercúrio na unidade \(\text{slug}/\text{pé}^3\)
+                com o valor padrão no SI que é \(\rho_{\text{Hg}} = 13{,}6 \times
+                10^{3} \, \text{kg}/\text{m}^3\).</p>
+<figure>
+<img alt="Vasos com dois líquidos. Fonte: autoria própria." src="images/tubo-u-mercúrio-água.png" style="width:60.0%"/>
+<figcaption aria-hidden="true">Vasos com dois líquidos.
+                Fonte: autoria própria.</figcaption>
+</figure>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(\rho_{\text{a}} =
+                1{,}94\,\text{slug}/\text{pé}^3\) (densidade da
+                água).</li>
+<li>\(h_{\text{a}} =
+                15{,}0\,\text{pol}\).</li>
+<li>\(h_{\text{Hg}} =
+                1{,}10\,\text{pol}\).</li>
+<li>\(g =
+                32{,}174\,\text{pés}/\text{s}^2\).</li>
+</ul>
+<p><strong>Resolução pelo Método do Fluxo</strong></p>
+<p><strong>Passo 1:</strong> Percorremos um caminho
+                partindo da superfície da água (ramo direito) até a
+                superfície do mercúrio (ramo esquerdo).</p>
+<ul>
+<li><strong>Partida:</strong> Pressão atmosférica (\(P_{\text{atm}}\))</li>
+<li><strong>Descendo pela água:</strong> \(+ \rho_{\text{a}} g
+                h_{\text{a}}\)</li>
+<li><strong>Subindo pelo mercúrio:</strong> \(- \rho_{\text{Hg}} g
+                h_{\text{Hg}}\)</li>
+<li><strong>Chegada:</strong> Pressão atmosférica (\(P_{\text{atm}}\))</li>
+</ul>
+<p><strong>Passo 2:</strong> Aplicar o princípio do
+                fluxo.</p>
+<p>Como partimos e chegamos à mesma pressão (\(P_{\text{atm}}\)), a soma
+                das variações ao longo do caminho é igual à diferença
+                entre a pressão final e a pressão inicial, que é
+                zero:</p>
+<p>\[P_{\text{atm}}  +
+                \rho_{\text{a}} g h_{\text{a}} - \rho_{\text{Hg}} g
+                h_{\text{Hg}} - P_{\text{atm}} = 0\]</p>
+<p><strong>Passo 3:</strong> Simplificar a equação.</p>
+<p>Cancelando \(P_{\text{atm}}\) em ambos
+                os lados:</p>
+<p>\[\cancel{P_{\text{atm}}}  +
+                \rho_{\text{a}} g h_{\text{a}} - \rho_{\text{Hg}} g
+                h_{\text{Hg}} - \cancel{P_{\text{atm}}} = 0\]</p>
+<p>\[\rho_{\text{a}} g
+                h_{\text{a}} - \rho_{\text{Hg}} g h_{\text{Hg}} =
+                0\]</p>
+<p><strong>Passo 4:</strong> Isolar \(\rho_{\text{Hg}}\).</p>
+<p>Colocando \(g\) em
+                evidência:</p>
+<p>\[g (\rho_{\text{a}}
+                h_{\text{a}} - \rho_{\text{Hg}} h_{\text{Hg}}) =
+                0\]</p>
+<p>Como \(g \neq 0\),
+                podemos dividir ambos os lados por \(g\):</p>
+<p>\[\rho_{\text{a}}
+                h_{\text{a}} - \rho_{\text{Hg}} h_{\text{Hg}} =
+                0\]</p>
+<p>\[\rho_{\text{a}}
+                h_{\text{a}} = \rho_{\text{Hg}}
+                h_{\text{Hg}}\]</p>
+<p>\[\rho_{\text{Hg}} =
+                \frac{\rho_{\text{a}}
+                h_{\text{a}}}{h_{\text{Hg}}}\]</p>
+<p><strong>Passo 5:</strong> Substituir os dados
+                numéricos.</p>
+<p>\[\rho_{\text{Hg}} =
+                \frac{1{,}94 \,\text{slug}/\text{pé}^3\times 15,0 \,
+                \text{pol}}{1,10 \, \text{pol}}\]</p>
+<p>\[\boxed{\rho_{\text{Hg}}
+                = 26{,}5\,\text{slug}/\text{pés}^3}\]</p>
+<p><strong>Passo 6:</strong> Comparar com o valor no SI
+                \(\rho_{\text{Hg}} = 13,6
+                \times 10^{3} \, \text{kg}/\text{m}^3\).</p>
+<p>\[\rho_{\text{Hg}} =
+                26{,}5\,\dfrac{\text{slug}}{\text{pés}^{3}} \cdot
+                \left(\dfrac{1\,\text{pé}}{0,3048\,\text{m}}\right)^{3}
+                \cdot
+                \left(\dfrac{32,174\,\text{lbm}}{1\,\text{slug}}\right)
+                \cdot
+                \left(\dfrac{0,45359\,\text{kg}}{1\,\text{lbm}}\right)\]</p>
+<p>\[\rho_{\text{Hg}} =
+                \left(\dfrac{26,5 \times 32,174 \times
+                0,45359}{0,3048}\right) \cdot
+                \dfrac{\text{kg}}{\text{m}^{3}}\]</p>
+<p>\[\boxed{\rho_{\text{Hg}}
+                = 13,7 \, \text{kg}/\text{m}^{3}}\]</p>
+<p><strong>Interpretação:</strong> O valor da densidade
+                do mercúrio calculada foi de \(13,7 \,
+                \text{kg}/\text{m}^{3}\) está próxima do valor
+                padrão de \(13,6 \,
+                \text{kg}/\text{m}^{3}\), confirmando a
+                consistência do método.</p>
+<h2 id="exemplo-4.3-tubo-em-u-com-três-líquidos-água-óleo-e-mercúrio">Exemplo
+                4.3: Tubo em U com três líquidos (água, óleo e
+                mercúrio)</h2>
+<p>Um tubo em U contém três líquidos imiscíveis em
+                equilíbrio: água, óleo e mercúrio. O óleo está na parte
+                superior do ramo direito, a água ocupa a parte inferior
+                do ramo direito (logo abaixo do óleo), e o mercúrio
+                ocupa a parte central do tubo, sendo deslocado alguns
+                centímetros para a esquerda devido à presença da água e
+                do óleo.</p>
+<figure>
+<img alt="Tubo em U com três líquidos. Fonte: autoria própria." src="images/tubo-u-mercúrio-água-óleo.png" style="width:60.0%"/>
+<figcaption aria-hidden="true">Tubo em U com três
+                líquidos. Fonte: autoria própria.</figcaption>
+</figure>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>Altura do óleo no ramo direito: \(h_{\text{o}} =
+                45{,}5\,\text{cm}\)</li>
+<li>Altura da água no ramo direito: \(h_{\text{a}} =
+                32{,}2\,\text{cm}\)</li>
+<li>Densidade do óleo: \(\rho_{\text{o}} =
+                860\,\text{kg}/\text{m}^3\)</li>
+<li>Densidade da água: \(\rho_{\text{a}} =
+                997\,\text{kg}/\text{m}^3\)</li>
+<li>Densidade do mercúrio: \(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\)</li>
+<li>Aceleração da gravidade: \(g =
+                9{,}807\,\text{m}/\text{s}^2\)</li>
+</ul>
+<p><strong>Observação importante:</strong> O óleo e a
+                água estão no mesmo ramo (ramo direito). O mercúrio
+                ocupa o fundo de ambos os ramos, sendo deslocado para a
+                esquerda. A diferença de altura entre as colunas de
+                mercúrio nos dois ramos é o que equilibra as pressões
+                geradas pelas colunas de óleo e água.</p>
+<p>Determine A diferença de altura entre as colunas de
+                mercúrio (\(\Delta
+                h_{\text{Hg}}\)) em centímetros, ou seja, o
+                desnível do mercúrio entre o ramo esquerdo e o ramo
+                direito.</p>
+<p><strong>Resolução pelo Método do Fluxo</strong></p>
+<p><strong>Passo 1:</strong> Percorremos um caminho
+                partindo da superfície do óleo no ramo direito até a
+                superfície do mercúrio no ramo esquerdo.</p>
+<ul>
+<li><strong>Partida:</strong> Pressão atmosférica \((+P_{\text{atm}})\).</li>
+<li><strong>Descendo pelo mercúrio - ramo
+                esquerdo:</strong> \(( +
+                \rho_{\text{Hg}} g h_{\text{Hg}})\).</li>
+<li><strong>Subindo pela água - ramo direito:</strong>
+\((+ \rho_{\text{a}} - g
+                h_{\text{a}})\).</li>
+<li><strong>Subindo pelo óleo - ramo direito- :</strong>
+                (\(+ \rho_{\text{o}} - g
+                h_{\text{o}})\).</li>
+<li><strong>Chegada:</strong> Superfície do mercúrio no
+                ramo esquerdo - <strong>pressão atmosférica</strong>:
+                \((-P_{\text{atm}})\).</li>
+</ul>
+<p><strong>Passo 2:</strong> Aplicar o princípio do
+                fluxo.</p>
+<p>\[P_{\text{atm}} +
+                \rho_{\text{Hg}} g h_{\text{Hg}} - \rho_{\text{o}} g
+                h_{\text{o}} - \rho_{\text{a}} g h_{\text{a}} -
+                P_{\text{atm}} = 0\]</p>
+<p><strong>Passo 3:</strong> Simplificar a equação.</p>
+<p>Cancelando \(P_{\text{atm}}\) em ambos
+                os lados:</p>
+<p>\[\cancel{P_{\text{atm}}}
+                + \rho_{\text{Hg}} g h_{\text{Hg}} - \rho_{\text{o}} g
+                h_{\text{o}} - \rho_{\text{a}} g h_{\text{a}} -
+                \cancel{P_{\text{atm}} = 0}\]</p>
+<p><strong>Passo 4:</strong> Isolar \(h_{\text{Hg}}\).</p>
+<p>Colocando \(g\) em
+                evidência:</p>
+<p>\[g \left[ \rho_{\text{o}}
+                h_{\text{o}} + \rho_{\text{a}} h_{\text{a}} +
+                \rho_{\text{Hg}} h_{\text{Hg}} - h_{\text{Hg}} \right] =
+                0\]</p>
+<p>Como \(g \neq 0\),
+                podemos dividir ambos os lados por \(g\):</p>
+<p>\[\rho_{\text{o}}
+                h_{\text{o}} + \rho_{\text{a}} h_{\text{a}} +
+                \rho_{\text{Hg}} h_{\text{Hg}} = 0\]</p>
+<p>\[h_{\text{Hg}} =
+                \dfrac{\rho_{\text{a}} h_{\text{a}} + \rho_{\text{o}}
+                h_{\text{o}}}{\rho_{\text{Hg}}}\]</p>
+<p><strong>Passo 5:</strong> Substituir os dados
+                numéricos em uma única expressão.</p>
+<p>\[h_{\text{Hg}} =
+                \frac{\rho_{\text{o}} h_{\text{o}} + \rho_{\text{a}}
+                h_{\text{a}}}{\rho_{\text{Hg}}}\]</p>
+<p>Substituindo os valores:</p>
+<p>\[h_{\text{Hg}} =
+                \dfrac{860\,\dfrac{\text{kg}}{\text{m}^3} \times
+                0{,}133\,\text{m} + 997\,\dfrac{\text{kg}}{\text{m}^3}
+                \times
+                0{,}322\,\text{m}}{13600\,\dfrac{\text{kg}}{\text{m}^3}}\]</p>
+<p>Observando o cancelamento das unidade e realizando o
+                cálculo numérico em uma única etapa:</p>
+<p>\[h_{\text{Hg}} =
+                0,0320\,\text{m}\]</p>
+<p>convertendo para centímetros:</p>
+<p>\[\boxed{h_{\text{Hg}} =
+                3{,}20\,\text{cm}}\]</p>
+<p><strong>Interpretação do Resultado</strong></p>
+<p>O desnível do mercúrio entre os dois ramos é de
+                aproximadamente <strong>3,20 cm</strong>, com o mercúrio
+                <strong>mais alto no ramo esquerdo</strong> (onde não há
+                óleo e água) e <strong>mais baixo no ramo
+                direito</strong> (onde as colunas de óleo e água
+                empurram o mercúrio para baixo).</p>
+<p>Este resultado é fisicamente consistente, pois:</p>
+<ol type="1">
+<li>O óleo e a água, por terem densidades menores que o
+                mercúrio, exercem uma pressão adicional que desloca o
+                mercúrio para baixo no ramo direito.</li>
+<li>Para equilibrar essa pressão, o mercúrio sobe no
+                ramo esquerdo, criando um desnível.</li>
+<li>O valor encontrado (3,20 cm) é razoável,
+                considerando as alturas das colunas de óleo (13,3 cm) e
+                água (32,2 cm) e a alta densidade do mercúrio.</li>
+</ol>
+<h1 id="conclusão">Conclusão</h1>
+<p>Nesta aula, exploramos o <strong>princípio dos vasos
+                comunicantes</strong> e suas aplicações práticas em
+                sistemas com <strong>líquidos imiscíveis</strong> e
+                <strong>pressão atmosférica</strong> atuando nas
+                superfícies livres.</p>
+<p>Os principais aprendizados foram:</p>
+<ol type="1">
+<li><p><strong>Em vasos comunicantes com o mesmo líquido
+                e mesma pressão superficial,</strong> os níveis se
+                igualam independentemente da forma dos
+                recipientes.</p></li>
+<li><p><strong>Em tubos em U com líquidos
+                imiscíveis,</strong> as alturas das colunas são
+                inversamente proporcionais às densidades: \(\rho_1 h_1 = \rho_2
+                h_2\).</p></li>
+<li><p><strong>Os dois métodos de resolução</strong> —
+                Método do Fluxo e Método do Equilíbrio — são
+                equivalentes e levam aos mesmos resultados. Dominar
+                ambos permite maior flexibilidade na resolução de
+                problemas.</p></li>
+<li><p><strong>Aplicações práticas</strong> incluem
+                sistemas de abastecimento de água e níveis
+                hidrostáticos.</p></li>
+</ol>
+<p>O princípio dos vasos comunicantes, descoberto há
+                séculos, permanece fundamental na engenharia moderna,
+                desde projetos de construção civil até sistemas
+                hidráulicos.</p>
+<p>Na próxima aula, introduziremos o conceito de
+                <strong>pressão manométrica</strong> e estudaremos os
+                <strong>manômetros de tubo em U</strong>, além do
+                <strong>Princípio de Pascal</strong> e suas aplicações
+                em sistemas hidráulicos.</p>
+<h1 id="exercícios-de-revisão">Exercícios de
+                revisão</h1>
+<dl>
+<dt>4.1)</dt>
+<dd>
+                Qual é a principal diferença entre vasos comunicantes
+                com líquidos miscíveis e imiscíveis?
+                </dd>
+</dl>
+<ol type="a">
+<li>Em miscíveis, os níveis se igualam; em imiscíveis,
+                não.</li>
+<li>Em miscíveis, os líquidos se misturam; em
+                imiscíveis, formam camadas separadas.</li>
+<li>Em miscíveis, a pressão varia linearmente; em
+                imiscíveis, permanece constante.</li>
+<li>Em miscíveis, aplicam-se apenas o Método do
+                Equilíbrio; em imiscíveis, apenas o Método do
+                Fluxo.</li>
+<li>Em miscíveis, as densidades são iguais; em
+                imiscíveis, são diferentes.</li>
+</ol>
+<dl>
+<dt>4.2)</dt>
+<dd>
+                O que acontece com os níveis de um líquido em vasos
+                comunicantes abertos para a atmosfera, mas com
+                recipientes de formas diferentes?
+                </dd>
+</dl>
+<ol type="a">
+<li>Os níveis se igualam independentemente da
+                forma.</li>
+<li>Os níveis variam proporcionalmente ao volume dos
+                recipientes.</li>
+<li>Os níveis se invertem devido à pressão
+                atmosférica.</li>
+<li>Os níveis dependem da densidade do líquido.</li>
+<li>Os níveis são maiores no recipiente com maior área
+                de base.</li>
+</ol>
+<dl>
+<dt>4.3)</dt>
+<dd>
+                Qual é a vantagem principal do Método do Fluxo em
+                relação ao Método do Equilíbrio?
+                </dd>
+</dl>
+<ol type="a">
+<li>É mais rápido para sistemas simples.</li>
+<li>Permite visualizar o caminho físico do fluido.</li>
+<li>Não requer conhecimento de densidades.</li>
+<li>É aplicável apenas a líquidos imiscíveis.</li>
+<li>Elimina a necessidade de igualar pressões.</li>
+</ol>
+<dl>
+<dt>4.4)</dt>
+<dd>
+                Em um tubo em U com dois líquidos imiscíveis, o que
+                determina a relação entre as alturas das colunas?
+                </dd>
+</dl>
+<ol type="a">
+<li>A diferença de volumes dos líquidos.</li>
+<li>A razão inversa das densidades.</li>
+<li>A pressão atmosférica local.</li>
+<li>A forma do tubo.</li>
+<li>A aceleração da gravidade.</li>
+</ol>
+<dl>
+<dt>4.5)</dt>
+<dd>
+                Qual das seguintes aplicações NÃO utiliza o princípio
+                dos vasos comunicantes?
+                </dd>
+</dl>
+<ol type="a">
+<li>Sistema de abastecimento de água em edifícios.</li>
+<li>Nível hidrostático para medição de altitudes.</li>
+<li>Barômetro de mercúrio.</li>
+<li>Termomêtro de mercúrio.</li>
+<li>Manômetro de tubo em U.</li>
+</ol>
+<p>4.6) Um tubo em U contém água (ramo esquerdo) e óleo
+                (ramo direito). A altura da coluna de óleo é \(0{,}450\,\text{m}\) e a
+                altura da coluna de água é \(0{,}380\,\text{m}\).
+                Sabendo que \(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\), a densidade do óleo
+                é, aproximadamente:</p>
+<ol type="a">
+<li>\(665\,\text{kg}/\text{m}^3\).</li>
+<li>\(751\,\text{kg}/\text{m}^3\).</li>
+<li>\(842\,\text{kg}/\text{m}^3\).</li>
+<li>\(954\,\text{kg}/\text{m}^3\).</li>
+<li>\(1230\,\text{kg}/\text{m}^3\).</li>
+</ol>
+<p>4.7) Em um tubo em U com mercúrio (ramos esquerdo) e
+                água (ramo direito), a altura da coluna de água é \(0{,}555\,\text{m}\).
+                Sabendo que \(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\) e \(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\), a altura da coluna
+                de mercúrio é, em centímetros:</p>
+<ol type="a">
+<li>\(3{,}70\,\text{cm}\).</li>
+<li>\(3{,}82\,\text{cm}\).</li>
+<li>\(3{,}93\,\text{cm}\).</li>
+<li>\(4{,}07\,\text{cm}\).</li>
+<li>\(4{,}10\,\text{cm}\).</li>
+</ol>
+<p>4.8) Um tubo em U contém três líquidos imiscíveis:
+                óleo (ramo esquerdo), água (ramo esquerdo) e mercúrio
+                (ramo direito). As alturas são \(h_{\text{óleo}} =
+                0{,}333\,\text{m}\), \(h_{\text{água}} =
+                0{,}653\,\text{m}\). Sabendo que \(\rho_{\text{óleo}} =
+                860\,\text{kg}/\text{m}^3\), \(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\) e \(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\), o desnível do
+                mercúrio (\(\Delta
+                h_{\text{Hg}}\)) é, em centímetros:</p>
+<ol type="a">
+<li>\(10{,}3\,\text{cm}\).</li>
+<li>\(9{,}56\,\text{cm}\).</li>
+<li>\(8{,}13\,\text{cm}\).</li>
+<li>\(7{,}97\,\text{cm}\).</li>
+<li>\(6{,}89\,\text{cm}\).</li>
+</ol>
+<dl>
+<dt>4.9)</dt>
+<dd>
+                Um tubo em U contém água (ramo esquerdo) e glicerina
+                (ramo direito). A altura da coluna da glicerina é \(7,85\,\text{pol}\). Sabendo
+                que \(\rho_{\text{água}} =
+                1,94\,\text{slug}/\text{pés}^3\), \(\rho_{\text{glicerina}} =
+                2,45\,\text{slug}/\text{pés}^3\), determine a
+                altura da água em centímetros.
+                </dd>
+</dl>
+<ol type="a">
+<li>\(25{,}2\,\text{cm}\).</li>
+<li>\(24{,}3\,\text{cm}\).</li>
+<li>\(23{,}1\,\text{cm}\).</li>
+<li>\(22{,}9\,\text{cm}\).</li>
+<li>\(21{,}8\,\text{cm}\).</li>
+</ol>
+<p>4.10) Um tubo em U contém três líquidos imiscíveis:
+                óleo (ramo direito), água (ramo direito) e glicerina
+                (ramo esquerdo). As alturas são \(h_{\text{óleo}} =
+                0{,}456\,\text{m}\), \(h_{\text{água}} =
+                0{,}345\,\text{m}\). Sabendo que \(\rho_{\text{óleo}} =
+                860\,\text{kg}/\text{m}^3\), \(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\) e \(\rho_{\text{gl}} =
+                1200\,\text{kg}/\text{m}^3\). Determine a altura
+                do desnível da glicerina.</p>
+<ol type="a">
+<li>\(57{,}4\,\text{cm}\)</li>
+<li>\(58{,}7\,\text{cm}\)</li>
+<li>\(59{,}8\,\text{cm}\)</li>
+<li>\(60{,}9\,\text{cm}\)</li>
+<li>\(61{,}3\,\text{cm}\)</li>
+</ol>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=JgNUabj60cQ" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física da mangueira de nível" loading="lazy" src="./images/thumbs/fig-ytb-mangueira-de-nível.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física da mangueira de nível</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=JgNUabj60cQ" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Física com Douglas Gomes.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=JgNUabj60cQ" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=S8Q3DHQZIUA" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Vasos Comunicantes" loading="lazy" src="./images/thumbs/fig-ytb-vasos.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Vasos Comunicantes</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=S8Q3DHQZIUA" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Maurício Física.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=S8Q3DHQZIUA" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=CrN3SYbZ4CE" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Vasos comunicantes e Liquidos Imiscíveis" loading="lazy" src="./images/thumbs/fig-ytb-líquidos-imiscíveis.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Vasos comunicantes e Liquidos Imiscíveis</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=CrN3SYbZ4CE" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Me Salva!</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=CrN3SYbZ4CE" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>BRUNETTI, Franco. Mecânica dos fluidos. 2. ed. São
+                Paulo: Pearson Prentice Hall, 2008.</li>
+<li>ÇENGEL, Yunus A.; CIMBALA, John M. Mecânica dos
+                fluidos: fundamentos e aplicações. 3. ed. Porto Alegre:
+                AMGH, 2015.</li>
+<li>FOX, Robert W.; MCDONALD, Alan T.; PRITCHARD, Philip
+                J. Introdução à mecânica dos fluidos. 8. ed. Rio de
+                Janeiro: LTC, 2014.</li>
+<li>MUNSON, Bruce R.; YOUNG, Donald F.; OKIISHI,
+                Theodore H. Fundamentos da mecânica dos fluidos. 4.
+                ed. São Paulo: Edgard Blücher, 2004.</li>
+<li>STEVIN, Simon. The Principal Works of Simon Stevin.
+                Amsterdam: C. V. Swets &amp; Zeitlinger, 1955.
+                (Originalmente publicado em 1586).</li>
+<li>WHITE, Frank M. Mecânica dos fluidos. 8. ed. Porto
+                Alegre: AMGH, 2018.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+                    
+                <a href="/disciplinas/aula-03-teorema-de-stevin.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+                
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+                    
+                </div>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

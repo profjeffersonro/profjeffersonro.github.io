@@ -15,6 +15,8 @@ from pathlib import Path
 from datetime import datetime
 import re
 import unicodedata
+import html as html_lib
+from bs4 import BeautifulSoup
 
 # ============================================================================
 # CONFIGURAÇÃO PARA AUTOMAÇÃO NO GITHUB
@@ -76,6 +78,50 @@ def get_github_repo_info():
     # Local development
     return None, False, '/'
 
+def site_url(path, base_url='/'):
+    """Monta URL interna respeitando publicacao na raiz ou em subpasta."""
+    if not path:
+        return base_url
+    if path.startswith(('http://', 'https://', 'mailto:', '#', '//')):
+        return path
+    if path.startswith('/home/'):
+        return path
+    return f"{base_url.rstrip('/')}/{path.lstrip('/')}" if base_url != '/' else f"/{path.lstrip('/')}"
+
+def rewrite_internal_urls(html_content, base_url='/'):
+    """Reescreve links internos absolutos para o base_url configurado."""
+    if base_url == '/':
+        return html_content
+
+    def replace_attr(match):
+        attr, quote, value = match.groups()
+        if value.startswith('/') and not value.startswith(('/home/', '//')):
+            return f'{attr}={quote}{site_url(value, base_url)}{quote}'
+        return match.group(0)
+
+    html_content = re.sub(r'\b(href|src|action)=([\'"])([^\'"]+)\2', replace_attr, html_content)
+    html_content = re.sub(
+        r'url\((["\']?)/([^)"\']+)(["\']?)\)',
+        lambda m: f'url({m.group(1)}{site_url("/" + m.group(2), base_url)}{m.group(3)})',
+        html_content,
+    )
+    return html_content
+
+def create_analytics_snippet(config):
+    """Retorna script de analytics se configurado. Mantem desativado por padrao."""
+    analytics = config.get('analytics') or {}
+    provider = (analytics.get('provider') or '').strip().lower()
+    code = (analytics.get('code') or '').strip()
+
+    if provider == 'goatcounter' and code:
+        return f'''
+    <!-- Analytics: GoatCounter -->
+    <script data-goatcounter="https://{code}.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    '''
+
+    return ''
+
 def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.github.io/"):
     """
     Gera sitemap.xml para melhor SEO no GitHub Pages.
@@ -127,7 +173,7 @@ def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.githu
         # Posts do blog
         if 'posts' in config['blog']:
             for post in config['blog']['posts']:
-                post_slug = post["title"].lower().replace(" ", "-").replace("ç", "c").replace("ã", "a").replace("õ", "o")
+                post_slug = create_slug(post["title"])
                 sitemap += f'''
     <url>
         <loc>{base_url}blog/{post_slug}.html</loc>
@@ -145,6 +191,74 @@ def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.githu
         f.write(sitemap)
     
     return sitemap_file
+
+def validate_build_output(config, output_dir):
+    """Valida a saida gerada contra o config.yaml."""
+    errors = []
+    warnings = []
+
+    output_dir = Path(output_dir)
+    expected_aulas = []
+    for disciplina in config.get('disciplinas', []):
+        for aula in disciplina.get('aulas', []):
+            slug = create_slug(aula['name'])
+            expected_aulas.append(output_dir / 'disciplinas' / f'{slug}.html')
+
+            source = Path(aula.get('html', ''))
+            if not source.exists():
+                errors.append(f"Fonte de aula inexistente: {source}")
+
+            pdf = aula.get('pdf', '')
+            if isinstance(pdf, str) and pdf.startswith('/home/'):
+                warnings.append(f"PDF local em aula '{aula['name']}': {pdf}")
+
+    expected_posts = []
+    for post in config.get('blog', {}).get('posts', []):
+        slug = create_slug(post['title'])
+        expected_posts.append(output_dir / 'blog' / f'{slug}.html')
+
+        source = Path(post.get('html', ''))
+        if not source.exists():
+            errors.append(f"Fonte de post inexistente: {source}")
+
+        pdf = post.get('pdf', '')
+        if isinstance(pdf, str) and pdf.startswith('/home/'):
+            warnings.append(f"PDF local em post '{post['title']}': {pdf}")
+
+    actual_aulas = [
+        path for path in (output_dir / 'disciplinas').glob('*.html')
+        if path.name != 'index.html'
+    ]
+
+    missing_aulas = [path for path in expected_aulas if not path.exists()]
+    extra_aulas = [path for path in actual_aulas if path not in expected_aulas]
+    missing_posts = [path for path in expected_posts if not path.exists()]
+
+    if missing_aulas:
+        errors.extend(f"Pagina de aula ausente: {path}" for path in missing_aulas)
+    if extra_aulas:
+        warnings.extend(f"Pagina de aula extra: {path}" for path in extra_aulas)
+    if missing_posts:
+        errors.extend(f"Pagina de post ausente: {path}" for path in missing_posts)
+
+    for required in ['index.html', 'disciplinas/index.html', 'blog/index.html', 'sitemap.xml', 'robots.txt', '.nojekyll']:
+        if not (output_dir / required).exists():
+            errors.append(f"Arquivo obrigatorio ausente: {output_dir / required}")
+
+    sitemap_file = output_dir / 'sitemap.xml'
+    if sitemap_file.exists():
+        sitemap_content = sitemap_file.read_text(encoding='utf-8', errors='ignore')
+        for page in expected_aulas:
+            if f"disciplinas/{page.name}" not in sitemap_content:
+                errors.append(f"Sitemap sem aula: {page.name}")
+
+    return {
+        'expected_aulas': len(expected_aulas),
+        'actual_aulas': len(actual_aulas),
+        'expected_posts': len(expected_posts),
+        'warnings': warnings,
+        'errors': errors,
+    }
 
 # ============================================================================
 # CONFIGURAÇÃO DO PARSER DE ARGUMENTOS
@@ -346,58 +460,29 @@ def normalize_latex_delimiters(content):
 
 
 def fix_math_for_github(html_content):
-    """
+    r"""
     CORREÇÃO ESPECÍFICA PARA MATHJAX.
     Converte spans de matemática para delimitadores puros \(...\) e \[...\].
     Preserva todo o resto do HTML.
     """
-    import re
-    
     print("    🔧 Aplicando correção MathJax...")
-    
-    # ------------------------------------------------------------------------
-    # PASSO 1: REMOVER SPANS DE MATEMÁTICA, MAS PRESERVAR O CONTEÚDO
-    # ------------------------------------------------------------------------
-    
-    # CASO 1: <span class="math inline">\(...\)</span> → \(...\)
-    pattern1 = r'<span[^>]*class="[^"]*math[^"]*inline[^"]*"[^>]*>(\\\(.*?\\\))</span>'
-    html_content = re.sub(pattern1, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 2: <span class="math display">\[...\]</span> → \[...\]
-    pattern2 = r'<span[^>]*class="[^"]*math[^"]*display[^"]*"[^>]*>(\\\[.*?\\\])</span>'
-    html_content = re.sub(pattern2, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 3: <span class="math">$...$</span> → $...$
-    pattern3 = r'<span[^>]*class="[^"]*math[^"]*"[^>]*>(\$.*?\$)</span>'
-    html_content = re.sub(pattern3, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 4: <span class="math display">$$...$$</span> → $$...$$
-    pattern4 = r'<span[^>]*class="[^"]*math[^"]*display[^"]*"[^>]*>(\$\$.*?\$\$)</span>'
-    html_content = re.sub(pattern4, r'\1', html_content, flags=re.DOTALL)
-    
-    # CASO 5: Qualquer outro span de matemática restante
-    pattern5 = r'<span[^>]*class="[^"]*math[^"]*"[^>]*>(.*?)</span>'
-    html_content = re.sub(pattern5, r'\1', html_content, flags=re.DOTALL)
-    
-    # ------------------------------------------------------------------------
-    # PASSO 2: CONVERTER DELIMITADORES SIMPLES
-    # ------------------------------------------------------------------------
-    
-    # Converte $$...$$ para \[...\] (display)
-    html_content = re.sub(r'\$\$(.*?)\$\$', r'\\[\1\\]', html_content, flags=re.DOTALL)
-    
-    # Converte $...$ para \(...\) (inline)
-    # Usar abordagem segura: proteger \[...\] já convertidos
-    html_content = re.sub(r'\\\[.*?\\\]', lambda m: '␀' + str(hash(m.group(0))) + '␁', html_content)
-    
-    # Converter $...$ restantes
-    html_content = re.sub(r'\$(.*?)\$', r'\\(\1\\)', html_content, flags=re.DOTALL)
-    
-    # Restaurar \[...\] protegidos
-    html_content = re.sub(r'␀(.*?)␁', lambda m: '\\[' + '\\]', html_content)
-    
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+    for math_span in soup.select('span.math'):
+        math_span.unwrap()
+
+    for paragraph in soup.find_all('p'):
+        first_child = next(
+            (child for child in paragraph.children if getattr(child, 'name', None) or str(child).strip()),
+            None,
+        )
+        if getattr(first_child, 'name', None) == 'strong':
+            marker = first_child.get_text(strip=True)
+            if re.match(r'^\d+(?:\.\d+)*\)', marker):
+                first_child['class'] = first_child.get('class', []) + ['question-marker']
+
     print("    ✅ Correção MathJax aplicada!")
-    return html_content
+    return str(soup)
 
 
 def clean_pandoc_html_basic(html_content):
@@ -406,44 +491,34 @@ def clean_pandoc_html_basic(html_content):
     EXTRAI APENAS O CONTEÚDO PRINCIPAL, sem os containers do Pandoc.
     """
     content = remove_mathjax_from_html(html_content)
-    
-    body_match = re.search(r'<body[^>]*>(.*?)</body>', content, re.DOTALL | re.IGNORECASE)
-    if body_match:
-        content = body_match.group(1)
-    
-    # Padrões para remover - APENAS elementos estruturais do Pandoc
-    patterns_to_remove = [
-        r'<header[^>]*>.*?</header>',
-        r'<footer[^>]*>.*?</footer>',
-        r'<nav[^>]*>.*?</nav>',
-        r'<div[^>]*class="[^"]*document-header[^"]*"[^>]*>.*?</div>',
-        r'<div[^>]*class="[^"]*document-footer[^"]*"[^>]*>.*?</div>',
-        r'<div[^>]*id="TOC"[^>]*>.*?</div>',
-        r'<style[^>]*>.*?</style>',
-        r'<link[^>]*>',
-        r'<meta[^>]*>',
-        r'<p>', r'<p style="text-align: justify; margin-left: 0; padding-left: ; text-indent: 0;">',
-    ]
-    
-    for pattern in patterns_to_remove:
-        content = re.sub(pattern, '', content, flags=re.DOTALL | re.IGNORECASE)
-    
-    # REMOVER os containers do Pandoc que causam dupla limitação de largura
-    # <div class="container-fluid"> e <div class="container-main col-lg-10 col-xl-8 mx-auto">
-    container_patterns = [
-        r'<div[^>]*class="[^"]*container-fluid[^"]*"[^>]*>',
-        r'<div[^>]*class="[^"]*container-main[^"]*"[^>]*>',
-        r'</div>\s*</div>\s*$',  # Divs de fechamento no final
-    ]
-    
-    for pattern in container_patterns:
-        content = re.sub(pattern, '', content, flags=re.DOTALL | re.IGNORECASE)
-    
-    # Remover atributos style e data-* que podem causar problemas
-    # content = re.sub(r'\sstyle="[^"]*"', '', content)
-    content = re.sub(r'\sdata-[a-z-]+="[^"]*"', '', content)
-    
-    return content
+    soup = BeautifulSoup(content, 'html.parser')
+
+    root = soup.select_one('main.content-section') or soup.body or soup
+
+    for selector in [
+        'header',
+        'footer',
+        'nav',
+        '#TOC',
+        '.document-header',
+        '.document-footer',
+        'style',
+        'link',
+        'meta',
+        'script',
+    ]:
+        for element in root.select(selector):
+            element.decompose()
+
+    for element in root.select('.container-fluid, .container-main'):
+        element.unwrap()
+
+    for element in root.find_all(True):
+        for attr in list(element.attrs):
+            if attr.startswith('data-'):
+                del element.attrs[attr]
+
+    return ''.join(str(child) for child in root.contents).strip()
 
 def is_pandoc_html(content):
     """Detecta se o HTML foi gerado pelo Pandoc"""
@@ -577,7 +652,7 @@ def create_slug(text):
 # GERADOR DE PÁGINAS COM CACHE (ATUALIZADO PARA GITHUB PAGES)
 # ============================================================================
 
-def generate_html_page(title, content, config, active_page=None):
+def generate_html_page(title, content, config, active_page=None, page_path='/', description=None):
     active_home = 'active' if active_page == 'home' else ''
     active_disciplinas = 'active' if active_page == 'disciplinas' else ''
     active_blog = 'active' if active_page == 'blog' else ''
@@ -586,7 +661,15 @@ def generate_html_page(title, content, config, active_page=None):
     repo_name, is_github_pages, base_url = get_github_repo_info()
     
     # Usar base_url para todos os caminhos
-    mathjax_config = '''
+    public_base_url = (config.get('site_url') or 'https://profjeffersonro.github.io/').rstrip('/') + '/'
+    canonical_url = public_base_url + page_path.lstrip('/')
+    description = description or f"{title} - portal de notas de aula de física criado por {config['author']}."
+    escaped_title = html_lib.escape(f"{title} | {config['site_title']}")
+    escaped_description = html_lib.escape(description)
+    escaped_site_title = html_lib.escape(config['site_title'])
+    escaped_canonical_url = html_lib.escape(canonical_url)
+
+    mathjax_config = r'''
     <!-- MathJax Centralizado -->
     <script>
     window.MathJax = {
@@ -594,7 +677,8 @@ def generate_html_page(title, content, config, active_page=None):
             inlineMath: [['$', '$'], ['\\(', '\\)']],
             displayMath: [['$$', '$$'], ['\\[', '\\]']],
             processEscapes: true,
-            processEnvironments: true
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
         },
         options: {
             skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
@@ -605,10 +689,7 @@ def generate_html_page(title, content, config, active_page=None):
             fontCache: 'global'
         },
         loader: {
-            load: ['[tex]/ams', '[tex]/physics']
-        },
-        tex: {
-            packages: {'[+]': ['ams', 'physics']}
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
         },
         startup: {
             ready: () => {
@@ -621,13 +702,22 @@ def generate_html_page(title, content, config, active_page=None):
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     '''
+    analytics_snippet = create_analytics_snippet(config)
     
     html = f'''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | {config['site_title']}</title>
+    <title>{escaped_title}</title>
+    <meta name="description" content="{escaped_description}">
+    <meta name="author" content="{html_lib.escape(config['author'])}">
+    <link rel="canonical" href="{escaped_canonical_url}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{escaped_title}">
+    <meta property="og:description" content="{escaped_description}">
+    <meta property="og:url" content="{escaped_canonical_url}">
+    <meta property="og:site_name" content="{escaped_site_title}">
     
     <!-- Bootstrap 5 CSS -->
     <link href="{config['css']}" rel="stylesheet">
@@ -642,6 +732,7 @@ def generate_html_page(title, content, config, active_page=None):
     <link rel="icon" type="image/x-icon" href="{base_url}favicon.ico">
     
     {mathjax_config}
+    {analytics_snippet}
 </head>
 <body>
     <!-- Navbar -->
@@ -702,41 +793,10 @@ def generate_html_page(title, content, config, active_page=None):
     
     <!-- JS Personalizado -->
     <script src="{base_url}js/main.js"></script>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {{
-        function initializeMathJax() {{
-            if (typeof MathJax !== 'undefined') {{
-                MathJax.startup.promise.then(() => {{
-                    if (document.querySelector('.tex2jax_process')) {{
-                        MathJax.typesetPromise().catch((err) => {{
-                            console.log('MathJax erro:', err.message);
-                        }});
-                    }}
-                }}).catch((err) => {{
-                    console.error('MathJax falhou ao carregar:', err);
-                }});
-                window.dispatchEvent(new Event('MathJaxLoaded'));
-            }} else {{
-                console.warn('MathJax não está disponível');
-            }}
-        }}
-        
-        if (typeof MathJax !== 'undefined') {{
-            initializeMathJax();
-        }} else {{
-            window.addEventListener('MathJaxLoaded', initializeMathJax);
-        }}
-    }});
-    </script>
 </body>
 </html>'''
     
-    # Ajustar caminhos para GitHub Pages se necessário
-    if is_github_pages and repo_name and not repo_name.endswith('.github.io'):
-        html = adjust_paths_for_github_pages(html, repo_name)
-    
-    return html
+    return rewrite_internal_urls(html, base_url)
 
 # ============================================================================
 # FUNÇÕES DE BUILD COM CACHE (MANTIDAS COM PEQUENAS MODIFICAÇÕES)
@@ -793,7 +853,14 @@ def generate_home_page_with_cache(config, output_dir, cache, file_hashes):
     else:
         content = home_content
     
-    html = generate_html_page('Home', content, config, active_page='home')
+    html = generate_html_page(
+        'Home',
+        content,
+        config,
+        active_page='home',
+        page_path='/',
+        description='Portal de notas de aula de física, materiais de estudo e artigos científicos.',
+    )
     
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
@@ -898,7 +965,14 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
     </div>
     '''
     
-    html = generate_html_page('Disciplinas', content, config, active_page='disciplinas')
+    html = generate_html_page(
+        'Disciplinas',
+        content,
+        config,
+        active_page='disciplinas',
+        page_path='/disciplinas/',
+        description='Lista de disciplinas e aulas disponíveis no portal de física.',
+    )
     
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
@@ -917,7 +991,8 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
     for disciplina in config['disciplinas']:
         print(f"\n  📘 Disciplina: {disciplina['disciplina']}")
         
-        for aula in disciplina['aulas']:
+        aulas_da_disciplina = disciplina['aulas']
+        for index, aula in enumerate(aulas_da_disciplina):
             # Criar slug para a aula
             aula_slug = create_slug(aula['name'])
             output_file = output_dir / 'disciplinas' / f'{aula_slug}.html'
@@ -971,6 +1046,25 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
                     </a>
                 </div>
                 '''
+
+            previous_aula = aulas_da_disciplina[index - 1] if index > 0 else None
+            next_aula = aulas_da_disciplina[index + 1] if index < len(aulas_da_disciplina) - 1 else None
+            previous_button = ''
+            next_button = ''
+            if previous_aula:
+                previous_slug = create_slug(previous_aula['name'])
+                previous_button = f'''
+                <a href="/disciplinas/{previous_slug}.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+                '''
+            if next_aula:
+                next_slug = create_slug(next_aula['name'])
+                next_button = f'''
+                <a href="/disciplinas/{next_slug}.html" class="btn btn-outline-primary">
+                    Próxima aula <i class="bi bi-arrow-right"></i>
+                </a>
+                '''
             
             content = f'''
             <nav aria-label="breadcrumb">
@@ -994,17 +1088,30 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
                 </div>
             </div>
             
-            <div class="d-flex justify-content-between">
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+                    {previous_button}
+                </div>
+                <div class="d-flex flex-wrap gap-2">
                 <a href="/disciplinas/" class="btn btn-outline-primary">
                     <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
                 </a>
                 <a href="/" class="btn btn-outline-secondary">
                     <i class="bi bi-house"></i> Ir para Home
                 </a>
+                    {next_button}
+                </div>
             </div>
             '''
             
-            html = generate_html_page(aula['name'], content, config, active_page='disciplinas')
+            html = generate_html_page(
+                aula['name'],
+                content,
+                config,
+                active_page='disciplinas',
+                page_path=f'/disciplinas/{aula_slug}.html',
+                description=f"Notas da {aula['name']} de {disciplina['disciplina']}.",
+            )
             
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(html)
@@ -1045,7 +1152,7 @@ def generate_blog_page_with_cache(config, output_dir, cache, file_hashes):
     
     if 'blog' in config and 'posts' in config['blog']:
         for post in config['blog']['posts']:
-            post_slug = post["title"].lower().replace(" ", "-").replace("ç", "c").replace("ã", "a").replace("õ", "o")
+            post_slug = create_slug(post["title"])
             
             posts_list += f'''
             <div class="card mb-4">
@@ -1101,7 +1208,14 @@ def generate_blog_page_with_cache(config, output_dir, cache, file_hashes):
     </div>
     '''
     
-    html = generate_html_page('Blog', content, config, active_page='blog')
+    html = generate_html_page(
+        'Blog',
+        content,
+        config,
+        active_page='blog',
+        page_path='/blog/',
+        description='Artigos, tutoriais e reflexões sobre física, ciência e educação.',
+    )
     
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
@@ -1122,7 +1236,7 @@ def generate_blog_post_pages_with_cache(config, output_dir, cache, file_hashes):
         
         for post in config['blog']['posts']:
             # Criar slug para o post
-            post_slug = post["title"].lower().replace(" ", "-").replace("ç", "c").replace("ã", "a").replace("õ", "o")
+            post_slug = create_slug(post["title"])
             output_file = output_dir / 'blog' / f'{post_slug}.html'
             source_file = post['html']
             current_hash = calculate_file_hash(source_file)
@@ -1209,7 +1323,14 @@ def generate_blog_post_pages_with_cache(config, output_dir, cache, file_hashes):
             </div>
             '''
             
-            html = generate_html_page(post['title'], content, config, active_page='blog')
+            html = generate_html_page(
+                post['title'],
+                content,
+                config,
+                active_page='blog',
+                page_path=f'/blog/{post_slug}.html',
+                description=f"Artigo {post['title']} publicado no portal de física.",
+            )
             
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(html)
@@ -1467,30 +1588,6 @@ document.addEventListener('DOMContentLoaded', function() {{
         button.setAttribute('rel', 'noopener noreferrer');
     }});
     
-    // Função para inicializar MathJax
-    function initializeMathJax() {{
-        if (typeof MathJax !== 'undefined') {{
-            console.log('MathJax carregado para GitHub Pages');
-            
-            MathJax.startup.promise.then(() => {{
-                console.log('MathJax inicializado com sucesso');
-                
-                if (document.querySelector('.tex2jax_process')) {{
-                    MathJax.typesetPromise().catch((err) => {{
-                        console.log('MathJax erro:', err.message);
-                    }});
-                }}
-            }}).catch((err) => {{
-                console.error('MathJax falhou ao carregar:', err);
-            }});
-        }} else {{
-            console.warn('MathJax não está disponível');
-        }}
-    }}
-    
-    // Inicializar MathJax
-    setTimeout(initializeMathJax, 500);
-    
     // Log para debug (apenas em desenvolvimento)
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {{
         console.log('Desenvolvimento local - Base URL:', BASE_URL);
@@ -1714,6 +1811,18 @@ def main():
                 print(f"   ✅ {file}")
             else:
                 print(f"   ⚠️  {file} (não encontrado)")
+
+        print(f"\n🧪 Validando saída gerada:")
+        validation = validate_build_output(config, output_dir)
+        print(f"   📖 Aulas esperadas/geradas: {validation['expected_aulas']}/{validation['actual_aulas']}")
+        print(f"   📝 Posts esperados: {validation['expected_posts']}")
+        for warning in validation['warnings']:
+            print(f"   ⚠️  {warning}")
+        if validation['errors']:
+            for error in validation['errors']:
+                print(f"   ❌ {error}")
+            raise RuntimeError("Validação pós-build falhou")
+        print("   ✅ Validação concluída sem erros")
         
         if BUILD_MODE == 'incremental':
             print(f"\n💾 Cache salvo para builds futuros")
