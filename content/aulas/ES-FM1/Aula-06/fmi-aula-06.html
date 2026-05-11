@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física Moderna 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+Moderna 2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Aula
+06 - Efeito Compton e Difração de Elétrons</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li><strong>Explicar</strong> o efeito Compton como
+                evidência da natureza corpuscular da radiação
+                eletromagnética.</li>
+                <li><strong>Relacionar</strong> o deslocamento Compton
+                com o ângulo de espalhamento do fóton.</li>
+                <li><strong>Aplicar</strong> a conservação relativística
+                de energia e momento em colisões fóton-elétron.</li>
+                <li><strong>Interpretar</strong> a hipótese de De
+                Broglie e o comprimento de onda associado a partículas
+                materiais.</li>
+                <li><strong>Diferenciar</strong> os regimes não
+                relativístico e relativístico no cálculo do comprimento
+                de onda de elétrons.</li>
+                <li><strong>Analisar</strong> a difração de elétrons em
+                cristais como evidência experimental da natureza
+                ondulatória da matéria.</li>
+                <li><strong>Conectar</strong> a relação de De Broglie
+                com a lei de Bragg em experimentos de difração de
+                elétrons.</li>
+                <li><strong>Planejar e interpretar</strong> medidas
+                experimentais de anéis de difração em grafita
+                policristalina.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Na aula anterior, vimos que o efeito fotoelétrico só
+                pode ser compreendido se a luz for tratada como um
+                conjunto de fótons, cada um com energia <span
+                class="math inline">\(E = hf\)</span>. Nesta aula,
+                avançamos um passo: além de energia, o fóton também
+                carrega momento linear. Essa ideia fica clara no
+                <strong>efeito Compton</strong>, no qual raios X
+                espalhados por elétrons saem com comprimento de onda
+                maior do que o inicial.</p>
+                <p>Em seguida, faremos o movimento complementar. Se a
+                luz, tradicionalmente descrita como onda, também se
+                comporta como partícula, será que partículas materiais,
+                como elétrons, também podem se comportar como ondas? A
+                hipótese de <strong>Louis de Broglie</strong> respondeu
+                que sim. A confirmação experimental veio com a difração
+                de elétrons em cristais, fenômeno que só faz sentido
+                quando associamos um comprimento de onda ao elétron.</p>
+                <p>A aula, portanto, costura duas ideias centrais da
+                Física Moderna: a luz pode revelar comportamento
+                corpuscular e a matéria pode revelar comportamento
+                ondulatório. Essa é a base da dualidade
+                onda-partícula.</p>
+                <h1 id="efeito-compton">Efeito Compton</h1>
+                <p>O <strong>efeito Compton</strong> é o espalhamento de
+                um fóton por um elétron fracamente ligado ou
+                aproximadamente livre. No processo, o fóton muda de
+                direção e perde parte de sua energia para o elétron.
+                Como a energia do fóton é <span class="math inline">\(E
+                = hc/\lambda\)</span>, perder energia significa sair com
+                comprimento de onda maior:</p>
+                <p><span class="math display">\[
+                \lambda&#39; &gt; \lambda.
+                \]</span></p>
+                <p>Arthur H. Compton observou esse efeito em 1923 ao
+                espalhar raios X em grafite. O resultado não podia ser
+                explicado satisfatoriamente pela teoria ondulatória
+                clássica da luz, pois o deslocamento do comprimento de
+                onda dependia do ângulo de espalhamento, e não da
+                intensidade da radiação incidente.</p>
+                <figure>
+                <img src="images/Arthur_Compton.png" style="width:30.0%"
+                alt="Fotografia oficial de Arthur Compton no Prêmio Nobel de Física de 1927. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Fotografia oficial de
+                Arthur Compton no Prêmio Nobel de Física de 1927. Fonte:
+                Wikimedia Commons.</figcaption>
+                </figure>
+                <h2 id="a-ideia-física">A Ideia Física</h2>
+                <p>No modelo quântico, o espalhamento Compton é tratado
+                como uma colisão entre duas partículas:</p>
+                <ul>
+                <li>um fóton incidente, com energia <span
+                class="math inline">\(E = hc/\lambda\)</span> e momento
+                <span class="math inline">\(p = h/\lambda\)</span>;</li>
+                <li>um elétron inicialmente em repouso, com energia de
+                repouso <span class="math inline">\(E_0 =
+                m_ec^2\)</span>.</li>
+                </ul>
+                <p>Depois da colisão:</p>
+                <ul>
+                <li>o fóton sai com comprimento de onda <span
+                class="math inline">\(\lambda&#39;\)</span> e ângulo de
+                espalhamento <span
+                class="math inline">\(\theta\)</span>;</li>
+                <li>o elétron recua com energia cinética <span
+                class="math inline">\(K\)</span> e momento <span
+                class="math inline">\(p_e\)</span>.</li>
+                </ul>
+                <figure>
+                <img src="images/efeito-compton.png" style="width:85.0%"
+                alt="Representação do espalhamento Compton. Fonte: autoria própria." />
+                <figcaption aria-hidden="true">Representação do
+                espalhamento Compton. Fonte: autoria
+                própria.</figcaption>
+                </figure>
+                <p>A conservação de energia e momento leva ao
+                resultado:</p>
+                <p><span class="math display">\[
+                \Delta \lambda = \lambda&#39; - \lambda =
+                \frac{h}{m_ec}(1-\cos\theta).
+                \]</span></p>
+                <p>O termo</p>
+                <p><span class="math display">\[
+                \lambda_C = \frac{h}{m_ec}
+                \]</span></p>
+                <p>é chamado <strong>comprimento de onda de Compton do
+                elétron</strong>. Seu valor é:</p>
+                <p><span class="math display">\[
+                \lambda_C = 2,43 \times 10^{-12}\,\text{m} =
+                2,43\,\text{pm}.
+                \]</span></p>
+                <p>Assim, a expressão usual do efeito Compton é:</p>
+                <p><span class="math display">\[
+                \Delta \lambda = \lambda_C(1-\cos\theta).
+                \]</span></p>
+                <h2 id="consequências-importantes">Consequências
+                Importantes</h2>
+                <p>O deslocamento Compton depende apenas do ângulo de
+                espalhamento:</p>
+                <ul>
+                <li>para <span class="math inline">\(\theta =
+                0^\circ\)</span>, não há deslocamento: <span
+                class="math inline">\(\Delta\lambda = 0\)</span>;</li>
+                <li>para <span class="math inline">\(\theta =
+                90^\circ\)</span>, <span
+                class="math inline">\(\Delta\lambda =
+                \lambda_C\)</span>;</li>
+                <li>para <span class="math inline">\(\theta =
+                180^\circ\)</span>, o deslocamento é máximo: <span
+                class="math inline">\(\Delta\lambda =
+                2\lambda_C\)</span>.</li>
+                </ul>
+                <p>Essa dependência angular foi uma das evidências mais
+                fortes de que o fóton possui momento linear. A
+                intensidade do feixe altera o número de fótons
+                espalhados, mas não o deslocamento de comprimento de
+                onda de cada fóton.</p>
+                <p>Quando trabalhamos com energia, é útil escrever a
+                energia do fóton espalhado como:</p>
+                <p><span class="math display">\[
+                E&#39; = \frac{E}{1+\dfrac{E}{E_0}(1-\cos\theta)},
+                \]</span></p>
+                <p>em que <span class="math inline">\(E_0 = m_ec^2 =
+                511\,\text{keV}\)</span> é a energia de repouso do
+                elétron.</p>
+                <h2
+                id="exemplo-6.1-deslocamento-compton-e-energia-do-elétron">Exemplo
+                6.1: Deslocamento Compton e Energia do Elétron</h2>
+                <p>Um fóton de raios X com comprimento de onda inicial
+                <span class="math inline">\(\lambda =
+                5,20\,\text{pm}\)</span> é espalhado por um elétron
+                aproximadamente livre. O ângulo de espalhamento do fóton
+                é <span class="math inline">\(\theta =
+                47,0^\circ\)</span>. Determine:</p>
+                <ol type="a">
+                <li>a energia do fóton incidente;</li>
+                <li>o comprimento de onda do fóton espalhado;</li>
+                <li>a energia do fóton espalhado;</li>
+                <li>a energia cinética do elétron.</li>
+                </ol>
+                <p><strong>Solução:</strong></p>
+                <p>A energia do fóton incidente é:</p>
+                <p><span class="math display">\[
+                E = \frac{hc}{\lambda}
+                = \frac{1240\,\text{keV}\,\text{pm}}{5,20\,\text{pm}}
+                = 238\,\text{keV}.
+                \]</span></p>
+                <p>O deslocamento Compton é:</p>
+                <p><span class="math display">\[
+                \Delta\lambda = 2,43\,\text{pm}(1-\cos47,0^\circ)
+                = 0,773\,\text{pm}.
+                \]</span></p>
+                <p>Logo:</p>
+                <p><span class="math display">\[
+                \lambda&#39; = 5,20\,\text{pm} + 0,773\,\text{pm}
+                = 5,97\,\text{pm}.
+                \]</span></p>
+                <p>A energia do fóton espalhado é:</p>
+                <p><span class="math display">\[
+                E&#39; =
+                \frac{1240\,\text{keV}\,\text{pm}}{5,97\,\text{pm}}
+                = 208\,\text{keV}.
+                \]</span></p>
+                <p>Pela conservação da energia, a energia cinética
+                recebida pelo elétron é:</p>
+                <p><span class="math display">\[
+                K = E - E&#39; = 238\,\text{keV} - 208\,\text{keV}
+                = 30\,\text{keV}.
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(E = 238\,\text{keV}\)</span>,
+                <span class="math inline">\(\lambda&#39; =
+                5,97\,\text{pm}\)</span>, <span
+                class="math inline">\(E&#39; = 208\,\text{keV}\)</span>
+                e <span class="math inline">\(K =
+                30\,\text{keV}\)</span>.</p>
+                <h2 id="exemplo-6.2-espalhamento-para-trás">Exemplo 6.2:
+                Espalhamento para Trás</h2>
+                <p>Um fóton de energia inicial <span
+                class="math inline">\(E = 100\,\text{keV}\)</span> sofre
+                espalhamento Compton por um elétron em repouso e retorna
+                na direção oposta à inicial, isto é, <span
+                class="math inline">\(\theta = 180^\circ\)</span>.
+                Determine a energia do fóton espalhado e a energia
+                cinética do elétron.</p>
+                <p><strong>Solução:</strong></p>
+                <p>Para <span class="math inline">\(\theta =
+                180^\circ\)</span>, temos <span
+                class="math inline">\(1-\cos\theta = 2\)</span>.
+                Assim:</p>
+                <p><span class="math display">\[
+                E&#39; = \frac{E}{1+\dfrac{2E}{E_0}}
+                =
+                \frac{100\,\text{keV}}{1+\dfrac{2(100\,\text{keV})}{511\,\text{keV}}}
+                = 71,9\,\text{keV}.
+                \]</span></p>
+                <p>A energia cinética do elétron é:</p>
+                <p><span class="math display">\[
+                K = E - E&#39; = 100\,\text{keV} - 71,9\,\text{keV}
+                = 28,1\,\text{keV}.
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(E&#39; = 71,9\,\text{keV}\)</span>
+                e <span class="math inline">\(K =
+                28,1\,\text{keV}\)</span>.</p>
+                <h1 id="ondas-de-matéria-e-relação-de-de-broglie">Ondas
+                de Matéria e Relação de De Broglie</h1>
+                <p>Em 1924, Louis de Broglie propôs que a dualidade
+                onda-partícula não deveria ser exclusiva da radiação. Se
+                fótons possuem energia e momento, partículas materiais
+                também deveriam possuir uma onda associada.</p>
+                <figure>
+                <img src="images/aula3fig7.png" style="width:30.0%"
+                alt="Louis de Broglie. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Louis de Broglie. Fonte:
+                Wikimedia Commons.</figcaption>
+                </figure>
+                <p>A relação proposta por De Broglie é:</p>
+                <p><span class="math display">\[
+                \lambda = \frac{h}{p},
+                \]</span></p>
+                <p>em que:</p>
+                <ul>
+                <li><span class="math inline">\(\lambda\)</span> é o
+                comprimento de onda associado à partícula;</li>
+                <li><span class="math inline">\(h\)</span> é a constante
+                de Planck;</li>
+                <li><span class="math inline">\(p\)</span> é o momento
+                linear da partícula.</li>
+                </ul>
+                <p>Para objetos macroscópicos, o momento é tão grande
+                que o comprimento de onda de De Broglie fica
+                absurdamente pequeno. Por isso não observamos difração
+                de bolas, carros ou pessoas. Para elétrons, prótons,
+                nêutrons e átomos, entretanto, esse comprimento de onda
+                pode ser comparável a distâncias interatômicas, tornando
+                efeitos ondulatórios mensuráveis.</p>
+                <h2
+                id="elétrons-acelerados-por-uma-diferença-de-potencial">Elétrons
+                Acelerados por uma Diferença de Potencial</h2>
+                <p>Quando um elétron é acelerado por uma diferença de
+                potencial <span class="math inline">\(U\)</span>, ele
+                ganha energia cinética:</p>
+                <p><span class="math display">\[
+                K = eU.
+                \]</span></p>
+                <p>No regime não relativístico:</p>
+                <p><span class="math display">\[
+                K = \frac{p^2}{2m_e}.
+                \]</span></p>
+                <p>Portanto:</p>
+                <p><span class="math display">\[
+                p = \sqrt{2m_e eU}
+                \]</span></p>
+                <p>e</p>
+                <p><span class="math display">\[
+                \lambda = \frac{h}{\sqrt{2m_e eU}}.
+                \]</span></p>
+                <p>Uma forma prática, com <span
+                class="math inline">\(U\)</span> em volts e <span
+                class="math inline">\(\lambda\)</span> em angstroms,
+                é:</p>
+                <p><span class="math display">\[
+                \lambda(\text{\AA}) = \frac{12,27}{\sqrt{U(\text{V})}}.
+                \]</span></p>
+                <p>Se <span class="math inline">\(U\)</span> for dado em
+                quilovolts, também podemos escrever:</p>
+                <p><span class="math display">\[
+                \lambda(\text{\AA}) = \sqrt{\frac{0,150}{U(\text{kV})}}.
+                \]</span></p>
+                <h2 id="regime-relativístico">Regime Relativístico</h2>
+                <p>A expressão anterior é adequada quando a velocidade
+                do elétron é pequena em comparação com a velocidade da
+                luz. Como referência prática, se <span
+                class="math inline">\(v &lt; 0,1c\)</span>, o tratamento
+                não relativístico costuma ser suficiente para problemas
+                introdutórios.</p>
+                <p>Quando a energia cinética é comparável à energia de
+                repouso do elétron, <span class="math inline">\(E_0 =
+                511\,\text{keV}\)</span>, devemos usar:</p>
+                <p><span class="math display">\[
+                pc = K\sqrt{1+\frac{2E_0}{K}}.
+                \]</span></p>
+                <p>Assim, o comprimento de onda de De Broglie pode ser
+                escrito como:</p>
+                <p><span class="math display">\[
+                \lambda = \frac{hc}{K\sqrt{1+\dfrac{2E_0}{K}}}.
+                \]</span></p>
+                <p>Essa forma é especialmente útil quando <span
+                class="math inline">\(K\)</span> está em keV e <span
+                class="math inline">\(hc =
+                1240\,\text{keV}\,\text{pm}\)</span>.</p>
+                <h2 id="exemplo-6.3-elétron-acelerado-por-150-v">Exemplo
+                6.3: Elétron Acelerado por 150 V</h2>
+                <p>Um elétron parte aproximadamente do repouso e é
+                acelerado por uma diferença de potencial <span
+                class="math inline">\(U = 150\,\text{V}\)</span>.
+                Determine:</p>
+                <ol type="a">
+                <li>sua energia cinética;</li>
+                <li>seu comprimento de onda de De Broglie;</li>
+                <li>sua velocidade.</li>
+                </ol>
+                <p><strong>Solução:</strong></p>
+                <p>A energia cinética é:</p>
+                <p><span class="math display">\[
+                K = eU = 150\,\text{eV}.
+                \]</span></p>
+                <p>O comprimento de onda é:</p>
+                <p><span class="math display">\[
+                \lambda = \frac{12,27}{\sqrt{150}}\,\text{\AA}
+                = 1,00\,\text{\AA}.
+                \]</span></p>
+                <p>A velocidade pode ser obtida por <span
+                class="math inline">\(K = m_ev^2/2\)</span>. Como <span
+                class="math inline">\(150\,\text{eV} =
+                2,40\times10^{-17}\,\text{J}\)</span>:</p>
+                <p><span class="math display">\[
+                v = \sqrt{\frac{2K}{m_e}}
+                =
+                \sqrt{\frac{2(2,40\times10^{-17}\,\text{J})}{9,11\times10^{-31}\,\text{kg}}}
+                = 7,26\times10^6\,\text{m/s}.
+                \]</span></p>
+                <p>Como <span class="math inline">\(v/c \approx
+                0,024\)</span>, o tratamento não relativístico é
+                adequado.</p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(K = 150\,\text{eV}\)</span>, <span
+                class="math inline">\(\lambda =
+                1,00\,\text{\AA}\)</span> e <span
+                class="math inline">\(v =
+                7,26\times10^6\,\text{m/s}\)</span>.</p>
+                <h2 id="exemplo-6.4-elétron-relativístico">Exemplo 6.4:
+                Elétron Relativístico</h2>
+                <p>Um elétron tem energia cinética <span
+                class="math inline">\(K = 100\,\text{keV}\)</span>.
+                Calcule seu comprimento de onda de De Broglie
+                usando:</p>
+                <ol type="a">
+                <li>a expressão relativística;</li>
+                <li>a expressão não relativística;</li>
+                <li>o erro percentual da aproximação não
+                relativística.</li>
+                </ol>
+                <p><strong>Solução:</strong></p>
+                <p>Pela expressão relativística:</p>
+                <p><span class="math display">\[
+                \lambda =
+                \frac{1240\,\text{keV}\,\text{pm}}{100\,\text{keV}\sqrt{1+\dfrac{2(511\,\text{keV})}{100\,\text{keV}}}}
+                = 3,70\,\text{pm}.
+                \]</span></p>
+                <p>Pela expressão não relativística:</p>
+                <p><span class="math display">\[
+                \lambda = \frac{hc}{\sqrt{2KE_0}}
+                =
+                \frac{1240\,\text{keV}\,\text{pm}}{\sqrt{2(100\,\text{keV})(511\,\text{keV})}}
+                = 3,88\,\text{pm}.
+                \]</span></p>
+                <p>O erro percentual é:</p>
+                <p><span class="math display">\[
+                E\% = \left|\frac{3,88-3,70}{3,70}\right|100\%
+                = 4,9\%.
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(\lambda_{\text{rel}} =
+                3,70\,\text{pm}\)</span>, <span
+                class="math inline">\(\lambda_{\text{nr}} =
+                3,88\,\text{pm}\)</span> e erro de aproximadamente <span
+                class="math inline">\(4,9\%\)</span>.</p>
+                <h1 id="difração-de-elétrons">Difração de Elétrons</h1>
+                <p>A hipótese de De Broglie foi confirmada em 1927 por
+                experimentos independentes de Davisson e Germer, nos
+                Estados Unidos, e de G. P. Thomson, no Reino Unido. Em
+                ambos os casos, elétrons produziram padrões de difração,
+                comportamento típico de ondas.</p>
+                <p>No experimento de Davisson-Germer, elétrons
+                acelerados incidiam sobre um cristal de níquel. A
+                intensidade dos elétrons espalhados apresentava máximos
+                em ângulos específicos, do mesmo modo que ocorre na
+                difração de raios X por cristais.</p>
+                <figure>
+                <img src="images/aula3fig8.png" style="width:85.0%"
+                alt="Experimento de Davisson-Germer. Fonte: HyperPhysics." />
+                <figcaption aria-hidden="true">Experimento de
+                Davisson-Germer. Fonte: HyperPhysics.</figcaption>
+                </figure>
+                <p>A interpretação é direta: se o espaçamento entre
+                planos cristalinos é da ordem do comprimento de onda de
+                De Broglie dos elétrons, ocorre interferência
+                construtiva para certos ângulos.</p>
+                <h2 id="lei-de-bragg">Lei de Bragg</h2>
+                <p>Para ondas espalhadas por planos cristalinos
+                separados por uma distância <span
+                class="math inline">\(d\)</span>, a condição de
+                interferência construtiva é:</p>
+                <p><span class="math display">\[
+                2d\sin\theta = n\lambda,
+                \]</span></p>
+                <p>em que:</p>
+                <ul>
+                <li><span class="math inline">\(d\)</span> é a distância
+                entre planos cristalinos;</li>
+                <li><span class="math inline">\(\theta\)</span> é o
+                ângulo de Bragg;</li>
+                <li><span class="math inline">\(n\)</span> é a ordem de
+                difração;</li>
+                <li><span class="math inline">\(\lambda\)</span> é o
+                comprimento de onda da onda incidente.</li>
+                </ul>
+                <p>Para elétrons, usamos a própria onda de De
+                Broglie:</p>
+                <p><span class="math display">\[
+                \lambda = \frac{h}{p}.
+                \]</span></p>
+                <p>Assim, a difração de elétrons une duas ideias: a
+                condição geométrica de Bragg e a hipótese quântica de De
+                Broglie.</p>
+                <h2
+                id="grafita-policristalina-e-anéis-de-difração">Grafita
+                Policristalina e Anéis de Difração</h2>
+                <p>Em uma amostra policristalina de grafita, há muitos
+                pequenos cristais orientados aleatoriamente. O feixe de
+                elétrons encontra planos cristalinos em várias
+                orientações, produzindo cones de difração. Quando esses
+                cones atingem uma tela fluorescente, aparecem como
+                anéis.</p>
+                <p>No roteiro experimental <code>exp-5.2.tex</code>, o
+                experimento virtual usa elétrons acelerados por tensões
+                entre <span
+                class="math inline">\(4,0\,\text{kV}\)</span> e <span
+                class="math inline">\(9,0\,\text{kV}\)</span>. Para cada
+                tensão, medem-se os diâmetros dos anéis interno e
+                externo.</p>
+                <p>As distâncias interplanares principais usadas no
+                roteiro são:</p>
+                <ul>
+                <li>anel interno: <span class="math inline">\(d_1 =
+                2,13\,\text{\AA}\)</span>;</li>
+                <li>anel externo: <span class="math inline">\(d_2 =
+                1,23\,\text{\AA}\)</span>.</li>
+                </ul>
+                <p>Com o raio do bulbo <span class="math inline">\(R =
+                65\,\text{mm}\)</span> e usando a aproximação de
+                pequenos ângulos, o roteiro chega à relação:</p>
+                <p><span class="math display">\[
+                \lambda_{\text{Bragg}} = \frac{dD}{260\,\text{mm}},
+                \]</span></p>
+                <p>em que <span class="math inline">\(D\)</span> é o
+                diâmetro do anel de difração.</p>
+                <p>Essa relação permite comparar dois comprimentos de
+                onda:</p>
+                <ul>
+                <li><span
+                class="math inline">\(\lambda_{\text{Broglie}}\)</span>,
+                calculado a partir da tensão aceleradora;</li>
+                <li><span
+                class="math inline">\(\lambda_{\text{Bragg}}\)</span>,
+                calculado a partir da geometria dos anéis.</li>
+                </ul>
+                <p>Quando os dois valores concordam dentro das
+                incertezas experimentais, temos uma verificação
+                quantitativa da natureza ondulatória dos elétrons.</p>
+                <h2
+                id="exemplo-6.5-anéis-de-difração-em-grafita">Exemplo
+                6.5: Anéis de Difração em Grafita</h2>
+                <p>Em um experimento de difração de elétrons em grafita,
+                a tensão aceleradora é <span class="math inline">\(U =
+                5,0\,\text{kV}\)</span>. Determine:</p>
+                <ol type="a">
+                <li>o comprimento de onda de De Broglie do elétron;</li>
+                <li>o diâmetro esperado para o anel interno, usando
+                <span class="math inline">\(d_1 =
+                2,13\,\text{\AA}\)</span>;</li>
+                <li>o diâmetro esperado para o anel externo, usando
+                <span class="math inline">\(d_2 =
+                1,23\,\text{\AA}\)</span>.</li>
+                </ol>
+                <p><strong>Solução:</strong></p>
+                <p>Com <span class="math inline">\(U\)</span> em kV:</p>
+                <p><span class="math display">\[
+                \lambda_{\text{Broglie}} =
+                \sqrt{\frac{0,150}{5,0}}\,\text{\AA}
+                = 0,173\,\text{\AA}.
+                \]</span></p>
+                <p>Da relação experimental:</p>
+                <p><span class="math display">\[
+                \lambda_{\text{Bragg}} = \frac{dD}{260\,\text{mm}},
+                \]</span></p>
+                <p>temos:</p>
+                <p><span class="math display">\[
+                D = \frac{260\,\lambda}{d}.
+                \]</span></p>
+                <p>Para o anel interno:</p>
+                <p><span class="math display">\[
+                D_{\text{int}} = \frac{260(0,173)}{2,13}
+                = 21,1\,\text{mm}.
+                \]</span></p>
+                <p>Para o anel externo:</p>
+                <p><span class="math display">\[
+                D_{\text{ext}} = \frac{260(0,173)}{1,23}
+                = 36,6\,\text{mm}.
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(\lambda =
+                0,173\,\text{\AA}\)</span>, <span
+                class="math inline">\(D_{\text{int}} =
+                21,1\,\text{mm}\)</span> e <span
+                class="math inline">\(D_{\text{ext}} =
+                36,6\,\text{mm}\)</span>.</p>
+                <h1 id="síntese-conceitual">Síntese Conceitual</h1>
+                <p>O efeito Compton mostra que a luz carrega energia e
+                momento como se fosse composta por partículas. A
+                difração de elétrons mostra que partículas materiais
+                podem gerar interferência e difração como ondas. A
+                dualidade onda-partícula não significa que luz e matéria
+                alternem entre duas identidades clássicas simples;
+                significa que os modelos clássicos de onda e partícula
+                são aproximações parciais de um comportamento quântico
+                mais profundo.</p>
+                <p>Na prática:</p>
+                <ul>
+                <li>no efeito fotoelétrico, a energia quantizada do
+                fóton explica a emissão de elétrons;</li>
+                <li>no efeito Compton, o momento do fóton explica a
+                mudança de comprimento de onda no espalhamento;</li>
+                <li>na difração de elétrons, o comprimento de onda de De
+                Broglie explica os máximos de interferência observados
+                em cristais.</li>
+                </ul>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>6.1)</dt>
+                <dd>
+                Sobre o efeito Compton, é correto afirmar que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>O fóton espalhado sempre sai com menor comprimento
+                de onda que o fóton incidente.</li>
+                <li>O deslocamento Compton depende apenas da intensidade
+                do feixe incidente.</li>
+                <li>O deslocamento Compton depende do ângulo de
+                espalhamento do fóton.</li>
+                <li>O efeito Compton só ocorre para luz visível.</li>
+                <li>O elétron permanece necessariamente em repouso após
+                a colisão.</li>
+                </ol>
+                <dl>
+                <dt>6.2)</dt>
+                <dd>
+                A principal evidência física fornecida pelo efeito
+                Compton é que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A luz sempre se comporta apenas como onda.</li>
+                <li>A luz possui momento linear, além de energia.</li>
+                <li>A energia do fóton depende da intensidade da
+                luz.</li>
+                <li>Elétrons não podem receber energia de fótons.</li>
+                <li>O comprimento de onda da radiação é sempre
+                conservado.</li>
+                </ol>
+                <dl>
+                <dt>6.3)</dt>
+                <dd>
+                Um fóton de raios X sofre espalhamento Compton com <span
+                class="math inline">\(\theta = 90^\circ\)</span>. O
+                deslocamento de comprimento de onda é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span class="math inline">\(0\)</span></li>
+                <li><span
+                class="math inline">\(1,22\,\text{pm}\)</span></li>
+                <li><span
+                class="math inline">\(2,43\,\text{pm}\)</span></li>
+                <li><span
+                class="math inline">\(4,86\,\text{pm}\)</span></li>
+                <li><span
+                class="math inline">\(9,72\,\text{pm}\)</span></li>
+                </ol>
+                <dl>
+                <dt>6.4)</dt>
+                <dd>
+                Um fóton de comprimento de onda inicial <span
+                class="math inline">\(10,0\,\text{pm}\)</span> é
+                espalhado por um elétron aproximadamente livre com <span
+                class="math inline">\(\theta = 180^\circ\)</span>.
+                Determine:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>o deslocamento Compton;</li>
+                <li>o comprimento de onda espalhado;</li>
+                <li>a energia do fóton incidente;</li>
+                <li>a energia do fóton espalhado;</li>
+                <li>a energia cinética do elétron.</li>
+                </ol>
+                <dl>
+                <dt>6.5)</dt>
+                <dd>
+                Um fóton de energia inicial <span
+                class="math inline">\(300\,\text{keV}\)</span> é
+                espalhado por um elétron em repouso com ângulo <span
+                class="math inline">\(\theta = 60,0^\circ\)</span>.
+                Calcule:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>a energia do fóton espalhado;</li>
+                <li>a energia cinética do elétron;</li>
+                <li>o deslocamento Compton.</li>
+                </ol>
+                <dl>
+                <dt>6.6)</dt>
+                <dd>
+                A relação de De Broglie afirma que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Apenas fótons possuem comprimento de onda.</li>
+                <li>O comprimento de onda de uma partícula é
+                proporcional ao seu momento.</li>
+                <li>O comprimento de onda de uma partícula é
+                inversamente proporcional ao seu momento.</li>
+                <li>Elétrons não sofrem interferência.</li>
+                <li>Partículas materiais não podem ser descritas por
+                ondas.</li>
+                </ol>
+                <dl>
+                <dt>6.7)</dt>
+                <dd>
+                Um elétron é acelerado por uma diferença de potencial de
+                <span class="math inline">\(100\,\text{V}\)</span>.
+                Determine:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>sua energia cinética em eV;</li>
+                <li>seu comprimento de onda de De Broglie em
+                angstroms;</li>
+                <li>sua velocidade aproximada em m/s.</li>
+                </ol>
+                <dl>
+                <dt>6.8)</dt>
+                <dd>
+                Um elétron tem energia cinética de <span
+                class="math inline">\(25,0\,\text{keV}\)</span>.
+                Determine seu comprimento de onda de De Broglie em pm
+                usando a aproximação não relativística. Em seguida,
+                explique se essa aproximação é razoável.
+                </dd>
+                <dt>6.9)</dt>
+                <dd>
+                Explique, em poucas linhas, por que não observamos
+                difração em objetos macroscópicos, como uma bola em
+                movimento, embora a relação de De Broglie também se
+                aplique a eles.
+                </dd>
+                <dt>6.10)</dt>
+                <dd>
+                Em um experimento de difração, elétrons com comprimento
+                de onda <span class="math inline">\(\lambda =
+                1,67\,\text{\AA}\)</span> incidem em um cristal de
+                níquel cuja distância interplanar efetiva é <span
+                class="math inline">\(d = 2,15\,\text{\AA}\)</span>.
+                Para <span class="math inline">\(n=1\)</span>, determine
+                o ângulo de Bragg <span
+                class="math inline">\(\theta\)</span> usando <span
+                class="math inline">\(n\lambda = d\sin\theta\)</span>.
+                </dd>
+                </dl>
+                <p><strong>Exercícios de Caráter
+                Experimental</strong></p>
+                <p>Os exercícios <strong>6.11</strong> a
+                <strong>6.15</strong> devem ser resolvidos com base no
+                roteiro experimental <code>exp-5.2.tex</code>, sobre
+                difração de elétrons em grafita. Use a simulação
+                indicada no roteiro: <a
+                href="https://www.laboratoriovirtual.fisica.ufc.br/difracao-de-eletrons"
+                class="uri">https://www.laboratoriovirtual.fisica.ufc.br/difracao-de-eletrons</a>.</p>
+                <dl>
+                <dt>6.11)</dt>
+                <dd>
+                <strong>Objetivo:</strong> observar qualitativamente a
+                formação dos anéis de difração.
+                </dd>
+                </dl>
+                <p>Acesse a simulação, ligue a fonte de <span
+                class="math inline">\(6,3\,\text{Vac}\)</span> e ajuste
+                a fonte de alta tensão para <span
+                class="math inline">\(U = 4,0\,\text{kV}\)</span>.
+                Observe os anéis formados no anteparo fluorescente. Em
+                seguida, aumente a tensão gradualmente até <span
+                class="math inline">\(9,0\,\text{kV}\)</span>.</p>
+                <p><strong>Pergunta:</strong> O que acontece com os
+                diâmetros dos anéis quando a tensão aceleradora aumenta?
+                Explique usando a relação <span
+                class="math inline">\(\lambda_{\text{Broglie}} =
+                \sqrt{0,150/U}\,\text{\AA}\)</span>.</p>
+                <dl>
+                <dt>6.12)</dt>
+                <dd>
+                <strong>Objetivo:</strong> comparar <span
+                class="math inline">\(\lambda_{\text{Broglie}}\)</span>
+                e <span
+                class="math inline">\(\lambda_{\text{Bragg}}\)</span>
+                para o anel interno.
+                </dd>
+                </dl>
+                <p>Para as tensões <span
+                class="math inline">\(4,0\,\text{kV}\)</span>, <span
+                class="math inline">\(5,0\,\text{kV}\)</span>, <span
+                class="math inline">\(6,0\,\text{kV}\)</span>, <span
+                class="math inline">\(7,0\,\text{kV}\)</span>, <span
+                class="math inline">\(8,0\,\text{kV}\)</span> e <span
+                class="math inline">\(9,0\,\text{kV}\)</span>, meça o
+                diâmetro interno <span
+                class="math inline">\(D_{\text{int}}\)</span> do anel de
+                difração. Use <span class="math inline">\(d_1 =
+                2,13\,\text{\AA}\)</span> e calcule:</p>
+                <p><span class="math display">\[
+                \lambda_{\text{Bragg}} =
+                \frac{d_1D_{\text{int}}}{260\,\text{mm}}.
+                \]</span></p>
+                <p><strong>Pergunta:</strong> Compare os valores de
+                <span
+                class="math inline">\(\lambda_{\text{Bragg}}\)</span>
+                com os valores de <span
+                class="math inline">\(\lambda_{\text{Broglie}}\)</span>.
+                A concordância melhora, piora ou permanece semelhante ao
+                longo da faixa de tensões?</p>
+                <dl>
+                <dt>6.13)</dt>
+                <dd>
+                <strong>Objetivo:</strong> comparar <span
+                class="math inline">\(\lambda_{\text{Broglie}}\)</span>
+                e <span
+                class="math inline">\(\lambda_{\text{Bragg}}\)</span>
+                para o anel externo.
+                </dd>
+                </dl>
+                <p>Repita o procedimento do exercício
+                <strong>6.12</strong>, mas agora medindo o diâmetro
+                externo <span
+                class="math inline">\(D_{\text{ext}}\)</span>. Use <span
+                class="math inline">\(d_2 = 1,23\,\text{\AA}\)</span> e
+                calcule:</p>
+                <p><span class="math display">\[
+                \lambda_{\text{Bragg}} =
+                \frac{d_2D_{\text{ext}}}{260\,\text{mm}}.
+                \]</span></p>
+                <p><strong>Pergunta:</strong> Os resultados do anel
+                externo confirmam a relação de De Broglie com a mesma
+                qualidade que os do anel interno? Discuta possíveis
+                diferenças de leitura experimental entre os dois
+                anéis.</p>
+                <dl>
+                <dt>6.14)</dt>
+                <dd>
+                <strong>Objetivo:</strong> determinar experimentalmente
+                a constante de Planck.
+                </dd>
+                </dl>
+                <p>Com os dados coletados, escolha uma das séries
+                experimentais de comprimento de onda obtidas por Bragg,
+                isto é, a série do anel interno ou a série do anel
+                externo. Construa um gráfico de <span
+                class="math inline">\(\lambda_{\text{Bragg}}\)</span> em
+                função de <span
+                class="math inline">\(1/\sqrt{U}\)</span>, com <span
+                class="math inline">\(U\)</span> em volts e <span
+                class="math inline">\(\lambda\)</span> em metros. A
+                relação teórica é:</p>
+                <p><span class="math display">\[
+                \lambda = \frac{h}{\sqrt{2m_ee}}\frac{1}{\sqrt{U}}.
+                \]</span></p>
+                <p><strong>Pergunta:</strong> A partir do coeficiente
+                angular da reta, determine um valor experimental para
+                <span class="math inline">\(h\)</span>. Compare com
+                <span class="math inline">\(h =
+                6,626\times10^{-34}\,\text{J}\,\text{s}\)</span> e
+                calcule o erro percentual. Se desejar, repita a análise
+                para os dois anéis e compare os valores obtidos.</p>
+                <dl>
+                <dt>6.15)</dt>
+                <dd>
+                <strong>Objetivo:</strong> determinar as distâncias
+                interplanares da grafita.
+                </dd>
+                </dl>
+                <p>Use seus dados de <span
+                class="math inline">\(D_{\text{int}}\)</span> e <span
+                class="math inline">\(D_{\text{ext}}\)</span> e os
+                valores de <span
+                class="math inline">\(\lambda_{\text{Broglie}}\)</span>
+                calculados para cada tensão. A partir da relação:</p>
+                <p><span class="math display">\[
+                \lambda = \frac{dD}{260\,\text{mm}},
+                \]</span></p>
+                <p>determine experimentalmente <span
+                class="math inline">\(d_1\)</span> e <span
+                class="math inline">\(d_2\)</span> por regressão linear.
+                Compare seus resultados com os valores de referência
+                <span class="math inline">\(d_1 =
+                2,13\,\text{\AA}\)</span> e <span
+                class="math inline">\(d_2 =
+                1,23\,\text{\AA}\)</span>.</p>
+                <p><strong>Pergunta:</strong> Quais foram os valores
+                encontrados para <span
+                class="math inline">\(d_1\)</span> e <span
+                class="math inline">\(d_2\)</span>? Calcule os erros
+                percentuais e indique quais fontes de incerteza mais
+                influenciaram o resultado.</p>
+                <h1 id="gabarito-dos-exercícios">Gabarito dos
+                Exercícios</h1>
+                <p>6.1) Alternativa c.</p>
+                <p>6.2) Alternativa b.</p>
+                <p>6.3) Alternativa c. Para <span
+                class="math inline">\(\theta = 90^\circ\)</span>, <span
+                class="math inline">\(\Delta\lambda = \lambda_C =
+                2,43\,\text{pm}\)</span>.</p>
+                <p>6.4) a) <span class="math inline">\(\Delta\lambda =
+                4,86\,\text{pm}\)</span>. b) <span
+                class="math inline">\(\lambda&#39; =
+                14,86\,\text{pm}\)</span>. c) <span
+                class="math inline">\(E = 124\,\text{keV}\)</span>. d)
+                <span class="math inline">\(E&#39; =
+                83,4\,\text{keV}\)</span>. e) <span
+                class="math inline">\(K = 40,6\,\text{keV}\)</span>.</p>
+                <p>6.5) a) <span class="math inline">\(E&#39; =
+                232\,\text{keV}\)</span>. b) <span
+                class="math inline">\(K = 68\,\text{keV}\)</span>. c)
+                <span class="math inline">\(\Delta\lambda =
+                1,22\,\text{pm}\)</span>.</p>
+                <p>6.6) Alternativa c.</p>
+                <p>6.7) a) <span class="math inline">\(K =
+                100\,\text{eV}\)</span>. b) <span
+                class="math inline">\(\lambda =
+                1,23\,\text{\AA}\)</span>. c) <span
+                class="math inline">\(v =
+                5,93\times10^6\,\text{m/s}\)</span>.</p>
+                <p>6.8) <span class="math inline">\(\lambda =
+                7,75\,\text{pm}\)</span>. Como <span
+                class="math inline">\(25,0\,\text{keV}\)</span> ainda é
+                bem menor que <span
+                class="math inline">\(511\,\text{keV}\)</span>, a
+                aproximação não relativística é razoável, embora já
+                produza erro perceptível se alta precisão for
+                exigida.</p>
+                <p>6.9) Para objetos macroscópicos, o momento <span
+                class="math inline">\(p\)</span> é muito grande. Como
+                <span class="math inline">\(\lambda = h/p\)</span>, o
+                comprimento de onda associado fica extremamente pequeno,
+                muito menor que qualquer abertura ou obstáculo
+                experimental comum. Por isso os efeitos de difração são
+                desprezíveis.</p>
+                <p>6.10) <span class="math inline">\(\sin\theta =
+                1,67/2,15 = 0,777\)</span>, portanto <span
+                class="math inline">\(\theta = 51,0^\circ\)</span>.</p>
+                <p>6.11) Ao aumentar <span
+                class="math inline">\(U\)</span>, o comprimento de onda
+                de De Broglie diminui. Como <span
+                class="math inline">\(D\)</span> é proporcional a <span
+                class="math inline">\(\lambda\)</span>, os diâmetros dos
+                anéis diminuem.</p>
+                <p>6.12) Espera-se que <span
+                class="math inline">\(\lambda_{\text{Bragg}}\)</span> e
+                <span
+                class="math inline">\(\lambda_{\text{Broglie}}\)</span>
+                sejam próximos. Diferenças devem ser discutidas a partir
+                da incerteza na medida de <span
+                class="math inline">\(D_{\text{int}}\)</span>, da
+                espessura visual do anel e da aproximação de pequenos
+                ângulos.</p>
+                <p>6.13) Espera-se concordância semelhante para o anel
+                externo. O anel externo pode ser mais difícil de medir
+                dependendo do contraste, da largura do anel e da leitura
+                da régua na simulação.</p>
+                <p>6.14) O gráfico deve ser aproximadamente linear. O
+                valor experimental de <span
+                class="math inline">\(h\)</span> deve ficar próximo de
+                <span
+                class="math inline">\(6,626\times10^{-34}\,\text{J}\,\text{s}\)</span>,
+                com erro percentual calculado por:</p>
+                <p><span class="math display">\[
+                E\% =
+                \left|\frac{h_{\text{exp}}-h_{\text{ref}}}{h_{\text{ref}}}\right|100\%.
+                \]</span></p>
+                <p>6.15) Os valores experimentais devem ser comparados
+                com <span class="math inline">\(d_1 =
+                2,13\,\text{\AA}\)</span> e <span
+                class="math inline">\(d_2 = 1,23\,\text{\AA}\)</span>.
+                As principais fontes de incerteza são a leitura dos
+                diâmetros, a definição visual do centro dos anéis, a
+                calibração da régua, a incerteza da tensão e a
+                aproximação geométrica usada para pequenos ângulos.</p>
+                <h1 id="bibliografia">Bibliografia</h1>
+                <p>COMPTON, A. H. <strong>A Quantum Theory of the
+                Scattering of X-rays by Light Elements</strong>.
+                Physical Review, v. 21, n. 5, p. 483-502, 1923.
+                Disponível em: <a
+                href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.21.483"
+                class="uri">https://journals.aps.org/pr/abstract/10.1103/PhysRev.21.483</a>.</p>
+                <p>DAVISSON, C.; GERMER, L. H. <strong>Diffraction of
+                Electrons by a Crystal of Nickel</strong>. Physical
+                Review, v. 30, n. 6, p. 705-740, 1927. Disponível em: <a
+                href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.30.705"
+                class="uri">https://journals.aps.org/pr/abstract/10.1103/PhysRev.30.705</a>.</p>
+                <p>DE BROGLIE, L. <strong>Recherches sur la théorie des
+                quanta</strong>. Paris: Masson, 1924. Tese de
+                Doutorado.</p>
+                <p>EISBERG, R.; RESNICK, R. <strong>Física Quântica:
+                Átomos, Moléculas, Sólidos, Núcleos e
+                Partículas</strong>. Rio de Janeiro: Elsevier, 1979.</p>
+                <p>HALLIDAY, D.; RESNICK, R.; WALKER, J.
+                <strong>Fundamentos de Física: Óptica e Física
+                Moderna</strong>. 10. ed. Rio de Janeiro: LTC, 2016. v.
+                4.</p>
+                <p>NOBELPRIZE.ORG. <strong>The Nobel Prize in Physics
+                1927</strong>. Disponível em: <a
+                href="https://www.nobelprize.org/prizes/physics/1927/summary/"
+                class="uri">https://www.nobelprize.org/prizes/physics/1927/summary/</a>.</p>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Efeito Compton,
+ondas de matéria e difração de elétrons</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -52,6 +52,9 @@ disciplinas:
         html: "content/aulas/ES-FM1/Aula-05/fmi-aula-05.html"
         pdf: "https://drive.google.com/file/d/1lS4vi7C_pSABzBNrMgHILqjhN5Jwuv7e/view?usp=drive_link" 
         
+      - name: "Aula 06 - Efeito Compton e Difração de Elétrons"
+        html: "content/aulas/ES-FM1/Aula-06/fmi-aula-06.html"
+        pdf: "https://drive.google.com/file/d/17GtPmfIX0UHH-L_-XlRZ7Roro3YLATv0/view?usp=drive_link"
   - disciplina: "Mecânica dos Fluidos"
     aulas:
       - name: "Aula 01 - Introdução à Mecânica dos Fluidos"

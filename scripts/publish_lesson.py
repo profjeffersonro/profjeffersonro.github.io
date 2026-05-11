@@ -44,6 +44,20 @@ class PublishError(RuntimeError):
     pass
 
 
+@dataclass(frozen=True)
+class LessonContext:
+    discipline_name: str
+    content_group: str
+
+
+DISCIPLINE_HINTS: tuple[tuple[str, LessonContext], ...] = (
+    ("FM1", LessonContext("Física Moderna 1", "ES-FM1")),
+    ("MecFlu", LessonContext("Mecânica dos Fluidos", "ES-MecFlu")),
+    ("/EM/Termo1/", LessonContext("Termodinâmica", "EM-Termo1")),
+    ("EM-Termo1", LessonContext("Termodinâmica", "EM-Termo1")),
+)
+
+
 def log(message: str) -> None:
     print(f"[publish] {message}")
 
@@ -77,6 +91,26 @@ def load_json(path: Path) -> dict:
         raise PublishError(f"Arquivo nao encontrado: {path}") from exc
     except json.JSONDecodeError as exc:
         raise PublishError(f"JSON invalido: {path}: {exc}") from exc
+
+
+def infer_lesson_context(lesson_dir: Path) -> LessonContext | None:
+    lesson_path = lesson_dir.as_posix()
+    for needle, context in DISCIPLINE_HINTS:
+        if needle in lesson_path:
+            return context
+    return None
+
+
+def resolve_new_lesson_context(args: argparse.Namespace, lesson_dir: Path) -> LessonContext:
+    inferred = infer_lesson_context(lesson_dir)
+    discipline_name = args.discipline_name or (inferred.discipline_name if inferred else None)
+    content_group = args.content_group or (inferred.content_group if inferred else None)
+    if not discipline_name or not content_group:
+        raise PublishError(
+            "Nao consegui inferir a disciplina a partir da pasta da aula. "
+            "Use --discipline-name e --content-group."
+        )
+    return LessonContext(discipline_name, content_group)
 
 
 def parse_drive_time(value: str | None) -> float:
@@ -270,7 +304,7 @@ class DriveClient:
         file_id = result["id"]
         if self.make_public:
             self.make_file_public(file_id)
-        return result.get("webViewLink") or f"https://drive.google.com/file/d/{file_id}/view?usp=drive_link"
+        return f"https://drive.google.com/file/d/{file_id}/view?usp=drive_link"
 
     def make_file_public(self, file_id: str) -> None:
         try:
@@ -331,6 +365,7 @@ def referenced_local_assets(html_path: Path) -> list[tuple[Path, str]]:
 def copy_html_and_assets(source_html: Path, dest_html: Path, dry_run: bool = False) -> list[Path]:
     touched = [dest_html]
     assert_in_repo(dest_html)
+    asset_root = dest_html.parent.resolve()
     log(f"Copiando HTML: {source_html} -> {dest_html}")
     if not dry_run:
         dest_html.parent.mkdir(parents=True, exist_ok=True)
@@ -339,6 +374,10 @@ def copy_html_and_assets(source_html: Path, dest_html: Path, dry_run: bool = Fal
     for source, rel in referenced_local_assets(source_html):
         dest = (dest_html.parent / rel).resolve()
         assert_in_repo(dest)
+        try:
+            dest.relative_to(asset_root)
+        except ValueError as exc:
+            raise PublishError(f"Asset local sairia da pasta da aula no destino: {rel}") from exc
         touched.append(dest)
         log(f"Copiando asset: {source} -> {dest}")
         if not dry_run:
@@ -347,20 +386,23 @@ def copy_html_and_assets(source_html: Path, dest_html: Path, dry_run: bool = Fal
     return touched
 
 
-def find_config_entry(config_path: Path, source_html: Path, explicit_html: str | None) -> str:
+def find_config_entry(config_path: Path, source_html: Path, explicit_html: str | None) -> str | None:
     text = config_path.read_text(encoding="utf-8")
     html_values = re.findall(r"^\s*html:\s*['\"]?([^'\"\n]+)['\"]?\s*$", text, flags=re.MULTILINE)
-    if explicit_html:
-        if explicit_html not in html_values:
-            raise PublishError(f"--content-html nao encontrado no config.yaml: {explicit_html}")
-        return explicit_html
-
     matches = [value for value in html_values if Path(value).name == source_html.name]
+    if explicit_html:
+        if explicit_html in html_values:
+            return explicit_html
+        if matches:
+            formatted = "\n  - ".join(matches)
+            raise PublishError(
+                f"--content-html nao encontrado no config.yaml: {explicit_html}. "
+                f"Esse nome de HTML ja aparece em:\n  - {formatted}"
+            )
+        return None
+
     if not matches:
-        raise PublishError(
-            "Nao encontrei entrada no config.yaml para esse HTML. "
-            "Use --content-html content/aulas/.../arquivo.html."
-        )
+        return None
     if len(matches) > 1:
         formatted = "\n  - ".join(matches)
         raise PublishError(f"Mais de uma entrada usa esse nome de HTML. Use --content-html.\n  - {formatted}")
@@ -407,14 +449,68 @@ def update_yaml_pdf(config_path: Path, html_value: str, pdf_url: str, dry_run: b
     return True
 
 
+def build_new_lesson_block(lesson_name: str, html_value: str, pdf_url: str, indent: str) -> str:
+    return (
+        f"{indent}- name: \"{lesson_name}\"\n"
+        f"{indent}  html: \"{html_value}\"\n"
+        f"{indent}  pdf: \"{pdf_url}\"\n"
+    )
+
+
+def insert_new_lesson_entry(
+    config_path: Path,
+    discipline_name: str,
+    lesson_name: str,
+    html_value: str,
+    pdf_url: str,
+    dry_run: bool = False,
+) -> bool:
+    lines = config_path.read_text(encoding="utf-8").splitlines(keepends=True)
+    discipline_re = re.compile(rf"^(\s*)-\s+disciplina:\s*\"{re.escape(discipline_name)}\"\s*$")
+
+    start = None
+    base_indent = ""
+    for idx, line in enumerate(lines):
+        match = discipline_re.match(line.rstrip("\n"))
+        if match:
+            start = idx
+            base_indent = match.group(1)
+            break
+    if start is None:
+        raise PublishError(
+            f"Disciplina nao encontrada no YAML: {discipline_name}. "
+            "Crie a disciplina manualmente antes da primeira aula."
+        )
+
+    insert_at = len(lines)
+    for idx in range(start + 1, len(lines)):
+        stripped = lines[idx].lstrip()
+        if stripped.startswith("- disciplina:") or stripped.startswith("blog:"):
+            insert_at = idx
+            break
+
+    block = build_new_lesson_block(lesson_name, html_value, pdf_url, indent=base_indent + "    ")
+    if dry_run:
+        log(f"[dry-run] Inseriria nova aula em {config_path}: {lesson_name}")
+        return True
+
+    block_lines = block.splitlines(keepends=True)
+    lines[insert_at:insert_at] = block_lines
+    config_path.write_text("".join(lines), encoding="utf-8")
+    return True
+
+
 def drive_folder_parts(client: DriveClient, source_pdf: Path) -> list[str]:
     local_root = client.local_root
     if not local_root:
-        return []
+        raise PublishError("sync_config.json nao contem local_folder; nao posso inferir a pasta de destino no Drive.")
     try:
         relative_parent = source_pdf.parent.resolve().relative_to(local_root.resolve())
     except ValueError:
-        return []
+        raise PublishError(
+            f"PDF fora da pasta local sincronizada ({local_root}): {source_pdf}. "
+            "Isso enviaria para a raiz do Drive; mova a aula para a arvore sincronizada ou ajuste local_folder."
+        )
     return list(relative_parent.parts)
 
 
@@ -447,6 +543,7 @@ def resolve_source_file(lesson_dir: Path, value: str | None, suffix: str) -> Pat
         if not path.name.endswith(f"-auto{suffix}")
         and not path.name.startswith("resp-")
         and ".backup." not in path.name
+        and not (suffix == ".pdf" and re.search(r"\.\d+\.pdf$", path.name))
     ]
     if len(matches) == 1:
         return matches[0].resolve()
@@ -478,12 +575,27 @@ def resolve_source_html(lesson_dir: Path, value: str | None, source_pdf: Path) -
     raise PublishError("Mais de um HTML principal encontrado. Informe --html.")
 
 
+def resolve_source_pdf(lesson_dir: Path, value: str | None, source_html: Path | None = None) -> Path:
+    if value:
+        return resolve_source_file(lesson_dir, value, ".pdf")
+
+    if source_html:
+        same_stem = lesson_dir / f"{source_html.stem}.pdf"
+        if same_stem.is_file():
+            return same_stem.resolve()
+
+    return resolve_source_file(lesson_dir, None, ".pdf")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Publica HTML/PDF de aula no portal e no Google Drive.")
     parser.add_argument("--lesson-dir", default=".", help="Pasta da aula gerada pelo make.sh.")
     parser.add_argument("--html", help="HTML gerado. Padrao: unico *.html da pasta, exceto *-auto.html.")
     parser.add_argument("--pdf", help="PDF gerado. Padrao: unico *.pdf da pasta.")
     parser.add_argument("--content-html", help="Caminho content/... correspondente no config.yaml.")
+    parser.add_argument("--lesson-name", help="Nome da aula quando for preciso criar uma entrada nova.")
+    parser.add_argument("--discipline-name", help="Nome da disciplina para criar uma entrada nova.")
+    parser.add_argument("--content-group", help="Subpasta em content/aulas/ para criar uma entrada nova.")
     parser.add_argument("--config", default="config.yaml", help="Arquivo YAML do portal.")
     parser.add_argument("--drive-config", default=str(DEFAULT_DRIVE_CONFIG), help="Pasta com sync_config.json/token.json.")
     parser.add_argument("--skip-drive", action="store_true", help="Nao envia PDF; apenas copia HTML/assets e builda.")
@@ -497,7 +609,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     lesson_dir = Path(args.lesson_dir).expanduser().resolve()
-    source_pdf = resolve_source_file(lesson_dir, args.pdf, ".pdf")
+    source_pdf = resolve_source_pdf(lesson_dir, args.pdf, None)
     source_html = resolve_source_html(lesson_dir, args.html, source_pdf)
     config_path = (REPO_ROOT / args.config).resolve()
     assert_in_repo(config_path)
@@ -514,18 +626,44 @@ def main(argv: list[str] | None = None) -> int:
             "Revise com git status ou use --allow-dirty para commitar apenas os arquivos tocados pelo script."
         )
 
-    html_value = find_config_entry(config_path, source_html, args.content_html)
+    existing_html_value = find_config_entry(config_path, source_html, args.content_html)
+    html_value = existing_html_value
+    context = None
+    if html_value is None:
+        context = resolve_new_lesson_context(args, lesson_dir)
+        lesson_folder = lesson_dir.name
+        html_value = args.content_html or f"content/aulas/{context.content_group}/{lesson_folder}/{source_html.name}"
+        if args.skip_drive:
+            raise PublishError(
+                "A aula ainda nao existe no config.yaml. "
+                "Publique com Drive ativo para criar a entrada com PDF, ou crie a entrada manualmente antes de usar --skip-drive."
+            )
     dest_html = (REPO_ROOT / html_value).resolve()
     touched = copy_html_and_assets(source_html, dest_html, dry_run=args.dry_run)
 
     pdf_url = None
     if not args.skip_drive:
         client = DriveClient.from_config_dir(Path(args.drive_config).expanduser())
-        folder_id = client.ensure_folder_path(drive_folder_parts(client, source_pdf), dry_run=args.dry_run)
+        folder_parts = drive_folder_parts(client, source_pdf)
+        log("Pasta de destino no Drive: " + "/".join(folder_parts))
+        folder_id = client.ensure_folder_path(folder_parts, dry_run=args.dry_run)
         log(f"Enviando PDF para o Drive: {source_pdf.name}")
         pdf_url = client.upload_pdf(source_pdf, folder_id, dry_run=args.dry_run)
         log(f"Link do PDF: {pdf_url}")
-        if update_yaml_pdf(config_path, html_value, pdf_url, dry_run=args.dry_run):
+        if existing_html_value is None:
+            lesson_name = args.lesson_name or lesson_dir.name.replace("-", " ")
+            if context is None:
+                context = resolve_new_lesson_context(args, lesson_dir)
+            if insert_new_lesson_entry(
+                config_path,
+                discipline_name=context.discipline_name,
+                lesson_name=lesson_name,
+                html_value=html_value,
+                pdf_url=pdf_url,
+                dry_run=args.dry_run,
+            ):
+                touched.append(config_path)
+        elif update_yaml_pdf(config_path, html_value, pdf_url, dry_run=args.dry_run):
             touched.append(config_path)
 
     if not args.skip_build:
