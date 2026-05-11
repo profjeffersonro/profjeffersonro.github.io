@@ -409,10 +409,10 @@ def find_config_entry(config_path: Path, source_html: Path, explicit_html: str |
     return matches[0]
 
 
-def update_yaml_pdf(config_path: Path, html_value: str, pdf_url: str, dry_run: bool = False) -> bool:
+def update_yaml_field(config_path: Path, html_value: str, field_name: str, field_value: str, dry_run: bool = False) -> bool:
     lines = config_path.read_text(encoding="utf-8").splitlines(keepends=True)
     html_re = re.compile(r"^(\s*)html:\s*(['\"]?)([^'\"\n]+)(['\"]?)\s*$")
-    pdf_re = re.compile(r"^(\s*)pdf:\s*.*$")
+    field_re = re.compile(rf"^(\s*){re.escape(field_name)}:\s*.*$")
 
     html_idx = None
     html_indent = ""
@@ -425,36 +425,53 @@ def update_yaml_pdf(config_path: Path, html_value: str, pdf_url: str, dry_run: b
     if html_idx is None:
         raise PublishError(f"Entrada html nao encontrada no YAML: {html_value}")
 
-    replacement = f'{html_indent}pdf: "{pdf_url}"\n'
+    replacement = f'{html_indent}{field_name}: "{field_value}"\n'
     insert_at = html_idx + 1
     for idx in range(html_idx + 1, len(lines)):
         stripped = lines[idx].strip()
         if stripped.startswith("- name:") or stripped.startswith("- title:") or stripped.startswith("- disciplina:"):
             break
-        if pdf_re.match(lines[idx].rstrip("\n")):
+        if field_re.match(lines[idx].rstrip("\n")):
             if lines[idx] == replacement:
-                log("config.yaml ja continha o link atual do PDF.")
+                log(f"config.yaml ja continha o valor atual de {field_name}.")
                 return False
-            log(f"Atualizando link PDF em config.yaml para {html_value}")
+            log(f"Atualizando {field_name} em config.yaml para {html_value}")
             if not dry_run:
                 lines[idx] = replacement
                 config_path.write_text("".join(lines), encoding="utf-8")
             return True
         insert_at = idx + 1
 
-    log(f"Inserindo link PDF em config.yaml para {html_value}")
+    log(f"Inserindo {field_name} em config.yaml para {html_value}")
     if not dry_run:
         lines.insert(insert_at, replacement)
         config_path.write_text("".join(lines), encoding="utf-8")
     return True
 
 
-def build_new_lesson_block(lesson_name: str, html_value: str, pdf_url: str, indent: str) -> str:
-    return (
+def update_yaml_pdf(config_path: Path, html_value: str, pdf_url: str, dry_run: bool = False) -> bool:
+    return update_yaml_field(config_path, html_value, "pdf", pdf_url, dry_run=dry_run)
+
+
+def update_yaml_answers_pdf(config_path: Path, html_value: str, answers_pdf_url: str, dry_run: bool = False) -> bool:
+    return update_yaml_field(config_path, html_value, "answers_pdf", answers_pdf_url, dry_run=dry_run)
+
+
+def build_new_lesson_block(
+    lesson_name: str,
+    html_value: str,
+    pdf_url: str,
+    indent: str,
+    answers_pdf_url: str | None = None,
+) -> str:
+    block = (
         f"{indent}- name: \"{lesson_name}\"\n"
         f"{indent}  html: \"{html_value}\"\n"
         f"{indent}  pdf: \"{pdf_url}\"\n"
     )
+    if answers_pdf_url:
+        block += f"{indent}  answers_pdf: \"{answers_pdf_url}\"\n"
+    return block
 
 
 def insert_new_lesson_entry(
@@ -463,6 +480,7 @@ def insert_new_lesson_entry(
     lesson_name: str,
     html_value: str,
     pdf_url: str,
+    answers_pdf_url: str | None = None,
     dry_run: bool = False,
 ) -> bool:
     lines = config_path.read_text(encoding="utf-8").splitlines(keepends=True)
@@ -489,7 +507,13 @@ def insert_new_lesson_entry(
             insert_at = idx
             break
 
-    block = build_new_lesson_block(lesson_name, html_value, pdf_url, indent=base_indent + "    ")
+    block = build_new_lesson_block(
+        lesson_name,
+        html_value,
+        pdf_url,
+        answers_pdf_url=answers_pdf_url,
+        indent=base_indent + "    ",
+    )
     if dry_run:
         log(f"[dry-run] Inseriria nova aula em {config_path}: {lesson_name}")
         return True
@@ -587,11 +611,32 @@ def resolve_source_pdf(lesson_dir: Path, value: str | None, source_html: Path | 
     return resolve_source_file(lesson_dir, None, ".pdf")
 
 
+def resolve_answers_pdf(lesson_dir: Path, value: str | None, auto_detect: bool = False) -> Path | None:
+    if value:
+        return resolve_source_file(lesson_dir, value, ".pdf")
+    if not auto_detect:
+        return None
+
+    matches = sorted(
+        path
+        for path in lesson_dir.glob("resp-*.pdf")
+        if ".backup." not in path.name and not re.search(r"\.\d+\.pdf$", path.name)
+    )
+    if len(matches) == 1:
+        return matches[0].resolve()
+    if not matches:
+        raise PublishError(f"Nenhum PDF de respostas resp-*.pdf encontrado em {lesson_dir}.")
+    formatted = "\n  - ".join(path.name for path in matches)
+    raise PublishError(f"Mais de um PDF de respostas encontrado. Use --answers-pdf.\n  - {formatted}")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Publica HTML/PDF de aula no portal e no Google Drive.")
     parser.add_argument("--lesson-dir", default=".", help="Pasta da aula gerada pelo make.sh.")
     parser.add_argument("--html", help="HTML gerado. Padrao: unico *.html da pasta, exceto *-auto.html.")
     parser.add_argument("--pdf", help="PDF gerado. Padrao: unico *.pdf da pasta.")
+    parser.add_argument("--answers-pdf", help="PDF de respostas/solucoes, normalmente resp-*.pdf.")
+    parser.add_argument("--auto-answers", action="store_true", help="Publica automaticamente o unico resp-*.pdf da pasta.")
     parser.add_argument("--content-html", help="Caminho content/... correspondente no config.yaml.")
     parser.add_argument("--lesson-name", help="Nome da aula quando for preciso criar uma entrada nova.")
     parser.add_argument("--discipline-name", help="Nome da disciplina para criar uma entrada nova.")
@@ -610,6 +655,7 @@ def main(argv: list[str] | None = None) -> int:
 
     lesson_dir = Path(args.lesson_dir).expanduser().resolve()
     source_pdf = resolve_source_pdf(lesson_dir, args.pdf, None)
+    source_answers_pdf = resolve_answers_pdf(lesson_dir, args.answers_pdf, args.auto_answers)
     source_html = resolve_source_html(lesson_dir, args.html, source_pdf)
     config_path = (REPO_ROOT / args.config).resolve()
     assert_in_repo(config_path)
@@ -642,6 +688,7 @@ def main(argv: list[str] | None = None) -> int:
     touched = copy_html_and_assets(source_html, dest_html, dry_run=args.dry_run)
 
     pdf_url = None
+    answers_pdf_url = None
     if not args.skip_drive:
         client = DriveClient.from_config_dir(Path(args.drive_config).expanduser())
         folder_parts = drive_folder_parts(client, source_pdf)
@@ -650,6 +697,16 @@ def main(argv: list[str] | None = None) -> int:
         log(f"Enviando PDF para o Drive: {source_pdf.name}")
         pdf_url = client.upload_pdf(source_pdf, folder_id, dry_run=args.dry_run)
         log(f"Link do PDF: {pdf_url}")
+        if source_answers_pdf:
+            answers_folder_parts = drive_folder_parts(client, source_answers_pdf)
+            if answers_folder_parts != folder_parts:
+                raise PublishError(
+                    "O PDF de respostas precisa estar na mesma pasta da aula principal. "
+                    f"Aula: {'/'.join(folder_parts)}; respostas: {'/'.join(answers_folder_parts)}"
+                )
+            log(f"Enviando PDF de respostas para o Drive: {source_answers_pdf.name}")
+            answers_pdf_url = client.upload_pdf(source_answers_pdf, folder_id, dry_run=args.dry_run)
+            log(f"Link do PDF de respostas: {answers_pdf_url}")
         if existing_html_value is None:
             lesson_name = args.lesson_name or lesson_dir.name.replace("-", " ")
             if context is None:
@@ -660,11 +717,15 @@ def main(argv: list[str] | None = None) -> int:
                 lesson_name=lesson_name,
                 html_value=html_value,
                 pdf_url=pdf_url,
+                answers_pdf_url=answers_pdf_url,
                 dry_run=args.dry_run,
             ):
                 touched.append(config_path)
-        elif update_yaml_pdf(config_path, html_value, pdf_url, dry_run=args.dry_run):
-            touched.append(config_path)
+        else:
+            if update_yaml_pdf(config_path, html_value, pdf_url, dry_run=args.dry_run):
+                touched.append(config_path)
+            if answers_pdf_url and update_yaml_answers_pdf(config_path, html_value, answers_pdf_url, dry_run=args.dry_run):
+                touched.append(config_path)
 
     if not args.skip_build:
         build_arg = "--full" if args.build_mode == "full" else "--incremental"

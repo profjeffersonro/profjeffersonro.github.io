@@ -8,9 +8,10 @@ Script para publicar uma aula no portal, atualizar o link do PDF no `config.yaml
 2. Copia o HTML para o caminho correspondente em `content/`.
 3. Copia os assets locais referenciados no HTML, como imagens.
 4. Envia ou atualiza o PDF no Google Drive.
-5. Atualiza o `config.yaml` com o novo link do PDF.
-6. Executa `build.py`.
-7. Opcionalmente faz `git commit` e `git push`.
+5. Opcionalmente envia ou atualiza o PDF de respostas `resp-*.pdf` no mesmo diretório do Drive.
+6. Atualiza o `config.yaml` com os novos links de PDF.
+7. Executa `build.py`.
+8. Opcionalmente faz `git commit` e `git push`.
 
 ## Requisitos
 
@@ -79,11 +80,41 @@ Publicar, commitar e dar push:
   --push
 ```
 
+## Fluxo interativo em lote
+
+Para publicar várias aulas seguindo uma conversa no terminal, use:
+
+```bash
+./scripts/publish_lesson_full.py
+```
+
+Ou informe a pasta da disciplina diretamente:
+
+```bash
+./scripts/publish_lesson_full.py \
+  --base-dir "/home/jefferson/Área de trabalho/IFSP/2026/FM1/Aulas"
+```
+
+O fluxo interativo:
+
+1. lista as aulas encontradas;
+2. mostra quais ainda não estão completas no `content/` ou no `config.yaml`;
+3. faz `dry-run` obrigatório antes de alterar arquivos;
+4. publica aula e respostas, quando houver `resp-*.pdf`;
+5. roda o build;
+6. mostra `git status`;
+7. pergunta antes de fazer commit;
+8. pergunta antes de fazer push.
+
+Por segurança, ele exige repositório limpo para commit/push automático. Com `--allow-dirty`, ele permite analisar/publicar, mas desativa commit/push automáticos.
+
 ## Opcoes principais
 
 - `--lesson-dir`: pasta da aula
 - `--html`: HTML principal, se a autodetecção não for suficiente
 - `--pdf`: PDF principal, se houver mais de um PDF na pasta
+- `--answers-pdf`: PDF de respostas/soluções, normalmente `resp-*.pdf`
+- `--auto-answers`: publica automaticamente o único `resp-*.pdf` encontrado na pasta da aula
 - `--content-html`: caminho exato no `content/` para o HTML de destino; se ainda não existir no `config.yaml`, será usado na criação da entrada nova
 - `--lesson-name`: nome da aula quando a entrada for nova
 - `--discipline-name`: nome da disciplina quando a entrada for nova
@@ -103,7 +134,26 @@ Publicar, commitar e dar push:
 - Se a aula ainda não estiver no `config.yaml`, o script cria a entrada nova com o link do PDF enviado ao Drive.
 - Para aula nova, `--skip-drive` é bloqueado: sem URL de PDF, a aula não entraria corretamente no `config.yaml`.
 - O PDF precisa estar dentro do `local_folder` definido em `/home/jefferson/Documentos/Gdrive/config/sync_config.json`; caso contrário, o script interrompe para evitar envio na pasta errada do Drive.
+- O PDF de respostas, quando usado, precisa estar na mesma pasta local da aula principal. Ele é enviado para a mesma pasta no Drive e gravado no YAML como `answers_pdf`.
 - O link do PDF é escrito no `config.yaml`, então esse arquivo passa a fazer parte do fluxo normal de publicação.
+
+## Publicar respostas
+
+Publicar a aula e o PDF de respostas ao mesmo tempo:
+
+```bash
+./scripts/publish_lesson.py \
+  --lesson-dir "/home/jefferson/Área de trabalho/IFSP/2026/FM1/Aulas/Aula-05" \
+  --answers-pdf resp-fmi-aula-05.pdf
+```
+
+Se houver exatamente um `resp-*.pdf` na pasta, você pode usar:
+
+```bash
+./scripts/publish_lesson.py \
+  --lesson-dir "/home/jefferson/Área de trabalho/IFSP/2026/FM1/Aulas/Aula-05" \
+  --auto-answers
+```
 
 ## Exemplo real
 

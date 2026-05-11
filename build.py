@@ -211,6 +211,9 @@ def validate_build_output(config, output_dir):
             pdf = aula.get('pdf', '')
             if isinstance(pdf, str) and pdf.startswith('/home/'):
                 warnings.append(f"PDF local em aula '{aula['name']}': {pdf}")
+            answers_pdf = aula.get('answers_pdf', '')
+            if isinstance(answers_pdf, str) and answers_pdf.startswith('/home/'):
+                warnings.append(f"PDF local de respostas em aula '{aula['name']}': {answers_pdf}")
 
     expected_posts = []
     for post in config.get('blog', {}).get('posts', []):
@@ -931,6 +934,13 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
                                         <i class="bi bi-file-earmark-pdf"></i> PDF
                                     </a>
                 '''
+
+            if aula.get('answers_pdf'):
+                disciplinas_html += f'''
+                                    <a href="{aula['answers_pdf']}" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+                '''
             
             disciplinas_html += '''
                                 </div>
@@ -1046,6 +1056,19 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
                     </a>
                 </div>
                 '''
+            answers_pdf_button = ''
+            if aula.get('answers_pdf'):
+                answers_pdf_button = f'''
+                <div class="text-center mb-4">
+                    <a href="{aula['answers_pdf']}" 
+                       class="btn btn-outline-secondary btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-check2-square"></i> Acessar Respostas
+                    </a>
+                </div>
+                '''
+            pdf_buttons = pdf_button + answers_pdf_button
 
             previous_aula = aulas_da_disciplina[index - 1] if index > 0 else None
             next_aula = aulas_da_disciplina[index + 1] if index < len(aulas_da_disciplina) - 1 else None
@@ -1081,7 +1104,7 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
                     <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> {disciplina['disciplina']}</p>
                 </div>
                 <div class="card-body">
-                    {pdf_button}
+                    {pdf_buttons}
                     <div class="aula-content">
                         {aula_content}
                     </div>
