@@ -70,6 +70,10 @@ disciplinas:
         html: "content/aulas/ES-MecFlu/Aula-04/mecflu-aula-04.html"
         pdf: "https://drive.google.com/file/d/1UgUqw9m_cmghVUHV1xHtE8VdEbxjHC-Y/view?usp=drive_link" 
 
+      - name: "Manômetros e Princípio de Pascal"
+        html: "content/aulas/ES-MecFlu/Aula-05/mecflu-aula-05.html"
+        pdf: "https://drive.google.com/file/d/1l2wCa1yjOl3ApmS_SIZ7HZoqiiQAzWoB/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/1EIva3-gOdssWQoB5ZJN078ts1RK4_gMy/view?usp=drive_link"
 blog:
   posts:
     - title: "Algoritmos Quânticos"

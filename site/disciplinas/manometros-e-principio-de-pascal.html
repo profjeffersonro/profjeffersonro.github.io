@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manômetros e Princípio de Pascal | Meu Portal</title>
+    <meta name="description" content="Notas da Manômetros e Princípio de Pascal de Mecânica dos Fluidos.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/manometros-e-principio-de-pascal.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manômetros e Princípio de Pascal | Meu Portal">
+    <meta property="og:description" content="Notas da Manômetros e Princípio de Pascal de Mecânica dos Fluidos.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/manometros-e-principio-de-pascal.html">
+    <meta property="og:site_name" content="Meu Portal">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+        
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Mecânica dos Fluidos</li>
+                </ol>
+            </nav>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Manômetros e Princípio de Pascal</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos</p>
+                </div>
+                <div class="card-body">
+                    
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1l2wCa1yjOl3ApmS_SIZ7HZoqiiQAzWoB/view?usp=drive_link" 
+                       class="btn btn-success btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+                
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1EIva3-gOdssWQoB5ZJN078ts1RK4_gMy/view?usp=drive_link" 
+                       class="btn btn-outline-secondary btn-lg" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="bi bi-check2-square"></i> Acessar Respostas
+                    </a>
+                </div>
+                
+                    <div class="aula-content">
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li>Diferenciar <strong>pressão absoluta</strong>,
+                <strong>pressão atmosférica</strong>, <strong>pressão
+                manométrica</strong> e <strong>pressão de
+                vácuo</strong>.</li>
+<li>Compreender o funcionamento dos principais tipos de
+                <strong>manômetros</strong>.</li>
+<li>Resolver problemas com manômetros utilizando o
+                <strong>Método do Fluxo</strong>.</li>
+<li>Interpretar medições com <strong>manômetros de tubo
+                em U</strong>, <strong>manômetros diferenciais</strong>
+                e <strong>manômetros inclinados</strong>.</li>
+<li>Explicar por que a pressão atmosférica padrão é
+                equivalente a aproximadamente <strong>760
+                mmHg</strong>.</li>
+<li>Compreender o <strong>Princípio de Pascal</strong> e
+                suas aplicações em sistemas hidráulicos.</li>
+<li>Resolver exemplos numéricos envolvendo
+                <strong>prensas hidráulicas</strong>, <strong>macacos
+                hidráulicos</strong> e transmissão de pressão em fluidos
+                confinados.</li>
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Imagine que um técnico precisa verificar se a pressão
+                de uma linha de ar comprimido está adequada. Ele conecta
+                um tubo em U contendo mercúrio ao ponto de medição e
+                observa que uma das colunas desce enquanto a outra sobe.
+                Como transformar esse desnível em pressão?</p>
+<blockquote>
+<p>Como a altura de uma coluna líquida pode indicar a
+                pressão de um gás ou de outro líquido?</p>
+</blockquote>
+<p>Agora pense em uma oficina mecânica: uma pessoa
+                aplica uma força relativamente pequena na alavanca de um
+                macaco hidráulico e consegue levantar um automóvel. Esse
+                efeito parece uma multiplicação de força, mas está
+                baseado em uma propriedade simples dos fluidos em
+                repouso.</p>
+<blockquote>
+<p>Como uma pequena força aplicada em uma área reduzida
+                pode produzir uma força muito maior em outra região do
+                sistema?</p>
+</blockquote>
+<p>Essas duas situações são aplicações diretas da
+                hidrostática. Na primeira, usamos os
+                <strong>manômetros</strong>, que transformam diferenças
+                de pressão em diferenças de altura. Na segunda, usamos o
+                <strong>Princípio de Pascal</strong>, que descreve como
+                a pressão aplicada a um fluido confinado é transmitida
+                pelo sistema.</p>
+<h1 id="pressão-absoluta-manométrica-e-de-vácuo">Pressão
+                Absoluta, Manométrica e de Vácuo</h1>
+<p>Antes de estudar os manômetros, é importante
+                organizar as formas de representar pressão.</p>
+<p><strong>Pressão absoluta</strong> é medida em relação
+                ao vácuo absoluto. É a pressão real do fluido:</p>
+<p>\[P_{\text{abs}} \geq
+                0\]</p>
+<p><strong>Pressão atmosférica</strong> é a pressão
+                exercida pelo ar atmosférico. Ao nível do mar, adota-se
+                frequentemente:</p>
+<p>\[P_{\text{atm}} =
+                101325\,\text{Pa} = 101{,}325\,\text{kPa} =
+                1\,\text{atm}\]</p>
+<p><strong>Pressão manométrica</strong> é medida em
+                relação à pressão atmosférica local:</p>
+<p>\[\boxed{P_{\text{man}} =
+                P_{\text{abs}} - P_{\text{atm}}}\]</p>
+<p>Essa relação deve ser lida como uma comparação com a
+                atmosfera. A linha da pressão atmosférica funciona como
+                o zero do manômetro, mas não como o zero absoluto da
+                pressão. Assim:</p>
+<ul>
+<li>Se \(P_{\text{abs}} &gt;
+                P_{\text{atm}}\), então \(P_{\text{man}} &gt; 0\). A
+                pressão está <strong>acima da atmosférica</strong>.</li>
+<li>Se \(P_{\text{abs}} =
+                P_{\text{atm}}\), então \(P_{\text{man}} = 0\). A
+                pressão absoluta é igual à pressão ambiente.</li>
+<li>Se \(P_{\text{abs}} &lt;
+                P_{\text{atm}}\), então \(P_{\text{man}} &lt; 0\). A
+                pressão está <strong>abaixo da atmosférica</strong> e
+                dizemos que existe <strong>vácuo relativo</strong>.</li>
+</ul>
+<p><strong>Pressão de vácuo</strong> pode ser escrita
+                como o quanto a pressão absoluta está abaixo da
+                atmosférica:</p>
+<p>\[\boxed{P_{\text{vac}} =
+                P_{\text{atm}} - P_{\text{abs}}}\]</p>
+<p>Portanto:</p>
+<p>\[P_{\text{vac}} =
+                -P_{\text{man}} \quad \text{quando} \quad P_{\text{man}}
+                &lt; 0\]</p>
+<p>É importante notar que <strong>pressão de vácuo não é
+                uma pressão absoluta negativa</strong>. A pressão
+                absoluta nunca fica abaixo de zero. O sinal negativo
+                aparece apenas na <strong>pressão manométrica</strong>,
+                porque ela foi definida como diferença em relação à
+                atmosfera:</p>
+<p>\[P_{\text{man}} =
+                P_{\text{abs}} - P_{\text{atm}}\]</p>
+<p>Se a pressão absoluta do recipiente é menor que a
+                atmosférica, a subtração fica negativa. Por exemplo, se
+                \(P_{\text{abs}}=98\,\text{kPa}\)
+                e \(P_{\text{atm}}=101\,\text{kPa}\),
+                então:</p>
+<p>\[P_{\text{man}}=98-101=-3\,\text{kPa}\]</p>
+<p>Esse valor significa apenas que a pressão interna
+                está \(3\,\text{kPa}\)
+                abaixo da atmosfera. A pressão de vácuo correspondente é
+                positiva:</p>
+<p>\[P_{\text{vac}}=3\,\text{kPa}\]</p>
+<p>Uma forma simples de interpretar é:</p>
+<ul>
+<li>A <strong>pressão absoluta</strong> mede a pressão a
+                partir do vácuo absoluto.</li>
+<li>A <strong>pressão atmosférica</strong> é a pressão
+                do ar ambiente.</li>
+<li>A <strong>pressão manométrica positiva</strong>
+                indica quanto a pressão está acima da atmosfera.</li>
+<li>A <strong>pressão de vácuo</strong> indica quanto a
+                pressão está abaixo da atmosfera.</li>
+</ul>
+<p>Por exemplo, se um recipiente está com pressão
+                absoluta menor que a atmosférica, ele ainda possui
+                pressão. Porém, comparado com o ambiente externo, sua
+                pressão é menor. Por isso dizemos que há <strong>vácuo
+                relativo</strong>.</p>
+<figure>
+<img alt="Relação entre pressão absoluta, pressão atmosférica, pressão manométrica e pressão de vácuo. Fonte: material de referência da disciplina." src="images/relação-pressões.png" style="width:90.0%"/>
+<figcaption aria-hidden="true">Relação entre pressão
+                absoluta, pressão atmosférica, pressão manométrica e
+                pressão de vácuo. Fonte: material de referência da
+                disciplina.</figcaption>
+</figure>
+<p>Na figura, o vácuo absoluto é o nível em que \(P_{\text{abs}}=0\). A
+                pressão absoluta sempre é medida a partir desse nível. A
+                pressão atmosférica aparece como uma linha de referência
+                intermediária. Quando o estado do sistema fica acima
+                dessa linha, a diferença até a atmosfera é uma pressão
+                manométrica positiva. Quando o estado fica abaixo dessa
+                linha, a diferença até a atmosfera é chamada de pressão
+                de vácuo, e a pressão manométrica é negativa.</p>
+<h1 id="manômetros">Manômetros</h1>
+<p><strong>Manômetros</strong> são instrumentos
+                utilizados para medir pressão ou diferença de pressão.
+                Em hidrostática, os manômetros de coluna líquida são
+                especialmente importantes porque sua análise vem
+                diretamente do Teorema de Stevin:</p>
+<p>\[\Delta P = \rho g \Delta
+                h\]</p>
+<p>Nos manômetros de coluna, a diferença de pressão é
+                equilibrada pelo peso de uma coluna de fluido
+                manométrico. Quanto maior a diferença de pressão, maior
+                o desnível entre as colunas.</p>
+<p>O fluido manométrico deve ser escolhido de acordo com
+                a faixa de pressão a medir. Para pressões pequenas,
+                usam-se fluidos menos densos, como água ou óleo. Para
+                pressões maiores, usa-se frequentemente mercúrio, pois
+                sua densidade é elevada.</p>
+<h2 id="método-do-fluxo-aplicado-a-manômetros">Método do
+                Fluxo Aplicado a Manômetros</h2>
+<p>Na aula anterior, utilizamos o <strong>Método do
+                Fluxo</strong> para vasos comunicantes. O mesmo
+                procedimento é aplicado aos manômetros.</p>
+<p>Ao percorrer um caminho contínuo de um ponto \(A\) até um ponto \(B\):</p>
+<p>\[\boxed{P_A + \sum(\pm
+                \rho g \Delta h) - P_B = 0}\]</p>
+<p><strong>Regras práticas:</strong></p>
+<ul>
+<li>Ao <strong>descer</strong> em um fluido, a pressão
+                <strong>aumenta</strong>: \(+\rho g \Delta h\).</li>
+<li>Ao <strong>subir</strong> em um fluido, a pressão
+                <strong>diminui</strong>: \(-\rho g \Delta h\).</li>
+<li>Ao se mover <strong>horizontalmente</strong> dentro
+                do mesmo fluido, a pressão <strong>permanece
+                constante</strong>.</li>
+<li>Ao passar de um fluido para outro, usa-se a
+                densidade do fluido presente no trecho percorrido.</li>
+<li>Se uma extremidade está aberta para a atmosfera, a
+                pressão naquele ponto é \(P_{\text{atm}}\).</li>
+</ul>
+<p>Esse método evita memorizar muitas fórmulas
+                diferentes. O mais importante é escolher um caminho
+                claro e manter os sinais consistentes.</p>
+<h1 id="tipos-de-manômetros">Tipos de Manômetros</h1>
+<figure>
+<img alt="Esquema de manômetro de tubo em U. Fonte: Wikimedia Commons." src="https://commons.wikimedia.org/wiki/File:Manometer_(schematic_U-tube" style="width:55.0%"/>
+<figcaption aria-hidden="true">Esquema de manômetro de
+                tubo em U. Fonte: <a href="https://commons.wikimedia.org/wiki/File:Manometer_(schematic_U-tube).svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<h2 id="manômetro-aberto">Manômetro Aberto</h2>
+<p>O <strong>manômetro aberto</strong> possui uma
+                extremidade conectada ao ponto onde se deseja medir a
+                pressão e a outra aberta para a atmosfera. Ele mede a
+                pressão manométrica do ponto conectado.</p>
+<figure>
+<img alt="Manômetro aberto. Fonte: autoria própria." src="images/vasos-fig3.png" style="width:70.0%"/>
+<figcaption aria-hidden="true">Manômetro aberto. Fonte:
+                autoria própria.</figcaption>
+</figure>
+<p>Se a densidade do gás conectado for desprezível e o
+                desnível do fluido manométrico for \(h\), a pressão manométrica
+                é:</p>
+<p>\[\boxed{P_{\text{man}} =
+                \rho_{\text{m}} g h}\]</p>
+<p>em que \(\rho_{\text{m}}\) é a
+                densidade do fluido manométrico.</p>
+<p>Se a pressão do ponto conectado for menor que a
+                atmosférica, o sinal se inverte:</p>
+<p>\[P_{\text{man}} =
+                -\rho_{\text{m}} g h\]</p>
+<h2 id="manômetro-diferencial">Manômetro
+                Diferencial</h2>
+<p>O <strong>manômetro diferencial</strong> possui as
+                duas extremidades conectadas a dois pontos de um
+                sistema. Ele mede a diferença de pressão entre esses
+                pontos.</p>
+<figure>
+<img alt="Manômetro diferencial. Fonte: autoria própria." src="images/vasos-fig4.png" style="width:70.0%"/>
+<figcaption aria-hidden="true">Manômetro diferencial.
+                Fonte: autoria própria.</figcaption>
+</figure>
+<p>Quando os dois pontos estão em uma mesma cota,
+                preenchidos pelo mesmo fluido da tubulação, e o fluido
+                manométrico é mais denso, uma forma comum do resultado
+                é:</p>
+<p>\[\boxed{P_1 - P_2 =
+                (\rho_{\text{m}} - \rho_{\text{f}})g\Delta
+                h}\]</p>
+<p>em que:</p>
+<ul>
+<li>\(\rho_{\text{m}}\)
+                é a densidade do fluido manométrico.</li>
+<li>\(\rho_{\text{f}}\)
+                é a densidade do fluido da tubulação.</li>
+<li>\(\Delta h\) é o
+                desnível entre as interfaces do fluido manométrico.</li>
+</ul>
+<p>Essa expressão não deve ser decorada sem cuidado: se
+                os pontos estiverem em cotas diferentes ou se houver
+                fluidos diferentes nas conexões, é mais seguro usar o
+                <strong>Método do Fluxo</strong>.</p>
+<h2 id="manômetro-inclinado">Manômetro Inclinado</h2>
+<p>O <strong>manômetro inclinado</strong> é usado para
+                medir pequenas diferenças de pressão com maior
+                sensibilidade. Em vez de observar diretamente uma
+                pequena altura vertical \(h\), mede-se um
+                deslocamento maior \(L\) ao longo do tubo
+                inclinado.</p>
+<figure>
+<img alt="Manômetro inclinado. Fonte: autoria própria." src="images/vasos-fig5.png" style="width:70.0%"/>
+<figcaption aria-hidden="true">Manômetro inclinado.
+                Fonte: autoria própria.</figcaption>
+</figure>
+<p>A altura vertical correspondente é:</p>
+<p>\[\boxed{h =
+                L\sin\theta}\]</p>
+<p>Portanto:</p>
+<p>\[\boxed{P_{\text{man}} =
+                \rho_{\text{m}}gL\sin\theta}\]</p>
+<p>Quanto menor o ângulo \(\theta\), maior será o
+                deslocamento \(L\) para
+                a mesma pressão, facilitando a leitura.</p>
+<h2 id="manômetro-fechado-ou-barômetro">Manômetro
+                Fechado ou Barômetro</h2>
+<p>No <strong>manômetro fechado</strong>, uma das
+                extremidades pode estar evacuada ou fechada com uma
+                pressão conhecida. Quando a extremidade superior está
+                praticamente em vácuo, o instrumento se aproxima do
+                funcionamento de um <strong>barômetro de
+                mercúrio</strong>.</p>
+<p>O barômetro mede a pressão atmosférica pela altura da
+                coluna de mercúrio sustentada pela atmosfera:</p>
+<p>\[P_{\text{atm}} =
+                \rho_{\text{Hg}}gh_{\text{Hg}}\]</p>
+<p>Essa ideia é a base da unidade prática
+                <strong>milímetro de mercúrio</strong> (\(\text{mmHg}\)).</p>
+<figure>
+<img alt="Barômetro de mercúrio. Fonte: Wikimedia Commons." src="https://commons.wikimedia.org/wiki/File:MercuryBarometer.svg" style="width:55.0%"/>
+<figcaption aria-hidden="true">Barômetro de mercúrio.
+                Fonte: <a href="https://commons.wikimedia.org/wiki/File:MercuryBarometer.svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<h1 id="o-manômetro-de-mercúrio-e-a-relação-1textatm-760textmmhg">O
+                Manômetro de Mercúrio e a Relação \(1\,\text{atm} =
+                760\,\text{mmHg}\)</h1>
+<p>O mercúrio foi historicamente muito utilizado em
+                barômetros e manômetros porque possui densidade muito
+                elevada. Isso permite medir pressões grandes com colunas
+                relativamente pequenas.</p>
+<p>Considere um barômetro de mercúrio em equilíbrio. Na
+                superfície livre inferior atua a pressão atmosférica. No
+                topo da coluna, dentro do tubo fechado, há
+                aproximadamente vácuo. Aplicando o Teorema de
+                Stevin:</p>
+<p>\[P_{\text{atm}} =
+                P_{\text{vácuo}} + \rho_{\text{Hg}}gh\]</p>
+<p>Como \(P_{\text{vácuo}}
+                \approx 0\):</p>
+<p>\[P_{\text{atm}} =
+                \rho_{\text{Hg}}gh\]</p>
+<p>Isolando \(h\):</p>
+<p>\[h =
+                \frac{P_{\text{atm}}}{\rho_{\text{Hg}}g}\]</p>
+<p>Usando:</p>
+<ul>
+<li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\).</li>
+<li>\(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\).</li>
+<li>\(g =
+                9{,}807\,\text{m}/\text{s}^2\).</li>
+</ul>
+<p>Temos:</p>
+<p>\[h =
+                \frac{101325}{13600\cdot 9{,}807}\]</p>
+<p>\[h =
+                0{,}7597\,\text{m}\]</p>
+<p>Convertendo para milímetros:</p>
+<p>\[h = 759{,}7\,\text{mm}
+                \approx 760\,\text{mm}\]</p>
+<p>Portanto:</p>
+<p>\[\boxed{1\,\text{atm}
+                \approx 760\,\text{mmHg}}\]</p>
+<p><strong>Interpretação:</strong> dizer que uma pressão
+                vale \(760\,\text{mmHg}\)
+                significa dizer que ela é capaz de equilibrar uma coluna
+                de mercúrio de aproximadamente \(760\,\text{mm}\) de
+                altura.</p>
+<p>Como \(760\,\text{mmHg} =
+                101325\,\text{Pa}\):</p>
+<p>\[\boxed{1\,\text{mmHg}
+                \approx 133{,}3\,\text{Pa}}\]</p>
+<h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
+<p>Nos exemplos a seguir, adotaremos o <strong>Método do
+                Fluxo</strong>, reforçando o procedimento usado na aula
+                anterior.</p>
+<p><strong>Valores constantes adotados:</strong></p>
+<ul>
+<li>\(g =
+                9{,}807\,\text{m}/\text{s}^2\).</li>
+<li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\).</li>
+<li>\(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+<li>\(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\).</li>
+</ul>
+<h2 id="exemplo-5.1-manômetro-aberto-com-mercúrio">Exemplo
+                5.1: Manômetro aberto com mercúrio</h2>
+<p>Um manômetro aberto com mercúrio é conectado a um
+                reservatório de ar comprimido. A extremidade direita
+                está aberta para a atmosfera. O nível do mercúrio no
+                lado conectado ao reservatório fica \(0{,}420\,\text{m}\) abaixo
+                do nível do lado aberto. Determine a pressão manométrica
+                do ar no reservatório em atm.</p>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\).</li>
+<li>\(h =
+                0{,}420\,\text{m}\).</li>
+</ul>
+<p><strong>Resolução pelo Método do Fluxo</strong></p>
+<p><strong>Passo 1:</strong> Percorremos um caminho da
+                esquerda para a direita, partindo da interface do lado
+                conectado ao reservatório até a superfície aberta para a
+                atmosfera.</p>
+<ul>
+<li><strong>Partida:</strong> \(P_{\text{ar}}\).</li>
+<li><strong>Subindo pelo mercúrio:</strong> \(-\rho_{\text{Hg}}gh\).</li>
+<li><strong>Chegada:</strong> \(P_{\text{atm}}\).</li>
+</ul>
+<p><strong>Passo 2:</strong> Somar todos os termos do
+                caminho e igualar a zero:</p>
+<p>\[P_{\text{ar}} -
+                \rho_{\text{Hg}}gh - P_{\text{atm}} = 0\]</p>
+<p><strong>Passo 3:</strong> Isolar a pressão
+                manométrica:</p>
+<p>\[P_{\text{ar}} -
+                P_{\text{atm}} = \rho_{\text{Hg}}gh\]</p>
+<p>Como:</p>
+<p>\[P_{\text{man}}=P_{\text{ar}}-P_{\text{atm}}\]</p>
+<p>temos, ainda de forma algébrica:</p>
+<p>\[P_{\text{man}}=\rho_{\text{Hg}}gh\]</p>
+<p><strong>Passo 4:</strong> Substituir os valores com
+                suas unidades e usar fatores de conversão unitários.</p>
+<p>Lembrando que:</p>
+<p>\[1\,\text{Pa}=1\,\frac{\text{kg}}{\text{m}\cdot\text{s}^2}\]</p>
+<p>e:</p>
+<p>\[1\,\text{atm}=101325\,\text{Pa}\]</p>
+<p>podemos escrever:</p>
+<p>\[
+                \begin{aligned}
+                P_{\text{man}} &amp;=
+                \left(13600\,\frac{\text{kg}}{\text{m}^3}\right)
+                \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
+                \left(0{,}420\,\text{m}\right)\\
+                &amp;\quad \times
+                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
+                \left(\frac{1\,\text{atm}}{101325\,\text{Pa}}\right)
+                \end{aligned}
+                \]</p>
+<p>Cancelando as unidades:</p>
+<p>\[P_{\text{man}}=
+                \frac{13600\cdot 9{,}807\cdot
+                0{,}420}{101325}\,\text{atm}\]</p>
+<p><strong>Cálculo único:</strong></p>
+<p>\[P_{\text{man}}=0{,}552850\,\text{atm}\]</p>
+<p><strong>Análise de algarismos
+                significativos:</strong> \(13600\), \(9{,}807\) e \(0{,}420\) fornecem, no
+                resultado, <strong>3 algarismos significativos</strong>.
+                Portanto:</p>
+<p>\[\boxed{P_{\text{man}} =
+                0{,}553\,\text{atm}}\]</p>
+<p><strong>Interpretação:</strong> a pressão do ar está
+                \(0{,}553\,\text{atm}\)
+                acima da pressão atmosférica.</p>
+<p>Se quisermos a pressão absoluta do ar, somamos a
+                pressão atmosférica:</p>
+<p>\[P_{\text{abs}}=P_{\text{atm}}+P_{\text{man}}=1{,}000+0{,}553=1{,}553\,\text{atm}\]</p>
+<p>Assim:</p>
+<p>\[\boxed{P_{\text{abs}} =
+                1{,}55\,\text{atm}}\]</p>
+<p><strong>Verificação matemática:</strong> o valor vem
+                de \(13600\cdot 9{,}807\cdot
+                0{,}420/101325=0{,}552850\). Portanto, com 3
+                algarismos significativos, \(P_{\text{man}}=0{,}553\,\text{atm}\).</p>
+<h2 id="exemplo-5.2-manômetro-aberto-indicando-vácuo">Exemplo
+                5.2: Manômetro aberto indicando vácuo</h2>
+<p>Um manômetro aberto contém água como fluido
+                manométrico. Ele é conectado a um recipiente onde a
+                pressão é menor que a atmosférica. Observa-se um
+                desnível de \(0{,}350\,\text{m}\), com a
+                coluna mais alta no lado conectado ao recipiente.
+                Determine a pressão manométrica no recipiente.</p>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+<li>\(h =
+                0{,}350\,\text{m}\).</li>
+</ul>
+<p><strong>Resolução pelo Método do Fluxo</strong></p>
+<p><strong>Passo 1:</strong> Percorremos um caminho
+                partindo da superfície aberta até a superfície do lado
+                conectado ao recipiente.</p>
+<ul>
+<li><strong>Partida:</strong> \(P_{\text{atm}}\).</li>
+<li><strong>Subindo pela água:</strong> \(-\rho_{\text{água}}gh\).</li>
+<li><strong>Chegada:</strong> \(P_{\text{rec}}\).</li>
+</ul>
+<p><strong>Passo 2:</strong> Aplicar o princípio do
+                fluxo:</p>
+<p>\[P_{\text{atm}} -
+                \rho_{\text{água}}gh - P_{\text{rec}} = 0\]</p>
+<p>Logo:</p>
+<p>\[P_{\text{rec}} -
+                P_{\text{atm}} = -\rho_{\text{água}}gh\]</p>
+<p>Como:</p>
+<p>\[P_{\text{man}}=P_{\text{rec}}-P_{\text{atm}}\]</p>
+<p>então:</p>
+<p>\[P_{\text{man}}=-\rho_{\text{água}}gh\]</p>
+<p><strong>Passo 3:</strong> Substituir os valores com
+                unidades e converter para quilopascal usando fator
+                unitário.</p>
+<p>\[
+                \begin{aligned}
+                P_{\text{man}} &amp;=
+                -\left(997\,\frac{\text{kg}}{\text{m}^3}\right)
+                \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
+                \left(0{,}350\,\text{m}\right)\\
+                &amp;\quad \times
+                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
+                \left(\frac{1\,\text{kPa}}{1000\,\text{Pa}}\right)
+                \end{aligned}
+                \]</p>
+<p>Cancelando as unidades:</p>
+<p>\[P_{\text{man}}=
+                -\frac{997\cdot 9{,}807\cdot
+                0{,}350}{1000}\,\text{kPa}\]</p>
+<p><strong>Cálculo único:</strong></p>
+<p>\[P_{\text{man}}=-3{,}42215265\,\text{kPa}\]</p>
+<p><strong>Análise de algarismos
+                significativos:</strong> \(997\) e \(0{,}350\) possuem <strong>3
+                algarismos significativos</strong>, enquanto \(9{,}807\) possui 4. O
+                resultado deve ter <strong>3 algarismos
+                significativos</strong>:</p>
+<p>\[\boxed{P_{\text{man}} =
+                -3{,}42\,\text{kPa}}\]</p>
+<p><strong>Interpretação:</strong> a pressão absoluta no
+                recipiente está \(3{,}42\,\text{kPa}\) abaixo
+                da pressão atmosférica. A pressão de vácuo é:</p>
+<p>\[\boxed{P_{\text{vac}} =
+                3{,}42\,\text{kPa}}\]</p>
+<p><strong>Por que o valor ficou negativo?</strong>
+                Porque a pressão manométrica é calculada por \(P_{\text{man}}=P_{\text{rec}}-P_{\text{atm}}\).
+                Como o recipiente está em vácuo relativo, \(P_{\text{rec}}&lt;P_{\text{atm}}\),
+                então essa diferença é negativa. No Método do Fluxo,
+                isso aparece porque partimos da superfície aberta, na
+                atmosfera, e subimos uma altura \(h\) pela água; ao subir em
+                um fluido em repouso, a pressão diminui. O sinal
+                negativo indica apenas que a pressão interna está abaixo
+                da atmosférica.</p>
+<p><strong>Verificação matemática:</strong> o valor vem
+                de \(-997\cdot 9{,}807\cdot
+                0{,}350/1000=-3{,}42215265\). Portanto, com 3
+                algarismos significativos, \(P_{\text{man}}=-3{,}42\,\text{kPa}\)
+                e \(P_{\text{vac}}=3{,}42\,\text{kPa}\).</p>
+<h2 id="exemplo-5.3-manômetro-diferencial-em-uma-tubulação-de-água">Exemplo
+                5.3: Manômetro diferencial em uma tubulação de água</h2>
+<p>Um manômetro diferencial com mercúrio é conectado a
+                dois pontos de uma tubulação que transporta água. Os
+                pontos \(1\) e \(2\) estão na mesma cota. A
+                interface do mercúrio está \(0{,}250\,\text{m}\) mais
+                baixa no lado do ponto \(1\) do que no lado do ponto
+                \(2\). Determine \(P_1 - P_2\).</p>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+<li>\(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\).</li>
+<li>\(\Delta h =
+                0{,}250\,\text{m}\).</li>
+</ul>
+<p><strong>Resolução pelo Método do Fluxo</strong></p>
+<p><strong>Passo 1:</strong> Percorremos um caminho
+                partindo do ponto \(1\)
+                até o ponto \(2\).</p>
+<ul>
+<li><strong>Partida:</strong> \(P_1\).</li>
+<li><strong>Descendo pela água até a interface mais
+                baixa:</strong> contribuição comum que será compensada
+                na subida.</li>
+<li><strong>Subindo pelo mercúrio uma altura \(\Delta h\):</strong> \(-\rho_{\text{Hg}}g\Delta
+                h\).</li>
+<li><strong>Subindo ou descendo pela água até o ponto
+                \(2\):</strong>
+                contribuição resultante \(+\rho_{\text{água}}g\Delta
+                h\) quando os pontos estão na mesma cota.</li>
+<li><strong>Chegada:</strong> \(P_2\).</li>
+</ul>
+<p><strong>Passo 2:</strong> A soma das contribuições
+                resulta em:</p>
+<p>\[P_1 -
+                \rho_{\text{Hg}}g\Delta h + \rho_{\text{água}}g\Delta h
+                - P_2 = 0\]</p>
+<p><strong>Passo 3:</strong> Isolar a diferença de
+                pressão:</p>
+<p>\[P_1 - P_2 =
+                (\rho_{\text{Hg}}-\rho_{\text{água}})g\Delta
+                h\]</p>
+<p><strong>Passo 4:</strong> Substituir os valores:</p>
+<p>\[
+                \begin{aligned}
+                P_1-P_2 &amp;=
+                \left(13600-997\right)\frac{\text{kg}}{\text{m}^3}
+                \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
+                \left(0{,}250\,\text{m}\right)\\
+                &amp;\quad \times
+                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
+                \left(\frac{1\,\text{kPa}}{1000\,\text{Pa}}\right)
+                \end{aligned}
+                \]</p>
+<p>Cancelando as unidades:</p>
+<p>\[P_1-P_2=
+                \frac{(13600-997)\cdot 9{,}807\cdot
+                0{,}250}{1000}\,\text{kPa}\]</p>
+<p><strong>Cálculo único:</strong></p>
+<p>\[P_1-P_2=30{,}89940525\,\text{kPa}\]</p>
+<p><strong>Análise de algarismos
+                significativos:</strong> as densidades e o desnível
+                foram adotados com <strong>3 algarismos
+                significativos</strong>, enquanto \(g\) possui 4. Logo, o
+                resultado deve ser apresentado com <strong>3 algarismos
+                significativos</strong>:</p>
+<p>\[\boxed{P_1 - P_2 =
+                30{,}9\,\text{kPa}}\]</p>
+<p><strong>Interpretação:</strong> o ponto \(1\) tem maior pressão, pois
+                empurrou o mercúrio para baixo no seu lado do
+                manômetro.</p>
+<p><strong>Verificação matemática:</strong> o valor vem
+                de \((13600-997)\cdot
+                9{,}807\cdot 0{,}250/1000=30{,}89940525\).
+                Portanto, com 3 algarismos significativos, \(P_1-P_2=30{,}9\,\text{kPa}\).</p>
+<h2 id="exemplo-5.4-manômetro-inclinado">Exemplo 5.4:
+                Manômetro inclinado</h2>
+<p>Um manômetro inclinado utiliza óleo com densidade
+                \(\rho_{\text{óleo}} =
+                850\,\text{kg}/\text{m}^3\). O tubo está
+                inclinado de \(\theta =
+                20^\circ\) em relação à horizontal. Quando uma
+                pressão é aplicada, o óleo se desloca \(L = 0{,}120\,\text{m}\) ao
+                longo do tubo. Determine a pressão manométrica
+                aplicada.</p>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(\rho_{\text{óleo}} =
+                850\,\text{kg}/\text{m}^3\).</li>
+<li>\(L =
+                0{,}120\,\text{m}\).</li>
+<li>\(\theta =
+                20^\circ\).</li>
+</ul>
+<p><strong>Resolução pelo Método do Fluxo</strong></p>
+<p><strong>Passo 1:</strong> Converter o deslocamento
+                inclinado em altura vertical:</p>
+<p>\[h =
+                L\sin\theta\]</p>
+<p><strong>Passo 2:</strong> Aplicar a relação
+                hidrostática, ainda de forma algébrica:</p>
+<p>\[P_{\text{man}} =
+                \rho_{\text{óleo}}gh\]</p>
+<p>Substituindo \(h=L\sin\theta\):</p>
+<p>\[P_{\text{man}}=\rho_{\text{óleo}}gL\sin\theta\]</p>
+<p><strong>Passo 3:</strong> Substituir os valores com
+                unidades.</p>
+<p>\[
+                \begin{aligned}
+                P_{\text{man}} &amp;=
+                \left(850\,\frac{\text{kg}}{\text{m}^3}\right)
+                \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
+                \left(0{,}120\,\text{m}\right)
+                \sin20^\circ\\
+                &amp;\quad \times
+                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
+                \end{aligned}
+                \]</p>
+<p>Cancelando as unidades:</p>
+<p>\[P_{\text{man}}=850\cdot
+                9{,}807\cdot
+                0{,}120\cdot\sin20^\circ\,\text{Pa}\]</p>
+<p><strong>Cálculo único:</strong></p>
+<p>\[P_{\text{man}}=342{,}1275377\,\text{Pa}\]</p>
+<p><strong>Análise de algarismos
+                significativos:</strong> considerando \(\rho_{\text{óleo}}\), \(L\) e \(\theta\) com precisão
+                compatível com os dados do problema, o resultado é
+                apresentado com <strong>3 algarismos
+                significativos</strong>:</p>
+<p>\[\boxed{P_{\text{man}} =
+                342\,\text{Pa}}\]</p>
+<p><strong>Interpretação:</strong> a inclinação aumenta
+                o deslocamento observado no tubo, mas a pressão depende
+                apenas da componente vertical \(h\).</p>
+<p><strong>Verificação matemática:</strong> o valor vem
+                de \(850\cdot 9{,}807\cdot
+                0{,}120\cdot\sin20^\circ=342{,}1275377\).
+                Portanto, com 3 algarismos significativos, \(P_{\text{man}}=342\,\text{Pa}\).</p>
+<h1 id="princípio-de-pascal">Princípio de Pascal</h1>
+<p>O <strong>Princípio de Pascal</strong> estabelece
+                que:</p>
+<blockquote>
+<p><strong>Uma variação de pressão aplicada a um fluido
+                incompressível em repouso e confinado é transmitida
+                integralmente a todos os pontos do fluido e às paredes
+                do recipiente.</strong></p>
+</blockquote>
+<figure>
+<img alt="Animação de transmissão de pressão em um sistema hidráulico. Fonte: Wikimedia Commons." src="https://commons.wikimedia.org/wiki/File:Hidraulic_press_anim_1.gif" style="width:70.0%"/>
+<figcaption aria-hidden="true">Animação de transmissão
+                de pressão em um sistema hidráulico. Fonte: <a href="https://commons.wikimedia.org/wiki/File:Hidraulic_press_anim_1.gif">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<p>Em termos matemáticos, se uma pressão adicional \(\Delta P\) é aplicada a um
+                ponto do fluido, essa mesma variação aparece em todos os
+                pontos do sistema:</p>
+<p>\[\boxed{\Delta P_1 =
+                \Delta P_2}\]</p>
+<p>Como pressão é força dividida por área:</p>
+<p>\[P =
+                \frac{F}{A}\]</p>
+<p>em um sistema hidráulico ideal com dois êmbolos:</p>
+<p>\[\frac{F_1}{A_1} =
+                \frac{F_2}{A_2}\]</p>
+<p>Logo:</p>
+<p>\[\boxed{F_2 =
+                F_1\frac{A_2}{A_1}}\]</p>
+<p>Essa relação mostra que a força pode ser amplificada
+                quando a área de saída é maior que a área de
+                entrada.</p>
+<p><strong>Importante:</strong> o Princípio de Pascal
+                não cria energia. Se a força aumenta, o deslocamento
+                diminui. Em um sistema ideal:</p>
+<p>\[F_1d_1 =
+                F_2d_2\]</p>
+<p>Assim, o trabalho de entrada é igual ao trabalho de
+                saída, desprezando perdas por atrito, vazamentos e
+                deformações.</p>
+<h1 id="aplicações-do-princípio-de-pascal">Aplicações do
+                Princípio de Pascal</h1>
+<ol type="1">
+<li><strong>Prensa hidráulica</strong></li>
+</ol>
+<p>Uma pequena força aplicada em um êmbolo de área menor
+                gera uma força maior em um êmbolo de área maior. É usada
+                em processos de conformação, compactação e elevação de
+                cargas.</p>
+<ol start="2" type="1">
+<li><strong>Macaco hidráulico</strong></li>
+</ol>
+<p>Muito usado em oficinas e veículos. A força aplicada
+                manualmente aumenta a pressão do fluido, que atua sobre
+                um pistão de maior área e levanta a carga.</p>
+<figure>
+<img alt="Princípio de funcionamento de um macaco hidráulico. Fonte: Wikimedia Commons." src="https://commons.wikimedia.org/wiki/File:Working_principle_of_a_hydraulic_jack.svg" style="width:80.0%"/>
+<figcaption aria-hidden="true">Princípio de
+                funcionamento de um macaco hidráulico. Fonte: <a href="https://commons.wikimedia.org/wiki/File:Working_principle_of_a_hydraulic_jack.svg">Wikimedia
+                Commons.</a></figcaption>
+</figure>
+<ol start="3" type="1">
+<li><strong>Freios hidráulicos</strong></li>
+</ol>
+<p>Ao pressionar o pedal, uma pressão é transmitida pelo
+                fluido de freio até os pistões próximos às rodas. Essa
+                pressão gera forças de frenagem.</p>
+<ol start="4" type="1">
+<li><strong>Elevadores hidráulicos</strong></li>
+</ol>
+<p>Utilizam fluido pressurizado para movimentar
+                plataformas, cadeiras, mesas elevatórias e equipamentos
+                industriais.</p>
+<ol start="5" type="1">
+<li><strong>Sistemas de direção e acionamento
+                hidráulico</strong></li>
+</ol>
+<p>Máquinas agrícolas, escavadeiras, empilhadeiras e
+                prensas industriais usam transmissão hidráulica de
+                pressão para produzir forças elevadas com controle
+                preciso.</p>
+<h1 id="exemplos-com-o-princípio-de-pascal">Exemplos com
+                o Princípio de Pascal</h1>
+<h2 id="exemplo-5.5-prensa-hidráulica">Exemplo 5.5:
+                Prensa hidráulica</h2>
+<p>Uma prensa hidráulica possui um êmbolo menor com área
+                \(A_1 =
+                5{,}0\,\text{cm}^2\) e um êmbolo maior com área
+                \(A_2 =
+                250\,\text{cm}^2\). Uma força \(F_1 = 120\,\text{N}\) é
+                aplicada no êmbolo menor. Determine a força exercida
+                pelo êmbolo maior.</p>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(A_1 =
+                5{,}0\,\text{cm}^2\).</li>
+<li>\(A_2 =
+                250\,\text{cm}^2\).</li>
+<li>\(F_1 =
+                120\,\text{N}\).</li>
+</ul>
+<p><strong>Resolução</strong></p>
+<p>Pelo Princípio de Pascal:</p>
+<p>\[\frac{F_1}{A_1} =
+                \frac{F_2}{A_2}\]</p>
+<p>Isolando \(F_2\):</p>
+<p>\[F_2 =
+                F_1\frac{A_2}{A_1}\]</p>
+<p>Substituindo:</p>
+<p>\[F_2=
+                \left(120\,\text{N}\right)
+                \frac{
+                \left(250\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
+                }{
+                \left(5{,}0\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
+                }
+                \left(\frac{1\,\text{kN}}{1000\,\text{N}}\right)\]</p>
+<p>Observe que os fatores \(\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2\)
+                convertem as duas áreas para \(\text{m}^2\) e se cancelam
+                na razão entre as áreas. Assim:</p>
+<p>\[F_2=\frac{120\cdot
+                250}{5{,}0\cdot 1000}\,\text{kN}\]</p>
+<p><strong>Cálculo único:</strong></p>
+<p>\[F_2=6{,}0\,\text{kN}\]</p>
+<p><strong>Análise de algarismos
+                significativos:</strong> \(A_1=5{,}0\,\text{cm}^2\)
+                possui <strong>2 algarismos significativos</strong>.
+                Assim, o resultado deve ser apresentado com <strong>2
+                algarismos significativos</strong>:</p>
+<p>\[\boxed{F_2 =
+                6{,}0\,\text{kN}}\]</p>
+<p><strong>Interpretação:</strong> a força foi
+                multiplicada por \(50\), pois a área do êmbolo
+                maior é \(50\) vezes a
+                área do êmbolo menor.</p>
+<p><strong>Verificação matemática:</strong> a razão
+                entre as áreas é \(250/5{,}0=50\). Portanto,
+                \(F_2=120\cdot
+                50=6000\,\text{N}=6{,}0\,\text{kN}\).</p>
+<h2 id="exemplo-5.6-macaco-hidráulico-com-pistões-circulares">Exemplo
+                5.6: Macaco hidráulico com pistões circulares</h2>
+<p>Um macaco hidráulico possui um pistão pequeno de
+                diâmetro \(d_1 =
+                2{,}0\,\text{cm}\) e um pistão grande de diâmetro
+                \(d_2 =
+                20{,}0\,\text{cm}\). Uma pessoa aplica uma força
+                de \(150\,\text{N}\) no
+                pistão pequeno. Determine a força no pistão grande.</p>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(d_1 =
+                2{,}0\,\text{cm}\).</li>
+<li>\(d_2 =
+                20{,}0\,\text{cm}\).</li>
+<li>\(F_1 =
+                150\,\text{N}\).</li>
+</ul>
+<p><strong>Resolução</strong></p>
+<p>Para pistões circulares:</p>
+<p>\[A = \frac{\pi
+                d^2}{4}\]</p>
+<p>Logo:</p>
+<p>\[\frac{A_2}{A_1} =
+                \frac{d_2^2}{d_1^2}\]</p>
+<p>Pelo Princípio de Pascal:</p>
+<p>\[F_2 =
+                F_1\frac{A_2}{A_1}\]</p>
+<p>Substituindo a razão entre as áreas:</p>
+<p>\[F_2 =
+                F_1\frac{d_2^2}{d_1^2}\]</p>
+<p>Agora substituímos os valores com unidades e fatores
+                unitários para converter os diâmetros para metro:</p>
+<p>\[F_2=
+                \left(150\,\text{N}\right)
+                \left[
+                \frac{
+                \left(20{,}0\,\text{cm}\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)
+                }{
+                \left(2{,}0\,\text{cm}\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)
+                }
+                \right]^2
+                \left(\frac{1\,\text{kN}}{1000\,\text{N}}\right)\]</p>
+<p>Os fatores de conversão dos diâmetros se cancelam,
+                pois aparecem tanto no numerador quanto no
+                denominador:</p>
+<p>\[F_2=
+                \frac{150}{1000}
+                \left(\frac{20{,}0}{2{,}0}\right)^2\,\text{kN}\]</p>
+<p><strong>Cálculo único:</strong></p>
+<p>\[F_2=15\,\text{kN}\]</p>
+<p><strong>Análise de algarismos
+                significativos:</strong> o diâmetro menor \(d_1=2{,}0\,\text{cm}\)
+                possui <strong>2 algarismos significativos</strong>.
+                Portanto, o resultado deve ser apresentado com <strong>2
+                algarismos significativos</strong>:</p>
+<p>\[\boxed{F_2 =
+                15\,\text{kN}}\]</p>
+<p><strong>Interpretação:</strong> quando o diâmetro
+                aumenta \(10\) vezes, a
+                área aumenta \(100\)
+                vezes.</p>
+<p><strong>Verificação matemática:</strong> a razão
+                entre os diâmetros é \(20{,}0/2{,}0=10\). Como a
+                área depende de \(d^2\), a razão entre as
+                áreas é \(10^2=100\).
+                Portanto, \(F_2=150\cdot
+                100=15000\,\text{N}=15\,\text{kN}\).</p>
+<h2 id="exemplo-5.7-deslocamento-em-uma-prensa-hidráulica">Exemplo
+                5.7: Deslocamento em uma prensa hidráulica</h2>
+<p>Em uma prensa hidráulica ideal, o êmbolo menor possui
+                área \(A_1 =
+                8{,}0\,\text{cm}^2\) e o êmbolo maior possui área
+                \(A_2 =
+                200\,\text{cm}^2\). Se o êmbolo menor desce \(d_1 = 15\,\text{cm}\),
+                determine quanto o êmbolo maior sobe.</p>
+<p><strong>Dados:</strong></p>
+<ul>
+<li>\(A_1 =
+                8{,}0\,\text{cm}^2\).</li>
+<li>\(A_2 =
+                200\,\text{cm}^2\).</li>
+<li>\(d_1 =
+                15\,\text{cm}\).</li>
+</ul>
+<p><strong>Resolução</strong></p>
+<p>Como o fluido é praticamente incompressível, o volume
+                deslocado pelo êmbolo menor é igual ao volume recebido
+                pelo êmbolo maior:</p>
+<p>\[A_1d_1 =
+                A_2d_2\]</p>
+<p>Isolando \(d_2\):</p>
+<p>\[d_2 =
+                \frac{A_1}{A_2}d_1\]</p>
+<p>Substituindo as unidades e convertendo o deslocamento
+                final para centímetros com fator unitário:</p>
+<p>\[d_2=
+                \frac{
+                \left(8{,}0\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
+                }{
+                \left(200\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
+                }
+                \left(15\,\text{cm}\right)\]</p>
+<p>Os fatores de conversão das áreas se cancelam:</p>
+<p>\[d_2=\frac{8{,}0\cdot
+                15}{200}\,\text{cm}\]</p>
+<p><strong>Cálculo único:</strong></p>
+<p>\[d_2=0{,}60\,\text{cm}\]</p>
+<p><strong>Análise de algarismos
+                significativos:</strong> \(A_1=8{,}0\,\text{cm}^2\) e
+                \(d_1=15\,\text{cm}\)
+                possuem <strong>2 algarismos significativos</strong>.
+                Portanto, o resultado deve ter <strong>2 algarismos
+                significativos</strong>:</p>
+<p>\[\boxed{d_2 =
+                0{,}60\,\text{cm}}\]</p>
+<p><strong>Interpretação:</strong> a força aumenta no
+                êmbolo maior, mas o deslocamento diminui na mesma
+                proporção.</p>
+<p><strong>Verificação matemática:</strong> o valor vem
+                de \(8{,}0\cdot
+                15/200=0{,}60\). Portanto, com 2 algarismos
+                significativos, \(d_2=0{,}60\,\text{cm}\).</p>
+<h1 id="conclusão">Conclusão</h1>
+<p>Nesta aula, estudamos os <strong>manômetros</strong>
+                e o <strong>Princípio de Pascal</strong>, dois temas
+                centrais da hidrostática aplicada.</p>
+<p>Os principais aprendizados foram:</p>
+<ol type="1">
+<li><p><strong>Manômetros de coluna líquida</strong>
+                medem pressão a partir do equilíbrio hidrostático entre
+                colunas de fluidos.</p></li>
+<li><p><strong>O Método do Fluxo</strong> permite
+                resolver problemas de manômetros de modo sistemático,
+                somando aumentos e reduções de pressão ao longo de um
+                caminho.</p></li>
+<li><p><strong>O mercúrio</strong> foi historicamente
+                utilizado em barômetros e manômetros por sua alta
+                densidade, o que explica a equivalência \(1\,\text{atm} \approx
+                760\,\text{mmHg}\).</p></li>
+<li><p><strong>O Princípio de Pascal</strong> explica a
+                transmissão integral de pressão em fluidos confinados e
+                fundamenta prensas, macacos, freios e elevadores
+                hidráulicos.</p></li>
+<li><p><strong>Sistemas hidráulicos amplificam
+                força</strong>, mas não criam energia: o ganho de força
+                vem acompanhado de menor deslocamento.</p></li>
+</ol>
+<p>Na próxima aula, esses conceitos serão conectados a
+                novas aplicações envolvendo forças hidrostáticas e
+                dispositivos hidráulicos.</p>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<p>Nas questões a seguir, utilize:</p>
+<ul>
+<li>\(g =
+                9{,}807\,\text{m}/\text{s}^2\).</li>
+<li>\(\rho_{\text{água}} =
+                997\,\text{kg}/\text{m}^3\).</li>
+<li>\(\rho_{\text{óleo}} =
+                850\,\text{kg}/\text{m}^3\), quando não for
+                informado outro valor.</li>
+<li>\(\rho_{\text{Hg}} =
+                13600\,\text{kg}/\text{m}^3\).</li>
+<li>\(P_{\text{atm}} =
+                101325\,\text{Pa}\).</li>
+</ul>
+<dl>
+<dt>5.1)</dt>
+<dd>
+                Qual é a diferença entre pressão absoluta e pressão
+                manométrica?
+                </dd>
+</dl>
+<ol type="a">
+<li>A pressão absoluta é medida em relação ao vácuo; a
+                manométrica, em relação à atmosfera.</li>
+<li>A pressão absoluta é medida em relação à atmosfera;
+                a manométrica, em relação ao vácuo.</li>
+<li>As duas são sempre iguais.</li>
+<li>A pressão manométrica nunca pode ser negativa.</li>
+<li>A pressão absoluta pode ser negativa em sistemas de
+                vácuo.</li>
+</ol>
+<dl>
+<dt>5.2)</dt>
+<dd>
+                Um manômetro aberto com mercúrio apresenta desnível de
+                \(0{,}180\,\text{m}\).
+                A pressão manométrica correspondente é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(12{,}0\,\text{kPa}\).</li>
+<li>\(24{,}0\,\text{kPa}\).</li>
+<li>\(18{,}6\,\text{kPa}\).</li>
+<li>\(36{,}0\,\text{kPa}\).</li>
+<li>\(52{,}5\,\text{kPa}\).</li>
+</ol>
+<dl>
+<dt>5.3)</dt>
+<dd>
+                Um manômetro aberto com água indica vácuo com desnível
+                de \(0{,}500\,\text{m}\). A
+                pressão manométrica é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(+4{,}89\,\text{kPa}\).</li>
+<li>\(+9{,}81\,\text{kPa}\).</li>
+<li>\(-4{,}89\,\text{kPa}\).</li>
+<li>\(-13{,}6\,\text{kPa}\).</li>
+<li>\(+101{,}3\,\text{kPa}\).</li>
+</ol>
+<dl>
+<dt>5.4)</dt>
+<dd>
+                Em um manômetro diferencial ligado a uma tubulação de
+                água, usa-se mercúrio como fluido manométrico. Os pontos
+                estão na mesma cota e o desnível do mercúrio é \(0{,}120\,\text{m}\). A
+                diferença de pressão é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(12{,}4\,\text{kPa}\).</li>
+<li>\(24{,}0\,\text{kPa}\).</li>
+<li>\(16{,}0\,\text{kPa}\).</li>
+<li>\(14{,}8\,\text{kPa}\).</li>
+<li>\(30{,}9\,\text{kPa}\).</li>
+</ol>
+<dl>
+<dt>5.5)</dt>
+<dd>
+                Um manômetro inclinado com óleo possui \(L = 0{,}250\,\text{m}\) e
+                \(\theta = 30^\circ\).
+                A pressão manométrica medida é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}52\,\text{kPa}\).</li>
+<li>\(2{,}08\,\text{kPa}\).</li>
+<li>\(8{,}33\,\text{kPa}\).</li>
+<li>\(4{,}16\,\text{kPa}\).</li>
+<li>\(1{,}04\,\text{kPa}\).</li>
+</ol>
+<dl>
+<dt>5.6)</dt>
+<dd>
+                Por que o mercúrio permite medir a pressão atmosférica
+                com uma coluna de apenas cerca de \(760\,\text{mm}\)?
+                </dd>
+</dl>
+<ol type="a">
+<li>Porque sua densidade é muito alta.</li>
+<li>Porque sua viscosidade é muito baixa.</li>
+<li>Porque sua temperatura de ebulição é baixa.</li>
+<li>Porque ele se mistura facilmente com a água.</li>
+<li>Porque sua pressão absoluta é nula.</li>
+</ol>
+<dl>
+<dt>5.7)</dt>
+<dd>
+                Uma prensa hidráulica possui \(A_1 = 4{,}0\,\text{cm}^2\)
+                e \(A_2 =
+                160\,\text{cm}^2\). Se \(F_1 = 75\,\text{N}\), a
+                força no êmbolo maior é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(1200\,\text{N}\).</li>
+<li>\(3000\,\text{N}\).</li>
+<li>\(2400\,\text{N}\).</li>
+<li>\(4500\,\text{N}\).</li>
+<li>\(6000\,\text{N}\).</li>
+</ol>
+<dl>
+<dt>5.8)</dt>
+<dd>
+                Um macaco hidráulico possui pistão pequeno de diâmetro
+                \(3{,}0\,\text{cm}\) e
+                pistão grande de diâmetro \(18{,}0\,\text{cm}\). Se a
+                força aplicada no pistão menor é \(100\,\text{N}\), a força no
+                pistão maior é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(600\,\text{N}\).</li>
+<li>\(1800\,\text{N}\).</li>
+<li>\(3600\,\text{N}\).</li>
+<li>\(2400\,\text{N}\).</li>
+<li>\(6000\,\text{N}\).</li>
+</ol>
+<dl>
+<dt>5.9)</dt>
+<dd>
+                Em uma prensa hidráulica ideal, \(A_1 = 10\,\text{cm}^2\) e
+                \(A_2 =
+                250\,\text{cm}^2\). Se o êmbolo menor desce \(20\,\text{cm}\), o êmbolo
+                maior sobe:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}40\,\text{cm}\).</li>
+<li>\(2{,}00\,\text{cm}\).</li>
+<li>\(1{,}25\,\text{cm}\).</li>
+<li>\(0{,}80\,\text{cm}\).</li>
+<li>\(5{,}00\,\text{cm}\).</li>
+</ol>
+<dl>
+<dt>5.10)</dt>
+<dd>
+                Uma pressão de \(350\,\text{kPa}\) atua
+                sobre um pistão de área \(0{,}020\,\text{m}^2\). A
+                força exercida pelo fluido sobre o pistão é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(1750\,\text{N}\).</li>
+<li>\(3500\,\text{N}\).</li>
+<li>\(17500\,\text{N}\).</li>
+<li>\(14000\,\text{N}\).</li>
+<li>\(7000\,\text{N}\).</li>
+</ol>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=Wik1KQeVtGk" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Manômetros - Hidrostática" loading="lazy" src="./images/thumbs/fig-ytb-manometro-fisicatotal.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Manômetros - Hidrostática</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=Wik1KQeVtGk" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Física Total.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=Wik1KQeVtGk" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=0CKRGsLZh6Y" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="U Tube Manometers" loading="lazy" src="./images/thumbs/fig-ytb-utube-manometers-organic.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">U Tube Manometers</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=0CKRGsLZh6Y" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">The Organic Chemistry Tutor.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=0CKRGsLZh6Y" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=C61VtJCN7Fs" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Princípio de Pascal - Prensa Hidráulica" loading="lazy" src="./images/thumbs/fig-ytb-principio-pascal-kuadro.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Princípio de Pascal - Prensa Hidráulica</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=C61VtJCN7Fs" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Kuadro Oficial.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=C61VtJCN7Fs" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>BRUNETTI, Franco. Mecânica dos fluidos. 2. ed. São
+                Paulo: Pearson Prentice Hall, 2008.</li>
+<li>ÇENGEL, Yunus A.; CIMBALA, John M. Mecânica dos
+                fluidos: fundamentos e aplicações. 3. ed. Porto Alegre:
+                AMGH, 2015.</li>
+<li>FOX, Robert W.; MCDONALD, Alan T.; PRITCHARD, Philip
+                J. Introdução à mecânica dos fluidos. 8. ed. Rio de
+                Janeiro: LTC, 2014.</li>
+<li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                Fundamentos de física: gravitação, ondas e
+                termodinâmica. 10. ed. Rio de Janeiro: LTC, 2016.
+                (Capítulo 14: Fluidos).</li>
+<li>MUNSON, Bruce R.; YOUNG, Donald F.; OKIISHI,
+                Theodore H. Fundamentos da mecânica dos fluidos. 4.
+                ed. São Paulo: Edgard Blücher, 2004.</li>
+<li>WHITE, Frank M. Mecânica dos fluidos. 8. ed. Porto
+                Alegre: AMGH, 2018.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+                    
+                <a href="/disciplinas/aula-04-vasos-comunicantes-com-liquidos-imisciveis.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+                
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+                    
+                </div>
+            </div>
+            
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i> 
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
