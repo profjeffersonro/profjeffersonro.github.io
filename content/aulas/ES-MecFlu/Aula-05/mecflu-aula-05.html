@@ -725,13 +725,11 @@ de Oliveira
                 claro e manter os sinais consistentes.</p>
                 <h1 id="tipos-de-manômetros">Tipos de Manômetros</h1>
                 <figure>
-                <img src="https://commons.wikimedia.org/wiki/File:Manometer_(schematic_U-tube"
+                <img src="images/fig-wikimedia-manometer-u.png"
                 style="width:55.0%"
                 alt="Esquema de manômetro de tubo em U. Fonte: Wikimedia Commons." />
                 <figcaption aria-hidden="true">Esquema de manômetro de
-                tubo em U. Fonte: <a
-                href="https://commons.wikimedia.org/wiki/File:Manometer_(schematic_U-tube).svg">Wikimedia
-                Commons.</a></figcaption>
+                tubo em U. Fonte: Wikimedia Commons.</figcaption>
                 </figure>
                 <h2 id="manômetro-aberto">Manômetro Aberto</h2>
                 <p>O <strong>manômetro aberto</strong> possui uma
@@ -830,13 +828,11 @@ de Oliveira
                 <strong>milímetro de mercúrio</strong> (<span
                 class="math inline">\(\text{mmHg}\)</span>).</p>
                 <figure>
-                <img src="https://commons.wikimedia.org/wiki/File:MercuryBarometer.svg"
+                <img src="images/fig-wikimedia-mercury-barometer.png"
                 style="width:55.0%"
                 alt="Barômetro de mercúrio. Fonte: Wikimedia Commons." />
                 <figcaption aria-hidden="true">Barômetro de mercúrio.
-                Fonte: <a
-                href="https://commons.wikimedia.org/wiki/File:MercuryBarometer.svg">Wikimedia
-                Commons.</a></figcaption>
+                Fonte: Wikimedia Commons.</figcaption>
                 </figure>
                 <h1
                 id="o-manômetro-de-mercúrio-e-a-relação-1textatm-760textmmhg">O
@@ -893,376 +889,255 @@ de Oliveira
                 <p><span class="math display">\[\boxed{1\,\text{mmHg}
                 \approx 133{,}3\,\text{Pa}}\]</span></p>
                 <h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
-                <p>Nos exemplos a seguir, adotaremos o <strong>Método do
-                Fluxo</strong>, reforçando o procedimento usado na aula
-                anterior.</p>
+                <p>Nos exemplos a seguir, a resolução segue a
+                organização usada em Çengel: identificação do problema,
+                hipóteses, propriedades, análise e discussão. O objetivo
+                é resolver com poucas fórmulas memorizadas e com atenção
+                ao sentido físico da pressão.</p>
                 <p><strong>Valores constantes adotados:</strong></p>
                 <ul>
                 <li><span class="math inline">\(g =
                 9{,}807\,\text{m}/\text{s}^2\)</span>.</li>
                 <li><span class="math inline">\(P_{\text{atm}} =
                 101325\,\text{Pa}\)</span>.</li>
-                <li><span class="math inline">\(\rho_{\text{água}} =
-                997\,\text{kg}/\text{m}^3\)</span>.</li>
+                <li><span class="math inline">\(\rho_{\text{água}}
+                \approx 1000\,\text{kg}/\text{m}^3\)</span>, salvo
+                quando indicado outro valor.</li>
                 <li><span class="math inline">\(\rho_{\text{Hg}} =
                 13600\,\text{kg}/\text{m}^3\)</span>.</li>
                 </ul>
                 <h2
-                id="exemplo-5.1-manômetro-aberto-com-mercúrio">Exemplo
-                5.1: Manômetro aberto com mercúrio</h2>
-                <p>Um manômetro aberto com mercúrio é conectado a um
-                reservatório de ar comprimido. A extremidade direita
-                está aberta para a atmosfera. O nível do mercúrio no
-                lado conectado ao reservatório fica <span
-                class="math inline">\(0{,}420\,\text{m}\)</span> abaixo
-                do nível do lado aberto. Determine a pressão manométrica
-                do ar no reservatório em atm.</p>
-                <p><strong>Dados:</strong></p>
-                <ul>
-                <li><span class="math inline">\(\rho_{\text{Hg}} =
-                13600\,\text{kg}/\text{m}^3\)</span>.</li>
-                <li><span class="math inline">\(h =
-                0{,}420\,\text{m}\)</span>.</li>
-                </ul>
-                <p><strong>Resolução pelo Método do Fluxo</strong></p>
-                <p><strong>Passo 1:</strong> Percorremos um caminho da
-                esquerda para a direita, partindo da interface do lado
-                conectado ao reservatório até a superfície aberta para a
-                atmosfera.</p>
-                <ul>
-                <li><strong>Partida:</strong> <span
-                class="math inline">\(P_{\text{ar}}\)</span>.</li>
-                <li><strong>Subindo pelo mercúrio:</strong> <span
-                class="math inline">\(-\rho_{\text{Hg}}gh\)</span>.</li>
-                <li><strong>Chegada:</strong> <span
-                class="math inline">\(P_{\text{atm}}\)</span>.</li>
-                </ul>
-                <p><strong>Passo 2:</strong> Somar todos os termos do
-                caminho e igualar a zero:</p>
-                <p><span class="math display">\[P_{\text{ar}} -
-                \rho_{\text{Hg}}gh - P_{\text{atm}} = 0\]</span></p>
-                <p><strong>Passo 3:</strong> Isolar a pressão
-                manométrica:</p>
-                <p><span class="math display">\[P_{\text{ar}} -
-                P_{\text{atm}} = \rho_{\text{Hg}}gh\]</span></p>
-                <p>Como:</p>
+                id="exemplo-5.1-pressão-absoluta-medida-por-manômetro-aberto">Exemplo
+                5.1: Pressão absoluta medida por manômetro aberto</h2>
+                <p>Um manômetro aberto é usado para medir a pressão em
+                um tanque de gás. O fluido manométrico possui densidade
+                <span
+                class="math inline">\(\rho=850\,\text{kg}/\text{m}^3\)</span>
+                e a diferença de altura entre as colunas é <span
+                class="math inline">\(h=0{,}55\,\text{m}\)</span>. A
+                pressão atmosférica local é <span
+                class="math inline">\(96\,\text{kPa}\)</span>. Determine
+                a pressão absoluta no tanque.</p>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> o fluido do tanque é um
+                gás e sua variação de pressão com a altura é
+                desprezível. O fluido manométrico está em repouso.</p>
+                <p><strong>Dados e propriedades:</strong> <span
+                class="math inline">\(\rho=850\,\text{kg}/\text{m}^3\)</span>,
+                <span class="math inline">\(h=0{,}55\,\text{m}\)</span>,
+                <span
+                class="math inline">\(P_{\text{atm}}=96\,\text{kPa}\)</span>
+                e <span
+                class="math inline">\(g=9{,}807\,\text{m}/\text{s}^2\)</span>.</p>
+                <p><strong>Análise:</strong> a pressão no tanque está
+                acima da atmosférica, logo:</p>
                 <p><span
-                class="math display">\[P_{\text{man}}=P_{\text{ar}}-P_{\text{atm}}\]</span></p>
-                <p>temos, ainda de forma algébrica:</p>
-                <p><span
-                class="math display">\[P_{\text{man}}=\rho_{\text{Hg}}gh\]</span></p>
-                <p><strong>Passo 4:</strong> Substituir os valores com
-                suas unidades e usar fatores de conversão unitários.</p>
-                <p>Lembrando que:</p>
-                <p><span
-                class="math display">\[1\,\text{Pa}=1\,\frac{\text{kg}}{\text{m}\cdot\text{s}^2}\]</span></p>
-                <p>e:</p>
-                <p><span
-                class="math display">\[1\,\text{atm}=101325\,\text{Pa}\]</span></p>
-                <p>podemos escrever:</p>
+                class="math display">\[P_{\text{abs}}=P_{\text{atm}}+\rho
+                gh\]</span></p>
+                <p>Carregando as unidades e convertendo a parcela
+                hidrostática para <span
+                class="math inline">\(\text{kPa}\)</span>:</p>
                 <p><span class="math display">\[
                 \begin{aligned}
-                P_{\text{man}} &amp;=
-                \left(13600\,\frac{\text{kg}}{\text{m}^3}\right)
+                P_{\text{abs}}=
+                &amp;96\,\text{kPa}\\
+                &amp;+\left(850\,\frac{\text{kg}}{\text{m}^3}\right)
                 \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
-                \left(0{,}420\,\text{m}\right)\\
-                &amp;\quad \times
-                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
-                \left(\frac{1\,\text{atm}}{101325\,\text{Pa}}\right)
+                \left(0{,}55\,\text{m}\right)\\
+                &amp;\times\left(\frac{1\,\text{kPa}}{1000\,\text{kg}/(\text{m}\,\text{s}^2)}\right)
                 \end{aligned}
                 \]</span></p>
-                <p>Cancelando as unidades:</p>
-                <p><span class="math display">\[P_{\text{man}}=
-                \frac{13600\cdot 9{,}807\cdot
-                0{,}420}{101325}\,\text{atm}\]</span></p>
-                <p><strong>Cálculo único:</strong></p>
                 <p><span
-                class="math display">\[P_{\text{man}}=0{,}552850\,\text{atm}\]</span></p>
-                <p><strong>Análise de algarismos
-                significativos:</strong> <span
-                class="math inline">\(13600\)</span>, <span
-                class="math inline">\(9{,}807\)</span> e <span
-                class="math inline">\(0{,}420\)</span> fornecem, no
-                resultado, <strong>3 algarismos significativos</strong>.
-                Portanto:</p>
-                <p><span class="math display">\[\boxed{P_{\text{man}} =
-                0{,}553\,\text{atm}}\]</span></p>
-                <p><strong>Interpretação:</strong> a pressão do ar está
-                <span class="math inline">\(0{,}553\,\text{atm}\)</span>
-                acima da pressão atmosférica.</p>
-                <p>Se quisermos a pressão absoluta do ar, somamos a
-                pressão atmosférica:</p>
+                class="math display">\[P_{\text{abs}}=100{,}6\,\text{kPa}\]</span></p>
                 <p><span
-                class="math display">\[P_{\text{abs}}=P_{\text{atm}}+P_{\text{man}}=1{,}000+0{,}553=1{,}553\,\text{atm}\]</span></p>
-                <p>Assim:</p>
-                <p><span class="math display">\[\boxed{P_{\text{abs}} =
-                1{,}55\,\text{atm}}\]</span></p>
-                <p><strong>Verificação matemática:</strong> o valor vem
-                de <span class="math inline">\(13600\cdot 9{,}807\cdot
-                0{,}420/101325=0{,}552850\)</span>. Portanto, com 3
-                algarismos significativos, <span
-                class="math inline">\(P_{\text{man}}=0{,}553\,\text{atm}\)</span>.</p>
+                class="math display">\[\boxed{P_{\text{abs}}=101\,\text{kPa}}\]</span></p>
+                <p><strong>Discussão:</strong> a pressão manométrica é
+                apenas a parcela acima da atmosfera. O menor número de
+                algarismos significativos nos dados principais está em
+                <span class="math inline">\(h=0{,}55\,\text{m}\)</span>
+                e <span
+                class="math inline">\(P_{\text{atm}}=96\,\text{kPa}\)</span>,
+                ambos com dois algarismos significativos. Por isso, a
+                resposta final foi arredondada para dois algarismos
+                significativos:</p>
+                <p><span
+                class="math display">\[P_{\text{man}}=100{,}6\,\text{kPa}-96\,\text{kPa}=4{,}6\,\text{kPa}\]</span></p>
                 <h2
                 id="exemplo-5.2-manômetro-aberto-indicando-vácuo">Exemplo
                 5.2: Manômetro aberto indicando vácuo</h2>
                 <p>Um manômetro aberto contém água como fluido
-                manométrico. Ele é conectado a um recipiente onde a
+                manométrico. Ele é conectado a um recipiente em que a
                 pressão é menor que a atmosférica. Observa-se um
                 desnível de <span
                 class="math inline">\(0{,}350\,\text{m}\)</span>, com a
                 coluna mais alta no lado conectado ao recipiente.
                 Determine a pressão manométrica no recipiente.</p>
-                <p><strong>Dados:</strong></p>
-                <ul>
-                <li><span class="math inline">\(\rho_{\text{água}} =
-                997\,\text{kg}/\text{m}^3\)</span>.</li>
-                <li><span class="math inline">\(h =
-                0{,}350\,\text{m}\)</span>.</li>
-                </ul>
-                <p><strong>Resolução pelo Método do Fluxo</strong></p>
-                <p><strong>Passo 1:</strong> Percorremos um caminho
-                partindo da superfície aberta até a superfície do lado
-                conectado ao recipiente.</p>
-                <ul>
-                <li><strong>Partida:</strong> <span
-                class="math inline">\(P_{\text{atm}}\)</span>.</li>
-                <li><strong>Subindo pela água:</strong> <span
-                class="math inline">\(-\rho_{\text{água}}gh\)</span>.</li>
-                <li><strong>Chegada:</strong> <span
-                class="math inline">\(P_{\text{rec}}\)</span>.</li>
-                </ul>
-                <p><strong>Passo 2:</strong> Aplicar o princípio do
-                fluxo:</p>
-                <p><span class="math display">\[P_{\text{atm}} -
-                \rho_{\text{água}}gh - P_{\text{rec}} = 0\]</span></p>
-                <p>Logo:</p>
-                <p><span class="math display">\[P_{\text{rec}} -
-                P_{\text{atm}} = -\rho_{\text{água}}gh\]</span></p>
-                <p>Como:</p>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> a água está em repouso e
+                a extremidade aberta está à pressão atmosférica.</p>
+                <p><strong>Dados e propriedades:</strong> <span
+                class="math inline">\(\rho_{\text{água}}=997\,\text{kg}/\text{m}^3\)</span>,
+                <span class="math inline">\(h=0{,}350\,\text{m}\)</span>
+                e <span
+                class="math inline">\(g=9{,}807\,\text{m}/\text{s}^2\)</span>.</p>
+                <p><strong>Análise:</strong> como a coluna está mais
+                alta no lado do recipiente, a pressão interna é menor
+                que a atmosférica. Assim:</p>
                 <p><span
-                class="math display">\[P_{\text{man}}=P_{\text{rec}}-P_{\text{atm}}\]</span></p>
-                <p>então:</p>
-                <p><span
-                class="math display">\[P_{\text{man}}=-\rho_{\text{água}}gh\]</span></p>
-                <p><strong>Passo 3:</strong> Substituir os valores com
-                unidades e converter para quilopascal usando fator
-                unitário.</p>
+                class="math display">\[P_{\text{man}}=P_{\text{rec}}-P_{\text{atm}}=-\rho
+                gh\]</span></p>
+                <p>Carregando as unidades e convertendo para <span
+                class="math inline">\(\text{kPa}\)</span>:</p>
                 <p><span class="math display">\[
                 \begin{aligned}
-                P_{\text{man}} &amp;=
-                -\left(997\,\frac{\text{kg}}{\text{m}^3}\right)
+                P_{\text{man}}=
+                &amp;-\left(997\,\frac{\text{kg}}{\text{m}^3}\right)
                 \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
                 \left(0{,}350\,\text{m}\right)\\
-                &amp;\quad \times
-                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
-                \left(\frac{1\,\text{kPa}}{1000\,\text{Pa}}\right)
+                &amp;\times\left(\frac{1\,\text{kPa}}{1000\,\text{kg}/(\text{m}\,\text{s}^2)}\right)
                 \end{aligned}
                 \]</span></p>
-                <p>Cancelando as unidades:</p>
-                <p><span class="math display">\[P_{\text{man}}=
-                -\frac{997\cdot 9{,}807\cdot
-                0{,}350}{1000}\,\text{kPa}\]</span></p>
-                <p><strong>Cálculo único:</strong></p>
                 <p><span
-                class="math display">\[P_{\text{man}}=-3{,}42215265\,\text{kPa}\]</span></p>
-                <p><strong>Análise de algarismos
-                significativos:</strong> <span
-                class="math inline">\(997\)</span> e <span
-                class="math inline">\(0{,}350\)</span> possuem <strong>3
-                algarismos significativos</strong>, enquanto <span
-                class="math inline">\(9{,}807\)</span> possui 4. O
-                resultado deve ter <strong>3 algarismos
-                significativos</strong>:</p>
-                <p><span class="math display">\[\boxed{P_{\text{man}} =
-                -3{,}42\,\text{kPa}}\]</span></p>
-                <p><strong>Interpretação:</strong> a pressão absoluta no
-                recipiente está <span
+                class="math display">\[P_{\text{man}}=-3{,}42\,\text{kPa}\]</span></p>
+                <p><span
+                class="math display">\[\boxed{P_{\text{man}}=-3{,}42\,\text{kPa}}\]</span></p>
+                <p><strong>Discussão:</strong> o sinal negativo não
+                significa pressão absoluta negativa. Ele indica que a
+                pressão do recipiente está <span
                 class="math inline">\(3{,}42\,\text{kPa}\)</span> abaixo
-                da pressão atmosférica. A pressão de vácuo é:</p>
-                <p><span class="math display">\[\boxed{P_{\text{vac}} =
-                3{,}42\,\text{kPa}}\]</span></p>
-                <p><strong>Por que o valor ficou negativo?</strong>
-                Porque a pressão manométrica é calculada por <span
-                class="math inline">\(P_{\text{man}}=P_{\text{rec}}-P_{\text{atm}}\)</span>.
-                Como o recipiente está em vácuo relativo, <span
-                class="math inline">\(P_{\text{rec}}&lt;P_{\text{atm}}\)</span>,
-                então essa diferença é negativa. No Método do Fluxo,
-                isso aparece porque partimos da superfície aberta, na
-                atmosfera, e subimos uma altura <span
-                class="math inline">\(h\)</span> pela água; ao subir em
-                um fluido em repouso, a pressão diminui. O sinal
-                negativo indica apenas que a pressão interna está abaixo
-                da atmosférica.</p>
-                <p><strong>Verificação matemática:</strong> o valor vem
-                de <span class="math inline">\(-997\cdot 9{,}807\cdot
-                0{,}350/1000=-3{,}42215265\)</span>. Portanto, com 3
-                algarismos significativos, <span
-                class="math inline">\(P_{\text{man}}=-3{,}42\,\text{kPa}\)</span>
-                e <span
-                class="math inline">\(P_{\text{vac}}=3{,}42\,\text{kPa}\)</span>.</p>
+                da atmosfera. Como <span
+                class="math inline">\(\rho_{\text{água}}\)</span>, <span
+                class="math inline">\(g\)</span> e <span
+                class="math inline">\(h\)</span> foram dados com três ou
+                quatro algarismos significativos, o resultado final fica
+                com três algarismos significativos. A pressão de vácuo
+                correspondente é:</p>
+                <p><span
+                class="math display">\[\boxed{P_{\text{vac}}=3{,}42\,\text{kPa}}\]</span></p>
                 <h2
                 id="exemplo-5.3-manômetro-diferencial-em-uma-tubulação-de-água">Exemplo
                 5.3: Manômetro diferencial em uma tubulação de água</h2>
                 <p>Um manômetro diferencial com mercúrio é conectado a
-                dois pontos de uma tubulação que transporta água. Os
-                pontos <span class="math inline">\(1\)</span> e <span
-                class="math inline">\(2\)</span> estão na mesma cota. A
-                interface do mercúrio está <span
+                dois pontos de uma tubulação horizontal que transporta
+                água. A interface do mercúrio está <span
                 class="math inline">\(0{,}250\,\text{m}\)</span> mais
                 baixa no lado do ponto <span
                 class="math inline">\(1\)</span> do que no lado do ponto
                 <span class="math inline">\(2\)</span>. Determine <span
-                class="math inline">\(P_1 - P_2\)</span>.</p>
-                <p><strong>Dados:</strong></p>
-                <ul>
-                <li><span class="math inline">\(\rho_{\text{água}} =
-                997\,\text{kg}/\text{m}^3\)</span>.</li>
-                <li><span class="math inline">\(\rho_{\text{Hg}} =
-                13600\,\text{kg}/\text{m}^3\)</span>.</li>
-                <li><span class="math inline">\(\Delta h =
-                0{,}250\,\text{m}\)</span>.</li>
-                </ul>
-                <p><strong>Resolução pelo Método do Fluxo</strong></p>
-                <p><strong>Passo 1:</strong> Percorremos um caminho
-                partindo do ponto <span class="math inline">\(1\)</span>
-                até o ponto <span class="math inline">\(2\)</span>.</p>
-                <ul>
-                <li><strong>Partida:</strong> <span
-                class="math inline">\(P_1\)</span>.</li>
-                <li><strong>Descendo pela água até a interface mais
-                baixa:</strong> contribuição comum que será compensada
-                na subida.</li>
-                <li><strong>Subindo pelo mercúrio uma altura <span
-                class="math inline">\(\Delta h\)</span>:</strong> <span
-                class="math inline">\(-\rho_{\text{Hg}}g\Delta
-                h\)</span>.</li>
-                <li><strong>Subindo ou descendo pela água até o ponto
-                <span class="math inline">\(2\)</span>:</strong>
-                contribuição resultante <span
-                class="math inline">\(+\rho_{\text{água}}g\Delta
-                h\)</span> quando os pontos estão na mesma cota.</li>
-                <li><strong>Chegada:</strong> <span
-                class="math inline">\(P_2\)</span>.</li>
-                </ul>
-                <p><strong>Passo 2:</strong> A soma das contribuições
-                resulta em:</p>
-                <p><span class="math display">\[P_1 -
-                \rho_{\text{Hg}}g\Delta h + \rho_{\text{água}}g\Delta h
-                - P_2 = 0\]</span></p>
-                <p><strong>Passo 3:</strong> Isolar a diferença de
-                pressão:</p>
-                <p><span class="math display">\[P_1 - P_2 =
-                (\rho_{\text{Hg}}-\rho_{\text{água}})g\Delta
+                class="math inline">\(P_1-P_2\)</span>.</p>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> os pontos <span
+                class="math inline">\(1\)</span> e <span
+                class="math inline">\(2\)</span> estão na mesma cota; a
+                água e o mercúrio estão em equilíbrio estático no
+                manômetro.</p>
+                <p><strong>Dados e propriedades:</strong> <span
+                class="math inline">\(\rho_{\text{água}}=997\,\text{kg}/\text{m}^3\)</span>,
+                <span
+                class="math inline">\(\rho_{\text{Hg}}=13600\,\text{kg}/\text{m}^3\)</span>,
+                <span class="math inline">\(\Delta
+                h=0{,}250\,\text{m}\)</span> e <span
+                class="math inline">\(g=9{,}807\,\text{m}/\text{s}^2\)</span>.</p>
+                <p><strong>Análise:</strong> para pontos na mesma cota,
+                com o mesmo fluido na tubulação e fluido manométrico
+                mais denso:</p>
+                <p><span
+                class="math display">\[P_1-P_2=(\rho_{\text{Hg}}-\rho_{\text{água}})g\Delta
                 h\]</span></p>
-                <p><strong>Passo 4:</strong> Substituir os valores:</p>
+                <p>Carregando as unidades e convertendo para <span
+                class="math inline">\(\text{kPa}\)</span>:</p>
                 <p><span class="math display">\[
                 \begin{aligned}
-                P_1-P_2 &amp;=
-                \left(13600-997\right)\frac{\text{kg}}{\text{m}^3}
+                P_1-P_2=
+                &amp;\left(13600-997\right)\frac{\text{kg}}{\text{m}^3}
                 \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
                 \left(0{,}250\,\text{m}\right)\\
-                &amp;\quad \times
-                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
-                \left(\frac{1\,\text{kPa}}{1000\,\text{Pa}}\right)
+                &amp;\times\left(\frac{1\,\text{kPa}}{1000\,\text{kg}/(\text{m}\,\text{s}^2)}\right)
                 \end{aligned}
                 \]</span></p>
-                <p>Cancelando as unidades:</p>
-                <p><span class="math display">\[P_1-P_2=
-                \frac{(13600-997)\cdot 9{,}807\cdot
-                0{,}250}{1000}\,\text{kPa}\]</span></p>
-                <p><strong>Cálculo único:</strong></p>
                 <p><span
-                class="math display">\[P_1-P_2=30{,}89940525\,\text{kPa}\]</span></p>
-                <p><strong>Análise de algarismos
-                significativos:</strong> as densidades e o desnível
-                foram adotados com <strong>3 algarismos
-                significativos</strong>, enquanto <span
-                class="math inline">\(g\)</span> possui 4. Logo, o
-                resultado deve ser apresentado com <strong>3 algarismos
-                significativos</strong>:</p>
-                <p><span class="math display">\[\boxed{P_1 - P_2 =
-                30{,}9\,\text{kPa}}\]</span></p>
-                <p><strong>Interpretação:</strong> o ponto <span
+                class="math display">\[P_1-P_2=30{,}9\,\text{kPa}\]</span></p>
+                <p><span
+                class="math display">\[\boxed{P_1-P_2=30{,}9\,\text{kPa}}\]</span></p>
+                <p><strong>Discussão:</strong> o ponto <span
                 class="math inline">\(1\)</span> tem maior pressão, pois
-                empurrou o mercúrio para baixo no seu lado do
-                manômetro.</p>
-                <p><strong>Verificação matemática:</strong> o valor vem
-                de <span class="math inline">\((13600-997)\cdot
-                9{,}807\cdot 0{,}250/1000=30{,}89940525\)</span>.
-                Portanto, com 3 algarismos significativos, <span
-                class="math inline">\(P_1-P_2=30{,}9\,\text{kPa}\)</span>.</p>
-                <h2 id="exemplo-5.4-manômetro-inclinado">Exemplo 5.4:
-                Manômetro inclinado</h2>
-                <p>Um manômetro inclinado utiliza óleo com densidade
-                <span class="math inline">\(\rho_{\text{óleo}} =
-                850\,\text{kg}/\text{m}^3\)</span>. O tubo está
-                inclinado de <span class="math inline">\(\theta =
-                20^\circ\)</span> em relação à horizontal. Quando uma
-                pressão é aplicada, o óleo se desloca <span
-                class="math inline">\(L = 0{,}120\,\text{m}\)</span> ao
-                longo do tubo. Determine a pressão manométrica
-                aplicada.</p>
-                <p><strong>Dados:</strong></p>
-                <ul>
-                <li><span class="math inline">\(\rho_{\text{óleo}} =
-                850\,\text{kg}/\text{m}^3\)</span>.</li>
-                <li><span class="math inline">\(L =
-                0{,}120\,\text{m}\)</span>.</li>
-                <li><span class="math inline">\(\theta =
-                20^\circ\)</span>.</li>
-                </ul>
-                <p><strong>Resolução pelo Método do Fluxo</strong></p>
-                <p><strong>Passo 1:</strong> Converter o deslocamento
-                inclinado em altura vertical:</p>
-                <p><span class="math display">\[h =
-                L\sin\theta\]</span></p>
-                <p><strong>Passo 2:</strong> Aplicar a relação
-                hidrostática, ainda de forma algébrica:</p>
-                <p><span class="math display">\[P_{\text{man}} =
-                \rho_{\text{óleo}}gh\]</span></p>
-                <p>Substituindo <span
-                class="math inline">\(h=L\sin\theta\)</span>:</p>
-                <p><span
-                class="math display">\[P_{\text{man}}=\rho_{\text{óleo}}gL\sin\theta\]</span></p>
-                <p><strong>Passo 3:</strong> Substituir os valores com
-                unidades.</p>
+                empurra o mercúrio para baixo no seu lado do manômetro.
+                A diferença de alturas foi dada com três algarismos
+                significativos, então a resposta final deve manter três
+                algarismos significativos. Se os pontos não estivessem
+                na mesma cota, a expressão simplificada não deveria ser
+                usada diretamente.</p>
+                <h2 id="exemplo-5.4-manômetro-de-vários-fluidos">Exemplo
+                5.4: Manômetro de vários fluidos</h2>
+                <p>A água de um tanque é pressurizada por ar. A pressão
+                é medida por um manômetro de vários fluidos aberto para
+                a atmosfera. Ao percorrer o manômetro da interface
+                ar-água até a extremidade aberta, atravessam-se uma
+                coluna de água de <span
+                class="math inline">\(h_1=0{,}10\,\text{m}\)</span>, uma
+                coluna de óleo de <span
+                class="math inline">\(h_2=0{,}20\,\text{m}\)</span> e
+                uma coluna de mercúrio de <span
+                class="math inline">\(h_3=0{,}35\,\text{m}\)</span>. A
+                pressão atmosférica local é <span
+                class="math inline">\(85{,}6\,\text{kPa}\)</span>.
+                Determine a pressão absoluta do ar no tanque.</p>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> a pressão do ar no tanque
+                é uniforme; os fluidos são imiscíveis e estão em
+                repouso.</p>
+                <p><strong>Dados e propriedades:</strong> <span
+                class="math inline">\(\rho_{\text{água}}=1000\,\text{kg}/\text{m}^3\)</span>,
+                <span
+                class="math inline">\(\rho_{\text{óleo}}=850\,\text{kg}/\text{m}^3\)</span>,
+                <span
+                class="math inline">\(\rho_{\text{Hg}}=13600\,\text{kg}/\text{m}^3\)</span>,
+                <span
+                class="math inline">\(h_1=0{,}10\,\text{m}\)</span>,
+                <span
+                class="math inline">\(h_2=0{,}20\,\text{m}\)</span>,
+                <span
+                class="math inline">\(h_3=0{,}35\,\text{m}\)</span>,
+                <span
+                class="math inline">\(P_{\text{atm}}=85{,}6\,\text{kPa}\)</span>
+                e <span
+                class="math inline">\(g=9{,}807\,\text{m}/\text{s}^2\)</span>.</p>
+                <p><strong>Análise:</strong> partindo da pressão do ar
+                no tanque e caminhando até a atmosfera:</p>
+                <p><span class="math display">\[
+                P_{\text{ar}}+\rho_{\text{água}}gh_1+\rho_{\text{óleo}}gh_2-\rho_{\text{Hg}}gh_3=P_{\text{atm}}
+                \]</span></p>
+                <p>Logo:</p>
+                <p><span class="math display">\[
+                P_{\text{ar}}=P_{\text{atm}}-\rho_{\text{água}}gh_1-\rho_{\text{óleo}}gh_2+\rho_{\text{Hg}}gh_3
+                \]</span></p>
                 <p><span class="math display">\[
                 \begin{aligned}
-                P_{\text{man}} &amp;=
-                \left(850\,\frac{\text{kg}}{\text{m}^3}\right)
-                \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
-                \left(0{,}120\,\text{m}\right)
-                \sin20^\circ\\
-                &amp;\quad \times
-                \left(\frac{1\,\text{Pa}}{1\,\text{kg}\,\text{m}^{-1}\text{s}^{-2}}\right)
+                P_{\text{ar}}&amp;=
+                85{,}6\,\text{kPa}
+                +\left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
+                \left[
+                \left(13600\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}35\,\text{m}\right)\right.\\
+                &amp;\qquad
+                \left.-\left(1000\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}10\,\text{m}\right)
+                -\left(850\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}20\,\text{m}\right)
+                \right]\\
+                &amp;\qquad
+                \left(\frac{1\,\text{kPa}}{1000\,\text{kg}/(\text{m}\,\text{s}^2)}\right)
                 \end{aligned}
                 \]</span></p>
-                <p>Cancelando as unidades:</p>
-                <p><span class="math display">\[P_{\text{man}}=850\cdot
-                9{,}807\cdot
-                0{,}120\cdot\sin20^\circ\,\text{Pa}\]</span></p>
-                <p><strong>Cálculo único:</strong></p>
                 <p><span
-                class="math display">\[P_{\text{man}}=342{,}1275377\,\text{Pa}\]</span></p>
-                <p><strong>Análise de algarismos
-                significativos:</strong> considerando <span
-                class="math inline">\(\rho_{\text{óleo}}\)</span>, <span
-                class="math inline">\(L\)</span> e <span
-                class="math inline">\(\theta\)</span> com precisão
-                compatível com os dados do problema, o resultado é
-                apresentado com <strong>3 algarismos
-                significativos</strong>:</p>
-                <p><span class="math display">\[\boxed{P_{\text{man}} =
-                342\,\text{Pa}}\]</span></p>
-                <p><strong>Interpretação:</strong> a inclinação aumenta
-                o deslocamento observado no tubo, mas a pressão depende
-                apenas da componente vertical <span
-                class="math inline">\(h\)</span>.</p>
-                <p><strong>Verificação matemática:</strong> o valor vem
-                de <span class="math inline">\(850\cdot 9{,}807\cdot
-                0{,}120\cdot\sin20^\circ=342{,}1275377\)</span>.
-                Portanto, com 3 algarismos significativos, <span
-                class="math inline">\(P_{\text{man}}=342\,\text{Pa}\)</span>.</p>
+                class="math display">\[P_{\text{ar}}=129{,}6\,\text{kPa}\]</span></p>
+                <p><span
+                class="math display">\[\boxed{P_{\text{ar}}\approx
+                1{,}3\times 10^2\,\text{kPa}}\]</span></p>
+                <p><strong>Discussão:</strong> esse exemplo mostra a
+                vantagem do método do fluxo. Em cada trecho, usa-se a
+                densidade do fluido atravessado; ao se mover
+                horizontalmente no mesmo fluido em repouso, a pressão
+                não muda. As alturas foram dadas com dois algarismos
+                significativos, por isso a resposta final foi
+                arredondada para dois algarismos significativos.</p>
                 <h1 id="princípio-de-pascal">Princípio de Pascal</h1>
                 <p>O <strong>Princípio de Pascal</strong> estabelece
                 que:</p>
@@ -1274,13 +1149,12 @@ de Oliveira
                 </blockquote>
                 <figure>
                 <img
-                src="https://commons.wikimedia.org/wiki/File:Hidraulic_press_anim_1.gif"
+                src="images/fig-wikimedia-hydraulic-press-animation.gif"
                 style="width:70.0%"
                 alt="Animação de transmissão de pressão em um sistema hidráulico. Fonte: Wikimedia Commons." />
                 <figcaption aria-hidden="true">Animação de transmissão
-                de pressão em um sistema hidráulico. Fonte: <a
-                href="https://commons.wikimedia.org/wiki/File:Hidraulic_press_anim_1.gif">Wikimedia
-                Commons.</a></figcaption>
+                de pressão em um sistema hidráulico. Fonte: Wikimedia
+                Commons.</figcaption>
                 </figure>
                 <p>Em termos matemáticos, se uma pressão adicional <span
                 class="math inline">\(\Delta P\)</span> é aplicada a um
@@ -1324,13 +1198,12 @@ de Oliveira
                 manualmente aumenta a pressão do fluido, que atua sobre
                 um pistão de maior área e levanta a carga.</p>
                 <figure>
-                <img src="https://commons.wikimedia.org/wiki/File:Working_principle_of_a_hydraulic_jack.svg"
+                <img src="images/fig-wikimedia-hydraulic-jack.png"
                 style="width:80.0%"
                 alt="Princípio de funcionamento de um macaco hidráulico. Fonte: Wikimedia Commons." />
                 <figcaption aria-hidden="true">Princípio de
-                funcionamento de um macaco hidráulico. Fonte: <a
-                href="https://commons.wikimedia.org/wiki/File:Working_principle_of_a_hydraulic_jack.svg">Wikimedia
-                Commons.</a></figcaption>
+                funcionamento de um macaco hidráulico. Fonte: Wikimedia
+                Commons.</figcaption>
                 </figure>
                 <ol start="3" type="1">
                 <li><strong>Freios hidráulicos</strong></li>
@@ -1364,133 +1237,97 @@ de Oliveira
                 class="math inline">\(F_1 = 120\,\text{N}\)</span> é
                 aplicada no êmbolo menor. Determine a força exercida
                 pelo êmbolo maior.</p>
-                <p><strong>Dados:</strong></p>
-                <ul>
-                <li><span class="math inline">\(A_1 =
-                5{,}0\,\text{cm}^2\)</span>.</li>
-                <li><span class="math inline">\(A_2 =
-                250\,\text{cm}^2\)</span>.</li>
-                <li><span class="math inline">\(F_1 =
-                120\,\text{N}\)</span>.</li>
-                </ul>
-                <p><strong>Resolução</strong></p>
-                <p>Pelo Princípio de Pascal:</p>
-                <p><span class="math display">\[\frac{F_1}{A_1} =
-                \frac{F_2}{A_2}\]</span></p>
-                <p>Isolando <span
-                class="math inline">\(F_2\)</span>:</p>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> o fluido é
+                incompressível, está confinado e as perdas por atrito
+                são desprezíveis.</p>
+                <p><strong>Dados:</strong> <span
+                class="math inline">\(A_1 = 5{,}0\,\text{cm}^2\)</span>,
+                <span class="math inline">\(A_2 =
+                250\,\text{cm}^2\)</span> e <span
+                class="math inline">\(F_1 = 120\,\text{N}\)</span>.</p>
+                <p><strong>Análise:</strong> pelo Princípio de Pascal, a
+                pressão transmitida aos dois êmbolos é a mesma:</p>
+                <p><span
+                class="math display">\[\frac{F_1}{A_1}=\frac{F_2}{A_2}\]</span></p>
                 <p><span class="math display">\[F_2 =
                 F_1\frac{A_2}{A_1}\]</span></p>
-                <p>Substituindo:</p>
-                <p><span class="math display">\[F_2=
+                <p>Como as duas áreas estão em <span
+                class="math inline">\(\text{cm}^2\)</span>, as unidades
+                se cancelam diretamente no fator de razão:</p>
+                <p><span class="math display">\[
+                F_2=
                 \left(120\,\text{N}\right)
-                \frac{
-                \left(250\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
-                }{
-                \left(5{,}0\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
-                }
-                \left(\frac{1\,\text{kN}}{1000\,\text{N}}\right)\]</span></p>
-                <p>Observe que os fatores <span
-                class="math inline">\(\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2\)</span>
-                convertem as duas áreas para <span
-                class="math inline">\(\text{m}^2\)</span> e se cancelam
-                na razão entre as áreas. Assim:</p>
-                <p><span class="math display">\[F_2=\frac{120\cdot
-                250}{5{,}0\cdot 1000}\,\text{kN}\]</span></p>
-                <p><strong>Cálculo único:</strong></p>
+                \left(\frac{250\,\text{cm}^2}{5{,}0\,\text{cm}^2}\right)
+                \]</span></p>
                 <p><span
-                class="math display">\[F_2=6{,}0\,\text{kN}\]</span></p>
-                <p><strong>Análise de algarismos
-                significativos:</strong> <span
-                class="math inline">\(A_1=5{,}0\,\text{cm}^2\)</span>
-                possui <strong>2 algarismos significativos</strong>.
-                Assim, o resultado deve ser apresentado com <strong>2
-                algarismos significativos</strong>:</p>
-                <p><span class="math display">\[\boxed{F_2 =
-                6{,}0\,\text{kN}}\]</span></p>
-                <p><strong>Interpretação:</strong> a força foi
-                multiplicada por <span
-                class="math inline">\(50\)</span>, pois a área do êmbolo
-                maior é <span class="math inline">\(50\)</span> vezes a
-                área do êmbolo menor.</p>
-                <p><strong>Verificação matemática:</strong> a razão
-                entre as áreas é <span
-                class="math inline">\(250/5{,}0=50\)</span>. Portanto,
-                <span class="math inline">\(F_2=120\cdot
-                50=6000\,\text{N}=6{,}0\,\text{kN}\)</span>.</p>
+                class="math display">\[F_2=6000\,\text{N}\]</span></p>
+                <p><span
+                class="math display">\[\boxed{F_2=6{,}0\,\text{kN}}\]</span></p>
+                <p><strong>Discussão:</strong> a força foi multiplicada
+                por <span class="math inline">\(50\)</span>, que é a
+                razão entre as áreas. O dado limitante é <span
+                class="math inline">\(A_1=5{,}0\,\text{cm}^2\)</span>,
+                com dois algarismos significativos; por isso, a resposta
+                final foi escrita como <span
+                class="math inline">\(6{,}0\,\text{kN}\)</span>. Esse é
+                o ganho mecânico ideal da prensa.</p>
                 <h2
-                id="exemplo-5.6-macaco-hidráulico-com-pistões-circulares">Exemplo
-                5.6: Macaco hidráulico com pistões circulares</h2>
-                <p>Um macaco hidráulico possui um pistão pequeno de
-                diâmetro <span class="math inline">\(d_1 =
-                2{,}0\,\text{cm}\)</span> e um pistão grande de diâmetro
-                <span class="math inline">\(d_2 =
-                20{,}0\,\text{cm}\)</span>. Uma pessoa aplica uma força
-                de <span class="math inline">\(150\,\text{N}\)</span> no
-                pistão pequeno. Determine a força no pistão grande.</p>
-                <p><strong>Dados:</strong></p>
-                <ul>
-                <li><span class="math inline">\(d_1 =
-                2{,}0\,\text{cm}\)</span>.</li>
-                <li><span class="math inline">\(d_2 =
-                20{,}0\,\text{cm}\)</span>.</li>
-                <li><span class="math inline">\(F_1 =
-                150\,\text{N}\)</span>.</li>
-                </ul>
-                <p><strong>Resolução</strong></p>
-                <p>Para pistões circulares:</p>
-                <p><span class="math display">\[A = \frac{\pi
-                d^2}{4}\]</span></p>
-                <p>Logo:</p>
-                <p><span class="math display">\[\frac{A_2}{A_1} =
-                \frac{d_2^2}{d_1^2}\]</span></p>
-                <p>Pelo Princípio de Pascal:</p>
-                <p><span class="math display">\[F_2 =
-                F_1\frac{A_2}{A_1}\]</span></p>
-                <p>Substituindo a razão entre as áreas:</p>
-                <p><span class="math display">\[F_2 =
-                F_1\frac{d_2^2}{d_1^2}\]</span></p>
-                <p>Agora substituímos os valores com unidades e fatores
-                unitários para converter os diâmetros para metro:</p>
-                <p><span class="math display">\[F_2=
-                \left(150\,\text{N}\right)
-                \left[
+                id="exemplo-5.6-pressão-necessária-em-um-macaco-hidráulico">Exemplo
+                5.6: Pressão necessária em um macaco hidráulico</h2>
+                <p>O pistão de saída de um macaco hidráulico possui
+                diâmetro <span
+                class="math inline">\(d=30\,\text{cm}\)</span> e deve
+                elevar um automóvel de massa <span
+                class="math inline">\(m=2000\,\text{kg}\)</span>.
+                Determine a pressão manométrica mínima que deve ser
+                mantida no fluido.</p>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> o automóvel começa a
+                subir quando a força hidráulica iguala o peso; perdas e
+                atrito são desprezíveis.</p>
+                <p><strong>Dados:</strong> <span
+                class="math inline">\(d=30\,\text{cm}\)</span>, <span
+                class="math inline">\(m=2000\,\text{kg}\)</span> e <span
+                class="math inline">\(g=9{,}807\,\text{m}/\text{s}^2\)</span>.</p>
+                <p><strong>Análise:</strong> a força necessária é o peso
+                e a área do pistão é <span class="math inline">\(A=\pi
+                d^2/4\)</span>. Primeiro, convertemos o diâmetro:</p>
+                <p><span class="math display">\[
+                d=
+                \left(30\,\text{cm}\right)
+                \left(\frac{1\,\text{m}}{100\,\text{cm}}\right)
+                =0{,}30\,\text{m}
+                \]</span></p>
+                <p>Como <span class="math inline">\(P=F/A=mg/(\pi
+                d^2/4)\)</span>, fazendo a substituição numérica em uma
+                única etapa:</p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                P_{\text{man}}
+                &amp;=
                 \frac{
-                \left(20{,}0\,\text{cm}\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)
+                \left(2000\,\text{kg}\right)
+                \left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
                 }{
-                \left(2{,}0\,\text{cm}\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)
+                \frac{\pi}{4}\left(0{,}30\,\text{m}\right)^2
                 }
-                \right]^2
-                \left(\frac{1\,\text{kN}}{1000\,\text{N}}\right)\]</span></p>
-                <p>Os fatores de conversão dos diâmetros se cancelam,
-                pois aparecem tanto no numerador quanto no
-                denominador:</p>
-                <p><span class="math display">\[F_2=
-                \frac{150}{1000}
-                \left(\frac{20{,}0}{2{,}0}\right)^2\,\text{kN}\]</span></p>
-                <p><strong>Cálculo único:</strong></p>
+                \left(\frac{1\,\text{kPa}}{1000\,\text{kg}/(\text{m}\,\text{s}^2)}\right)
+                \end{aligned}
+                \]</span></p>
                 <p><span
-                class="math display">\[F_2=15\,\text{kN}\]</span></p>
-                <p><strong>Análise de algarismos
-                significativos:</strong> o diâmetro menor <span
-                class="math inline">\(d_1=2{,}0\,\text{cm}\)</span>
-                possui <strong>2 algarismos significativos</strong>.
-                Portanto, o resultado deve ser apresentado com <strong>2
-                algarismos significativos</strong>:</p>
-                <p><span class="math display">\[\boxed{F_2 =
-                15\,\text{kN}}\]</span></p>
-                <p><strong>Interpretação:</strong> quando o diâmetro
-                aumenta <span class="math inline">\(10\)</span> vezes, a
-                área aumenta <span class="math inline">\(100\)</span>
-                vezes.</p>
-                <p><strong>Verificação matemática:</strong> a razão
-                entre os diâmetros é <span
-                class="math inline">\(20{,}0/2{,}0=10\)</span>. Como a
-                área depende de <span
-                class="math inline">\(d^2\)</span>, a razão entre as
-                áreas é <span class="math inline">\(10^2=100\)</span>.
-                Portanto, <span class="math inline">\(F_2=150\cdot
-                100=15000\,\text{N}=15\,\text{kN}\)</span>.</p>
+                class="math display">\[P_{\text{man}}=277{,}5\,\text{kPa}\]</span></p>
+                <p><span
+                class="math display">\[\boxed{P_{\text{man}}=2{,}8\times
+                10^2\,\text{kPa}}\]</span></p>
+                <p><strong>Discussão:</strong> esse valor é pressão
+                manométrica, pois representa a pressão acima da
+                atmosférica necessária para sustentar a carga no pistão.
+                O diâmetro <span
+                class="math inline">\(d=30\,\text{cm}\)</span> foi
+                informado com dois algarismos significativos; portanto,
+                a resposta final deve ser arredondada para dois
+                algarismos significativos.</p>
                 <h2
                 id="exemplo-5.7-deslocamento-em-uma-prensa-hidráulica">Exemplo
                 5.7: Deslocamento em uma prensa hidráulica</h2>
@@ -1501,57 +1338,39 @@ de Oliveira
                 200\,\text{cm}^2\)</span>. Se o êmbolo menor desce <span
                 class="math inline">\(d_1 = 15\,\text{cm}\)</span>,
                 determine quanto o êmbolo maior sobe.</p>
-                <p><strong>Dados:</strong></p>
-                <ul>
-                <li><span class="math inline">\(A_1 =
-                8{,}0\,\text{cm}^2\)</span>.</li>
-                <li><span class="math inline">\(A_2 =
-                200\,\text{cm}^2\)</span>.</li>
-                <li><span class="math inline">\(d_1 =
-                15\,\text{cm}\)</span>.</li>
-                </ul>
-                <p><strong>Resolução</strong></p>
-                <p>Como o fluido é praticamente incompressível, o volume
-                deslocado pelo êmbolo menor é igual ao volume recebido
-                pelo êmbolo maior:</p>
-                <p><span class="math display">\[A_1d_1 =
-                A_2d_2\]</span></p>
-                <p>Isolando <span
-                class="math inline">\(d_2\)</span>:</p>
-                <p><span class="math display">\[d_2 =
-                \frac{A_1}{A_2}d_1\]</span></p>
-                <p>Substituindo as unidades e convertendo o deslocamento
-                final para centímetros com fator unitário:</p>
-                <p><span class="math display">\[d_2=
-                \frac{
-                \left(8{,}0\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
-                }{
-                \left(200\,\text{cm}^2\right)\left(\frac{1\,\text{m}}{100\,\text{cm}}\right)^2
-                }
-                \left(15\,\text{cm}\right)\]</span></p>
-                <p>Os fatores de conversão das áreas se cancelam:</p>
-                <p><span class="math display">\[d_2=\frac{8{,}0\cdot
-                15}{200}\,\text{cm}\]</span></p>
-                <p><strong>Cálculo único:</strong></p>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> o fluido é incompressível
+                e não há vazamentos.</p>
+                <p><strong>Dados:</strong> <span
+                class="math inline">\(A_1 = 8{,}0\,\text{cm}^2\)</span>,
+                <span class="math inline">\(A_2 =
+                200\,\text{cm}^2\)</span> e <span
+                class="math inline">\(d_1 = 15\,\text{cm}\)</span>.</p>
+                <p><strong>Análise:</strong> o volume deslocado pelo
+                êmbolo menor é igual ao volume recebido pelo êmbolo
+                maior:</p>
                 <p><span
-                class="math display">\[d_2=0{,}60\,\text{cm}\]</span></p>
-                <p><strong>Análise de algarismos
-                significativos:</strong> <span
-                class="math inline">\(A_1=8{,}0\,\text{cm}^2\)</span> e
-                <span class="math inline">\(d_1=15\,\text{cm}\)</span>
-                possuem <strong>2 algarismos significativos</strong>.
-                Portanto, o resultado deve ter <strong>2 algarismos
-                significativos</strong>:</p>
-                <p><span class="math display">\[\boxed{d_2 =
-                0{,}60\,\text{cm}}\]</span></p>
-                <p><strong>Interpretação:</strong> a força aumenta no
-                êmbolo maior, mas o deslocamento diminui na mesma
-                proporção.</p>
-                <p><strong>Verificação matemática:</strong> o valor vem
-                de <span class="math inline">\(8{,}0\cdot
-                15/200=0{,}60\)</span>. Portanto, com 2 algarismos
-                significativos, <span
-                class="math inline">\(d_2=0{,}60\,\text{cm}\)</span>.</p>
+                class="math display">\[A_1d_1=A_2d_2\]</span></p>
+                <p><span
+                class="math display">\[d_2=\frac{A_1}{A_2}d_1\]</span></p>
+                <p>Como as áreas estão na mesma unidade, o fator <span
+                class="math inline">\(A_1/A_2\)</span> é
+                adimensional:</p>
+                <p><span class="math display">\[
+                d_2=
+                \left(\frac{8{,}0\,\text{cm}^2}{200\,\text{cm}^2}\right)
+                \left(15\,\text{cm}\right)
+                \]</span></p>
+                <p><span
+                class="math display">\[\boxed{d_2=0{,}60\,\text{cm}}\]</span></p>
+                <p><strong>Discussão:</strong> a prensa aumenta a força,
+                mas reduz o deslocamento. O dado <span
+                class="math inline">\(A_1=8{,}0\,\text{cm}^2\)</span>
+                tem dois algarismos significativos, então <span
+                class="math inline">\(d_2\)</span> deve ser apresentado
+                com dois algarismos significativos. Isso está de acordo
+                com a conservação do volume deslocado e, no caso ideal,
+                com a conservação do trabalho.</p>
                 <h1 id="conclusão">Conclusão</h1>
                 <p>Nesta aula, estudamos os <strong>manômetros</strong>
                 e o <strong>Princípio de Pascal</strong>, dois temas
@@ -1626,11 +1445,11 @@ de Oliveira
                 <li><span
                 class="math inline">\(12{,}0\,\text{kPa}\)</span>.</li>
                 <li><span
-                class="math inline">\(24{,}0\,\text{kPa}\)</span>.</li>
-                <li><span
                 class="math inline">\(18{,}6\,\text{kPa}\)</span>.</li>
                 <li><span
                 class="math inline">\(36{,}0\,\text{kPa}\)</span>.</li>
+                <li><span
+                class="math inline">\(24{,}0\,\text{kPa}\)</span>.</li>
                 <li><span
                 class="math inline">\(52{,}5\,\text{kPa}\)</span>.</li>
                 </ol>
@@ -1647,9 +1466,9 @@ de Oliveira
                 <li><span
                 class="math inline">\(+4{,}89\,\text{kPa}\)</span>.</li>
                 <li><span
-                class="math inline">\(+9{,}81\,\text{kPa}\)</span>.</li>
-                <li><span
                 class="math inline">\(-4{,}89\,\text{kPa}\)</span>.</li>
+                <li><span
+                class="math inline">\(+9{,}81\,\text{kPa}\)</span>.</li>
                 <li><span
                 class="math inline">\(-13{,}6\,\text{kPa}\)</span>.</li>
                 <li><span
@@ -1669,13 +1488,13 @@ de Oliveira
                 <li><span
                 class="math inline">\(12{,}4\,\text{kPa}\)</span>.</li>
                 <li><span
+                class="math inline">\(30{,}9\,\text{kPa}\)</span>.</li>
+                <li><span
                 class="math inline">\(24{,}0\,\text{kPa}\)</span>.</li>
                 <li><span
                 class="math inline">\(16{,}0\,\text{kPa}\)</span>.</li>
                 <li><span
                 class="math inline">\(14{,}8\,\text{kPa}\)</span>.</li>
-                <li><span
-                class="math inline">\(30{,}9\,\text{kPa}\)</span>.</li>
                 </ol>
                 <dl>
                 <dt>5.5)</dt>
@@ -1692,11 +1511,11 @@ de Oliveira
                 <li><span
                 class="math inline">\(2{,}08\,\text{kPa}\)</span>.</li>
                 <li><span
-                class="math inline">\(8{,}33\,\text{kPa}\)</span>.</li>
+                class="math inline">\(1{,}04\,\text{kPa}\)</span>.</li>
                 <li><span
                 class="math inline">\(4{,}16\,\text{kPa}\)</span>.</li>
                 <li><span
-                class="math inline">\(1{,}04\,\text{kPa}\)</span>.</li>
+                class="math inline">\(8{,}33\,\text{kPa}\)</span>.</li>
                 </ol>
                 <dl>
                 <dt>5.6)</dt>
@@ -1707,8 +1526,8 @@ de Oliveira
                 </dd>
                 </dl>
                 <ol type="a">
-                <li>Porque sua densidade é muito alta.</li>
                 <li>Porque sua viscosidade é muito baixa.</li>
+                <li>Porque sua densidade é muito alta.</li>
                 <li>Porque sua temperatura de ebulição é baixa.</li>
                 <li>Porque ele se mistura facilmente com a água.</li>
                 <li>Porque sua pressão absoluta é nula.</li>
@@ -1728,13 +1547,13 @@ de Oliveira
                 <li><span
                 class="math inline">\(1200\,\text{N}\)</span>.</li>
                 <li><span
-                class="math inline">\(3000\,\text{N}\)</span>.</li>
-                <li><span
                 class="math inline">\(2400\,\text{N}\)</span>.</li>
+                <li><span
+                class="math inline">\(6000\,\text{N}\)</span>.</li>
                 <li><span
                 class="math inline">\(4500\,\text{N}\)</span>.</li>
                 <li><span
-                class="math inline">\(6000\,\text{N}\)</span>.</li>
+                class="math inline">\(3000\,\text{N}\)</span>.</li>
                 </ol>
                 <dl>
                 <dt>5.8)</dt>
@@ -1750,11 +1569,11 @@ de Oliveira
                 </dl>
                 <ol type="a">
                 <li><span
-                class="math inline">\(600\,\text{N}\)</span>.</li>
+                class="math inline">\(3600\,\text{N}\)</span>.</li>
                 <li><span
                 class="math inline">\(1800\,\text{N}\)</span>.</li>
                 <li><span
-                class="math inline">\(3600\,\text{N}\)</span>.</li>
+                class="math inline">\(600\,\text{N}\)</span>.</li>
                 <li><span
                 class="math inline">\(2400\,\text{N}\)</span>.</li>
                 <li><span
@@ -1799,11 +1618,11 @@ de Oliveira
                 <li><span
                 class="math inline">\(3500\,\text{N}\)</span>.</li>
                 <li><span
-                class="math inline">\(17500\,\text{N}\)</span>.</li>
+                class="math inline">\(7000\,\text{N}\)</span>.</li>
                 <li><span
                 class="math inline">\(14000\,\text{N}\)</span>.</li>
                 <li><span
-                class="math inline">\(7000\,\text{N}\)</span>.</li>
+                class="math inline">\(17500\,\text{N}\)</span>.</li>
                 </ol>
                 <h1 id="recomendações">Recomendações</h1>
                 <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
