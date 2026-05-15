@@ -1015,9 +1015,87 @@ de Oliveira
                 correspondente é:</p>
                 <p><span
                 class="math display">\[\boxed{P_{\text{vac}}=3{,}42\,\text{kPa}}\]</span></p>
+                <h2 id="exemplo-5.3-manômetro-de-vários-fluidos">Exemplo
+                5.3: Manômetro de vários fluidos</h2>
+                <p>A água de um tanque é pressurizada por ar. A pressão
+                é medida por um manômetro de vários fluidos aberto para
+                a atmosfera. Ao percorrer o manômetro da interface
+                ar-água até a extremidade aberta, atravessam-se uma
+                coluna de água de <span
+                class="math inline">\(h_1=0{,}10\,\text{m}\)</span>, uma
+                coluna de óleo de <span
+                class="math inline">\(h_2=0{,}20\,\text{m}\)</span> e
+                uma coluna de mercúrio de <span
+                class="math inline">\(h_3=0{,}35\,\text{m}\)</span>. A
+                pressão atmosférica local é <span
+                class="math inline">\(85{,}6\,\text{kPa}\)</span>.
+                Determine a pressão absoluta do ar no tanque.</p>
+                <figure>
+                <img src="images/fig-exemplo-5.3.png"
+                style="width:65.0%"
+                alt="Vários líquidos em um manômetro. Fonte: Çengel." />
+                <figcaption aria-hidden="true">Vários líquidos em um
+                manômetro. Fonte: Çengel.</figcaption>
+                </figure>
+                <p><strong>Solução</strong></p>
+                <p><strong>Hipóteses:</strong> a pressão do ar no tanque
+                é uniforme; os fluidos são imiscíveis e estão em
+                repouso.</p>
+                <p><strong>Dados e propriedades:</strong> <span
+                class="math inline">\(\rho_{\text{água}}=1000\,\text{kg}/\text{m}^3\)</span>,
+                <span
+                class="math inline">\(\rho_{\text{óleo}}=850\,\text{kg}/\text{m}^3\)</span>,
+                <span
+                class="math inline">\(\rho_{\text{Hg}}=13600\,\text{kg}/\text{m}^3\)</span>,
+                <span
+                class="math inline">\(h_1=0{,}10\,\text{m}\)</span>,
+                <span
+                class="math inline">\(h_2=0{,}20\,\text{m}\)</span>,
+                <span
+                class="math inline">\(h_3=0{,}35\,\text{m}\)</span>,
+                <span
+                class="math inline">\(P_{\text{atm}}=85{,}6\,\text{kPa}\)</span>
+                e <span
+                class="math inline">\(g=9{,}807\,\text{m}/\text{s}^2\)</span>.</p>
+                <p><strong>Análise:</strong> partindo da pressão do ar
+                no tanque e caminhando até a atmosfera:</p>
+                <p><span class="math display">\[
+                P_{\text{ar}}+\rho_{\text{água}}gh_1+\rho_{\text{óleo}}gh_2-\rho_{\text{Hg}}gh_3-P_{\text{atm}}=0
+                \]</span></p>
+                <p>Logo:</p>
+                <p><span class="math display">\[
+                P_{\text{ar}}=P_{\text{atm}}-\rho_{\text{água}}gh_1-\rho_{\text{óleo}}gh_2+\rho_{\text{Hg}}gh_3
+                \]</span></p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                P_{\text{ar}}&amp;=
+                85{,}6\,\text{kPa}
+                +\left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
+                \left[
+                \left(13600\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}35\,\text{m}\right)\right.\\
+                &amp;\qquad
+                \left.-\left(1000\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}10\,\text{m}\right)
+                -\left(850\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}20\,\text{m}\right)
+                \right]\\
+                &amp;\qquad
+                \left(\frac{1\,\text{kPa}}{1000\,\text{kg}/(\text{m}\,\text{s}^2)}\right)
+                \end{aligned}
+                \]</span></p>
+                <p><span
+                class="math display">\[P_{\text{ar}}=129{,}6\,\text{kPa}\]</span></p>
+                <p><span
+                class="math display">\[\boxed{P_{\text{ar}}\approx
+                1{,}3\times 10^2\,\text{kPa}}\]</span></p>
+                <p><strong>Discussão:</strong> esse exemplo mostra a
+                vantagem do método do fluxo. Em cada trecho, usa-se a
+                densidade do fluido atravessado; ao se mover
+                horizontalmente no mesmo fluido em repouso, a pressão
+                não muda. As alturas foram dadas com dois algarismos
+                significativos, por isso a resposta final foi
+                arredondada para dois algarismos significativos.</p>
                 <h2
-                id="exemplo-5.3-manômetro-diferencial-com-água-e-mercúrio">Exemplo
-                5.3: Manômetro diferencial com água e mercúrio</h2>
+                id="exemplo-5.4-manômetro-diferencial-com-água-e-mercúrio">Exemplo
+                5.4: Manômetro diferencial com água e mercúrio</h2>
                 <p>O próprio tubo em U pode ser usado como um manômetro
                 diferencial. Ele recebe esse nome porque não mede uma
                 pressão isolada: ele compara as pressões em dois pontos,
@@ -1081,84 +1159,6 @@ de Oliveira
                 algarismos significativos. Se os pontos não estivessem
                 na mesma cota, a expressão simplificada não deveria ser
                 usada diretamente.</p>
-                <h2 id="exemplo-5.4-manômetro-de-vários-fluidos">Exemplo
-                5.4: Manômetro de vários fluidos</h2>
-                <p>A água de um tanque é pressurizada por ar. A pressão
-                é medida por um manômetro de vários fluidos aberto para
-                a atmosfera. Ao percorrer o manômetro da interface
-                ar-água até a extremidade aberta, atravessam-se uma
-                coluna de água de <span
-                class="math inline">\(h_1=0{,}10\,\text{m}\)</span>, uma
-                coluna de óleo de <span
-                class="math inline">\(h_2=0{,}20\,\text{m}\)</span> e
-                uma coluna de mercúrio de <span
-                class="math inline">\(h_3=0{,}35\,\text{m}\)</span>. A
-                pressão atmosférica local é <span
-                class="math inline">\(85{,}6\,\text{kPa}\)</span>.
-                Determine a pressão absoluta do ar no tanque.</p>
-                <figure>
-                <img src="images/fig-exemplo-5.4.png"
-                style="width:65.0%"
-                alt="Vários Líquidos. Fonte: Çengel." />
-                <figcaption aria-hidden="true">Vários Líquidos. Fonte:
-                Çengel.</figcaption>
-                </figure>
-                <p><strong>Solução</strong></p>
-                <p><strong>Hipóteses:</strong> a pressão do ar no tanque
-                é uniforme; os fluidos são imiscíveis e estão em
-                repouso.</p>
-                <p><strong>Dados e propriedades:</strong> <span
-                class="math inline">\(\rho_{\text{água}}=1000\,\text{kg}/\text{m}^3\)</span>,
-                <span
-                class="math inline">\(\rho_{\text{óleo}}=850\,\text{kg}/\text{m}^3\)</span>,
-                <span
-                class="math inline">\(\rho_{\text{Hg}}=13600\,\text{kg}/\text{m}^3\)</span>,
-                <span
-                class="math inline">\(h_1=0{,}10\,\text{m}\)</span>,
-                <span
-                class="math inline">\(h_2=0{,}20\,\text{m}\)</span>,
-                <span
-                class="math inline">\(h_3=0{,}35\,\text{m}\)</span>,
-                <span
-                class="math inline">\(P_{\text{atm}}=85{,}6\,\text{kPa}\)</span>
-                e <span
-                class="math inline">\(g=9{,}807\,\text{m}/\text{s}^2\)</span>.</p>
-                <p><strong>Análise:</strong> partindo da pressão do ar
-                no tanque e caminhando até a atmosfera:</p>
-                <p><span class="math display">\[
-                P_{\text{ar}}+\rho_{\text{água}}gh_1+\rho_{\text{óleo}}gh_2-\rho_{\text{Hg}}gh_3-P_{\text{atm}=0}
-                \]</span></p>
-                <p>Logo:</p>
-                <p><span class="math display">\[
-                P_{\text{ar}}=P_{\text{atm}}-\rho_{\text{água}}gh_1-\rho_{\text{óleo}}gh_2+\rho_{\text{Hg}}gh_3
-                \]</span></p>
-                <p><span class="math display">\[
-                \begin{aligned}
-                P_{\text{ar}}&amp;=
-                85{,}6\,\text{kPa}
-                +\left(9{,}807\,\frac{\text{m}}{\text{s}^2}\right)
-                \left[
-                \left(13600\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}35\,\text{m}\right)\right.\\
-                &amp;\qquad
-                \left.-\left(1000\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}10\,\text{m}\right)
-                -\left(850\,\frac{\text{kg}}{\text{m}^3}\right)\left(0{,}20\,\text{m}\right)
-                \right]\\
-                &amp;\qquad
-                \left(\frac{1\,\text{kPa}}{1000\,\text{kg}/(\text{m}\,\text{s}^2)}\right)
-                \end{aligned}
-                \]</span></p>
-                <p><span
-                class="math display">\[P_{\text{ar}}=129{,}6\,\text{kPa}\]</span></p>
-                <p><span
-                class="math display">\[\boxed{P_{\text{ar}}\approx
-                1{,}3\times 10^2\,\text{kPa}}\]</span></p>
-                <p><strong>Discussão:</strong> esse exemplo mostra a
-                vantagem do método do fluxo. Em cada trecho, usa-se a
-                densidade do fluido atravessado; ao se mover
-                horizontalmente no mesmo fluido em repouso, a pressão
-                não muda. As alturas foram dadas com dois algarismos
-                significativos, por isso a resposta final foi
-                arredondada para dois algarismos significativos.</p>
                 <h1 id="princípio-de-pascal">Princípio de Pascal</h1>
                 <p>O <strong>Princípio de Pascal</strong> estabelece
                 que:</p>
