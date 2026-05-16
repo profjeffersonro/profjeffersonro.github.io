@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Calor
+com Mudança de Estado Físico</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li><strong>Diferenciar</strong> calor sensível e calor
+                latente.</li>
+                <li><strong>Reconhecer</strong> as principais mudanças
+                de estado físico da matéria.</li>
+                <li><strong>Aplicar</strong> a expressão do calor
+                latente em problemas simples.</li>
+                <li><strong>Resolver</strong> situações que envolvem
+                aquecimento, mudança de fase e resfriamento.</li>
+                <li><strong>Interpretar</strong> curvas de aquecimento e
+                resfriamento.</li>
+                <li><strong>Explicar</strong> o comportamento anômalo da
+                água entre <span
+                class="math inline">\(0\,^\circ\text{C}\)</span> e <span
+                class="math inline">\(4\,^\circ\text{C}\)</span>.</li>
+                <li><strong>Relacionar</strong> os conceitos estudados
+                com fenômenos do cotidiano.</li>
+                </ul>
+                <h1 id="situação-problema">Situação-Problema</h1>
+                <p>Imagine uma panela com água e gelo sobre uma chama.
+                No início, há gelo a <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>
+                misturado com água líquida também a <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</p>
+                <p>Mesmo com a chama ligada, durante certo intervalo de
+                tempo o termômetro continua marcando <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</p>
+                <p><strong>Pergunta para pensar 1:</strong> se a água
+                está recebendo calor, por que a temperatura não aumenta
+                imediatamente?</p>
+                <p>Isso acontece porque a energia recebida está sendo
+                usada para derreter o gelo, isto é, para mudar a água do
+                estado sólido para o estado líquido. Enquanto essa
+                mudança de fase ocorre, a temperatura permanece
+                constante.</p>
+                <p>Agora imagine uma chaleira com água fervendo.
+                Enquanto há água líquida sendo transformada em vapor, a
+                temperatura da água permanece aproximadamente <span
+                class="math inline">\(100\,^\circ\text{C}\)</span> ao
+                nível do mar.</p>
+                <p><strong>Pergunta para pensar 2:</strong> por que a
+                água continua recebendo energia e, mesmo assim, sua
+                temperatura não passa de <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>
+                durante a ebulição?</p>
+                <p>Nesse caso, a energia recebida é usada para
+                transformar água líquida em vapor. Essa energia não
+                aumenta a temperatura; ela altera o estado físico da
+                substância.</p>
+                <p>Essas situações mostram que nem todo calor recebido
+                provoca aumento de temperatura. Às vezes, o calor
+                recebido provoca <strong>mudança de estado
+                físico</strong>. Esse tipo de energia está relacionado
+                ao <strong>calor latente</strong>.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ice_cubes_on_water.jpg"
+                style="width:55.0%"
+                alt="Gelo em água líquida, exemplo de coexistência entre fases da mesma substância. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Gelo em água líquida,
+                exemplo de coexistência entre fases da mesma substância.
+                Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ice_cubes_on_water.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Na imagem, observamos gelo e água líquida juntos.
+                Essa situação é útil para lembrar que uma mesma
+                substância pode apresentar mais de uma fase ao mesmo
+                tempo. Quando o gelo está derretendo, a energia recebida
+                é usada principalmente para a fusão, e não para aumentar
+                imediatamente a temperatura.</p>
+                <p>Além disso, o gelo aparece flutuando na água. Esse
+                fato será retomado no estudo do comportamento anômalo da
+                água, pois está relacionado à menor densidade do gelo em
+                comparação com a água líquida.</p>
+                <h1 id="revisão-calor-sensível">Revisão: Calor
+                Sensível</h1>
+                <p>Na aula anterior, estudamos o <strong>calor
+                sensível</strong>, que é a quantidade de calor trocada
+                por um corpo quando ocorre variação de temperatura.</p>
+                <p>Para calcular o calor sensível, usamos:</p>
+                <p><span class="math display">\[
+                \boxed{Q = m \cdot c \cdot \Delta \theta}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(Q\)</span> é a
+                quantidade de calor;</li>
+                <li><span class="math inline">\(m\)</span> é a
+                massa;</li>
+                <li><span class="math inline">\(c\)</span> é o calor
+                específico;</li>
+                <li><span class="math inline">\(\Delta \theta = \theta_f
+                - \theta_i\)</span> é a variação de temperatura.</li>
+                </ul>
+                <p>Exemplos de calor sensível:</p>
+                <ul>
+                <li>água líquida aquecendo de <span
+                class="math inline">\(20\,^\circ\text{C}\)</span> para
+                <span
+                class="math inline">\(80\,^\circ\text{C}\)</span>;</li>
+                <li>gelo aquecendo de <span
+                class="math inline">\(-10\,^\circ\text{C}\)</span> para
+                <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>;</li>
+                <li>vapor d’água esfriando de <span
+                class="math inline">\(120\,^\circ\text{C}\)</span> para
+                <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</li>
+                </ul>
+                <p>Em todos esses casos, a temperatura muda e o estado
+                físico permanece o mesmo.</p>
+                <h1 id="mudanças-de-estado-físico">Mudanças de Estado
+                Físico</h1>
+                <p>A matéria pode se apresentar, em situações comuns,
+                nos estados sólido, líquido e gasoso. Quando uma
+                substância recebe ou perde calor, ela pode mudar de um
+                estado físico para outro.</p>
+                <p>As principais mudanças de estado físico são:</p>
+                <dl>
+                <dt><strong>Fusão</strong></dt>
+                <dd>
+                Passagem do estado sólido para o estado líquido. Ocorre
+                com recebimento de calor. Exemplo: gelo derretendo em um
+                copo.
+                </dd>
+                <dt><strong>Solidificação</strong></dt>
+                <dd>
+                Passagem do estado líquido para o estado sólido. Ocorre
+                com perda de calor. Exemplo: água virando gelo no
+                congelador.
+                </dd>
+                <dt><strong>Vaporização</strong></dt>
+                <dd>
+                Passagem do estado líquido para o estado gasoso. Ocorre
+                com recebimento de calor. Exemplo: água fervendo em uma
+                panela.
+                </dd>
+                <dt><strong>Condensação</strong></dt>
+                <dd>
+                Passagem do estado gasoso para o estado líquido. Ocorre
+                com perda de calor. Exemplo: gotículas na parte externa
+                de um copo gelado.
+                </dd>
+                <dt><strong>Sublimação</strong></dt>
+                <dd>
+                Passagem direta do estado sólido para o estado gasoso.
+                Ocorre com recebimento de calor. Exemplo: gelo seco
+                passando diretamente para gás.
+                </dd>
+                <dt><strong>Ressublimação</strong></dt>
+                <dd>
+                Passagem direta do estado gasoso para o estado sólido.
+                Ocorre com perda de calor. Exemplo: formação de geada em
+                superfícies muito frias.
+                </dd>
+                </dl>
+                <p>Durante uma mudança de estado físico de uma
+                substância pura, sob pressão constante, a temperatura
+                permanece constante.</p>
+                <blockquote>
+                <p>Na mudança de fase, o calor recebido ou perdido
+                altera a organização das partículas, não a temperatura
+                da substância.</p>
+                </blockquote>
+                <figure>
+                <img src="images/fig-mudancas-de-fase.png"
+                style="width:90.0%"
+                alt="Esquema ilustrativo das mudanças de estado físico. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Esquema ilustrativo das
+                mudanças de estado físico. Fonte: elaboração
+                própria.</figcaption>
+                </figure>
+                <p>A imagem resume os caminhos possíveis entre os
+                estados sólido, líquido e gasoso. As setas vermelhas
+                indicam processos em que a substância recebe calor:
+                fusão, vaporização e sublimação. As setas azuis indicam
+                processos em que a substância perde calor:
+                solidificação, condensação e ressublimação.</p>
+                <p>Esse esquema ajuda a perceber que as mudanças de fase
+                podem ocorrer em sentidos opostos. Por exemplo, fusão e
+                solidificação são processos inversos; vaporização e
+                condensação também são processos inversos.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sublimation_of_dry_ice.jpg"
+                style="width:55.0%"
+                alt="Gelo seco sublimando, exemplo de passagem direta do estado sólido para o estado gasoso. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Gelo seco sublimando,
+                exemplo de passagem direta do estado sólido para o
+                estado gasoso. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sublimation_of_dry_ice.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>A imagem mostra o gelo seco, que é dióxido de carbono
+                sólido, passando diretamente para o estado gasoso. Esse
+                processo é chamado de <strong>sublimação</strong>. A
+                “fumaça” visível é formada principalmente pela
+                condensação do vapor de água do ar ao redor, resfriado
+                pelo gelo seco.</p>
+                <p>Esse exemplo é importante porque mostra que nem toda
+                substância precisa passar pelo estado líquido em
+                condições comuns. Dependendo da temperatura e da
+                pressão, a mudança pode ocorrer diretamente entre sólido
+                e gás.</p>
+                <h1 id="calor-latente">Calor Latente</h1>
+                <p>O <strong>calor latente</strong> é a quantidade de
+                calor que uma substância recebe ou perde durante uma
+                mudança de estado físico, sem variação de
+                temperatura.</p>
+                <p>A palavra “latente” significa algo que está escondido
+                ou não aparece diretamente. Nesse caso, o calor está
+                sendo transferido, mas o efeito não aparece como aumento
+                ou diminuição da temperatura.</p>
+                <p>Para calcular o calor latente, usamos:</p>
+                <p><span class="math display">\[
+                \boxed{Q = m \cdot L}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(Q\)</span> é a
+                quantidade de calor envolvida na mudança de fase;</li>
+                <li><span class="math inline">\(m\)</span> é a massa da
+                substância;</li>
+                <li><span class="math inline">\(L\)</span> é o calor
+                latente da mudança de fase.</li>
+                </ul>
+                <p>Unidades comuns:</p>
+                <ul>
+                <li><span class="math inline">\(Q\)</span> em calorias
+                (cal);</li>
+                <li><span class="math inline">\(m\)</span> em gramas
+                (g);</li>
+                <li><span class="math inline">\(L\)</span> em <span
+                class="math inline">\(\text{cal}/\text{g}\)</span>.</li>
+                </ul>
+                <p>Também podemos usar o Sistema Internacional:</p>
+                <ul>
+                <li><span class="math inline">\(Q\)</span> em joules
+                (J);</li>
+                <li><span class="math inline">\(m\)</span> em
+                quilogramas (kg);</li>
+                <li><span class="math inline">\(L\)</span> em <span
+                class="math inline">\(\text{J}/\text{kg}\)</span>.</li>
+                </ul>
+                <h2 id="valores-importantes-para-a-água">Valores
+                Importantes Para a Água</h2>
+                <p>Em muitos exercícios de Ensino Médio, usamos os
+                seguintes valores aproximados:</p>
+                <ul>
+                <li>calor específico do gelo: <span
+                class="math inline">\(c_{\text{gelo}} =
+                0{,}50\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>;</li>
+                <li>calor específico da água líquida: <span
+                class="math inline">\(c_{\text{água}} =
+                1{,}00\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>;</li>
+                <li>calor específico do vapor: <span
+                class="math inline">\(c_{\text{vapor}} =
+                0{,}48\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>;</li>
+                <li>calor latente de fusão da água: <span
+                class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span>;</li>
+                <li>calor latente de vaporização da água: <span
+                class="math inline">\(L_v =
+                540\,\text{cal}/\text{g}\)</span>.</li>
+                </ul>
+                <p>O valor <span class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span> significa que cada
+                grama de gelo a <span
+                class="math inline">\(0\,^\circ\text{C}\)</span> precisa
+                receber <span
+                class="math inline">\(80\,\text{cal}\)</span> para se
+                transformar em água líquida a <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</p>
+                <p>O valor <span class="math inline">\(L_v =
+                540\,\text{cal}/\text{g}\)</span> significa que cada
+                grama de água líquida a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>
+                precisa receber <span
+                class="math inline">\(540\,\text{cal}\)</span> para se
+                transformar em vapor a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Water_at_Boil.jpg"
+                style="width:65.0%"
+                alt="Água em ebulição, exemplo de vaporização. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Água em ebulição, exemplo
+                de vaporização. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Water_at_Boil.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Na ebulição, formam-se bolhas de vapor no interior do
+                líquido. Ao nível do mar, a água pura entra em ebulição
+                por volta de <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.
+                Enquanto a vaporização acontece, a temperatura da água
+                permanece aproximadamente constante, pois o calor
+                recebido está sendo usado para separar as moléculas e
+                mudar o estado físico.</p>
+                <p>Esse é um dos motivos pelos quais o calor latente de
+                vaporização da água é alto: transformar água líquida em
+                vapor exige uma grande quantidade de energia.</p>
+                <p><strong>Exemplo 6.1 - Fusão do Gelo</strong></p>
+                <p>Determine a quantidade de calor necessária para
+                derreter completamente <span
+                class="math inline">\(50\,\text{g}\)</span> de gelo a
+                <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</p>
+                <p>Dado: <span class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span>.</p>
+                <p><strong>Dados:</strong></p>
+                <ul>
+                <li><span class="math inline">\(m =
+                50\,\text{g}\)</span></li>
+                <li><span class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span></li>
+                </ul>
+                <p><strong>Cálculo:</strong></p>
+                <p><span class="math display">\[
+                Q = mL
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 50 \cdot 80
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 4000\,\text{cal}
+                \]</span></p>
+                <p><strong>Resposta:</strong> são necessárias
+                <strong><span
+                class="math inline">\(4000\,\text{cal}\)</span></strong>
+                para derreter o gelo.</p>
+                <p><strong>Exemplo 6.2 - Vaporização da
+                Água</strong></p>
+                <p>Determine a quantidade de calor necessária para
+                vaporizar completamente <span
+                class="math inline">\(20\,\text{g}\)</span> de água
+                líquida a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</p>
+                <p>Dado: <span class="math inline">\(L_v =
+                540\,\text{cal}/\text{g}\)</span>.</p>
+                <p><strong>Dados:</strong></p>
+                <ul>
+                <li><span class="math inline">\(m =
+                20\,\text{g}\)</span></li>
+                <li><span class="math inline">\(L_v =
+                540\,\text{cal}/\text{g}\)</span></li>
+                </ul>
+                <p><strong>Cálculo:</strong></p>
+                <p><span class="math display">\[
+                Q = mL
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 20 \cdot 540
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 10800\,\text{cal}
+                \]</span></p>
+                <p><strong>Resposta:</strong> são necessárias
+                <strong><span
+                class="math inline">\(10800\,\text{cal}\)</span></strong>.</p>
+                <h1 id="calor-latente-recebido-e-cedido">Calor Latente
+                Recebido e Cedido</h1>
+                <p>Quando uma substância muda para um estado físico de
+                maior energia, ela recebe calor:</p>
+                <ul>
+                <li>fusão: sólido <span
+                class="math inline">\(\rightarrow\)</span> líquido;</li>
+                <li>vaporização: líquido <span
+                class="math inline">\(\rightarrow\)</span> gasoso;</li>
+                <li>sublimação: sólido <span
+                class="math inline">\(\rightarrow\)</span> gasoso.</li>
+                </ul>
+                <p>Nesses casos, normalmente consideramos <span
+                class="math inline">\(Q &gt; 0\)</span>.</p>
+                <p>Quando uma substância muda para um estado físico de
+                menor energia, ela perde calor:</p>
+                <ul>
+                <li>solidificação: líquido <span
+                class="math inline">\(\rightarrow\)</span> sólido;</li>
+                <li>condensação: gasoso <span
+                class="math inline">\(\rightarrow\)</span> líquido;</li>
+                <li>ressublimação: gasoso <span
+                class="math inline">\(\rightarrow\)</span> sólido.</li>
+                </ul>
+                <p>Nesses casos, normalmente consideramos <span
+                class="math inline">\(Q &lt; 0\)</span>.</p>
+                <p>Em muitos exercícios, o objetivo é calcular o módulo
+                da quantidade de calor. Por isso, o resultado pode
+                aparecer apenas como um valor positivo acompanhado da
+                ideia de “calor liberado” ou “calor recebido”.</p>
+                <h1 id="curva-de-aquecimento-da-água">Curva de
+                Aquecimento da Água</h1>
+                <p>Considere uma amostra de gelo inicialmente a <span
+                class="math inline">\(-20\,^\circ\text{C}\)</span> sendo
+                aquecida até se transformar em vapor a <span
+                class="math inline">\(120\,^\circ\text{C}\)</span>, sob
+                pressão normal.</p>
+                <p>O processo pode ser dividido em cinco etapas:</p>
+                <ol type="1">
+                <li>Aquecimento do gelo de <span
+                class="math inline">\(-20\,^\circ\text{C}\)</span> até
+                <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</li>
+                <li>Fusão do gelo a <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</li>
+                <li>Aquecimento da água líquida de <span
+                class="math inline">\(0\,^\circ\text{C}\)</span> até
+                <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</li>
+                <li>Vaporização da água a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</li>
+                <li>Aquecimento do vapor de <span
+                class="math inline">\(100\,^\circ\text{C}\)</span> até
+                <span
+                class="math inline">\(120\,^\circ\text{C}\)</span>.</li>
+                </ol>
+                <p>Nas etapas 1, 3 e 5 ocorre <strong>calor
+                sensível</strong>, pois a temperatura varia. A fórmula
+                usada é <span class="math inline">\(Q =
+                mc\Delta\theta\)</span>.</p>
+                <p>Nas etapas 2 e 4 ocorre <strong>calor
+                latente</strong>, pois há mudança de estado físico e a
+                temperatura permanece constante. Na fusão, usamos <span
+                class="math inline">\(Q = mL_f\)</span>. Na vaporização,
+                usamos <span class="math inline">\(Q =
+                mL_v\)</span>.</p>
+                <figure>
+                <img
+                src="images/fig-grafico-aquecimento-substancia-pura.png"
+                style="width:90.0%"
+                alt="Curva de aquecimento de uma substância pura, com trechos de calor sensível e patamares de calor latente. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Curva de aquecimento de
+                uma substância pura, com trechos de calor sensível e
+                patamares de calor latente. Fonte: elaboração
+                própria.</figcaption>
+                </figure>
+                <p>A curva de aquecimento mostra que a temperatura não
+                aumenta de maneira uniforme durante todo o processo. Nos
+                trechos inclinados, a temperatura varia e temos calor
+                sensível. Nos trechos horizontais, a temperatura fica
+                constante e temos calor latente.</p>
+                <p>Os patamares do gráfico representam mudanças de fase.
+                Neles, a energia fornecida não aumenta a agitação média
+                das partículas; ela altera a organização entre elas,
+                permitindo a passagem de um estado físico para
+                outro.</p>
+                <h1
+                id="problemas-com-calor-sensível-e-calor-latente">Problemas
+                com Calor Sensível e Calor Latente</h1>
+                <p>Quando um problema envolve aquecimento ou
+                resfriamento com mudança de fase, devemos dividir o
+                processo em etapas.</p>
+                <p>O procedimento geral é:</p>
+                <ol type="1">
+                <li>Identificar o estado físico inicial e a temperatura
+                inicial.</li>
+                <li>Identificar o estado físico final e a temperatura
+                final.</li>
+                <li>Separar o caminho em etapas de aquecimento,
+                resfriamento e mudança de fase.</li>
+                <li>Usar <span class="math inline">\(Q =
+                mc\Delta\theta\)</span> nas etapas com variação de
+                temperatura.</li>
+                <li>Usar <span class="math inline">\(Q = mL\)</span> nas
+                etapas com mudança de fase.</li>
+                <li>Somar as quantidades de calor de todas as
+                etapas.</li>
+                </ol>
+                <p><strong>Exemplo 6.3 - Gelo a Temperatura
+                Negativa</strong></p>
+                <p>Qual quantidade de calor é necessária para
+                transformar <span
+                class="math inline">\(100\,\text{g}\)</span> de gelo a
+                <span class="math inline">\(-10\,^\circ\text{C}\)</span>
+                em água líquida a <span
+                class="math inline">\(20\,^\circ\text{C}\)</span>?</p>
+                <p>Dados:</p>
+                <ul>
+                <li><span class="math inline">\(c_{\text{gelo}} =
+                0{,}50\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>;</li>
+                <li><span class="math inline">\(c_{\text{água}} =
+                1{,}00\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>;</li>
+                <li><span class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span>.</li>
+                </ul>
+                <p><strong>Etapa 1: aquecer o gelo de <span
+                class="math inline">\(-10\,^\circ\text{C}\)</span> até
+                <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</strong></p>
+                <p><span class="math display">\[
+                Q_1 = mc_{\text{gelo}}\Delta\theta
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_1 = 100 \cdot 0{,}50 \cdot (0 - (-10))
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_1 = 500\,\text{cal}
+                \]</span></p>
+                <p><strong>Etapa 2: derreter o gelo a <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>.</strong></p>
+                <p><span class="math display">\[
+                Q_2 = mL_f
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_2 = 100 \cdot 80
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_2 = 8000\,\text{cal}
+                \]</span></p>
+                <p><strong>Etapa 3: aquecer a água de <span
+                class="math inline">\(0\,^\circ\text{C}\)</span> até
+                <span
+                class="math inline">\(20\,^\circ\text{C}\)</span>.</strong></p>
+                <p><span class="math display">\[
+                Q_3 = mc_{\text{água}}\Delta\theta
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_3 = 100 \cdot 1{,}00 \cdot 20
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_3 = 2000\,\text{cal}
+                \]</span></p>
+                <p><strong>Calor total:</strong></p>
+                <p><span class="math display">\[
+                Q_{\text{total}} = Q_1 + Q_2 + Q_3
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{\text{total}} = 500 + 8000 + 2000
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{\text{total}} = 10500\,\text{cal}
+                \]</span></p>
+                <p><strong>Resposta:</strong> são necessárias
+                <strong><span
+                class="math inline">\(10500\,\text{cal}\)</span></strong>.</p>
+                <p><strong>Exemplo 6.4 - Água Fervendo e Virando
+                Vapor</strong></p>
+                <p>Determine a quantidade de calor necessária para
+                transformar <span
+                class="math inline">\(30\,\text{g}\)</span> de água
+                líquida a <span
+                class="math inline">\(25\,^\circ\text{C}\)</span> em
+                vapor a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</p>
+                <p>Dados:</p>
+                <ul>
+                <li><span class="math inline">\(c_{\text{água}} =
+                1{,}00\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>;</li>
+                <li><span class="math inline">\(L_v =
+                540\,\text{cal}/\text{g}\)</span>.</li>
+                </ul>
+                <p><strong>Etapa 1: aquecer a água de <span
+                class="math inline">\(25\,^\circ\text{C}\)</span> até
+                <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</strong></p>
+                <p><span class="math display">\[
+                Q_1 = mc\Delta\theta
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_1 = 30 \cdot 1{,}00 \cdot (100 - 25)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_1 = 2250\,\text{cal}
+                \]</span></p>
+                <p><strong>Etapa 2: vaporizar a água a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</strong></p>
+                <p><span class="math display">\[
+                Q_2 = mL_v
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_2 = 30 \cdot 540
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_2 = 16200\,\text{cal}
+                \]</span></p>
+                <p><strong>Calor total:</strong></p>
+                <p><span class="math display">\[
+                Q_{\text{total}} = 2250 + 16200 = 18450\,\text{cal}
+                \]</span></p>
+                <p><strong>Resposta:</strong> são necessárias
+                <strong><span
+                class="math inline">\(18450\,\text{cal}\)</span></strong>.</p>
+                <p><strong>Exemplo 6.5 - Resfriamento com
+                Condensação</strong></p>
+                <p>Uma massa de <span
+                class="math inline">\(10\,\text{g}\)</span> de vapor
+                d’água a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>
+                condensa completamente, formando água líquida a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.
+                Determine a quantidade de calor liberada.</p>
+                <p>Dado: <span class="math inline">\(L_v =
+                540\,\text{cal}/\text{g}\)</span>.</p>
+                <p><span class="math display">\[
+                Q = mL_v
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 10 \cdot 540
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 5400\,\text{cal}
+                \]</span></p>
+                <p><strong>Resposta:</strong> o vapor libera
+                <strong><span
+                class="math inline">\(5400\,\text{cal}\)</span></strong>
+                ao condensar.</p>
+                <h1 id="potência-térmica-e-mudança-de-fase">Potência
+                Térmica e Mudança de Fase</h1>
+                <p>Quando uma fonte térmica transfere calor com potência
+                constante, podemos relacionar calor e tempo pela
+                expressão:</p>
+                <p><span class="math display">\[
+                \boxed{P = \frac{Q}{\Delta t}}
+                \]</span></p>
+                <p>No Sistema Internacional, usamos:</p>
+                <ul>
+                <li><span class="math inline">\(P\)</span> em watt
+                (W);</li>
+                <li><span class="math inline">\(Q\)</span> em joule
+                (J);</li>
+                <li><span class="math inline">\(\Delta t\)</span> em
+                segundo (s).</li>
+                </ul>
+                <p>Como:</p>
+                <p><span class="math display">\[
+                1\,\text{cal} \approx 4{,}2\,\text{J}
+                \]</span></p>
+                <p>às vezes é necessário converter calorias para joules
+                antes de calcular o tempo.</p>
+                <p><strong>Exemplo 6.6 - Tempo Para Derreter
+                Gelo</strong></p>
+                <p>Um aquecedor fornece potência térmica de <span
+                class="math inline">\(420\,\text{W}\)</span> a uma
+                amostra de <span
+                class="math inline">\(50\,\text{g}\)</span> de gelo a
+                <span class="math inline">\(0\,^\circ\text{C}\)</span>.
+                Desprezando perdas, quanto tempo é necessário para
+                derreter completamente o gelo?</p>
+                <p>Dados:</p>
+                <ul>
+                <li><span class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span>;</li>
+                <li><span class="math inline">\(1\,\text{cal} =
+                4{,}2\,\text{J}\)</span>.</li>
+                </ul>
+                <p>Primeiro, calculamos o calor necessário:</p>
+                <p><span class="math display">\[
+                Q = mL_f
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 50 \cdot 80 = 4000\,\text{cal}
+                \]</span></p>
+                <p>Convertendo para joules:</p>
+                <p><span class="math display">\[
+                Q = 4000 \cdot 4{,}2 = 16800\,\text{J}
+                \]</span></p>
+                <p>Agora calculamos o tempo:</p>
+                <p><span class="math display">\[
+                P = \frac{Q}{\Delta t}
+                \]</span></p>
+                <p><span class="math display">\[
+                \Delta t = \frac{Q}{P}
+                \]</span></p>
+                <p><span class="math display">\[
+                \Delta t = \frac{16800}{420}
+                \]</span></p>
+                <p><span class="math display">\[
+                \Delta t = 40\,\text{s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> são necessários
+                <strong><span
+                class="math inline">\(40\,\text{s}\)</span></strong>.</p>
+                <p><strong>Exemplo 6.7 - Interpretação do Gráfico de
+                Vaporização</strong></p>
+                <p>O gráfico a seguir representa o aquecimento de <span
+                class="math inline">\(10\,\text{g}\)</span> de uma
+                substância pura. A amostra recebe calor até atingir
+                <span class="math inline">\(100\,^\circ\text{C}\)</span>
+                e, depois, passa completamente da fase líquida para a
+                fase gasosa em <span
+                class="math inline">\(5\,\text{s}\)</span>.</p>
+                <figure>
+                <img src="images/fig-latente-1.png" style="width:80.0%"
+                alt="Gráfico de aquecimento com vaporização a 100\,^\circ\text{C}. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Gráfico de aquecimento
+                com vaporização a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.
+                Fonte: elaboração própria.</figcaption>
+                </figure>
+                <p>Determine:</p>
+                <ul>
+                <li>o calor sensível recebido no trecho <span
+                class="math inline">\(A \rightarrow B\)</span>;</li>
+                <li>o calor latente recebido no trecho <span
+                class="math inline">\(B \rightarrow C\)</span>;</li>
+                <li>o calor latente de vaporização da substância;</li>
+                <li>a potência média da fonte térmica no processo
+                completo.</li>
+                </ul>
+                <p>Pelo gráfico, no trecho <span class="math inline">\(A
+                \rightarrow B\)</span>:</p>
+                <p><span class="math display">\[
+                Q_{AB} = 300\,\text{cal}
+                \]</span></p>
+                <p>No trecho <span class="math inline">\(B \rightarrow
+                C\)</span>:</p>
+                <p><span class="math display">\[
+                Q_{BC} = 1100 - 300
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{BC} = 800\,\text{cal}
+                \]</span></p>
+                <p>Como o trecho <span class="math inline">\(B
+                \rightarrow C\)</span> representa mudança de fase:</p>
+                <p><span class="math display">\[
+                Q = mL
+                \]</span></p>
+                <p><span class="math display">\[
+                L = \frac{Q}{m}
+                \]</span></p>
+                <p><span class="math display">\[
+                L = \frac{800}{10}
+                \]</span></p>
+                <p><span class="math display">\[
+                L = 80\,\text{cal}/\text{g}
+                \]</span></p>
+                <p>O calor total recebido é <span
+                class="math inline">\(1100\,\text{cal}\)</span>.
+                Convertendo para joules:</p>
+                <p><span class="math display">\[
+                Q_{\text{total}} = 1100 \cdot 4{,}2
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{\text{total}} = 4620\,\text{J}
+                \]</span></p>
+                <p>Como o processo completo dura <span
+                class="math inline">\(5\,\text{s}\)</span>:</p>
+                <p><span class="math display">\[
+                P = \frac{Q}{\Delta t}
+                \]</span></p>
+                <p><span class="math display">\[
+                P = \frac{4620}{5}
+                \]</span></p>
+                <p><span class="math display">\[
+                P = 924\,\text{W}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(Q_{AB}=300\,\text{cal}\)</span>,
+                <span
+                class="math inline">\(Q_{BC}=800\,\text{cal}\)</span>,
+                <span
+                class="math inline">\(L=80\,\text{cal}/\text{g}\)</span>
+                e <span
+                class="math inline">\(P=924\,\text{W}\)</span>.</p>
+                <p><strong>Exemplo 6.8 - Interpretação do Gráfico com
+                Fusão</strong></p>
+                <p>O gráfico a seguir representa o aquecimento de <span
+                class="math inline">\(50\,\text{g}\)</span> de uma
+                substância inicialmente sólida. Considere <span
+                class="math inline">\(c_{\text{sólido}} =
+                0{,}50\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span> e
+                <span class="math inline">\(c_{\text{líquido}} =
+                1{,}00\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>.</p>
+                <figure>
+                <img src="images/fig-latente-3.png" style="width:80.0%"
+                alt="Gráfico de aquecimento com fusão no patamar entre B e C. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Gráfico de aquecimento
+                com fusão no patamar entre B e C. Fonte: elaboração
+                própria.</figcaption>
+                </figure>
+                <p>Determine:</p>
+                <ul>
+                <li>a temperatura inicial <span
+                class="math inline">\(T_A\)</span>;</li>
+                <li>a temperatura final <span
+                class="math inline">\(T_D\)</span>;</li>
+                <li>o calor latente de fusão da substância.</li>
+                </ul>
+                <p>No trecho <span class="math inline">\(A \rightarrow
+                B\)</span>, a substância recebe <span
+                class="math inline">\(500\,\text{cal}\)</span> e chega a
+                <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>:</p>
+                <p><span class="math display">\[
+                Q = mc\Delta\theta
+                \]</span></p>
+                <p><span class="math display">\[
+                500 = 50 \cdot 0{,}50 \cdot (0 - T_A)
+                \]</span></p>
+                <p><span class="math display">\[
+                500 = 25 \cdot (0 - T_A)
+                \]</span></p>
+                <p><span class="math display">\[
+                T_A = -20\,^\circ\text{C}
+                \]</span></p>
+                <p>No trecho <span class="math inline">\(C \rightarrow
+                D\)</span>, a substância recebe:</p>
+                <p><span class="math display">\[
+                Q_{CD} = 6000 - 4500
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{CD} = 1500\,\text{cal}
+                \]</span></p>
+                <p>Como esse trecho ocorre na fase líquida:</p>
+                <p><span class="math display">\[
+                1500 = 50 \cdot 1{,}00 \cdot (T_D - 0)
+                \]</span></p>
+                <p><span class="math display">\[
+                T_D = 30\,^\circ\text{C}
+                \]</span></p>
+                <p>No trecho <span class="math inline">\(B \rightarrow
+                C\)</span>, ocorre a fusão:</p>
+                <p><span class="math display">\[
+                Q_{BC} = 4500 - 500
+                \]</span></p>
+                <p><span class="math display">\[
+                Q_{BC} = 4000\,\text{cal}
+                \]</span></p>
+                <p>Logo:</p>
+                <p><span class="math display">\[
+                L_f = \frac{Q_{BC}}{m}
+                \]</span></p>
+                <p><span class="math display">\[
+                L_f = \frac{4000}{50}
+                \]</span></p>
+                <p><span class="math display">\[
+                L_f = 80\,\text{cal}/\text{g}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(T_A=-20\,^\circ\text{C}\)</span>,
+                <span
+                class="math inline">\(T_D=30\,^\circ\text{C}\)</span> e
+                <span
+                class="math inline">\(L_f=80\,\text{cal}/\text{g}\)</span>.</p>
+                <h1 id="comportamento-anômalo-da-água">Comportamento
+                Anômalo da Água</h1>
+                <p>A maioria das substâncias aumenta de volume quando é
+                aquecida e diminui de volume quando é resfriada.</p>
+                <p>A água apresenta um comportamento especial entre
+                <span class="math inline">\(0\,^\circ\text{C}\)</span> e
+                <span
+                class="math inline">\(4\,^\circ\text{C}\)</span>.</p>
+                <p>Nesse intervalo:</p>
+                <ul>
+                <li>ao aquecer de <span
+                class="math inline">\(0\,^\circ\text{C}\)</span> para
+                <span class="math inline">\(4\,^\circ\text{C}\)</span>,
+                a água <strong>diminui de volume</strong>;</li>
+                <li>ao resfriar de <span
+                class="math inline">\(4\,^\circ\text{C}\)</span> para
+                <span class="math inline">\(0\,^\circ\text{C}\)</span>,
+                a água <strong>aumenta de volume</strong>.</li>
+                </ul>
+                <p>Isso significa que a água tem <strong>densidade
+                máxima a aproximadamente <span
+                class="math inline">\(4\,^\circ\text{C}\)</span></strong>.</p>
+                <p>Como a densidade é dada por:</p>
+                <p><span class="math display">\[
+                \rho = \frac{m}{V}
+                \]</span></p>
+                <p>para uma mesma massa, menor volume significa maior
+                densidade.</p>
+                <p>Por isso, a água a <span
+                class="math inline">\(4\,^\circ\text{C}\)</span> tende a
+                ficar no fundo de lagos e rios em regiões frias. A água
+                mais fria, próxima de <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>, fica
+                acima e pode congelar na superfície.</p>
+                <p>Esse fenômeno é importante para a vida aquática. Se a
+                água congelasse primeiro no fundo, muitos lagos poderiam
+                congelar completamente, prejudicando a sobrevivência dos
+                seres vivos.</p>
+                <p>Outra consequência importante é que o gelo flutua na
+                água líquida. Ao congelar, a água forma uma estrutura
+                mais aberta, com maior volume e menor densidade. Por
+                isso, um cubo de gelo fica na superfície do copo.</p>
+                <h1 id="como-resolver-problemas">Como Resolver
+                Problemas</h1>
+                <p>Para resolver exercícios de calor com mudança de
+                estado físico, siga esta sequência:</p>
+                <ol type="1">
+                <li>Veja se existe mudança de temperatura. Se existir,
+                use <span class="math inline">\(Q =
+                mc\Delta\theta\)</span>.</li>
+                <li>Veja se existe mudança de fase. Se existir, use
+                <span class="math inline">\(Q = mL\)</span>.</li>
+                <li>Divida o problema em etapas.</li>
+                <li>Use o calor específico correto para cada estado
+                físico.</li>
+                <li>Use o calor latente correto para cada mudança de
+                fase.</li>
+                <li>Se houver potência, converta o calor para joules
+                antes de usar <span class="math inline">\(P = Q/\Delta
+                t\)</span>.</li>
+                <li>No final, some os calores de todas as etapas.</li>
+                </ol>
+                <h1 id="erros-comuns">Erros Comuns</h1>
+                <ul>
+                <li>Usar <span class="math inline">\(Q =
+                mc\Delta\theta\)</span> durante uma mudança de
+                fase.</li>
+                <li>Usar <span class="math inline">\(Q = mL\)</span>
+                quando há apenas variação de temperatura.</li>
+                <li>Esquecer que, durante a fusão e a ebulição, a
+                temperatura permanece constante.</li>
+                <li>Misturar gramas com quilogramas sem converter as
+                unidades.</li>
+                <li>Esquecer de converter calorias para joules em
+                problemas com potência em watt.</li>
+                <li>Usar <span
+                class="math inline">\(c_{\text{água}}\)</span> para
+                aquecer gelo ou vapor.</li>
+                <li>Somar apenas uma etapa em problemas que têm
+                aquecimento e mudança de fase.</li>
+                </ul>
+                <h1 id="resumo-das-fórmulas">Resumo das Fórmulas</h1>
+                <p><strong>Calor sensível</strong></p>
+                <p><span class="math display">\[
+                \boxed{Q = mc\Delta\theta}
+                \]</span></p>
+                <p><strong>Calor latente</strong></p>
+                <p><span class="math display">\[
+                \boxed{Q = mL}
+                \]</span></p>
+                <p><strong>Potência térmica</strong></p>
+                <p><span class="math display">\[
+                \boxed{P = \frac{Q}{\Delta t}}
+                \]</span></p>
+                <p><strong>Conversão entre caloria e joule</strong></p>
+                <p><span class="math display">\[
+                \boxed{1\,\text{cal} \approx 4{,}2\,\text{J}}
+                \]</span></p>
+                <p><strong>Densidade</strong></p>
+                <p><span class="math display">\[
+                \boxed{\rho = \frac{m}{V}}
+                \]</span></p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>6.1)</dt>
+                <dd>
+                Durante a fusão de uma substância pura, sob pressão
+                constante, pode-se afirmar que:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>a temperatura diminui continuamente.</li>
+                <li>não há troca de calor.</li>
+                <li>a massa da substância aumenta.</li>
+                <li>a temperatura aumenta continuamente.</li>
+                <li>a temperatura permanece constante enquanto ocorre a
+                mudança de fase.</li>
+                </ol>
+                <dl>
+                <dt>6.2)</dt>
+                <dd>
+                O processo em que uma substância passa diretamente do
+                estado sólido para o estado gasoso é chamado de:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>condensação.</li>
+                <li>sublimação.</li>
+                <li>fusão.</li>
+                <li>vaporização.</li>
+                <li>solidificação.</li>
+                </ol>
+                <dl>
+                <dt>6.3)</dt>
+                <dd>
+                Sobre o comportamento anômalo da água, assinale a
+                alternativa correta.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>O gelo afunda na água líquida porque é mais
+                denso.</li>
+                <li>A água não sofre dilatação térmica.</li>
+                <li>Entre <span
+                class="math inline">\(0\,^\circ\text{C}\)</span> e <span
+                class="math inline">\(4\,^\circ\text{C}\)</span>, a água
+                sempre aumenta de volume ao ser aquecida.</li>
+                <li>A água tem densidade máxima a aproximadamente <span
+                class="math inline">\(4\,^\circ\text{C}\)</span>.</li>
+                <li>A água tem densidade máxima a aproximadamente <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>6.4)</dt>
+                <dd>
+                Determine a quantidade de calor necessária para derreter
+                <span class="math inline">\(25\,\text{g}\)</span> de
+                gelo a <span
+                class="math inline">\(0\,^\circ\text{C}\)</span>. Dado:
+                <span class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(2000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(8000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(250\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(1000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(4000\,\text{cal}\)</span></li>
+                </ol>
+                <dl>
+                <dt>6.5)</dt>
+                <dd>
+                Uma massa de <span
+                class="math inline">\(40\,\text{g}\)</span> de água
+                líquida a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span> é
+                totalmente vaporizada. Dado: <span
+                class="math inline">\(L_v =
+                540\,\text{cal}/\text{g}\)</span>. O calor necessário é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(54000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(5400\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(21600\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(540\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(2160\,\text{cal}\)</span></li>
+                </ol>
+                <dl>
+                <dt>6.6)</dt>
+                <dd>
+                Uma amostra de <span
+                class="math inline">\(100\,\text{g}\)</span> de água
+                líquida é aquecida de <span
+                class="math inline">\(20\,^\circ\text{C}\)</span> para
+                <span class="math inline">\(80\,^\circ\text{C}\)</span>.
+                Dado: <span class="math inline">\(c_{\text{água}} =
+                1{,}0\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>. A
+                quantidade de calor recebida é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(1000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(8000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(600\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(4000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(6000\,\text{cal}\)</span></li>
+                </ol>
+                <dl>
+                <dt>6.7)</dt>
+                <dd>
+                Determine a quantidade de calor necessária para
+                transformar <span
+                class="math inline">\(50\,\text{g}\)</span> de gelo a
+                <span class="math inline">\(0\,^\circ\text{C}\)</span>
+                em água líquida a <span
+                class="math inline">\(30\,^\circ\text{C}\)</span>.
+                Dados: <span class="math inline">\(L_f =
+                80\,\text{cal}/\text{g}\)</span> e <span
+                class="math inline">\(c_{\text{água}} =
+                1{,}0\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(7000\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(5500\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(2500\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(1500\,\text{cal}\)</span></li>
+                <li><span
+                class="math inline">\(4000\,\text{cal}\)</span></li>
+                </ol>
+                <dl>
+                <dt>6.8)</dt>
+                <dd>
+                O gráfico a seguir representa o aquecimento de <span
+                class="math inline">\(10\,\text{g}\)</span> de uma
+                substância pura. A amostra passa completamente da fase
+                líquida para a fase gasosa em <span
+                class="math inline">\(5\,\text{s}\)</span>.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/fig-latente-1.png" style="width:80.0%"
+                alt="Gráfico de aquecimento com vaporização a 100\,^\circ\text{C}. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Gráfico de aquecimento
+                com vaporização a <span
+                class="math inline">\(100\,^\circ\text{C}\)</span>.
+                Fonte: elaboração própria.</figcaption>
+                </figure>
+                <p>Com base no gráfico, o calor latente de vaporização
+                da substância e a potência média da fonte térmica são,
+                respectivamente:</p>
+                <ol type="a">
+                <li><span
+                class="math inline">\(80\,\text{cal}/\text{g}\)</span> e
+                <span class="math inline">\(924\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(30\,\text{cal}/\text{g}\)</span> e
+                <span class="math inline">\(252\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(110\,\text{cal}/\text{g}\)</span>
+                e <span
+                class="math inline">\(924\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(80\,\text{cal}/\text{g}\)</span> e
+                <span class="math inline">\(220\,\text{W}\)</span></li>
+                <li><span
+                class="math inline">\(800\,\text{cal}/\text{g}\)</span>
+                e <span
+                class="math inline">\(4620\,\text{W}\)</span></li>
+                </ol>
+                <dl>
+                <dt>6.9)</dt>
+                <dd>
+                O gráfico a seguir representa o aquecimento de <span
+                class="math inline">\(50\,\text{g}\)</span> de uma
+                substância inicialmente sólida. Considere <span
+                class="math inline">\(c_{\text{sólido}} =
+                0{,}50\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span> e
+                <span class="math inline">\(c_{\text{líquido}} =
+                1{,}00\,\text{cal}/(\text{g}\,^\circ\text{C})\)</span>.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/fig-latente-3.png" style="width:80.0%"
+                alt="Gráfico de aquecimento com fusão no patamar entre B e C. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Gráfico de aquecimento
+                com fusão no patamar entre B e C. Fonte: elaboração
+                própria.</figcaption>
+                </figure>
+                <p>As temperaturas nos pontos <span
+                class="math inline">\(A\)</span> e <span
+                class="math inline">\(D\)</span> são,
+                respectivamente:</p>
+                <ol type="a">
+                <li><span
+                class="math inline">\(-10\,^\circ\text{C}\)</span> e
+                <span
+                class="math inline">\(20\,^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(-20\,^\circ\text{C}\)</span> e
+                <span
+                class="math inline">\(40\,^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(-20\,^\circ\text{C}\)</span> e
+                <span
+                class="math inline">\(30\,^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(0\,^\circ\text{C}\)</span> e <span
+                class="math inline">\(30\,^\circ\text{C}\)</span></li>
+                <li><span
+                class="math inline">\(20\,^\circ\text{C}\)</span> e
+                <span
+                class="math inline">\(30\,^\circ\text{C}\)</span></li>
+                </ol>
+                <dl>
+                <dt>6.10)</dt>
+                <dd>
+                Ainda com base no gráfico do exercício anterior,
+                assinale a alternativa correta.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/fig-latente-3.png" style="width:80.0%"
+                alt="Gráfico de aquecimento com fusão no patamar entre B e C. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Gráfico de aquecimento
+                com fusão no patamar entre B e C. Fonte: elaboração
+                própria.</figcaption>
+                </figure>
+                <ol type="a">
+                <li>No trecho I ocorre calor latente, pois a temperatura
+                varia.</li>
+                <li>No trecho III ocorre mudança de fase, pois a
+                temperatura varia.</li>
+                <li>Entre <span class="math inline">\(B\)</span> e <span
+                class="math inline">\(C\)</span>, o calor latente de
+                fusão é <span
+                class="math inline">\(40\,\text{cal}/\text{g}\)</span>.</li>
+                <li>No trecho II ocorre fusão, com absorção de <span
+                class="math inline">\(4000\,\text{cal}\)</span>.</li>
+                <li>Entre <span class="math inline">\(C\)</span> e <span
+                class="math inline">\(D\)</span>, a substância permanece
+                sólida.</li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=tNYM4X8TD5g" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-curso-enem-gratuito-calor-latente-curva-aquecimento.png" alt="CALORIMETRIA: CALOR LATENTE E CURVA DE AQUECIMENTO" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">CALORIMETRIA: CALOR LATENTE E CURVA DE AQUECIMENTO</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=tNYM4X8TD5g" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Curso Enem Gratuito</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=tNYM4X8TD5g" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=H99synPKR-4" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-curso-enem-gratuito-calor-latente-exercicios.png" alt="CALOR LATENTE E CURVA DE AQUECIMENTO - EXERCÍCIOS RESOLVIDOS" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">CALOR LATENTE E CURVA DE AQUECIMENTO - EXERCÍCIOS RESOLVIDOS</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=H99synPKR-4" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Curso Enem Gratuito</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=H99synPKR-4" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=zNq6GZc7Ttk" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-khan-academy-calor-especifico-fusao-vaporizacao.png" alt="CALOR ESPECÍFICO, CALOR DE FUSÃO E VAPORIZAÇÃO" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">CALOR ESPECÍFICO, CALOR DE FUSÃO E VAPORIZAÇÃO</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=zNq6GZc7Ttk" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Khan Academy</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=zNq6GZc7Ttk" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=oGjcVkwjWao" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-boaro-trocas-de-calor-com-mudanca-de-fase.png" alt="TROCAS DE CALOR COM MUDANÇA DE FASE" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">TROCAS DE CALOR COM MUDANÇA DE FASE</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=oGjcVkwjWao" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Professor Boaro</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=oGjcVkwjWao" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>HEWITT, Paul G. <strong>Física Conceitual</strong>.
+                Porto Alegre: Bookman.</li>
+                <li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <strong>Fundamentos de Física: Gravitação, Ondas e
+                Termodinâmica</strong>. Rio de Janeiro: LTC.</li>
+                <li>YOUNG, Hugh D.; FREEDMAN, Roger A. <strong>Física
+                II: Termodinâmica e Ondas</strong>. São Paulo:
+                Pearson.</li>
+                <li>Wikimedia Commons. <strong>Ice cubes on
+                water.jpg</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ice_cubes_on_water.jpg"
+                class="uri">https://commons.wikimedia.org/wiki/Special:Redirect/file/Ice_cubes_on_water.jpg</a>.
+                Acesso em: 15 maio 2026.</li>
+                <li>Wikimedia Commons. <strong>Sublimation of dry
+                ice.jpg</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sublimation_of_dry_ice.jpg"
+                class="uri">https://commons.wikimedia.org/wiki/Special:Redirect/file/Sublimation_of_dry_ice.jpg</a>.
+                Acesso em: 15 maio 2026.</li>
+                <li>Wikimedia Commons. <strong>Water at
+                Boil.jpg</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Water_at_Boil.jpg"
+                class="uri">https://commons.wikimedia.org/wiki/Special:Redirect/file/Water_at_Boil.jpg</a>.
+                Acesso em: 15 maio 2026.</li>
+                <li>Wikimedia Commons.
+                <strong>Heating-Curve.png</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Heating-Curve.png"
+                class="uri">https://commons.wikimedia.org/wiki/Special:Redirect/file/Heating-Curve.png</a>.
+                Acesso em: 15 maio 2026.</li>
+                <li>Curso Enem Gratuito. <strong>Calorimetria: calor
+                latente e curva de aquecimento</strong>. Disponível em:
+                <a href="https://www.youtube.com/watch?v=tNYM4X8TD5g"
+                class="uri">https://www.youtube.com/watch?v=tNYM4X8TD5g</a>.
+                Acesso em: 15 maio 2026.</li>
+                <li>Curso Enem Gratuito. <strong>Calor latente e curva
+                de aquecimento - exercícios resolvidos</strong>.
+                Disponível em: <a
+                href="https://www.youtube.com/watch?v=H99synPKR-4"
+                class="uri">https://www.youtube.com/watch?v=H99synPKR-4</a>.
+                Acesso em: 15 maio 2026.</li>
+                <li>Khan Academy. <strong>Calor específico, calor de
+                fusão e vaporização</strong>. Disponível em: <a
+                href="https://www.youtube.com/watch?v=zNq6GZc7Ttk"
+                class="uri">https://www.youtube.com/watch?v=zNq6GZc7Ttk</a>.
+                Acesso em: 15 maio 2026.</li>
+                <li>Professor Boaro. <strong>Trocas de calor com mudança
+                de fase</strong>. Disponível em: <a
+                href="https://www.youtube.com/watch?v=oGjcVkwjWao"
+                class="uri">https://www.youtube.com/watch?v=oGjcVkwjWao</a>.
+                Acesso em: 15 maio 2026.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Calor latente,
+mudanças de fase, curvas de aquecimento, calor sensível e calor latente,
+comportamento anômalo da água</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
