@@ -21,29 +21,45 @@ disciplinas:
       - name: "Aula 01 - Conceitos Iniciais"
         html: "content/aulas/EM-Termo1/Aula-01/termo1-aula-01.html"
         pdf: "https://drive.google.com/file/d/1kxr2MRukFEOscdmmH0-JRXcGjSaLzb1Q/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/1XfSArOOQDilRaLlAa-98vcjiPFb15hVx/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 02 - Escalas Termométricas"
         html: "content/aulas/EM-Termo1/Aula-02/termo1-aula-02.html"
         pdf: "https://drive.google.com/file/d/1SMKy_yDz66XZ-aH1R35iCJ8mAyt28PsZ/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/1F8XWHRJrIa273YByO9zPo_OXQ056JrQh/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 03 - Variação e Escalas Arbitrárias"
         html: "content/aulas/EM-Termo1/Aula-03/termo1-aula-03.html"
         pdf: "https://drive.google.com/file/d/1VBTwE__4T5X-AlBBJK-rpu8e84GdUF9D/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/10CvxzSkHeUHhu1P_lskT0F45EuMh8CNd/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 04 - Dilatação Térmica dos Sólidos"
         html: "content/aulas/EM-Termo1/Aula-04/termo1-aula-04.html"
         pdf: "https://drive.google.com/file/d/1rkmVlq5IEYEXnvECwo-_KJsFgemDrN3b/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/1cc5Tp9pwfO7NjAs37_FQ3vXdWMpP10Ts/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 05 - Calor com Mudança de Temperatura"
         html: "content/aulas/EM-Termo1/Aula-05/termo-aula-05.html"
         pdf: "https://drive.google.com/file/d/1s5MbcoX73FKzRTQuxuV7ILT9sXlyIvbv/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/164E0twFjZaqyoAOCEOFqZwQ15n_Bdae0/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 06 - Calor com Mudança de Estado Físico"
         html: "content/aulas/EM-Termo1/Aula-06/termo-aula-06.html"
         pdf: "https://drive.google.com/file/d/1aMtdC7-f8lWrEdrAXxAASWEOq9_sH4nJ/view?usp=drive_link"         
+        answers_pdf: "https://drive.google.com/file/d/1smTeIhhWFI3l-CZMd5q7OtOUjxvTdA67/view?usp=drive_link"
+        answers_released: false
   - disciplina: "Física Moderna 1"
     aulas:
       - name: "Aula 01 - Concepções Históricas"
         html: "content/aulas/ES-FM1/Aula-01/fmi-aula-01.html"
         pdf: "https://drive.google.com/file/d/1HVOpUChU1AqMkq-2gqXbgfrzgjvJVo7r/view?usp=drive_link"  
+        answers_pdf: "https://drive.google.com/file/d/1m_HZZvbVyJElZbbc_EWV3updH8apysty/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 02 - Quantização da Carga: Experimentos de Thomson"
         html: "content/aulas/ES-FM1/Aula-02/fmi-aula-02.html"
         pdf: "https://drive.google.com/file/d/1sclyLmf2b4PVMojhf1FAnlKdScoOT1cQ/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/188oGER_pHc5SJYuQ1Ori8eHEORtD8ceE/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 03 - Quantização da Carga: Experimento de Millikan"
         html: "content/aulas/ES-FM1/Aula-03/fmi-aula-03.html"
         pdf: "https://drive.google.com/file/d/1rKq9cwEij5WhWVHnB0MXRGu_AjEN8PLk/view?usp=drive_link" 
@@ -53,6 +69,8 @@ disciplinas:
       - name: "Aula 05 - Efeito Fotoelétrico"
         html: "content/aulas/ES-FM1/Aula-05/fmi-aula-05.html"
         pdf: "https://drive.google.com/file/d/1lS4vi7C_pSABzBNrMgHILqjhN5Jwuv7e/view?usp=drive_link"         
+        answers_pdf: "https://drive.google.com/file/d/1oOXSG0wQl6npCf4jOfdmqG7l6q48b1dJ/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 06 - Efeito Compton e Difração de Elétrons"
         html: "content/aulas/ES-FM1/Aula-06/fmi-aula-06.html"
         pdf: "https://drive.google.com/file/d/1VBy33hw1v25VnYtj1CduFhYIx_FpHPa2/view?usp=drive_link"
@@ -61,19 +79,28 @@ disciplinas:
       - name: "Aula 01 - Introdução à Mecânica dos Fluidos"
         html: "content/aulas/ES-MecFlu/Aula-01/mecflu-aula-01.html"
         pdf: "https://drive.google.com/file/d/1lgyDwLjXzPRQcCz-WivB5q2hd6nNzM7k/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/1h0pyqsaucaSSvR79QUuDNmA9oxFOmegH/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 02 - Unidades de Medida e Conversões"
         html: "content/aulas/ES-MecFlu/Aula-02/mecflu-aula-02.html"
         pdf: "https://drive.google.com/file/d/1R6hXrO9L4JE9NrelOfJgao8EAILLrFrB/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/1tsM8atgdLSANqmFYYjyGWPyTli6a7LGU/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 03 - Teorema de Stevin"
         html: "content/aulas/ES-MecFlu/Aula-03/mecflu-aula-03.html"
         pdf: "https://drive.google.com/file/d/1mZh6_FgNRZnxJRCdBwF-0x0c5gUJ-OMh/view?usp=drive_link" 
+        answers_pdf: "https://drive.google.com/file/d/1Gd5djgtkRufSDuE0Q3rJtbvZpUFTxxxl/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 04 - Vasos Comunicantes com Líquidos Imiscíveis"
         html: "content/aulas/ES-MecFlu/Aula-04/mecflu-aula-04.html"
         pdf: "https://drive.google.com/file/d/1UgUqw9m_cmghVUHV1xHtE8VdEbxjHC-Y/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/12m1rV5TjqHD2YLiezzW1j0fQfD_vNimJ/view?usp=drive_link"
+        answers_released: false
       - name: "Aula 05 - Manômetros e Princípio de Pascal"
         html: "content/aulas/ES-MecFlu/Aula-05/mecflu-aula-05.html"
         pdf: "https://drive.google.com/file/d/1l2wCa1yjOl3ApmS_SIZ7HZoqiiQAzWoB/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/1EIva3-gOdssWQoB5ZJN078ts1RK4_gMy/view?usp=drive_link"
+        answers_released: false
 blog:
   posts:
     - title: "Algoritmos Quânticos"

@@ -122,6 +122,14 @@ def create_analytics_snippet(config):
 
     return ''
 
+def clean_generated_html(html_content):
+    """Remove espacos finais para manter o HTML gerado limpo para commit."""
+    return '\n'.join(line.rstrip() for line in html_content.splitlines()) + '\n'
+
+def answers_are_released(aula):
+    """Retorna True apenas quando as respostas foram liberadas manualmente."""
+    return bool(aula.get('answers_pdf')) and aula.get('answers_released') is True
+
 def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.github.io/"):
     """
     Gera sitemap.xml para melhor SEO no GitHub Pages.
@@ -214,6 +222,8 @@ def validate_build_output(config, output_dir):
             answers_pdf = aula.get('answers_pdf', '')
             if isinstance(answers_pdf, str) and answers_pdf.startswith('/home/'):
                 warnings.append(f"PDF local de respostas em aula '{aula['name']}': {answers_pdf}")
+            if answers_pdf and 'answers_released' not in aula:
+                warnings.append(f"Respostas sem campo answers_released em aula '{aula['name']}'")
 
     expected_posts = []
     for post in config.get('blog', {}).get('posts', []):
@@ -798,8 +808,8 @@ def generate_html_page(title, content, config, active_page=None, page_path='/', 
     <script src="{base_url}js/main.js"></script>
 </body>
 </html>'''
-    
-    return rewrite_internal_urls(html, base_url)
+
+    return clean_generated_html(rewrite_internal_urls(html, base_url))
 
 # ============================================================================
 # FUNÇÕES DE BUILD COM CACHE (MANTIDAS COM PEQUENAS MODIFICAÇÕES)
@@ -935,7 +945,7 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
                                     </a>
                 '''
 
-            if aula.get('answers_pdf'):
+            if answers_are_released(aula):
                 disciplinas_html += f'''
                                     <a href="{aula['answers_pdf']}" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
                                         <i class="bi bi-check2-square"></i> Respostas
@@ -997,6 +1007,8 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
     """Gera páginas individuais de aulas com cache - VERSÃO CORRIGIDA"""
     total_generated = 0
     total_skipped = 0
+    config_hash = calculate_file_hash('config.yaml')
+    config_changed = file_hashes.get('config.yaml') != config_hash
     
     for disciplina in config['disciplinas']:
         print(f"\n  📘 Disciplina: {disciplina['disciplina']}")
@@ -1011,6 +1023,9 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
             
             # Verificar se precisa reconstruir
             rebuild, reason = needs_rebuild(source_file, 'content', current_hash, cache, file_hashes)
+            if BUILD_MODE == 'incremental' and not rebuild and config_changed:
+                rebuild = True
+                reason = f"config.yaml alterado: {file_hashes.get('config.yaml')} -> {config_hash}"
             
             # Verificar se imagens foram alteradas
             aula_path = Path(source_file).parent
@@ -1057,7 +1072,7 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
                 </div>
                 '''
             answers_pdf_button = ''
-            if aula.get('answers_pdf'):
+            if answers_are_released(aula):
                 answers_pdf_button = f'''
                 <div class="text-center mb-4">
                     <a href="{aula['answers_pdf']}" 
@@ -1141,9 +1156,10 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
             
             # Atualizar cache
             file_hashes[source_file] = current_hash
-            update_cache_entry(cache, str(output_file), [source_file])
+            update_cache_entry(cache, str(output_file), [source_file, 'config.yaml'])
             total_generated += 1
     
+    file_hashes['config.yaml'] = config_hash
     return total_generated, total_skipped
 
 def generate_blog_page_with_cache(config, output_dir, cache, file_hashes):

@@ -429,7 +429,7 @@ def update_yaml_field(config_path: Path, html_value: str, field_name: str, field
     insert_at = html_idx + 1
     for idx in range(html_idx + 1, len(lines)):
         stripped = lines[idx].strip()
-        if stripped.startswith("- name:") or stripped.startswith("- title:") or stripped.startswith("- disciplina:"):
+        if stripped.startswith("- name:") or stripped.startswith("- title:") or stripped.startswith("- disciplina:") or stripped.startswith("blog:"):
             break
         if field_re.match(lines[idx].rstrip("\n")):
             if lines[idx] == replacement:
@@ -457,12 +457,57 @@ def update_yaml_answers_pdf(config_path: Path, html_value: str, answers_pdf_url:
     return update_yaml_field(config_path, html_value, "answers_pdf", answers_pdf_url, dry_run=dry_run)
 
 
+def update_yaml_bool(config_path: Path, html_value: str, field_name: str, field_value: bool, dry_run: bool = False) -> bool:
+    lines = config_path.read_text(encoding="utf-8").splitlines(keepends=True)
+    html_re = re.compile(r"^(\s*)html:\s*(['\"]?)([^'\"\n]+)(['\"]?)\s*$")
+    field_re = re.compile(rf"^(\s*){re.escape(field_name)}:\s*.*$")
+
+    html_idx = None
+    html_indent = ""
+    for idx, line in enumerate(lines):
+        match = html_re.match(line.rstrip("\n"))
+        if match and match.group(3) == html_value:
+            html_idx = idx
+            html_indent = match.group(1)
+            break
+    if html_idx is None:
+        raise PublishError(f"Entrada html nao encontrada no YAML: {html_value}")
+
+    replacement = f"{html_indent}{field_name}: {'true' if field_value else 'false'}\n"
+    insert_at = html_idx + 1
+    for idx in range(html_idx + 1, len(lines)):
+        stripped = lines[idx].strip()
+        if stripped.startswith("- name:") or stripped.startswith("- title:") or stripped.startswith("- disciplina:") or stripped.startswith("blog:"):
+            break
+        if field_re.match(lines[idx].rstrip("\n")):
+            if lines[idx] == replacement:
+                log(f"config.yaml ja continha o valor atual de {field_name}.")
+                return False
+            log(f"Atualizando {field_name} em config.yaml para {html_value}")
+            if not dry_run:
+                lines[idx] = replacement
+                config_path.write_text("".join(lines), encoding="utf-8")
+            return True
+        insert_at = idx + 1
+
+    log(f"Inserindo {field_name} em config.yaml para {html_value}")
+    if not dry_run:
+        lines.insert(insert_at, replacement)
+        config_path.write_text("".join(lines), encoding="utf-8")
+    return True
+
+
+def update_yaml_answers_released(config_path: Path, html_value: str, released: bool, dry_run: bool = False) -> bool:
+    return update_yaml_bool(config_path, html_value, "answers_released", released, dry_run=dry_run)
+
+
 def build_new_lesson_block(
     lesson_name: str,
     html_value: str,
     pdf_url: str,
     indent: str,
     answers_pdf_url: str | None = None,
+    answers_released: bool = False,
 ) -> str:
     block = (
         f"{indent}- name: \"{lesson_name}\"\n"
@@ -471,6 +516,7 @@ def build_new_lesson_block(
     )
     if answers_pdf_url:
         block += f"{indent}  answers_pdf: \"{answers_pdf_url}\"\n"
+        block += f"{indent}  answers_released: {'true' if answers_released else 'false'}\n"
     return block
 
 
@@ -481,6 +527,7 @@ def insert_new_lesson_entry(
     html_value: str,
     pdf_url: str,
     answers_pdf_url: str | None = None,
+    answers_released: bool = False,
     dry_run: bool = False,
 ) -> bool:
     lines = config_path.read_text(encoding="utf-8").splitlines(keepends=True)
@@ -512,6 +559,7 @@ def insert_new_lesson_entry(
         html_value,
         pdf_url,
         answers_pdf_url=answers_pdf_url,
+        answers_released=answers_released,
         indent=base_indent + "    ",
     )
     if dry_run:
@@ -536,6 +584,15 @@ def drive_folder_parts(client: DriveClient, source_pdf: Path) -> list[str]:
             "Isso enviaria para a raiz do Drive; mova a aula para a arvore sincronizada ou ajuste local_folder."
         )
     return list(relative_parent.parts)
+
+
+def parse_drive_folder_parts(value: str | None) -> list[str] | None:
+    if not value:
+        return None
+    parts = [part.strip() for part in re.split(r"[\\/]+", value) if part.strip()]
+    if not parts:
+        raise PublishError("--answers-drive-folder nao pode ser vazio.")
+    return parts
 
 
 def git_dirty_paths() -> set[str]:
@@ -637,6 +694,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--pdf", help="PDF gerado. Padrao: unico *.pdf da pasta.")
     parser.add_argument("--answers-pdf", help="PDF de respostas/solucoes, normalmente resp-*.pdf.")
     parser.add_argument("--auto-answers", action="store_true", help="Publica automaticamente o unico resp-*.pdf da pasta.")
+    parser.add_argument("--answers-released", action="store_true", help="Marca as respostas como liberadas no config.yaml.")
+    parser.add_argument(
+        "--answers-drive-folder",
+        help="Pasta do Drive para PDFs de respostas, relativa a drive_folder_id. Ex.: Respostas/FM1",
+    )
     parser.add_argument("--content-html", help="Caminho content/... correspondente no config.yaml.")
     parser.add_argument("--lesson-name", help="Nome da aula quando for preciso criar uma entrada nova.")
     parser.add_argument("--discipline-name", help="Nome da disciplina para criar uma entrada nova.")
@@ -656,6 +718,7 @@ def main(argv: list[str] | None = None) -> int:
     lesson_dir = Path(args.lesson_dir).expanduser().resolve()
     source_pdf = resolve_source_pdf(lesson_dir, args.pdf, None)
     source_answers_pdf = resolve_answers_pdf(lesson_dir, args.answers_pdf, args.auto_answers)
+    answers_drive_folder_parts = parse_drive_folder_parts(args.answers_drive_folder)
     source_html = resolve_source_html(lesson_dir, args.html, source_pdf)
     config_path = (REPO_ROOT / args.config).resolve()
     assert_in_repo(config_path)
@@ -698,14 +761,19 @@ def main(argv: list[str] | None = None) -> int:
         pdf_url = client.upload_pdf(source_pdf, folder_id, dry_run=args.dry_run)
         log(f"Link do PDF: {pdf_url}")
         if source_answers_pdf:
-            answers_folder_parts = drive_folder_parts(client, source_answers_pdf)
-            if answers_folder_parts != folder_parts:
+            answers_folder_parts = answers_drive_folder_parts or drive_folder_parts(client, source_answers_pdf)
+            if answers_drive_folder_parts is None and answers_folder_parts != folder_parts:
                 raise PublishError(
                     "O PDF de respostas precisa estar na mesma pasta da aula principal. "
                     f"Aula: {'/'.join(folder_parts)}; respostas: {'/'.join(answers_folder_parts)}"
                 )
+            if answers_drive_folder_parts is not None:
+                log("Pasta de respostas no Drive: " + "/".join(answers_folder_parts))
+                answers_folder_id = client.ensure_folder_path(answers_folder_parts, dry_run=args.dry_run)
+            else:
+                answers_folder_id = folder_id
             log(f"Enviando PDF de respostas para o Drive: {source_answers_pdf.name}")
-            answers_pdf_url = client.upload_pdf(source_answers_pdf, folder_id, dry_run=args.dry_run)
+            answers_pdf_url = client.upload_pdf(source_answers_pdf, answers_folder_id, dry_run=args.dry_run)
             log(f"Link do PDF de respostas: {answers_pdf_url}")
         if existing_html_value is None:
             lesson_name = args.lesson_name or lesson_dir.name.replace("-", " ")
@@ -718,6 +786,7 @@ def main(argv: list[str] | None = None) -> int:
                 html_value=html_value,
                 pdf_url=pdf_url,
                 answers_pdf_url=answers_pdf_url,
+                answers_released=args.answers_released,
                 dry_run=args.dry_run,
             ):
                 touched.append(config_path)
@@ -725,6 +794,13 @@ def main(argv: list[str] | None = None) -> int:
             if update_yaml_pdf(config_path, html_value, pdf_url, dry_run=args.dry_run):
                 touched.append(config_path)
             if answers_pdf_url and update_yaml_answers_pdf(config_path, html_value, answers_pdf_url, dry_run=args.dry_run):
+                touched.append(config_path)
+            if answers_pdf_url and update_yaml_answers_released(
+                config_path,
+                html_value,
+                args.answers_released,
+                dry_run=args.dry_run,
+            ):
                 touched.append(config_path)
 
     if not args.skip_build:

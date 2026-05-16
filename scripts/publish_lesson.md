@@ -100,7 +100,7 @@ O fluxo interativo:
 1. lista as aulas encontradas;
 2. mostra quais ainda não estão completas no `content/` ou no `config.yaml`;
 3. faz `dry-run` obrigatório antes de alterar arquivos;
-4. publica aula e respostas, quando houver `resp-*.pdf`;
+4. publica aula e, se você confirmar, cadastra respostas sem liberar automaticamente;
 5. roda o build;
 6. mostra `git status`;
 7. pergunta antes de fazer commit;
@@ -115,6 +115,8 @@ Por segurança, ele exige repositório limpo para commit/push automático. Com `
 - `--pdf`: PDF principal, se houver mais de um PDF na pasta
 - `--answers-pdf`: PDF de respostas/soluções, normalmente `resp-*.pdf`
 - `--auto-answers`: publica automaticamente o único `resp-*.pdf` encontrado na pasta da aula
+- `--answers-released`: libera o botão de respostas no portal; sem essa opção, grava `answers_released: false`
+- `--answers-drive-folder`: pasta do Drive para PDFs de respostas, relativa ao `drive_folder_id` (ex.: `Respostas/FM1`)
 - `--content-html`: caminho exato no `content/` para o HTML de destino; se ainda não existir no `config.yaml`, será usado na criação da entrada nova
 - `--lesson-name`: nome da aula quando a entrada for nova
 - `--discipline-name`: nome da disciplina quando a entrada for nova
@@ -134,7 +136,9 @@ Por segurança, ele exige repositório limpo para commit/push automático. Com `
 - Se a aula ainda não estiver no `config.yaml`, o script cria a entrada nova com o link do PDF enviado ao Drive.
 - Para aula nova, `--skip-drive` é bloqueado: sem URL de PDF, a aula não entraria corretamente no `config.yaml`.
 - O PDF precisa estar dentro do `local_folder` definido em `/home/jefferson/Documentos/Gdrive/config/sync_config.json`; caso contrário, o script interrompe para evitar envio na pasta errada do Drive.
-- O PDF de respostas, quando usado, precisa estar na mesma pasta local da aula principal. Ele é enviado para a mesma pasta no Drive e gravado no YAML como `answers_pdf`.
+- O PDF de respostas, quando usado, é gravado no YAML como `answers_pdf` e só aparece no portal quando `answers_released: true`.
+- Sem `--answers-drive-folder`, o PDF de respostas precisa estar na mesma pasta local da aula principal e é enviado para a mesma pasta no Drive.
+- Com `--answers-drive-folder`, o PDF de respostas é enviado para essa pasta única no Drive.
 - O link do PDF é escrito no `config.yaml`, então esse arquivo passa a fazer parte do fluxo normal de publicação.
 
 ## Publicar respostas
@@ -144,15 +148,19 @@ Publicar a aula e o PDF de respostas ao mesmo tempo:
 ```bash
 ./scripts/publish_lesson.py \
   --lesson-dir "/home/jefferson/Área de trabalho/IFSP/2026/FM1/Aulas/Aula-05" \
-  --answers-pdf resp-fmi-aula-05.pdf
+  --answers-pdf resp-fmi-aula-05.pdf \
+  --answers-drive-folder Respostas
 ```
+
+Esse comando cadastra o PDF, mas deixa `answers_released: false`.
 
 Se houver exatamente um `resp-*.pdf` na pasta, você pode usar:
 
 ```bash
 ./scripts/publish_lesson.py \
   --lesson-dir "/home/jefferson/Área de trabalho/IFSP/2026/FM1/Aulas/Aula-05" \
-  --auto-answers
+  --auto-answers \
+  --answers-released
 ```
 
 ## Exemplo real

@@ -259,7 +259,12 @@ def choose_lessons(lessons: list[LessonCandidate]) -> list[LessonCandidate]:
     return chosen
 
 
-def publish_args_for_lesson(lesson: LessonCandidate, publish_answers: bool) -> list[str]:
+def publish_args_for_lesson(
+    lesson: LessonCandidate,
+    publish_answers: bool,
+    release_answers: bool,
+    answers_drive_folder: str | None,
+) -> list[str]:
     args = [
         str(SCRIPT_DIR / "publish_lesson.py"),
         "--lesson-dir",
@@ -270,6 +275,10 @@ def publish_args_for_lesson(lesson: LessonCandidate, publish_answers: bool) -> l
     ]
     if publish_answers and lesson.answers_pdf:
         args.extend(["--answers-pdf", lesson.answers_pdf.name])
+        if release_answers:
+            args.append("--answers-released")
+        if answers_drive_folder:
+            args.extend(["--answers-drive-folder", answers_drive_folder])
     return args
 
 
@@ -322,25 +331,47 @@ def main(argv: list[str] | None = None) -> int:
         print("Nenhuma aula selecionada.")
         return 0
 
-    publish_answers = ask_yes_no("Enviar PDF de respostas quando houver resp-*.pdf", default=True)
+    publish_answers = ask_yes_no("Enviar PDF de respostas quando houver resp-*.pdf", default=False)
+    release_answers = False
+    answers_drive_folder = None
+    if publish_answers:
+        release_answers = ask_yes_no("Liberar botao de respostas no portal agora", default=False)
+        if ask_yes_no("Usar uma pasta unica no Drive para respostas", default=True):
+            answers_drive_folder = ask("Pasta de respostas relativa ao drive_folder_id", "Respostas")
 
     print("\nPlano de publicacao:")
     for lesson in selected:
-        suffix = " + respostas" if publish_answers and lesson.answers_pdf else ""
+        suffix = ""
+        if publish_answers and lesson.answers_pdf:
+            suffix = " + respostas"
+            suffix += " liberadas" if release_answers else " nao liberadas"
         print(f"  - {lesson.lesson_dir.name}: {lesson.title}{suffix}")
 
     if not ask_yes_no("Rodar dry-run de cada aula agora", default=True):
         raise publish.PublishError("Fluxo interrompido antes do dry-run.")
 
     for lesson in selected:
-        run(["python3", *publish_args_for_lesson(lesson, publish_answers), "--dry-run"], dry_run=args.dry_run)
+        run(
+            [
+                "python3",
+                *publish_args_for_lesson(lesson, publish_answers, release_answers, answers_drive_folder),
+                "--dry-run",
+            ],
+            dry_run=args.dry_run,
+        )
 
     if not ask_yes_no("Dry-run conferido. Fazer upload real/copia/YAML agora", default=False):
         print("Fluxo interrompido antes de alterar arquivos.")
         return 0
 
     for lesson in selected:
-        run(["python3", *publish_args_for_lesson(lesson, publish_answers)], dry_run=args.dry_run)
+        run(
+            [
+                "python3",
+                *publish_args_for_lesson(lesson, publish_answers, release_answers, answers_drive_folder),
+            ],
+            dry_run=args.dry_run,
+        )
 
     if ask_yes_no("Rodar build completo do site", default=True):
         run(["python3", "build.py", "--full"], dry_run=args.dry_run)
