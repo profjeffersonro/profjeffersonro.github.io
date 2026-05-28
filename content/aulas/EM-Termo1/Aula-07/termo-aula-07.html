@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Processos
+de Propagação de Calor</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li>Compreender que o calor é energia térmica em
+                trânsito devido a uma <strong>diferença de
+                temperatura</strong>.</li>
+                <li>Diferenciar os três processos de propagação de
+                calor: <strong>condução</strong>,
+                <strong>convecção</strong> e
+                <strong>radiação</strong>.</li>
+                <li>Aplicar a <strong>lei de Fourier</strong> em
+                problemas de condução térmica.</li>
+                <li>Relacionar calor sensível, tempo e <strong>potência
+                térmica</strong>.</li>
+                <li>Explicar a <strong>lei de Stefan-Boltzmann</strong>
+                e sua relação com a emissão de radiação térmica.</li>
+                <li>Resolver problemas envolvendo
+                <strong>intensidade</strong>, potência e área, usando
+                <span class="math inline">\(I =
+                \dfrac{P}{A}\)</span>.</li>
+                <li>Reconhecer aplicações desses conceitos em
+                construções, utensílios domésticos, meteorologia,
+                astronomia e tecnologia.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Imagine duas situações comuns:</p>
+                <blockquote>
+                <p>Em um dia frio, você pisa descalço em um piso
+                cerâmico e depois em um tapete. Os dois estão no mesmo
+                ambiente, portanto aproximadamente à mesma temperatura.
+                Mesmo assim, o piso parece muito mais frio. Por quê?</p>
+                </blockquote>
+                <blockquote>
+                <p>Em uma cozinha, uma colher metálica deixada dentro de
+                uma panela quente rapidamente esquenta até o cabo,
+                enquanto uma colher de madeira demora muito mais. O que
+                muda de um material para outro?</p>
+                </blockquote>
+                <p>Essas situações mostram que não basta saber a
+                temperatura de um corpo. Também precisamos entender
+                <strong>como a energia térmica se transfere</strong> de
+                um lugar para outro.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gas%20stove%20flame.jpg"
+                style="width:55.0%"
+                alt="Chama de fogão a gás, situação cotidiana em que aparecem condução, convecção e radiação. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Chama de fogão a gás,
+                situação cotidiana em que aparecem condução, convecção e
+                radiação. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Gas%20stove%20flame.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Na chama do fogão, o calor chega à panela
+                principalmente por condução no metal, por convecção nos
+                gases quentes que sobem e por radiação emitida pela
+                chama. A mesma situação cotidiana reúne os três
+                mecanismos que serão estudados nesta aula.</p>
+                <p>O calor pode se propagar de três formas
+                principais:</p>
+                <ol type="1">
+                <li><strong>Condução:</strong> transferência de energia
+                por contato direto entre partículas.</li>
+                <li><strong>Convecção:</strong> transferência de energia
+                pelo movimento de massas de fluido.</li>
+                <li><strong>Radiação:</strong> transferência de energia
+                por ondas eletromagnéticas, sem necessidade de meio
+                material.</li>
+                </ol>
+                <h1 id="condução-térmica">Condução Térmica</h1>
+                <p>A <strong>condução térmica</strong> ocorre
+                principalmente em sólidos. Nesse processo, as partículas
+                de uma região mais quente vibram mais intensamente e
+                transferem parte dessa energia para partículas vizinhas
+                mais frias.</p>
+                <p>Em metais, além da vibração dos átomos, os elétrons
+                livres também ajudam a transportar energia térmica. Por
+                isso, metais como cobre, alumínio e aço costumam ser
+                bons condutores de calor.</p>
+                <figure>
+                <img src="images/fig-conducao-linear.png"
+                style="width:55.0%"
+                alt="Fluxo linear de calor por condução, da face quente para a face fria. Adaptado de: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Fluxo linear de calor por
+                condução, da face quente para a face fria. Adaptado de:
+                <a
+                href="https://upload.wikimedia.org/wikipedia/commons/c/cd/Linear_Heat_flow.svg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>No esquema, a energia térmica flui da extremidade de
+                maior temperatura para a extremidade de menor
+                temperatura. A diferença de temperatura entre as faces é
+                indicada por <span class="math inline">\(\Delta
+                T\)</span>; como se trata de variação, seu valor
+                numérico é o mesmo em kelvin e em grau Celsius.</p>
+                <h2 id="aplicações-da-condução">Aplicações da
+                Condução</h2>
+                <p>A condução térmica aparece em muitas situações:</p>
+                <ul>
+                <li>Cabos de panelas são feitos de madeira, plástico ou
+                baquelite, materiais maus condutores.</li>
+                <li>Panelas metálicas conduzem calor rapidamente da
+                chama para o alimento.</li>
+                <li>Isolantes térmicos em paredes e telhados reduzem a
+                passagem de calor entre o interior e o exterior.</li>
+                <li>Dissipadores de calor em computadores conduzem
+                energia térmica para longe do processador.</li>
+                <li>Roupas de frio prendem ar em seus tecidos,
+                dificultando a condução do calor do corpo para o
+                ambiente.</li>
+                </ul>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Computer%20heatsink%20and%20fan.jpg"
+                style="width:55.0%"
+                alt="Dissipador de calor metálico usado para transferir energia térmica de componentes eletrônicos. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Dissipador de calor
+                metálico usado para transferir energia térmica de
+                componentes eletrônicos. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Computer%20heatsink%20and%20fan.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>O dissipador aumenta a área de contato com o ar e é
+                feito de material de alta condutividade térmica. Assim,
+                ele facilita a condução do calor para longe do
+                componente eletrônico e favorece sua remoção pelo ar ao
+                redor.</p>
+                <h2 id="lei-de-fourier">Lei de Fourier</h2>
+                <p>A lei de Fourier descreve a taxa com que o calor
+                atravessa um material por condução. Em uma parede plana,
+                em regime estacionário, o <strong>fluxo de
+                calor</strong> é:</p>
+                <p><span class="math display">\[
+                \boxed{\phi = \frac{kA\Delta T}{L}}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(\phi\)</span> é o fluxo
+                de calor por condução, em watts (W).</li>
+                <li><span class="math inline">\(k\)</span> é a
+                condutividade térmica do material, em <span
+                class="math inline">\(\text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><span class="math inline">\(A\)</span> é a área
+                atravessada pelo calor, em <span
+                class="math inline">\(\text{m}^{2}\)</span>.</li>
+                <li><span class="math inline">\(\Delta T\)</span> é a
+                variação de temperatura termodinâmica entre as faces, em
+                K.</li>
+                <li><span class="math inline">\(L\)</span> é a espessura
+                do material, em m.</li>
+                </ul>
+                <p>Quanto maior for <span
+                class="math inline">\(k\)</span>, <span
+                class="math inline">\(A\)</span> ou <span
+                class="math inline">\(\Delta T\)</span>, maior será a
+                transferência de calor. Quanto maior for <span
+                class="math inline">\(L\)</span>, menor será a
+                transferência de calor.</p>
+                <blockquote>
+                <p><strong>Atenção:</strong> Como <span
+                class="math inline">\(T\)</span> representa temperatura
+                termodinâmica, sua unidade é kelvin. Porém, diferenças
+                de temperatura em kelvin e em grau Celsius têm o mesmo
+                valor numérico. Assim, <span
+                class="math inline">\(\Delta T = 40\,K\)</span>
+                corresponde a uma variação de <span
+                class="math inline">\(40\,°C\)</span>.</p>
+                </blockquote>
+                <h2
+                id="condutividade-térmica-de-alguns-materiais">Condutividade
+                Térmica de Alguns Materiais</h2>
+                <p>Valores aproximados:</p>
+                <ul>
+                <li><strong>Cobre:</strong> <span
+                class="math inline">\(k \approx 400 \,
+                \text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><strong>Alumínio:</strong> <span
+                class="math inline">\(k \approx 205 \,
+                \text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><strong>Aço:</strong> <span class="math inline">\(k
+                \approx 50 \,
+                \text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><strong>Vidro:</strong> <span
+                class="math inline">\(k \approx 0{,}8 \,
+                \text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><strong>Madeira:</strong> <span
+                class="math inline">\(k \approx 0{,}12 \,
+                \text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><strong>Ar parado:</strong> <span
+                class="math inline">\(k \approx 0{,}026 \,
+                \text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                </ul>
+                <p>Esses valores explicam por que uma panela de cobre
+                aquece rapidamente, enquanto uma parede com camada de ar
+                ou material isolante dificulta a passagem de calor.</p>
+                <h2
+                id="exemplo-7.1---calor-atravessando-uma-parede">Exemplo
+                7.1 - Calor atravessando uma parede</h2>
+                <p>Uma parede de tijolos tem área de <span
+                class="math inline">\(12 \,\text{m}^{2}\)</span> e
+                espessura de <span class="math inline">\(0{,}20
+                \,\text{m}\)</span>. A temperatura interna é <span
+                class="math inline">\(25\,°C\)</span> e a externa é
+                <span class="math inline">\(5\,°C\)</span>. Considere
+                <span class="math inline">\(k = 0{,}60
+                \,\text{W}/(\text{m}\cdot\text{K})\)</span>. Qual é o
+                fluxo de calor por condução através da parede?</p>
+                <p><strong>Resolução:</strong></p>
+                <ul>
+                <li><span class="math inline">\(A = 12
+                \,\text{m}^{2}\)</span></li>
+                <li><span class="math inline">\(L = 0{,}20
+                \,\text{m}\)</span></li>
+                <li><span class="math inline">\(\Delta T = 25 - 5 =
+                20\,°C\)</span></li>
+                <li><span class="math inline">\(k = 0{,}60
+                \,\text{W}/(\text{m}\cdot\text{K})\)</span></li>
+                </ul>
+                <p>Aplicando a lei de Fourier:</p>
+                <p><span class="math display">\[
+                \phi = \frac{kA\Delta T}{L}
+                \]</span></p>
+                <p><span class="math display">\[
+                \phi = \frac{0{,}60 \cdot 12 \cdot 20}{0{,}20}
+                \]</span></p>
+                <p><span class="math display">\[
+                \phi = 720 \,\text{W}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> O fluxo de calor por
+                condução através da parede é <strong>720 W</strong>, do
+                interior mais quente para o exterior mais frio.</p>
+                <h2
+                id="exemplo-7.2---comparação-entre-metal-e-madeira">Exemplo
+                7.2 - Comparação entre metal e madeira</h2>
+                <p>Uma placa metálica e uma placa de madeira têm a mesma
+                área <span class="math inline">\(A =
+                0{,}50\,\text{m}^{2}\)</span>, a mesma espessura <span
+                class="math inline">\(L = 0{,}02\,\text{m}\)</span> e
+                estão submetidas à mesma diferença de temperatura <span
+                class="math inline">\(\Delta T = 30\,°C\)</span>.
+                Considere <span class="math inline">\(k_{\text{metal}} =
+                50 \,\text{W}/(\text{m}\cdot\text{K})\)</span> e <span
+                class="math inline">\(k_{\text{madeira}} = 0{,}12
+                \,\text{W}/(\text{m}\cdot\text{K})\)</span>. Determine o
+                fluxo de calor por condução em cada caso.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Para o metal:</p>
+                <p><span class="math display">\[
+                \phi_{\text{metal}} = \frac{50 \cdot 0{,}50 \cdot
+                30}{0{,}02}
+                \]</span></p>
+                <p><span class="math display">\[
+                \phi_{\text{metal}} = 37500 \,\text{W}
+                \]</span></p>
+                <p>Para a madeira:</p>
+                <p><span class="math display">\[
+                \phi_{\text{madeira}} = \frac{0{,}12 \cdot 0{,}50 \cdot
+                30}{0{,}02}
+                \]</span></p>
+                <p><span class="math display">\[
+                \phi_{\text{madeira}} = 90 \,\text{W}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> Nas mesmas condições, o
+                fluxo de calor no metal é muito maior que na madeira.
+                Por isso, ao tocar um metal frio, sentimos perda de
+                calor mais intensa.</p>
+                <h1 id="convecção-térmica">Convecção Térmica</h1>
+                <p>A <strong>convecção térmica</strong> ocorre em
+                fluidos, isto é, em líquidos e gases. Nesse processo, o
+                calor é transportado pelo movimento de porções do
+                próprio fluido.</p>
+                <p>Quando uma região de um fluido é aquecida, ela
+                geralmente se expande, fica menos densa e tende a subir.
+                A região mais fria, mais densa, tende a descer. Esse
+                movimento cria correntes chamadas <strong>correntes de
+                convecção</strong>.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Convection.gif"
+                style="width:55.0%"
+                alt="Correntes de convecção em um líquido aquecido pela parte inferior. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Correntes de convecção em
+                um líquido aquecido pela parte inferior. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Convection.gif">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>As setas indicam a circulação do fluido: a região
+                aquecida fica menos densa e sobe, enquanto a região mais
+                fria desce. Esse transporte de matéria é a
+                característica que diferencia a convecção da
+                condução.</p>
+                <h2 id="exemplos-e-aplicações-da-convecção">Exemplos e
+                Aplicações da Convecção</h2>
+                <ul>
+                <li>A água ferve porque a parte aquecida no fundo da
+                panela sobe e a parte mais fria desce.</li>
+                <li>O ar quente produzido por um aquecedor sobe,
+                aquecendo o ambiente por circulação.</li>
+                <li>Geladeiras têm o congelador na parte superior em
+                muitos modelos, pois o ar frio desce.</li>
+                <li>Brisas marítimas e terrestres são explicadas por
+                diferenças de aquecimento entre terra e água.</li>
+                <li>Correntes atmosféricas influenciam chuvas, ventos e
+                formação de nuvens.</li>
+                <li>Chaminés funcionam porque gases quentes sobem e
+                puxam ar novo para a combustão.</li>
+                </ul>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diagrama%20de%20formacion%20de%20la%20brisa-breeze.png"
+                style="width:75.0%"
+                alt="Brisa marítima causada por correntes de convecção na atmosfera. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Brisa marítima causada
+                por correntes de convecção na atmosfera. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Diagrama%20de%20formacion%20de%20la%20brisa-breeze.png">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Durante o dia, a terra aquece mais rapidamente que o
+                mar. O ar sobre a terra sobe e o ar mais frio vindo do
+                mar ocupa seu lugar, formando a brisa marítima; à noite,
+                o sentido pode se inverter.</p>
+                <p>Na convecção, diferente da condução, há transporte de
+                matéria. O fluido se desloca e leva energia térmica
+                junto com ele.</p>
+                <h1 id="radiação-térmica">Radiação Térmica</h1>
+                <p>A <strong>radiação térmica</strong> é a transferência
+                de energia por ondas eletromagnéticas. Ela não precisa
+                de contato nem de meio material. Por isso, a energia do
+                Sol chega até a Terra atravessando o vácuo do
+                espaço.</p>
+                <p>Todos os corpos emitem radiação térmica quando estão
+                a uma temperatura acima de <span
+                class="math inline">\(0\,K\)</span>. Quanto maior a
+                temperatura, maior a energia emitida.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sun_-_SDO_-_2014-06-10_304.jpg/960px-Sun_-_SDO_-_2014-06-10_304.jpg"
+                style="width:70.0%"
+                alt="O Sol emite energia por radiação eletromagnética, que chega à Terra mesmo através do vácuo. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">O Sol emite energia por
+                radiação eletromagnética, que chega à Terra mesmo
+                através do vácuo. Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sun_-_SDO_-_2014-06-10_304.jpg/960px-Sun_-_SDO_-_2014-06-10_304.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>O Sol é o exemplo mais importante de transferência de
+                energia por radiação para a Terra. Como há vácuo entre o
+                Sol e nosso planeta, essa transferência não poderia
+                ocorrer por condução nem por convecção.</p>
+                <h2 id="exemplos-e-aplicações-da-radiação">Exemplos e
+                Aplicações da Radiação</h2>
+                <ul>
+                <li>Sentimos calor ao nos aproximarmos de uma fogueira
+                mesmo sem tocar o fogo.</li>
+                <li>O Sol aquece a superfície da Terra por
+                radiação.</li>
+                <li>Garrafas térmicas usam superfícies espelhadas para
+                reduzir perdas por radiação.</li>
+                <li>Roupas claras refletem mais radiação solar que
+                roupas escuras.</li>
+                <li>Câmeras térmicas detectam radiação infravermelha
+                emitida por corpos.</li>
+                <li>Estufas agrícolas retêm parte da radiação térmica
+                emitida pelo solo aquecido.</li>
+                </ul>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Human-Infrared.jpg"
+                style="width:60.0%"
+                alt="Imagem térmica em infravermelho, aplicação tecnológica da radiação emitida pelos corpos. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Imagem térmica em
+                infravermelho, aplicação tecnológica da radiação emitida
+                pelos corpos. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Human-Infrared.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Na imagem térmica, regiões mais quentes emitem
+                radiação infravermelha mais intensa e aparecem com cores
+                diferentes. Esse princípio é usado em câmeras térmicas,
+                inspeção elétrica, medicina e segurança.</p>
+                <h2 id="lei-de-stefan-boltzmann">Lei de
+                Stefan-Boltzmann</h2>
+                <p>A lei de Stefan-Boltzmann descreve a potência total
+                irradiada por um corpo devido à sua temperatura:</p>
+                <p><span class="math display">\[
+                \boxed{P = e \cdot \sigma \cdot A \cdot T^{4}}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(P\)</span> é a potência
+                irradiada, em watts (W).</li>
+                <li><span class="math inline">\(e\)</span> é a
+                emissividade da superfície, número entre 0 e 1.</li>
+                <li><span class="math inline">\(\sigma\)</span> é a
+                constante de Stefan-Boltzmann: <span
+                class="math inline">\(\sigma = 5{,}67 \times 10^{-8}
+                \,\text{W}/(\text{m}^{2}\cdot\text{K}^{4})\)</span>.</li>
+                <li><span class="math inline">\(A\)</span> é a área da
+                superfície emissora, em <span
+                class="math inline">\(\text{m}^{2}\)</span>.</li>
+                <li><span class="math inline">\(T\)</span> é a
+                temperatura absoluta, em kelvin (K).</li>
+                </ul>
+                <p>A <strong>emissividade</strong> indica o quanto uma
+                superfície se aproxima de um corpo escuro ideal. Um
+                corpo escuro ideal tem <span class="math inline">\(e =
+                1\)</span> e é o emissor mais eficiente possível.
+                Superfícies escuras e foscas costumam ter emissividade
+                alta, pois absorvem e emitem radiação térmica com
+                eficiência. Superfícies claras, polidas ou metálicas
+                costumam ter emissividade menor, pois refletem mais
+                radiação e emitem menos radiação térmica nas mesmas
+                condições de temperatura e área.</p>
+                <p>A dependência com <span
+                class="math inline">\(T^{4}\)</span> é muito importante:
+                pequenas variações de temperatura absoluta podem causar
+                grandes variações na potência irradiada.</p>
+                <blockquote>
+                <p><strong>Atenção:</strong> Na lei de Stefan-Boltzmann,
+                a temperatura deve estar sempre em kelvin. Para
+                converter: <span class="math inline">\(T(K) = \theta(°C)
+                + 273\)</span>.</p>
+                </blockquote>
+                <p>Quando um corpo está em um ambiente, ele não apenas
+                emite radiação: ele também recebe radiação térmica das
+                paredes, do ar e dos objetos ao redor. Por isso, em
+                muitas situações cotidianas, a grandeza mais importante
+                é a <strong>potência líquida</strong>:</p>
+                <p><span class="math display">\[
+                P_{\text{líquida}} = e \cdot \sigma \cdot A \cdot
+                \left(T_{\text{corpo}}^{4} -
+                T_{\text{ambiente}}^{4}\right)
+                \]</span></p>
+                <p>Se o corpo estiver mais quente que o ambiente, <span
+                class="math inline">\(P_{\text{líquida}}\)</span>
+                representa perda de energia por radiação. Se estiver
+                mais frio, representa ganho líquido de energia por
+                radiação.</p>
+                <h2
+                id="exemplo-7.3---potência-emitida-por-antares">Exemplo
+                7.3 - Potência emitida por Antares</h2>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/GiganteVermelha.jpg"
+                style="width:55.0%"
+                alt="Representação de uma gigante vermelha. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Representação de uma
+                gigante vermelha. Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/8/8c/GiganteVermelha.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Antares é uma supergigante vermelha na constelação de
+                Escorpião. Considere, de forma aproximada, que Antares
+                tenha raio <span class="math inline">\(680\)</span>
+                vezes maior que o raio do Sol e temperatura superficial
+                de <span class="math inline">\(3660\,K\)</span>. Estime
+                sua potência emitida e compare com a potência emitida
+                pelo Sol. Use <span class="math inline">\(R_{\odot} =
+                6{,}96 \times 10^{8}\,\text{m}\)</span>, <span
+                class="math inline">\(T_{\odot} = 5778\,K\)</span> e
+                considere <span class="math inline">\(e = 1\)</span>
+                para as duas estrelas.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Para uma estrela, a área emissora é a área da
+                superfície esférica:</p>
+                <p><span class="math display">\[
+                A = 4\pi R^{2}
+                \]</span></p>
+                <p>Então:</p>
+                <p><span class="math display">\[
+                P = \sigma \cdot 4\pi R^{2} \cdot T^{4}
+                \]</span></p>
+                <p>Para o Sol:</p>
+                <p><span class="math display">\[
+                P_{\odot} = (5{,}67 \times 10^{-8}) \cdot 4\pi \cdot
+                (6{,}96 \times 10^{8})^{2} \cdot (5778)^4
+                \]</span></p>
+                <p><span class="math display">\[
+                P_{\odot} \approx 3{,}85 \times 10^{26}\,\text{W}
+                \]</span></p>
+                <p>Para Antares:</p>
+                <p><span class="math display">\[
+                R_{\text{Antares}} = 680R_{\odot} = 680 \cdot 6{,}96
+                \times 10^{8} \approx 4{,}73 \times 10^{11}\,\text{m}
+                \]</span></p>
+                <p><span class="math display">\[
+                P_{\text{Antares}} = (5{,}67 \times 10^{-8}) \cdot 4\pi
+                \cdot (4{,}73 \times 10^{11})^{2} \cdot (3660)^4
+                \]</span></p>
+                <p><span class="math display">\[
+                P_{\text{Antares}} \approx 2{,}86 \times
+                10^{31}\,\text{W}
+                \]</span></p>
+                <p>Comparando:</p>
+                <p><span class="math display">\[
+                \frac{P_{\text{Antares}}}{P_{\odot}} \approx
+                \frac{2{,}86 \times 10^{31}}{3{,}85 \times 10^{26}}
+                \approx 7{,}4 \times 10^{4}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> Mesmo tendo temperatura
+                superficial menor que a do Sol, Antares emite cerca de
+                <strong>74 mil vezes</strong> mais potência que o Sol,
+                porque sua área superficial é enorme.</p>
+                <blockquote>
+                <p><strong>Observação:</strong> A temperatura
+                superficial de Antares é relativamente baixa para uma
+                estrela: o Sol, por exemplo, tem temperatura superficial
+                de cerca de (5500,°C). Antares é uma supergigante
+                vermelha em estágio avançado de sua evolução. Nessa
+                fase, suas camadas externas se expandiram muito,
+                formando uma superfície imensa. Como a energia emitida
+                pela estrela se distribui por uma área muito maior, a
+                temperatura efetiva da superfície fica menor. Por isso
+                Antares tem coloração avermelhada e é mais fria na
+                superfície que o Sol, embora emita muito mais potência
+                total.</p>
+                </blockquote>
+                <h2
+                id="exemplo-7.4---potência-líquida-irradiada-por-uma-pessoa">Exemplo
+                7.4 - Potência líquida irradiada por uma pessoa</h2>
+                <p>Estime a potência líquida perdida por radiação por
+                uma pessoa de altura <span
+                class="math inline">\(1{,}70\,\text{m}\)</span>, com
+                temperatura média da pele de <span
+                class="math inline">\(34\,°C\)</span>, em uma sala a
+                <span class="math inline">\(25\,°C\)</span>. Considere a
+                emissividade da pele aproximadamente <span
+                class="math inline">\(e = 0{,}97\)</span>, área corporal
+                <span class="math inline">\(A \approx
+                1{,}8\,\text{m}^{2}\)</span> e <span
+                class="math inline">\(\sigma = 5{,}67 \times 10^{-8}
+                \,\text{W}/(\text{m}^{2}\cdot\text{K}^{4})\)</span>.
+                Compare com uma lâmpada incandescente de <span
+                class="math inline">\(100\,\text{W}\)</span>.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Primeiro, convertemos as temperaturas:</p>
+                <p><span class="math display">\[
+                T_{\text{pele}} = 34 + 273 = 307\,K
+                \]</span></p>
+                <p><span class="math display">\[
+                T_{\text{ambiente}} = 25 + 273 = 298\,K
+                \]</span></p>
+                <p>Aplicando a expressão da potência líquida:</p>
+                <p><span class="math display">\[
+                P_{\text{líquida}} = e \cdot \sigma \cdot A \cdot
+                \left(T_{\text{pele}}^{4} -
+                T_{\text{ambiente}}^{4}\right)
+                \]</span></p>
+                <p><span class="math display">\[
+                P_{\text{líquida}} = 0{,}97 \cdot (5{,}67 \times
+                10^{-8}) \cdot 1{,}8 \cdot \left(307^4 - 298^4\right)
+                \]</span></p>
+                <p>Como:</p>
+                <p><span class="math display">\[
+                307^4 - 298^4 \approx 9{,}93 \times 10^{8}
+                \]</span></p>
+                <p>Então:</p>
+                <p><span class="math display">\[
+                P_{\text{líquida}} \approx 98\,\text{W}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> A perda líquida por
+                radiação fica em torno de <strong>100 W</strong>, valor
+                comparável à potência de uma lâmpada incandescente de
+                <strong>100 W</strong>.</p>
+                <h2
+                id="exemplo-7.5---intensidade-irradiada-por-uma-superfície">Exemplo
+                7.5 - Intensidade irradiada por uma superfície</h2>
+                <p>Uma superfície ideal, com emissividade <span
+                class="math inline">\(e = 1\)</span>, está a <span
+                class="math inline">\(300\,K\)</span>. Determine a
+                potência irradiada por metro quadrado, isto é, a
+                intensidade emitida pela superfície.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Como queremos a potência por área:</p>
+                <p><span class="math display">\[
+                \frac{P}{A} = e \cdot \sigma \cdot T^{4}
+                \]</span></p>
+                <p><span class="math display">\[
+                I = 1 \cdot (5{,}67 \times 10^{-8}) \cdot (300)^4
+                \]</span></p>
+                <p>Como:</p>
+                <p><span class="math display">\[
+                300^4 = 8{,}1 \times 10^{9}
+                \]</span></p>
+                <p><span class="math display">\[
+                I = 5{,}67 \times 10^{-8} \cdot 8{,}1 \times 10^{9}
+                \]</span></p>
+                <p><span class="math display">\[
+                I \approx 459 \,\text{W}/\text{m}^{2}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> A superfície emite cerca
+                de <strong>459 W/m²</strong>.</p>
+                <h1 id="intensidade-e-potência-por-área">Intensidade e
+                Potência por Área</h1>
+                <p>A <strong>intensidade</strong> mede quanta potência
+                atravessa ou é emitida por unidade de área:</p>
+                <p><span class="math display">\[
+                \boxed{I = \frac{P}{A}}
+                \]</span></p>
+                <p>Onde:</p>
+                <ul>
+                <li><span class="math inline">\(I\)</span> é a
+                intensidade, em <span
+                class="math inline">\(\text{W}/\text{m}^{2}\)</span>.</li>
+                <li><span class="math inline">\(P\)</span> é a potência,
+                em watts (W).</li>
+                <li><span class="math inline">\(A\)</span> é a área, em
+                <span class="math inline">\(\text{m}^{2}\)</span>.</li>
+                </ul>
+                <p>Essa fórmula é usada em óptica, radiação térmica,
+                energia solar, acústica e telecomunicações. No contexto
+                desta aula, ela ajuda a comparar quanta energia térmica
+                chega a uma superfície ou é emitida por ela.</p>
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Solar_panels.jpg/640px-Solar_panels.jpg"
+                style="width:70.0%"
+                alt="Painéis solares recebem energia por radiação. A intensidade indica a potência recebida por unidade de área. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Painéis solares recebem
+                energia por radiação. A intensidade indica a potência
+                recebida por unidade de área. Fonte: <a
+                href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Solar_panels.jpg/640px-Solar_panels.jpg">Wikimedia
+                Commons.</a></figcaption>
+                </figure>
+                <p>Os painéis solares aproveitam a radiação incidente
+                sobre uma área. Por isso, a intensidade <span
+                class="math inline">\(I = \dfrac{P}{A}\)</span> é uma
+                grandeza central para estimar a potência recebida por
+                cada metro quadrado de painel.</p>
+                <h2
+                id="exemplo-7.6---intensidade-solar-em-uma-placa">Exemplo
+                7.6 - Intensidade solar em uma placa</h2>
+                <p>Uma placa solar recebe potência de <span
+                class="math inline">\(800\,\text{W}\)</span> em uma área
+                de <span
+                class="math inline">\(2{,}0\,\text{m}^{2}\)</span>. Qual
+                é a intensidade média da radiação recebida?</p>
+                <p><strong>Resolução:</strong></p>
+                <p><span class="math display">\[
+                I = \frac{P}{A}
+                \]</span></p>
+                <p><span class="math display">\[
+                I = \frac{800}{2{,}0} = 400 \,\text{W}/\text{m}^{2}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> A intensidade média
+                recebida pela placa é <strong>400 W/m²</strong>.</p>
+                <h2
+                id="exemplo-7.7---potência-recebida-por-uma-janela">Exemplo
+                7.7 - Potência recebida por uma janela</h2>
+                <p>Uma janela de área <span
+                class="math inline">\(1{,}5\,\text{m}^{2}\)</span>
+                recebe radiação solar com intensidade média de <span
+                class="math inline">\(600\,\text{W}/\text{m}^{2}\)</span>.
+                Qual potência chega à janela?</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Da fórmula:</p>
+                <p><span class="math display">\[
+                I = \frac{P}{A}
+                \]</span></p>
+                <p>Isolando <span class="math inline">\(P\)</span>:</p>
+                <p><span class="math display">\[
+                P = I \cdot A
+                \]</span></p>
+                <p><span class="math display">\[
+                P = 600 \cdot 1{,}5 = 900\,\text{W}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> A potência recebida pela
+                janela é <strong>900 W</strong>.</p>
+                <h1 id="mais-exemplos-integrados">Mais Exemplos
+                Integrados</h1>
+                <h2
+                id="exemplo-7.8---lei-de-fourier-com-calor-sensível">Exemplo
+                7.8 - Lei de Fourier com calor sensível</h2>
+                <p>Uma chapa metálica conduz calor com potência
+                constante de <span
+                class="math inline">\(500\,\text{W}\)</span> para
+                aquecer <span
+                class="math inline">\(2{,}0\,\text{kg}\)</span> de água.
+                Considere que toda essa energia seja absorvida pela
+                água, com calor específico <span class="math inline">\(c
+                = 4200\,\text{J}/(\text{kg}\cdot°C)\)</span>. Quanto
+                tempo é necessário para aquecer a água de <span
+                class="math inline">\(20\,°C\)</span> para <span
+                class="math inline">\(50\,°C\)</span>?</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Primeiro, calculamos o calor sensível:</p>
+                <p><span class="math display">\[
+                Q = m \cdot c \cdot \Delta \theta
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 2{,}0 \cdot 4200 \cdot (50 - 20)
+                \]</span></p>
+                <p><span class="math display">\[
+                Q = 2{,}0 \cdot 4200 \cdot 30 = 252000\,\text{J}
+                \]</span></p>
+                <p>Como:</p>
+                <p><span class="math display">\[
+                P = \frac{Q}{\Delta t}
+                \]</span></p>
+                <p>Então:</p>
+                <p><span class="math display">\[
+                \Delta t = \frac{Q}{P} = \frac{252000}{500} =
+                504\,\text{s}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> O aquecimento leva
+                <strong>504 s</strong>, ou aproximadamente <strong>8,4
+                min</strong>.</p>
+                <h2
+                id="exemplo-7.9---potência-térmica-por-condução">Exemplo
+                7.9 - Potência térmica por condução</h2>
+                <p>Uma janela de vidro de área <span
+                class="math inline">\(1{,}2\,\text{m}^{2}\)</span> e
+                espessura <span
+                class="math inline">\(0{,}004\,\text{m}\)</span> separa
+                um ambiente a <span
+                class="math inline">\(22\,°C\)</span> do exterior a
+                <span class="math inline">\(2\,°C\)</span>. Considere
+                <span class="math inline">\(k_{\text{vidro}} =
+                0{,}8\,\text{W}/(\text{m}\cdot\text{K})\)</span>.
+                Determine a potência térmica perdida por condução.</p>
+                <p><strong>Resolução:</strong></p>
+                <p><span class="math display">\[
+                \phi = \frac{kA\Delta T}{L}
+                \]</span></p>
+                <p><span class="math display">\[
+                \phi = \frac{0{,}8 \cdot 1{,}2 \cdot 20}{0{,}004}
+                \]</span></p>
+                <p><span class="math display">\[
+                \phi = 4800\,\text{W}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> A janela perde calor por
+                condução com potência de <strong>4800 W</strong>,
+                mostrando por que vidros simples são pouco eficientes
+                como isolamento térmico.</p>
+                <h2
+                id="exemplo-7.10---lei-de-stefan-boltzmann-com-intensidade">Exemplo
+                7.10 - Lei de Stefan-Boltzmann com intensidade</h2>
+                <p>Uma superfície escura de emissividade <span
+                class="math inline">\(e = 0{,}90\)</span> está a <span
+                class="math inline">\(400\,K\)</span>. Determine a
+                intensidade da radiação emitida.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Pela lei de Stefan-Boltzmann:</p>
+                <p><span class="math display">\[
+                P = e \cdot \sigma \cdot A \cdot T^{4}
+                \]</span></p>
+                <p>Dividindo por <span
+                class="math inline">\(A\)</span>:</p>
+                <p><span class="math display">\[
+                I = \frac{P}{A} = e \cdot \sigma \cdot T^{4}
+                \]</span></p>
+                <p><span class="math display">\[
+                I = 0{,}90 \cdot (5{,}67 \times 10^{-8}) \cdot (400)^4
+                \]</span></p>
+                <p>Como:</p>
+                <p><span class="math display">\[
+                400^4 = 2{,}56 \times 10^{10}
+                \]</span></p>
+                <p><span class="math display">\[
+                I = 0{,}90 \cdot 5{,}67 \times 10^{-8} \cdot 2{,}56
+                \times 10^{10}
+                \]</span></p>
+                <p><span class="math display">\[
+                I \approx 1306\,\text{W}/\text{m}^{2}
+                \]</span></p>
+                <p><strong>Conclusão:</strong> A superfície emite
+                radiação com intensidade aproximada de <strong>1306
+                W/m²</strong>.</p>
+                <h1 id="resumo-das-fórmulas">Resumo das Fórmulas</h1>
+                <ul>
+                <li><strong>Calor sensível:</strong> <span
+                class="math display">\[Q = m \cdot c \cdot \Delta
+                \theta\]</span></li>
+                <li><strong>Potência térmica:</strong> <span
+                class="math display">\[P = \frac{Q}{\Delta
+                t}\]</span></li>
+                <li><strong>Lei de Fourier:</strong> <span
+                class="math display">\[\phi = \frac{kA\Delta
+                T}{L}\]</span></li>
+                <li><strong>Lei de Stefan-Boltzmann:</strong> <span
+                class="math display">\[P = e \cdot \sigma \cdot A \cdot
+                T^{4}\]</span></li>
+                <li><strong>Intensidade:</strong> <span
+                class="math display">\[I = \frac{P}{A}\]</span></li>
+                <li><strong>Stefan-Boltzmann em forma de
+                intensidade:</strong> <span class="math display">\[I = e
+                \cdot \sigma \cdot T^{4}\]</span></li>
+                </ul>
+                <h1 id="conclusão">Conclusão</h1>
+                <p>Nesta aula, estudamos como o calor se propaga por
+                <strong>condução</strong>, <strong>convecção</strong> e
+                <strong>radiação</strong>.</p>
+                <p>Na condução, o calor passa por contato microscópico
+                entre partículas, sendo especialmente eficiente em
+                metais. A lei de Fourier permite calcular o fluxo de
+                calor transferido por uma parede, barra, placa ou
+                janela.</p>
+                <p>Na convecção, o calor é transportado pelo movimento
+                de fluidos. Esse processo explica a circulação da água
+                em uma panela, o funcionamento de geladeiras, chaminés,
+                aquecedores e fenômenos atmosféricos como as brisas.</p>
+                <p>Na radiação, o calor é transferido por ondas
+                eletromagnéticas, sem necessidade de meio material. A
+                lei de Stefan-Boltzmann mostra que a potência irradiada
+                depende fortemente da temperatura absoluta, elevada à
+                quarta potência.</p>
+                <p>Compreender esses processos é essencial para
+                interpretar fenômenos do cotidiano e projetar sistemas
+                mais eficientes: casas com melhor isolamento,
+                equipamentos eletrônicos com melhor dissipação,
+                coletores solares, estufas, garrafas térmicas e sistemas
+                de aquecimento ou refrigeração.</p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>7.1)</dt>
+                <dd>
+                Qual alternativa descreve corretamente a condução
+                térmica?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Transferência de calor por ondas eletromagnéticas,
+                sem necessidade de meio material.</li>
+                <li>Transferência de calor pelo movimento de massas de
+                líquidos ou gases.</li>
+                <li>Transferência de calor por contato entre partículas,
+                sem transporte macroscópico de matéria.</li>
+                <li>Transferência de calor que ocorre somente no
+                vácuo.</li>
+                <li>Transferência de calor que depende apenas da cor do
+                corpo.</li>
+                </ol>
+                <dl>
+                <dt>7.2)</dt>
+                <dd>
+                Por que a convecção ocorre em líquidos e gases, mas não
+                é o principal processo em sólidos?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Porque sólidos não possuem temperatura.</li>
+                <li>Porque líquidos e gases podem escoar, transportando
+                energia junto com o movimento do fluido.</li>
+                <li>Porque sólidos sempre impedem qualquer passagem de
+                calor.</li>
+                <li>Porque a convecção só ocorre quando há radiação
+                solar.</li>
+                <li>Porque líquidos e gases não sofrem dilatação
+                térmica.</li>
+                </ol>
+                <dl>
+                <dt>7.3)</dt>
+                <dd>
+                Qual afirmação sobre radiação térmica está correta?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A radiação térmica só ocorre se houver ar entre os
+                corpos.</li>
+                <li>A radiação térmica é o processo que explica a
+                chegada da energia solar à Terra.</li>
+                <li>A radiação térmica só ocorre em metais.</li>
+                <li>A radiação térmica exige contato direto entre fonte
+                e receptor.</li>
+                <li>A radiação térmica não depende da temperatura do
+                corpo.</li>
+                </ol>
+                <dl>
+                <dt>7.4)</dt>
+                <dd>
+                Uma parede de área <span
+                class="math inline">\(10\,\text{m}^{2}\)</span>,
+                espessura <span
+                class="math inline">\(0{,}25\,\text{m}\)</span> e
+                condutividade térmica <span class="math inline">\(k =
+                0{,}50\,\text{W}/(\text{m}\cdot\text{K})\)</span> separa
+                dois ambientes com diferença de temperatura de <span
+                class="math inline">\(20\,°C\)</span>. Qual é a potência
+                térmica conduzida?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>200 W.</li>
+                <li>300 W.</li>
+                <li>400 W.</li>
+                <li>500 W.</li>
+                <li>800 W.</li>
+                </ol>
+                <dl>
+                <dt>7.5)</dt>
+                <dd>
+                Uma placa de vidro tem área <span
+                class="math inline">\(2{,}0\,\text{m}^{2}\)</span>,
+                espessura <span
+                class="math inline">\(0{,}005\,\text{m}\)</span> e <span
+                class="math inline">\(k =
+                0{,}8\,\text{W}/(\text{m}\cdot\text{K})\)</span>. Se a
+                diferença de temperatura entre suas faces é <span
+                class="math inline">\(15\,°C\)</span>, qual é a potência
+                conduzida?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>1200 W.</li>
+                <li>2400 W.</li>
+                <li>3600 W.</li>
+                <li>4800 W.</li>
+                <li>6000 W.</li>
+                </ol>
+                <dl>
+                <dt>7.6)</dt>
+                <dd>
+                Durante um teste de isolamento térmico, uma placa plana
+                de área <span
+                class="math inline">\(0{,}80\,\text{m}^{2}\)</span> e
+                espessura <span
+                class="math inline">\(0{,}040\,\text{m}\)</span> separa
+                duas regiões com diferença de temperatura de <span
+                class="math inline">\(30\,°C\)</span>. O fluxo de calor
+                de condução medido através da placa é <span
+                class="math inline">\(120\,\text{W}\)</span>. Qual é o
+                valor da condutividade térmica <span
+                class="math inline">\(k\)</span> do material?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(0{,}10\,\text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><span
+                class="math inline">\(0{,}20\,\text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><span
+                class="math inline">\(0{,}40\,\text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><span
+                class="math inline">\(0{,}80\,\text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                <li><span
+                class="math inline">\(1{,}20\,\text{W}/(\text{m}\cdot\text{K})\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>7.7)</dt>
+                <dd>
+                Uma superfície escura ideal de área <span
+                class="math inline">\(1{,}0\,\text{m}^{2}\)</span> está
+                a <span class="math inline">\(300\,K\)</span>. Usando
+                <span class="math inline">\(\sigma = 5{,}67 \times
+                10^{-8}\,\text{W}/(\text{m}^{2}\cdot\text{K}^{4})\)</span>,
+                qual potência ela irradia aproximadamente?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>129 W.</li>
+                <li>259 W.</li>
+                <li>459 W.</li>
+                <li>659 W.</li>
+                <li>859 W.</li>
+                </ol>
+                <dl>
+                <dt>7.8)</dt>
+                <dd>
+                Uma placa de área <span
+                class="math inline">\(0{,}50\,\text{m}^{2}\)</span>,
+                emissividade <span
+                class="math inline">\(e=0{,}80\)</span>, está a <span
+                class="math inline">\(500\,K\)</span>. Determine a
+                potência irradiada. Use <span
+                class="math inline">\(\sigma = 5{,}67 \times
+                10^{-8}\,\text{W}/(\text{m}^{2}\cdot\text{K}^{4})\)</span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>708,75 W.</li>
+                <li>1134 W.</li>
+                <li>1417,5 W.</li>
+                <li>2268 W.</li>
+                <li>2835 W.</li>
+                </ol>
+                <dl>
+                <dt>7.9)</dt>
+                <dd>
+                Uma radiação de intensidade <span
+                class="math inline">\(750\,\text{W}/\text{m}^{2}\)</span>
+                incide sobre uma placa de área <span
+                class="math inline">\(1{,}6\,\text{m}^{2}\)</span>. Qual
+                potência chega à placa?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>750 W.</li>
+                <li>960 W.</li>
+                <li>1200 W.</li>
+                <li>1500 W.</li>
+                <li>1875 W.</li>
+                </ol>
+                <dl>
+                <dt>7.10)</dt>
+                <dd>
+                Uma superfície emite potência de <span
+                class="math inline">\(1800\,\text{W}\)</span>
+                distribuída uniformemente por uma área de <span
+                class="math inline">\(3{,}0\,\text{m}^{2}\)</span>. Qual
+                é a intensidade emitida?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>300 <span
+                class="math inline">\(\text{W}/\text{m}^{2}\)</span>.</li>
+                <li>450 <span
+                class="math inline">\(\text{W}/\text{m}^{2}\)</span>.</li>
+                <li>600 <span
+                class="math inline">\(\text{W}/\text{m}^{2}\)</span>.</li>
+                <li>900 <span
+                class="math inline">\(\text{W}/\text{m}^{2}\)</span>.</li>
+                <li>1800 <span
+                class="math inline">\(\text{W}/\text{m}^{2}\)</span>.</li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=CgQyQd8_AQM" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-brasil-escola-transmissao-calor.png" alt="TRANSMISSÃO DE CALOR / PARTE 1" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">TRANSMISSÃO DE CALOR / PARTE 1</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=CgQyQd8_AQM" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Brasil Escola</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=CgQyQd8_AQM" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=58yFawOVkwE" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-davi-propagacao-calor.png" alt="PROPAGAÇÃO DE CALOR: condução, convecção e radiação" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">PROPAGAÇÃO DE CALOR: condução, convecção e radiação</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=58yFawOVkwE" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Davi Oliveira - Física 2.0</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=58yFawOVkwE" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=8GQvMt-ow4w" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-khan-conducao-conveccao-radiacao.png" alt="CONDUÇÃO, CONVECÇÃO E RADIAÇÃO TÉRMICAS" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">CONDUÇÃO, CONVECÇÃO E RADIAÇÃO TÉRMICAS</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=8GQvMt-ow4w" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Khan Academy</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=8GQvMt-ow4w" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina de Fátima Souza. <strong>Física</strong>:
+                termologia, óptica e ondas. 3. ed. São Paulo: FTD,
+                2016.</li>
+                <li>GASPAR, Alberto. <strong>Física</strong>: volume
+                único. 2. ed. São Paulo: Ática, 2014.</li>
+                <li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <strong>Fundamentos de Física</strong>: gravitação,
+                ondas e termodinâmica. 10. ed. Rio de Janeiro: LTC,
+                2016.</li>
+                <li>HEWITT, Paul G. <strong>Física Conceitual</strong>.
+                12. ed. Porto Alegre: Bookman, 2015.</li>
+                <li>KHAN ACADEMY. <strong>Thermal conduction,
+                convection, and radiation</strong>. Disponível em: <a
+                href="https://www.khanacademy.org/science/physics/thermodynamics"
+                class="uri">https://www.khanacademy.org/science/physics/thermodynamics</a>.
+                Acesso em: 26 maio 2026.</li>
+                <li>OPENSTAX. <strong>College Physics 2e: Heat Transfer
+                Methods</strong>. Disponível em: <a
+                href="https://openstax.org/books/college-physics-2e/pages/14-6-heat-transfer-methods"
+                class="uri">https://openstax.org/books/college-physics-2e/pages/14-6-heat-transfer-methods</a>.
+                Acesso em: 26 maio 2026.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Condução,
+Convecção, Radiação, Lei de Fourier, Lei de Stefan-Boltzmann e
+Intensidade</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
