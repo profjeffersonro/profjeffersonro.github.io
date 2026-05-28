@@ -48,9 +48,10 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1aMtdC7-f8lWrEdrAXxAASWEOq9_sH4nJ/view?usp=drive_link"         
         answers_pdf: "https://drive.google.com/file/d/1smTeIhhWFI3l-CZMd5q7OtOUjxvTdA67/view?usp=drive_link"
         answers_released: false
-      - name: "Processos de Propagação de Calor"
+      - name: "Aula 07 - Processos de Propagação de Calor"
         html: "content/aulas/EM-Termo1/Aula-07/termo-aula-07.html"
         pdf: "https://drive.google.com/file/d/1tbeEI66VeG9SRp4nJGm1Q3reCg1KDY1k/view?usp=drive_link"
+        answers_released: false
   - disciplina: "Física Moderna 1"
     aulas:
       - name: "Aula 01 - Concepções Históricas"
