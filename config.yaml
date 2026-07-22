@@ -54,15 +54,10 @@ disciplinas:
         answers_released: true        
   - disciplina: "Ondulatória"
     aulas:
-      - name: "Aula 01 - Conceitos Iniciais"
-        html: "content/aulas/EM-Ondas/Aula-08/termo1-aula-01.html"
-        pdf: "https://drive.google.com/file/d/1kxr2MRukFEOscdmmH0-JRXcGjSaLzb1Q/view?usp=drive_link" 
-        answers_pdf: "https://drive.google.com/file/d/1XfSArOOQDilRaLlAa-98vcjiPFb15hVx/view?usp=drive_link"
-        answers_released: true
-      - name: "Ondas I: Classificação das Ondas"
-        html: "content/aulas/EM-Ondas/Aula-08/termo-aula-08.html"
-        pdf: "https://drive.google.com/file/d/1j86Hw172h3vrJ9xaT1th8LtPWvPShYvK/view?usp=drive_link"
-        answers_pdf: "https://drive.google.com/file/d/1w9nlMyBJOvtxeO-34ipQwVePS2bxvbVB/view?usp=drive_link"
+      - name: "Aula 1: Definição e Classificação das Ondas"
+        html: "content/aulas/EM-Ondas/Aula-1/ondas-aula-1.html"
+        pdf: "https://drive.google.com/file/d/10pkoATy2uxY-hBtWJFRYqbgZjt2hyOGm/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/1S_wzJGESbAF6CbKsnQoCJfZtBnsR7q3r/view?usp=drive_link"
         answers_released: false
   - disciplina: "Física Moderna 1"
     aulas:
