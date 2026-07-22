@@ -74,14 +74,22 @@ DEFAULT_CONTEXTS: tuple[tuple[str, publish.LessonContext], ...] = (
 
 def ask(prompt: str, default: str | None = None) -> str:
     suffix = f" [{default}]" if default else ""
-    value = input(f"{prompt}{suffix}: ").strip()
+    try:
+        value = input(f"{prompt}{suffix}: ").strip()
+    except EOFError as exc:
+        raise AssistantError("Entrada encerrada antes da resposta. Rode em um terminal interativo ou use as opcoes CLI.") from exc
     return value or (default or "")
 
 
 def ask_yes_no(prompt: str, default: bool = True) -> bool:
     suffix = "S/n" if default else "s/N"
     while True:
-        value = input(f"{prompt} [{suffix}]: ").strip().lower()
+        try:
+            value = input(f"{prompt} [{suffix}]: ").strip().lower()
+        except EOFError as exc:
+            raise AssistantError(
+                "Entrada encerrada antes da resposta. Rode em um terminal interativo ou informe a opcao por flag."
+            ) from exc
         if not value:
             return default
         if value in {"s", "sim", "y", "yes"}:
@@ -101,7 +109,10 @@ def ask_choice(prompt: str, choices: list[tuple[str, str]], default: str) -> str
         marker = " [padrao]" if key == default else ""
         print(f"  {key}. {description}{marker}")
     while True:
-        value = input("Escolha: ").strip().lower() or default
+        try:
+            value = input("Escolha: ").strip().lower() or default
+        except EOFError as exc:
+            raise AssistantError("Entrada encerrada antes da escolha. Rode em um terminal interativo ou use flags.") from exc
         if value in valid:
             return value
         print("Opcao invalida.")
@@ -581,6 +592,9 @@ def main(argv: list[str] | None = None) -> int:
     print_plan_table(plans)
     if not plans:
         raise AssistantError("Nenhuma nota publicavel encontrada.")
+    if args.plan_only:
+        print("Plano concluido; nenhuma publicacao real foi executada.")
+        return 0
 
     selected = choose_plans(plans, args.select)
     if not selected:
@@ -629,10 +643,6 @@ def main(argv: list[str] | None = None) -> int:
             ],
             dry_run=args.dry_run,
         )
-
-    if args.plan_only:
-        print("Plano concluido; nenhuma publicacao real foi executada.")
-        return 0
 
     do_publish = args.publish
     if not do_publish and not args.yes:
