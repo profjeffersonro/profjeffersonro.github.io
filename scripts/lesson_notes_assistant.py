@@ -29,6 +29,7 @@ import publish_lesson as publish  # noqa: E402
 class ConfigIndex:
     html_values: set[str]
     html_by_filename: dict[str, list[str]]
+    html_by_lesson_dir: dict[tuple[str, str], list[str]]
     discipline_by_group: dict[str, str]
     groups_by_discipline: dict[str, list[str]]
 
@@ -61,6 +62,7 @@ class AssistantError(RuntimeError):
 
 
 DEFAULT_CONTEXTS: tuple[tuple[str, publish.LessonContext], ...] = (
+    ("FM2", publish.LessonContext("Física Moderna 2", "ES-FM2")),
     ("FM1", publish.LessonContext("Física Moderna 1", "ES-FM1")),
     ("MecFlu", publish.LessonContext("Mecânica dos Fluidos", "ES-MecFlu")),
     ("EM-Termo1", publish.LessonContext("Termodinâmica", "EM-Termo1")),
@@ -247,6 +249,7 @@ def extract_lesson_title(html_path: Path, fallback: str) -> str:
 def load_config_index(config_path: Path) -> ConfigIndex:
     html_values: set[str] = set()
     html_by_filename: dict[str, list[str]] = {}
+    html_by_lesson_dir: dict[tuple[str, str], list[str]] = {}
     discipline_by_group: dict[str, str] = {}
     groups_by_discipline: dict[str, list[str]] = {}
     current_discipline: str | None = None
@@ -271,6 +274,9 @@ def load_config_index(config_path: Path) -> ConfigIndex:
         parts = Path(html_value).parts
         if len(parts) >= 3 and parts[0] == "content" and parts[1] == "aulas":
             group = parts[2]
+            lesson_folder = parts[3] if len(parts) >= 4 else ""
+            if lesson_folder:
+                html_by_lesson_dir.setdefault((group, lesson_folder), []).append(html_value)
             if current_discipline:
                 discipline_by_group.setdefault(group, current_discipline)
                 groups = groups_by_discipline.setdefault(current_discipline, [])
@@ -280,6 +286,7 @@ def load_config_index(config_path: Path) -> ConfigIndex:
     return ConfigIndex(
         html_values=html_values,
         html_by_filename=html_by_filename,
+        html_by_lesson_dir=html_by_lesson_dir,
         discipline_by_group=discipline_by_group,
         groups_by_discipline=groups_by_discipline,
     )
@@ -315,7 +322,20 @@ def resolve_lesson_files(lesson_dir: Path, index: ConfigIndex) -> tuple[Path, Pa
         matches = index.html_by_filename.get(source_html.name, [])
         if len(matches) > 1:
             raise AssistantError(f"mais de uma entrada no config.yaml usa {source_html.name}")
-        return source_html, source_pdf, matches[0] if matches else None
+        if matches:
+            return source_html, source_pdf, matches[0]
+
+        context = infer_context(lesson_dir, index)
+        if context:
+            folder_matches = index.html_by_lesson_dir.get((context.content_group, lesson_dir.name), [])
+            if len(folder_matches) > 1:
+                raise AssistantError(
+                    f"mais de uma entrada no config.yaml usa {context.content_group}/{lesson_dir.name}"
+                )
+            if folder_matches:
+                return source_html, source_pdf, folder_matches[0]
+
+        return source_html, source_pdf, None
     except publish.PublishError as exc:
         raise AssistantError(str(exc)) from exc
 
@@ -405,15 +425,19 @@ def print_plan_table(plans: list[NotePlan]) -> None:
             print(f"      aviso: {warning}")
 
 
-def choose_plans(plans: list[NotePlan], selection: str | None) -> list[NotePlan]:
+def choose_plans(plans: list[NotePlan], selection: str | None, *, assume_yes: bool = False) -> list[NotePlan]:
     if selection:
         raw = selection
     else:
         missing = [plan for plan in plans if plan.needs_publish]
         if missing:
             print("\nSugestao: publicar apenas as notas ausentes ou incompletas.")
+            if assume_yes:
+                return missing
             if ask_yes_no("Usar esta selecao sugerida", default=True):
                 return missing
+        elif assume_yes:
+            return plans
         raw = ask("Digite numeros separados por virgula, ou 'todas'", "todas")
 
     if raw.lower() in {"todas", "todos", "all"}:
@@ -596,7 +620,7 @@ def main(argv: list[str] | None = None) -> int:
         print("Plano concluido; nenhuma publicacao real foi executada.")
         return 0
 
-    selected = choose_plans(plans, args.select)
+    selected = choose_plans(plans, args.select, assume_yes=args.yes)
     if not selected:
         print("Nenhuma nota selecionada.")
         return 0

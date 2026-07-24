@@ -89,8 +89,8 @@ disciplinas:
     aulas:
       - name: "Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear"
         html: "content/aulas/ES-FM2/Aula-1/fmii-aula-01.html"
-        pdf: "https://drive.google.com/file/d/1HVOpUChU1AqMkq-2gqXbgfrzgjvJVo7r/view?usp=drive_link"  
-        answers_pdf: "https://drive.google.com/file/d/1m_HZZvbVyJElZbbc_EWV3updH8apysty/view?usp=drive_link"
+        pdf: "https://drive.google.com/file/d/1OWibXn_msjZqthNc7Aqz6fZXMiBg6t-0/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/1XEH3K8h5T4cCRjORqvtja1NjvLlbpONP/view?usp=drive_link"
         answers_released: false
   - disciplina: "Mecânica dos Fluidos"
     aulas:

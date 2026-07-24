@@ -51,6 +51,7 @@ class LessonContext:
 
 
 DISCIPLINE_HINTS: tuple[tuple[str, LessonContext], ...] = (
+    ("FM2", LessonContext("Física Moderna 2", "ES-FM2")),
     ("FM1", LessonContext("Física Moderna 1", "ES-FM1")),
     ("MecFlu", LessonContext("Mecânica dos Fluidos", "ES-MecFlu")),
     ("/EM/Termo1/", LessonContext("Termodinâmica", "EM-Termo1")),

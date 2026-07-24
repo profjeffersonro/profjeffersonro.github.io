@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear de Física Moderna 2.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-1-concepcoes-historicas-e-fundamentos-da-fisica-nuclear.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear de Física Moderna 2.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-1-concepcoes-historicas-e-fundamentos-da-fisica-nuclear.html">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Física Moderna 2</li>
+                </ol>
+            </nav>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Física Moderna 2</p>
+                </div>
+                <div class="card-body">
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1OWibXn_msjZqthNc7Aqz6fZXMiBg6t-0/view?usp=drive_link"
+                       class="btn btn-success btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+
+                    <div class="aula-content">
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li><strong>Reconhecer</strong> o papel de Becquerel,
+                Marie Curie, Pierre Curie, Rutherford, Chadwick e outros
+                pesquisadores na construção da Física Nuclear.</li>
+<li><strong>Compreender</strong> os principais marcos
+                históricos que levaram da descoberta dos raios X à
+                identificação do nêutron e da fissão nuclear.</li>
+<li><strong>Distinguir</strong> átomo, núcleo, nuclídeo,
+                isótopo, radionuclídeo e nucleon.</li>
+<li><strong>Interpretar</strong> a notação nuclear \(\ce{^{A}_{Z}X}\) e
+                determinar os números de prótons, nêutrons e elétrons de
+                átomos e íons.</li>
+<li><strong>Classificar</strong> pares de nuclídeos como
+                isótopos, isótonos ou isóbaros.</li>
+<li><strong>Converter</strong> unidades usuais da Física
+                Nuclear por meio de fatores de conversão unitários.</li>
+<li><strong>Aplicar</strong> a conservação do número de
+                massa, do número atômico e da carga elétrica em reações
+                nucleares simples.</li>
+<li><strong>Calcular</strong> massas, cargas e energias
+                de repouso sem arredondamentos intermediários e
+                apresentar resultados com algarismos significativos
+                coerentes.</li>
+<li><strong>Analisar criticamente</strong> a relação
+                entre conhecimento científico, aplicações tecnológicas e
+                responsabilidade social.</li>
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Quando ouvimos a expressão Física Nuclear, é comum
+                pensarmos logo em bombas, usinas e acidentes. Essa
+                associação é compreensível, mas ela começa pelo fim da
+                história. A Física Nuclear nasceu de resultados de
+                laboratório que ninguém estava procurando exatamente
+                daquela forma: uma chapa fotográfica que escureceu
+                dentro de uma gaveta, uma radiação que atravessava
+                materiais opacos e algumas partículas que voltaram ao
+                encontrar uma folha finíssima de ouro.</p>
+<p>Nosso primeiro problema, portanto, não será entender
+                como se produz energia em uma usina. Antes disso,
+                precisamos compreender como os físicos chegaram à
+                conclusão de que o átomo possui uma estrutura interna.
+                No final do século XIX, essa ideia ainda estava em
+                discussão. Em poucas décadas, os experimentos revelaram
+                o elétron, o núcleo, o próton e o nêutron. Só depois
+                vieram a fissão, os reatores, as aplicações médicas e as
+                armas.</p>
+<p>Nesta aula, vamos acompanhar duas linhas que se
+                encontram. Primeiro, compreenderemos as perguntas e os
+                experimentos que levaram à ideia de núcleo. Em seguida,
+                aprenderemos a linguagem usada para descrever um
+                nuclídeo: \(A\), \(Z\), número de nêutrons,
+                carga, unidades de massa e energia. Dessa forma, as
+                datas não ficarão soltas e as fórmulas não aparecerão
+                sem motivo.</p>
+<h1 id="o-que-a-física-nuclear-estuda">O Que a Física
+                Nuclear Estuda</h1>
+<p>Antes de avançarmos, precisamos separar três
+                expressões que aparecem juntas com frequência: Física
+                Nuclear, Física das Radiações e Energia Nuclear. Elas
+                conversam entre si, mas não são nomes diferentes para a
+                mesma área. Cada uma olha para um tipo de problema:</p>
+<ul>
+<li><strong>Física Nuclear:</strong> estuda núcleos,
+                forças nucleares, níveis de energia, decaimentos e
+                reações.</li>
+<li><strong>Física das Radiações:</strong> estuda a
+                produção, a interação, a detecção e os efeitos das
+                radiações na matéria.</li>
+<li><strong>Energia Nuclear:</strong> trata das
+                tecnologias que aproveitam energia liberada em
+                transformações nucleares, especialmente fissão e
+                fusão.</li>
+</ul>
+<p>Um exame de medicina nuclear, por exemplo, envolve
+                núcleos radioativos e a interação da radiação com o
+                corpo. Já um experimento de estrutura nuclear tenta
+                descobrir como prótons e nêutrons se organizam. Uma
+                usina, por sua vez, precisa controlar a energia liberada
+                pela fissão. Os conceitos se encontram, mas as perguntas
+                e os métodos não são os mesmos.</p>
+<h1 id="da-radiação-desconhecida-ao-núcleo">Da Radiação
+                Desconhecida ao Núcleo</h1>
+<h2 id="raios-x-e-radioatividade">Raios X e
+                Radioatividade</h2>
+<p>Qual foi a primeira pista de que havia algo novo
+                dentro do átomo? Vamos começar em 1895. <strong>Wilhelm
+                Conrad Röntgen</strong> observou uma radiação capaz de
+                atravessar materiais opacos à luz visível e produzir
+                fluorescência. Os raios X despertaram imediatamente
+                outra pergunta: será que outros materiais também
+                poderiam emitir radiações penetrantes?</p>
+<p>No ano seguinte, <strong>Henri Becquerel</strong>
+                investigava compostos de urânio. Ele esperava que a luz
+                solar excitasse o material e produzisse uma emissão
+                semelhante aos raios X. O resultado mais importante
+                apareceu quando os sais de urânio, guardados no escuro
+                com chapas fotográficas protegidas da luz, ainda assim
+                velaram as chapas.</p>
+<p>O que esse resultado nos diz? A luz solar não era a
+                fonte da emissão. A emissão acontecia espontaneamente e
+                estava associada ao próprio urânio. Observe a chapa
+                abaixo: as regiões escuras registram a ação dessa
+                radiação.</p>
+<figure>
+<img alt="Chapa de Becquerel velada pela radiação emitida por um sal de urânio. Fonte: Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Becquerel%20plate.jpg" style="width:55.0%"/>
+<figcaption aria-hidden="true">Chapa de Becquerel velada
+                pela radiação emitida por um sal de urânio. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Becquerel%20plate.jpg">Wikimedia
+                Commons, domínio público.</a></figcaption>
+</figure>
+<p>Agora podemos perguntar: onde entram <strong>Marie
+                Skłodowska Curie</strong> e <strong>Pierre
+                Curie</strong> nessa história? O trabalho deles foi
+                muito além de repetir a observação de Becquerel. Marie
+                passou a medir sistematicamente a emissão de diferentes
+                materiais com métodos elétricos sensíveis, em vez de
+                depender apenas do escurecimento de chapas fotográficas.
+                Ela percebeu que certos minérios eram mais ativos que o
+                próprio urânio puro, o que indicava a presença de
+                elementos ainda desconhecidos.</p>
+<p>O minério mais importante nessa etapa foi a
+                <strong>pechblenda</strong>, também chamada uraninita:
+                um minério escuro, rico em óxidos de urânio, que contém
+                pequenas quantidades de outros elementos. Se a
+                radioatividade viesse apenas do urânio, a pechblenda não
+                deveria emitir mais que o urânio isolado. A atividade
+                maior foi justamente a pista experimental que levou
+                Marie e Pierre a procurar novas substâncias no
+                minério.</p>
+<p>Em 1898, Marie e Pierre Curie anunciaram o polônio e
+                o rádio. Marie consolidou o termo
+                <strong>radioatividade</strong> e defendeu que a emissão
+                era uma propriedade do átomo, não uma reação química
+                comum. Pierre contribuiu decisivamente com a
+                instrumentação, as medidas eletrométricas e o trabalho
+                experimental de separação das substâncias. A
+                contribuição conjunta do casal transformou a
+                radioatividade de uma curiosidade observada por
+                Becquerel em um campo quantitativo de pesquisa.</p>
+<figure>
+<img alt="Marie Curie em seu laboratório. Fotógrafo desconhecido. Fonte: Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Marie%20Curie%20on%20a%20chair%20in%20her%20laboratory.jpg" style="width:60.0%"/>
+<figcaption aria-hidden="true">Marie Curie em seu
+                laboratório. Fotógrafo desconhecido. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Marie%20Curie%20on%20a%20chair%20in%20her%20laboratory.jpg">Wikimedia
+                Commons, domínio público.</a></figcaption>
+</figure>
+<h2 id="elétron-e-divisibilidade-do-átomo">Elétron e
+                Divisibilidade do Átomo</h2>
+<p>Talvez você esteja se perguntando por que precisamos
+                falar do elétron em uma aula sobre o núcleo. A razão é
+                que sua descoberta abriu a primeira rachadura na ideia
+                de átomo indivisível. Em 1897, <strong>J. J.
+                Thomson</strong> mediu a razão entre carga e massa dos
+                raios catódicos e concluiu que eles continham partículas
+                negativas muito menos massivas que qualquer átomo.</p>
+<p>O elétron não fica no núcleo, mas sua descoberta
+                criou um problema decisivo. Se o átomo é neutro e contém
+                cargas negativas, onde está a carga positiva? A procura
+                por essa resposta nos leva diretamente ao núcleo.</p>
+<figure>
+<img alt="Esquema do experimento de Thomson com raios catódicos. A deflexão do feixe por campos elétricos ajudou a mostrar que os raios catódicos continham partículas carregadas negativamente, depois chamadas de elétrons. Fonte: Kurzon, Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/JJ_Thomson_exp2.png" style="width:86.0%"/>
+<figcaption aria-hidden="true">Esquema do experimento de
+                Thomson com raios catódicos. A deflexão do feixe por
+                campos elétricos ajudou a mostrar que os raios catódicos
+                continham partículas carregadas negativamente, depois
+                chamadas de elétrons. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:Redirect/file/JJ_Thomson_exp2.png">Kurzon,
+                Wikimedia Commons, domínio público.</a></figcaption>
+</figure>
+<h2 id="radiações-alfa-beta-e-gama">Radiações Alfa, Beta
+                e Gama</h2>
+<p>No começo, toda emissão do urânio parecia ser uma
+                única radiação. Entre 1899 e 1903, porém, os
+                pesquisadores perceberam comportamentos diferentes. Para
+                separá-los, compararam o poder de penetração e
+                observaram os desvios em campos elétricos e
+                magnéticos:</p>
+<ul>
+<li><strong>Radiação alfa (\(\alpha\)):</strong>
+                partículas de carga \(+2e\), posteriormente
+                identificadas como núcleos de hélio.</li>
+<li><strong>Radiação beta (\(\beta\)):</strong> elétrons
+                ou pósitrons emitidos em transformações nucleares.</li>
+<li><strong>Radiação gama (\(\gamma\)):</strong>
+                radiação eletromagnética de alta energia, sem carga
+                elétrica.</li>
+</ul>
+<p>Rutherford distinguiu inicialmente as radiações alfa
+                e beta. <strong>Paul Villard</strong> identificou, em
+                1900, uma emissão mais penetrante; Rutherford consolidou
+                para ela o nome gama.</p>
+<p>Perceba que não foi uma única pessoa que descobriu e
+                explicou tudo. Quase nunca é assim. Uma pessoa observa,
+                outra mede melhor e uma terceira encontra uma
+                interpretação. A Física se constrói nessa conversa entre
+                resultados, críticas e novas experiências.</p>
+<h2 id="experimento-de-geiger-marsden-e-modelo-nuclear">Experimento
+                de Geiger-Marsden e Modelo Nuclear</h2>
+<p>Como uma folha de ouro poderia revelar o que existe
+                dentro do átomo? Em 1909, <strong>Hans Geiger</strong> e
+                <strong>Ernest Marsden</strong>, sob orientação de
+                <strong>Ernest Rutherford</strong>, lançaram partículas
+                alfa contra folhas metálicas muito finas. Vamos pensar
+                nessas partículas como sondas: acompanhando por onde
+                passavam e quanto desviavam, seria possível inferir o
+                que encontravam no interior do átomo.</p>
+<p>A maioria atravessou a folha com desvios pequenos,
+                como se encontrasse quase apenas espaço vazio. O
+                resultado inesperado foi uma fração muito pequena sofrer
+                deflexões grandes, e algumas partículas praticamente
+                retornarem.</p>
+<figure>
+<img alt="Esquema do experimento de espalhamento de Rutherford. Fonte: Wikimedia Commons, CC0 1.0." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rutherford%20Experiment.svg" style="width:85.0%"/>
+<figcaption aria-hidden="true">Esquema do experimento de
+                espalhamento de Rutherford. Fonte: <a href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rutherford%20Experiment.svg">Wikimedia
+                Commons, CC0 1.0.</a></figcaption>
+</figure>
+<p>Mas por que o retorno de algumas partículas era tão
+                surpreendente? Uma carga positiva espalhada por todo o
+                átomo, como no modelo de Thomson, não produziria uma
+                repulsão tão intensa em uma região tão pequena. Para
+                explicar o resultado, Rutherford propôs, em 1911,
+                que:</p>
+<ul>
+<li>o átomo é majoritariamente espaço vazio;</li>
+<li>a carga positiva e quase toda a massa estão
+                concentradas em uma região central muito pequena;</li>
+<li>essa região central é o <strong>núcleo
+                atômico</strong>.</li>
+</ul>
+<p>É importante não atribuir ao experimento mais do que
+                ele mostrou. As grandes deflexões sustentam um núcleo
+                pequeno, denso e positivo. Elas não fotografaram
+                elétrons em órbitas planetárias estáveis. Essa imagem é
+                uma representação posterior e, se tomada literalmente
+                pela Física Clássica, leva ao problema de um átomo
+                instável.</p>
+<h2 id="próton-e-nêutron">Próton e Nêutron</h2>
+<p>Descobrir o núcleo resolveu toda a estrutura do
+                átomo? Ainda não. Precisávamos saber do que esse núcleo
+                era feito. Em experimentos iniciados em 1917 e
+                publicados em 1919, Rutherford bombardeou nitrogênio com
+                partículas alfa e observou a emissão de núcleos de
+                hidrogênio:</p>
+<p>\[
+                \ce{^{4}_{2}He + ^{14}_{7}N -&gt; ^{17}_{8}O +
+                ^{1}_{1}H}.
+                \]</p>
+<p>Rutherford interpretou o núcleo de hidrogênio como
+                uma unidade fundamental da carga nuclear positiva e
+                adotou o nome <strong>próton</strong> em 1920. Essa
+                sequência importa: houve a observação, depois a
+                publicação e, por fim, a consolidação do conceito.</p>
+<p>Agora surge um problema: se o núcleo tivesse apenas
+                prótons, sua carga seria suficiente para explicar sua
+                massa? Não. Muitos núcleos eram mais massivos do que a
+                quantidade de prótons permitia explicar. Em 1932,
+                <strong>James Chadwick</strong> mostrou que a radiação
+                produzida pelo bombardeamento do berílio por partículas
+                alfa continha uma partícula neutra com massa próxima à
+                do próton:</p>
+<p>\[
+                \ce{^{4}_{2}He + ^{9}_{4}Be -&gt; ^{12}_{6}C +
+                ^{1}_{0}n}.
+                \]</p>
+<p>Com o nêutron, o quadro ficou mais claro: o núcleo
+                contém prótons e nêutrons. Mas cuidado com uma
+                simplificação comum. O nêutron não é apenas uma “cola”
+                colocada entre prótons. A estabilidade nuclear envolve a
+                interação forte, a repulsão elétrica, o princípio de
+                exclusão e a estrutura quântica do núcleo. Voltaremos a
+                isso nas próximas aulas.</p>
+<h1 id="da-estrutura-nuclear-às-aplicações">Da Estrutura
+                Nuclear às Aplicações</h1>
+<p>Depois da descoberta do nêutron, poderíamos imaginar
+                um caminho direto até as usinas. A história real não foi
+                direta nem neutra: envolveu descobertas científicas,
+                guerra, escolhas políticas, aplicações médicas e
+                acidentes. Para situarmos o restante do curso, vamos
+                acompanhar alguns marcos:</p>
+<ul>
+<li><strong>1934:</strong> Irène Joliot-Curie e Frédéric
+                Joliot-Curie produzem radioatividade artificial.</li>
+<li><strong>1938-1939:</strong> Otto Hahn e Fritz
+                Strassmann obtêm os produtos experimentais da fissão do
+                urânio; Lise Meitner e Otto Frisch fornecem a
+                interpretação física do processo.</li>
+<li><strong>1942:</strong> o grupo liderado por Enrico
+                Fermi produz a primeira reação nuclear em cadeia
+                controlada, na Chicago Pile-1.</li>
+<li><strong>1945:</strong> armas nucleares são
+                empregadas em Hiroshima e Nagasaki, tornando
+                inseparáveis a Física Nuclear e a discussão ética sobre
+                seus usos.</li>
+<li><strong>Décadas seguintes:</strong> expandem-se
+                reatores de pesquisa e potência, produção de
+                radioisótopos, radioterapia, diagnóstico por imagem,
+                datação e técnicas industriais.</li>
+<li><strong>1987:</strong> o acidente radiológico com
+                césio-137 em Goiânia evidencia que segurança,
+                comunicação pública e gestão de fontes são problemas
+                científicos e sociais.</li>
+</ul>
+<p>Não basta, portanto, memorizar quem descobriu o quê.
+                Precisamos perguntar também quem teve acesso aos
+                laboratórios, quem recebeu reconhecimento, quem decidiu
+                as aplicações e quem assumiu os riscos. <strong>Lise
+                Meitner</strong>, por exemplo, teve papel central na
+                interpretação física da fissão, mas não compartilhou o
+                Prêmio Nobel de Química de 1944 concedido a Hahn. A
+                história da ciência fica incompleta quando retiramos
+                dela as pessoas e as decisões.</p>
+<h1 id="linguagem-fundamental">Linguagem
+                Fundamental</h1>
+<h2 id="átomo-núcleo-nuclídeo-e-nucleon">Átomo, Núcleo,
+                Nuclídeo e Nucleon</h2>
+<p>Antes de iniciarmos os cálculos, precisamos cuidar do
+                vocabulário. Será que podemos chamar tudo simplesmente
+                de átomo? É justamente aí que começam muitas confusões.
+                Quando estivermos falando da parte central, usaremos
+                <strong>núcleo</strong>. Quando quisermos identificar
+                uma espécie nuclear pelo número de prótons e nêutrons,
+                usaremos <strong>nuclídeo</strong>. Vamos fixar esses
+                termos:</p>
+<ul>
+<li><strong>Átomo:</strong> sistema eletricamente neutro
+                ou ionizado constituído por núcleo e elétrons.</li>
+<li><strong>Núcleo:</strong> região central formada por
+                prótons e nêutrons.</li>
+<li><strong>Nucleon:</strong> nome genérico dado a
+                próton ou nêutron.</li>
+<li><strong>Nuclídeo:</strong> espécie nuclear definida
+                por seus números de prótons e nêutrons e, quando
+                necessário, por seu estado de energia.</li>
+<li><strong>Isótopo:</strong> nuclídeo de um mesmo
+                elemento químico, portanto com o mesmo número de
+                prótons, mas diferente número de nêutrons.</li>
+<li><strong>Radionuclídeo:</strong> nuclídeo instável
+                que se transforma espontaneamente, emitindo
+                radiação.</li>
+</ul>
+<h2 id="notação-nuclear">Notação Nuclear</h2>
+<p>Como colocaremos todas essas informações no símbolo
+                de um elemento? A forma mais completa da notação pode
+                registrar quatro informações ao redor do símbolo
+                químico:</p>
+<p>\[
+                {}^{A}_{Z}X^{q}_{N},
+                \]</p>
+<p>em que:</p>
+<ul>
+<li>\(X\) é o símbolo
+                químico;</li>
+<li>\(Z\) é o
+                <strong>número atômico</strong>, escrito na parte
+                inferior esquerda, igual ao número de prótons;</li>
+<li>\(A\) é o
+                <strong>número de massa</strong>, escrito na parte
+                superior esquerda, igual ao número total de
+                nucleons;</li>
+<li>\(N\) é o número de
+                nêutrons, que pode aparecer na parte inferior
+                direita;</li>
+<li>\(q\) é a carga
+                elétrica do átomo ou íon, escrita na parte superior
+                direita.</li>
+</ul>
+<p>Na Física Nuclear, quase sempre estamos interessados
+                no núcleo, não no estado químico de ionização. Por isso,
+                o símbolo mais usado será a forma nuclear:</p>
+<p>\[
+                \ce{^{A}_{Z}X},
+                \]</p>
+<p>e, quando \(Z\) já
+                puder ser identificado pelo símbolo químico, também
+                aparecerá a forma ainda mais compacta:</p>
+<p>\[
+                \ce{^{A}X}.
+                \]</p>
+<p>Por exemplo, \(\ce{^{56}_{26}Fe}\) e \(\ce{^{56}Fe}\) indicam o
+                mesmo nuclídeo, pois o símbolo \(\ce{Fe}\) já informa que
+                \(Z=26\). A carga
+                iônica, como em \(\ce{Fe^{3+}}\), só será
+                necessária quando a pergunta envolver elétrons.</p>
+<p>Assim:</p>
+<p>\[
+                A=Z+N
+                \qquad\text{e}\qquad
+                N=A-Z.
+                \]</p>
+<p>Os números \(A\),
+                \(Z\) e \(N\) são contagens. Não faz
+                sentido escrever “26,0 prótons” em um núcleo: ou há 26
+                prótons, ou não se trata daquele nuclídeo. Por isso,
+                essas grandezas são exatas, não possuem unidade e não
+                limitam algarismos significativos.</p>
+<p>Você pode notar que os elétrons não aparecem
+                diretamente nessa notação. Isso acontece porque ela
+                identifica o núcleo, enquanto o número de elétrons
+                depende do estado de ionização. Se \(q=ne\) é a carga líquida do
+                átomo ou íon, com \(n\)
+                inteiro, então:</p>
+<p>\[
+                n=Z-N_e
+                \qquad\text{ou}\qquad
+                N_e=Z-n,
+                \]</p>
+<p>em que \(N_e\) é o
+                número de elétrons. Para um átomo neutro, \(n=0\) e \(N_e=Z\).</p>
+<h2 id="exemplo-1.1-composição-de-um-íon">Exemplo 1.1:
+                Composição de um Íon</h2>
+<p>Vamos ler o íon \(\ce{^{56}_{26}Fe^{3+}}\) e
+                determinar quantos prótons, nêutrons e elétrons ele
+                possui. É comum olharmos para o 56 e pensarmos que ele
+                representa o número de prótons. Vamos conferir com
+                cuidado.</p>
+<p><strong>Solução:</strong></p>
+<p>O número de prótons é o índice inferior, \(Z=26\). O 56 é o total de
+                nucleons, isto é, \(A\). Logo:</p>
+<p>\[
+                N=A-Z=56-26=30.
+                \]</p>
+<p>Agora olhamos a carga. O símbolo \(3+\) informa que o átomo
+                perdeu três elétrons:</p>
+<p>\[
+                N_e=Z-3=26-3=23.
+                \]</p>
+<p><strong>Resposta:</strong> 26 prótons, 30 nêutrons e
+                23 elétrons.</p>
+<h2 id="isótopos-isótonos-e-isóbaros">Isótopos, Isótonos
+                e Isóbaros</h2>
+<p>Os nomes isótopo, isótono e isóbaro são parecidos e
+                podem nos confundir. Em vez de decorarmos apenas os
+                nomes, vamos perguntar qual número permanece igual
+                quando comparamos dois nuclídeos:</p>
+<ul>
+<li><strong>Isótopos:</strong> mesmo \(Z\) e diferentes \(N\) e \(A\). Exemplo: \(\ce{^{12}_{6}C}\) e \(\ce{^{14}_{6}C}\).</li>
+<li><strong>Isótonos:</strong> mesmo \(N\) e diferentes \(Z\) e \(A\). Exemplo: \(\ce{^{14}_{6}C}\) e \(\ce{^{15}_{7}N}\).</li>
+<li><strong>Isóbaros:</strong> mesmo \(A\) e diferentes \(Z\) e \(N\). Exemplo: \(\ce{^{14}_{6}C}\) e \(\ce{^{14}_{7}N}\).</li>
+</ul>
+<p>O caso mais importante é o dos
+                <strong>isótopos</strong>. Carbono-12 e carbono-14 não
+                são elementos diferentes: ambos possuem \(Z=6\) e, portanto, ambos
+                são carbono. O que muda é o número de nêutrons.</p>
+<h1 id="conservação-em-reações-nucleares">Conservação em
+                Reações Nucleares</h1>
+<p>Uma <strong>reação nuclear</strong> é uma
+                transformação em que um núcleo interage com outro núcleo
+                ou com uma partícula e, como resultado, aparecem novos
+                núcleos ou partículas. Ela é diferente de uma reação
+                química: em uma reação química, os núcleos permanecem os
+                mesmos e o rearranjo principal envolve elétrons; em uma
+                reação nuclear, o próprio núcleo pode mudar.</p>
+<p>Os termos <strong>reagentes nucleares</strong> e
+                <strong>produtos nucleares</strong> ajudam a ler a
+                equação. Os reagentes nucleares ficam à esquerda da seta
+                e representam o núcleo-alvo e a partícula incidente, ou
+                os núcleos que interagem antes da transformação. Os
+                produtos nucleares ficam à direita da seta e representam
+                tudo que aparece depois: novos núcleos, partículas
+                emitidas e, quando necessário, fótons gama.</p>
+<p>Por exemplo, na reação</p>
+<p>\[
+                \ce{^{27}_{13}Al + ^{4}_{2}He -&gt; ^{30}_{15}P +
+                ^{1}_{0}n},
+                \]</p>
+<p>os reagentes nucleares são \(\ce{^{27}_{13}Al}\) e \(\ce{^{4}_{2}He}\); os
+                produtos nucleares são \(\ce{^{30}_{15}P}\) e \(\ce{^{1}_{0}n}\). Como
+                poderemos conferir se a equação está correta? Nosso
+                primeiro teste será fazer um balanço parecido com o de
+                uma equação química, mas agora acompanharemos nucleons e
+                carga. Em uma reação nuclear completa, conservam-se:</p>
+<ul>
+<li>a carga elétrica total;</li>
+<li>o número total de nucleons, representado pela soma
+                dos números de massa;</li>
+<li>a energia total e o momento linear;</li>
+<li>outras grandezas quânticas relevantes, conforme o
+                processo.</li>
+</ul>
+<p>Para identificar uma partícula ou nuclídeo ausente em
+                reações introdutórias, usamos principalmente:</p>
+<p>\[
+                \begin{aligned}
+                \sum A_{\text{antes}}&amp;=\sum A_{\text{depois}},\\
+                \sum Z_{\text{antes}}&amp;=\sum Z_{\text{depois}}.
+                \end{aligned}
+                \]</p>
+<p>O balanço de \(A\)
+                acompanha o número total de nucleons. O balanço de \(Z\) acompanha a carga
+                nuclear em unidades da carga elementar, pois cada próton
+                contribui com \(+e\).
+                Quando elétrons, pósitrons ou íons aparecem
+                explicitamente, a carga elétrica total também deve ser
+                acompanhada com cuidado.</p>
+<p>Aqui precisamos fazer uma ressalva importante. Se as
+                somas de \(A\) e \(Z\) fecharem, isso não
+                significa que a reação obrigatoriamente acontecerá. O
+                balanço identifica erros evidentes e ajuda a encontrar
+                uma partícula ausente, mas não garante que o processo
+                tenha energia disponível nem que respeite todas as leis
+                de conservação. Ele é uma condição necessária, mas não
+                suficiente.</p>
+<h2 id="exemplo-1.2-identificação-de-um-produto">Exemplo
+                1.2: Identificação de um Produto</h2>
+<p>Vamos considerar a reação:</p>
+<p>\[
+                \ce{^{27}_{13}Al + ^{4}_{2}He -&gt; ^{30}_{15}P +
+                ^{A}_{Z}X}.
+                \]</p>
+<p>Começamos pelo número de massa:</p>
+<p>\[
+                27+4=30+A \Rightarrow A=1.
+                \]</p>
+<p>Depois fazemos o balanço do número atômico:</p>
+<p>\[
+                13+2=15+Z \Rightarrow Z=0.
+                \]</p>
+<p>Encontramos \(A=1\)
+                e \(Z=0\). Portanto, a
+                partícula ausente só pode ser um nêutron.</p>
+<p><strong>Resposta:</strong> \(\ce{X=^{1}_{0}n}\).</p>
+<h1 id="unidades-na-física-nuclear">Unidades na Física
+                Nuclear</h1>
+<p>Por que a Física Nuclear usa unidades próprias? Não
+                seria mais simples manter quilograma e joule? Poderíamos
+                trabalhar apenas com o SI, mas nossos números ficariam
+                cheios de potências de dez. Um núcleo tem massa da ordem
+                de \(10^{-27}\,\text{kg}\) e
+                suas energias típicas são muito pequenas em joules. A
+                unidade de massa atômica e o elétron-volt colocam essas
+                grandezas em uma escala mais fácil de ler.</p>
+<h2 id="carga-elementar">Carga Elementar</h2>
+<p>Comecemos pela carga elementar. Desde a redefinição
+                do SI em 2019, seu valor é exato:</p>
+<p>\[
+                e=1{,}602\,176\,634\times10^{-19}\,\text{C}.
+                \]</p>
+<p>Assim, um próton carrega \(+e\), um elétron carrega
+                \(-e\) e um nêutron tem
+                carga elétrica nula. Quando contarmos partículas, o
+                sinal não será um detalhe: ele determinará a carga total
+                do sistema.</p>
+<p>Nos exemplos e exercícios desta disciplina,
+                adotaremos \(e=1{,}602\times10^{-19}\,\text{C}\),
+                com quatro algarismos significativos. O valor exato é
+                útil para definir o SI; o valor de trabalho torna os
+                cálculos coerentes com a precisão dos demais dados.</p>
+<h2 id="unidade-de-massa-atômica">Unidade de Massa
+                Atômica</h2>
+<p>Podemos perguntar se a unidade \(\text{u}\) vem da massa de
+                um próton. Ela é próxima da massa de um nucleon, mas sua
+                definição é mais precisa. A unidade de massa atômica
+                unificada corresponde a um doze avos da massa de um
+                átomo neutro de carbono-12 em seu estado
+                fundamental:</p>
+<p>\[
+                1\,\text{u}=\frac{1}{12}m(\ce{^{12}C})
+                =1{,}660\,539\,066\,60\times10^{-27}\,\text{kg}.
+                \]</p>
+<p>Para os cálculos da disciplina, usaremos \(1\,\text{u}=1{,}661\times10^{-27}\,\text{kg}\),
+                com quatro algarismos significativos.</p>
+<p>Em problemas introdutórios de contagem, usaremos às
+                vezes \(m\approx
+                A\,\text{u}\). É uma estimativa útil, não uma
+                igualdade exata. Quando estudarmos defeito de massa e
+                energia de ligação, essa aproximação deixará de servir e
+                usaremos massas atômicas ou nucleares tabeladas.</p>
+<h2 id="elétron-volt">Elétron-volt</h2>
+<p>O nome elétron-volt pode parecer uma unidade de
+                tensão, mas essa é uma confusão que precisamos evitar.
+                Volt mede diferença de potencial; elétron-volt mede
+                <strong>energia</strong>. Um elétron-volt é a energia
+                adquirida por uma partícula de carga elementar ao
+                atravessar uma diferença de potencial de um volt:</p>
+<p>\[
+                1\,\text{eV}=1{,}602\,176\,634\times10^{-19}\,\text{J}.
+                \]</p>
+<p>Em exercícios numéricos, adotaremos \(1\,\text{eV}=1{,}602\times10^{-19}\,\text{J}\).</p>
+<p>Como o eV é pequeno, aparecem com frequência seus
+                múltiplos:</p>
+<p>\[
+                1\,\text{keV}=10^3\,\text{eV},\quad
+                1\,\text{MeV}=10^6\,\text{eV},\quad
+                1\,\text{GeV}=10^9\,\text{eV}.
+                \]</p>
+<h2 id="fatores-de-conversão-unitários">Fatores de
+                Conversão Unitários</h2>
+<p>Talvez você esteja acostumado a fazer conversões
+                apenas “movendo a vírgula”. Aqui vamos escrever os
+                fatores porque eles mostram por que a conversão funciona
+                e nos permitem conferir as unidades. Cada fator é uma
+                razão igual a 1. Por exemplo:</p>
+<p>\[
+                \frac{1{,}661\times10^{-27}\,\text{kg}}{1\,\text{u}}=1.
+                \]</p>
+<p>Multiplicar por uma razão igual a 1 não muda a
+                grandeza física; muda apenas a forma de expressá-la.
+                Escolhemos a orientação do fator para que a unidade
+                indesejada apareça uma vez no numerador e outra no
+                denominador. Se ela não cancelar, a montagem do cálculo
+                precisa ser revista.</p>
+<h2 id="exemplo-1.3-massa-de-potássio-radioativo">Exemplo
+                1.3: Massa de Potássio Radioativo</h2>
+<p>Uma banana contém potássio, e uma pequena fração
+                natural desse potássio é o radioisótopo \(\ce{^{40}K}\). Suponha que
+                uma amostra contenha \(8{,}00\times10^{17}\)
+                átomos de \(\ce{^{40}K}\). Usando a
+                massa atômica \(M(\ce{^{40}K})=39{,}963\,998\,\text{u}\),
+                calcule a massa dessa quantidade de potássio-40 em
+                microgramas.</p>
+<p>O número \(8{,}00\times10^{17}\)
+                informa quantos átomos de \(\ce{^{40}K}\) há na
+                amostra. A massa \(39{,}963\,998\,\text{u}\)
+                informa a massa de um átomo de potássio-40. Portanto, o
+                cálculo tem três etapas conceituais: primeiro
+                multiplicamos a quantidade de átomos pela massa de cada
+                átomo; depois convertemos a unidade \(\text{u}\) para quilograma;
+                por fim, convertemos quilograma para micrograma.</p>
+<p><strong>Solução:</strong></p>
+<p>Antes da conta completa, observe as unidades:</p>
+<p>\[
+                (\text{átomos})\left(\frac{\text{u}}{\text{átomo}}\right)=\text{u}.
+                \]</p>
+<p>Isso nos dá a massa total em unidades de massa
+                atômica. Em seguida, convertemos para quilograma e
+                depois para micrograma:</p>
+<p>\[
+                (\text{u})\left(\frac{\text{kg}}{\text{u}}\right)
+                \left(\frac{\mu\text{g}}{\text{kg}}\right)=\mu\text{g}.
+                \]</p>
+<p>Escreveremos as etapas na mesma expressão e faremos
+                uma única avaliação numérica:</p>
+<p>\[
+                \begin{aligned}
+                m&amp;=(8{,}00\times10^{17}\,\text{átomos})
+                \left(\frac{39{,}963\,998\,\text{u}}{1\,\text{átomo}}\right)\\
+                &amp;\quad\times
+                \left(\frac{1{,}661\times10^{-27}\,\text{kg}}{1\,\text{u}}\right)
+                \left(\frac{10^9\,\mu\text{g}}{1\,\text{kg}}\right)\\
+                &amp;=53{,}104\ldots\,\mu\text{g}\\
+                &amp;=53{,}1\,\mu\text{g}.
+                \end{aligned}
+                \]</p>
+<p>O primeiro fator cancela a palavra “átomos” porque a
+                massa tabelada está escrita por átomo. O segundo fator
+                cancela \(\text{u}\)
+                porque usamos \(1\,\text{u}=1{,}661\times10^{-27}\,\text{kg}\).
+                O terceiro fator cancela quilograma e deixa a resposta
+                em microgramas. O dado \(8{,}00\times10^{17}\)
+                possui três algarismos significativos e limita a
+                resposta. A massa atômica foi mantida com as seis casas
+                decimais fornecidas pela tabela.</p>
+<h1 id="energia-de-repouso">Energia de Repouso</h1>
+<p>A relação entre massa e energia é dada por:</p>
+<p>\[
+                E_0=mc^2.
+                \]</p>
+<p>O símbolo \(E_0\)
+                representa a <strong>energia de repouso</strong>, isto
+                é, a energia associada à massa de um corpo mesmo quando
+                ele está em repouso. A constante \(c^2\) tem papel central
+                nessa expressão: ela é o fator que converte massa em
+                energia. Como a velocidade da luz é muito grande, seu
+                quadrado é ainda maior; por isso, massas muito pequenas,
+                como as massas de partículas subatômicas, correspondem a
+                energias mensuráveis na escala nuclear.</p>
+<p>Esse ponto será usado muitas vezes no curso. Quando
+                uma reação nuclear libera energia, não precisamos
+                imaginar que massa “desaparece” no sentido comum da
+                palavra. O que ocorre é uma diferença entre a massa de
+                repouso total antes e depois da transformação. Essa
+                diferença de massa corresponde a uma diferença de
+                energia, calculada por \(\Delta E=\Delta mc^2\).</p>
+<h2 id="conversão-de-1textu-em-mev">Conversão de \(1\,\text{u}\) em MeV</h2>
+<p>Queremos escrever \(c^2\) em uma forma
+                conveniente para cálculos nucleares. Em vez de usar
+                quilograma e joule em todas as contas, vamos converter a
+                energia correspondente a \(1\,\text{u}\) para MeV
+                usando fatores de conversão unitários.</p>
+<p>Usaremos:</p>
+<p>\[
+                \begin{aligned}
+                1\,\text{u}&amp;=1{,}660\,539\,066\,60\times10^{-27}\,\text{kg},\\
+                c&amp;=299\,792\,458\,\text{m/s},\\
+                1\,\text{MeV}&amp;=1{,}602\,176\,634\times10^{-13}\,\text{J}.
+                \end{aligned}
+                \]</p>
+<p>Primeiro aplicamos \(E_0=mc^2\) para uma massa
+                de \(1\,\text{u}\):</p>
+<p>\[
+                \begin{aligned}
+                1\,\text{u}\,c^2
+                &amp;=(1\,\text{u})
+                \left(\frac{1{,}660\,539\,066\,60\times10^{-27}\,\text{kg}}{1\,\text{u}}\right)\\
+                &amp;\quad\times(299\,792\,458\,\text{m/s})^2\\
+                &amp;=1{,}492\,418\,085\ldots\times10^{-10}\,\text{J}.
+                \end{aligned}
+                \]</p>
+<p>O resultado saiu em joules porque:</p>
+<p>\[
+                \text{kg}\,\frac{\text{m}^2}{\text{s}^2}=\text{J}.
+                \]</p>
+<p>Agora usamos o fator unitário que converte joule em
+                MeV:</p>
+<p>\[
+                \begin{aligned}
+                1\,\text{u}\,c^2
+                &amp;=(1{,}492\,418\,085\ldots\times10^{-10}\,\text{J})\\
+                &amp;\quad\times
+                \left(\frac{1\,\text{MeV}}{1{,}602\,176\,634\times10^{-13}\,\text{J}}\right)\\
+                &amp;=931{,}494\ldots\,\text{MeV}\\
+                &amp;\approx 931{,}5\,\text{MeV}.
+                \end{aligned}
+                \]</p>
+<p>Portanto:</p>
+<p>\[
+                \boxed{1\,\text{u}\,c^2=931{,}5\,\text{MeV}}.
+                \]</p>
+<p>Dividindo os dois lados por \(1\,\text{u}\), obtemos a
+                forma que usaremos como constante de trabalho:</p>
+<p>\[
+                \boxed{c^2=931{,}5\,\text{MeV/u}}.
+                \]</p>
+<p>Esse valor está arredondado para quatro algarismos
+                significativos, seguindo o mesmo padrão adotado para as
+                demais constantes usadas nos exercícios.</p>
+<h2 id="exemplo-1.4-energia-de-repouso-do-elétron">Exemplo
+                1.4: Energia de Repouso do Elétron</h2>
+<p>Vamos calcular a energia de repouso do elétron usando
+                sua massa em unidade de massa atômica:</p>
+<p>\[
+                m_e=0{,}000549\,\text{u}.
+                \]</p>
+<p><strong>Solução:</strong></p>
+<p>Como a massa já está em \(\text{u}\), usamos
+                diretamente \(c^2=931{,}5\,\text{MeV/u}\):</p>
+<p>\[
+                \begin{aligned}
+                E_0&amp;=m_ec^2\\
+                &amp;=(0{,}000549\,\text{u})
+                \left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=0{,}5113935\,\text{MeV}\\
+                &amp;=0{,}511\,\text{MeV}.
+                \end{aligned}
+                \]</p>
+<p>A massa \(0{,}000549\,\text{u}\) foi
+                dada com três algarismos significativos, por isso a
+                resposta final também foi apresentada com três
+                algarismos significativos.</p>
+<h1 id="algarismos-significativos-e-arredondamento">Algarismos
+                Significativos e Arredondamento</h1>
+<p>Por que insistiremos tanto em não arredondar no meio
+                do cálculo se a resposta final será arredondada? Porque
+                cada arredondamento intermediário altera um pouco o
+                resultado, e esses erros podem se acumular. Além disso,
+                carregar as unidades revela trocas indevidas de
+                grandezas. Ao longo da disciplina, seguiremos estas
+                regras:</p>
+<ol type="1">
+<li><strong>Contagens são exatas.</strong> Números de
+                prótons, nêutrons, elétrons e partículas não limitam a
+                precisão.</li>
+<li><strong>Fatores definidos são exatos.</strong> Por
+                exemplo, \(10^6\,\text{eV}=1\,\text{MeV}\)
+                não limita algarismos significativos.</li>
+<li><strong>Dados medidos limitam a resposta.</strong>
+                Em multiplicações e divisões, o resultado acompanha o
+                dado com menos algarismos significativos.</li>
+<li><strong>Não arredondamos resultados
+                intermediários.</strong> A expressão é avaliada com os
+                valores completos e arredondada apenas na resposta
+                final.</li>
+<li><strong>Unidades acompanham todas as
+                etapas.</strong> O cancelamento das unidades faz parte
+                da verificação do cálculo.</li>
+</ol>
+<h1 id="síntese-conceitual">Síntese Conceitual</h1>
+<p>Qual é o fio que liga toda a aula? Começamos com uma
+                chapa fotográfica que escureceu sem receber luz e
+                terminamos calculando massa e energia de partículas.
+                Fizemos a passagem de uma suspeita experimental para uma
+                linguagem quantitativa capaz de descrever o núcleo.
+                Vamos guardar os pontos centrais:</p>
+<ul>
+<li>A radioatividade revelou transformações espontâneas
+                associadas ao átomo.</li>
+<li>O espalhamento de partículas alfa mostrou que carga
+                positiva e massa estão concentradas no núcleo.</li>
+<li>Prótons e nêutrons são nucleons; elétrons pertencem
+                à estrutura atômica, mas não ao núcleo.</li>
+<li>O elemento químico é determinado por \(Z\); o nuclídeo, pelo par
+                \((Z,N)\).</li>
+<li>A notação \(\ce{^{A}_{Z}X}\) contém
+                \(A=Z+N\).</li>
+<li>Em reações nucleares simples, as somas de \(A\) e \(Z\) devem se
+                conservar.</li>
+<li>As unidades \(\text{u}\) e \(\text{eV}\) tornam
+                convenientes as escalas de massa e energia
+                nucleares.</li>
+<li>Um cálculo confiável conserva unidades, usa fatores
+                unitários e arredonda uma única vez.</li>
+</ul>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=tMpL8QBZOm0" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Simplifísica - Átomo: um século de descobertas" loading="lazy" src="./images/thumbs/ytb-ufrgs-atomo.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Simplifísica - Átomo: um século de descobertas</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=tMpL8QBZOm0" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UFRGS TV.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=tMpL8QBZOm0" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=c0_dhMjwcX8" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="O Átomo de Rutherford" loading="lazy" src="./images/thumbs/ytb-uff-rutherford.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">O Átomo de Rutherford</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=c0_dhMjwcX8" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Física Moderna UFF.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=c0_dhMjwcX8" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=ghSKCW-nNx4" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Como Marie Curie descobriu a radioatividade e mudou o mundo para sempre" loading="lazy" src="./images/thumbs/ytb-bbc-marie-curie.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Como Marie Curie descobriu a radioatividade e mudou o mundo para sempre</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=ghSKCW-nNx4" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">BBC News Brasil.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=ghSKCW-nNx4" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=g_uNeFqOt4w" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física IV - Física Nuclear, parte 1" loading="lazy" src="./images/thumbs/ytb-univesp-fisica-nuclear.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física IV - Física Nuclear, parte 1</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=g_uNeFqOt4w" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP.</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=g_uNeFqOt4w" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<h2 id="questões-conceituais">Questões Conceituais</h2>
+<dl>
+<dt>1.1)</dt>
+<dd>
+                Qual observação caracteriza corretamente a descoberta de
+                Becquerel em 1896?
+                </dd>
+</dl>
+<ol type="a">
+<li>A radiação emitida pelo urânio só aparecia após
+                aquecimento intenso.</li>
+<li>A emissão era causada exclusivamente pela luz solar
+                absorvida pelo sal.</li>
+<li>O urânio emitia apenas luz visível, sem atravessar
+                materiais opacos.</li>
+<li>Sais de urânio impressionavam chapas fotográficas
+                mesmo protegidos da luz.</li>
+<li>O fenômeno demonstrava diretamente a existência do
+                nêutron.</li>
+</ol>
+<dl>
+<dt>1.2)</dt>
+<dd>
+                Na notação \(\ce{^{A}_{Z}X}\), é correto
+                afirmar que:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(A\) é o número de
+                nucleons, \(Z\) é o
+                número de prótons e \(N=A-Z\).</li>
+<li>\(A\) é o número de
+                elétrons e \(Z\) é o
+                número de nêutrons.</li>
+<li>\(Z\) varia entre
+                isótopos de um mesmo elemento.</li>
+<li>\(A\) determina
+                sozinho o elemento químico.</li>
+<li>\(N=Z-A\).</li>
+</ol>
+<dl>
+<dt>1.3)</dt>
+<dd>
+                Dois nuclídeos são isótopos quando possuem:
+                </dd>
+</dl>
+<ol type="a">
+<li>o mesmo \(A\) e o
+                mesmo \(N\).</li>
+<li>o mesmo \(N\) e
+                diferentes valores de \(Z\).</li>
+<li>o mesmo \(A\) e
+                diferentes valores de \(Z\).</li>
+<li>diferentes valores de \(A\), \(Z\) e \(N\).</li>
+<li>o mesmo \(Z\) e
+                diferentes valores de \(N\).</li>
+</ol>
+<dl>
+<dt>1.4)</dt>
+<dd>
+                A pequena fração de partículas alfa espalhadas em
+                grandes ângulos no experimento de Geiger-Marsden levou à
+                conclusão de que:
+                </dd>
+</dl>
+<ol type="a">
+<li>a carga positiva ocupava uniformemente todo o volume
+                atômico.</li>
+<li>a carga positiva e quase toda a massa estavam
+                concentradas em uma região muito pequena.</li>
+<li>o átomo não possuía regiões vazias.</li>
+<li>as partículas alfa não tinham carga elétrica.</li>
+<li>os elétrons constituíam a maior parte da massa do
+                átomo.</li>
+</ol>
+<dl>
+<dt>1.5)</dt>
+<dd>
+                Sobre elemento químico e nuclídeo, assinale a
+                alternativa correta.
+                </dd>
+</dl>
+<ol type="a">
+<li>O número de massa \(A\) determina a identidade
+                química do elemento.</li>
+<li>Todo nuclídeo é estável.</li>
+<li>O número atômico \(Z\) determina o elemento;
+                isótopos do mesmo elemento têm o mesmo \(Z\).</li>
+<li>Prótons e elétrons são os dois tipos de
+                nucleons.</li>
+<li>Um íon deixa de pertencer ao elemento original
+                quando ganha elétrons.</li>
+</ol>
+<h2 id="questões-de-cálculo">Questões de Cálculo</h2>
+<p>Considere, quando necessário:</p>
+<p>\[
+                \begin{aligned}
+                e&amp;=1{,}602\times10^{-19}\,\text{C},\\
+                1\,\text{u}&amp;=1{,}661\times10^{-27}\,\text{kg},\\
+                c^2&amp;=931{,}5\,\text{MeV/u},\\
+                1\,\text{eV}&amp;=1{,}602\times10^{-19}\,\text{J}.
+                \end{aligned}
+                \]</p>
+<dl>
+<dt>1.6)</dt>
+<dd>
+                O íon \(\ce{^{137}_{55}Cs^{+}}\)
+                possui, respectivamente, quantos prótons, nêutrons e
+                elétrons?
+                </dd>
+</dl>
+<ol type="a">
+<li>55, 82 e 54.</li>
+<li>55, 81 e 56.</li>
+<li>82, 55 e 54.</li>
+<li>55, 137 e 56.</li>
+<li>54, 82 e 55.</li>
+</ol>
+<dl>
+<dt>1.7)</dt>
+<dd>
+                Um íon possui número de massa \(A=31\), número de nêutrons
+                \(N=16\) e 18 elétrons.
+                Qual é sua representação?
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{31}_{16}S^{2-}}\)</li>
+<li>\(\ce{^{31}_{15}P^{3+}}\)</li>
+<li>\(\ce{^{31}_{15}P^{3-}}\)</li>
+<li>\(\ce{^{31}_{13}Al^{5-}}\)</li>
+<li>\(\ce{^{31}_{18}Ar}\)</li>
+</ol>
+<dl>
+<dt>1.8)</dt>
+<dd>
+                Na reação \(\ce{^{4}_{2}He +
+                ^{14}_{7}N -&gt; X + ^{1}_{1}H}\), qual é o
+                nuclídeo \(X\)?
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{18}_{9}F}\)</li>
+<li>\(\ce{^{17}_{7}N}\)</li>
+<li>\(\ce{^{16}_{8}O}\)</li>
+<li>\(\ce{^{17}_{8}O}\)</li>
+<li>\(\ce{^{18}_{8}O}\)</li>
+</ol>
+<dl>
+<dt>1.9)</dt>
+<dd>
+                Na reação \(\ce{^{27}_{13}Al +
+                ^{4}_{2}He -&gt; ^{30}_{15}P + X}\), a partícula
+                \(X\) é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{0}_{-1}e}\)</li>
+<li>\(\ce{^{1}_{1}H}\)</li>
+<li>\(\ce{^{4}_{2}He}\)</li>
+<li>\(\ce{^{0}_{0}\gamma}\)</li>
+<li>\(\ce{^{1}_{0}n}\)</li>
+</ol>
+<dl>
+<dt>1.10)</dt>
+<dd>
+                Calcule a massa de \(3{,}25\times10^{15}\)
+                átomos de \(\ce{^{238}U}\) usando \(M(\ce{^{238}U})=238{,}050\,787\,\text{u}\),
+                da tabela. Apresente o resultado com três algarismos
+                significativos.
+                </dd>
+</dl>
+<ol type="a">
+<li>\(1{,}28\times10^{-12}\,\text{kg}\)</li>
+<li>\(1{,}29\times10^{-9}\,\text{kg}\)</li>
+<li>\(7{,}74\times10^{-8}\,\text{kg}\)</li>
+<li>\(1{,}84\times10^{-6}\,\text{kg}\)</li>
+<li>\(3{,}25\times10^{-9}\,\text{kg}\)</li>
+</ol>
+<dl>
+<dt>1.11)</dt>
+<dd>
+                Usando \(m_e=0{,}000549\,\text{u}\),
+                valor da tabela, calcule a energia de repouso do elétron
+                em MeV com \(c^2=931{,}5\,\text{MeV/u}\).
+                </dd>
+</dl>
+<ol type="a">
+<li>\(5{,}114\,\text{MeV}\)</li>
+<li>\(0{,}9383\,\text{MeV}\)</li>
+<li>\(0{,}5490\,\text{MeV}\)</li>
+<li>\(8{,}188\times10^{-14}\,\text{MeV}\)</li>
+<li>\(0{,}511\,\text{MeV}\)</li>
+</ol>
+<dl>
+<dt>1.12)</dt>
+<dd>
+                Usando \(M(\ce{^{238}U})=238{,}050\,787\,\text{u}\)
+                e \(M(\ce{^1H})=1{,}007\,825\,\text{u}\),
+                ambos da tabela, determine a razão \(M(\ce{^{238}U})/M(\ce{^1H})\)
+                com quatro algarismos significativos.
+                </dd>
+</dl>
+<ol type="a">
+<li>\(238{,}1\)</li>
+<li>\(236{,}2\)</li>
+<li>\(1{,}0078\)</li>
+<li>\(4{,}234\times10^{-3}\)</li>
+<li>\(2{,}362\times10^4\)</li>
+</ol>
+<dl>
+<dt>1.13)</dt>
+<dd>
+                Um feixe contém \(2{,}50\times10^{12}\)
+                partículas alfa, cada uma com carga \(+2e\). Qual é a carga total
+                do feixe, com três algarismos significativos?
+                </dd>
+</dl>
+<ol type="a">
+<li>\(4{,}01\times10^{-7}\,\text{C}\)</li>
+<li>\(1{,}60\times10^{-19}\,\text{C}\)</li>
+<li>\(8{,}01\times10^{-19}\,\text{C}\)</li>
+<li>\(8{,}01\times10^{-7}\,\text{C}\)</li>
+<li>\(4{,}00\times10^{12}\,\text{C}\)</li>
+</ol>
+<dl>
+<dt>1.14)</dt>
+<dd>
+                O cloro natural é aproximado por dois isótopos: \(\ce{^{35}Cl}\), de massa
+                \(34{,}968\,853\,\text{u}\),
+                e \(\ce{^{37}Cl}\), de
+                massa \(36{,}965\,903\,\text{u}\),
+                conforme a tabela. Se a massa atômica média é \(35{,}450\,\text{u}\), qual
+                é a abundância percentual de \(\ce{^{35}Cl}\)? Apresente
+                três algarismos significativos.
+                </dd>
+</dl>
+<ol type="a">
+<li>\(75{,}9\%\)</li>
+<li>\(24{,}1\%\)</li>
+<li>\(50{,}0\%\)</li>
+<li>\(97{,}6\%\)</li>
+<li>\(35{,}5\%\)</li>
+</ol>
+<dl>
+<dt>1.15)</dt>
+<dd>
+                Um feixe de íons \(\ce{^{4}He^{2+}}\) produz
+                uma corrente de \(2{,}40\,\text{nA}\).
+                Quantos íons atravessam uma seção do feixe por segundo?
+                Apresente três algarismos significativos.
+                </dd>
+</dl>
+<ol type="a">
+<li>\(1{,}50\times10^{10}\,\text{s}^{-1}\)</li>
+<li>\(3{,}75\times10^{9}\,\text{s}^{-1}\)</li>
+<li>\(7{,}49\times10^{9}\,\text{s}^{-1}\)</li>
+<li>\(2{,}40\times10^{9}\,\text{s}^{-1}\)</li>
+<li>\(7{,}68\times10^{-28}\,\text{s}^{-1}\)</li>
+</ol>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>BECQUEREL, H. <strong>Sur les radiations émises par
+                phosphorescence</strong>. <em>Comptes rendus de
+                l’Académie des Sciences</em>, v. 122, p. 420-421,
+                1896.</li>
+<li>CHADWICK, J. <strong>Possible Existence of a
+                Neutron</strong>. <em>Nature</em>, v. 129, p. 312, 1932.
+                <a class="uri" href="https://doi.org/10.1038/129312a0">https://doi.org/10.1038/129312a0</a>.</li>
+<li>CURIE, M. <strong>Rayons émis par les composés de
+                l’uranium et du thorium</strong>. <em>Comptes rendus de
+                l’Académie des Sciences</em>, v. 126, p. 1101-1103,
+                1898.</li>
+<li>EISBERG, R.; RESNICK, R. <strong>Física Quântica:
+                átomos, moléculas, sólidos, núcleos e
+                partículas</strong>. Rio de Janeiro: Elsevier,
+                1979.</li>
+<li>INTERNATIONAL ATOMIC ENERGY AGENCY. <strong>Nuclear
+                Physics and Applications</strong>. Viena: IAEA. <a class="uri" href="https://www.iaea.org/topics/nuclear-physics">https://www.iaea.org/topics/nuclear-physics</a>.</li>
+<li>KRANE, K. S. <strong>Introductory Nuclear
+                Physics</strong>. New York: Wiley, 1987.</li>
+<li>RUTHERFORD, E. <strong>The Scattering of Alpha and
+                Beta Particles by Matter and the Structure of the
+                Atom</strong>. <em>Philosophical Magazine</em>, v. 21,
+                p. 669-688, 1911.</li>
+<li>RUTHERFORD, E. <strong>Collision of Alpha Particles
+                with Light Atoms IV: An Anomalous Effect in
+                Nitrogen</strong>. <em>Philosophical Magazine</em>, v.
+                37, p. 581-587, 1919.</li>
+<li>SERWAY, R. A.; JEWETT, J. W. <strong>Física para
+                Cientistas e Engenheiros: luz, óptica e Física
+                Moderna</strong>. São Paulo: Cengage Learning, 2018. v.
+                4.</li>
+</ul>
+<h1 id="créditos-das-imagens">Créditos das Imagens</h1>
+<ul>
+<li><strong>Becquerel plate.jpg:</strong> Wikimedia
+                Commons, domínio público.</li>
+<li><strong>Marie Curie on a chair in her
+                laboratory.jpg:</strong> fotógrafo desconhecido,
+                Wikimedia Commons, domínio público.</li>
+<li><strong>Rutherford Experiment.svg:</strong>
+                Dombob/Sundance Raphael, dedicação CC0 1.0 ao domínio
+                público.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
