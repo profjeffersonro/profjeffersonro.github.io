@@ -54,7 +54,7 @@ disciplinas:
         answers_released: true        
   - disciplina: "Ondulatória"
     aulas:
-      - name: "Aula 1: Definição e Classificação das Ondas"
+      - name: "Conceitos, Classificação e Espectro Eletromagnético"
         html: "content/aulas/EM-Ondas/Aula-1/ondas-aula-1.html"
         pdf: "https://drive.google.com/file/d/10pkoATy2uxY-hBtWJFRYqbgZjt2hyOGm/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/1S_wzJGESbAF6CbKsnQoCJfZtBnsR7q3r/view?usp=drive_link"
