@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Grandezas,
+Gráficos e Equação Fundamental</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li><strong>Distinguir</strong> ondas periódicas e não
+                periódicas.</li>
+                <li><strong>Reconhecer</strong> formas de ondas:
+                senoidal, quadrada, triangular e serrilhada.</li>
+                <li><strong>Identificar</strong> crista, vale,
+                amplitude, comprimento de onda, período e
+                frequência.</li>
+                <li><strong>Diferenciar</strong> grandezas espaciais e
+                temporais em uma onda periódica.</li>
+                <li><strong>Aplicar</strong> as relações <span
+                class="math inline">\(f=1/T\)</span> e <span
+                class="math inline">\(v=\lambda f\)</span>.</li>
+                <li><strong>Usar</strong> a equação fundamental da
+                ondulatória para calcular velocidade, frequência ou
+                comprimento de onda.</li>
+                <li><strong>Interpretar</strong> a equação de uma onda
+                senoidal em função da posição e do tempo.</li>
+                <li><strong>Interpretar</strong> gráficos de ondas em
+                função da posição ou do tempo.</li>
+                <li><strong>Converter</strong> unidades de comprimento,
+                tempo e frequência em problemas simples.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Na aula anterior, vimos que ondas podem ser
+                classificadas quanto à natureza, direção de vibração e
+                dimensão de propagação. Agora vamos estudar as grandezas
+                que descrevem uma onda periódica.</p>
+                <p>Uma fonte periódica repete seu movimento em
+                intervalos regulares. Essa regularidade permite medir
+                grandezas como frequência, período e comprimento de
+                onda, essenciais para acústica, óptica, telecomunicações
+                e eletrônica.</p>
+                <p>Essas grandezas funcionam como uma espécie de
+                “vocabulário matemático” das ondas. Quando dizemos que
+                uma onda tem certa frequência, determinado comprimento
+                de onda ou uma velocidade de propagação específica,
+                estamos descrevendo como a perturbação se repete no
+                tempo e no espaço.</p>
+                <p>Nesta aula, a atenção estará voltada para a leitura
+                de figuras, gráficos e enunciados. O estudante deve
+                aprender a identificar cristas, vales, amplitude e
+                comprimento de onda em representações espaciais, além de
+                reconhecer período e frequência em situações temporais.
+                A relação <span class="math inline">\(v=\lambda
+                f\)</span> será usada como ponte entre a descrição
+                visual da onda e a resolução de problemas numéricos.</p>
+                <p>Uma ideia importante é separar aquilo que depende da
+                <strong>fonte</strong> daquilo que depende do
+                <strong>meio</strong>. A frequência e o período estão
+                ligados ao ritmo da fonte que produz a onda. Já a
+                velocidade de propagação depende principalmente das
+                propriedades do meio. O comprimento de onda resulta da
+                combinação entre esses dois aspectos.</p>
+                <h1 id="ondas-periódicas-e-não-periódicas">Ondas
+                Periódicas e Não Periódicas</h1>
+                <dl>
+                <dt><strong>Onda periódica</strong></dt>
+                <dd>
+                Repete o mesmo padrão em intervalos regulares de tempo e
+                de espaço. Exemplos: som de diapasão, corrente
+                alternada, sinal de rádio.
+                </dd>
+                <dt><strong>Onda não periódica</strong></dt>
+                <dd>
+                Não apresenta repetição regular. Exemplos: estalo,
+                batida, trovão curto, pulso em uma corda.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/ondas-periódicas.png"
+                style="width:70.0%"
+                alt="Exemplos de ondas periódicas. Fonte: Slides de Física." />
+                <figcaption aria-hidden="true">Exemplos de ondas
+                periódicas. Fonte: Slides de Física.</figcaption>
+                </figure>
+                <p>Em uma onda periódica, podemos escolher qualquer
+                ciclo completo para medir as grandezas. Em uma onda não
+                periódica, ainda pode haver propagação de energia, mas
+                não faz sentido falar de um único período ou de uma
+                única frequência bem definida para todo o fenômeno.</p>
+                <h1 id="formas-de-onda">Formas de Onda</h1>
+                <p>Uma onda periódica pode ter diferentes formas. A
+                forma da onda mostra como a perturbação varia durante a
+                repetição do ciclo. Mesmo quando duas ondas têm a mesma
+                frequência e o mesmo comprimento de onda, elas podem ter
+                formas diferentes.</p>
+                <dl>
+                <dt><strong>1. Onda senoidal</strong></dt>
+                <dd>
+                Forma suave e contínua. É muito importante porque
+                descreve oscilações harmônicas simples e aparece como
+                modelo básico em som, luz, cordas vibrantes e sinais
+                elétricos.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/forma-onda-senoidal.png"
+                style="width:75.0%"
+                alt="Onda senoidal. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Onda senoidal. Fonte:
+                próprio autor.</figcaption>
+                </figure>
+                <dl>
+                <dt><strong>2. Onda semissenoidal ou
+                retificada</strong></dt>
+                <dd>
+                Apresenta arcos repetidos, como se apenas uma parte da
+                oscilação senoidal aparecesse. Pode representar sinais
+                pulsantes, nos quais a perturbação não alterna
+                igualmente acima e abaixo da linha de equilíbrio.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/forma-onda-retificada.png"
+                style="width:75.0%"
+                alt="Onda semissenoidal ou retificada. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Onda semissenoidal ou
+                retificada. Fonte: próprio autor.</figcaption>
+                </figure>
+                <dl>
+                <dt><strong>3. Onda triangular</strong></dt>
+                <dd>
+                Sobe e desce linearmente, formando segmentos inclinados.
+                Apesar de não ser suave como a senoidal, ainda pode ter
+                período, frequência, amplitude e comprimento de onda bem
+                definidos.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/forma-onda-triangular.png"
+                style="width:75.0%"
+                alt="Onda triangular. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Onda triangular. Fonte:
+                próprio autor.</figcaption>
+                </figure>
+                <dl>
+                <dt><strong>4. Onda dente-de-serra</strong></dt>
+                <dd>
+                Apresenta subida gradual e queda brusca, ou o inverso. É
+                comum em eletrônica, síntese sonora e em modelos de
+                sinais que acumulam uma grandeza e depois retornam
+                rapidamente ao valor inicial.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/forma-onda-dente-serra.png"
+                style="width:75.0%"
+                alt="Onda dente-de-serra. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Onda dente-de-serra.
+                Fonte: próprio autor.</figcaption>
+                </figure>
+                <dl>
+                <dt><strong>5. Onda periódica complexa</strong></dt>
+                <dd>
+                Repete um padrão mais elaborado. Mesmo parecendo
+                irregular dentro de cada ciclo, ela ainda é periódica se
+                o mesmo desenho volta a aparecer depois de intervalos
+                iguais.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/forma-onda-complexa-periodica.png"
+                style="width:75.0%"
+                alt="Onda periódica complexa. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Onda periódica complexa.
+                Fonte: próprio autor.</figcaption>
+                </figure>
+                <dl>
+                <dt><strong>6. Onda quadrada</strong></dt>
+                <dd>
+                Alterna bruscamente entre dois níveis. É comum em
+                eletrônica digital e em sinais que mudam entre estados
+                bem definidos, como ligado/desligado ou alto/baixo.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/forma-onda-quadrada.png"
+                style="width:75.0%"
+                alt="Onda quadrada. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Onda quadrada. Fonte:
+                próprio autor.</figcaption>
+                </figure>
+                <p>A forma senoidal é especialmente importante porque
+                muitas ondas periódicas podem ser estudadas como
+                combinação de ondas senoidais. Mesmo assim, as grandezas
+                básicas, como período, frequência e comprimento de onda,
+                também podem ser identificadas em ondas quadradas,
+                triangulares, dente-de-serra ou complexas quando há
+                repetição regular.</p>
+                <h1 id="elementos-de-uma-onda">Elementos de Uma
+                Onda</h1>
+                <figure>
+                <img src="images/elementos-onda.png" style="width:90.0%"
+                alt="Elementos de uma onda periódica. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Elementos de uma onda
+                periódica. Fonte: próprio autor.</figcaption>
+                </figure>
+                <dl>
+                <dt><strong>Crista</strong></dt>
+                <dd>
+                Ponto mais alto da onda em relação à linha de
+                equilíbrio.
+                </dd>
+                <dt><strong>Vale</strong></dt>
+                <dd>
+                Ponto mais baixo da onda em relação à linha de
+                equilíbrio.
+                </dd>
+                <dt><strong>Amplitude (<span
+                class="math inline">\(A\)</span>)</strong></dt>
+                <dd>
+                Distância entre a linha de equilíbrio e uma crista ou um
+                vale. Em muitos casos, uma amplitude maior indica maior
+                energia transportada; para várias ondas, a energia ou
+                intensidade é proporcional ao quadrado da amplitude.
+                </dd>
+                <dt><strong>Comprimento de onda (<span
+                class="math inline">\(\lambda\)</span>)</strong></dt>
+                <dd>
+                Distância entre dois pontos consecutivos em mesma fase,
+                como crista a crista ou vale a vale.
+                </dd>
+                <dt><strong>Período (<span
+                class="math inline">\(T\)</span>)</strong></dt>
+                <dd>
+                Tempo para a fonte completar uma oscilação.
+                </dd>
+                <dt><strong>Frequência (<span
+                class="math inline">\(f\)</span>)</strong></dt>
+                <dd>
+                Número de oscilações por segundo. Unidade: hertz (Hz).
+                </dd>
+                <dt><strong>Velocidade de propagação (<span
+                class="math inline">\(v\)</span>)</strong></dt>
+                <dd>
+                Rapidez com que a perturbação se propaga no meio.
+                </dd>
+                </dl>
+                <p>As grandezas podem ser separadas em dois grupos:</p>
+                <dl>
+                <dt><strong>Grandezas espaciais</strong></dt>
+                <dd>
+                São medidas ao longo da posição, como amplitude e
+                comprimento de onda.
+                </dd>
+                <dt><strong>Grandezas temporais</strong></dt>
+                <dd>
+                São medidas ao longo do tempo, como período e
+                frequência.
+                </dd>
+                </dl>
+                <p>Uma confusão comum é procurar o período em um gráfico
+                da forma da onda no espaço. Nesse tipo de gráfico, o
+                eixo horizontal representa posição, então medimos
+                comprimento de onda. Para medir período, o eixo
+                horizontal precisa representar tempo.</p>
+                <h1 id="frequência-e-período">Frequência e Período</h1>
+                <p>A frequência e o período são inversos:</p>
+                <p><span class="math display">\[
+                \boxed{f=\frac{1}{T}}
+                \]</span></p>
+                <p><span class="math display">\[
+                \boxed{T=\frac{1}{f}}
+                \]</span></p>
+                <p>Se uma fonte realiza <span
+                class="math inline">\(N\)</span> oscilações em um
+                intervalo <span class="math inline">\(\Delta t\)</span>,
+                a frequência também pode ser calculada por:</p>
+                <p><span class="math display">\[
+                \boxed{f=\frac{N}{\Delta t}}
+                \]</span></p>
+                <p>Como <span
+                class="math inline">\(1\,\text{Hz}=1\,\text{s}^{-1}\)</span>,
+                uma frequência de <span
+                class="math inline">\(10\,\text{Hz}\)</span> significa
+                que ocorrem <span class="math inline">\(10\)</span>
+                oscilações a cada segundo.</p>
+                <h1 id="equação-fundamental-da-ondulatória">Equação
+                Fundamental da Ondulatória</h1>
+                <p>A equação fundamental da ondulatória relaciona a
+                velocidade de propagação, o comprimento de onda e a
+                frequência:</p>
+                <p><span class="math display">\[
+                \boxed{v=\lambda f}
+                \]</span></p>
+                <p>Nessa expressão:</p>
+                <ul>
+                <li><span class="math inline">\(v\)</span> é a
+                velocidade de propagação da onda;</li>
+                <li><span class="math inline">\(\lambda\)</span> é o
+                comprimento de onda;</li>
+                <li><span class="math inline">\(f\)</span> é a
+                frequência da onda.</li>
+                </ul>
+                <p>Essa equação pode ser entendida assim: durante um
+                período <span class="math inline">\(T\)</span>, a onda
+                avança uma distância igual a um comprimento de onda
+                <span class="math inline">\(\lambda\)</span>. Como
+                velocidade é distância dividida pelo tempo:</p>
+                <p><span class="math display">\[
+                v=\frac{\lambda}{T}
+                \]</span></p>
+                <p>Como <span class="math inline">\(f=1/T\)</span>,
+                também podemos usar:</p>
+                <p><span class="math display">\[
+                \boxed{v=\frac{\lambda}{T}}
+                \]</span></p>
+                <p>Em um mesmo meio, se a velocidade de propagação
+                permanece constante, aumentar a frequência diminui o
+                comprimento de onda. Isso ocorre porque:</p>
+                <p><span class="math display">\[
+                \lambda=\frac{v}{f}
+                \]</span></p>
+                <p>Portanto, frequência e comprimento de onda são
+                inversamente proporcionais quando <span
+                class="math inline">\(v\)</span> é constante.</p>
+                <h1 id="equação-da-onda">Equação da Onda</h1>
+                <p>A equação fundamental <span
+                class="math inline">\(v=\lambda f\)</span> informa a
+                velocidade de propagação a partir de grandezas da onda.
+                Já a <strong>equação da onda</strong> descreve a posição
+                de cada ponto da perturbação em cada instante.</p>
+                <p>Para uma onda senoidal que se propaga no sentido
+                positivo do eixo <span class="math inline">\(x\)</span>,
+                uma forma comum é:</p>
+                <p><span class="math display">\[
+                \boxed{y(x,t)=A\sin(kx-\omega t+\varphi_0)}
+                \]</span></p>
+                <p>Nessa expressão:</p>
+                <ul>
+                <li><span class="math inline">\(y(x,t)\)</span> é a
+                elongação, isto é, o deslocamento do ponto do meio em
+                relação à posição de equilíbrio;</li>
+                <li><span class="math inline">\(A\)</span> é a
+                amplitude;</li>
+                <li><span class="math inline">\(x\)</span> é a
+                posição;</li>
+                <li><span class="math inline">\(t\)</span> é o
+                tempo;</li>
+                <li><span class="math inline">\(k\)</span> é o número de
+                onda;</li>
+                <li><span class="math inline">\(\omega\)</span> é a
+                frequência angular;</li>
+                <li><span class="math inline">\(\varphi_0\)</span> é a
+                fase inicial.</li>
+                </ul>
+                <p>O número de onda e a frequência angular são
+                calculados por:</p>
+                <p><span class="math display">\[
+                \boxed{k=\frac{2\pi}{\lambda}}
+                \]</span></p>
+                <p><span class="math display">\[
+                \boxed{\omega=2\pi f=\frac{2\pi}{T}}
+                \]</span></p>
+                <p>Assim, a velocidade também pode ser escrita como:</p>
+                <p><span class="math display">\[
+                \boxed{v=\frac{\omega}{k}}
+                \]</span></p>
+                <p>Essa expressão é coerente com <span
+                class="math inline">\(v=\lambda f\)</span>, pois:</p>
+                <p><span class="math display">\[
+                \frac{\omega}{k}=
+                \frac{2\pi f}{2\pi/\lambda}
+                =\lambda f
+                \]</span></p>
+                <p>O sinal entre <span class="math inline">\(kx\)</span>
+                e <span class="math inline">\(\omega t\)</span> indica o
+                sentido de propagação, quando usamos essa convenção:</p>
+                <ul>
+                <li><span class="math inline">\(y=A\sin(kx-\omega
+                t+\varphi_0)\)</span>: propagação no sentido positivo de
+                <span class="math inline">\(x\)</span>;</li>
+                <li><span class="math inline">\(y=A\sin(kx+\omega
+                t+\varphi_0)\)</span>: propagação no sentido negativo de
+                <span class="math inline">\(x\)</span>.</li>
+                </ul>
+                <p>Nesta aula, a equação da onda será usada
+                principalmente para identificar amplitude, comprimento
+                de onda, frequência, período, velocidade e sentido de
+                propagação.</p>
+                <h1 id="unidades-e-prefixos">Unidades e Prefixos</h1>
+                <p>Em problemas de ondas, é comum converter
+                unidades.</p>
+                <figure>
+                <img src="images/tabela-de-prefixos.png"
+                style="width:80.0%"
+                alt="Tabela de prefixos. Fonte: Matematiques." />
+                <figcaption aria-hidden="true">Tabela de prefixos.
+                Fonte: Matematiques.</figcaption>
+                </figure>
+                <p>Conversões frequentes:</p>
+                <ul>
+                <li><span
+                class="math inline">\(1\,\text{km}=10^3\,\text{m}\)</span>;</li>
+                <li><span
+                class="math inline">\(1\,\text{cm}=10^{-2}\,\text{m}\)</span>;</li>
+                <li><span
+                class="math inline">\(1\,\text{mm}=10^{-3}\,\text{m}\)</span>;</li>
+                <li><span
+                class="math inline">\(1\,\mu\text{s}=10^{-6}\,\text{s}\)</span>;</li>
+                <li><span
+                class="math inline">\(1\,\text{ns}=10^{-9}\,\text{s}\)</span>;</li>
+                <li><span
+                class="math inline">\(1\,\text{kHz}=10^3\,\text{Hz}\)</span>;</li>
+                <li><span
+                class="math inline">\(1\,\text{MHz}=10^6\,\text{Hz}\)</span>.</li>
+                </ul>
+                <h1 id="como-ler-gráficos">Como Ler Gráficos</h1>
+                <p>Em um gráfico da onda em função da posição, a
+                distância horizontal entre duas cristas consecutivas é o
+                comprimento de onda.</p>
+                <p>Em um gráfico da oscilação em função do tempo, o
+                intervalo entre duas cristas consecutivas é o
+                período.</p>
+                <p>Se um trecho entre dois pontos contém mais de um
+                ciclo, podemos calcular:</p>
+                <p><span class="math display">\[
+                \lambda=\frac{\text{distância total}}{\text{número de
+                ciclos}}
+                \]</span></p>
+                <p>Também é possível usar a mesma ideia no tempo:</p>
+                <p><span class="math display">\[
+                T=\frac{\text{tempo total}}{\text{número de ciclos}}
+                \]</span></p>
+                <p>Antes de calcular, observe o eixo horizontal:</p>
+                <ul>
+                <li>se o eixo está em metros, centímetros ou milímetros,
+                o gráfico é espacial;</li>
+                <li>se o eixo está em segundos, milissegundos ou
+                microssegundos, o gráfico é temporal.</li>
+                </ul>
+                <h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
+                <h2 id="exemplo-2.1---frequência-e-período">Exemplo 2.1
+                - Frequência e Período</h2>
+                <p>Uma fonte realiza <span
+                class="math inline">\(50\)</span> oscilações em <span
+                class="math inline">\(10\,\text{s}\)</span>. Determine a
+                frequência e o período.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Como a frequência é o número de oscilações dividido
+                pelo intervalo de tempo:</p>
+                <p><span class="math display">\[
+                f=\frac{50}{10}=5\,\text{Hz}
+                \]</span></p>
+                <p>O período é o inverso da frequência:</p>
+                <p><span class="math display">\[
+                T=\frac{1}{f}=\frac{1}{5}=0{,}20\,\text{s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(f=5\,\text{Hz}\)</span> e <span
+                class="math inline">\(T=0{,}20\,\text{s}\)</span>.</p>
+                <h2 id="exemplo-2.2---velocidade-de-propagação">Exemplo
+                2.2 - Velocidade de Propagação</h2>
+                <p>Uma onda tem comprimento de onda <span
+                class="math inline">\(2{,}0\,\text{m}\)</span> e
+                frequência <span
+                class="math inline">\(8\,\text{Hz}\)</span>. Determine
+                sua velocidade.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Usamos a equação fundamental da ondulatória:</p>
+                <p><span class="math display">\[
+                v=\lambda f=2{,}0\cdot 8=16\,\text{m/s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(16\,\text{m/s}\)</span>.</p>
+                <h2 id="exemplo-2.3---comprimento-de-onda">Exemplo 2.3 -
+                Comprimento de Onda</h2>
+                <p>Uma onda se propaga em uma corda com velocidade <span
+                class="math inline">\(12\,\text{m/s}\)</span>. A fonte
+                vibra com frequência <span
+                class="math inline">\(3\,\text{Hz}\)</span>. Determine o
+                comprimento de onda.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Partimos de:</p>
+                <p><span class="math display">\[
+                v=\lambda f
+                \]</span></p>
+                <p>Isolando <span
+                class="math inline">\(\lambda\)</span>:</p>
+                <p><span class="math display">\[
+                \lambda=\frac{v}{f}
+                \]</span></p>
+                <p>Substituindo os valores:</p>
+                <p><span class="math display">\[
+                \lambda=\frac{12}{3}=4\,\text{m}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(\lambda=4\,\text{m}\)</span>.</p>
+                <h2
+                id="exemplo-2.4---cálculo-com-gráfico-espacial">Exemplo
+                2.4 - Cálculo com Gráfico Espacial</h2>
+                <p>Na figura, a distância entre os pontos A e B é <span
+                class="math inline">\(60\,\text{mm}\)</span> e
+                corresponde a <span class="math inline">\(1{,}5\)</span>
+                comprimentos de onda. O período é <span
+                class="math inline">\(2\,\mu\text{s}\)</span>. Determine
+                a velocidade.</p>
+                <figure>
+                <img src="images/seno-1.png" style="width:70.0%"
+                alt="Gráfico senoidal. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Gráfico senoidal. Fonte:
+                próprio autor.</figcaption>
+                </figure>
+                <p><strong>Resolução:</strong></p>
+                <p>Primeiro, calculamos o comprimento de onda:</p>
+                <p><span class="math display">\[
+                \lambda=\frac{60\,\text{mm}}{1{,}5}=40\,\text{mm}=40\cdot10^{-3}\,\text{m}
+                \]</span></p>
+                <p>Agora:</p>
+                <p><span class="math display">\[
+                v=\frac{\lambda}{T}=\frac{40\cdot10^{-3}}{2\cdot10^{-6}}=2{,}0\cdot10^4\,\text{m/s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(2{,}0\cdot10^4\,\text{m/s}\)</span>.</p>
+                <h2
+                id="exemplo-2.5---período-a-partir-da-velocidade">Exemplo
+                2.5 - Período a Partir da Velocidade</h2>
+                <p>Na figura, a distância entre A e B é <span
+                class="math inline">\(10\,\text{cm}\)</span> e
+                corresponde a <span class="math inline">\(2{,}5\)</span>
+                comprimentos de onda. A velocidade é <span
+                class="math inline">\(800\,\text{m/s}\)</span>.
+                Determine o período.</p>
+                <figure>
+                <img src="images/triang-2.png" style="width:70.0%"
+                alt="Gráfico triangular. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Gráfico triangular.
+                Fonte: próprio autor.</figcaption>
+                </figure>
+                <p><strong>Resolução:</strong></p>
+                <p><span class="math display">\[
+                \lambda=\frac{10\,\text{cm}}{2{,}5}=4\,\text{cm}=4\cdot10^{-2}\,\text{m}
+                \]</span></p>
+                <p><span class="math display">\[
+                T=\frac{\lambda}{v}=\frac{4\cdot10^{-2}}{800}=5\cdot10^{-5}\,\text{s}
+                \]</span></p>
+                <p>Como <span
+                class="math inline">\(1\,\mu\text{s}=10^{-6}\,\text{s}\)</span>:</p>
+                <p><span class="math display">\[
+                T=50\,\mu\text{s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(50\,\mu\text{s}\)</span>.</p>
+                <h2 id="exemplo-2.6---gráfico-temporal">Exemplo 2.6 -
+                Gráfico Temporal</h2>
+                <p>Uma fonte produz <span
+                class="math inline">\(4\)</span> oscilações completas em
+                <span class="math inline">\(0{,}80\,\text{s}\)</span>. O
+                comprimento de onda no meio é <span
+                class="math inline">\(1{,}5\,\text{m}\)</span>.
+                Determine o período, a frequência e a velocidade da
+                onda.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>O período é o tempo total dividido pelo número de
+                ciclos:</p>
+                <p><span class="math display">\[
+                T=\frac{0{,}80}{4}=0{,}20\,\text{s}
+                \]</span></p>
+                <p>A frequência é o inverso do período:</p>
+                <p><span class="math display">\[
+                f=\frac{1}{T}=\frac{1}{0{,}20}=5\,\text{Hz}
+                \]</span></p>
+                <p>Agora aplicamos a equação fundamental:</p>
+                <p><span class="math display">\[
+                v=\lambda f=1{,}5\cdot5=7{,}5\,\text{m/s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(T=0{,}20\,\text{s}\)</span>, <span
+                class="math inline">\(f=5\,\text{Hz}\)</span> e <span
+                class="math inline">\(v=7{,}5\,\text{m/s}\)</span>.</p>
+                <h2
+                id="exemplo-2.7---interpretando-a-equação-da-onda">Exemplo
+                2.7 - Interpretando a Equação da Onda</h2>
+                <p>Uma onda é descrita, no SI, por:</p>
+                <p><span class="math display">\[
+                y(x,t)=0{,}04\sin(2\pi x-20\pi t)
+                \]</span></p>
+                <p>Determine a amplitude, o comprimento de onda, a
+                frequência, o período, a velocidade e o sentido de
+                propagação.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Comparamos a equação dada com:</p>
+                <p><span class="math display">\[
+                y(x,t)=A\sin(kx-\omega t+\varphi_0)
+                \]</span></p>
+                <p>A amplitude é o número que multiplica o seno:</p>
+                <p><span class="math display">\[
+                A=0{,}04\,\text{m}=4\,\text{cm}
+                \]</span></p>
+                <p>O número que multiplica <span
+                class="math inline">\(x\)</span> é o número de onda:</p>
+                <p><span class="math display">\[
+                k=2\pi\,\text{rad/m}
+                \]</span></p>
+                <p>Como <span
+                class="math inline">\(k=2\pi/\lambda\)</span>:</p>
+                <p><span class="math display">\[
+                \lambda=\frac{2\pi}{k}=\frac{2\pi}{2\pi}=1\,\text{m}
+                \]</span></p>
+                <p>O número que multiplica <span
+                class="math inline">\(t\)</span> é a frequência
+                angular:</p>
+                <p><span class="math display">\[
+                \omega=20\pi\,\text{rad/s}
+                \]</span></p>
+                <p>Como <span class="math inline">\(\omega=2\pi
+                f\)</span>:</p>
+                <p><span class="math display">\[
+                f=\frac{\omega}{2\pi}=\frac{20\pi}{2\pi}=10\,\text{Hz}
+                \]</span></p>
+                <p>O período é:</p>
+                <p><span class="math display">\[
+                T=\frac{1}{f}=\frac{1}{10}=0{,}10\,\text{s}
+                \]</span></p>
+                <p>A velocidade é:</p>
+                <p><span class="math display">\[
+                v=\lambda f=1\cdot10=10\,\text{m/s}
+                \]</span></p>
+                <p>Como a equação tem <span
+                class="math inline">\(kx-\omega t\)</span>, a onda se
+                propaga no sentido positivo de <span
+                class="math inline">\(x\)</span>.</p>
+                <p><strong>Resposta:</strong> <span
+                class="math inline">\(A=4\,\text{cm}\)</span>, <span
+                class="math inline">\(\lambda=1\,\text{m}\)</span>,
+                <span class="math inline">\(f=10\,\text{Hz}\)</span>,
+                <span class="math inline">\(T=0{,}10\,\text{s}\)</span>,
+                <span class="math inline">\(v=10\,\text{m/s}\)</span>,
+                sentido positivo de <span
+                class="math inline">\(x\)</span>.</p>
+                <h2
+                id="exemplo-2.8---montando-a-equação-da-onda">Exemplo
+                2.8 - Montando a Equação da Onda</h2>
+                <p>Uma onda senoidal tem amplitude <span
+                class="math inline">\(5\,\text{cm}\)</span>, comprimento
+                de onda <span class="math inline">\(2\,\text{m}\)</span>
+                e frequência <span
+                class="math inline">\(3\,\text{Hz}\)</span>. Escreva uma
+                equação para essa onda propagando-se no sentido positivo
+                de <span class="math inline">\(x\)</span>, com fase
+                inicial nula.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>Primeiro, convertemos a amplitude:</p>
+                <p><span class="math display">\[
+                A=5\,\text{cm}=0{,}05\,\text{m}
+                \]</span></p>
+                <p>Calculamos o número de onda:</p>
+                <p><span class="math display">\[
+                k=\frac{2\pi}{\lambda}=\frac{2\pi}{2}=\pi\,\text{rad/m}
+                \]</span></p>
+                <p>Calculamos a frequência angular:</p>
+                <p><span class="math display">\[
+                \omega=2\pi f=2\pi\cdot3=6\pi\,\text{rad/s}
+                \]</span></p>
+                <p>Como a onda se propaga no sentido positivo de <span
+                class="math inline">\(x\)</span>, usamos <span
+                class="math inline">\(kx-\omega t\)</span>. Como a fase
+                inicial é nula, <span
+                class="math inline">\(\varphi_0=0\)</span>.</p>
+                <p><strong>Resposta:</strong></p>
+                <p><span class="math display">\[
+                y(x,t)=0{,}05\sin(\pi x-6\pi t)
+                \]</span></p>
+                <h2 id="exemplo-2.9---sentido-de-propagação">Exemplo 2.9
+                - Sentido de Propagação</h2>
+                <p>Uma onda é descrita por:</p>
+                <p><span class="math display">\[
+                y(x,t)=0{,}02\sin(4\pi x+8\pi t)
+                \]</span></p>
+                <p>Determine o sentido de propagação, o comprimento de
+                onda, a frequência e a velocidade.</p>
+                <p><strong>Resolução:</strong></p>
+                <p>O sinal entre os termos é positivo: <span
+                class="math inline">\(kx+\omega t\)</span>. Portanto, a
+                onda se propaga no sentido negativo de <span
+                class="math inline">\(x\)</span>.</p>
+                <p>Agora identificamos:</p>
+                <p><span class="math display">\[
+                k=4\pi\,\text{rad/m}
+                \]</span></p>
+                <p><span class="math display">\[
+                \omega=8\pi\,\text{rad/s}
+                \]</span></p>
+                <p>Como <span
+                class="math inline">\(k=2\pi/\lambda\)</span>:</p>
+                <p><span class="math display">\[
+                \lambda=\frac{2\pi}{4\pi}=0{,}50\,\text{m}
+                \]</span></p>
+                <p>Como <span class="math inline">\(\omega=2\pi
+                f\)</span>:</p>
+                <p><span class="math display">\[
+                f=\frac{8\pi}{2\pi}=4\,\text{Hz}
+                \]</span></p>
+                <p>Então:</p>
+                <p><span class="math display">\[
+                v=\lambda f=0{,}50\cdot4=2{,}0\,\text{m/s}
+                \]</span></p>
+                <p><strong>Resposta:</strong> sentido negativo de <span
+                class="math inline">\(x\)</span>, <span
+                class="math inline">\(\lambda=0{,}50\,\text{m}\)</span>,
+                <span class="math inline">\(f=4\,\text{Hz}\)</span> e
+                <span
+                class="math inline">\(v=2{,}0\,\text{m/s}\)</span>.</p>
+                <h1 id="estratégia-para-exercícios">Estratégia Para
+                Exercícios</h1>
+                <ol type="1">
+                <li>Leia se o problema fala de tempo, espaço ou
+                gráfico.</li>
+                <li>Converta todas as unidades para o SI.</li>
+                <li>Use <span class="math inline">\(f=1/T\)</span>
+                quando houver frequência e período.</li>
+                <li>Use <span class="math inline">\(v=\lambda f\)</span>
+                quando houver velocidade, comprimento de onda e
+                frequência.</li>
+                <li>Em gráficos espaciais, conte quantos comprimentos de
+                onda cabem no trecho indicado.</li>
+                <li>Em gráficos temporais, conte quantos períodos cabem
+                no intervalo indicado.</li>
+                <li>Em equações do tipo <span
+                class="math inline">\(y=A\sin(kx\pm\omega t)\)</span>,
+                identifique <span class="math inline">\(A\)</span>,
+                <span class="math inline">\(k\)</span> e <span
+                class="math inline">\(\omega\)</span> antes de calcular
+                <span class="math inline">\(\lambda\)</span>, <span
+                class="math inline">\(f\)</span> e <span
+                class="math inline">\(v\)</span>.</li>
+                <li>Verifique se a resposta tem unidade coerente: Hz
+                para frequência, s para período, m para comprimento de
+                onda e m/s para velocidade.</li>
+                </ol>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>2.1)</dt>
+                <dd>
+                Sobre ondas periódicas e não periódicas, assinale a
+                alternativa correta.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>Ondas periódicas repetem um padrão em intervalos
+                regulares; ondas não periódicas não apresentam repetição
+                regular.</li>
+                <li>Ondas periódicas transportam matéria; ondas não
+                periódicas transportam apenas energia.</li>
+                <li>Ondas periódicas são sempre eletromagnéticas; ondas
+                não periódicas são sempre mecânicas.</li>
+                <li>Ondas periódicas não possuem frequência; ondas não
+                periódicas sempre possuem frequência fixa.</li>
+                <li>Ondas periódicas só existem em cordas; ondas não
+                periódicas só existem no ar.</li>
+                </ol>
+                <dl>
+                <dt>2.2)</dt>
+                <dd>
+                Uma fonte realiza <span class="math inline">\(5\)</span>
+                oscilações em <span
+                class="math inline">\(2\,\text{s}\)</span>. A frequência
+                e o período da fonte são, respectivamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(0{,}40\,\text{Hz}\)</span> e <span
+                class="math inline">\(2{,}5\,\text{s}\)</span>.</li>
+                <li><span
+                class="math inline">\(2{,}5\,\text{Hz}\)</span> e <span
+                class="math inline">\(0{,}40\,\text{s}\)</span>.</li>
+                <li><span
+                class="math inline">\(5{,}0\,\text{Hz}\)</span> e <span
+                class="math inline">\(0{,}20\,\text{s}\)</span>.</li>
+                <li><span class="math inline">\(10\,\text{Hz}\)</span> e
+                <span
+                class="math inline">\(0{,}10\,\text{s}\)</span>.</li>
+                <li><span
+                class="math inline">\(2{,}0\,\text{Hz}\)</span> e <span
+                class="math inline">\(0{,}50\,\text{s}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.3)</dt>
+                <dd>
+                Um motor automotivo gira a <span
+                class="math inline">\(1200\,\text{rpm}\)</span>, isto é,
+                <span class="math inline">\(1200\)</span> rotações por
+                minuto. A frequência de rotação é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(12\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(15\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(20\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(60\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(120\,\text{Hz}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.4)</dt>
+                <dd>
+                Uma estação de rádio FM opera na frequência <span
+                class="math inline">\(f=90{,}5\,\text{MHz}\)</span>.
+                Sabendo que as ondas de rádio se propagam no ar com
+                velocidade <span
+                class="math inline">\(v=3{,}0\cdot10^8\,\text{m/s}\)</span>,
+                o comprimento de onda da transmissão é aproximadamente:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(0{,}30\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(0{,}905\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(1{,}50\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(3{,}31\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(9{,}05\,\text{m}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.5)</dt>
+                <dd>
+                Uma criança bate periodicamente na superfície de um lago
+                uma vez a cada <span
+                class="math inline">\(2\,\text{s}\)</span>, gerando
+                ondas circulares. A distância entre duas cristas
+                consecutivas é <span
+                class="math inline">\(\lambda=22\,\text{cm}\)</span>. A
+                velocidade de propagação dessas ondas é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(11\,\text{mm/s}\)</span>.</li>
+                <li><span
+                class="math inline">\(22\,\text{mm/s}\)</span>.</li>
+                <li><span
+                class="math inline">\(44\,\text{mm/s}\)</span>.</li>
+                <li><span
+                class="math inline">\(55\,\text{mm/s}\)</span>.</li>
+                <li><span
+                class="math inline">\(110\,\text{mm/s}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.6)</dt>
+                <dd>
+                Um forno de micro-ondas opera na frequência <span
+                class="math inline">\(f=2{,}40\,\text{GHz}\)</span>.
+                Admitindo <span
+                class="math inline">\(v=3{,}0\cdot10^8\,\text{m/s}\)</span>,
+                o comprimento de onda é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(12{,}5\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(1{,}25\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(2{,}40\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(24{,}0\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(125\,\text{cm}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.7)</dt>
+                <dd>
+                Um padrão ondulatório do tipo dente-de-serra é
+                representado na figura abaixo. Sabendo que a distância
+                entre os pontos A e B é de <span
+                class="math inline">\(55\,\text{mm}\)</span> e
+                corresponde a <span class="math inline">\(5{,}5\)</span>
+                ciclos completos, o comprimento de onda é:
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/quest-serra.png" style="width:70.0%"
+                alt="Padrão de onda dente-de-serra. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Padrão de onda
+                dente-de-serra. Fonte: próprio autor.</figcaption>
+                </figure>
+                <ol type="a">
+                <li><span
+                class="math inline">\(5\,\text{mm}\)</span>.</li>
+                <li><span
+                class="math inline">\(10\,\text{mm}\)</span>.</li>
+                <li><span
+                class="math inline">\(22\,\text{mm}\)</span>.</li>
+                <li><span
+                class="math inline">\(55\,\text{mm}\)</span>.</li>
+                <li><span
+                class="math inline">\(110\,\text{mm}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.8)</dt>
+                <dd>
+                A figura abaixo representa uma onda senoidal
+                correspondente a uma luz monocromática vermelha, que se
+                propaga com velocidade <span
+                class="math inline">\(v=3{,}0\cdot10^8\,\text{m/s}\)</span>.
+                A distância entre os pontos A e B é de <span
+                class="math inline">\(937{,}5\,\text{nm}\)</span>.
+                Determine a frequência da onda em terahertz.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/quest-seno-1.png" style="width:70.0%"
+                alt="Padrão de onda senoidal. Fonte: próprio autor." />
+                <figcaption aria-hidden="true">Padrão de onda senoidal.
+                Fonte: próprio autor.</figcaption>
+                </figure>
+                <ol type="a">
+                <li><span
+                class="math inline">\(250\,\text{THz}\)</span>.</li>
+                <li><span
+                class="math inline">\(320\,\text{THz}\)</span>.</li>
+                <li><span
+                class="math inline">\(400\,\text{THz}\)</span>.</li>
+                <li><span
+                class="math inline">\(625\,\text{THz}\)</span>.</li>
+                <li><span
+                class="math inline">\(750\,\text{THz}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.9)</dt>
+                <dd>
+                Uma onda é descrita, no SI, por:
+                </dd>
+                </dl>
+                <p><span class="math display">\[
+                y(x,t)=0{,}03\sin(5\pi x-40\pi t)
+                \]</span></p>
+                <p>Assinale a alternativa que apresenta corretamente a
+                amplitude, o comprimento de onda, a frequência, a
+                velocidade e o sentido de propagação.</p>
+                <ol type="a">
+                <li><span
+                class="math inline">\(A=0{,}03\,\text{m}\)</span>, <span
+                class="math inline">\(\lambda=2{,}5\,\text{m}\)</span>,
+                <span class="math inline">\(f=40\,\text{Hz}\)</span>,
+                <span class="math inline">\(v=100\,\text{m/s}\)</span>,
+                sentido negativo de <span
+                class="math inline">\(x\)</span>.</li>
+                <li><span class="math inline">\(A=3\,\text{m}\)</span>,
+                <span
+                class="math inline">\(\lambda=0{,}40\,\text{m}\)</span>,
+                <span class="math inline">\(f=20\,\text{Hz}\)</span>,
+                <span
+                class="math inline">\(v=8{,}0\,\text{m/s}\)</span>,
+                sentido positivo de <span
+                class="math inline">\(x\)</span>.</li>
+                <li><span
+                class="math inline">\(A=0{,}03\,\text{m}\)</span>, <span
+                class="math inline">\(\lambda=0{,}20\,\text{m}\)</span>,
+                <span class="math inline">\(f=40\,\text{Hz}\)</span>,
+                <span
+                class="math inline">\(v=8{,}0\,\text{m/s}\)</span>,
+                sentido positivo de <span
+                class="math inline">\(x\)</span>.</li>
+                <li><span class="math inline">\(A=3\,\text{cm}\)</span>,
+                <span
+                class="math inline">\(\lambda=0{,}40\,\text{m}\)</span>,
+                <span class="math inline">\(f=20\,\text{Hz}\)</span>,
+                <span
+                class="math inline">\(v=8{,}0\,\text{m/s}\)</span>,
+                sentido positivo de <span
+                class="math inline">\(x\)</span>.</li>
+                <li><span class="math inline">\(A=3\,\text{cm}\)</span>,
+                <span
+                class="math inline">\(\lambda=0{,}40\,\text{m}\)</span>,
+                <span class="math inline">\(f=40\,\text{Hz}\)</span>,
+                <span class="math inline">\(v=16\,\text{m/s}\)</span>,
+                sentido negativo de <span
+                class="math inline">\(x\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>2.10)</dt>
+                <dd>
+                Uma onda senoidal tem amplitude <span
+                class="math inline">\(2\,\text{cm}\)</span>, comprimento
+                de onda <span
+                class="math inline">\(0{,}50\,\text{m}\)</span> e
+                frequência <span
+                class="math inline">\(6\,\text{Hz}\)</span>. Uma equação
+                possível para essa onda propagando-se no sentido
+                positivo de <span class="math inline">\(x\)</span>, com
+                fase inicial nula, é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(y(x,t)=2\sin(0{,}50x-6t)\)</span>.</li>
+                <li><span class="math inline">\(y(x,t)=0{,}02\sin(2\pi
+                x-6\pi t)\)</span>.</li>
+                <li><span class="math inline">\(y(x,t)=0{,}02\sin(4\pi
+                x+12\pi t)\)</span>.</li>
+                <li><span class="math inline">\(y(x,t)=0{,}50\sin(4\pi
+                x-12\pi t)\)</span>.</li>
+                <li><span class="math inline">\(y(x,t)=0{,}02\sin(4\pi
+                x-12\pi t)\)</span>.</li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://youtu.be/km_ytP0ISkM" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-brasil-escola-elementos-onda.png" alt="ELEMENTOS DE UMA ONDA" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">ELEMENTOS DE UMA ONDA</strong><br>
+                      Fonte: <a href="https://youtu.be/km_ytP0ISkM" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Brasil Escola</a>
+                    </div>
+                    <div>
+                      <a href="https://youtu.be/km_ytP0ISkM" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://youtu.be/x6J2InZCv3Y" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-equacao-fundamental-ondulatoria.png" alt="FÍSICA - EQUAÇÃO FUNDAMENTAL DA ONDULATÓRIA" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">FÍSICA - EQUAÇÃO FUNDAMENTAL DA ONDULATÓRIA</strong><br>
+                      Fonte: <a href="https://youtu.be/x6J2InZCv3Y" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">YouTube</a>
+                    </div>
+                    <div>
+                      <a href="https://youtu.be/x6J2InZCv3Y" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://youtu.be/Hz8pVO7fUW0" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-brasil-escola-equacao-fundamental.png" alt="EQUAÇÃO FUNDAMENTAL DA ONDULATÓRIA" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">EQUAÇÃO FUNDAMENTAL DA ONDULATÓRIA</strong><br>
+                      Fonte: <a href="https://youtu.be/Hz8pVO7fUW0" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Brasil Escola</a>
+                    </div>
+                    <div>
+                      <a href="https://youtu.be/Hz8pVO7fUW0" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://youtu.be/y9I4jh26WDA" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-equacao-da-onda.png" alt="ECUACIÓN DE ONDAS, DEL MOVIMIENTO ONDULATORIO" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">ECUACIÓN DE ONDAS, DEL MOVIMIENTO ONDULATORIO</strong><br>
+                      Fonte: <a href="https://youtu.be/y9I4jh26WDA" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">YouTube</a>
+                    </div>
+                    <div>
+                      <a href="https://youtu.be/y9I4jh26WDA" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>GASPAR, Alberto. <em>Física: ondas, óptica e
+                termodinâmica</em>. São Paulo: Ática.</li>
+                <li>HEWITT, Paul G. <em>Física Conceitual</em>. Porto
+                Alegre: Bookman.</li>
+                <li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <em>Fundamentos de Física</em>. Rio de Janeiro:
+                LTC.</li>
+                <li>PHET Interactive Simulations. <em>Waves Intro</em>.
+                Disponível em: <a href="https://phet.colorado.edu"
+                class="uri">https://phet.colorado.edu</a>.</li>
+                <li>BRASIL ESCOLA. <strong>Elementos de uma
+                onda</strong>. Disponível em: <a
+                href="https://youtu.be/km_ytP0ISkM"
+                class="uri">https://youtu.be/km_ytP0ISkM</a>. Acesso em:
+                21 jul. 2026.</li>
+                <li>YOUTUBE. <strong>Física - Equação Fundamental da
+                Ondulatória</strong>. Disponível em: <a
+                href="https://youtu.be/x6J2InZCv3Y"
+                class="uri">https://youtu.be/x6J2InZCv3Y</a>. Acesso em:
+                21 jul. 2026.</li>
+                <li>BRASIL ESCOLA. <strong>Equação Fundamental da
+                Ondulatória</strong>. Disponível em: <a
+                href="https://youtu.be/Hz8pVO7fUW0"
+                class="uri">https://youtu.be/Hz8pVO7fUW0</a>. Acesso em:
+                21 jul. 2026.</li>
+                <li>YOUTUBE. <strong>Ecuación de ondas, del movimiento
+                ondulatorio</strong>. Disponível em: <a
+                href="https://youtu.be/y9I4jh26WDA"
+                class="uri">https://youtu.be/y9I4jh26WDA</a>. Acesso em:
+                29 jul. 2026.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Ondas periódicas,
+formas de onda, amplitude, período, frequência, comprimento de onda e
+velocidade de propagação</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
