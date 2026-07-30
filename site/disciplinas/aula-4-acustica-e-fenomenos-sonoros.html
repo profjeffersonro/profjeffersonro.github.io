@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula 4 - Acústica e Fenômenos Sonoros | Meu Portal</title>
+    <meta name="description" content="Notas da aula 4 - Acústica e Fenômenos Sonoros de Ondulatória.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-4-acustica-e-fenomenos-sonoros.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="aula 4 - Acústica e Fenômenos Sonoros | Meu Portal">
+    <meta property="og:description" content="Notas da aula 4 - Acústica e Fenômenos Sonoros de Ondulatória.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-4-acustica-e-fenomenos-sonoros.html">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Ondulatória</li>
+                </ol>
+            </nav>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">aula 4 - Acústica e Fenômenos Sonoros</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Ondulatória</p>
+                </div>
+                <div class="card-body">
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1UOuxv0g2C9TI5YSQlYS6AohMflihu1B6/view?usp=drive_link"
+                       class="btn btn-success btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+
+                    <div class="aula-content">
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li><strong>Definir</strong> som como onda mecânica
+                longitudinal.</li>
+<li><strong>Explicar</strong> como o som se propaga por
+                compressões e rarefações.</li>
+<li><strong>Relacionar</strong> frequência, altura,
+                intensidade, nível sonoro e timbre.</li>
+<li><strong>Descrever</strong> noções básicas da
+                fisiologia da audição.</li>
+<li><strong>Diferenciar</strong> infrassom, som audível
+                e ultrassom.</li>
+<li><strong>Interpretar</strong> reflexão, eco,
+                reverberação e absorção sonora.</li>
+<li><strong>Reconhecer</strong> refração, interferência
+                acústica, ondas estacionárias e efeito Doppler em
+                situações acústicas.</li>
+<li><strong>Resolver</strong> problemas com \(v=\lambda f\), intensidade,
+                potência sonora, decibéis, interferência acústica, ondas
+                estacionárias em cordas e efeito Doppler.</li>
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>A acústica é a área da Física que estuda o som: sua
+                produção, propagação, recepção e percepção. Ela aparece
+                em salas de aula, auditórios, fones de ouvido,
+                instrumentos musicais, exames de ultrassom, radares
+                sonoros, isolamento acústico e segurança do
+                trabalho.</p>
+<p>O som começa com uma fonte vibrante. Essa fonte
+                transfere energia para o meio ao redor, produzindo
+                regiões de compressão e rarefação que se propagam.</p>
+<p>Ao estudar acústica, conectamos a descrição física da
+                onda sonora com a experiência humana de ouvir. A
+                frequência está associada à altura, a intensidade está
+                relacionada à sensação de som forte ou fraco, e o timbre
+                permite distinguir fontes diferentes mesmo quando emitem
+                sons de mesma frequência fundamental.</p>
+<p>Também é importante separar o fenômeno físico da
+                percepção auditiva. O ouvido transforma variações de
+                pressão em impulsos nervosos, mas a propagação do som
+                depende do meio, da temperatura, da distância até a
+                fonte e das interações com paredes, objetos e aberturas.
+                Por isso, esta aula combina propriedades físicas,
+                fisiologia básica da audição e aplicações como eco,
+                reverberação, interferência acústica, intensidade sonora
+                e efeito Doppler.</p>
+<figure>
+<img alt="Som como onda de pressão no ar. Fonte: Wikimedia Commons." src="images/pressão.gif" style="width:70.0%"/>
+<figcaption aria-hidden="true">Som como onda de pressão
+                no ar. Fonte: Wikimedia Commons.</figcaption>
+</figure>
+<h1 id="natureza-do-som">Natureza do Som</h1>
+<p>O som é uma <strong>onda mecânica
+                longitudinal</strong>.</p>
+<p>É mecânica porque precisa de meio material, como ar,
+                água, madeira, concreto ou metal. Não há som no
+                vácuo.</p>
+<p>É longitudinal porque as partículas do meio vibram
+                aproximadamente na mesma direção em que a onda se
+                propaga.</p>
+<p>No ar, uma fonte sonora comprime e rarefaz
+                sucessivamente as moléculas. Cada molécula oscila em
+                torno de uma posição média; a energia é que se propaga
+                pelo espaço.</p>
+<h1 id="velocidade-do-som">Velocidade do Som</h1>
+<p>A velocidade do som depende do meio e da
+                temperatura.</p>
+<p>Valores aproximados:</p>
+<ul>
+<li>ar a \(20\,^\circ\text{C}\): \(343\,\text{m/s}\);</li>
+<li>água: \(1500\,\text{m/s}\);</li>
+<li>aço: cerca de \(5000\,\text{m/s}\).</li>
+</ul>
+<p>Em geral, o som se propaga mais rapidamente em
+                sólidos que em líquidos, e mais rapidamente em líquidos
+                que em gases. Em gases, o aumento de temperatura tende a
+                aumentar a velocidade do som.</p>
+<p>Para ondas sonoras periódicas:</p>
+<p>\[
+                \boxed{v=\lambda f}
+                \]</p>
+<h1 id="características-físicas-e-perceptivas">Características
+                Físicas e Perceptivas</h1>
+<h2 id="altura">Altura</h2>
+<p>A <strong>altura</strong> está relacionada à
+                frequência.</p>
+<ul>
+<li>Frequência maior: som mais agudo.</li>
+<li>Frequência menor: som mais grave.</li>
+</ul>
+<h2 id="intensidade">Intensidade</h2>
+<p>A <strong>intensidade sonora</strong> está
+                relacionada à energia transportada por unidade de área e
+                tempo. Na percepção cotidiana, associamos maior
+                intensidade a som mais forte.</p>
+<p>Fisicamente, a intensidade média pode ser calculada
+                por:</p>
+<p>\[
+                I=\frac{P}{A}
+                \]</p>
+<p>em que \(I\) é a
+                intensidade sonora, \(P\) é a potência acústica
+                emitida ou transmitida e \(A\) é a área atravessada
+                pela onda. No Sistema Internacional, \(P\) é medida em watt (W),
+                \(A\) em metro quadrado
+                (\(\text{m}^2\)) e
+                \(I\) em \(\text{W/m}^2\).</p>
+<p>Quando uma fonte sonora pequena emite som igualmente
+                em todas as direções, a frente de onda pode ser
+                aproximada por uma esfera. Nesse caso, a área aumenta
+                com a distância:</p>
+<p>\[
+                A=4\pi r^2
+                \]</p>
+<p>Logo:</p>
+<p>\[
+                I=\frac{P}{4\pi r^2}
+                \]</p>
+<p>Isso mostra que, ao dobrar a distância até uma fonte
+                ideal, a intensidade cai para um quarto do valor
+                inicial. Essa relação ajuda a explicar por que sons
+                ficam muito mais fracos quando nos afastamos da
+                fonte.</p>
+<p>O nível sonoro é medido em decibel (dB), uma escala
+                logarítmica. Para o nível de intensidade sonora:</p>
+<p>\[
+                \boxed{\beta=10\log\left(\frac{I}{I_0}\right)}
+                \]</p>
+<p>em que \(\beta\) é o
+                nível sonoro em decibel, \(I\) é a intensidade sonora
+                e \(I_0=10^{-12}\,\text{W/m}^2\)
+                é a intensidade de referência, próxima ao limiar de
+                audição humana em \(1000\,\text{Hz}\).</p>
+<p>Como a escala é logarítmica, aumentar a intensidade
+                em \(10\) vezes aumenta
+                o nível sonoro em \(10\,\text{dB}\). Aumentar a
+                intensidade em \(100\)
+                vezes aumenta o nível sonoro em \(20\,\text{dB}\).</p>
+<figure>
+<img alt="Escala aproximada de nível sonoro em decibel. Fonte: elaboração própria." src="images/fig-escala-decibel.png" style="width:90.0%"/>
+<figcaption aria-hidden="true">Escala aproximada de
+                nível sonoro em decibel. Fonte: elaboração
+                própria.</figcaption>
+</figure>
+<h2 id="timbre">Timbre</h2>
+<p>O <strong>timbre</strong> permite distinguir fontes
+                sonoras diferentes emitindo a mesma nota com a mesma
+                intensidade aproximada. Um violão e uma flauta podem
+                tocar a mesma frequência fundamental, mas produzem
+                harmônicos diferentes.</p>
+<h2 id="duração">Duração</h2>
+<p>A duração é o intervalo de tempo durante o qual o som
+                é percebido.</p>
+<h1 id="faixa-audível">Faixa Audível</h1>
+<p>O ouvido humano jovem costuma perceber frequências
+                aproximadamente entre:</p>
+<p>\[
+                20\,\text{Hz} \le f \le 20\,000\,\text{Hz}
+                \]</p>
+<dl>
+<dt><strong>Infrassom</strong></dt>
+<dd>
+                Frequências abaixo de \(20\,\text{Hz}\).
+                </dd>
+<dt><strong>Som audível</strong></dt>
+<dd>
+                Frequências entre cerca de \(20\,\text{Hz}\) e \(20\,000\,\text{Hz}\).
+                </dd>
+<dt><strong>Ultrassom</strong></dt>
+<dd>
+                Frequências acima de \(20\,000\,\text{Hz}\).
+                </dd>
+</dl>
+<p>O ultrassom é usado em exames médicos, limpeza
+                ultrassônica e sensores. O infrassom pode estar
+                associado a fenômenos naturais como terremotos, vulcões
+                e ondas oceânicas.</p>
+<h1 id="fisiologia-do-som">Fisiologia do Som</h1>
+<p>A audição envolve transformação de energia mecânica
+                em sinais nervosos.</p>
+<ol type="1">
+<li>O pavilhão auricular ajuda a coletar o som.</li>
+<li>O canal auditivo conduz a onda sonora até o
+                tímpano.</li>
+<li>O tímpano vibra quando recebe variações de
+                pressão.</li>
+<li>Ossículos da orelha média amplificam e transmitem a
+                vibração.</li>
+<li>A cóclea, na orelha interna, contém fluido e células
+                ciliadas sensíveis a frequências.</li>
+<li>As células ciliadas convertem vibrações em impulsos
+                elétricos.</li>
+<li>O nervo auditivo envia os sinais ao cérebro.</li>
+</ol>
+<p>Sons muito intensos podem danificar células ciliadas.
+                Esse dano pode ser permanente, por isso a exposição
+                prolongada a fones em volume alto, shows, máquinas e
+                sirenes exige cuidado.</p>
+<h1 id="reflexão-eco-e-reverberação">Reflexão, Eco e
+                Reverberação</h1>
+<p>A <strong>reflexão sonora</strong> ocorre quando o
+                som encontra uma superfície e retorna ao meio de
+                origem.</p>
+<figure>
+<img alt="Reflexão. Fonte: Sala de Física." src="images/reflexão-2.gif" style="width:55.0%"/>
+<figcaption aria-hidden="true">Reflexão. Fonte: Sala de
+                Física.</figcaption>
+</figure>
+<dl>
+<dt><strong>Eco</strong></dt>
+<dd>
+                O som refletido chega separado do som direto por tempo
+                suficiente para ser percebido como repetição.
+                </dd>
+<dt><strong>Reverberação</strong></dt>
+<dd>
+                Muitas reflexões chegam muito próximas no tempo,
+                prolongando o som sem formar repetições separadas.
+                </dd>
+<dt><strong>Absorção sonora</strong></dt>
+<dd>
+                Parte da energia sonora é transformada em energia
+                interna no material. Espumas acústicas, cortinas e
+                carpetes podem reduzir reflexões.
+                </dd>
+</dl>
+<p>Em salas de aula, excesso de reverberação dificulta a
+                compreensão da fala. Em teatros, a acústica busca
+                equilíbrio entre clareza e sustentação sonora.</p>
+<h1 id="refração-sonora">Refração Sonora</h1>
+<p>A <strong>refração sonora</strong> ocorre quando o
+                som passa por regiões em que sua velocidade muda, como
+                camadas de ar com temperaturas diferentes.</p>
+<figure>
+<img alt="Refração de ondas. Fonte: Wikimedia Commons." src="images/refraction-animation.gif" style="width:65.0%"/>
+<figcaption aria-hidden="true">Refração de ondas. Fonte:
+                Wikimedia Commons.</figcaption>
+</figure>
+<p>A frequência é determinada pela fonte e tende a
+                permanecer constante. Se a velocidade muda, o
+                comprimento de onda também muda.</p>
+<p>Em noites frias, por exemplo, variações de
+                temperatura no ar podem curvar a trajetória do som e
+                alterar o alcance de ruídos distantes.</p>
+<h1 id="interferência-acústica">Interferência
+                Acústica</h1>
+<p>A <strong>interferência acústica</strong> ocorre
+                quando duas ou mais ondas sonoras chegam ao mesmo ponto
+                ao mesmo tempo. Pelo princípio da superposição, a
+                perturbação resultante é a soma das perturbações
+                produzidas por cada onda.</p>
+<figure>
+<img alt="Interferência entre ondas. Fonte: Wikimedia Commons." src="images/interferencia-ondas.gif" style="width:75.0%"/>
+<figcaption aria-hidden="true">Interferência entre
+                ondas. Fonte: Wikimedia Commons.</figcaption>
+</figure>
+<p>Em acústica, isso pode produzir regiões onde o som
+                fica mais forte e regiões onde o som fica mais
+                fraco.</p>
+<dl>
+<dt><strong>Interferência construtiva</strong></dt>
+<dd>
+                Ocorre quando as ondas chegam em fase. As compressões
+                coincidem com compressões e as rarefações coincidem com
+                rarefações. A amplitude resultante aumenta.
+                </dd>
+<dt><strong>Interferência destrutiva</strong></dt>
+<dd>
+                Ocorre quando as ondas chegam em oposição de fase. Uma
+                compressão pode coincidir com uma rarefação. A amplitude
+                resultante diminui.
+                </dd>
+</dl>
+<p>Para duas fontes coerentes emitindo sons de mesmo
+                comprimento de onda, a diferença de caminho \(\Delta d\) ajuda a prever o
+                tipo de interferência:</p>
+<p>\[
+                \Delta d=|d_2-d_1|
+                \]</p>
+<p>Interferência construtiva:</p>
+<p>\[
+                \Delta d=n\lambda
+                \]</p>
+<p>Interferência destrutiva:</p>
+<p>\[
+                \Delta d=\left(n+\frac{1}{2}\right)\lambda
+                \]</p>
+<p>em que \(n=0,1,2,\ldots\)</p>
+<p>Aplicações aparecem em acústica de salas,
+                posicionamento de caixas de som, cancelamento ativo de
+                ruído e regiões de reforço ou enfraquecimento sonoro em
+                ambientes.</p>
+<h1 id="ondas-estacionárias-em-instrumentos">Ondas
+                Estacionárias em Instrumentos</h1>
+<p>Instrumentos musicais produzem sons por modos de
+                vibração.</p>
+<figure>
+<img alt="Onda estacionária. Fonte: Wikimedia Commons." src="images/standing-wave.gif" style="width:75.0%"/>
+<figcaption aria-hidden="true">Onda estacionária. Fonte:
+                Wikimedia Commons.</figcaption>
+</figure>
+<p>Em cordas, aparecem nós e ventres. O comprimento da
+                corda, a tensão e a densidade linear influenciam a
+                velocidade de propagação da onda na corda e, portanto, a
+                frequência emitida.</p>
+<p>Para uma corda fixa nas duas extremidades:</p>
+<p>\[
+                f_1=\frac{v}{2L}
+                \]</p>
+<p>Para harmônicos:</p>
+<p>\[
+                f_n=n f_1
+                \]</p>
+<h1 id="efeito-doppler">Efeito Doppler</h1>
+<p>O <strong>efeito Doppler</strong> é a mudança da
+                frequência percebida quando existe movimento relativo
+                entre fonte e observador.</p>
+<figure>
+<img alt="Efeito Doppler. Fonte: Wikimedia Commons." src="images/dopplerfrequenz.gif" style="width:85.0%"/>
+<figcaption aria-hidden="true">Efeito Doppler. Fonte:
+                Wikimedia Commons.</figcaption>
+</figure>
+<p>Quando a fonte se aproxima, as frentes de onda chegam
+                mais próximas umas das outras. A frequência percebida
+                aumenta e o som fica mais agudo.</p>
+<p>Quando a fonte se afasta, as frentes de onda chegam
+                mais espaçadas. A frequência percebida diminui e o som
+                fica mais grave.</p>
+<p>Exemplo: a sirene de uma ambulância parece mais aguda
+                ao se aproximar e mais grave depois que passa.</p>
+<p>Para som no ar, a frequência percebida pode ser
+                calculada por:</p>
+<p>\[
+                \boxed{f'=f\left(\frac{v\pm v_o}{v\mp v_s}\right)}
+                \]</p>
+<p>em que \(f'\) é
+                a frequência percebida, \(f\) é a frequência emitida,
+                \(v\) é a velocidade do
+                som, \(v_o\) é a
+                velocidade do observador e \(v_s\) é a velocidade da
+                fonte.</p>
+<p>Convenção prática:</p>
+<ul>
+<li>observador aproximando-se da fonte: usar \(v+v_o\) no numerador;</li>
+<li>observador afastando-se da fonte: usar \(v-v_o\) no numerador;</li>
+<li>fonte aproximando-se do observador: usar \(v-v_s\) no
+                denominador;</li>
+<li>fonte afastando-se do observador: usar \(v+v_s\) no
+                denominador.</li>
+</ul>
+<p>Se o observador está parado e a fonte se move:</p>
+<p>\[
+                f'_\text{aproxima}=\frac{fv}{v-v_s}
+                \]</p>
+<p>\[
+                f'_\text{afasta}=\frac{fv}{v+v_s}
+                \]</p>
+<h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
+<h2 id="exemplo-4.1---comprimento-de-onda">Exemplo 4.1 -
+                Comprimento de Onda</h2>
+<p>Um som de \(440\,\text{Hz}\) se propaga
+                no ar com velocidade \(340\,\text{m/s}\).
+                Determine o comprimento de onda.</p>
+<p>\[
+                \lambda=\frac{v}{f}=\frac{340}{440}\approx0{,}77\,\text{m}
+                \]</p>
+<p><strong>Resposta:</strong> \(\lambda\approx0{,}77\,\text{m}\).</p>
+<h2 id="exemplo-4.2---interferência-construtiva">Exemplo
+                4.2 - Interferência Construtiva</h2>
+<p>Duas caixas de som coerentes emitem ondas sonoras de
+                comprimento de onda \(\lambda=0{,}80\,\text{m}\).
+                Em certo ponto da sala, as distâncias até as caixas são
+                \(d_1=3{,}20\,\text{m}\) e
+                \(d_2=4{,}00\,\text{m}\).
+                Verifique se ocorre interferência construtiva.</p>
+<p>\[
+                \Delta d=|d_2-d_1|=|4{,}00-3{,}20|=0{,}80\,\text{m}
+                \]</p>
+<p>Como:</p>
+<p>\[
+                \Delta d=0{,}80\,\text{m}=\lambda
+                \]</p>
+<p>temos \(\Delta
+                d=1\lambda\), portanto ocorre interferência
+                construtiva.</p>
+<p><strong>Resposta:</strong> sim, ocorre reforço sonoro
+                nesse ponto.</p>
+<h2 id="exemplo-4.3---eco">Exemplo 4.3 - Eco</h2>
+<p>Uma pessoa grita diante de uma parede a \(170\,\text{m}\) de
+                distância. Considere \(v=340\,\text{m/s}\). Quanto
+                tempo o som leva para voltar?</p>
+<p>O som vai até a parede e retorna:</p>
+<p>\[
+                \Delta s=2\cdot170=340\,\text{m}
+                \]</p>
+<p>\[
+                \Delta t=\frac{\Delta s}{v}=\frac{340}{340}=1\,\text{s}
+                \]</p>
+<p><strong>Resposta:</strong> o eco retorna após \(1\,\text{s}\).</p>
+<h2 id="exemplo-4.4---intensidade-de-fonte-esférica">Exemplo
+                4.4 - Intensidade de Fonte Esférica</h2>
+<p>Uma fonte sonora emite potência acústica \(P=12\,\text{W}\) igualmente
+                em todas as direções. Desprezando perdas no ar, calcule
+                a intensidade a \(r=1\,\text{m}\) da fonte.
+                Use \(\pi\approx3\).</p>
+<p>\[
+                A=4\pi r^2=4\cdot3\cdot1^2=12\,\text{m}^2
+                \]</p>
+<p>\[
+                I=\frac{P}{A}=\frac{12}{12}=1\,\text{W/m}^2
+                \]</p>
+<p><strong>Resposta:</strong> \(1\,\text{W/m}^2\).</p>
+<h2 id="exemplo-4.5---potência-a-partir-da-intensidade">Exemplo
+                4.5 - Potência a Partir da Intensidade</h2>
+<p>Uma onda sonora atravessa uma área de \(8\,\text{m}^2\) com
+                intensidade média \(I=0{,}50\,\text{W/m}^2\).
+                Determine a potência sonora transmitida por essa
+                área.</p>
+<p>\[
+                I=\frac{P}{A}
+                \]</p>
+<p>\[
+                P=IA=0{,}50\cdot8=4\,\text{W}
+                \]</p>
+<p><strong>Resposta:</strong> \(4\,\text{W}\).</p>
+<h2 id="exemplo-4.6---nível-sonoro-em-decibéis">Exemplo
+                4.6 - Nível Sonoro em Decibéis</h2>
+<p>Um som tem intensidade \(I=10^{-8}\,\text{W/m}^2\).
+                Calcule o nível sonoro. Use \(I_0=10^{-12}\,\text{W/m}^2\).</p>
+<p>\[
+                \beta=10\log\left(\frac{I}{I_0}\right)
+                \]</p>
+<p>\[
+                \beta=10\log\left(\frac{10^{-8}}{10^{-12}}\right)
+                =10\log(10^4)
+                =10\cdot4
+                =40\,\text{dB}
+                \]</p>
+<p><strong>Resposta:</strong> \(40\,\text{dB}\).</p>
+<h2 id="exemplo-4.7---intensidade-a-partir-do-decibel">Exemplo
+                4.7 - Intensidade a Partir do Decibel</h2>
+<p>Um som apresenta nível sonoro \(\beta=70\,\text{dB}\).
+                Determine sua intensidade. Use \(I_0=10^{-12}\,\text{W/m}^2\).</p>
+<p>\[
+                70=10\log\left(\frac{I}{10^{-12}}\right)
+                \]</p>
+<p>\[
+                7=\log\left(\frac{I}{10^{-12}}\right)
+                \]</p>
+<p>\[
+                \frac{I}{10^{-12}}=10^7
+                \]</p>
+<p>\[
+                I=10^7\cdot10^{-12}=10^{-5}\,\text{W/m}^2
+                \]</p>
+<p><strong>Resposta:</strong> \(10^{-5}\,\text{W/m}^2\).</p>
+<h2 id="exemplo-4.8---doppler-com-fonte-aproximando-se">Exemplo
+                4.8 - Doppler com Fonte Aproximando-se</h2>
+<p>Uma ambulância emite sirene de \(700\,\text{Hz}\) e se
+                aproxima de um observador parado com velocidade \(v_s=20\,\text{m/s}\).
+                Considere \(v=340\,\text{m/s}\).
+                Determine a frequência percebida.</p>
+<p>\[
+                f'=\frac{fv}{v-v_s}
+                \]</p>
+<p>\[
+                f'=\frac{700\cdot340}{340-20}
+                =\frac{238000}{320}
+                \approx744\,\text{Hz}
+                \]</p>
+<p><strong>Resposta:</strong> aproximadamente \(744\,\text{Hz}\), som mais
+                agudo.</p>
+<h2 id="exemplo-4.9---doppler-com-fonte-afastando-se">Exemplo
+                4.9 - Doppler com Fonte Afastando-se</h2>
+<p>A mesma ambulância emite \(700\,\text{Hz}\), mas agora
+                se afasta do observador parado com \(v_s=20\,\text{m/s}\).
+                Considere \(v=340\,\text{m/s}\).</p>
+<p>\[
+                f'=\frac{fv}{v+v_s}
+                \]</p>
+<p>\[
+                f'=\frac{700\cdot340}{340+20}
+                =\frac{238000}{360}
+                \approx661\,\text{Hz}
+                \]</p>
+<p><strong>Resposta:</strong> aproximadamente \(661\,\text{Hz}\), som mais
+                grave.</p>
+<h2 id="exemplo-4.10---onda-estacionária-em-corda">Exemplo
+                4.10 - Onda Estacionária em Corda</h2>
+<p>Uma corda fixa nas duas extremidades tem comprimento
+                \(L=0{,}80\,\text{m}\).
+                A velocidade da onda na corda é \(v=320\,\text{m/s}\).
+                Determine a frequência fundamental.</p>
+<p>\[
+                f_1=\frac{v}{2L}
+                \]</p>
+<p>\[
+                f_1=\frac{320}{2\cdot0{,}80}
+                =\frac{320}{1{,}60}
+                =200\,\text{Hz}
+                \]</p>
+<p><strong>Resposta:</strong> \(200\,\text{Hz}\).</p>
+<h2 id="exemplo-4.11---interferência-destrutiva">Exemplo
+                4.11 - Interferência Destrutiva</h2>
+<p>Dois alto-falantes coerentes emitem som de
+                comprimento de onda \(\lambda=0{,}60\,\text{m}\).
+                Em um ponto, a diferença de caminho é \(\Delta
+                d=0{,}30\,\text{m}\). Determine o tipo de
+                interferência.</p>
+<p>\[
+                \Delta d=0{,}30\,\text{m}=\frac{0{,}60}{2}
+                \]</p>
+<p>\[
+                \Delta d=\frac{\lambda}{2}
+                \]</p>
+<p>Como a diferença de caminho é meio comprimento de
+                onda, as ondas chegam em oposição de fase.</p>
+<p><strong>Resposta:</strong> interferência
+                destrutiva.</p>
+<h2 id="exemplo-4.12---doppler-qualitativo">Exemplo 4.12
+                - Doppler Qualitativo</h2>
+<p>Uma motocicleta com escapamento ruidoso se aproxima e
+                depois se afasta de um observador parado. Como a altura
+                percebida muda?</p>
+<p><strong>Resolução:</strong> na aproximação, a
+                frequência percebida aumenta; no afastamento,
+                diminui.</p>
+<p><strong>Resposta:</strong> som mais agudo na
+                aproximação e mais grave no afastamento.</p>
+<h1 id="erros-comuns">Erros Comuns</h1>
+<ul>
+<li>Confundir altura com intensidade.</li>
+<li>Dizer que som se propaga no vácuo.</li>
+<li>Usar decibel como escala linear.</li>
+<li>Pensar que timbre depende apenas do volume.</li>
+<li>Confundir eco com reverberação.</li>
+<li>Confundir interferência construtiva com
+                destrutiva.</li>
+<li>Dizer que Doppler muda a frequência emitida pela
+                fonte; ele muda a frequência percebida.</li>
+</ul>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<dl>
+<dt>4.1)</dt>
+<dd>
+                Um som de \(500\,\text{Hz}\) se propaga
+                no ar com \(v=340\,\text{m/s}\). Seu
+                comprimento de onda é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}68\,\text{m}\).</li>
+<li>\(1{,}47\,\text{m}\).</li>
+<li>\(170\,\text{m}\).</li>
+<li>\(840\,\text{m}\).</li>
+<li>\(500\,\text{m}\).</li>
+</ol>
+<dl>
+<dt>4.2)</dt>
+<dd>
+                Dois sons têm frequências \(200\,\text{Hz}\) e \(800\,\text{Hz}\). O som de
+                \(800\,\text{Hz}\) é
+                percebido como:
+                </dd>
+</dl>
+<ol type="a">
+<li>mais intenso obrigatoriamente.</li>
+<li>mais agudo.</li>
+<li>mais lento no mesmo ar.</li>
+<li>sem timbre.</li>
+<li>infrassom.</li>
+</ol>
+<dl>
+<dt>4.3)</dt>
+<dd>
+                Duas fontes coerentes emitem som de comprimento de onda
+                \(\lambda=0{,}50\,\text{m}\).
+                Em certo ponto, a diferença de caminho é \(\Delta
+                d=0{,}25\,\text{m}\). Nesse ponto ocorre:
+                </dd>
+</dl>
+<ol type="a">
+<li>interferência construtiva, pois \(\Delta d=\lambda\).</li>
+<li>eco, pois \(\Delta
+                d=2\lambda\).</li>
+<li>interferência destrutiva, pois \(\Delta d=\lambda/2\).</li>
+<li>refração, pois a frequência mudou.</li>
+<li>efeito Doppler, pois a fonte está parada.</li>
+</ol>
+<dl>
+<dt>4.4)</dt>
+<dd>
+                Uma frequência de \(25\,000\,\text{Hz}\) está:
+                </dd>
+</dl>
+<ol type="a">
+<li>abaixo da faixa audível e é infrassom.</li>
+<li>no limite inferior da audição.</li>
+<li>sempre associada a eco.</li>
+<li>acima da faixa audível e é ultrassom.</li>
+<li>sem relação com som.</li>
+</ol>
+<dl>
+<dt>4.5)</dt>
+<dd>
+                Uma fonte sonora emite potência \(P=20\,\text{W}\) através de
+                uma área de \(5\,\text{m}^2\). A
+                intensidade sonora média nessa área é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(100\,\text{W/m}^2\).</li>
+<li>\(25\,\text{W/m}^2\).</li>
+<li>\(15\,\text{W/m}^2\).</li>
+<li>\(0{,}25\,\text{W/m}^2\).</li>
+<li>\(4\,\text{W/m}^2\).</li>
+</ol>
+<dl>
+<dt>4.6)</dt>
+<dd>
+                Um som tem intensidade \(I=10^{-6}\,\text{W/m}^2\).
+                Usando \(I_0=10^{-12}\,\text{W/m}^2\),
+                o nível sonoro é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(60\,\text{dB}\).</li>
+<li>\(6\,\text{dB}\).</li>
+<li>\(12\,\text{dB}\).</li>
+<li>\(30\,\text{dB}\).</li>
+<li>\(120\,\text{dB}\).</li>
+</ol>
+<dl>
+<dt>4.7)</dt>
+<dd>
+                Um som de \(50\,\text{dB}\) tem
+                intensidade:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(10^{-8}\,\text{W/m}^2\).</li>
+<li>\(10^{-7}\,\text{W/m}^2\).</li>
+<li>\(10^{-9}\,\text{W/m}^2\).</li>
+<li>\(10^{-10}\,\text{W/m}^2\).</li>
+<li>\(5\cdot10^{-12}\,\text{W/m}^2\).</li>
+</ol>
+<dl>
+<dt>4.8)</dt>
+<dd>
+                Uma corda fixa nas duas extremidades tem \(L=1{,}0\,\text{m}\) e a
+                velocidade da onda na corda é \(v=200\,\text{m/s}\). A
+                frequência fundamental é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(50\,\text{Hz}\).</li>
+<li>\(80\,\text{Hz}\).</li>
+<li>\(100\,\text{Hz}\).</li>
+<li>\(200\,\text{Hz}\).</li>
+<li>\(400\,\text{Hz}\).</li>
+</ol>
+<dl>
+<dt>4.9)</dt>
+<dd>
+                Uma sirene emite \(600\,\text{Hz}\) e se
+                aproxima de um observador parado com \(v_s=20\,\text{m/s}\).
+                Considere \(v=340\,\text{m/s}\). A
+                frequência percebida é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(565\,\text{Hz}\).</li>
+<li>\(600\,\text{Hz}\).</li>
+<li>\(620\,\text{Hz}\).</li>
+<li>\(638\,\text{Hz}\).</li>
+<li>\(720\,\text{Hz}\).</li>
+</ol>
+<dl>
+<dt>4.10)</dt>
+<dd>
+                Uma sirene emite \(600\,\text{Hz}\) e se
+                afasta de um observador parado com \(v_s=20\,\text{m/s}\).
+                Considere \(v=340\,\text{m/s}\). A
+                frequência percebida é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(565\,\text{Hz}\).</li>
+<li>\(600\,\text{Hz}\).</li>
+<li>\(638\,\text{Hz}\).</li>
+<li>\(680\,\text{Hz}\).</li>
+<li>\(567\,\text{Hz}\).</li>
+</ol>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://youtu.be/kR5FSlOPrhI" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="ONDAS SONORAS" loading="lazy" src="./images/thumbs/ytb-brasil-escola-ondas-sonoras.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">ONDAS SONORAS</strong><br/>
+                      Fonte: <a href="https://youtu.be/kR5FSlOPrhI" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Brasil Escola</a>
+</div>
+<div>
+<a href="https://youtu.be/kR5FSlOPrhI" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://youtu.be/hwpluwl5vsI" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="NÍVEL DE INTENSIDADE SONORA" loading="lazy" src="./images/thumbs/ytb-nivel-intensidade-sonora.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">NÍVEL DE INTENSIDADE SONORA</strong><br/>
+                      Fonte: <a href="https://youtu.be/hwpluwl5vsI" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Brasil Escola</a>
+</div>
+<div>
+<a href="https://youtu.be/hwpluwl5vsI" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://youtu.be/rUMDXXsFvPU" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="FÍSICA - QUALIDADES FISIOLÓGICAS DO SOM" loading="lazy" src="./images/thumbs/ytb-qualidades-fisiologicas-som.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">FÍSICA - QUALIDADES FISIOLÓGICAS DO SOM</strong><br/>
+                      Fonte: <a href="https://youtu.be/rUMDXXsFvPU" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">YouTube</a>
+</div>
+<div>
+<a href="https://youtu.be/rUMDXXsFvPU" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://telecurso.frm.org.br/conteudo/educacao-basica/video/cancelando-ruidos-fisica-ensino-medio" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="CANCELANDO RUÍDOS - FÍSICA - ENSINO MÉDIO" loading="lazy" src="./images/thumbs/video-interferencia-cancelando-ruidos.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">CANCELANDO RUÍDOS - FÍSICA - ENSINO MÉDIO</strong><br/>
+                      Fonte: <a href="https://telecurso.frm.org.br/conteudo/educacao-basica/video/cancelando-ruidos-fisica-ensino-medio" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Telecurso</a>
+</div>
+<div>
+<a href="https://telecurso.frm.org.br/conteudo/educacao-basica/video/cancelando-ruidos-fisica-ensino-medio" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://pt.khanacademy.org/science/fisica-ensino-medio/x6443ccf4d35f6b36:som/x6443ccf4d35f6b36:efeito-doppler/v/introduction-to-the-doppler-effect" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="INTRODUÇÃO AO EFEITO DOPPLER" loading="lazy" src="./images/thumbs/video-khan-doppler.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">INTRODUÇÃO AO EFEITO DOPPLER</strong><br/>
+                      Fonte: <a href="https://pt.khanacademy.org/science/fisica-ensino-medio/x6443ccf4d35f6b36:som/x6443ccf4d35f6b36:efeito-doppler/v/introduction-to-the-doppler-effect" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Khan Academy</a>
+</div>
+<div>
+<a href="https://pt.khanacademy.org/science/fisica-ensino-medio/x6443ccf4d35f6b36:som/x6443ccf4d35f6b36:efeito-doppler/v/introduction-to-the-doppler-effect" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://brasilescola.uol.com.br/videos/efeito-doppler.htm" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="VIDEOAULA SOBRE EFEITO DOPPLER" loading="lazy" src="./images/thumbs/video-brasil-escola-doppler.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">VIDEOAULA SOBRE EFEITO DOPPLER</strong><br/>
+                      Fonte: <a href="https://brasilescola.uol.com.br/videos/efeito-doppler.htm" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Brasil Escola</a>
+</div>
+<div>
+<a href="https://brasilescola.uol.com.br/videos/efeito-doppler.htm" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina. <em>Física: termologia, óptica e ondas</em>. São
+                Paulo: FTD.</li>
+<li>HEWITT, Paul G. <em>Física Conceitual</em>. Porto
+                Alegre: Bookman.</li>
+<li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <em>Fundamentos de Física</em>. Rio de Janeiro:
+                LTC.</li>
+<li>Wikimedia Commons. <em>Sound waves</em>. Disponível
+                em: <a class="uri" href="https://commons.wikimedia.org/wiki/Category:Sound_waves">https://commons.wikimedia.org/wiki/Category:Sound_waves</a>.</li>
+<li>Wikimedia Commons. <em>Dopplerfrequenz.gif</em>.
+                Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif">https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif</a>.</li>
+<li>Wikimedia Commons. <em>Waves interferences.gif</em>.
+                Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Waves_interferences.gif">https://commons.wikimedia.org/wiki/File:Waves_interferences.gif</a>.</li>
+<li>Wikimedia Commons. <em>Standing wave.gif</em>.
+                Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Standing_wave.gif">https://commons.wikimedia.org/wiki/File:Standing_wave.gif</a>.</li>
+<li>BRASIL ESCOLA. <strong>Ondas sonoras</strong>.
+                Disponível em: <a class="uri" href="https://youtu.be/kR5FSlOPrhI">https://youtu.be/kR5FSlOPrhI</a>. Acesso em:
+                21 jul. 2026.</li>
+<li>BRASIL ESCOLA. <strong>Nível de intensidade
+                sonora</strong>. Disponível em: <a class="uri" href="https://youtu.be/hwpluwl5vsI">https://youtu.be/hwpluwl5vsI</a>. Acesso em:
+                21 jul. 2026.</li>
+<li>YOUTUBE. <strong>Física - Qualidades fisiológicas do
+                som</strong>. Disponível em: <a class="uri" href="https://youtu.be/rUMDXXsFvPU">https://youtu.be/rUMDXXsFvPU</a>. Acesso em:
+                21 jul. 2026.</li>
+<li>TELECURSO. <strong>Cancelando ruídos - Física -
+                Ensino Médio</strong>. Disponível em: <a class="uri" href="https://telecurso.frm.org.br/conteudo/educacao-basica/video/cancelando-ruidos-fisica-ensino-medio">https://telecurso.frm.org.br/conteudo/educacao-basica/video/cancelando-ruidos-fisica-ensino-medio</a>.
+                Acesso em: 30 jul. 2026.</li>
+<li>KHAN ACADEMY. <strong>Introdução ao efeito
+                Doppler</strong>. Disponível em: <a class="uri" href="https://pt.khanacademy.org/science/fisica-ensino-medio/x6443ccf4d35f6b36:som/x6443ccf4d35f6b36:efeito-doppler/v/introduction-to-the-doppler-effect">https://pt.khanacademy.org/science/fisica-ensino-medio/x6443ccf4d35f6b36:som/x6443ccf4d35f6b36:efeito-doppler/v/introduction-to-the-doppler-effect</a>.
+                Acesso em: 30 jul. 2026.</li>
+<li>BRASIL ESCOLA. <strong>Videoaula sobre Efeito
+                Doppler</strong>. Disponível em: <a class="uri" href="https://brasilescola.uol.com.br/videos/efeito-doppler.htm">https://brasilescola.uol.com.br/videos/efeito-doppler.htm</a>.
+                Acesso em: 30 jul. 2026.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+
+                <a href="/disciplinas/aula-3-fenomenos-ondulatorios.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
