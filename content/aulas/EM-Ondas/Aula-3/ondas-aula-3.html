@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Fenômenos
+Ondulatórios</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li><strong>Reconhecer</strong> reflexão, refração,
+                interferência, difração e polarização.</li>
+                <li><strong>Diferenciar</strong> reflexão regular e
+                difusa.</li>
+                <li><strong>Explicar</strong> por que a frequência se
+                mantém na refração.</li>
+                <li><strong>Relacionar</strong> dispersão com separação
+                das cores da luz.</li>
+                <li><strong>Distinguir</strong> interferência
+                construtiva e destrutiva.</li>
+                <li><strong>Explicar</strong> por que sons contornam
+                obstáculos com facilidade.</li>
+                <li><strong>Identificar</strong> polarização como
+                fenômeno de ondas transversais.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Ondas não apenas se propagam. Elas interagem com
+                obstáculos, superfícies, fendas e outros meios. Essas
+                interações explicam eco, lentes, arco-íris, cancelamento
+                de ruído, comunicação por rádio, instrumentos musicais e
+                muitos fenômenos do cotidiano.</p>
+                <p>Nesta aula, estudaremos os principais
+                <strong>fenômenos ondulatórios</strong>: reflexão,
+                refração, interferência, difração e polarização. A
+                dispersão será tratada dentro da refração, pois envolve
+                mudança de velocidade em um meio. Batimentos e
+                ressonância serão discutidos junto da interferência, por
+                sua ligação com superposição, reforço e cancelamento de
+                ondas.</p>
+                <p>O ponto central é perceber o que muda e o que não
+                muda em cada situação. Na reflexão, a onda retorna ao
+                meio de origem. Na refração, muda de meio e sua
+                velocidade se altera. Na interferência, ondas se
+                superpõem. Na difração, a onda contorna obstáculos ou se
+                espalha ao atravessar aberturas. Na polarização, apenas
+                certas direções de vibração são selecionadas.</p>
+                <p>Esses fenômenos aparecem tanto em ondas mecânicas
+                quanto em ondas eletromagnéticas, com algumas restrições
+                importantes: por exemplo, a polarização é característica
+                de ondas transversais. Ao longo da aula, vamos usar
+                exemplos com som, luz, cordas e água para construir uma
+                interpretação comum para situações aparentemente
+                diferentes.</p>
+                <h1 id="reflexão">Reflexão</h1>
+                <p>A <strong>reflexão</strong> ocorre quando uma onda
+                encontra uma superfície ou obstáculo e retorna ao meio
+                de origem.</p>
+                <figure>
+                <img src="images/reflexão-2.gif" style="width:55.0%"
+                alt="Lei da reflexão. Fonte: Sala de Física." />
+                <figcaption aria-hidden="true">Lei da reflexão. Fonte:
+                Sala de Física.</figcaption>
+                </figure>
+                <p>Na reflexão, se a onda continua no mesmo meio, sua
+                velocidade, frequência e comprimento de onda permanecem
+                os mesmos. O que pode mudar é a direção de propagação e,
+                dependendo da situação, a fase da onda.</p>
+                <h2 id="leis-da-reflexão">Leis da Reflexão</h2>
+                <p>Para reflexão regular:</p>
+                <ul>
+                <li>o raio incidente, o raio refletido e a normal
+                pertencem ao mesmo plano;</li>
+                <li>o ângulo de incidência é igual ao ângulo de
+                reflexão.</li>
+                </ul>
+                <p>Essas leis valem para ondas luminosas, sonoras e
+                também para ondas em superfícies de água, desde que seja
+                possível identificar a direção de propagação da onda. Em
+                um espelho plano, por exemplo, a luz reflete de maneira
+                organizada e forma imagem nítida. Em uma parede áspera,
+                a luz também reflete, mas em muitas direções, produzindo
+                <strong>reflexão difusa</strong>. Por isso conseguimos
+                enxergar uma folha de papel de vários ângulos, mas não
+                vemos nela uma imagem como em um espelho.</p>
+                <p>No caso do som, a reflexão explica o
+                <strong>eco</strong> e a <strong>reverberação</strong>.
+                O eco ocorre quando o som refletido chega ao ouvido com
+                atraso perceptível em relação ao som original. A
+                reverberação ocorre quando muitas reflexões chegam em
+                tempos muito próximos, alongando o som, como em igrejas,
+                ginásios e salas vazias.</p>
+                <h2 id="reflexão-em-cordas">Reflexão em Cordas</h2>
+                <figure>
+                <img src="images/reflexão-corda.gif" style="width:55.0%"
+                alt="Reflexão em corda. Fonte: Gifs de Física." />
+                <figcaption aria-hidden="true">Reflexão em corda. Fonte:
+                Gifs de Física.</figcaption>
+                </figure>
+                <p>Em uma extremidade fixa, o pulso refletido retorna
+                invertido. Em uma extremidade livre, retorna sem
+                inversão. Esse comportamento ajuda a entender ondas
+                estacionárias em cordas.</p>
+                <p>Exemplos de reflexão:</p>
+                <ul>
+                <li>eco;</li>
+                <li>espelhos;</li>
+                <li>ondas em cordas;</li>
+                <li>ondas na água batendo em barreiras;</li>
+                <li>reflexão interna em fibras ópticas.</li>
+                </ul>
+                <p>Aplicações tecnológicas:</p>
+                <ul>
+                <li><strong>sonar</strong>, usado para medir
+                profundidade e localizar objetos submersos por reflexão
+                de ondas sonoras;</li>
+                <li><strong>ultrassonografia</strong>, que forma imagens
+                a partir de ecos de ondas ultrassônicas nos tecidos do
+                corpo;</li>
+                <li><strong>radar</strong>, que detecta posição e
+                velocidade de objetos pela reflexão de ondas
+                eletromagnéticas;</li>
+                <li><strong>tratamento acústico</strong>, que usa
+                materiais absorventes e difusores para controlar
+                reflexões sonoras em estúdios e auditórios.</li>
+                </ul>
+                <h1 id="refração">Refração</h1>
+                <p>A <strong>refração</strong> ocorre quando uma onda
+                muda de meio e sua velocidade muda.</p>
+                <figure>
+                <img src="images/refração-2.gif" style="width:55.0%"
+                alt="Refração. Fonte: Apoio Escolar." />
+                <figcaption aria-hidden="true">Refração. Fonte: Apoio
+                Escolar.</figcaption>
+                </figure>
+                <p>Na refração:</p>
+                <ul>
+                <li>a frequência permanece a mesma, pois é determinada
+                pela fonte;</li>
+                <li>a velocidade muda;</li>
+                <li>o comprimento de onda muda, pois <span
+                class="math inline">\(v=\lambda f\)</span>.</li>
+                </ul>
+                <p>Se a onda entra em um meio onde sua velocidade
+                diminui, seu comprimento de onda diminui. Se entra em um
+                meio onde sua velocidade aumenta, seu comprimento de
+                onda aumenta.</p>
+                <p>Na luz, a refração geralmente vem acompanhada de
+                mudança de direção quando a incidência é oblíqua. É por
+                isso que um lápis parcialmente mergulhado em água parece
+                “quebrado”: os raios luminosos vindos da parte submersa
+                mudam de direção ao passar da água para o ar. O mesmo
+                princípio explica o funcionamento de lentes de óculos,
+                lupas, câmeras, microscópios e telescópios.</p>
+                <p>No som, a refração também acontece. Em dias com
+                camadas de ar em temperaturas diferentes, a velocidade
+                do som varia com a temperatura, e a onda sonora pode se
+                curvar. Isso ajuda a entender por que sons distantes
+                podem parecer mais fortes em algumas condições
+                atmosféricas.</p>
+                <p>Aplicações e situações práticas:</p>
+                <ul>
+                <li><strong>óculos e lentes de contato</strong>, que
+                desviam a luz para corrigir miopia, hipermetropia e
+                astigmatismo;</li>
+                <li><strong>fibra óptica</strong>, em que a luz é guiada
+                por diferenças de índice de refração e reflexão
+                interna;</li>
+                <li><strong>miragens</strong>, causadas pela refração da
+                luz em camadas de ar com temperaturas diferentes;</li>
+                <li><strong>ondas sísmicas</strong>, que mudam de
+                velocidade e direção ao atravessar camadas internas da
+                Terra.</li>
+                </ul>
+                <h2 id="dispersão">Dispersão</h2>
+                <p>A <strong>dispersão</strong> ocorre quando ondas de
+                frequências diferentes se propagam com velocidades
+                diferentes em um meio. Na luz branca, isso pode separar
+                as cores.</p>
+                <figure>
+                <img src="images/dispersao-prisma-conceitual.gif"
+                style="width:60.0%"
+                alt="Dispersão conceitual da luz em um prisma. Fonte: Wikimedia Commons, domínio público." />
+                <figcaption aria-hidden="true">Dispersão conceitual da
+                luz em um prisma. Fonte: Wikimedia Commons, domínio
+                público.</figcaption>
+                </figure>
+                <p>O arco-íris envolve refração, reflexão interna e
+                dispersão da luz solar em gotas de água.</p>
+                <p>A luz branca é uma mistura de muitas frequências
+                visíveis. Ao atravessar um prisma ou uma gota de água,
+                cada cor sofre um desvio ligeiramente diferente. Como
+                resultado, as cores se separam em uma sequência que vai
+                do vermelho ao violeta.</p>
+                <p>Esse efeito não acontece apenas em prismas. Em um CD
+                ou DVD, as trilhas microscópicas também separam cores,
+                embora o mecanismo principal envolva difração e
+                interferência. Em fibras ópticas, a dispersão pode ser
+                um problema: pulsos de luz com frequências diferentes
+                podem chegar em instantes ligeiramente diferentes,
+                dificultando a transmissão de dados em longas
+                distâncias.</p>
+                <p>Aplicações tecnológicas:</p>
+                <ul>
+                <li><strong>espectroscopia</strong>, usada para
+                identificar substâncias pela luz que emitem ou
+                absorvem;</li>
+                <li><strong>astronomia</strong>, em que a análise do
+                espectro da luz permite estudar composição, temperatura
+                e movimento de estrelas;</li>
+                <li><strong>telecomunicações ópticas</strong>, que
+                precisam controlar a dispersão para transmitir
+                informação com alta velocidade;</li>
+                <li><strong>sensores ópticos</strong>, que usam mudanças
+                no espectro da luz para medir propriedades de
+                materiais.</li>
+                </ul>
+                <h1 id="interferência">Interferência</h1>
+                <p>A <strong>interferência</strong> ocorre quando duas
+                ou mais ondas se superpõem.</p>
+                <figure>
+                <img src="images/interferência-2.gif"
+                style="width:75.0%"
+                alt="Interferência de ondas. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Interferência de ondas.
+                Fonte: Wikimedia Commons.</figcaption>
+                </figure>
+                <dl>
+                <dt><strong>Interferência construtiva</strong></dt>
+                <dd>
+                As ondas chegam em fase. Crista com crista ou vale com
+                vale. A amplitude resultante aumenta.
+                </dd>
+                <dt><strong>Interferência destrutiva</strong></dt>
+                <dd>
+                As ondas chegam em oposição de fase. Crista com vale. A
+                amplitude resultante diminui ou pode se anular.
+                </dd>
+                </dl>
+                <figure>
+                <img src="images/interferência-3.gif"
+                style="width:60.0%"
+                alt="Interferência construtiva e destrutiva. Fonte: Gifs de Física." />
+                <figcaption aria-hidden="true">Interferência construtiva
+                e destrutiva. Fonte: Gifs de Física.</figcaption>
+                </figure>
+                <figure>
+                <img src="images/interferencia-ondas-soma.gif"
+                style="width:65.0%"
+                alt="Soma de duas ondas de frequências próximas. Fonte: Wikimedia Commons, CC BY-SA 3.0." />
+                <figcaption aria-hidden="true">Soma de duas ondas de
+                frequências próximas. Fonte: Wikimedia Commons, CC BY-SA
+                3.0.</figcaption>
+                </figure>
+                <p>O princípio importante é a
+                <strong>superposição</strong>: quando duas ondas ocupam
+                a mesma região, o deslocamento resultante é a soma dos
+                deslocamentos produzidos por cada onda. Depois do
+                encontro, cada onda continua se propagando. Portanto, na
+                interferência destrutiva, a anulação pode ocorrer em uma
+                região e em um instante, mas as ondas não “somem”
+                definitivamente.</p>
+                <p>No cotidiano, a interferência aparece quando dois
+                alto-falantes emitem sons parecidos. Em alguns pontos da
+                sala, o som fica mais intenso; em outros, fica mais
+                fraco. Isso depende da diferença entre os caminhos
+                percorridos pelas ondas até o ouvinte.</p>
+                <p>Aplicações:</p>
+                <ul>
+                <li>cancelamento ativo de ruído;</li>
+                <li>padrões de luz em filmes finos;</li>
+                <li>afinação de instrumentos por batimentos;</li>
+                <li>interferência em ondas de rádio.</li>
+                </ul>
+                <p>Aplicações tecnológicas adicionais:</p>
+                <ul>
+                <li><strong>fones com cancelamento de ruído</strong>,
+                que emitem uma onda sonora em oposição de fase ao ruído
+                externo;</li>
+                <li><strong>revestimentos antirreflexo</strong> em
+                lentes, que reduzem reflexos por interferência
+                destrutiva;</li>
+                <li><strong>interferômetros</strong>, usados em medidas
+                extremamente precisas de distância, vibração e
+                deformação;</li>
+                <li><strong>redes Wi-Fi e telefonia celular</strong>,
+                que precisam lidar com reforços e cancelamentos causados
+                por múltiplos caminhos de propagação.</li>
+                </ul>
+                <figure>
+                <img src="images/interferencia-filme-fino.gif"
+                style="width:55.0%"
+                alt="Interferência em filme fino, como em bolhas de sabão. Fonte: Wikimedia Commons, domínio público." />
+                <figcaption aria-hidden="true">Interferência em filme
+                fino, como em bolhas de sabão. Fonte: Wikimedia Commons,
+                domínio público.</figcaption>
+                </figure>
+                <h2 id="batimentos">Batimentos</h2>
+                <p><strong>Batimentos</strong> surgem da interferência
+                entre ondas de frequências próximas. O som parece
+                aumentar e diminuir periodicamente.</p>
+                <figure>
+                <img src="images/batimentos-ondas.gif"
+                style="width:75.0%"
+                alt="Batimentos produzidos pela combinação de duas frequências próximas. Fonte: Wikimedia Commons, domínio público." />
+                <figcaption aria-hidden="true">Batimentos produzidos
+                pela combinação de duas frequências próximas. Fonte:
+                Wikimedia Commons, domínio público.</figcaption>
+                </figure>
+                <p><span class="math display">\[
+                \boxed{f_b=|f_1-f_2|}
+                \]</span></p>
+                <p>Batimentos são úteis na afinação de instrumentos. Se
+                duas notas deveriam ter a mesma frequência, mas produzem
+                batimentos lentos, isso indica que estão próximas, mas
+                ainda não iguais. Ao ajustar a tensão de uma corda, os
+                batimentos diminuem até desaparecerem.</p>
+                <h2 id="ressonância">Ressonância</h2>
+                <p><strong>Ressonância</strong> ocorre quando uma fonte
+                excita um sistema em frequência próxima de uma
+                frequência natural. A amplitude cresce por transferência
+                eficiente de energia.</p>
+                <figure>
+                <img src="images/ressonancia-pendulos.gif"
+                style="width:55.0%"
+                alt="Ressonância em pêndulos forçados. Fonte: Wikimedia Commons, CC BY-SA 4.0." />
+                <figcaption aria-hidden="true">Ressonância em pêndulos
+                forçados. Fonte: Wikimedia Commons, CC BY-SA
+                4.0.</figcaption>
+                </figure>
+                <p>Exemplos:</p>
+                <ul>
+                <li>balanço recebendo empurrões no ritmo certo;</li>
+                <li>caixa acústica reforçando certas frequências;</li>
+                <li>cordas e tubos sonoros em instrumentos
+                musicais.</li>
+                </ul>
+                <p>A ressonância pode ser desejada ou indesejada. Em
+                instrumentos musicais, ela amplifica determinadas
+                frequências e dá identidade ao timbre. Em engenharia,
+                vibrações ressonantes precisam ser controladas em
+                pontes, prédios, motores e máquinas, pois amplitudes
+                grandes podem causar desconforto, ruído ou danos
+                estruturais.</p>
+                <p>Aplicações tecnológicas:</p>
+                <ul>
+                <li><strong>ressonância magnética</strong>, que usa
+                respostas ressonantes de núcleos atômicos em campos
+                magnéticos para formar imagens médicas;</li>
+                <li><strong>rádio e TV</strong>, em que circuitos
+                ressonantes selecionam uma frequência específica entre
+                muitas ondas recebidas;</li>
+                <li><strong>instrumentos musicais</strong>, como violão,
+                flauta e saxofone, que dependem de ressonâncias em
+                cordas, caixas e colunas de ar;</li>
+                <li><strong>controle de vibração</strong>, usado no
+                projeto de veículos, edifícios e equipamentos
+                industriais.</li>
+                </ul>
+                <h1 id="difração">Difração</h1>
+                <p>A <strong>difração</strong> é o espalhamento de uma
+                onda ao passar por uma abertura ou contornar um
+                obstáculo.</p>
+                <figure>
+                <img src="images/difração-1.gif" style="width:55.0%"
+                alt="Difração em fenda dupla. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Difração em fenda dupla.
+                Fonte: Wikimedia Commons.</figcaption>
+                </figure>
+                <figure>
+                <img src="images/difração-3.gif" style="width:55.0%"
+                alt="Difração em abertura. Fonte: Wikimedia Commons." />
+                <figcaption aria-hidden="true">Difração em abertura.
+                Fonte: Wikimedia Commons.</figcaption>
+                </figure>
+                <p>A difração é mais intensa quando o tamanho da
+                abertura ou obstáculo é comparável ao comprimento de
+                onda.</p>
+                <p>Por isso, o som contorna obstáculos com mais
+                facilidade que a luz visível: o som audível tem
+                comprimentos de onda muito maiores que os da luz.</p>
+                <p>Esse fenômeno explica por que conseguimos ouvir
+                alguém conversando em um corredor mesmo sem enxergar a
+                pessoa. A luz visível tem comprimento de onda muito
+                pequeno em comparação com portas, paredes e móveis,
+                então sua difração nesses obstáculos é pouco
+                perceptível. Já o som audível tem comprimentos de onda
+                da ordem de centímetros a metros, o que torna o
+                espalhamento muito mais evidente.</p>
+                <p>A difração também impõe limites tecnológicos. Em
+                microscópios ópticos, detalhes muito menores que o
+                comprimento de onda da luz são difíceis de resolver. Em
+                antenas, o tamanho do equipamento está relacionado ao
+                comprimento de onda utilizado: antenas de rádio costumam
+                ser maiores que antenas usadas para sinais de
+                frequências mais altas.</p>
+                <p>Aplicações e consequências:</p>
+                <ul>
+                <li><strong>projeto de caixas de som</strong>, em que a
+                difração afeta como o som se espalha pelo ambiente;</li>
+                <li><strong>radiodifusão</strong>, pois ondas de rádio
+                podem contornar morros, prédios e outras
+                estruturas;</li>
+                <li><strong>raios X em cristais</strong>, usados para
+                investigar a estrutura atômica de materiais;</li>
+                <li><strong>limite de resolução de câmeras e
+                microscópios</strong>, relacionado ao comprimento de
+                onda da radiação usada.</li>
+                </ul>
+                <h1 id="polarização">Polarização</h1>
+                <p>A <strong>polarização</strong> ocorre quando se
+                seleciona uma direção de vibração de uma onda
+                transversal.</p>
+                <figure>
+                <img src="images/polarização-3.gif" style="width:85.0%"
+                alt="Luz não polarizada e luz polarizada. Fonte: Baumer." />
+                <figcaption aria-hidden="true">Luz não polarizada e luz
+                polarizada. Fonte: Baumer.</figcaption>
+                </figure>
+                <p>Ondas eletromagnéticas podem ser polarizadas. Ondas
+                sonoras no ar não são polarizadas, pois são
+                longitudinais.</p>
+                <p>Uma onda transversal vibra perpendicularmente à
+                direção de propagação. No caso da luz comum, as
+                vibrações do campo elétrico podem ocorrer em muitas
+                direções. Um filtro polarizador deixa passar
+                preferencialmente uma dessas direções e bloqueia parte
+                das demais.</p>
+                <p>Reflexos em superfícies como água, vidro e asfalto
+                podem ficar parcialmente polarizados. Por isso óculos de
+                sol polarizados reduzem o brilho refletido,
+                especialmente em praias, estradas e superfícies
+                molhadas. Em telas LCD, a polarização é essencial: a
+                tela controla a passagem da luz usando filtros
+                polarizadores e cristais líquidos.</p>
+                <p>Aplicações:</p>
+                <ul>
+                <li>óculos de sol polarizados;</li>
+                <li>filtros fotográficos;</li>
+                <li>telas LCD;</li>
+                <li>antenas de telecomunicação.</li>
+                </ul>
+                <p>Outros usos:</p>
+                <ul>
+                <li><strong>fotografia</strong>, para reduzir reflexos
+                em vitrines, água e pintura automotiva;</li>
+                <li><strong>cinema 3D</strong>, em alguns sistemas que
+                enviam imagens com polarizações diferentes para cada
+                olho;</li>
+                <li><strong>ensaios de materiais</strong>, em que
+                tensões internas podem ser observadas com luz
+                polarizada;</li>
+                <li><strong>comunicações por satélite</strong>, nas
+                quais a orientação da antena e da polarização do sinal
+                afeta a recepção.</li>
+                </ul>
+                <h1 id="quadro-comparativo">Quadro Comparativo</h1>
+                <dl>
+                <dt><strong>Reflexão</strong></dt>
+                <dd>
+                A onda retorna ao meio de origem. Exemplos: eco, espelho
+                e sonar.
+                </dd>
+                <dt><strong>Refração</strong></dt>
+                <dd>
+                A onda muda de meio e de velocidade. Exemplos: lente,
+                lápis na água e miragem.
+                </dd>
+                <dt><strong>Dispersão</strong></dt>
+                <dd>
+                Frequências diferentes se separam. Exemplos: arco-íris,
+                prisma e espectro da luz.
+                </dd>
+                <dt><strong>Interferência</strong></dt>
+                <dd>
+                Ondas se somam na mesma região. Exemplos: fone
+                antirruído, batimentos e manchas coloridas.
+                </dd>
+                <dt><strong>Difração</strong></dt>
+                <dd>
+                A onda se espalha ao passar por abertura ou obstáculo.
+                Exemplos: som passando por portas e rádio contornando
+                obstáculos.
+                </dd>
+                <dt><strong>Polarização</strong></dt>
+                <dd>
+                Uma direção de vibração transversal é selecionada.
+                Exemplos: óculos polarizados, telas LCD e fotografia.
+                </dd>
+                <dt><strong>Ressonância</strong></dt>
+                <dd>
+                Um sistema oscila intensamente em sua frequência
+                natural. Exemplos: balanço, instrumentos musicais e
+                circuitos de rádio.
+                </dd>
+                </dl>
+                <h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
+                <h2 id="exemplo-3.1---identificação-de-fenômeno">Exemplo
+                3.1 - Identificação de Fenômeno</h2>
+                <p>Uma pessoa grita diante de uma parede distante e
+                escuta o som retornando.</p>
+                <p><strong>Resolução:</strong> o som bate na parede e
+                volta ao meio de origem.</p>
+                <p><strong>Resposta:</strong> reflexão sonora, percebida
+                como eco.</p>
+                <h2
+                id="exemplo-3.2---refração-e-comprimento-de-onda">Exemplo
+                3.2 - Refração e Comprimento de Onda</h2>
+                <p>Uma onda de frequência <span
+                class="math inline">\(10\,\text{Hz}\)</span> passa de um
+                meio em que sua velocidade é <span
+                class="math inline">\(50\,\text{m/s}\)</span> para outro
+                em que sua velocidade é <span
+                class="math inline">\(30\,\text{m/s}\)</span>. Determine
+                os comprimentos de onda.</p>
+                <p>No primeiro meio:</p>
+                <p><span class="math display">\[
+                \lambda_1=\frac{v_1}{f}=\frac{50}{10}=5\,\text{m}
+                \]</span></p>
+                <p>No segundo meio:</p>
+                <p><span class="math display">\[
+                \lambda_2=\frac{v_2}{f}=\frac{30}{10}=3\,\text{m}
+                \]</span></p>
+                <p><strong>Resposta:</strong> a frequência permanece
+                <span class="math inline">\(10\,\text{Hz}\)</span>, e o
+                comprimento de onda diminui de <span
+                class="math inline">\(5\,\text{m}\)</span> para <span
+                class="math inline">\(3\,\text{m}\)</span>.</p>
+                <h2 id="exemplo-3.3---batimentos">Exemplo 3.3 -
+                Batimentos</h2>
+                <p>Duas fontes emitem sons de <span
+                class="math inline">\(440\,\text{Hz}\)</span> e <span
+                class="math inline">\(444\,\text{Hz}\)</span>. Determine
+                a frequência dos batimentos.</p>
+                <p><span class="math display">\[
+                f_b=|444-440|=4\,\text{Hz}
+                \]</span></p>
+                <p><strong>Resposta:</strong> ocorrem <span
+                class="math inline">\(4\)</span> batimentos por
+                segundo.</p>
+                <h2 id="exemplo-3.4---difração">Exemplo 3.4 -
+                Difração</h2>
+                <p>Por que é possível ouvir uma pessoa falando atrás de
+                uma porta parcialmente aberta?</p>
+                <p><strong>Resolução:</strong> a abertura tem dimensões
+                comparáveis aos comprimentos de onda de parte do som
+                audível. O som se espalha ao passar pela abertura.</p>
+                <p><strong>Resposta:</strong> devido à difração
+                sonora.</p>
+                <h1 id="erros-comuns">Erros Comuns</h1>
+                <ul>
+                <li>Dizer que a frequência muda quando a onda
+                refrata.</li>
+                <li>Confundir reflexão com refração.</li>
+                <li>Achar que difração só acontece com luz.</li>
+                <li>Dizer que som no ar pode ser polarizado.</li>
+                <li>Confundir interferência destrutiva com
+                desaparecimento definitivo das ondas.</li>
+                </ul>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <dl>
+                <dt>3.1)</dt>
+                <dd>
+                Um eco retorna <span
+                class="math inline">\(0{,}50\,\text{s}\)</span> após a
+                emissão de um som. Considerando <span
+                class="math inline">\(v=340\,\text{m/s}\)</span>, a
+                distância até a parede refletora é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(85\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(170\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(340\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(680\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(0{,}0015\,\text{m}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>3.2)</dt>
+                <dd>
+                Em uma corda presa a uma extremidade fixa, um pulso
+                chega à extremidade e retorna. O pulso refletido:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>retorna sem inversão.</li>
+                <li>retorna invertido.</li>
+                <li>transforma-se obrigatoriamente em som.</li>
+                <li>muda sua frequência para zero.</li>
+                <li>deixa de ser uma onda.</li>
+                </ol>
+                <dl>
+                <dt>3.3)</dt>
+                <dd>
+                Quando a luz branca atravessa um prisma e se separa em
+                várias cores, o fenômeno principal observado é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>polarização.</li>
+                <li>batimento.</li>
+                <li>dispersão.</li>
+                <li>eco.</li>
+                <li>ressonância.</li>
+                </ol>
+                <dl>
+                <dt>3.4)</dt>
+                <dd>
+                Duas fontes emitem sons de <span
+                class="math inline">\(250\,\text{Hz}\)</span> e <span
+                class="math inline">\(256\,\text{Hz}\)</span>. A
+                frequência dos batimentos é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(506\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(250\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(6\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(256\,\text{Hz}\)</span>.</li>
+                <li><span
+                class="math inline">\(12\,\text{Hz}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>3.5)</dt>
+                <dd>
+                Uma onda de <span
+                class="math inline">\(20\,\text{Hz}\)</span> refrata
+                para um meio em que <span
+                class="math inline">\(v=60\,\text{m/s}\)</span>. Seu
+                comprimento de onda nesse meio é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(1\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(2\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(2{,}5\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(4\,\text{m}\)</span>.</li>
+                <li><span
+                class="math inline">\(3\,\text{m}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>3.6)</dt>
+                <dd>
+                É possível ouvir uma pessoa falando atrás de uma porta
+                parcialmente aberta principalmente porque o som:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>sofre polarização no ar.</li>
+                <li>não transporta energia.</li>
+                <li>sofre difração ao passar pela abertura.</li>
+                <li>transforma-se em luz ao atravessar a porta.</li>
+                <li>precisa sempre se propagar em linha reta.</li>
+                </ol>
+                <dl>
+                <dt>3.7)</dt>
+                <dd>
+                Na refração de uma onda produzida pela mesma fonte, a
+                grandeza que permanece constante é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>velocidade.</li>
+                <li>frequência.</li>
+                <li>comprimento de onda.</li>
+                <li>direção obrigatoriamente.</li>
+                <li>amplitude obrigatoriamente.</li>
+                </ol>
+                <dl>
+                <dt>3.8)</dt>
+                <dd>
+                Em uma corda, duas ondas de mesma amplitude <span
+                class="math inline">\(3\,\text{cm}\)</span> chegam em
+                fase a um ponto. A amplitude resultante nesse ponto é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(0\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(3\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(6\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(1{,}5\,\text{cm}\)</span>.</li>
+                <li><span
+                class="math inline">\(9\,\text{cm}\)</span>.</li>
+                </ol>
+                <dl>
+                <dt>3.9)</dt>
+                <dd>
+                Óculos de sol polarizados reduzem reflexos porque:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>aumentam a velocidade da luz.</li>
+                <li>transformam luz em som.</li>
+                <li>eliminam todo comprimento de onda.</li>
+                <li>selecionam uma direção de vibração da luz.</li>
+                <li>mudam a massa dos fótons.</li>
+                </ol>
+                <dl>
+                <dt>3.10)</dt>
+                <dd>
+                Um balanço passa a oscilar com grande amplitude quando
+                recebe empurrões periódicos no ritmo adequado. Esse é um
+                exemplo de:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>dispersão.</li>
+                <li>refração.</li>
+                <li>polarização.</li>
+                <li>ressonância.</li>
+                <li>difração.</li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://youtu.be/YDCDzP1wB7g" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-fenomenos-ondulatorios-revisao.png" alt="FENÔMENOS ONDULATÓRIOS" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">FENÔMENOS ONDULATÓRIOS</strong><br>
+                      Fonte: <a href="https://youtu.be/YDCDzP1wB7g" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Física Total</a>
+                    </div>
+                    <div>
+                      <a href="https://youtu.be/YDCDzP1wB7g" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=oXFUMD8U3x8" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-interferencia-ondas.png" alt="AULA DE FÍSICA SOBRE FENÔMENOS ONDULATÓRIOS" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">AULA DE FÍSICA SOBRE FENÔMENOS ONDULATÓRIOS</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=oXFUMD8U3x8" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">iBahia</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=oXFUMD8U3x8" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=dJj0zVPtLwM" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-polarizacao-luz.png" alt="FENÔMENOS ONDULATÓRIOS NO ENEM" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">FENÔMENOS ONDULATÓRIOS NO ENEM</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=dJj0zVPtLwM" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">ProEnem</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=dJj0zVPtLwM" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>HEWITT, Paul G. <em>Física Conceitual</em>. Porto
+                Alegre: Bookman.</li>
+                <li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <em>Fundamentos de Física</em>. Rio de Janeiro:
+                LTC.</li>
+                <li>YOUNG, Hugh D.; FREEDMAN, Roger A. <em>Física II:
+                Termodinâmica e Ondas</em>. São Paulo: Pearson.</li>
+                <li>Wikimedia Commons. <em>Diffraction</em>. Disponível
+                em: <a
+                href="https://commons.wikimedia.org/wiki/Category:Diffraction"
+                class="uri">https://commons.wikimedia.org/wiki/Category:Diffraction</a>.</li>
+                <li>Wikimedia Commons. <em>Interference</em>. Disponível
+                em: <a
+                href="https://commons.wikimedia.org/wiki/Category:Interference"
+                class="uri">https://commons.wikimedia.org/wiki/Category:Interference</a>.</li>
+                <li>Wikimedia Commons. <em>Polarization</em>. Disponível
+                em: <a
+                href="https://commons.wikimedia.org/wiki/Category:Polarization"
+                class="uri">https://commons.wikimedia.org/wiki/Category:Polarization</a>.</li>
+                <li>Wikimedia Commons. <em>Light dispersion
+                conceptual.gif</em>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Light_dispersion_conceptual.gif"
+                class="uri">https://commons.wikimedia.org/wiki/File:Light_dispersion_conceptual.gif</a>.
+                Acesso em: 30 jul. 2026.</li>
+                <li>Wikimedia Commons. <em>WaveInterference.gif</em>.
+                Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:WaveInterference.gif"
+                class="uri">https://commons.wikimedia.org/wiki/File:WaveInterference.gif</a>.
+                Acesso em: 30 jul. 2026.</li>
+                <li>Wikimedia Commons. <em>Thin film interference - soap
+                bubble.gif</em>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Thin_film_interference_-_soap_bubble.gif"
+                class="uri">https://commons.wikimedia.org/wiki/File:Thin_film_interference_-_soap_bubble.gif</a>.
+                Acesso em: 30 jul. 2026.</li>
+                <li>Wikimedia Commons. <em>Two-frequency beats of a
+                non-dispersive transverse wave (animated).gif</em>.
+                Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Two-frequency_beats_of_a_non-dispersive_transverse_wave_(animated).gif"
+                class="uri">https://commons.wikimedia.org/wiki/File:Two-frequency_beats_of_a_non-dispersive_transverse_wave_(animated).gif</a>.
+                Acesso em: 30 jul. 2026.</li>
+                <li>Wikimedia Commons.
+                <em>Driven-pendulums-resonance-animation.gif</em>.
+                Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Driven-pendulums-resonance-animation.gif"
+                class="uri">https://commons.wikimedia.org/wiki/File:Driven-pendulums-resonance-animation.gif</a>.
+                Acesso em: 30 jul. 2026.</li>
+                <li>FÍSICA TOTAL. <strong>Fenômenos
+                ondulatórios</strong>. Disponível em: <a
+                href="https://youtu.be/YDCDzP1wB7g"
+                class="uri">https://youtu.be/YDCDzP1wB7g</a>. Acesso em:
+                21 jul. 2026.</li>
+                <li>IBAHIA. <strong>Aula de física sobre fenômenos
+                ondulatórios</strong>. Disponível em: <a
+                href="https://www.youtube.com/watch?v=oXFUMD8U3x8"
+                class="uri">https://www.youtube.com/watch?v=oXFUMD8U3x8</a>.
+                Acesso em: 21 jul. 2026.</li>
+                <li>PROENEM. <strong>Fenômenos ondulatórios no
+                Enem</strong>. Disponível em: <a
+                href="https://www.youtube.com/watch?v=dJj0zVPtLwM"
+                class="uri">https://www.youtube.com/watch?v=dJj0zVPtLwM</a>.
+                Acesso em: 21 jul. 2026.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Reflexão, refração,
+dispersão, interferência, difração, polarização, batimentos e
+ressonância</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
