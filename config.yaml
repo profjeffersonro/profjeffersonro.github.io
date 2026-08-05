@@ -107,6 +107,13 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1OWibXn_msjZqthNc7Aqz6fZXMiBg6t-0/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/1XEH3K8h5T4cCRjORqvtja1NjvLlbpONP/view?usp=drive_link"
         answers_released: false
+  - disciplina: "Seminários Integrados"
+    aulas:
+      - name: "Determinismo x Probabilismo: probabilidade, caos, mundo quântico, inteligência artificial e mudanças climáticas"
+        html: "content/aulas/ES-SI/Aula-1/si-aula-1.html"
+        pdf: "https://drive.google.com/file/d/1OWibXn_msjZqthNc7Aqz6fZXMiBg6t-0/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/1XEH3K8h5T4cCRjORqvtja1NjvLlbpONP/view?usp=drive_link"
+        answers_released: false
   - disciplina: "Mecânica dos Fluidos"
     aulas:
       - name: "Aula 1 - Introdução à Mecânica dos Fluidos"
