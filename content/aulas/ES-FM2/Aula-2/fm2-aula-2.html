@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física Moderna 2</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Física
+Moderna 2</h1>
+                                
+                                <h2 class="document-subtitle display-6">Aula
+2 - Estrutura Nuclear, Interação Nuclear e Energia de Ligação</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li><strong>Estimar</strong> raios nucleares com a
+                relação <span
+                class="math inline">\(R=R_0A^{1/3}\)</span> e comparar
+                escalas atômicas e nucleares.</li>
+                <li><strong>Interpretar</strong> a distância de maior
+                aproximação em um espalhamento coulombiano, sem
+                confundi-la com o raio nuclear.</li>
+                <li><strong>Calcular</strong> uma estimativa da
+                densidade da matéria nuclear e relacioná-la, com
+                cuidado, à escala de estrelas de nêutrons.</li>
+                <li><strong>Descrever</strong> as propriedades
+                essenciais da interação nuclear residual e sua
+                competição com a repulsão elétrica entre prótons.</li>
+                <li><strong>Determinar</strong> defeito de massa,
+                energia de ligação total e energia de ligação por
+                nucleon usando massas atômicas.</li>
+                <li><strong>Ler</strong> a curva de energia de ligação
+                por nucleon e antecipar por que fissão e fusão podem
+                liberar energia.</li>
+                <li><strong>Resolver</strong> problemas com unidades
+                explícitas, fatores de conversão unitários e
+                arredondamento somente no resultado final.</li>
+                </ul>
+                <h1 id="introdução">Introdução</h1>
+                <p>Na Aula 1, chegamos ao núcleo por meio dos grandes
+                desvios das partículas alfa. Agora vamos transformar
+                aquela conclusão qualitativa em perguntas quantitativas.
+                Qual é o tamanho de um núcleo? Por que prótons, todos
+                positivos, conseguem permanecer juntos? E de onde vem a
+                energia liberada quando um núcleo se reorganiza?</p>
+                <p>Essas perguntas não são independentes. Quando medimos
+                raios nucleares, percebemos que a matéria nuclear é
+                extremamente compacta. Quando comparamos a repulsão
+                elétrica com a interação entre nucleons, entendemos por
+                que alguns núcleos são mais estáveis que outros. Por
+                fim, quando calculamos a massa de um núcleo ligado,
+                encontramos uma diferença que aparece como energia de
+                ligação.</p>
+                <p>Vamos trabalhar com aproximações úteis, mas sempre
+                dizendo o que elas significam. Um modelo simples é
+                valioso quando deixa claro seu alcance; ele deixa de
+                ajudar quando passamos a tratá-lo como uma fotografia
+                literal do núcleo.</p>
+                <h1 id="escalas-da-estrutura-nuclear">Escalas da
+                Estrutura Nuclear</h1>
+                <h2 id="raio-nuclear">Raio Nuclear</h2>
+                <p>O raio de muitos núcleos pode ser estimado
+                empiricamente por</p>
+                <p><span class="math display">\[
+                R=R_0A^{1/3},
+                \]</span></p>
+                <p>em que <span class="math inline">\(A\)</span> é o
+                número de massa e <span
+                class="math inline">\(R_0\approx1{,}2\,\text{fm}\)</span>.
+                Lembramos que</p>
+                <p><span class="math display">\[
+                1\,\text{fm}=10^{-15}\,\text{m}.
+                \]</span></p>
+                <p>Por que aparece uma raiz cúbica? Se o volume nuclear
+                é aproximadamente proporcional ao número de nucleons,
+                então <span class="math inline">\(V\propto A\)</span>.
+                Como o volume de uma esfera é proporcional a <span
+                class="math inline">\(R^3\)</span>, obtemos <span
+                class="math inline">\(R^3\propto A\)</span> e, portanto,
+                <span class="math inline">\(R\propto
+                A^{1/3}\)</span>.</p>
+                <p>Essa relação é uma estimativa de escala, não uma
+                fronteira rígida. Núcleos reais apresentam efeitos de
+                camada, deformações e distribuições de carga que um
+                único raio não descreve por completo. Ainda assim, a
+                fórmula já nos revela algo importante: dobrar o número
+                de nucleons não dobra o raio; o raio cresce bem mais
+                lentamente.</p>
+                <h2 id="exemplo-2.1-raio-do-ferro-56">Exemplo 2.1: Raio
+                do Ferro-56</h2>
+                <p>Vamos estimar o raio de <span
+                class="math inline">\(\ce{^{56}Fe}\)</span> usando <span
+                class="math inline">\(R_0=1{,}2\,\text{fm}\)</span>.</p>
+                <p><strong>Solução:</strong></p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                R&amp;=(1{,}2\,\text{fm})(56)^{1/3}\\
+                &amp;=4{,}591\ldots\,\text{fm}\\
+                &amp;=4{,}6\,\text{fm}.
+                \end{aligned}
+                \]</span></p>
+                <p>O dado <span class="math inline">\(R_0\)</span>
+                possui dois algarismos significativos; por isso,
+                apresentamos <span
+                class="math inline">\(4{,}6\,\text{fm}\)</span>. Em
+                metros, poderíamos escrever a mesma medida usando um
+                fator unitário:</p>
+                <p><span class="math display">\[
+                R=(4{,}6\,\text{fm})
+                \left(\frac{10^{-15}\,\text{m}}{1\,\text{fm}}\right)
+                =4{,}6\times10^{-15}\,\text{m}.
+                \]</span></p>
+                <p>O raio atômico típico é da ordem de <span
+                class="math inline">\(10^{-10}\,\text{m}\)</span>.
+                Portanto, o raio do núcleo é cerca de <span
+                class="math inline">\(10^5\)</span> vezes menor. É por
+                isso que o resultado de Rutherford apontava para um
+                átomo majoritariamente vazio.</p>
+                <h2
+                id="espalhamento-coulombiano-e-distância-de-maior-aproximação">Espalhamento
+                Coulombiano e Distância de Maior Aproximação</h2>
+                <p>Quando uma partícula alfa se aproxima frontalmente de
+                um núcleo positivo, a repulsão elétrica converte sua
+                energia cinética em energia potencial elétrica. No
+                instante de maior aproximação, a velocidade radial é
+                momentaneamente nula. Para um alvo inicialmente em
+                repouso e suficientemente pesado, usamos como
+                estimativa:</p>
+                <p><span class="math display">\[
+                K=\frac{1}{4\pi\varepsilon_0}\frac{Z_1Z_2e^2}{d}.
+                \]</span></p>
+                <p>Na escala nuclear, é prático usar</p>
+                <p><span class="math display">\[
+                \frac{e^2}{4\pi\varepsilon_0}=1{,}440\,\text{MeV}\,\text{fm}.
+                \]</span></p>
+                <p>Esse número vem apenas da constante de Coulomb
+                escrita em unidades convenientes para a escala nuclear.
+                Usando</p>
+                <p><span class="math display">\[
+                \frac{1}{4\pi\varepsilon_0}=8{,}987\,551\,79\times10^9\,\text{N}\,\text{m}^2/\text{C}^2
+                \]</span></p>
+                <p>e</p>
+                <p><span class="math display">\[
+                e=1{,}602\,176\,634\times10^{-19}\,\text{C},
+                \]</span></p>
+                <p>temos</p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                \frac{e^2}{4\pi\varepsilon_0}
+                &amp;=(8{,}987\,551\,79\times10^9)
+                (1{,}602\,176\,634\times10^{-19})^2\,\text{J}\,\text{m}\\
+                &amp;=2{,}307\,077\ldots\times10^{-28}\,\text{J}\,\text{m}.
+                \end{aligned}
+                \]</span></p>
+                <p>Agora convertemos joule para MeV e metro para
+                femtômetro:</p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                &amp;2{,}307\,077\ldots\times10^{-28}\,\text{J}\,\text{m}\\
+                &amp;\quad\times
+                \left(\frac{1\,\text{MeV}}{1{,}602\,176\,634\times10^{-13}\,\text{J}}\right)
+                \left(\frac{10^{15}\,\text{fm}}{1\,\text{m}}\right)\\
+                &amp;=1{,}439\,964\ldots\,\text{MeV}\,\text{fm}\\
+                &amp;\approx1{,}440\,\text{MeV}\,\text{fm}.
+                \end{aligned}
+                \]</span></p>
+                <p>Assim,</p>
+                <p><span class="math display">\[
+                d=\frac{(1{,}440\,\text{MeV}\,\text{fm})Z_1Z_2}{K}.
+                \]</span></p>
+                <p>Aqui vale uma pausa: <span
+                class="math inline">\(d\)</span> é a distância entre os
+                <strong>centros</strong> das partículas no ponto de
+                retorno clássico. Ela não é automaticamente o raio do
+                núcleo-alvo. Se <span class="math inline">\(d\)</span>
+                for maior que a soma dos raios, a partícula alfa nem
+                chega a tocar a região nuclear; se for comparável à soma
+                dos raios, a descrição puramente coulombiana já começa a
+                ficar limitada pela interação nuclear.</p>
+                <h2
+                id="exemplo-2.2-uma-partícula-alfa-diante-do-cobre">Exemplo
+                2.2: Uma Partícula Alfa Diante do Cobre</h2>
+                <p>Uma partícula alfa de <span
+                class="math inline">\(5{,}30\,\text{MeV}\)</span>
+                aproxima-se frontalmente de um núcleo de cobre, <span
+                class="math inline">\(Z_2=29\)</span>. Vamos usar <span
+                class="math inline">\(Z_1=2\)</span> e encontrar <span
+                class="math inline">\(d\)</span>.</p>
+                <p><strong>Solução:</strong></p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                d&amp;=\frac{(1{,}440\,\text{MeV}\,\text{fm})(2)(29)}
+                {5{,}30\,\text{MeV}}\\
+                &amp;=15{,}758\ldots\,\text{fm}\\
+                &amp;=15{,}76\,\text{fm}.
+                \end{aligned}
+                \]</span></p>
+                <p>O fator <span
+                class="math inline">\(\text{MeV}\)</span> se cancela e
+                resta femtômetro. Compare com <span
+                class="math inline">\(R(\ce{^{63}Cu})\approx4{,}8\,\text{fm}\)</span>
+                e <span
+                class="math inline">\(R(\alpha)\approx1{,}9\,\text{fm}\)</span>;
+                a soma é aproximadamente <span
+                class="math inline">\(6{,}7\,\text{fm}\)</span>. Como
+                <span class="math inline">\(15{,}76\,\text{fm}\)</span>
+                é maior que essa soma, a alfa muda de direção antes de
+                alcançar a superfície nuclear. Esse é exatamente o tipo
+                de situação em que a repulsão elétrica explica bem o
+                espalhamento.</p>
+                <h1
+                id="densidade-nuclear-e-matéria-extremamente-compacta">Densidade
+                Nuclear e Matéria Extremamente Compacta</h1>
+                <p>Se combinarmos <span
+                class="math inline">\(R=R_0A^{1/3}\)</span> com uma
+                massa aproximada <span class="math inline">\(m\approx
+                A\,\text{u}\)</span>, a densidade média fica</p>
+                <p><span class="math display">\[
+                \rho\approx\frac{A\,\text{u}}{\frac{4}{3}\pi(R_0A^{1/3})^3}
+                =\frac{\text{u}}{\frac{4}{3}\pi R_0^3}.
+                \]</span></p>
+                <p>O <span class="math inline">\(A\)</span> desaparece.
+                Isso mostra que núcleos de massas diferentes têm
+                densidades médias parecidas, uma consequência direta da
+                lei de raio. Com <span
+                class="math inline">\(\text{u}=1{,}661\times10^{-27}\,\text{kg}\)</span>
+                e <span
+                class="math inline">\(R_0=1{,}2\times10^{-15}\,\text{m}\)</span>,
+                obtemos:</p>
+                <p><span class="math display">\[
+                \rho\approx2{,}3\times10^{17}\,\text{kg/m}^3.
+                \]</span></p>
+                <p>Esse número é impressionante, mas vamos interpretá-lo
+                corretamente. Ele é uma estimativa da densidade média de
+                matéria nuclear. Uma estrela de nêutrons não é uma
+                esfera homogênea feita de núcleos comuns: possui crosta,
+                matéria muito rica em nêutrons e estados físicos que
+                dependem de gravidade extrema e de Física Nuclear ainda
+                investigada. A comparação serve para a ordem de
+                grandeza, não para apagar essas diferenças.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Neutron_star_illustrated.jpg"
+                style="width:80.0%"
+                alt="Ilustração de uma estrela de nêutrons. Fonte: Casey Reed, Penn State; NASA, domínio público." />
+                <figcaption aria-hidden="true">Ilustração de uma estrela
+                de nêutrons. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Neutron_star_illustrated.jpg">Casey
+                Reed, Penn State; NASA, domínio
+                público.</a></figcaption>
+                </figure>
+                <h2
+                id="exemplo-2.3-raio-de-uma-estrela-de-nêutrons-em-uma-estimativa-simples">Exemplo
+                2.3: Raio de uma Estrela de Nêutrons em uma Estimativa
+                Simples</h2>
+                <p>Vamos supor uma estrela esférica de massa <span
+                class="math inline">\(M=1{,}400\,M_\odot\)</span>, com
+                <span
+                class="math inline">\(M_\odot=1{,}988\times10^{30}\,\text{kg}\)</span>,
+                e densidade uniforme igual a <span
+                class="math inline">\(2{,}3\times10^{17}\,\text{kg/m}^3\)</span>.
+                Qual raio resulta desse modelo?</p>
+                <p><strong>Solução:</strong></p>
+                <p>De <span class="math inline">\(M=\rho(4\pi
+                R^3/3)\)</span>, isolamos <span
+                class="math inline">\(R\)</span> e substituímos tudo de
+                uma vez:</p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                R&amp;=\left[
+                \frac{3(1{,}400)(1{,}988\times10^{30}\,\text{kg})}
+                {4\pi(2{,}3\times10^{17}\,\text{kg/m}^3)}
+                \right]^{1/3}\\
+                &amp;=1{,}424\ldots\times10^4\,\text{m}\\
+                &amp;=14\,\text{km}.
+                \end{aligned}
+                \]</span></p>
+                <p>As unidades dentro dos colchetes são <span
+                class="math inline">\(\text{m}^3\)</span>, pois <span
+                class="math inline">\(\text{kg}/(\text{kg/m}^3)=\text{m}^3\)</span>.
+                O resultado está na escala observada para raios de
+                estrelas de nêutrons, mas não deve ser lido como uma
+                previsão precisa: a densidade não é uniforme e a
+                relatividade geral é indispensável para um modelo
+                realista.</p>
+                <h1 id="por-que-o-núcleo-não-se-desmonta">Por Que o
+                Núcleo Não se Desmonta?</h1>
+                <h2
+                id="interação-forte-e-interação-nuclear-residual">Interação
+                Forte e Interação Nuclear Residual</h2>
+                <p>Prótons se repelem eletricamente. Então, por que um
+                núcleo com vários prótons não se desfaz? A resposta
+                curta é que existe uma interação atrativa entre
+                nucleons, usualmente chamada de <strong>interação
+                nuclear residual</strong>. A palavra “residual” é
+                importante. A interação forte fundamental da
+                Cromodinâmica Quântica age entre quarks e glúons dentro
+                de prótons e nêutrons; a força entre nucleons é o efeito
+                residual dessa interação, de modo parecido com uma
+                interação remanescente que aparece entre objetos
+                eletricamente neutros.</p>
+                <p>Para a nossa escala de descrição, as propriedades
+                mais importantes são:</p>
+                <ul>
+                <li>ela é atrativa em separações da ordem de <span
+                class="math inline">\(1\text{--}2\,\text{fm}\)</span>;</li>
+                <li>ela se torna fortemente repulsiva em distâncias
+                muito pequenas, evitando o colapso dos nucleons uns
+                sobre os outros;</li>
+                <li>seu alcance é curto, muito menor que o da interação
+                elétrica;</li>
+                <li>ela apresenta saturação: cada nucleon interage
+                intensamente com vizinhos próximos, não com todos os
+                nucleons do núcleo da mesma forma;</li>
+                <li>ela é aproximadamente independente da carga
+                elétrica, embora existam diferenças sutis entre pares
+                <span class="math inline">\(pp\)</span>, <span
+                class="math inline">\(nn\)</span> e <span
+                class="math inline">\(pn\)</span>.</li>
+                </ul>
+                <p>Não precisamos imaginar uma “cola” estacionária. O
+                núcleo é um sistema quântico de muitos corpos. A
+                interação, o princípio de exclusão para férmions e a
+                energia cinética quântica participam juntos da
+                estabilidade.</p>
+                <h2
+                id="estabilidade-e-a-razão-entre-nêutrons-e-prótons">Estabilidade
+                e a Razão Entre Nêutrons e Prótons</h2>
+                <p>Nos núcleos leves estáveis, costuma ocorrer <span
+                class="math inline">\(N\approx Z\)</span>. À medida que
+                <span class="math inline">\(Z\)</span> cresce, a
+                repulsão elétrica entre prótons aumenta e os núcleos
+                estáveis passam a exigir relativamente mais nêutrons.
+                Nêutrons contribuem para a interação nuclear residual
+                sem acrescentar repulsão coulombiana.</p>
+                <p>Isso não significa que “mais nêutrons sempre
+                estabilizam”. Um excesso também tem custo energético,
+                associado à estrutura quântica do núcleo. O resultado é
+                uma região de estabilidade em um gráfico de <span
+                class="math inline">\(N\)</span> contra <span
+                class="math inline">\(Z\)</span>, e não uma regra linear
+                universal. Núcleos fora dessa região podem decair por
+                diferentes mecanismos, que estudaremos mais adiante.</p>
+                <h2 id="um-mapa-qualitativo-da-estabilidade">Um Mapa
+                Qualitativo da Estabilidade</h2>
+                <p>Sem desenhar ainda a carta completa de nuclídeos, já
+                podemos construir um mapa mental útil. Para núcleos
+                leves, a estabilidade costuma aparecer perto de <span
+                class="math inline">\(N=Z\)</span>. Quando <span
+                class="math inline">\(Z\)</span> cresce, a repulsão
+                elétrica entre prótons cresce com muitos pares de
+                prótons interagindo; por isso a região de estabilidade
+                se desloca para <span
+                class="math inline">\(N&gt;Z\)</span>. Nêutrons extras
+                ajudam na interação nuclear residual sem acrescentar
+                repulsão coulombiana, mas isso só funciona até certo
+                ponto.</p>
+                <p>Podemos resumir assim:</p>
+                <ul>
+                <li><strong>Núcleos leves:</strong> em geral,
+                encontramos <span class="math inline">\(N\approx
+                Z\)</span>. A repulsão entre poucos prótons ainda é
+                moderada, então não precisamos de muitos nêutrons extras
+                para estabilizar o sistema.</li>
+                <li><strong>Núcleos médios e pesados:</strong> aparece
+                cada vez mais a tendência <span
+                class="math inline">\(N&gt;Z\)</span>. Os nêutrons
+                extras ajudam a aumentar a atração nuclear sem aumentar
+                a carga elétrica.</li>
+                <li><strong>Excesso de nêutrons:</strong> costuma
+                favorecer decaimentos do tipo <span
+                class="math inline">\(\beta^-\)</span>. A leitura física
+                é que o núcleo pode transformar um nêutron em próton
+                para se aproximar de uma configuração mais estável.</li>
+                <li><strong>Excesso de prótons:</strong> costuma
+                favorecer <span class="math inline">\(\beta^+\)</span>
+                ou captura eletrônica. Nesses casos, o núcleo encontra
+                caminhos para reduzir <span
+                class="math inline">\(Z\)</span>.</li>
+                <li><strong>Núcleos muito pesados:</strong> processos
+                alfa e fissão tornam-se mais relevantes, porque a
+                repulsão coulombiana e a energia de ligação passam a
+                favorecer reorganizações maiores.</li>
+                </ul>
+                <p>Esse quadro não substitui uma carta de nuclídeos
+                real. Ele é uma bússola. Quando encontrarmos decaimentos
+                nas próximas aulas, vamos voltar a essa ideia: muitos
+                processos podem ser lidos como tentativas do núcleo de
+                caminhar para uma configuração energeticamente mais
+                favorável.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/File:Table_of_nuclides_(mul"
+                style="width:82.0%"
+                alt="Carta de nuclídeos organizada por número de prótons e número de nêutrons. A região de estabilidade aparece como uma faixa, não como uma linha reta simples; ao redor dela surgem diferentes modos de decaimento. Fonte: Napy1kenobi, Wikimedia Commons, CC BY-SA 3.0." />
+                <figcaption aria-hidden="true">Carta de nuclídeos
+                organizada por número de prótons e número de nêutrons. A
+                região de estabilidade aparece como uma faixa, não como
+                uma linha reta simples; ao redor dela surgem diferentes
+                modos de decaimento. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/File:Table_of_nuclides_(mul).svg">Napy1kenobi,
+                Wikimedia Commons, CC BY-SA 3.0.</a></figcaption>
+                </figure>
+                <h1 id="defeito-de-massa-e-energia-de-ligação">Defeito
+                de Massa e Energia de Ligação</h1>
+                <h2 id="o-que-a-massa-está-nos-dizendo">O Que a Massa
+                Está Nos Dizendo</h2>
+                <p>Se separássemos completamente os nucleons de um
+                núcleo, a soma de suas massas seria maior que a massa do
+                átomo ligado. A origem da equação da energia de ligação
+                é a conservação de energia aplicada entre dois
+                estados:</p>
+                <ul>
+                <li>estado separado: <span
+                class="math inline">\(Z\)</span> átomos de hidrogênio
+                mais <span class="math inline">\(N\)</span> nêutrons
+                livres;</li>
+                <li>estado ligado: o átomo <span
+                class="math inline">\(\ce{^A_ZX}\)</span>.</li>
+                </ul>
+                <p>A energia de repouso do estado separado é</p>
+                <p><span class="math display">\[
+                E_{\text{sep}}=\left[Zm(\ce{^1H})+Nm_n\right]c^2.
+                \]</span></p>
+                <p>A energia de repouso do estado ligado é</p>
+                <p><span class="math display">\[
+                E_{\text{ligado}}=M_{\text{átomo}}(\ce{^A_ZX})c^2.
+                \]</span></p>
+                <p>Como o estado ligado tem menor energia, a diferença
+                entre essas duas energias é a energia liberada na
+                formação do núcleo, ou a energia que precisaríamos
+                fornecer para separá-lo novamente:</p>
+                <p><span class="math display">\[
+                B=E_{\text{sep}}-E_{\text{ligado}}.
+                \]</span></p>
+                <p>Substituindo as duas expressões,</p>
+                <p><span class="math display">\[
+                B=\left[Zm(\ce{^1H})+Nm_n-M_{\text{átomo}}(\ce{^A_ZX})\right]c^2.
+                \]</span></p>
+                <p>Definimos então a diferença de massa positiva,
+                chamada <strong>defeito de massa</strong>:</p>
+                <p><span class="math display">\[
+                \Delta m=Zm(\ce{^1H})+Nm_n-M_{\text{átomo}}(\ce{^A_ZX}).
+                \]</span></p>
+                <p>Usamos a massa do átomo de hidrogênio, e não a massa
+                do próton isolado, porque a massa atômica tabulada do
+                nuclídeo também inclui <span
+                class="math inline">\(Z\)</span> elétrons. Dessa forma,
+                as massas dos elétrons se cancelam automaticamente. Essa
+                escolha evita uma correção desnecessária no nível de
+                precisão desta aula.</p>
+                <p>Uma observação de linguagem evita confusão:
+                <strong>defeito de massa</strong> não é o mesmo que
+                <strong>excesso de massa</strong>. Em Física Nuclear,
+                excesso de massa tem um significado técnico diferente,
+                associado à comparação entre a massa atômica e <span
+                class="math inline">\(A\,\text{u}\)</span>. Aqui estamos
+                calculando <span class="math inline">\(\Delta
+                m\)</span>, que é positivo para um sistema ligado.</p>
+                <p>Pela equivalência massa-energia,</p>
+                <p><span class="math display">\[
+                B=\Delta mc^2.
+                \]</span></p>
+                <p>Quando <span class="math inline">\(\Delta m\)</span>
+                está em unidades de massa atômica, podemos usar
+                diretamente</p>
+                <p><span class="math display">\[
+                1\,\text{u}\,c^2=931{,}5\,\text{MeV}.
+                \]</span></p>
+                <p>O valor <span class="math inline">\(B\)</span> é a
+                energia que precisamos fornecer para separar
+                completamente os nucleons, ou a energia liberada quando
+                eles se ligam a partir de um estado inicialmente
+                separado.</p>
+                <h2
+                id="exemplo-2.4-energia-de-ligação-do-hélio-4">Exemplo
+                2.4: Energia de Ligação do Hélio-4</h2>
+                <p>Vamos calcular a energia de ligação de <span
+                class="math inline">\(\ce{^{4}_{2}He}\)</span>.
+                Consultaremos a tabela da disciplina: <span
+                class="math inline">\(m(\ce{^1H})=1{,}007\,825\,\text{u}\)</span>,
+                <span
+                class="math inline">\(m_n=1{,}008\,665\,\text{u}\)</span>
+                e <span
+                class="math inline">\(M(\ce{^4He})=4{,}002\,603\,\text{u}\)</span>.
+                As massas atômicas serão sempre usadas com seis casas
+                decimais.</p>
+                <p><strong>Solução:</strong></p>
+                <p>Como <span class="math inline">\(Z=2\)</span> e <span
+                class="math inline">\(N=2\)</span>,</p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                \Delta m&amp;=(2)(1{,}007\,825\,\text{u})
+                +(2)(1{,}008\,665\,\text{u})\\
+                &amp;\quad-4{,}002\,603\,\text{u}\\
+                &amp;=0{,}030\,377\,\text{u}.
+                \end{aligned}
+                \]</span></p>
+                <p>Agora convertemos a massa em energia, sem arredondar
+                o defeito antes da multiplicação:</p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                B&amp;=(0{,}030\,377\,\text{u})
+                \left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=28{,}296\ldots\,\text{MeV}\\
+                &amp;=28{,}30\,\text{MeV}.
+                \end{aligned}
+                \]</span></p>
+                <p>A tabela fornece as massas com seis casas decimais e
+                <span class="math inline">\(c^2\)</span> foi adotado com
+                quatro algarismos significativos. A energia de ligação
+                por nucleon é <span
+                class="math inline">\(B/A=28{,}296\ldots/4=7{,}074\,\text{MeV/nucleon}\)</span>.</p>
+                <h1 id="energia-de-ligação-por-nucleon">Energia de
+                Ligação por Nucleon</h1>
+                <p>A energia de ligação total cresce, em geral, com o
+                número de nucleons. Para comparar núcleos de tamanhos
+                diferentes, usamos a energia de ligação por nucleon:</p>
+                <p><span class="math display">\[
+                \frac{B}{A}.
+                \]</span></p>
+                <p>Ela não mede literalmente a energia necessária para
+                arrancar qualquer nucleon específico, pois os nucleons
+                ocupam estados diferentes. Ainda assim, é uma medida
+                muito útil da ligação média e permite enxergar
+                tendências de estabilidade.</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Binding_energy_curve_of_common_isotopes.svg"
+                style="width:95.0%"
+                alt="Energia de ligação por nucleon para isótopos comuns. Fonte: ScottMars, CC0 1.0." />
+                <figcaption aria-hidden="true">Energia de ligação por
+                nucleon para isótopos comuns. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:Redirect/file/Binding_energy_curve_of_common_isotopes.svg">ScottMars,
+                CC0 1.0.</a></figcaption>
+                </figure>
+                <p>Na curva, <span class="math inline">\(B/A\)</span>
+                cresce rapidamente para núcleos leves, atinge valores
+                máximos na região ferro-níquel e depois diminui
+                lentamente para núcleos muito pesados. A conclusão
+                energética é direta:</p>
+                <ul>
+                <li>a <strong>fusão</strong> de núcleos muito leves pode
+                deslocar o sistema para cima na curva e liberar
+                energia;</li>
+                <li>a <strong>fissão</strong> de núcleos muito pesados
+                também pode produzir fragmentos com maior <span
+                class="math inline">\(B/A\)</span> e liberar
+                energia;</li>
+                <li>núcleos próximos ao máximo não liberam energia por
+                fissão ou fusão em processos que os afastem desse
+                máximo.</li>
+                </ul>
+                <p>É tentador dizer apenas que “o ferro é o núcleo mais
+                estável”. A formulação mais cuidadosa é que a curva
+                possui máximo muito próximo da região ferro-níquel;
+                dependendo da medida precisa usada, <span
+                class="math inline">\(\ce{^{62}Ni}\)</span> aparece
+                ligeiramente acima de <span
+                class="math inline">\(\ce{^{56}Fe}\)</span>. Para
+                compreender fissão e fusão, o ponto decisivo é a forma
+                geral da curva, não uma frase de efeito isolada.</p>
+                <h2 id="o-que-não-podemos-confundir">O Que Não Podemos
+                Confundir</h2>
+                <p>Antes de fechar, vale separar algumas ideias que
+                aparecem juntas:</p>
+                <ul>
+                <li><strong>Defeito de massa:</strong> é a diferença
+                entre a massa dos nucleons separados e a massa do
+                sistema ligado. Não devemos tratar isso como uma “massa
+                perdida” de forma vaga; é energia de ligação
+                contabilizada por <span class="math inline">\(E=\Delta m
+                c^2\)</span>.</li>
+                <li><strong>Energia de ligação <span
+                class="math inline">\(B\)</span>:</strong> é a energia
+                necessária para separar o núcleo em seus nucleons. Um
+                núcleo maior tende naturalmente a ter <span
+                class="math inline">\(B\)</span> maior, por isso a
+                comparação mais justa quase sempre usa <span
+                class="math inline">\(B/A\)</span>.</li>
+                <li><strong>Energia por nucleon <span
+                class="math inline">\(B/A\)</span>:</strong> mede a
+                ligação média por nucleon. É a grandeza que nos ajuda a
+                comparar núcleos de tamanhos diferentes.</li>
+                <li><strong>Estabilidade:</strong> indica a tendência de
+                um nuclídeo existir sem decair rapidamente. Ela não
+                depende apenas de <span
+                class="math inline">\(B/A\)</span>; estrutura nuclear,
+                canais de decaimento e regras quânticas também
+                importam.</li>
+                <li><strong>Energia liberada:</strong> é a diferença
+                entre a energia inicial e a energia final. Ela só
+                aparece quando a transformação leva a produtos
+                energeticamente mais favoráveis.</li>
+                </ul>
+                <p>Essa distinção será útil quando formos calcular valor
+                <span class="math inline">\(Q\)</span>. Um erro comum é
+                achar que qualquer núcleo com energia de ligação grande
+                libera energia ao se transformar. Na verdade, precisamos
+                comparar o estado inicial com os produtos possíveis.</p>
+                <h1 id="síntese-da-aula">Síntese da Aula</h1>
+                <p>Podemos agora ligar as ideias. O raio nuclear cresce
+                como <span class="math inline">\(A^{1/3}\)</span>, o que
+                leva a uma densidade média quase independente de <span
+                class="math inline">\(A\)</span>. O espalhamento de
+                partículas carregadas transforma a repulsão elétrica em
+                uma régua para distâncias muito pequenas. No interior do
+                núcleo, a interação nuclear residual compete com essa
+                repulsão e, junto com a estrutura quântica, seleciona os
+                nuclídeos mais estáveis.</p>
+                <p>Quando nucleons formam um núcleo ligado, parte da
+                massa do sistema aparece como energia de ligação. A
+                curva de <span class="math inline">\(B/A\)</span>
+                organiza essa informação e será nossa bússola para os
+                próximos temas: reações nucleares, fissão, fusão e
+                decaimentos.</p>
+                <h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+                <h2 id="questões-conceituais">Questões Conceituais</h2>
+                <dl>
+                <dt>2.1)</dt>
+                <dd>
+                A relação <span
+                class="math inline">\(R=R_0A^{1/3}\)</span> sugere que,
+                para núcleos aproximadamente esféricos, a densidade
+                média nuclear é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>proporcional a <span
+                class="math inline">\(A^2\)</span>.</li>
+                <li>aproximadamente independente de <span
+                class="math inline">\(A\)</span>.</li>
+                <li>inversamente proporcional a <span
+                class="math inline">\(A\)</span>.</li>
+                <li>igual à densidade eletrônica do átomo.</li>
+                <li>nula para núcleos leves.</li>
+                </ol>
+                <dl>
+                <dt>2.2)</dt>
+                <dd>
+                Em um espalhamento frontal de uma partícula alfa por um
+                núcleo pesado, a distância de maior aproximação
+                calculada apenas com a repulsão coulombiana representa:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>o raio do núcleo-alvo.</li>
+                <li>o diâmetro da partícula alfa.</li>
+                <li>a distância entre centros no ponto de retorno
+                clássico, dentro das hipóteses do modelo.</li>
+                <li>o comprimento de onda da partícula alfa.</li>
+                <li>a distância média entre elétrons do alvo.</li>
+                </ol>
+                <dl>
+                <dt>2.3)</dt>
+                <dd>
+                Qual afirmação distingue corretamente a interação forte
+                fundamental da interação entre nucleons em um núcleo?
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>A interação entre nucleons é o efeito residual da
+                interação forte entre quarks e glúons.</li>
+                <li>Prótons e nêutrons não possuem quarks, por isso a
+                interação forte não participa do núcleo.</li>
+                <li>A força elétrica é a única interação relevante
+                dentro do núcleo.</li>
+                <li>A interação nuclear residual atua apenas entre
+                prótons.</li>
+                <li>A interação forte fundamental tem alcance
+                infinito.</li>
+                </ol>
+                <dl>
+                <dt>2.4)</dt>
+                <dd>
+                Ao usar massas atômicas para calcular a energia de
+                ligação de <span
+                class="math inline">\(\ce{^{A}_{Z}X}\)</span>, a
+                expressão <span
+                class="math inline">\(Zm(\ce{^1H})+Nm_n-M_{\text{átomo}}(\ce{^A_ZX})\)</span>
+                é conveniente porque:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>elimina a necessidade de conhecer <span
+                class="math inline">\(Z\)</span>.</li>
+                <li>transforma nêutrons em prótons.</li>
+                <li>torna o defeito de massa sempre nulo.</li>
+                <li>cancela automaticamente as massas dos elétrons
+                presentes nas massas atômicas.</li>
+                <li>mede diretamente o excesso de massa técnico.</li>
+                </ol>
+                <dl>
+                <dt>2.5)</dt>
+                <dd>
+                A curva de energia de ligação por nucleon explica que
+                uma reação pode liberar energia quando os produtos:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li>têm sempre maior número de massa que os
+                reagentes.</li>
+                <li>possuem mais elétrons livres.</li>
+                <li>apresentam menor energia de ligação por
+                nucleon.</li>
+                <li>estão necessariamente na região do urânio.</li>
+                <li>ficam, em conjunto, em uma região de maior energia
+                de ligação por nucleon.</li>
+                </ol>
+                <h2 id="questões-de-cálculo">Questões de Cálculo</h2>
+                <p>Use, quando necessário: <span
+                class="math inline">\(R_0=1{,}2\,\text{fm}\)</span>;
+                <span
+                class="math inline">\(1\,\text{fm}=10^{-15}\,\text{m}\)</span>;
+                <span
+                class="math inline">\(e^2/(4\pi\varepsilon_0)=1{,}440\,\text{MeV}\,\text{fm}\)</span>;
+                <span
+                class="math inline">\(1\,\text{u}=1{,}661\times10^{-27}\,\text{kg}\)</span>;
+                <span
+                class="math inline">\(1\,\text{u}\,c^2=931{,}5\,\text{MeV}\)</span>;
+                <span
+                class="math inline">\(m(\ce{^1H})=1{,}007\,825\,\text{u}\)</span>;
+                <span
+                class="math inline">\(m_n=1{,}008\,665\,\text{u}\)</span>.
+                As massas atômicas devem ser consultadas na tabela com
+                seis casas decimais.</p>
+                <dl>
+                <dt>2.6)</dt>
+                <dd>
+                Estime o raio de <span
+                class="math inline">\(\ce{^{16}O}\)</span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(1{,}2\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(2{,}4\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(4{,}8\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(19\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(3{,}0\,\text{fm}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.7)</dt>
+                <dd>
+                Uma partícula alfa de <span
+                class="math inline">\(6{,}00\,\text{MeV}\)</span>
+                aproxima-se frontalmente de um núcleo de prata (<span
+                class="math inline">\(Z=47\)</span>). A distância de
+                maior aproximação é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(7{,}52\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(15{,}0\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(18{,}8\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(22{,}6\,\text{fm}\)</span></li>
+                <li><span
+                class="math inline">\(45{,}1\,\text{fm}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.8)</dt>
+                <dd>
+                Estime a energia cinética mínima para uma alfa alcançar,
+                em uma aproximação de contato, um núcleo de ouro (<span
+                class="math inline">\(A=197\)</span>, <span
+                class="math inline">\(Z=79\)</span>). Use <span
+                class="math inline">\(A=4\)</span> e <span
+                class="math inline">\(Z=2\)</span> para a alfa.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(26\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(19\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(20\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(13\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(51\,\text{MeV}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.9)</dt>
+                <dd>
+                Usando <span
+                class="math inline">\(\rho\approx\text{u}/[(4/3)\pi
+                R_0^3]\)</span>, com <span
+                class="math inline">\(\text{u}=1{,}661\times10^{-27}\,\text{kg}\)</span>,
+                estime a densidade nuclear média.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(2{,}3\times10^{17}\,\text{kg/m}^3\)</span></li>
+                <li><span
+                class="math inline">\(2{,}3\times10^{12}\,\text{kg/m}^3\)</span></li>
+                <li><span
+                class="math inline">\(7{,}7\times10^{16}\,\text{kg/m}^3\)</span></li>
+                <li><span
+                class="math inline">\(6{,}9\times10^{17}\,\text{kg/m}^3\)</span></li>
+                <li><span
+                class="math inline">\(1{,}4\times10^{18}\,\text{kg/m}^3\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.10)</dt>
+                <dd>
+                Suponha uma estrela esférica de massa <span
+                class="math inline">\(1{,}400M_\odot\)</span>, com <span
+                class="math inline">\(M_\odot=1{,}988\times10^{30}\,\text{kg}\)</span>
+                e densidade uniforme <span
+                class="math inline">\(2{,}3\times10^{17}\,\text{kg/m}^3\)</span>.
+                Seu raio estimado é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(1{,}4\,\text{km}\)</span></li>
+                <li><span
+                class="math inline">\(4{,}5\,\text{km}\)</span></li>
+                <li><span
+                class="math inline">\(14\,\text{km}\)</span></li>
+                <li><span
+                class="math inline">\(45\,\text{km}\)</span></li>
+                <li><span
+                class="math inline">\(1{,}4\times10^2\,\text{km}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.11)</dt>
+                <dd>
+                A massa atômica de <span
+                class="math inline">\(\ce{^{4}He}\)</span> é <span
+                class="math inline">\(4{,}002\,603\,\text{u}\)</span>,
+                conforme a tabela. Seu defeito de massa é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(0{,}015\,189\,\text{u}\)</span></li>
+                <li><span
+                class="math inline">\(0{,}030\,377\,\text{u}\)</span></li>
+                <li><span
+                class="math inline">\(0{,}060\,754\,\text{u}\)</span></li>
+                <li><span
+                class="math inline">\(3{,}972\,226\,\text{u}\)</span></li>
+                <li><span
+                class="math inline">\(4{,}032\,980\,\text{u}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.12)</dt>
+                <dd>
+                Usando o defeito de massa da questão anterior, a energia
+                de ligação total do <span
+                class="math inline">\(\ce{^{4}He}\)</span> é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(7{,}074\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(28{,}30\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(26{,}20\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(14{,}15\,\text{MeV}\)</span></li>
+                <li><span
+                class="math inline">\(56{,}59\,\text{MeV}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.13)</dt>
+                <dd>
+                Para <span class="math inline">\(\ce{^{56}Fe}\)</span>,
+                use <span
+                class="math inline">\(M=55{,}934\,936\,\text{u}\)</span>,
+                da tabela, <span class="math inline">\(Z=26\)</span> e
+                <span class="math inline">\(N=30\)</span>. A energia de
+                ligação por nucleon é:
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(4{,}651\,\text{MeV/nucleon}\)</span></li>
+                <li><span
+                class="math inline">\(7{,}074\,\text{MeV/nucleon}\)</span></li>
+                <li><span
+                class="math inline">\(8{,}790\,\text{MeV/nucleon}\)</span></li>
+                <li><span
+                class="math inline">\(28{,}30\,\text{MeV/nucleon}\)</span></li>
+                <li><span
+                class="math inline">\(492{,}3\,\text{MeV/nucleon}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.14)</dt>
+                <dd>
+                Quantos átomos há aproximadamente em uma amostra de
+                <span class="math inline">\(3{,}000\,\text{g}\)</span>
+                de <span class="math inline">\(\ce{^{56}Fe}\)</span>?
+                Use massa molar <span
+                class="math inline">\(55{,}934\,936\,\text{g/mol}\)</span>,
+                da tabela, e <span
+                class="math inline">\(N_A=6{,}022\times10^{23}\,\text{mol}^{-1}\)</span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(3{,}230\times10^{19}\)</span></li>
+                <li><span
+                class="math inline">\(5{,}383\times10^{21}\)</span></li>
+                <li><span
+                class="math inline">\(1{,}077\times10^{22}\)</span></li>
+                <li><span
+                class="math inline">\(1{,}077\times10^{24}\)</span></li>
+                <li><span
+                class="math inline">\(3{,}230\times10^{22}\)</span></li>
+                </ol>
+                <dl>
+                <dt>2.15)</dt>
+                <dd>
+                Usando <span
+                class="math inline">\(B(\ce{^{56}Fe})=492{,}3\,\text{MeV}\)</span>,
+                calcule a energia de ligação total da amostra da questão
+                anterior em joules. Use <span
+                class="math inline">\(1\,\text{eV}=1{,}602\times10^{-19}\,\text{J}\)</span>.
+                </dd>
+                </dl>
+                <ol type="a">
+                <li><span
+                class="math inline">\(2{,}547\times10^{8}\,\text{J}\)</span></li>
+                <li><span
+                class="math inline">\(2{,}547\times10^{10}\,\text{J}\)</span></li>
+                <li><span
+                class="math inline">\(2{,}547\times10^{11}\,\text{J}\)</span></li>
+                <li><span
+                class="math inline">\(2{,}547\times10^{12}\,\text{J}\)</span></li>
+                <li><span
+                class="math inline">\(2{,}547\times10^{13}\,\text{J}\)</span></li>
+                </ol>
+                <h1 id="recomendações">Recomendações</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=c3nGE8Z3-lo" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-fermilab-forca-forte.png" alt="The Strong Nuclear Force" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">The Strong Nuclear Force</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=c3nGE8Z3-lo" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Fermilab</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=c3nGE8Z3-lo" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>O vídeo é em inglês e oferece uma boa visualização da
+                diferença entre a interação forte fundamental e seus
+                efeitos em escalas maiores. Vale assistir depois de
+                termos separado essas duas ideias na aula.</p>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://pt.khanacademy.org/science/physics/quantum-physics/nuclear-physics/v/nuclear-stability-and-nuclear-equations" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/khan-estabilidade-nuclear.png" alt="Estabilidade nuclear e equações nucleares" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Estabilidade nuclear e equações nucleares</strong><br>
+                      Fonte: <a href="https://pt.khanacademy.org/science/physics/quantum-physics/nuclear-physics/v/nuclear-stability-and-nuclear-equations" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">Khan Academy Brasil</a>
+                    </div>
+                    <div>
+                      <a href="https://pt.khanacademy.org/science/physics/quantum-physics/nuclear-physics/v/nuclear-stability-and-nuclear-equations" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>Para retomar estabilidade nuclear e reações, este
+                material em português ajuda a ligar a razão <span
+                class="math inline">\(N/Z\)</span> às transformações
+                nucleares que veremos nas próximas aulas.</p>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://eaulas.usp.br/portal/video.action?idItem=13178" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/usp-nucleo-atomico.png" alt="O nucleo atomico" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">O nucleo atomico</strong><br>
+                      Fonte: <a href="https://eaulas.usp.br/portal/video.action?idItem=13178" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">e-Aulas USP</a>
+                    </div>
+                    <div>
+                      <a href="https://eaulas.usp.br/portal/video.action?idItem=13178" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>Esta aula da USP é uma opção mais longa para revisar
+                energia de ligação e a organização geral dos
+                núcleos.</p>
+                <h1 id="referências">Referências</h1>
+                <ul>
+                <li>KRANE, K. S. <em>Introductory Nuclear Physics</em>.
+                New York: Wiley, 1988.</li>
+                <li>LILLEY, J. <em>Nuclear Physics: Principles and
+                Applications</em>. Chichester: Wiley, 2001.</li>
+                <li>MARTIN, B. R. <em>Nuclear and Particle Physics: An
+                Introduction</em>. 2. ed. Chichester: Wiley, 2009.</li>
+                <li>WANG, M. et al. The AME 2020 atomic mass evaluation
+                (II). <em>Chinese Physics C</em>, v. 45, 030003,
+                2021.</li>
+                <li>NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY.
+                <em>CODATA recommended values of the fundamental
+                constants</em>. Disponível em: <a
+                href="https://physics.nist.gov/cuu/Constants/"
+                class="uri">https://physics.nist.gov/cuu/Constants/</a>.
+                Acesso em: 15 jul. 2026.</li>
+                <li>REED, C.; PENN STATE; NASA. <em>Neutron star
+                illustrated</em>. Domínio público. Wikimedia
+                Commons.</li>
+                <li>SCOTTMARS. <em>Binding energy curve of common
+                isotopes</em>. CC0 1.0. Wikimedia Commons.</li>
+                </ul>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Escala nuclear,
+espalhamento coulombiano, força nuclear residual, defeito de massa e
+energia de ligação</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>

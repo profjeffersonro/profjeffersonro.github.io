@@ -107,6 +107,11 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1OWibXn_msjZqthNc7Aqz6fZXMiBg6t-0/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/1XEH3K8h5T4cCRjORqvtja1NjvLlbpONP/view?usp=drive_link"
         answers_released: false
+      - name: "Aula 2 - Estrutura Nuclear, Interação Nuclear e Energia de Ligação"
+        html: "content/aulas/ES-FM2/Aula-2/fm2-aula-2.html"
+        pdf: "https://drive.google.com/file/d/1ILxHU3yiJXBxsFS0NLpVl2v_tqhpS7sV/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/1JrMrvL0xKV_hZdifB9xLgTmemYZjRLO_/view?usp=drive_link"
+        answers_released: false
   - disciplina: "Seminários Integrados"
     aulas:
       - name: "Determinismo x Probabilismo: probabilidade, caos, mundo quântico, inteligência artificial e mudanças climáticas"
