@@ -162,6 +162,14 @@ Liberar o botão de respostas no portal:
 
 Sem `--release-answers`, o YAML recebe `answers_released: false`.
 
+Para agendar a liberação depois de uma avaliação, mantenha `answers_released: false` e adicione manualmente na aula:
+
+```yaml
+answers_release_at: "2026-09-20 18:00"
+```
+
+O horário é interpretado em `America/Sao_Paulo`. O GitHub Actions reconstrói o site de hora em hora, então o botão aparece no primeiro deploy depois desse horário.
+
 ## Build
 
 Por padrão, cada publicação chama o build pelo `publish_lesson.py`.

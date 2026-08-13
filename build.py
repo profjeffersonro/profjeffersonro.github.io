@@ -12,11 +12,12 @@ import hashlib
 import argparse
 import datetime
 from pathlib import Path
-from datetime import datetime
+from datetime import date, datetime, time
 import re
 import unicodedata
 import html as html_lib
 from bs4 import BeautifulSoup
+from zoneinfo import ZoneInfo
 
 # ============================================================================
 # CONFIGURAÇÃO PARA AUTOMAÇÃO NO GITHUB
@@ -126,9 +127,55 @@ def clean_generated_html(html_content):
     """Remove espacos finais para manter o HTML gerado limpo para commit."""
     return '\n'.join(line.rstrip() for line in html_content.splitlines()) + '\n'
 
+def parse_answers_release_at(value):
+    """Converte answers_release_at em datetime no fuso de Sao Paulo."""
+    if not value:
+        return None
+
+    timezone = ZoneInfo('America/Sao_Paulo')
+
+    if isinstance(value, datetime):
+        release_at = value
+    elif isinstance(value, date):
+        release_at = datetime.combine(value, time.min)
+    else:
+        raw_value = str(value).strip()
+        formats = (
+            '%Y-%m-%d %H:%M',
+            '%Y-%m-%d %H:%M:%S',
+            '%Y-%m-%d',
+        )
+        release_at = None
+        for fmt in formats:
+            try:
+                release_at = datetime.strptime(raw_value, fmt)
+                break
+            except ValueError:
+                continue
+        if release_at is None:
+            try:
+                release_at = datetime.fromisoformat(raw_value)
+            except ValueError:
+                return None
+
+    if release_at.tzinfo is None:
+        return release_at.replace(tzinfo=timezone)
+    return release_at.astimezone(timezone)
+
+
 def answers_are_released(aula):
-    """Retorna True apenas quando as respostas foram liberadas manualmente."""
-    return bool(aula.get('answers_pdf')) and aula.get('answers_released') is True
+    """Retorna True quando respostas foram liberadas manualmente ou por agendamento."""
+    if not aula.get('answers_pdf'):
+        return False
+    if aula.get('answers_released') is True:
+        return True
+
+    release_at = parse_answers_release_at(aula.get('answers_release_at'))
+    if release_at is None:
+        return False
+
+    now = datetime.now(ZoneInfo('America/Sao_Paulo'))
+    return now >= release_at
 
 def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.github.io/"):
     """
@@ -222,8 +269,10 @@ def validate_build_output(config, output_dir):
             answers_pdf = aula.get('answers_pdf', '')
             if isinstance(answers_pdf, str) and answers_pdf.startswith('/home/'):
                 warnings.append(f"PDF local de respostas em aula '{aula['name']}': {answers_pdf}")
-            if answers_pdf and 'answers_released' not in aula:
-                warnings.append(f"Respostas sem campo answers_released em aula '{aula['name']}'")
+            if answers_pdf and 'answers_released' not in aula and 'answers_release_at' not in aula:
+                warnings.append(f"Respostas sem answers_released ou answers_release_at em aula '{aula['name']}'")
+            if answers_pdf and aula.get('answers_release_at') and parse_answers_release_at(aula.get('answers_release_at')) is None:
+                warnings.append(f"answers_release_at invalido em aula '{aula['name']}'")
 
     expected_posts = []
     for post in config.get('blog', {}).get('posts', []):
