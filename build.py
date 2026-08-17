@@ -141,6 +141,12 @@ def parse_answers_release_at(value):
     else:
         raw_value = str(value).strip()
         formats = (
+            '%d/%m/%y %H:%M',
+            '%d/%m/%Y %H:%M',
+            '%d/%m/%y %H:%M:%S',
+            '%d/%m/%Y %H:%M:%S',
+            '%d/%m/%y',
+            '%d/%m/%Y',
             '%Y-%m-%d %H:%M',
             '%Y-%m-%d %H:%M:%S',
             '%Y-%m-%d',

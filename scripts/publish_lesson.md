@@ -137,7 +137,7 @@ Por segurança, ele exige repositório limpo para commit/push automático. Com `
 - Para aula nova, `--skip-drive` é bloqueado: sem URL de PDF, a aula não entraria corretamente no `config.yaml`.
 - O PDF precisa estar dentro do `local_folder` definido em `/home/jefferson/Documentos/Gdrive/config/sync_config.json`; caso contrário, o script interrompe para evitar envio na pasta errada do Drive.
 - O PDF de respostas, quando usado, é gravado no YAML como `answers_pdf` e só aparece no portal quando `answers_released: true`.
-- Para liberar automaticamente depois de uma avaliação, mantenha `answers_released: false` e adicione `answers_release_at: "AAAA-MM-DD HH:MM"` na aula. O horário é interpretado em `America/Sao_Paulo`.
+- Para liberar automaticamente depois de uma avaliação, mantenha `answers_released: false` e adicione `answers_release_at: "DD/MM/AA HH:MM"` na aula. O horário é interpretado em `America/Sao_Paulo`.
 - O GitHub Actions reconstrói o site de hora em hora; a resposta aparece no primeiro deploy depois do horário agendado.
 - Sem `--answers-drive-folder`, o PDF de respostas precisa estar na mesma pasta local da aula principal e é enviado para a mesma pasta no Drive.
 - Com `--answers-drive-folder`, o PDF de respostas é enviado para essa pasta única no Drive.
