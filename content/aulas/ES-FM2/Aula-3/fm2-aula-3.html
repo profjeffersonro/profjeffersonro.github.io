@@ -1138,6 +1138,20 @@ de Oliveira
                 fundo</strong>. Assim, uma fonte com atividade conhecida
                 não produz necessariamente a mesma leitura em detectores
                 ou geometrias diferentes.</p>
+                <p>Um <strong>contador Geiger–Müller</strong> possui um
+                tubo preenchido por gás, um fio central mantido em alta
+                tensão e uma parede ou janela por onde a radiação pode
+                entrar. Quando uma partícula ou fóton produz ionização
+                no gás, os elétrons acelerados provocam uma avalanche
+                elétrica. A eletrônica transforma essa avalanche em um
+                <strong>pulso</strong>; o visor soma os pulsos durante o
+                intervalo de medida e apresenta uma taxa em
+                <strong>cps</strong> ou <strong>cpm</strong>. Como a
+                avalanche é intensa e quase independente da energia
+                depositada, o Geiger–Müller é excelente para indicar a
+                presença de radiação e comparar taxas de contagem, mas
+                não identifica diretamente o radionuclídeo nem fornece
+                uma medida precisa da energia de cada evento.</p>
                 <p>A taxa de contagem pode ser expressa em
                 <strong>cps</strong> (<em>counts per second</em>, ou
                 <strong>contagens por segundo</strong>) ou em
@@ -1155,16 +1169,41 @@ de Oliveira
                 \qquad
                 A=\frac{C_{\text{líquida}}}{\varepsilon}.
                 \]</span></p>
+                <p>O <strong>fundo</strong> é a taxa registrada mesmo
+                sem a fonte que queremos estudar. Ele pode incluir
+                radiação cósmica, radionuclídeos naturais no solo, no
+                ar, nos materiais próximos e até pulsos eletrônicos
+                espúrios. Por isso, mede-se o fundo com a mesma
+                geometria e o mesmo tempo usados na medida da fonte. A
+                subtração <span
+                class="math inline">\(C_{\text{líquida}}=C_{\text{bruta}}-C_{\text{fundo}}\)</span>
+                estima a contribuição da fonte; se o fundo for
+                comparável à contagem bruta, a incerteza relativa da
+                medida cresce e um intervalo de aquisição maior se torna
+                importante.</p>
+                <p>A <strong>eficiência</strong> <span
+                class="math inline">\(\varepsilon\)</span> é a fração de
+                eventos da fonte que efetivamente aparece como pulso
+                registrado. Ela reúne a eficiência intrínseca do tubo, a
+                geometria (distância, orientação e ângulo sólido), a
+                absorção no ar, na parede do detector ou em blindagens
+                e, conforme a fonte, a probabilidade de a radiação
+                escapar da própria amostra. Portanto, <span
+                class="math inline">\(\varepsilon=5{,}00\%\)</span>
+                significa que, em média, apenas <span
+                class="math inline">\(5\)</span> de cada <span
+                class="math inline">\(100\)</span> eventos relevantes
+                produzem uma contagem registrada naquele arranjo — não
+                que a fonte tenha somente <span
+                class="math inline">\(5\%\)</span> de sua atividade.</p>
                 <figure>
-                <img src="https://commons.wikimedia.org/wiki/File:Geiger_counter_dosimeter_measuring_radiation_-_This_photo_has_been_released_into_the_public_domain._There_are_no_copyrights_you_can_use_and_modify_this_photo_without_asking,_and_without_attribution.JPG"
+                <img src="images/fig-contador-geiger.png"
                 style="width:68.0%"
                 alt="Contador Geiger em uma medida de radiação. A leitura do instrumento depende do arranjo experimental, da eficiência e do fundo. Fonte: Kiwiev, Wikimedia Commons, CC0 1.0." />
                 <figcaption aria-hidden="true">Contador Geiger em uma
                 medida de radiação. A leitura do instrumento depende do
                 arranjo experimental, da eficiência e do fundo. Fonte:
-                <a
-                href="https://commons.wikimedia.org/wiki/File:Geiger_counter_dosimeter_measuring_radiation_-_This_photo_has_been_released_into_the_public_domain._There_are_no_copyrights_you_can_use_and_modify_this_photo_without_asking,_and_without_attribution.JPG">Kiwiev,
-                Wikimedia Commons, CC0 1.0.</a></figcaption>
+                Kiwiev, Wikimedia Commons, CC0 1.0.</figcaption>
                 </figure>
                 <p>A <strong>segurança radioativa</strong> é organizada
                 pelo princípio <strong>ALARA</strong> (<em>as low as
