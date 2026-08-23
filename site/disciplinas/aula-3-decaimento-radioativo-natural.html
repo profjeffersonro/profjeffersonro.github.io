@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 3 - Decaimento Radioativo Natural | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 3 - Decaimento Radioativo Natural de Física Moderna 2.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-3-decaimento-radioativo-natural.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 3 - Decaimento Radioativo Natural | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 3 - Decaimento Radioativo Natural de Física Moderna 2.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-3-decaimento-radioativo-natural.html">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Física Moderna 2</li>
+                </ol>
+            </nav>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 3 - Decaimento Radioativo Natural</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Física Moderna 2</p>
+                </div>
+                <div class="card-body">
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1bC6JBoTkT_WQ8NoYcUSsilGYSnL1iBUF/view?usp=drive_link"
+                       class="btn btn-success btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+
+                    <div class="aula-content">
+                        <h1 id="introdução">Introdução</h1>
+<p>O <strong>decaimento radioativo</strong> é um
+                fenômeno natural em que núcleos atômicos instáveis se
+                transformam em núcleos mais estáveis, emitindo
+                partículas, radiação eletromagnética ou ambas. A
+                descoberta da <strong>radioatividade</strong>, no fim do
+                século XIX, mudou a maneira como entendemos a matéria: o
+                átomo deixou de ser visto como uma estrutura indivisível
+                e passou a ser investigado por sua constituição interna
+                e por sua energia nuclear.</p>
+<p>Nesta aula, vamos estudar a <strong>regularidade
+                estatística</strong> do decaimento. Um núcleo isolado
+                não decai em um instante previsível por um relógio
+                determinístico. Para ele, falamos em
+                <strong>probabilidade por unidade de tempo</strong>. Uma
+                amostra macroscópica, porém, contém tantos núcleos que o
+                comportamento coletivo se torna muito bem descrito por
+                uma <strong>lei exponencial</strong>.</p>
+<p>Esse resultado aparece em muitas aplicações:
+                <strong>datação por carbono-14</strong>,
+                <strong>medicina nuclear</strong>,
+                <strong>radioterapia</strong>, <strong>monitoração
+                ambiental</strong>, estudo de rochas e operação de
+                detectores de radiação. Para trabalhar com essas
+                situações, precisamos distinguir cuidadosamente
+                <strong>número de núcleos</strong>, <strong>atividade da
+                fonte</strong>, <strong>taxa de contagem do
+                detector</strong>, <strong>meia-vida</strong> e
+                <strong>vida média</strong>.</p>
+<h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, devemos ser capazes de:</p>
+<ul>
+<li>compreender a <strong>radioatividade</strong> como
+                um processo <strong>estatístico</strong>;</li>
+<li>demonstrar a <strong>lei do decaimento
+                radioativo</strong> a partir da hipótese de
+                <strong>proporcionalidade</strong>;</li>
+<li>explicar os conceitos de <strong>constante de
+                decaimento</strong>, <strong>atividade</strong>,
+                <strong>meia-vida</strong> e <strong>vida
+                média</strong>;</li>
+<li>converter unidades de <strong>massa</strong>,
+                <strong>tempo</strong> e <strong>atividade</strong> em
+                problemas nucleares;</li>
+<li>distinguir <strong>atividade da fonte</strong>,
+                <strong>contagem do detector</strong> e <strong>radiação
+                de fundo</strong>;</li>
+<li>aplicar os conceitos em exercícios de
+                <strong>carbono-14</strong>,
+                <strong>potássio-40</strong>, <strong>iodo-131</strong>,
+                <strong>ouro-198</strong> e
+                <strong>cobalto-60</strong>.</li>
+</ul>
+<h1 id="radioatividade">Radioatividade</h1>
+<p>Um <strong>nuclídeo</strong> é caracterizado por seu
+                <strong>número atômico</strong> \(Z\), seu número de nêutrons
+                \(N_n\) e seu
+                <strong>número de massa</strong> \(A=Z+N_n\). Nem toda
+                combinação de prótons e nêutrons é estável. Quando a
+                configuração nuclear possui energia em excesso, ou
+                quando a razão entre nêutrons e prótons está fora da
+                região de estabilidade, o núcleo pode sofrer uma
+                transformação espontânea.</p>
+<p>Chamamos essa transformação de <strong>decaimento
+                radioativo</strong>. O núcleo inicial é chamado de
+                núcleo-pai; o núcleo produzido é chamado de
+                núcleo-filho. Dependendo do caso, o processo pode emitir
+                partículas alfa, partículas beta, neutrinos, raios gama
+                ou combinações dessas emissões.</p>
+<p>O estudo da radioatividade começou em 1896, pouco
+                depois da descoberta dos raios X por Wilhelm Röntgen.
+                Henri Becquerel observou uma radiação emitida por sais
+                de urânio. Marie Curie, Pierre Curie, Ernest Rutherford
+                e outros pesquisadores mostraram que essa radiação não
+                era única: havia emissões com cargas, massas e poderes
+                de penetração diferentes. Daí surgiram as denominações
+                alfa, beta e gama.</p>
+<p>Há dois pontos importantes para evitar interpretações
+                apressadas. Primeiro, a radioatividade é natural:
+                elementos como carbono-14, potássio-40 e urânio aparecem
+                em materiais encontrados na Terra. Segundo, dizer que
+                algo é radioativo ainda não informa automaticamente o
+                risco. Para discutir <strong>efeito biológico</strong>,
+                precisamos saber tipo de radiação, energia, atividade,
+                distância, tempo de exposição, blindagem e geometria de
+                medida.</p>
+<h1 id="lei-do-decaimento">Lei do Decaimento</h1>
+<p>Considere uma amostra que contém \(N(t)\) núcleos radioativos
+                ainda não decaídos no instante \(t\). Em um intervalo de
+                tempo pequeno \(dt\),
+                esperamos que o número médio de decaimentos seja
+                proporcional ao número de núcleos disponíveis. Se há
+                muitos núcleos, muitos podem decair no próximo
+                intervalo; se restam poucos, a taxa absoluta
+                diminui.</p>
+<p>Escrevemos:</p>
+<p>\[
+                dN=-\lambda N\,dt.
+                \]</p>
+<p>O sinal negativo indica que \(N\) diminui. A constante
+                \(\lambda\) é a
+                <strong>constante de decaimento</strong> ou
+                <strong>constante de desintegração</strong>. Ela
+                representa a <strong>probabilidade de decaimento por
+                unidade de tempo</strong> para cada núcleo. Assim, se o
+                tempo é medido em segundos, \(\lambda\) tem unidade \(\text{s}^{-1}\); se o tempo
+                é medido em anos, \(\lambda\) tem unidade \(\text{ano}^{-1}\).</p>
+<p>Separando as variáveis,</p>
+<p>\[
+                \frac{dN}{N}=-\lambda\,dt.
+                \]</p>
+<p>Agora integramos entre o estado inicial, \(N=N_0\) em \(t=0\), e o estado
+                posterior, \(N=N(t)\)
+                em \(t\):</p>
+<p>\[
+                \int_{N_0}^{N}\frac{dN'}{N'}=-\lambda\int_0^t
+                dt'.
+                \]</p>
+<p>O lado esquerdo resulta em \(\ln N-\ln N_0\), e o lado
+                direito resulta em \(-\lambda
+                t\). Logo,</p>
+<p>\[
+                \ln N-\ln N_0=-\lambda t.
+                \]</p>
+<p>Usando \(\ln a-\ln
+                b=\ln(a/b)\):</p>
+<p>\[
+                \ln\left(\frac{N}{N_0}\right)=-\lambda t.
+                \]</p>
+<p>Elevando os dois lados como potência de \(e\), obtemos a lei do
+                decaimento:</p>
+<p>\[
+                N=N_0e^{-\lambda t}.
+                \]</p>
+<p>Essa equação não quer dizer que cada núcleo perde
+                continuamente uma parte de si. Cada
+                <strong>decaimento</strong> é um <strong>evento
+                discreto</strong>. A exponencial descreve o
+                <strong>número esperado de núcleos</strong> que ainda
+                não decaíram em uma amostra grande.</p>
+<figure>
+<img alt="Número de núcleos radioativos em função do tempo. A atividade de uma amostra isolada obedece a uma curva com a mesma forma exponencial." src="images/aula05-fig1-decaimento.png" style="width:70.0%"/>
+<figcaption aria-hidden="true">Número de núcleos
+                radioativos em função do tempo. A atividade de uma
+                amostra isolada obedece a uma curva com a mesma forma
+                exponencial.</figcaption>
+</figure>
+<p>Também é útil escrever a lei em termos da fração
+                remanescente:</p>
+<p>\[
+                \frac{N}{N_0}=e^{-\lambda t}.
+                \]</p>
+<p>Essa forma é especialmente prática em
+                <strong>datação</strong>. Se resta \(25\%\) do material
+                radioativo inicial, então \(N/N_0=0{,}25\). O problema
+                físico passa a ser determinar qual
+                <strong>tempo</strong> produz essa fração.</p>
+<p><strong>Exemplo 1 — idade idealizada por
+                carbono-14.</strong></p>
+<p>Uma amostra orgânica apresenta \(25{,}0\%\) do número
+                inicial de núcleos de \(\ce{^{14}C}\). Sabendo que
+                \(\lambda=1{,}210\times10^{-4}\,\text{ano}^{-1}\),
+                determine o <strong>tempo transcorrido em
+                anos</strong>.</p>
+<p><strong>Solução:</strong> Isolando \(t\) na forma logarítmica da
+                lei de decaimento,</p>
+<p>\[
+                t=-\frac{1}{\lambda}\ln\left(\frac{N}{N_0}\right).
+                \]</p>
+<p>Como \(N/N_0=0{,}250\),</p>
+<p>\[
+                \begin{aligned}
+                t&amp;=-\frac{1}{1{,}210\times10^{-4}\,\text{ano}^{-1}}\ln(0{,}250)\\
+                &amp;=1{,}15\times10^4\,\text{anos}.
+                \end{aligned}
+                \]</p>
+<p>O resultado corresponde a duas meias-vidas. Em
+                datação real por carbono-14, ainda são necessárias
+                calibração e análise de contaminações; aqui usamos o
+                modelo idealizado.</p>
+<p><strong>Exemplo 2 — determinação de \(\lambda\) para
+                iodo-131.</strong></p>
+<p>Uma amostra de \(\ce{^{131}I}\) contém
+                inicialmente \(N_0=8{,}00\times10^{12}\)
+                núcleos. Após \(16{,}08\,\text{dias}\),
+                restam \(N=2{,}00\times10^{12}\)
+                núcleos. Determine a <strong>constante de decaimento em
+                \(\text{s}^{-1}\)</strong>.</p>
+<p><strong>Solução:</strong> Da lei \(\ln(N/N_0)=-\lambda
+                t\),</p>
+<p>\[
+                \begin{aligned}
+                \lambda&amp;=-\frac{1}{t}\ln\left(\frac{N}{N_0}\right)\\
+                &amp;=-\frac{1}{16{,}08\,(24)(3600)\,\text{s}}\ln\left(\frac{2{,}00}{8{,}00}\right)\\
+                &amp;=9{,}98\times10^{-7}\,\text{s}^{-1}.
+                \end{aligned}
+                \]</p>
+<p>As unidades de \(\lambda\) são o inverso das
+                unidades escolhidas para o tempo. Nesse caso, a fração
+                remanescente é \(1/4\)
+                e \(t=1{,}389\times10^6\,\text{s}\).</p>
+<h1 id="tempos-de-meia-vida-atividade-e-vida-média">Tempos
+                de Meia-Vida, Atividade e Vida Média</h1>
+<p><strong>Meia-vida</strong>, <strong>constante de
+                decaimento</strong>, <strong>vida média</strong> e
+                <strong>atividade</strong> descrevem o mesmo processo
+                sob perspectivas complementares. A meia-vida indica
+                quando a população cai à metade; \(\lambda\) fornece a
+                probabilidade de decaimento por unidade de tempo; a vida
+                média descreve o tempo médio de sobrevivência; e a
+                atividade informa a taxa de transformações no instante
+                considerado.</p>
+<h2 id="meia-vida">Meia-Vida</h2>
+<p>A <strong>meia-vida</strong> \(T_{1/2}\) é o tempo
+                necessário para que \(N\) e \(A\) caiam para metade de
+                seus valores iniciais. Conceitualmente, ela responde a
+                uma pergunta coletiva: depois de quanto tempo esperamos
+                que metade dos núcleos de uma amostra ainda esteja
+                radioativa e a outra metade já tenha decaído?</p>
+<p>Isso não significa que cada núcleo ``vive’’
+                exatamente uma meia-vida. Em uma amostra, alguns núcleos
+                decaem muito cedo, outros sobrevivem por várias
+                meias-vidas. A meia-vida é um marcador prático porque
+                divide a população restante ao meio em intervalos
+                iguais. Depois de uma meia-vida, resta metade; depois de
+                outra meia-vida, resta metade da metade; depois de
+                outra, metade do que ainda restou.</p>
+<p>Fazendo \(N=N_0/2\)
+                em \(N=N_0e^{-\lambda
+                t}\) e substituindo \(t\) por \(T_{1/2}\):</p>
+<p>\[
+                \frac{N_0}{2}=N_0e^{-\lambda T_{1/2}}.
+                \]</p>
+<p>Cancelando \(N_0\):</p>
+<p>\[
+                \frac12=e^{-\lambda T_{1/2}}.
+                \]</p>
+<p>Tomando o logaritmo natural:</p>
+<p>\[
+                \ln\left(\frac12\right)=-\lambda T_{1/2}.
+                \]</p>
+<p>Como \(\ln(1/2)=-\ln2\):</p>
+<p>\[
+                T_{1/2}=\frac{\ln2}{\lambda},
+                \qquad
+                \lambda=\frac{\ln2}{T_{1/2}}.
+                \]</p>
+<p>Após uma meia-vida resta \(1/2\) da amostra; após
+                duas, resta \(1/4\);
+                após três, resta \(1/8\). De modo geral:</p>
+<p>\[
+                N=N_0\left(\frac12\right)^{t/T_{1/2}},
+                \qquad
+                A=A_0\left(\frac12\right)^{t/T_{1/2}}.
+                \]</p>
+<figure>
+<img alt="Curva de decaimento em unidades de meia-vida. A cada intervalo T_{1/2}, resta metade do que havia no início daquele intervalo. Figura autoral." src="images/fig-curva-decaimento.png" style="width:92.0%"/>
+<figcaption aria-hidden="true">Curva de decaimento em
+                unidades de meia-vida. A cada intervalo \(T_{1/2}\), resta metade do
+                que havia no início daquele intervalo. Figura
+                autoral.</figcaption>
+</figure>
+<h2 id="vida-média">Vida Média</h2>
+<p>A <strong>vida média</strong> \(\tau\) tem outro
+                significado. Ela não pergunta quando resta metade da
+                amostra; ela pergunta qual é o tempo médio de
+                sobrevivência dos núcleos se pudéssemos acompanhar
+                muitos núcleos individualmente e registrar o instante de
+                decaimento de cada um.</p>
+<p>Como a distribuição de tempos de decaimento é
+                exponencial, muitos núcleos decaem antes de uma vida
+                média, mas existe uma cauda longa de núcleos que
+                sobrevivem por tempos maiores. Essa cauda puxa a média
+                para cima. Por isso, na lei exponencial, a vida média é
+                maior que a meia-vida. A meia-vida marca o ponto em que
+                restam \(50\%\); a vida
+                média marca o ponto em que resta \(1/e\approx36{,}8\%\) da
+                população inicial.</p>
+<p>Fazendo \(N=N_0/e\)
+                na lei do decaimento:</p>
+<p>\[
+                \frac{N_0}{e}=N_0e^{-\lambda \tau}.
+                \]</p>
+<p>Cancelando \(N_0\):</p>
+<p>\[
+                e^{-1}=e^{-\lambda\tau}.
+                \]</p>
+<p>Portanto,</p>
+<p>\[
+                \tau=\frac{1}{\lambda}.
+                \]</p>
+<p>Combinando as relações:</p>
+<p>\[
+                \lambda=\frac{\ln2}{T_{1/2}}=\frac{1}{\tau},
+                \qquad
+                \tau=\frac{T_{1/2}}{\ln2}.
+                \]</p>
+<p>Como \(1/\ln2\approx1{,}443\), a
+                vida média é maior que a meia-vida:</p>
+<p>\[
+                \tau\approx1{,}443T_{1/2}.
+                \]</p>
+<h2 id="atividade">Atividade</h2>
+<p>Muitas vezes estamos mais interessados na
+                <strong>taxa de decaimento</strong> do que no número
+                total de núcleos. A taxa de decaimento de uma amostra é
+                a <strong>atividade</strong>:</p>
+<p>\[
+                A=-\frac{dN}{dt}=\lambda N.
+                \]</p>
+<p>Como \(N=N_0e^{-\lambda
+                t}\) e \(A_0=\lambda
+                N_0\),</p>
+<p>\[
+                A=A_0e^{-\lambda t}=A_0\left(\frac12\right)^{t/T_{1/2}}.
+                \]</p>
+<p>Portanto, atividade e número de núcleos diminuem com
+                a mesma constante e têm a mesma meia-vida. A unidade SI
+                é o <strong>becquerel</strong>: \(1\,\text{Bq}=1\,\text{decaimento/s}\).
+                A unidade histórica <strong>curie</strong> satisfaz
+                \(1\,\text{Ci}=3{,}70\times10^{10}\,\text{Bq}\).</p>
+<p><strong>Exemplo 3 — iodo-131: atividade após três
+                meias-vidas.</strong></p>
+<p>Uma fonte de \(\ce{^{131}I}\) tem
+                atividade inicial \(A_0=5{,}00\,\text{mCi}\) e
+                meia-vida \(T_{1/2}=8{,}04\,\text{dias}\).
+                Determine a <strong>atividade em mCi</strong> após \(24{,}12\,\text{dias}\).</p>
+<p><strong>Solução:</strong> O intervalo contém três
+                meias-vidas. Logo,</p>
+<p>\[
+                A=(5{,}00\,\text{mCi})\left(\frac12\right)^3=0{,}625\,\text{mCi}.
+                \]</p>
+<p><strong>Exemplo 4 — tecnécio-99m: constante e vida
+                média.</strong></p>
+<p>O \(\ce{^{99m}Tc}\),
+                empregado em exames de medicina nuclear, tem \(T_{1/2}=6{,}01\,\text{h}\).
+                Determine a <strong>constante de decaimento em \(\text{h}^{-1}\)</strong> e
+                a <strong>vida média em horas</strong>.</p>
+<p><strong>Solução:</strong></p>
+<p>\[
+                \lambda=\frac{\ln2}{T_{1/2}}
+                =\frac{\ln2}{6{,}01\,\text{h}}
+                =0{,}115\,\text{h}^{-1},
+                \qquad
+                \tau=\frac{1}{\lambda}=8{,}67\,\text{h}.
+                \]</p>
+<p>A vida média é maior que a meia-vida, como previsto
+                pela relação \(\tau=1{,}443T_{1/2}\).</p>
+<p><strong>Exemplo 5 — césio-137: meia-vida a partir da
+                fração remanescente.</strong></p>
+<p>Uma amostra de \(\ce{^{137}Cs}\) fica com
+                \(12{,}5\%\) de sua
+                atividade inicial após \(90{,}5\,\text{anos}\).
+                Determine a <strong>meia-vida em anos</strong>.</p>
+<p><strong>Solução:</strong> Como \(12{,}5\%=1/8=(1/2)^3\),
+                passaram-se três meias-vidas. Portanto,</p>
+<p>\[
+                T_{1/2}=\frac{90{,}5\,\text{anos}}{3}=30{,}2\,\text{anos}.
+                \]</p>
+<p><strong>Exemplo 6 — flúor-18: atividade inicial a
+                partir de uma medida posterior.</strong></p>
+<p>Uma amostra de \(\ce{^{18}F}\) apresenta
+                atividade de \(125\,\text{MBq}\) após
+                \(219{,}6\,\text{min}\).
+                Sabendo que \(T_{1/2}=109{,}8\,\text{min}\),
+                determine a <strong>atividade inicial em
+                MBq</strong>.</p>
+<p><strong>Solução:</strong> O tempo corresponde a duas
+                meias-vidas; assim, \(A=A_0/4\). Portanto,</p>
+<p>\[
+                A_0=4A=4(125\,\text{MBq})=5{,}00\times10^2\,\text{MBq}.
+                \]</p>
+<h2 id="quantidade-de-núcleos-em-uma-amostra">Quantidade
+                de núcleos em uma amostra</h2>
+<p>Para usar a <strong>lei do decaimento</strong>,
+                precisamos conhecer o <strong>número inicial de
+                núcleos</strong> \(N_0\). A tabela de massas
+                atômicas fornece a massa de cada nuclídeo em
+                <strong>unidade de massa atômica</strong> (u),
+                usualmente com seis casas decimais. Essa precisão
+                permite trabalhar com a massa do isótopo real, sem
+                aproximá-la apenas pelo número de massa. Se \(M_{\text{kg}}\) é a massa
+                macroscópica da amostra, em kg, e \(M_u\) é a massa de
+                <strong>um átomo</strong> do radionuclídeo, também em
+                kg, então</p>
+<p>\[
+                N_0=\frac{M_{\text{kg}}}{M_u}.
+                \]</p>
+<p>A conversão é</p>
+<p>\[
+                1\,\text{u}=1{,}661\times10^{-27}\,\text{kg}.
+                \]</p>
+<p>Assim, se a tabela informa a massa atômica \(M_{\text{tab}}\) em u,
+                substituímos \(M_u=M_{\text{tab}}(1{,}661\times10^{-27}\,\text{kg/u})\)
+                diretamente na razão para formar <strong>uma única
+                cadeia de conversões</strong>. Só arredondamos o
+                resultado final. O número de algarismos significativos
+                do resultado é limitado pela grandeza experimental menos
+                precisa. O expoente é <strong>negativo</strong>: a
+                unidade u representa a escala de massa de um átomo,
+                extremamente menor que 1 kg.</p>
+<p><strong>Exemplo 7 — núcleos de cobalto-60 e
+                meia-vida.</strong></p>
+<p>Uma amostra contém \(36{,}7\,\mu\text{g}\) de
+                \(\ce{^{60}_{27}Co}\).
+                A tabela de massas nucleares informa \(M_{\text{tab}}=59{,}933816\,\text{u}\)
+                para esse nuclídeo. Determine o <strong>número inicial
+                de núcleos</strong> e o <strong>número de núcleos
+                remanescentes</strong> após \(10{,}54\,\text{anos}\),
+                sabendo que \(T_{1/2}=5{,}27\,\text{anos}\).</p>
+<p><strong>Solução:</strong> Montamos uma única cadeia
+                de conversões, sem arredondar os valores
+                intermediários:</p>
+<p>\[
+                \begin{aligned}
+                N_0&amp;=\frac{M_{\text{kg}}}{M_u}\\
+                &amp;=\frac{36{,}7\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
+                {(59{,}933816\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}\\
+                &amp;=3{,}69\times10^{17}\,\text{núcleos}.
+                \end{aligned}
+                \]</p>
+<p>Os dados \(36{,}7\,\mu\text{g}\)
+                possuem <strong>três algarismos significativos</strong>;
+                por isso, o resultado é apresentado com três algarismos
+                significativos. Como \(10{,}54/5{,}27=2{,}00\),
+                transcorreram duas meias-vidas:</p>
+<p>\[
+                \begin{aligned}
+                N&amp;=\frac{36{,}7\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
+                {(59{,}933816\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}
+                \left(\frac12\right)^{10{,}54/5{,}27}\\
+                &amp;=9{,}22\times10^{16}\,\text{núcleos}.
+                \end{aligned}
+                \]</p>
+<p><strong>Exemplo 8 — amostra de carbono-11.</strong>
+                No instante \(t=0\),
+                uma amostra pura de \(\ce{^{11}_{6}C}\) contém
+                \(3{,}50\,\mu\text{g}\)
+                e tem \(T_{1/2}=20{,}4\,\text{min}\).
+                A tabela informa \(M_{\text{tab}}=11{,}011433\,\text{u}\).
+                Determine: a) a <strong>vida média em min</strong>; b) a
+                <strong>constante de decaimento em \(\text{min}^{-1}\)</strong>;
+                c) o <strong>número inicial de núcleos</strong>; d) o
+                <strong>número de núcleos após \(5{,}00\,\text{h}\)</strong>;
+                e) a <strong>atividade inicial em Ci</strong>; e f) a
+                <strong>atividade após \(8{,}00\,\text{h}\) em \(\mu\text{Ci}\)</strong>.</p>
+<p><strong>Solução:</strong> As duas grandezas temporais
+                são</p>
+<p>\[
+                \begin{aligned}
+                \tau&amp;=\frac{20{,}4\,\text{min}}{\ln2}=29{,}4\,\text{min},\\
+                \lambda&amp;=\frac{\ln2}{20{,}4\,\text{min}}=3{,}40\times10^{-2}\,\text{min}^{-1}.
+                \end{aligned}
+                \]</p>
+<p>Para determinar o número inicial, usamos novamente
+                uma única cadeia de conversões:</p>
+<p>\[
+                \begin{aligned}
+                N_0&amp;=\frac{3{,}50\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
+                {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}\\
+                &amp;=1{,}91\times10^{17}\,\text{núcleos}.
+                \end{aligned}
+                \]</p>
+<p>Os valores medidos possuem três algarismos
+                significativos; por isso, todos os resultados finais
+                deste exemplo serão apresentados com três algarismos
+                significativos. Para \(t=5{,}00\,\text{h}\),</p>
+<p>\[
+                \begin{aligned}
+                N&amp;=\frac{3{,}50\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
+                {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}\\
+                &amp;\quad\times
+                e^{-\left(\frac{\ln2}{20{,}4\,\text{min}}\right)
+                \left(5{,}00\,\text{h}\right)\left(\frac{60\,\text{min}}{1\,\text{h}}\right)}\\
+                &amp;=7{,}15\times10^{12}\,\text{núcleos}.
+                \end{aligned}
+                \]</p>
+<p>Para a atividade inicial, convertemos minutos para
+                segundos na própria cadeia:</p>
+<p>\[
+                \begin{aligned}
+                A_0&amp;=\left(\frac{\ln2}{20{,}4\,\text{min}}\right)
+                \left(\frac{1\,\text{min}}{60\,\text{s}}\right)\\
+                &amp;\quad\times\frac{3{,}50\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
+                {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}\\
+                &amp;=1{,}08\times10^{14}\,\text{Bq}\\
+                &amp;=2{,}92\times10^3\,\text{Ci}.
+                \end{aligned}
+                \]</p>
+<p>Após \(8{,}00\,\text{h}=480\,\text{min}\),</p>
+<p>\[
+                \begin{aligned}
+                A&amp;=\left(\frac{\ln2}{20{,}4\,\text{min}}\right)
+                \left(\frac{1\,\text{min}}{60\,\text{s}}\right)
+                \\
+                &amp;\quad\times\frac{3{,}50\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
+                {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}
+                \\
+                &amp;\quad\times
+                e^{-\left(\frac{\ln2}{20{,}4\,\text{min}}\right)(8{,}00\,\text{h})\left(\frac{60\,\text{min}}{1\,\text{h}}\right)}
+                \left(\frac{1\,\text{Ci}}{3{,}70\times10^{10}\,\text{Bq}}\right)\\
+                &amp;=2{,}41\times10^{-4}\,\text{Ci}\\
+                &amp;=241\,\mu\text{Ci}.
+                \end{aligned}
+                \]</p>
+<h2 id="contagem-e-segurança-radiológica">Contagem e
+                segurança radiológica</h2>
+<p><strong>Atividade</strong> é uma propriedade da
+                fonte; <strong>contagem</strong> é a resposta de um
+                detector em uma geometria específica. Em
+                <strong>monitoração de contaminação de
+                superfícies</strong>, <strong>medicina nuclear</strong>,
+                <strong>radiografia industrial</strong> e
+                <strong>controle ambiental</strong>, a taxa medida
+                depende também da <strong>eficiência</strong>, da
+                <strong>distância</strong>, da
+                <strong>blindagem</strong> e da <strong>radiação de
+                fundo</strong>. Assim, uma fonte com atividade conhecida
+                não produz necessariamente a mesma leitura em detectores
+                ou geometrias diferentes.</p>
+<p>A taxa de contagem pode ser expressa em
+                <strong>cps</strong> (<em>counts per second</em>, ou
+                <strong>contagens por segundo</strong>) ou em
+                <strong>cpm</strong> (<em>counts per minute</em>, ou
+                <strong>contagens por minuto</strong>). Como uma taxa é
+                uma razão entre número de contagens e tempo,</p>
+<p>\[
+                1\,\text{cps}=60\,\text{cpm}.
+                \]</p>
+<p>Para comparar a medida com a fonte, primeiro
+                subtraímos o fundo. Se as medidas são feitas pelo mesmo
+                tempo,</p>
+<p>\[
+                C_{\text{líquida}}=C_{\text{bruta}}-C_{\text{fundo}},
+                \qquad
+                A=\frac{C_{\text{líquida}}}{\varepsilon}.
+                \]</p>
+<figure>
+<img alt="Contador Geiger em uma medida de radiação. A leitura do instrumento depende do arranjo experimental, da eficiência e do fundo. Fonte: Kiwiev, Wikimedia Commons, CC0 1.0." src="https://commons.wikimedia.org/wiki/File:Geiger_counter_dosimeter_measuring_radiation_-_This_photo_has_been_released_into_the_public_domain._There_are_no_copyrights_you_can_use_and_modify_this_photo_without_asking,_and_without_attribution.JPG" style="width:68.0%"/>
+<figcaption aria-hidden="true">Contador Geiger em uma
+                medida de radiação. A leitura do instrumento depende do
+                arranjo experimental, da eficiência e do fundo. Fonte:
+                <a href="https://commons.wikimedia.org/wiki/File:Geiger_counter_dosimeter_measuring_radiation_-_This_photo_has_been_released_into_the_public_domain._There_are_no_copyrights_you_can_use_and_modify_this_photo_without_asking,_and_without_attribution.JPG">Kiwiev,
+                Wikimedia Commons, CC0 1.0.</a></figcaption>
+</figure>
+<p>A <strong>segurança radioativa</strong> é organizada
+                pelo princípio <strong>ALARA</strong> (<em>as low as
+                reasonably achievable</em>): manter as exposições tão
+                baixas quanto razoavelmente exequível. Na prática, isso
+                significa minimizar o <strong>tempo</strong> de
+                permanência próximo à fonte, maximizar a
+                <strong>distância</strong>, utilizar a
+                <strong>blindagem</strong> apropriada ao tipo e à
+                energia da radiação e evitar a
+                <strong>contaminação</strong> por meio de procedimentos,
+                sinalização, monitoração e descarte autorizados.
+                Qualquer operação com fontes deve seguir normas
+                institucionais e ser acompanhada pelo responsável pela
+                proteção radiológica.</p>
+<p><strong>Exemplo 9 — atividade e contagem do
+                potássio-40 de uma banana.</strong></p>
+<p>Uma banana média contém aproximadamente \(4{,}50\times10^2\,\text{mg}\)
+                de potássio. A abundância de \(\ce{^{40}K}\) é \(0{,}0117\%\), sua massa
+                atômica tabelada é \(39{,}963998\,\text{u}\) e
+                sua meia-vida é \(1{,}28\times10^9\,\text{anos}\).
+                Em uma medida didática, um detector posicionado em
+                geometria fixa tem eficiência de \(5{,}00\%\) para a radiação
+                considerada e registra um fundo de \(24{,}0\,\text{cpm}\).
+                Estime a <strong>atividade do \(\ce{^{40}K}\) em
+                Bq</strong>, a <strong>contagem líquida em cps e
+                cpm</strong> e a <strong>contagem bruta esperada em
+                cpm</strong>.</p>
+<p><strong>Solução:</strong> A massa de \(\ce{^{40}K}\) é a fração
+                isotópica da massa de potássio. Em uma única cadeia, a
+                atividade é</p>
+<p>\[
+                \begin{aligned}
+                A&amp;=\lambda N_0\\
+                &amp;=\frac{\ln2}
+                {(1{,}28\times10^9\,\text{anos})
+                \left(365{,}25\,\frac{\text{dias}}{\text{ano}}\right)
+                \left(24\,\frac{\text{h}}{\text{dia}}\right)
+                \left(3600\,\frac{\text{s}}{\text{h}}\right)}\\
+                &amp;\quad\times\frac{(4{,}50\times10^2\,\text{mg})
+                \left(\frac{1\,\text{kg}}{10^6\,\text{mg}}\right)(0{,}0117\%
+                )
+                \left(\frac{1}{100}\right)}
+                {(39{,}963998\,\text{u})
+                \left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}\\
+                &amp;=13{,}6\,\text{Bq}.
+                \end{aligned}
+                \]</p>
+<p>Como \(1\,\text{Bq}=1\,\text{decaimento/s}\),
+                a taxa líquida que o detector registra é</p>
+<p>\[
+                \begin{aligned}
+                C_{\text{líquida}}&amp;=\varepsilon A\\
+                &amp;=(0{,}0500)(13{,}6\,\text{cps})\\
+                &amp;=0{,}680\,\text{cps}\\
+                &amp;=40{,}8\,\text{cpm}.
+                \end{aligned}
+                \]</p>
+<p>Finalmente, a taxa bruta inclui o fundo:</p>
+<p>\[
+                C_{\text{bruta}}=C_{\text{líquida}}+C_{\text{fundo}}
+                =40{,}8\,\text{cpm}+24{,}0\,\text{cpm}
+                =64{,}8\,\text{cpm}.
+                \]</p>
+<p>Em um <strong>contador Geiger–Müller</strong>, a
+                radiação que entra no tubo ioniza o gás interno. A
+                descarga produzida gera um pulso elétrico; a eletrônica
+                registra cada pulso como uma contagem. Assim, ao colocar
+                a banana sempre na mesma posição e distância do tubo,
+                esperamos, em média, cerca de \(64{,}8\) pulsos por minuto:
+                aproximadamente \(24{,}0\) pulsos/min do
+                fundo e \(40{,}8\)
+                pulsos/min associados à banana. O contador Geiger não
+                identifica diretamente o radionuclídeo nem mede a
+                energia de cada evento; ele apenas registra os pulsos
+                que alcançam seu volume sensível.</p>
+<p>A eficiência de \(5{,}00\%\) usada no exemplo
+                já incorpora a probabilidade de a radiação emitida pelo
+                \(\ce{^{40}K}\) escapar
+                da banana, atravessar o ar, alcançar o tubo e produzir
+                um pulso registrado. Em uma medida real, as contagens de
+                intervalos sucessivos não serão exatamente \(64{,}8\,\text{cpm}\); elas
+                flutuam estatisticamente. Por isso, mede-se o fundo e a
+                banana durante o mesmo intervalo, preferencialmente por
+                vários minutos, e compara-se a <strong>contagem
+                líquida</strong> com a incerteza estatística
+                apropriada.</p>
+<p>A banana ilustra uma fonte <strong>natural</strong>
+                de radiação de baixa atividade. O resultado de contagem
+                depende do detector e do arranjo; por isso, a atividade
+                da banana não pode ser inferida apenas pela taxa bruta
+                sem considerar <strong>eficiência</strong>,
+                <strong>geometria</strong>, <strong>fundo</strong> e
+                <strong>tempo de medida</strong>.</p>
+<h1 id="conclusão">Conclusão</h1>
+<p>O estudo do <strong>decaimento radioativo</strong>
+                mostra como uma <strong>lei estatística</strong> emerge
+                de eventos microscópicos aleatórios. A hipótese de que a
+                <strong>taxa de decaimento</strong> é proporcional ao
+                número de núcleos restantes leva à <strong>lei
+                exponencial</strong> \(N=N_0e^{-\lambda t}\). Como
+                \(A=\lambda N\), a
+                <strong>atividade</strong> obedece à mesma forma
+                temporal.</p>
+<p>A <strong>meia-vida</strong>, a <strong>vida
+                média</strong> e a <strong>constante de
+                decaimento</strong> são formas equivalentes de descrever
+                a escala de tempo de um radionuclídeo. A
+                <strong>contagem experimental</strong> exige um cuidado
+                adicional: ela depende do detector e deve ser corrigida
+                por <strong>fundo</strong> e <strong>eficiência</strong>
+                antes de ser interpretada como atividade da fonte.</p>
+<p>Essas ferramentas serão necessárias nas próximas
+                aulas, quando estudarmos os mecanismos específicos de
+                decaimento alfa, beta e gama e aplicarmos leis de
+                conservação de carga, número de massa, energia e
+                momento.</p>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<h2 id="questões-conceituais">Questões Conceituais</h2>
+<dl>
+<dt>3.1)</dt>
+<dd>
+                A interpretação correta da lei \(N=N_0e^{-\lambda t}\) é:
+                </dd>
+</dl>
+<ol type="a">
+<li>cada núcleo perde continuamente uma fração de sua
+                massa.</li>
+<li>todo núcleo da amostra decai no instante \(t=T_{1/2}\).</li>
+<li>o instante de decaimento de um núcleo isolado é
+                determinístico.</li>
+<li>a lei descreve o comportamento estatístico de muitos
+                núcleos, e \(\lambda\)
+                é a probabilidade de decaimento por unidade de
+                tempo.</li>
+<li>\(N_0\) é a
+                probabilidade de um núcleo decair.</li>
+</ol>
+<dl>
+<dt>3.2)</dt>
+<dd>
+                A datação por carbono-14 não é, em geral, aplicada
+                diretamente a uma pedra comum porque:
+                </dd>
+</dl>
+<ol type="a">
+<li>o carbono-14 é estável.</li>
+<li>pedras não podem emitir radiação.</li>
+<li>o método exige material que tenha incorporado
+                carbono durante sua existência biológica.</li>
+<li>a meia-vida do carbono-14 é de apenas alguns
+                segundos.</li>
+<li>o carbono-14 só é produzido em aceleradores.</li>
+</ol>
+<dl>
+<dt>3.3)</dt>
+<dd>
+                Em uma lei exponencial de decaimento, a diferença
+                conceitual entre meia-vida e vida média é:
+                </dd>
+</dl>
+<ol type="a">
+<li>a meia-vida é uma média aritmética dos tempos de
+                decaimento individuais.</li>
+<li>a meia-vida indica quando resta metade da população;
+                a vida média é o tempo médio de sobrevivência dos
+                núcleos.</li>
+<li>a vida média indica quando resta metade da
+                população; a meia-vida indica quando resta \(1/e\).</li>
+<li>as duas grandezas são sempre numericamente
+                iguais.</li>
+<li>a vida média só existe para amostras não
+                radioativas.</li>
+</ol>
+<dl>
+<dt>3.4)</dt>
+<dd>
+                A atividade de uma fonte radioativa é diferente da taxa
+                de contagem de um detector porque:
+                </dd>
+</dl>
+<ol type="a">
+<li>a atividade é medida em quilogramas e a contagem em
+                becquerel.</li>
+<li>o detector sempre registra todos os decaimentos da
+                fonte.</li>
+<li>a atividade depende apenas da radiação de
+                fundo.</li>
+<li>a contagem independe da geometria experimental.</li>
+<li>a contagem depende de eficiência, geometria,
+                blindagem e fundo.</li>
+</ol>
+<dl>
+<dt>3.5)</dt>
+<dd>
+                Uma prática coerente com o princípio
+                <strong>ALARA</strong> de segurança radiológica é:
+                </dd>
+</dl>
+<ol type="a">
+<li>reduzir a distância até a fonte para terminar a
+                tarefa mais rapidamente.</li>
+<li>dispensar a medida de fundo quando a fonte tem
+                atividade baixa.</li>
+<li>permanecer o maior tempo possível próximo à fonte
+                para melhorar a precisão da medida.</li>
+<li>reduzir o tempo de exposição, aumentar a distância,
+                usar blindagem apropriada e seguir os procedimentos
+                autorizados.</li>
+<li>considerar que toda fonte radioativa produz o mesmo
+                risco, independentemente do tipo de radiação e da
+                geometria.</li>
+</ol>
+<h2 id="questões-de-cálculo">Questões de Cálculo</h2>
+<p>Use, quando necessário: \(1\,\text{u}=1{,}661\times10^{-27}\,\text{kg}\);
+                \(1\,\text{ano}=365{,}25\,\text{dias}\);
+                \(1\,\text{dia}=24\,\text{h}\);
+                \(1\,\text{h}=3600\,\text{s}\);
+                \(1\,\text{Ci}=3{,}70\times10^{10}\,\text{Bq}\).
+                Mantenha \(\ln2\) nas
+                expressões durante os cálculos e arredonde somente o
+                resultado final. Quando for dada a massa atômica em u,
+                converta-a para \(M_u\)
+                em kg e use \(N_0=M_{\text{kg}}/M_u\).</p>
+<dl>
+<dt>3.6)</dt>
+<dd>
+                A constante de decaimento do \(\ce{^{60}Co}\), em \(\text{ano}^{-1}\), para
+                \(T_{1/2}=5{,}27\,\text{anos}\),
+                é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}2630\,\text{ano}^{-1}\)</li>
+<li>\(0{,}0570\,\text{ano}^{-1}\)</li>
+<li>\(0{,}132\,\text{ano}^{-1}\)</li>
+<li>\(3{,}65\,\text{ano}^{-1}\)</li>
+<li>\(7{,}60\,\text{ano}^{-1}\)</li>
+</ol>
+<dl>
+<dt>3.7)</dt>
+<dd>
+                O \(\ce{^{131}I}\) tem
+                meia-vida de \(8{,}04\,\text{dias}\). Sua
+                vida média é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(5{,}57\,\text{dias}\)</li>
+<li>\(8{,}04\,\text{dias}\)</li>
+<li>\(10{,}0\,\text{dias}\)</li>
+<li>\(11{,}6\,\text{dias}\)</li>
+<li>\(16{,}1\,\text{dias}\)</li>
+</ol>
+<dl>
+<dt>3.8)</dt>
+<dd>
+                Uma amostra de \(\ce{^{99m}Tc}\) tem
+                atividade inicial \(12{,}0\,\text{mCi}\). Após
+                \(18{,}03\,\text{h}\),
+                usando \(T_{1/2}=6{,}01\,\text{h}\),
+                sua atividade será:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(6{,}00\,\text{mCi}\)</li>
+<li>\(3{,}00\,\text{mCi}\)</li>
+<li>\(2{,}25\,\text{mCi}\)</li>
+<li>\(0{,}750\,\text{mCi}\)</li>
+<li>\(1{,}50\,\text{mCi}\)</li>
+</ol>
+<dl>
+<dt>3.9)</dt>
+<dd>
+                Uma fonte de \(\ce{^{137}Cs}\) possui
+                \(25{,}0\%\) da
+                atividade inicial. Usando \(T_{1/2}=30{,}2\,\text{anos}\),
+                o tempo transcorrido é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(15{,}1\,\text{anos}\)</li>
+<li>\(30{,}2\,\text{anos}\)</li>
+<li>\(60{,}4\,\text{anos}\)</li>
+<li>\(90{,}6\,\text{anos}\)</li>
+<li>\(121\,\text{anos}\)</li>
+</ol>
+<dl>
+<dt>3.10)</dt>
+<dd>
+                Um detector mede a contagem líquida de uma fonte: \(800{,}0\,\text{cpm}\) em
+                \(t=0\) e \(200{,}0\,\text{cpm}\) em
+                \(t=20{,}0\,\text{min}\).
+                Admitindo decaimento exponencial, a meia-vida da fonte
+                é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(5{,}0\,\text{min}\)</li>
+<li>\(15{,}0\,\text{min}\)</li>
+<li>\(20{,}0\,\text{min}\)</li>
+<li>\(40{,}0\,\text{min}\)</li>
+<li>\(10{,}0\,\text{min}\)</li>
+</ol>
+<dl>
+<dt>3.11)</dt>
+<dd>
+                Uma amostra contém \(20{,}0\,\mu\text{g}\) de
+                \(\ce{^{60}Co}\).
+                Usando a massa atômica tabelada \(59{,}933816\,\text{u}\) e
+                realizando uma única cadeia de conversões, o número
+                inicial de núcleos é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(2{,}01\times10^{17}\)</li>
+<li>\(2{,}01\times10^{16}\)</li>
+<li>\(5{,}02\times10^{16}\)</li>
+<li>\(1{,}20\times10^{18}\)</li>
+<li>\(3{,}01\times10^{17}\)</li>
+</ol>
+<dl>
+<dt>3.12)</dt>
+<dd>
+                A amostra da questão anterior tem meia-vida de \(5{,}27\,\text{anos}\).
+                Quantos núcleos permanecem após \(15{,}81\,\text{anos}\)?
+                </dd>
+</dl>
+<ol type="a">
+<li>\(5{,}02\times10^{16}\)</li>
+<li>\(2{,}51\times10^{16}\)</li>
+<li>\(1{,}00\times10^{17}\)</li>
+<li>\(1{,}26\times10^{16}\)</li>
+<li>\(6{,}28\times10^{15}\)</li>
+</ol>
+<dl>
+<dt>3.13)</dt>
+<dd>
+                Uma amostra de \(\ce{^{131}I}\) caiu de
+                \(5{,}00\,\text{mCi}\)
+                para \(2{,}10\,\text{mCi}\). Com
+                \(T_{1/2}=8{,}04\,\text{dias}\),
+                o tempo foi:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(10{,}1\,\text{dias}\)</li>
+<li>\(4{,}02\,\text{dias}\)</li>
+<li>\(6{,}00\,\text{dias}\)</li>
+<li>\(8{,}04\,\text{dias}\)</li>
+<li>\(16{,}1\,\text{dias}\)</li>
+</ol>
+<dl>
+<dt>3.14)</dt>
+<dd>
+                Com uma fonte presente, um detector registra \(920{,}0\,\text{cpm}\). Sem
+                a fonte, registra \(80{,}0\,\text{cpm}\). Se a
+                eficiência do arranjo é \(20{,}0\%\), a atividade
+                estimada da fonte é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(14{,}0\,\text{Bq}\)</li>
+<li>\(70{,}0\,\text{Bq}\)</li>
+<li>\(42{,}0\,\text{Bq}\)</li>
+<li>\(84{,}0\,\text{Bq}\)</li>
+<li>\(420\,\text{Bq}\)</li>
+</ol>
+<dl>
+<dt>3.15)</dt>
+<dd>
+                Uma amostra de \(\ce{^{14}C}\) tem massa
+                \(1{,}00\,\mu\text{g}\),
+                massa atômica tabelada \(14{,}003242\,\text{u}\) e
+                vida média \(\tau=8{,}27\times10^3\,\text{anos}\).
+                Determine sua atividade, em Ci.
+                </dd>
+</dl>
+<ol type="a">
+<li>\(4{,}45\times10^{-6}\,\text{Ci}\)</li>
+<li>\(1{,}54\times10^{-6}\,\text{Ci}\)</li>
+<li>\(1{,}65\times10^{5}\,\text{Ci}\)</li>
+<li>\(4{,}45\times10^{-3}\,\text{Ci}\)</li>
+<li>\(1{,}65\times10^{-16}\,\text{Ci}\)</li>
+</ol>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=g_uNeFqOt4w&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=44" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física Nuclear - Parte 1" loading="lazy" src="./images/thumbs/ytb-univesp-fisica-nuclear.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física Nuclear - Parte 1</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=g_uNeFqOt4w&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=44" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP TV</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=g_uNeFqOt4w&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=44" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Esta aula em português contextualiza radioatividade
+                dentro de Física Nuclear e serve como revisão ampla para
+                a sequência da disciplina.</p>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=8LfMAIBMsyg&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=45" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física Nuclear - Parte 2" loading="lazy" src="./images/thumbs/ytb-univesp-fisica-nuclear-2.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física Nuclear - Parte 2</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=8LfMAIBMsyg&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=45" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP TV</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=8LfMAIBMsyg&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=45" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Continuação da aula da UNIVESP, útil para reforçar
+                estabilidade nuclear, transformações e leitura física
+                dos processos nucleares.</p>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física Nuclear - Parte 3" loading="lazy" src="./images/thumbs/ytb-univesp-fisica-nuclear-3.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física Nuclear - Parte 3</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP TV</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Terceira parte da sequência, recomendada para
+                conectar decaimentos com conservação de número de massa,
+                carga e energia.</p>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=BKnmAQJh7TU" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Radioatividade - Meia Vida e Decaimento Radioativo" loading="lazy" src="./images/thumbs/meia-vida-thumb.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Radioatividade - Meia Vida e Decaimento Radioativo</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=BKnmAQJh7TU" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Marcos Aba</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=BKnmAQJh7TU" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Este vídeo é mais voltado a exercícios e ajuda a
+                praticar a leitura de meias-vidas sucessivas em
+                problemas numéricos.</p>
+<h1 id="referências-utilizadas-nesta-aula">Referências
+                Utilizadas Nesta Aula</h1>
+<ul>
+<li>OLIVEIRA, Jefferson Rodrigues de. <em>Aula 05 -
+                Decaimento Radioativo Natural</em>. Material didático da
+                disciplina Física Moderna 2, 2026. Fonte da sequência de
+                conteúdos e da demonstração da lei de decaimento,
+                adaptadas nesta aula.</li>
+<li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <em>Fundamentos de física, volume 4: Óptica e física
+                moderna</em>. Rio de Janeiro: LTC, 2016. Base para a
+                apresentação introdutória de radioatividade, atividade e
+                lei exponencial de decaimento.</li>
+<li>KRANE, K. S. <em>Introductory Nuclear Physics</em>.
+                New York: Wiley, 1988. Referência para os conceitos de
+                constante de decaimento, meia-vida, vida média e
+                atividade.</li>
+<li>LILLEY, J. <em>Nuclear Physics: Principles and
+                Applications</em>. Chichester: Wiley, 2001. Referência
+                para a interpretação física do decaimento e para as
+                aplicações de radioatividade.</li>
+<li>TABELA DE MASSAS NUCLEARES ATUALIZADA. <em>Tabela de
+                isótopos selecionados</em>. Base local em AME2020.
+                Acesso em: 22 ago. 2026. Fonte das massas atômicas
+                tabeladas e das meias-vidas de Co-60, C-11 e K-40
+                empregadas nesta aula.</li>
+<li>INTERNATIONAL ATOMIC ENERGY AGENCY. <em>LiveChart of
+                Nuclides</em>. Viena: IAEA. Disponível em: <a class="uri" href="https://nds.iaea.org/relnsd/vcharthtml/">https://nds.iaea.org/relnsd/vcharthtml/</a>.
+                Acesso em: 20 ago. 2026. Fonte de consulta para
+                propriedades de nuclídeos e dados de decaimento
+                empregados nos exemplos e exercícios (Co-60, I-131, C-14
+                e K-40).</li>
+<li>NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY.
+                <em>Fundamental Physical Constants</em>. Gaithersburg:
+                NIST. Disponível em: <a class="uri" href="https://physics.nist.gov/cuu/Constants/index.html">https://physics.nist.gov/cuu/Constants/index.html</a>.
+                Acesso em: 20 ago. 2026. Fonte para a unidade de massa
+                atômica usada na conversão de massa em número de
+                núcleos.</li>
+<li>KIWIEV. <em>Geiger counter dosimeter measuring
+                radiation</em>. Wikimedia Commons, CC0 1.0. Disponível
+                em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Geiger_counter_dosimeter_measuring_radiation_-_This_photo_has_been_released_into_the_public_domain._There_are_no_copyrights_you_can_use_and_modify_this_photo_without_asking,_and_without_attribution.JPG">https://commons.wikimedia.org/wiki/File:Geiger_counter_dosimeter_measuring_radiation_-_This_photo_has_been_released_into_the_public_domain._There_are_no_copyrights_you_can_use_and_modify_this_photo_without_asking,_and_without_attribution.JPG</a>.
+                Acesso em: 20 ago. 2026. Fonte da Figura 2.</li>
+<li>OLIVEIRA, Jefferson Rodrigues de. <em>Curva de
+                decaimento em unidades de meia-vida</em>. Figura
+                didática autoral, 2026. Figura 3.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+
+                <a href="/disciplinas/aula-2-estrutura-nuclear-interacao-nuclear-e-energia-de-ligacao.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
