@@ -281,7 +281,7 @@
                 <strong>tempo</strong> produz essa fração.</p>
 <h3 id="exemplo-3.1-idade-idealizada-por-carbono-14">Exemplo
                 3.1: Idade idealizada por carbono-14</h3>
-<p>Uma amostra orgânica apresenta \(25{,}0\%\) do número
+<p>Uma amostra orgânica apresenta \(31{,}2\%\) do número
                 inicial de núcleos de \(\ce{^{14}C}\). Sabendo que
                 \(\lambda=1{,}210\times10^{-4}\,\text{ano}^{-1}\),
                 determine o <strong>tempo transcorrido em
@@ -291,15 +291,16 @@
 <p>\[
                 t=-\frac{1}{\lambda}\ln\left(\frac{N}{N_0}\right).
                 \]</p>
-<p>Como \(N/N_0=0{,}250\),</p>
+<p>Como \(N/N_0=0{,}312\),</p>
 <p>\[
                 \begin{aligned}
-                t&amp;=-\frac{1}{1{,}210\times10^{-4}\,\text{ano}^{-1}}\ln(0{,}250)\\
-                &amp;=1{,}15\times10^4\,\text{anos}.
+                t&amp;=-\frac{1}{1{,}210\times10^{-4}\,\text{ano}^{-1}}\ln(0{,}312)\\
+                &amp;=9{,}63\times10^3\,\text{anos}.
                 \end{aligned}
                 \]</p>
-<p>O resultado corresponde a duas meias-vidas. Em
-                datação real por carbono-14, ainda são necessárias
+<p>O intervalo não corresponde a um número inteiro de
+                meias-vidas; por isso, a forma logarítmica é necessária.
+                Em datação real por carbono-14, ainda são necessárias
                 calibração e análise de contaminações; aqui usamos o
                 modelo idealizado.</p>
 <h3 id="exemplo-3.2-determinação-de-lambda-para-iodo-131">Exemplo
@@ -308,7 +309,7 @@
 <p>Uma amostra de \(\ce{^{131}I}\) contém
                 inicialmente \(N_0=8{,}00\times10^{12}\)
                 núcleos. Após \(16{,}08\,\text{dias}\),
-                restam \(N=2{,}00\times10^{12}\)
+                restam \(N=1{,}80\times10^{12}\)
                 núcleos. Determine a <strong>constante de decaimento em
                 \(\text{s}^{-1}\)</strong>.</p>
 <p><strong>Solução:</strong> Da lei \(\ln(N/N_0)=-\lambda
@@ -316,14 +317,15 @@
 <p>\[
                 \begin{aligned}
                 \lambda&amp;=-\frac{1}{t}\ln\left(\frac{N}{N_0}\right)\\
-                &amp;=-\frac{1}{16{,}08\,(24)(3600)\,\text{s}}\ln\left(\frac{2{,}00}{8{,}00}\right)\\
-                &amp;=9{,}98\times10^{-7}\,\text{s}^{-1}.
+                &amp;=-\frac{1}{16{,}08\,(24)(3600)\,\text{s}}\ln\left(\frac{1{,}80}{8{,}00}\right)\\
+                &amp;=1{,}07\times10^{-6}\,\text{s}^{-1}.
                 \end{aligned}
                 \]</p>
 <p>As unidades de \(\lambda\) são o inverso das
                 unidades escolhidas para o tempo. Nesse caso, a fração
-                remanescente é \(1/4\)
-                e \(t=1{,}389\times10^6\,\text{s}\).</p>
+                remanescente é \(0{,}225\) e \(t=1{,}389\times10^6\,\text{s}\);
+                como a fração não é uma potência simples de \(1/2\), não há atalho por
+                meias-vidas inteiras.</p>
 <h1 id="tempos-de-meia-vida-atividade-e-vida-média">Tempos
                 de Meia-Vida, Atividade e Vida Média</h1>
 <p><strong>Meia-vida</strong>, <strong>constante de
@@ -457,16 +459,18 @@
                 é o <strong>becquerel</strong>: \(1\,\text{Bq}=1\,\text{decaimento/s}\).
                 A unidade histórica <strong>curie</strong> satisfaz
                 \(1\,\text{Ci}=3{,}70\times10^{10}\,\text{Bq}\).</p>
-<h3 id="exemplo-3.3-iodo-131-atividade-após-três-meias-vidas">Exemplo
-                3.3: Iodo-131 — atividade após três meias-vidas</h3>
+<h3 id="exemplo-3.3-iodo-131-atividade-após-um-intervalo-qualquer">Exemplo
+                3.3: Iodo-131 — atividade após um intervalo
+                qualquer</h3>
 <p>Uma fonte de \(\ce{^{131}I}\) tem
                 atividade inicial \(A_0=5{,}00\,\text{mCi}\) e
                 meia-vida \(T_{1/2}=8{,}04\,\text{dias}\).
-                Determine a <strong>atividade em mCi</strong> após \(24{,}12\,\text{dias}\).</p>
-<p><strong>Solução:</strong> O intervalo contém três
-                meias-vidas. Logo,</p>
+                Determine a <strong>atividade em mCi</strong> após \(19{,}0\,\text{dias}\).</p>
+<p><strong>Solução:</strong> Como o intervalo não contém
+                um número inteiro de meias-vidas, usamos a forma
+                exponencial:</p>
 <p>\[
-                A=(5{,}00\,\text{mCi})\left(\frac12\right)^3=0{,}625\,\text{mCi}.
+                A=(5{,}00\,\text{mCi})\left(\frac12\right)^{19{,}0/8{,}04}=0{,}972\,\text{mCi}.
                 \]</p>
 <h3 id="exemplo-3.4-tecnécio-99m-constante-e-vida-média">Exemplo
                 3.4: Tecnécio-99m — constante e vida média</h3>
@@ -488,27 +492,29 @@
                 3.5: Césio-137 — meia-vida a partir da fração
                 remanescente</h3>
 <p>Uma amostra de \(\ce{^{137}Cs}\) fica com
-                \(12{,}5\%\) de sua
+                \(14{,}0\%\) de sua
                 atividade inicial após \(90{,}5\,\text{anos}\).
                 Determine a <strong>meia-vida em anos</strong>.</p>
-<p><strong>Solução:</strong> Como \(12{,}5\%=1/8=(1/2)^3\),
-                passaram-se três meias-vidas. Portanto,</p>
+<p><strong>Solução:</strong> A fração \(0{,}140\) não corresponde a
+                uma potência inteira de \(1/2\). Então,</p>
 <p>\[
-                T_{1/2}=\frac{90{,}5\,\text{anos}}{3}=30{,}2\,\text{anos}.
+                T_{1/2}=\frac{(90{,}5\,\text{anos})\ln2}{\ln(1/0{,}140)}=31{,}9\,\text{anos}.
                 \]</p>
 <h3 id="exemplo-3.6-flúor-18-atividade-inicial-a-partir-de-uma-medida-posterior">Exemplo
                 3.6: Flúor-18 — atividade inicial a partir de uma medida
                 posterior</h3>
 <p>Uma amostra de \(\ce{^{18}F}\) apresenta
                 atividade de \(125\,\text{MBq}\) após
-                \(219{,}6\,\text{min}\).
+                \(2{,}00\times10^2\,\text{min}\).
                 Sabendo que \(T_{1/2}=109{,}8\,\text{min}\),
                 determine a <strong>atividade inicial em
                 MBq</strong>.</p>
-<p><strong>Solução:</strong> O tempo corresponde a duas
-                meias-vidas; assim, \(A=A_0/4\). Portanto,</p>
+<p><strong>Solução:</strong> O tempo não corresponde a
+                um número inteiro de meias-vidas. Isolando \(A_0\),</p>
 <p>\[
-                A_0=4A=4(125\,\text{MBq})=5{,}00\times10^2\,\text{MBq}.
+                A_0=A\,2^{t/T_{1/2}}
+                =(125\,\text{MBq})2^{(2{,}00\times10^2)/109{,}8}
+                =442\,\text{MBq}.
                 \]</p>
 <h2 id="quantidade-de-núcleos-em-uma-amostra">Quantidade
                 de núcleos em uma amostra</h2>
@@ -546,7 +552,7 @@
                 A tabela de massas nucleares informa \(M_{\text{tab}}=59{,}933816\,\text{u}\)
                 para esse nuclídeo. Determine o <strong>número inicial
                 de núcleos</strong> e o <strong>número de núcleos
-                remanescentes</strong> após \(10{,}54\,\text{anos}\),
+                remanescentes</strong> após \(12{,}0\,\text{anos}\),
                 sabendo que \(T_{1/2}=5{,}27\,\text{anos}\).</p>
 <p><strong>Solução:</strong> Montamos uma única cadeia
                 de conversões, sem arredondar os valores
@@ -562,14 +568,15 @@
 <p>Os dados \(36{,}7\,\mu\text{g}\)
                 possuem <strong>três algarismos significativos</strong>;
                 por isso, o resultado é apresentado com três algarismos
-                significativos. Como \(10{,}54/5{,}27=2{,}00\),
-                transcorreram duas meias-vidas:</p>
+                significativos. Como \(12{,}0/5{,}27\) não é
+                inteiro, aplicamos a forma exponencial sem substituir a
+                fração por uma potência simples:</p>
 <p>\[
                 \begin{aligned}
                 N&amp;=\frac{36{,}7\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
                 {(59{,}933816\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}
-                \left(\frac12\right)^{10{,}54/5{,}27}\\
-                &amp;=9{,}22\times10^{16}\,\text{núcleos}.
+                \left(\frac12\right)^{12{,}0/5{,}27}\\
+                &amp;=7{,}61\times10^{16}\,\text{núcleos}.
                 \end{aligned}
                 \]</p>
 <h3 id="exemplo-3.8-amostra-de-carbono-11">Exemplo 3.8:
@@ -583,8 +590,9 @@
                 <strong>constante de decaimento em \(\text{min}^{-1}\)</strong>;
                 c) o <strong>número inicial de núcleos</strong>; d) o
                 <strong>número de núcleos após \(5{,}00\,\text{h}\)</strong>;
-                e) a <strong>atividade inicial em Ci</strong>; e f) a
-                <strong>atividade após \(8{,}00\,\text{h}\) em \(\mu\text{Ci}\)</strong>.</p>
+                e) a <strong>atividade inicial em Bq</strong>; e f) a
+                <strong>atividade após \(8{,}00\,\text{h}\) em
+                MBq</strong>.</p>
 <p><strong>Solução:</strong> As duas grandezas temporais
                 são</p>
 <p>\[
@@ -624,8 +632,7 @@
                 \left(\frac{1\,\text{min}}{60\,\text{s}}\right)\\
                 &amp;\quad\times\frac{3{,}50\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
                 {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}\\
-                &amp;=1{,}08\times10^{14}\,\text{Bq}\\
-                &amp;=2{,}92\times10^3\,\text{Ci}.
+                &amp;=1{,}08\times10^{14}\,\text{Bq}.
                 \end{aligned}
                 \]</p>
 <p>Após \(8{,}00\,\text{h}=480\,\text{min}\),</p>
@@ -638,10 +645,9 @@
                 {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}
                 \\
                 &amp;\quad\times
-                e^{-\left(\frac{\ln2}{20{,}4\,\text{min}}\right)(8{,}00\,\text{h})\left(\frac{60\,\text{min}}{1\,\text{h}}\right)}
-                \left(\frac{1\,\text{Ci}}{3{,}70\times10^{10}\,\text{Bq}}\right)\\
-                &amp;=2{,}41\times10^{-4}\,\text{Ci}\\
-                &amp;=241\,\mu\text{Ci}.
+                e^{-\left(\frac{\ln2}{20{,}4\,\text{min}}\right)(8{,}00\,\text{h})\left(\frac{60\,\text{min}}{1\,\text{h}}\right)}\\
+                &amp;=8{,}95\times10^6\,\text{Bq}\\
+                &amp;=8{,}95\,\text{MBq}.
                 \end{aligned}
                 \]</p>
 <h2 id="contagem-e-segurança-radiológica">Contagem e
@@ -976,83 +982,84 @@
 <dl>
 <dt>3.8)</dt>
 <dd>
-                Uma amostra de \(\ce{^{99m}Tc}\) tem
-                atividade inicial \(12{,}0\,\text{mCi}\). Após
-                \(18{,}03\,\text{h}\),
-                usando \(T_{1/2}=6{,}01\,\text{h}\),
-                sua atividade será:
+                Uma amostra de \(\ce{^{99m}Tc}\) contém
+                \(6{,}00\times10^{10}\)
+                núcleos no instante observado. Se sua constante de
+                decaimento é \(3{,}20\times10^{-5}\,\text{s}^{-1}\),
+                sua atividade, em Bq, é:
                 </dd>
 </dl>
 <ol type="a">
-<li>\(6{,}00\,\text{mCi}\)</li>
-<li>\(3{,}00\,\text{mCi}\)</li>
-<li>\(2{,}25\,\text{mCi}\)</li>
-<li>\(0{,}750\,\text{mCi}\)</li>
-<li>\(1{,}50\,\text{mCi}\)</li>
+<li>\(1{,}92\times10^5\,\text{Bq}\)</li>
+<li>\(5{,}33\times10^{14}\,\text{Bq}\)</li>
+<li>\(1{,}92\times10^6\,\text{Bq}\)</li>
+<li>\(6{,}00\times10^{10}\,\text{Bq}\)</li>
+<li>\(5{,}21\times10^{-16}\,\text{Bq}\)</li>
 </ol>
 <dl>
 <dt>3.9)</dt>
 <dd>
-                Uma fonte de \(\ce{^{137}Cs}\) possui
-                \(25{,}0\%\) da
-                atividade inicial. Usando \(T_{1/2}=30{,}2\,\text{anos}\),
-                o tempo transcorrido é:
+                Uma fonte radioativa tem vida média \(\tau=4{,}00\,\text{h}\).
+                Após \(10{,}0\,\text{h}\), a
+                fração de atividade remanescente \(A/A_0\) é aproximadamente:
                 </dd>
 </dl>
 <ol type="a">
-<li>\(15{,}1\,\text{anos}\)</li>
-<li>\(30{,}2\,\text{anos}\)</li>
-<li>\(60{,}4\,\text{anos}\)</li>
-<li>\(90{,}6\,\text{anos}\)</li>
-<li>\(121\,\text{anos}\)</li>
+<li>\(50{,}0\%\)</li>
+<li>\(18{,}9\%\)</li>
+<li>\(8{,}21\%\)</li>
+<li>\(3{,}13\%\)</li>
+<li>\(0{,}674\%\)</li>
 </ol>
 <dl>
 <dt>3.10)</dt>
 <dd>
                 Um detector mede a contagem líquida de uma fonte: \(800{,}0\,\text{cpm}\) em
-                \(t=0\) e \(200{,}0\,\text{cpm}\) em
+                \(t=0\) e \(290{,}0\,\text{cpm}\) em
                 \(t=20{,}0\,\text{min}\).
-                Admitindo decaimento exponencial, a meia-vida da fonte
-                é:
+                Admitindo decaimento exponencial, a meia-vida da fonte é
+                aproximadamente:
                 </dd>
 </dl>
 <ol type="a">
-<li>\(5{,}0\,\text{min}\)</li>
-<li>\(15{,}0\,\text{min}\)</li>
-<li>\(20{,}0\,\text{min}\)</li>
-<li>\(40{,}0\,\text{min}\)</li>
+<li>\(6{,}83\,\text{min}\)</li>
 <li>\(10{,}0\,\text{min}\)</li>
+<li>\(13{,}7\,\text{min}\)</li>
+<li>\(20{,}0\,\text{min}\)</li>
+<li>\(27{,}3\,\text{min}\)</li>
 </ol>
 <dl>
 <dt>3.11)</dt>
 <dd>
-                Uma amostra contém \(20{,}0\,\mu\text{g}\) de
-                \(\ce{^{60}Co}\).
-                Usando a massa atômica tabelada \(59{,}933816\,\text{u}\) e
+                Uma amostra pura contém \(20{,}0\,\mu\text{g}\) de
+                \(\ce{^{40}K}\). Usando
+                a massa atômica tabelada \(39{,}963998\,\text{u}\) e
                 realizando uma única cadeia de conversões, o número
                 inicial de núcleos é aproximadamente:
                 </dd>
 </dl>
 <ol type="a">
-<li>\(2{,}01\times10^{17}\)</li>
-<li>\(2{,}01\times10^{16}\)</li>
-<li>\(5{,}02\times10^{16}\)</li>
-<li>\(1{,}20\times10^{18}\)</li>
 <li>\(3{,}01\times10^{17}\)</li>
+<li>\(3{,}01\times10^{16}\)</li>
+<li>\(1{,}20\times10^{17}\)</li>
+<li>\(5{,}02\times10^{17}\)</li>
+<li>\(7{,}53\times10^{16}\)</li>
 </ol>
 <dl>
 <dt>3.12)</dt>
 <dd>
-                A amostra da questão anterior tem meia-vida de \(5{,}27\,\text{anos}\).
-                Quantos núcleos permanecem após \(15{,}81\,\text{anos}\)?
+                Uma amostra de \(\ce{^{137}Cs}\) contém
+                inicialmente \(1{,}20\times10^{18}\)
+                núcleos. Usando \(T_{1/2}=30{,}2\,\text{anos}\),
+                quantos núcleos já decaíram após \(45{,}0\,\text{anos}\)?
                 </dd>
 </dl>
 <ol type="a">
-<li>\(5{,}02\times10^{16}\)</li>
-<li>\(2{,}51\times10^{16}\)</li>
-<li>\(1{,}00\times10^{17}\)</li>
-<li>\(1{,}26\times10^{16}\)</li>
-<li>\(6{,}28\times10^{15}\)</li>
+<li>\(4{,}27\times10^{17}\)</li>
+<li>\(6{,}00\times10^{17}\)</li>
+<li>\(7{,}73\times10^{17}\)</li>
+<li>\(2{,}14\times10^{17}\)</li>
+<li>\(9{,}18\times10^{17}\)</li>
 </ol>
 <dl>
 <dt>3.13)</dt>
@@ -1090,19 +1097,19 @@
 <dl>
 <dt>3.15)</dt>
 <dd>
-                Uma amostra de \(\ce{^{14}C}\) tem massa
+                Uma amostra de \(\ce{^{60}Co}\) tem massa
                 \(1{,}00\,\mu\text{g}\),
-                massa atômica tabelada \(14{,}003242\,\text{u}\) e
-                vida média \(\tau=8{,}27\times10^3\,\text{anos}\).
+                massa atômica tabelada \(59{,}933816\,\text{u}\) e
+                vida média \(\tau=7{,}60\,\text{anos}\).
                 Determine sua atividade, em Ci.
                 </dd>
 </dl>
 <ol type="a">
-<li>\(4{,}45\times10^{-6}\,\text{Ci}\)</li>
-<li>\(1{,}54\times10^{-6}\,\text{Ci}\)</li>
-<li>\(1{,}65\times10^{5}\,\text{Ci}\)</li>
-<li>\(4{,}45\times10^{-3}\,\text{Ci}\)</li>
-<li>\(1{,}65\times10^{-16}\,\text{Ci}\)</li>
+<li>\(1{,}13\times10^{-3}\,\text{Ci}\)</li>
+<li>\(4{,}19\times10^{-7}\,\text{Ci}\)</li>
+<li>\(1{,}13\times10^{-6}\,\text{Ci}\)</li>
+<li>\(4{,}19\times10^{7}\,\text{Ci}\)</li>
+<li>\(3{,}70\times10^{-3}\,\text{Ci}\)</li>
 </ol>
 <h1 id="recomendações">Recomendações</h1>
 <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">

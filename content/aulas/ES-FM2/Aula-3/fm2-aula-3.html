@@ -712,7 +712,7 @@ de Oliveira
                 id="exemplo-3.1-idade-idealizada-por-carbono-14">Exemplo
                 3.1: Idade idealizada por carbono-14</h3>
                 <p>Uma amostra orgânica apresenta <span
-                class="math inline">\(25{,}0\%\)</span> do número
+                class="math inline">\(31{,}2\%\)</span> do número
                 inicial de núcleos de <span
                 class="math inline">\(\ce{^{14}C}\)</span>. Sabendo que
                 <span
@@ -726,15 +726,16 @@ de Oliveira
                 t=-\frac{1}{\lambda}\ln\left(\frac{N}{N_0}\right).
                 \]</span></p>
                 <p>Como <span
-                class="math inline">\(N/N_0=0{,}250\)</span>,</p>
+                class="math inline">\(N/N_0=0{,}312\)</span>,</p>
                 <p><span class="math display">\[
                 \begin{aligned}
-                t&amp;=-\frac{1}{1{,}210\times10^{-4}\,\text{ano}^{-1}}\ln(0{,}250)\\
-                &amp;=1{,}15\times10^4\,\text{anos}.
+                t&amp;=-\frac{1}{1{,}210\times10^{-4}\,\text{ano}^{-1}}\ln(0{,}312)\\
+                &amp;=9{,}63\times10^3\,\text{anos}.
                 \end{aligned}
                 \]</span></p>
-                <p>O resultado corresponde a duas meias-vidas. Em
-                datação real por carbono-14, ainda são necessárias
+                <p>O intervalo não corresponde a um número inteiro de
+                meias-vidas; por isso, a forma logarítmica é necessária.
+                Em datação real por carbono-14, ainda são necessárias
                 calibração e análise de contaminações; aqui usamos o
                 modelo idealizado.</p>
                 <h3
@@ -749,7 +750,7 @@ de Oliveira
                 núcleos. Após <span
                 class="math inline">\(16{,}08\,\text{dias}\)</span>,
                 restam <span
-                class="math inline">\(N=2{,}00\times10^{12}\)</span>
+                class="math inline">\(N=1{,}80\times10^{12}\)</span>
                 núcleos. Determine a <strong>constante de decaimento em
                 <span
                 class="math inline">\(\text{s}^{-1}\)</span></strong>.</p>
@@ -759,16 +760,19 @@ de Oliveira
                 <p><span class="math display">\[
                 \begin{aligned}
                 \lambda&amp;=-\frac{1}{t}\ln\left(\frac{N}{N_0}\right)\\
-                &amp;=-\frac{1}{16{,}08\,(24)(3600)\,\text{s}}\ln\left(\frac{2{,}00}{8{,}00}\right)\\
-                &amp;=9{,}98\times10^{-7}\,\text{s}^{-1}.
+                &amp;=-\frac{1}{16{,}08\,(24)(3600)\,\text{s}}\ln\left(\frac{1{,}80}{8{,}00}\right)\\
+                &amp;=1{,}07\times10^{-6}\,\text{s}^{-1}.
                 \end{aligned}
                 \]</span></p>
                 <p>As unidades de <span
                 class="math inline">\(\lambda\)</span> são o inverso das
                 unidades escolhidas para o tempo. Nesse caso, a fração
-                remanescente é <span class="math inline">\(1/4\)</span>
-                e <span
-                class="math inline">\(t=1{,}389\times10^6\,\text{s}\)</span>.</p>
+                remanescente é <span
+                class="math inline">\(0{,}225\)</span> e <span
+                class="math inline">\(t=1{,}389\times10^6\,\text{s}\)</span>;
+                como a fração não é uma potência simples de <span
+                class="math inline">\(1/2\)</span>, não há atalho por
+                meias-vidas inteiras.</p>
                 <h1
                 id="tempos-de-meia-vida-atividade-e-vida-média">Tempos
                 de Meia-Vida, Atividade e Vida Média</h1>
@@ -934,8 +938,9 @@ de Oliveira
                 <span
                 class="math inline">\(1\,\text{Ci}=3{,}70\times10^{10}\,\text{Bq}\)</span>.</p>
                 <h3
-                id="exemplo-3.3-iodo-131-atividade-após-três-meias-vidas">Exemplo
-                3.3: Iodo-131 — atividade após três meias-vidas</h3>
+                id="exemplo-3.3-iodo-131-atividade-após-um-intervalo-qualquer">Exemplo
+                3.3: Iodo-131 — atividade após um intervalo
+                qualquer</h3>
                 <p>Uma fonte de <span
                 class="math inline">\(\ce{^{131}I}\)</span> tem
                 atividade inicial <span
@@ -943,11 +948,12 @@ de Oliveira
                 meia-vida <span
                 class="math inline">\(T_{1/2}=8{,}04\,\text{dias}\)</span>.
                 Determine a <strong>atividade em mCi</strong> após <span
-                class="math inline">\(24{,}12\,\text{dias}\)</span>.</p>
-                <p><strong>Solução:</strong> O intervalo contém três
-                meias-vidas. Logo,</p>
+                class="math inline">\(19{,}0\,\text{dias}\)</span>.</p>
+                <p><strong>Solução:</strong> Como o intervalo não contém
+                um número inteiro de meias-vidas, usamos a forma
+                exponencial:</p>
                 <p><span class="math display">\[
-                A=(5{,}00\,\text{mCi})\left(\frac12\right)^3=0{,}625\,\text{mCi}.
+                A=(5{,}00\,\text{mCi})\left(\frac12\right)^{19{,}0/8{,}04}=0{,}972\,\text{mCi}.
                 \]</span></p>
                 <h3
                 id="exemplo-3.4-tecnécio-99m-constante-e-vida-média">Exemplo
@@ -975,15 +981,16 @@ de Oliveira
                 remanescente</h3>
                 <p>Uma amostra de <span
                 class="math inline">\(\ce{^{137}Cs}\)</span> fica com
-                <span class="math inline">\(12{,}5\%\)</span> de sua
+                <span class="math inline">\(14{,}0\%\)</span> de sua
                 atividade inicial após <span
                 class="math inline">\(90{,}5\,\text{anos}\)</span>.
                 Determine a <strong>meia-vida em anos</strong>.</p>
-                <p><strong>Solução:</strong> Como <span
-                class="math inline">\(12{,}5\%=1/8=(1/2)^3\)</span>,
-                passaram-se três meias-vidas. Portanto,</p>
+                <p><strong>Solução:</strong> A fração <span
+                class="math inline">\(0{,}140\)</span> não corresponde a
+                uma potência inteira de <span
+                class="math inline">\(1/2\)</span>. Então,</p>
                 <p><span class="math display">\[
-                T_{1/2}=\frac{90{,}5\,\text{anos}}{3}=30{,}2\,\text{anos}.
+                T_{1/2}=\frac{(90{,}5\,\text{anos})\ln2}{\ln(1/0{,}140)}=31{,}9\,\text{anos}.
                 \]</span></p>
                 <h3
                 id="exemplo-3.6-flúor-18-atividade-inicial-a-partir-de-uma-medida-posterior">Exemplo
@@ -994,16 +1001,18 @@ de Oliveira
                 atividade de <span
                 class="math inline">\(125\,\text{MBq}\)</span> após
                 <span
-                class="math inline">\(219{,}6\,\text{min}\)</span>.
+                class="math inline">\(2{,}00\times10^2\,\text{min}\)</span>.
                 Sabendo que <span
                 class="math inline">\(T_{1/2}=109{,}8\,\text{min}\)</span>,
                 determine a <strong>atividade inicial em
                 MBq</strong>.</p>
-                <p><strong>Solução:</strong> O tempo corresponde a duas
-                meias-vidas; assim, <span
-                class="math inline">\(A=A_0/4\)</span>. Portanto,</p>
+                <p><strong>Solução:</strong> O tempo não corresponde a
+                um número inteiro de meias-vidas. Isolando <span
+                class="math inline">\(A_0\)</span>,</p>
                 <p><span class="math display">\[
-                A_0=4A=4(125\,\text{MBq})=5{,}00\times10^2\,\text{MBq}.
+                A_0=A\,2^{t/T_{1/2}}
+                =(125\,\text{MBq})2^{(2{,}00\times10^2)/109{,}8}
+                =442\,\text{MBq}.
                 \]</span></p>
                 <h2 id="quantidade-de-núcleos-em-uma-amostra">Quantidade
                 de núcleos em uma amostra</h2>
@@ -1050,7 +1059,7 @@ de Oliveira
                 para esse nuclídeo. Determine o <strong>número inicial
                 de núcleos</strong> e o <strong>número de núcleos
                 remanescentes</strong> após <span
-                class="math inline">\(10{,}54\,\text{anos}\)</span>,
+                class="math inline">\(12{,}0\,\text{anos}\)</span>,
                 sabendo que <span
                 class="math inline">\(T_{1/2}=5{,}27\,\text{anos}\)</span>.</p>
                 <p><strong>Solução:</strong> Montamos uma única cadeia
@@ -1069,14 +1078,15 @@ de Oliveira
                 possuem <strong>três algarismos significativos</strong>;
                 por isso, o resultado é apresentado com três algarismos
                 significativos. Como <span
-                class="math inline">\(10{,}54/5{,}27=2{,}00\)</span>,
-                transcorreram duas meias-vidas:</p>
+                class="math inline">\(12{,}0/5{,}27\)</span> não é
+                inteiro, aplicamos a forma exponencial sem substituir a
+                fração por uma potência simples:</p>
                 <p><span class="math display">\[
                 \begin{aligned}
                 N&amp;=\frac{36{,}7\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
                 {(59{,}933816\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}
-                \left(\frac12\right)^{10{,}54/5{,}27}\\
-                &amp;=9{,}22\times10^{16}\,\text{núcleos}.
+                \left(\frac12\right)^{12{,}0/5{,}27}\\
+                &amp;=7{,}61\times10^{16}\,\text{núcleos}.
                 \end{aligned}
                 \]</span></p>
                 <h3 id="exemplo-3.8-amostra-de-carbono-11">Exemplo 3.8:
@@ -1095,10 +1105,10 @@ de Oliveira
                 c) o <strong>número inicial de núcleos</strong>; d) o
                 <strong>número de núcleos após <span
                 class="math inline">\(5{,}00\,\text{h}\)</span></strong>;
-                e) a <strong>atividade inicial em Ci</strong>; e f) a
+                e) a <strong>atividade inicial em Bq</strong>; e f) a
                 <strong>atividade após <span
-                class="math inline">\(8{,}00\,\text{h}\)</span> em <span
-                class="math inline">\(\mu\text{Ci}\)</span></strong>.</p>
+                class="math inline">\(8{,}00\,\text{h}\)</span> em
+                MBq</strong>.</p>
                 <p><strong>Solução:</strong> As duas grandezas temporais
                 são</p>
                 <p><span class="math display">\[
@@ -1139,8 +1149,7 @@ de Oliveira
                 \left(\frac{1\,\text{min}}{60\,\text{s}}\right)\\
                 &amp;\quad\times\frac{3{,}50\,\mu\text{g}\left(\frac{1\,\text{kg}}{10^9\,\mu\text{g}}\right)}
                 {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}\\
-                &amp;=1{,}08\times10^{14}\,\text{Bq}\\
-                &amp;=2{,}92\times10^3\,\text{Ci}.
+                &amp;=1{,}08\times10^{14}\,\text{Bq}.
                 \end{aligned}
                 \]</span></p>
                 <p>Após <span
@@ -1154,10 +1163,9 @@ de Oliveira
                 {(11{,}011433\,\text{u})\left(1{,}661\times10^{-27}\,\frac{\text{kg}}{\text{u}}\right)}
                 \\
                 &amp;\quad\times
-                e^{-\left(\frac{\ln2}{20{,}4\,\text{min}}\right)(8{,}00\,\text{h})\left(\frac{60\,\text{min}}{1\,\text{h}}\right)}
-                \left(\frac{1\,\text{Ci}}{3{,}70\times10^{10}\,\text{Bq}}\right)\\
-                &amp;=2{,}41\times10^{-4}\,\text{Ci}\\
-                &amp;=241\,\mu\text{Ci}.
+                e^{-\left(\frac{\ln2}{20{,}4\,\text{min}}\right)(8{,}00\,\text{h})\left(\frac{60\,\text{min}}{1\,\text{h}}\right)}\\
+                &amp;=8{,}95\times10^6\,\text{Bq}\\
+                &amp;=8{,}95\,\text{MBq}.
                 \end{aligned}
                 \]</span></p>
                 <h2 id="contagem-e-segurança-radiológica">Contagem e
@@ -1540,49 +1548,43 @@ de Oliveira
                 <dt>3.8)</dt>
                 <dd>
                 Uma amostra de <span
-                class="math inline">\(\ce{^{99m}Tc}\)</span> tem
-                atividade inicial <span
-                class="math inline">\(12{,}0\,\text{mCi}\)</span>. Após
-                <span class="math inline">\(18{,}03\,\text{h}\)</span>,
-                usando <span
-                class="math inline">\(T_{1/2}=6{,}01\,\text{h}\)</span>,
-                sua atividade será:
+                class="math inline">\(\ce{^{99m}Tc}\)</span> contém
+                <span class="math inline">\(6{,}00\times10^{10}\)</span>
+                núcleos no instante observado. Se sua constante de
+                decaimento é <span
+                class="math inline">\(3{,}20\times10^{-5}\,\text{s}^{-1}\)</span>,
+                sua atividade, em Bq, é:
                 </dd>
                 </dl>
                 <ol type="a">
                 <li><span
-                class="math inline">\(6{,}00\,\text{mCi}\)</span></li>
+                class="math inline">\(1{,}92\times10^5\,\text{Bq}\)</span></li>
                 <li><span
-                class="math inline">\(3{,}00\,\text{mCi}\)</span></li>
+                class="math inline">\(5{,}33\times10^{14}\,\text{Bq}\)</span></li>
                 <li><span
-                class="math inline">\(2{,}25\,\text{mCi}\)</span></li>
+                class="math inline">\(1{,}92\times10^6\,\text{Bq}\)</span></li>
                 <li><span
-                class="math inline">\(0{,}750\,\text{mCi}\)</span></li>
+                class="math inline">\(6{,}00\times10^{10}\,\text{Bq}\)</span></li>
                 <li><span
-                class="math inline">\(1{,}50\,\text{mCi}\)</span></li>
+                class="math inline">\(5{,}21\times10^{-16}\,\text{Bq}\)</span></li>
                 </ol>
                 <dl>
                 <dt>3.9)</dt>
                 <dd>
-                Uma fonte de <span
-                class="math inline">\(\ce{^{137}Cs}\)</span> possui
-                <span class="math inline">\(25{,}0\%\)</span> da
-                atividade inicial. Usando <span
-                class="math inline">\(T_{1/2}=30{,}2\,\text{anos}\)</span>,
-                o tempo transcorrido é:
+                Uma fonte radioativa tem vida média <span
+                class="math inline">\(\tau=4{,}00\,\text{h}\)</span>.
+                Após <span
+                class="math inline">\(10{,}0\,\text{h}\)</span>, a
+                fração de atividade remanescente <span
+                class="math inline">\(A/A_0\)</span> é aproximadamente:
                 </dd>
                 </dl>
                 <ol type="a">
-                <li><span
-                class="math inline">\(15{,}1\,\text{anos}\)</span></li>
-                <li><span
-                class="math inline">\(30{,}2\,\text{anos}\)</span></li>
-                <li><span
-                class="math inline">\(60{,}4\,\text{anos}\)</span></li>
-                <li><span
-                class="math inline">\(90{,}6\,\text{anos}\)</span></li>
-                <li><span
-                class="math inline">\(121\,\text{anos}\)</span></li>
+                <li><span class="math inline">\(50{,}0\%\)</span></li>
+                <li><span class="math inline">\(18{,}9\%\)</span></li>
+                <li><span class="math inline">\(8{,}21\%\)</span></li>
+                <li><span class="math inline">\(3{,}13\%\)</span></li>
+                <li><span class="math inline">\(0{,}674\%\)</span></li>
                 </ol>
                 <dl>
                 <dt>3.10)</dt>
@@ -1590,69 +1592,73 @@ de Oliveira
                 Um detector mede a contagem líquida de uma fonte: <span
                 class="math inline">\(800{,}0\,\text{cpm}\)</span> em
                 <span class="math inline">\(t=0\)</span> e <span
-                class="math inline">\(200{,}0\,\text{cpm}\)</span> em
+                class="math inline">\(290{,}0\,\text{cpm}\)</span> em
                 <span
                 class="math inline">\(t=20{,}0\,\text{min}\)</span>.
-                Admitindo decaimento exponencial, a meia-vida da fonte
-                é:
+                Admitindo decaimento exponencial, a meia-vida da fonte é
+                aproximadamente:
                 </dd>
                 </dl>
                 <ol type="a">
                 <li><span
-                class="math inline">\(5{,}0\,\text{min}\)</span></li>
+                class="math inline">\(6{,}83\,\text{min}\)</span></li>
                 <li><span
-                class="math inline">\(15{,}0\,\text{min}\)</span></li>
+                class="math inline">\(10{,}0\,\text{min}\)</span></li>
+                <li><span
+                class="math inline">\(13{,}7\,\text{min}\)</span></li>
                 <li><span
                 class="math inline">\(20{,}0\,\text{min}\)</span></li>
                 <li><span
-                class="math inline">\(40{,}0\,\text{min}\)</span></li>
-                <li><span
-                class="math inline">\(10{,}0\,\text{min}\)</span></li>
+                class="math inline">\(27{,}3\,\text{min}\)</span></li>
                 </ol>
                 <dl>
                 <dt>3.11)</dt>
                 <dd>
-                Uma amostra contém <span
+                Uma amostra pura contém <span
                 class="math inline">\(20{,}0\,\mu\text{g}\)</span> de
-                <span class="math inline">\(\ce{^{60}Co}\)</span>.
-                Usando a massa atômica tabelada <span
-                class="math inline">\(59{,}933816\,\text{u}\)</span> e
+                <span class="math inline">\(\ce{^{40}K}\)</span>. Usando
+                a massa atômica tabelada <span
+                class="math inline">\(39{,}963998\,\text{u}\)</span> e
                 realizando uma única cadeia de conversões, o número
                 inicial de núcleos é aproximadamente:
                 </dd>
                 </dl>
                 <ol type="a">
                 <li><span
-                class="math inline">\(2{,}01\times10^{17}\)</span></li>
-                <li><span
-                class="math inline">\(2{,}01\times10^{16}\)</span></li>
-                <li><span
-                class="math inline">\(5{,}02\times10^{16}\)</span></li>
-                <li><span
-                class="math inline">\(1{,}20\times10^{18}\)</span></li>
-                <li><span
                 class="math inline">\(3{,}01\times10^{17}\)</span></li>
+                <li><span
+                class="math inline">\(3{,}01\times10^{16}\)</span></li>
+                <li><span
+                class="math inline">\(1{,}20\times10^{17}\)</span></li>
+                <li><span
+                class="math inline">\(5{,}02\times10^{17}\)</span></li>
+                <li><span
+                class="math inline">\(7{,}53\times10^{16}\)</span></li>
                 </ol>
                 <dl>
                 <dt>3.12)</dt>
                 <dd>
-                A amostra da questão anterior tem meia-vida de <span
-                class="math inline">\(5{,}27\,\text{anos}\)</span>.
-                Quantos núcleos permanecem após <span
-                class="math inline">\(15{,}81\,\text{anos}\)</span>?
+                Uma amostra de <span
+                class="math inline">\(\ce{^{137}Cs}\)</span> contém
+                inicialmente <span
+                class="math inline">\(1{,}20\times10^{18}\)</span>
+                núcleos. Usando <span
+                class="math inline">\(T_{1/2}=30{,}2\,\text{anos}\)</span>,
+                quantos núcleos já decaíram após <span
+                class="math inline">\(45{,}0\,\text{anos}\)</span>?
                 </dd>
                 </dl>
                 <ol type="a">
                 <li><span
-                class="math inline">\(5{,}02\times10^{16}\)</span></li>
+                class="math inline">\(4{,}27\times10^{17}\)</span></li>
                 <li><span
-                class="math inline">\(2{,}51\times10^{16}\)</span></li>
+                class="math inline">\(6{,}00\times10^{17}\)</span></li>
                 <li><span
-                class="math inline">\(1{,}00\times10^{17}\)</span></li>
+                class="math inline">\(7{,}73\times10^{17}\)</span></li>
                 <li><span
-                class="math inline">\(1{,}26\times10^{16}\)</span></li>
+                class="math inline">\(2{,}14\times10^{17}\)</span></li>
                 <li><span
-                class="math inline">\(6{,}28\times10^{15}\)</span></li>
+                class="math inline">\(9{,}18\times10^{17}\)</span></li>
                 </ol>
                 <dl>
                 <dt>3.13)</dt>
@@ -1707,27 +1713,27 @@ de Oliveira
                 <dt>3.15)</dt>
                 <dd>
                 Uma amostra de <span
-                class="math inline">\(\ce{^{14}C}\)</span> tem massa
+                class="math inline">\(\ce{^{60}Co}\)</span> tem massa
                 <span
                 class="math inline">\(1{,}00\,\mu\text{g}\)</span>,
                 massa atômica tabelada <span
-                class="math inline">\(14{,}003242\,\text{u}\)</span> e
+                class="math inline">\(59{,}933816\,\text{u}\)</span> e
                 vida média <span
-                class="math inline">\(\tau=8{,}27\times10^3\,\text{anos}\)</span>.
+                class="math inline">\(\tau=7{,}60\,\text{anos}\)</span>.
                 Determine sua atividade, em Ci.
                 </dd>
                 </dl>
                 <ol type="a">
                 <li><span
-                class="math inline">\(4{,}45\times10^{-6}\,\text{Ci}\)</span></li>
+                class="math inline">\(1{,}13\times10^{-3}\,\text{Ci}\)</span></li>
                 <li><span
-                class="math inline">\(1{,}54\times10^{-6}\,\text{Ci}\)</span></li>
+                class="math inline">\(4{,}19\times10^{-7}\,\text{Ci}\)</span></li>
                 <li><span
-                class="math inline">\(1{,}65\times10^{5}\,\text{Ci}\)</span></li>
+                class="math inline">\(1{,}13\times10^{-6}\,\text{Ci}\)</span></li>
                 <li><span
-                class="math inline">\(4{,}45\times10^{-3}\,\text{Ci}\)</span></li>
+                class="math inline">\(4{,}19\times10^{7}\,\text{Ci}\)</span></li>
                 <li><span
-                class="math inline">\(1{,}65\times10^{-16}\,\text{Ci}\)</span></li>
+                class="math inline">\(3{,}70\times10^{-3}\,\text{Ci}\)</span></li>
                 </ol>
                 <h1 id="recomendações">Recomendações</h1>
                 <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
