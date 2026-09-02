@@ -134,6 +134,11 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1xfHXucL8iVAGBgiV8HChg9nmhE14U8jB/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/1XEH3K8h5T4cCRjORqvtja1NjvLlbpONP/view?usp=drive_link"
         answers_released: false
+      - name: "Inferência bayesiana: como evidências atualizam probabilidades"
+        html: "content/aulas/ES-SI/Aula-2/si-aula-2.html"
+        pdf: 
+        answers_pdf: 
+        answers_released: false
   - disciplina: "Mecânica dos Fluidos"
     aulas:
       - name: "Aula 1 - Introdução à Mecânica dos Fluidos"
