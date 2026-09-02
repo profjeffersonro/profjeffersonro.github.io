@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminários Integrados</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Seminários
+Integrados</h1>
+                                
+                                <h2 class="document-subtitle display-6">Inferência
+bayesiana: como evidências atualizam probabilidades</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, você deverá ser capaz de:</p>
+                <ul>
+                <li><strong>Interpretar</strong> probabilidade
+                condicional como uma mudança do conjunto de
+                referência.</li>
+                <li><strong>Aplicar</strong> o teorema de Bayes em uma
+                tabela de contingência.</li>
+                <li><strong>Distinguir</strong> probabilidade conjunta
+                de probabilidade condicional.</li>
+                <li><strong>Explicar</strong> inferência bayesiana como
+                atualização de crenças à luz de evidências.</li>
+                <li><strong>Comparar</strong> a perspectiva bayesiana
+                com a estatística frequentista.</li>
+                <li><strong>Avaliar</strong> criticamente uma heurística
+                usada sob pressão de tempo.</li>
+                <li><strong>Reconhecer</strong> aplicações em busca
+                marítima, previsão do tempo e estudos climáticos.</li>
+                </ul>
+                <h1 id="problema-de-pesquisa">Problema de Pesquisa</h1>
+                <p>Quando recebemos uma nova informação, devemos manter
+                a mesma probabilidade que atribuíamos antes ou
+                <strong>atualizar nossa avaliação</strong>?</p>
+                <p>Essa pergunta aparece em jogos, diagnósticos,
+                decisões de prova, previsão de chuva e busca de
+                destroços no oceano. A ideia central da aula é:</p>
+                <blockquote>
+                <p>uma evidência não precisa dar certeza para mudar
+                racionalmente o que consideramos mais provável.</p>
+                </blockquote>
+                <h1 id="motivação-o-problema-de-monty-hall">Motivação: o
+                problema de Monty Hall</h1>
+                <p>Imagine um programa com três portas. Atrás de uma há
+                um carro; atrás das outras duas há bodes. Você escolhe
+                uma porta. O apresentador, que sabe onde está o carro,
+                abre uma das duas portas não escolhidas e sempre revela
+                um bode. Então pergunta: <strong>você quer trocar de
+                porta?</strong></p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monty_open_door.svg"
+                style="width:88.0%"
+                alt="Portas do problema de Monty Hall. Fonte: Cepheus/Wikimedia Commons, domínio público." />
+                <figcaption aria-hidden="true">Portas do problema de
+                Monty Hall. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Monty_open_door.svg">Cepheus/Wikimedia
+                Commons</a>, domínio público.</figcaption>
+                </figure>
+                <p>Antes de qualquer porta ser aberta, sua escolha tem
+                probabilidade <span class="math inline">\(1/3\)</span>
+                de conter o carro. As outras duas portas,
+                <strong>juntas</strong>, têm probabilidade <span
+                class="math inline">\(2/3\)</span>.</p>
+                <p>O apresentador não abre uma porta ao acaso. Para que
+                o problema tenha a resposta clássica, três regras são
+                necessárias:</p>
+                <ol type="1">
+                <li>ele sabe onde está o carro;</li>
+                <li>ele sempre abre uma porta que tem um bode;</li>
+                <li>ele sempre oferece a possibilidade de troca.</li>
+                </ol>
+                <p>Portanto, a abertura é uma informação produzida por
+                uma regra. O apresentador elimina deliberadamente uma
+                alternativa errada; ele não redistribui as
+                probabilidades como se o jogo recomeçasse. Assim, os
+                <span class="math inline">\(2/3\)</span> que estavam nas
+                duas portas não escolhidas passam a ficar concentrados
+                na única porta fechada que restou.</p>
+                <p>Comparação das estratégias:</p>
+                <ul>
+                <li><strong>Manter a primeira porta:</strong>
+                probabilidade de ganhar <span
+                class="math inline">\(1/3\)</span>.</li>
+                <li><strong>Trocar de porta:</strong> probabilidade de
+                ganhar <span class="math inline">\(2/3\)</span>.</li>
+                </ul>
+                <p>Portanto, a melhor estratégia é
+                <strong>trocar</strong>. O problema evidencia que a
+                afirmação “agora há duas portas, então é 50% para cada
+                uma” ignora como a informação foi produzida.</p>
+                <h2 id="por-que-trocar-funciona">Por que trocar
+                funciona?</h2>
+                <p>Podemos separar todas as possibilidades em dois
+                grupos:</p>
+                <ul>
+                <li>Você escolhe o carro logo no início: isso ocorre em
+                <span class="math inline">\(1/3\)</span> dos jogos. O
+                apresentador abre um bode e, se você trocar, perde.</li>
+                <li>Você escolhe um bode logo no início: isso ocorre em
+                <span class="math inline">\(2/3\)</span> dos jogos. O
+                apresentador é obrigado a abrir o <strong>outro</strong>
+                bode; a porta restante contém o carro e, se você trocar,
+                ganha.</li>
+                </ul>
+                <p>Logo, trocar vence nos mesmos <span
+                class="math inline">\(2/3\)</span> dos casos em que a
+                primeira escolha estava errada. A probabilidade
+                condicional relevante é: depois de o apresentador,
+                seguindo essas regras, abrir uma porta com bode, qual
+                porta concentra a chance que originalmente estava nas
+                duas portas não escolhidas? A resposta é a porta fechada
+                que restou.</p>
+                <p>O resultado parece contraintuitivo porque é comum
+                perceber apenas “duas portas fechadas” e tratá-las como
+                simétricas. Elas não são: a primeira porta foi escolhida
+                sem informação; a segunda sobreviveu a uma eliminação
+                informada. Uma forma de tornar isso mais visível é
+                imaginar 100 portas. Você escolhe uma (<span
+                class="math inline">\(1/100\)</span>); o apresentador
+                abre 98 portas com bodes e deixa apenas a sua e outra
+                fechadas. A vontade de trocar para a porta que o
+                apresentador preservou fica muito mais evidente: ela
+                concentra <span class="math inline">\(99/100\)</span> da
+                chance inicial.</p>
+                <p>O problema aparece em uma cena de aula do filme
+                <em>Quebrando a Banca</em> (<em>21</em>, 2008), em que o
+                professor Micky Rosa desafia Ben Campbell com as três
+                portas. A cena é uma boa ponte entre cultura popular e
+                raciocínio probabilístico, mas a solução depende das
+                regras acima (IMDB, 2026).</p>
+                <p>As regras do apresentador são indispensáveis. Se ele
+                escolhesse uma porta ao acaso — podendo, inclusive,
+                revelar o carro — a informação observada teria outro
+                significado e a conclusão de <span
+                class="math inline">\(2/3\)</span> para a troca não
+                poderia ser aplicada automaticamente.</p>
+                <h1
+                id="probabilidade-condicional-e-o-teorema-de-bayes">Probabilidade
+                condicional e o Teorema de Bayes</h1>
+                <p>Considere dois eventos <span
+                class="math inline">\(A\)</span> e <span
+                class="math inline">\(B\)</span>. A probabilidade
+                condicional de <span class="math inline">\(A\)</span>
+                dado que <span class="math inline">\(B\)</span> ocorreu
+                é (ROSS, 2014):</p>
+                <p><span class="math display">\[
+                P(A\mid B)=\frac{P(A\cap B)}{P(B)}, \qquad P(B)&gt;0.
+                \]</span></p>
+                <p>Lemos <span class="math inline">\(P(A\mid B)\)</span>
+                como “probabilidade de <span
+                class="math inline">\(A\)</span>, <strong>dado</strong>
+                <span class="math inline">\(B\)</span>”. O termo “dado”
+                muda o universo que estamos observando: deixamos de
+                olhar toda a população e passamos a olhar apenas os
+                casos em que <span class="math inline">\(B\)</span>
+                ocorreu.</p>
+                <p>Como <span class="math inline">\(P(A\cap B)=P(A\mid
+                B)P(B)\)</span> e também <span
+                class="math inline">\(P(A\cap B)=P(B\mid
+                A)P(A)\)</span>, obtemos o teorema de Bayes:</p>
+                <p><span class="math display">\[
+                \boxed{P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}}.
+                \]</span></p>
+                <p>Em palavras:</p>
+                <p><span class="math display">\[
+                \text{posterior} =
+                \frac{\text{verossimilhança}\times\text{prior}}{\text{evidência}}.
+                \]</span></p>
+                <ul>
+                <li><strong>Prior</strong>: o que era plausível antes de
+                observar a nova evidência;</li>
+                <li><strong>verossimilhança</strong>: quão compatível a
+                evidência é com uma hipótese;</li>
+                <li><strong>evidência</strong>: probabilidade total de
+                observar o dado;</li>
+                <li><strong>posterior</strong>: avaliação após
+                considerar o dado.</li>
+                </ul>
+                <h1 id="exemplo-uma-turma-com-40-estudantes">Exemplo:
+                uma turma com 40 estudantes</h1>
+                <p>Considere uma turma de 40 estudantes: 22 homens e 18
+                mulheres. O levantamento observou a distribuição
+                conjunta entre sexo e idade: 9 homens e 6 mulheres têm
+                até 16 anos; 13 homens e 12 mulheres têm mais de 16
+                anos.</p>
+                <p>A tabela abaixo organiza esses dados. Os totais
+                marginais, por si só, não permitiriam determinar essa
+                distribuição entre os grupos; para responder a perguntas
+                condicionais, precisamos da informação conjunta
+                observada. Esse é um ponto crucial: <strong>Bayes não
+                cria informação que não foi observada.</strong></p>
+                <figure>
+                <img src="images/turma-40.png" style="width:96.0%"
+                alt="Tabela visual da turma. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Tabela visual da turma.
+                Fonte: elaboração própria.</figcaption>
+                </figure>
+                <h2 id="duas-perguntas-diferentes">Duas perguntas
+                diferentes</h2>
+                <p>É importante separar as perguntas:</p>
+                <ol type="1">
+                <li><strong>Qual a probabilidade de selecionar, na turma
+                inteira, um homem de até 16 anos?</strong></li>
+                <li><strong>Sabendo que o estudante selecionado tem até
+                16 anos, qual é a probabilidade de ser
+                homem?</strong></li>
+                </ol>
+                <p>A primeira é uma probabilidade
+                <strong>conjunta</strong>:</p>
+                <p><span class="math display">\[
+                P(H\cap {\leq16})=\frac{9}{40}=0{,}225=22{,}5\%.
+                \]</span></p>
+                <p>A segunda é uma probabilidade
+                <strong>condicional</strong>. Intuitivamente, agora só
+                olhamos os 15 estudantes de até 16 anos; 9 deles são
+                homens:</p>
+                <p><span class="math display">\[
+                P(H\mid {\leq16})=\frac{9}{15}=60\%.
+                \]</span></p>
+                <p>Pelo teorema de Bayes, chegamos ao mesmo
+                resultado:</p>
+                <p><span class="math display">\[
+                P(H\mid {\leq16})=
+                \frac{P({\leq16}\mid H)P(H)}{P({\leq16})}
+                =\frac{\left(\frac{9}{22}\right)\left(\frac{22}{40}\right)}{\frac{15}{40}}
+                =\frac{9}{15}.
+                \]</span></p>
+                <p>Agora a pergunta análoga para mulheres com mais de 16
+                anos. Na turma, há 25 estudantes nessa faixa; 12 deles
+                são mulheres.</p>
+                <p>Probabilidade conjunta:</p>
+                <p><span class="math display">\[
+                P(M\cap {&gt;16})=\frac{12}{40}=30\%.
+                \]</span></p>
+                <p>Probabilidade condicional:</p>
+                <p><span class="math display">\[
+                P(M\mid {&gt;16})=\frac{12}{25}=48\%.
+                \]</span></p>
+                <p>Pelo teorema de Bayes:</p>
+                <p><span class="math display">\[
+                P(M\mid {&gt;16})=
+                \frac{P({&gt;16}\mid M)P(M)}{P({&gt;16})}
+                =\frac{\left(\frac{12}{18}\right)\left(\frac{18}{40}\right)}{\frac{25}{40}}
+                =\frac{12}{25}.
+                \]</span></p>
+                <figure>
+                <img src="images/bayes-tree-pt.png" style="width:58.0%"
+                alt="Diagramas em árvore para probabilidades condicionais. Tradução para o português baseada na obra de Gnathan87/Wikimedia Commons, CC0." />
+                <figcaption aria-hidden="true">Diagramas em árvore para
+                probabilidades condicionais. Tradução para o português
+                baseada na obra de Gnathan87/Wikimedia Commons,
+                CC0.</figcaption>
+                </figure>
+                <h1 id="o-que-é-inferência-bayesiana">O que é inferência
+                bayesiana?</h1>
+                <p><strong>Inferência bayesiana</strong> é um modo de
+                raciocinar e modelar incerteza no qual começamos com uma
+                distribuição de probabilidades para hipóteses ou
+                parâmetros, observamos dados e atualizamos essa
+                distribuição pelo teorema de Bayes (GELMAN et al.,
+                2013).</p>
+                <p>Não se trata de “acreditar em qualquer coisa”. O
+                prior deve ser declarado e justificado por conhecimento
+                anterior, dados históricos, especialistas ou uma escolha
+                deliberadamente pouco informativa. A evidência nova pode
+                reforçar, enfraquecer ou alterar muito essa
+                avaliação.</p>
+                <p>O fluxo geral é:</p>
+                <ol type="1">
+                <li>Formular hipóteses e uma crença prévia.</li>
+                <li>Modelar quais dados seriam esperados sob cada
+                hipótese.</li>
+                <li>Observar os dados.</li>
+                <li>Calcular ou aproximar a distribuição posterior.</li>
+                <li>Tomar uma decisão considerando probabilidades e
+                consequências.</li>
+                </ol>
+                <h2
+                id="bayesiano-e-frequentista-diferença-principal">Bayesiano
+                e frequentista: diferença principal</h2>
+                <p>As duas abordagens usam dados, modelos e
+                probabilidade. A diferença central é como interpretam a
+                incerteza sobre um parâmetro desconhecido.</p>
+                <p>Comparação em quatro pontos:</p>
+                <ul>
+                <li><strong>Parâmetro desconhecido:</strong> para a
+                perspectiva bayesiana, pode ser representado por uma
+                distribuição de probabilidade; para a frequentista, é
+                fixo, embora desconhecido.</li>
+                <li><strong>Probabilidade:</strong> para a perspectiva
+                bayesiana, é um grau de incerteza coerente com a
+                informação disponível; para a frequentista, está ligada
+                à frequência relativa em repetições hipotéticas.</li>
+                <li><strong>Informação anterior:</strong> na abordagem
+                bayesiana, pode entrar explicitamente como prior; na
+                frequentista, em geral a inferência é baseada no
+                procedimento amostral e nos dados atuais.</li>
+                <li><strong>Resultado típico:</strong> Bayes produz uma
+                distribuição posterior e intervalo de credibilidade; a
+                abordagem frequentista trabalha com estimativa pontual,
+                intervalo de confiança e teste de hipótese.</li>
+                </ul>
+                <p>Um <strong>intervalo de credibilidade de 95%</strong>
+                pode ser lido, dado o modelo e o prior, como uma faixa
+                que contém o parâmetro com probabilidade posterior de
+                95%. Já um <strong>intervalo de confiança de
+                95%</strong> descreve o desempenho de longo prazo de um
+                procedimento de construção de intervalos; não é, na
+                interpretação frequentista clássica, uma probabilidade
+                sobre o parâmetro fixo (WASSERMAN, 2004).</p>
+                <h1
+                id="relato-pessoal-decisão-sob-pressão-em-uma-prova">Relato
+                pessoal: decisão sob pressão em uma prova</h1>
+                <p>Em uma prova de concurso com 60 questões para
+                resolver em cinco horas, faltavam pouco menos de cinco
+                minutos quando eu terminei a questão 50. Restavam 10
+                questões numéricas, e eu não tinha tempo sequer para ler
+                os enunciados.</p>
+                <p>Nas 50 questões que eu havia respondido, as
+                frequências eram: A = 11, B = 10, C = 5, D = 14 e E =
+                10. Adotei uma <strong>heurística de
+                balanceamento</strong>: como C era a alternativa menos
+                frequente, marquei C nas dez questões restantes. Acertei
+                3 das 10. Esse acerto adicional contribuiu para que eu
+                alcançasse a nota de corte; entre mais de 500
+                candidatos, apenas 12 a atingiram, e eu fui um
+                deles.</p>
+                <figure>
+                <img src="images/atualizacao-prova-ajustada.png"
+                style="width:96.0%"
+                alt="Esquema do raciocínio na prova. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Esquema do raciocínio na
+                prova. Fonte: elaboração própria.</figcaption>
+                </figure>
+                <h2 id="leitura-probabilística-do-relato">Leitura
+                probabilística do relato</h2>
+                <p>Se cada questão tivesse cinco alternativas e não
+                houvesse <strong>nenhuma</strong> informação útil, o
+                modelo de chute seria:</p>
+                <p><span class="math display">\[
+                P(\text{acerto})=\frac{1}{5}=20\%.
+                \]</span></p>
+                <p>Em 10 questões, o número esperado de acertos seria
+                <span class="math inline">\(10\times 0{,}20=2\)</span>.
+                Obter 3 acertos corresponde a 30%, acima desse valor
+                esperado. Mesmo assim, três acertos não são um resultado
+                raríssimo sob o modelo de chute: se <span
+                class="math inline">\(X\sim\operatorname{Binomial}(10,0{,}2)\)</span>,
+                então <span
+                class="math inline">\(P(X=3)\approx20{,}1\%\)</span>.
+                Essa conta ajuda a não confundir “acima do esperado” com
+                “prova de uma estratégia”.</p>
+                <p>Mas é essencial interpretar isso corretamente:</p>
+                <ul>
+                <li>3 acertos em 10 <strong>não provam</strong> que a
+                banca balanceou as alternativas;</li>
+                <li>uma sequência curta varia naturalmente: 3 acertos
+                ainda é compatível com chutes aleatórios;</li>
+                <li>a estratégia só se aproxima de uma decisão bayesiana
+                se a crença sobre balanceamento vier de evidência
+                anterior verificável — por exemplo, análise de muitas
+                provas da mesma banca;</li>
+                <li>o resultado não demonstra causalmente que a
+                heurística produziu a aprovação; ele mostra que, naquela
+                decisão urgente, a estratégia foi útil e o ponto extra
+                teve grande consequência pessoal.</li>
+                </ul>
+                <p>Uma análise bayesiana mais completa compararia
+                hipóteses, por exemplo <span
+                class="math inline">\(B\)</span>: “a banca tende a
+                balancear alternativas” e <span
+                class="math inline">\(\bar B\)</span>: “não há tendência
+                de balanceamento”. Dados históricos de gabaritos
+                atualizariam <span class="math inline">\(P(B)\)</span>
+                para <span class="math inline">\(P(B\mid D)\)</span>.
+                Então a escolha da letra consideraria essa posterior,
+                não apenas uma impressão.</p>
+                <p>O relato evidencia a diferença entre
+                <strong>heurística</strong> e <strong>inferência
+                formal</strong>: uma heurística pode ser útil e prática
+                em uma decisão urgente, mas precisa ser testada antes de
+                ser generalizada.</p>
+                <h1 id="aplicações-da-inferência-bayesiana">Aplicações
+                da inferência bayesiana</h1>
+                <h2 id="busca-bayesiana-no-mar">Busca bayesiana no
+                mar</h2>
+                <p>Em uma busca por destroços no oceano, não é possível
+                varrer todo o mar com o mesmo esforço. A teoria de busca
+                bayesiana combina informações como última posição
+                conhecida, rota, correntes, vento, deriva de objetos e
+                áreas já examinadas (STONE, 1989).</p>
+                <p>O resultado é um mapa de probabilidade: regiões mais
+                prováveis recebem prioridade. Quando uma área é
+                procurada sem resultado, isso não significa
+                necessariamente que o objeto não está ali, pois a busca
+                pode ter detecção imperfeita. A probabilidade é
+                atualizada considerando também a chance de a equipe ter
+                encontrado o objeto caso ele estivesse naquela área.</p>
+                <p>Em termos simplificados, para uma célula de busca
+                <span class="math inline">\(i\)</span>:</p>
+                <p><span class="math display">\[
+                P(i\mid \text{não encontrado}) \propto P(\text{não
+                encontrado}\mid i)P(i).
+                \]</span></p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/MH370_SIO_search.png" style="width:92.0%"
+                alt="Mapa de áreas de busca do voo MH370 no Oceano Índico. Fonte: Andrew Heneen/Wikimedia Commons, CC BY 3.0." />
+                <figcaption aria-hidden="true">Mapa de áreas de busca do
+                voo MH370 no Oceano Índico. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/MH370_SIO_search.png">Andrew
+                Heneen/Wikimedia Commons</a>, CC BY 3.0.</figcaption>
+                </figure>
+                <p>O mapa ilustra por que uma busca é um problema de
+                atualização contínua: novas observações, correntes e
+                áreas já percorridas alteram a distribuição de esforço.
+                O caso do MH370 é aqui uma ilustração de busca complexa,
+                não uma afirmação de que um único modelo bayesiano
+                resolveu o caso.</p>
+                <h2
+                id="tempo-previsão-como-distribuição-não-como-certeza">Tempo:
+                previsão como distribuição, não como certeza</h2>
+                <p>Uma previsão de 70% de chuva não significa “vai
+                chover em 70% da cidade” nem “choverá durante 70% do
+                dia”. Em uma interpretação operacional simplificada, ela
+                expressa uma probabilidade para ocorrência mensurável de
+                chuva em um local/período, condicionada a dados e
+                modelos.</p>
+                <p>Modelos numéricos fornecem previsões a partir de leis
+                físicas; observações de satélite, radar, estações e
+                radiossondas atualizam o estado estimado da atmosfera.
+                Métodos bayesianos podem combinar previsões de conjuntos
+                de modelos e observações, produzindo uma distribuição
+                para temperatura, vento ou precipitação (GNEITING;
+                RAFTERY, 2005).</p>
+                <p>Por exemplo, se o radar não detecta chuva em uma
+                região, a probabilidade de chuva deve ser atualizada. A
+                magnitude dessa atualização depende tanto da previsão
+                inicial quanto da capacidade do radar de detectar
+                chuva.</p>
+                <h2
+                id="mudanças-climáticas-incerteza-quantificada">Mudanças
+                climáticas: incerteza quantificada</h2>
+                <p>Em estudos climáticos, a inferência bayesiana pode
+                combinar observações históricas, conhecimento físico,
+                modelos climáticos e cenários de emissões para estimar
+                parâmetros e intervalos de incerteza. Ela é útil, por
+                exemplo, para projetar extremos de temperatura ou
+                precipitação e para combinar conjuntos de modelos (MET
+                OFFICE, 2020).</p>
+                <figure>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Climate_visualization.jpg"
+                style="width:85.0%"
+                alt="Visualização de CO_2 como traçador em um modelo atmosférico. Fonte: Oak Ridge National Laboratory/Wikimedia Commons, domínio público." />
+                <figcaption aria-hidden="true">Visualização de CO<span
+                class="math inline">\(_2\)</span> como traçador em um
+                modelo atmosférico. Fonte: <a
+                href="https://commons.wikimedia.org/wiki/Special:FilePath/Climate_visualization.jpg">Oak
+                Ridge National Laboratory/Wikimedia Commons</a>, domínio
+                público.</figcaption>
+                </figure>
+                <p>Probabilidade, nesse contexto, não é ausência de
+                ciência. Ela comunica o que sabemos, o que ainda não
+                sabemos e como diferentes evidências modificam
+                projeções. A base física — balanço de energia, dinâmica
+                dos fluidos, química atmosférica — continua
+                essencial.</p>
+                <h1 id="síntese">Síntese</h1>
+                <p>O teorema de Bayes relaciona probabilidades
+                condicionais. A inferência bayesiana transforma essa
+                relação em um método geral: começamos com informação
+                anterior, incorporamos evidências e obtemos uma
+                distribuição posterior.</p>
+                <p>O problema de Monty Hall mostra que informação
+                relevante pode mudar uma decisão. A turma mostra que é
+                necessário conhecer a distribuição conjunta para
+                responder perguntas condicionais. A prova ilustra uma
+                decisão sob pressão, mas também a necessidade de
+                distinguir uma boa história pessoal de uma evidência
+                estatística forte. Nas buscas, no tempo e no clima,
+                Bayes ajuda a distribuir incerteza e recursos de modo
+                explícito.</p>
+                <h1 id="imagens-de-uso-livre">Imagens de Uso Livre</h1>
+                <ul>
+                <li>Portas de Monty Hall, Cepheus, domínio público: <a
+                href="https://commons.wikimedia.org/wiki/File:Monty_open_door.svg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Monty_open_door.svg</a>.</li>
+                <li>Visualização geométrica de Bayes, Cmglee, CC BY-SA
+                3.0: <a
+                href="https://commons.wikimedia.org/wiki/File:Bayes_theorem_visualisation.svg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Bayes_theorem_visualisation.svg</a>.</li>
+                <li>Diagramas em árvore de Bayes, Gnathan87, CC0;
+                tradução para o português baseada no original: <a
+                href="https://commons.wikimedia.org/wiki/File:Bayes_theorem_tree_diagrams.svg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Bayes_theorem_tree_diagrams.svg</a>.</li>
+                <li>Mapa da busca do MH370, Andrew Heneen, CC BY 3.0: <a
+                href="https://commons.wikimedia.org/wiki/File:MH370_SIO_search.png"
+                class="uri">https://commons.wikimedia.org/wiki/File:MH370_SIO_search.png</a>.</li>
+                <li>Visualização climática, Oak Ridge National
+                Laboratory, domínio público: <a
+                href="https://commons.wikimedia.org/wiki/File:Climate_visualization.jpg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Climate_visualization.jpg</a>.</li>
+                <li>Diagramas da turma e da decisão na prova: elaboração
+                própria.</li>
+                </ul>
+                <h1 id="vídeos-recomendados">Vídeos Recomendados</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=HZGCoVF3YvM" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/youtube-bayes-thumb.png" alt="Bayes theorem, the geometry of changing beliefs" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Bayes theorem, the geometry of changing beliefs</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=HZGCoVF3YvM" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">3Blue1Brown / YouTube</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=HZGCoVF3YvM" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>O vídeo do 3Blue1Brown apresenta uma explicação
+                visual e intuitiva do teorema de Bayes. É recomendado
+                após o exemplo da turma, quando os termos prior,
+                evidência e posterior já foram introduzidos.</p>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=-gHUHoqBn-Y" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/youtube-climate-thumb.png" alt="How global warming stacks up" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">How global warming stacks up</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=-gHUHoqBn-Y" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">NASA Science / YouTube</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=-gHUHoqBn-Y" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>O vídeo da NASA ajuda a retomar a diferença entre
+                variabilidade de curto prazo e tendências de longo
+                prazo, preparando a discussão sobre incertezas nas
+                projeções climáticas.</p>
+                <p>Outras indicações:</p>
+                <ul>
+                <li>3Blue1Brown, coleção de probabilidade: <a
+                href="https://www.3blue1brown.com/topics/probability"
+                class="uri">https://www.3blue1brown.com/topics/probability</a>.</li>
+                <li>NOAA Climate.gov, vídeos de clima: <a
+                href="https://www.climate.gov/news-features/videos"
+                class="uri">https://www.climate.gov/news-features/videos</a>.</li>
+                <li>US Coast Guard, material histórico sobre teoria de
+                busca: <a
+                href="https://www.uscg.mil/Resources/Library/Collections/Coast-Guard-History/"
+                class="uri">https://www.uscg.mil/Resources/Library/Collections/Coast-Guard-History/</a>.</li>
+                </ul>
+                <h1 id="questões-de-revisão-e-reflexão">Questões de
+                revisão e reflexão</h1>
+                <ol type="1">
+                <li>Por que trocar de porta no problema de Monty Hall
+                aumenta a probabilidade de ganhar?</li>
+                <li>Qual é a diferença entre <span
+                class="math inline">\(P(H\cap {\leq16})\)</span> e <span
+                class="math inline">\(P(H\mid {\leq16})\)</span>?</li>
+                <li>Por que os totais marginais da turma não bastam para
+                obter a tabela cruzada?</li>
+                <li>O que representam prior, verossimilhança e
+                posterior?</li>
+                <li>Qual é a principal diferença entre intervalo de
+                credibilidade e intervalo de confiança?</li>
+                <li>A estratégia da prova foi inferência bayesiana
+                formal, heurística ou ambos? Justifique.</li>
+                <li>Por que três acertos em dez questões não demonstram,
+                por si só, que a banca balanceia alternativas?</li>
+                <li>Como uma busca sem resultado atualiza um mapa de
+                probabilidades no mar?</li>
+                <li>O que pode significar uma previsão de 70% de
+                chuva?</li>
+                <li>Por que comunicar incerteza é importante em
+                projeções climáticas?</li>
+                </ol>
+                <h1 id="referências">Referências</h1>
+                <p>GELMAN, Andrew et al. <strong>Bayesian data
+                analysis</strong>. 3. ed. Boca Raton: CRC Press,
+                2013.</p>
+                <p>GNEITING, Tilmann; RAFTERY, Adrian E. Weather
+                forecasting with ensemble methods.
+                <strong>Science</strong>, Washington, DC, v. 310,
+                n. 5746, p. 248-249, 2005. DOI:
+                10.1126/science.1115255.</p>
+                <p>MET OFFICE. <strong>UKCP18 factsheet: probabilistic
+                projections</strong>. Exeter, 2020. Disponível em: <a
+                href="https://www.metoffice.gov.uk/research/approach/collaboration/ukcp/index"
+                class="uri">https://www.metoffice.gov.uk/research/approach/collaboration/ukcp/index</a>.
+                Acesso em: 2 set. 2026.</p>
+                <p>ROSS, Sheldon M. <strong>A first course in
+                probability</strong>. 9. ed. Boston: Pearson, 2014.</p>
+                <p>STONE, Lawrence D. <strong>Theory of optimal
+                search</strong>. 2. ed. Arlington: Military Operations
+                Research Society, 1989.</p>
+                <p>WASSERMAN, Larry. <strong>All of statistics: a
+                concise course in statistical inference</strong>. New
+                York: Springer, 2004.</p>
+                <p>WIKIMEDIA COMMONS. <strong>Bayes theorem tree
+                diagrams.svg</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Bayes_theorem_tree_diagrams.svg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Bayes_theorem_tree_diagrams.svg</a>.
+                Acesso em: 2 set. 2026.</p>
+                <p>WIKIMEDIA COMMONS. <strong>Bayes theorem
+                visualisation.svg</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Bayes_theorem_visualisation.svg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Bayes_theorem_visualisation.svg</a>.
+                Acesso em: 2 set. 2026.</p>
+                <p>WIKIMEDIA COMMONS. <strong>Climate
+                visualization.jpg</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Climate_visualization.jpg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Climate_visualization.jpg</a>.
+                Acesso em: 2 set. 2026.</p>
+                <p>WIKIMEDIA COMMONS. <strong>MH370 SIO
+                search.png</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:MH370_SIO_search.png"
+                class="uri">https://commons.wikimedia.org/wiki/File:MH370_SIO_search.png</a>.
+                Acesso em: 2 set. 2026.</p>
+                <p>WIKIMEDIA COMMONS. <strong>Monty open
+                door.svg</strong>. Disponível em: <a
+                href="https://commons.wikimedia.org/wiki/File:Monty_open_door.svg"
+                class="uri">https://commons.wikimedia.org/wiki/File:Monty_open_door.svg</a>.
+                Acesso em: 2 set. 2026.</p>
+                <p>IMDB. <strong>Quebrando a Banca (21):
+                curiosidades</strong>. 2026. Disponível em: <a
+                href="https://www.imdb.com/pt/title/tt0478087/trivia/"
+                class="uri">https://www.imdb.com/pt/title/tt0478087/trivia/</a>.
+                Acesso em: 2 set. 2026.</p>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Problema de Monty
+Hall, probabilidade condicional, teorema de Bayes, inferência bayesiana,
+heurísticas, busca marítima, tempo e mudanças climáticas</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
