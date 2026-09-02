@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4 - Modos de Decaimento Nuclear | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 4 - Modos de Decaimento Nuclear de Física Moderna 2.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-4-modos-de-decaimento-nuclear.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 4 - Modos de Decaimento Nuclear | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 4 - Modos de Decaimento Nuclear de Física Moderna 2.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-4-modos-de-decaimento-nuclear.html">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Física Moderna 2</li>
+                </ol>
+            </nav>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 4 - Modos de Decaimento Nuclear</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Física Moderna 2</p>
+                </div>
+                <div class="card-body">
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1AKtPAPjakS87GktN5-iLRP4_IE5wiHEO/view?usp=drive_link"
+                       class="btn btn-success btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+
+                    <div class="aula-content">
+                        <h1 id="introdução">Introdução</h1>
+<p>Na Aula 3 estudamos <strong>quando</strong> uma
+                população radioativa diminui: meia-vida, atividade e a
+                lei estatística de decaimento descrevem o comportamento
+                de muitos núcleos. Nesta aula, mudamos a pergunta:
+                <strong>como</strong> um núcleo individual se transforma
+                quando ocorre um decaimento? A resposta está nas leis de
+                conservação. Antes de decorar o nome de um processo,
+                verificamos o número de massa \(A\), o número atômico \(Z\) e as partículas
+                envolvidas.</p>
+<p>O número de massa \(A\) conta os núcleons
+                (prótons e nêutrons), enquanto \(Z\) conta os prótons e
+                identifica o elemento químico. Assim, uma mudança em
+                \(Z\) significa que o
+                núcleo-filho é de outro elemento; uma mudança apenas na
+                energia interna não muda a identidade do nuclídeo. Essa
+                leitura simples permite reconhecer e balancear as
+                equações nucleares sem depender de uma lista decorada de
+                isótopos.</p>
+<p>O núcleo-pai pode emitir uma partícula pesada (alfa),
+                transformar nêutron em próton (\(\beta^-\)), transformar
+                próton em nêutron (\(\beta^+\) ou captura
+                eletrônica) ou apenas perder energia interna (gama).
+                Também distinguiremos o evento nuclear de consequências
+                atômicas posteriores: por exemplo, a captura eletrônica
+                pode deixar uma vacância na eletrosfera e produzir raios
+                X característicos ou elétrons Auger; já o pósitron
+                emitido em um \(\beta^+\) pode aniquilar-se
+                com um elétron do meio. Em cadeias longas, esses
+                processos se combinam até que se forme um nuclídeo
+                estável ou de vida muito longa.</p>
+<p>Ao longo da aula, a mesma estratégia será usada em
+                exemplos, diagramas de níveis e exercícios: identificar
+                o processo, conservar \(A\) e \(Z\), interpretar as
+                partículas emitidas e acompanhar o núcleo-filho. O foco
+                é qualitativo e de contabilidade nuclear; cálculos de
+                energia de reações induzidas serão tratados na aula
+                seguinte.</p>
+<h1 id="objetivos">Objetivos</h1>
+<p>Ao final da aula, devemos ser capazes de:</p>
+<ul>
+<li>escrever e balancear equações para \(\alpha\), \(\beta^-\), \(\beta^+\), captura
+                eletrônica e \(\gamma\);</li>
+<li>relacionar cada modo à estabilidade nuclear e à
+                variação de \(A\) e
+                \(Z\);</li>
+<li>explicar o tunelamento no decaimento alfa e o
+                espectro contínuo beta;</li>
+<li>distinguir emissão gama, raios X e aniquilação de
+                pósitrons;</li>
+<li>analisar a contabilidade de uma série
+                radioativa.</li>
+</ul>
+<h1 id="tipos-de-decaimento-e-conservações">Tipos de
+                decaimento e conservações</h1>
+<p>Um nuclídeo é identificado por \(\ce{^A_ZX}\), em que \(A=Z+N\). Em toda
+                transformação nuclear, conservamos o número de núcleons
+                e a carga elétrica. Neutrinos e fótons têm \(A=Z=0\); por isso não
+                alteram a contabilidade nuclear, mas são decisivos para
+                conservar energia, momento e número leptônico.</p>
+<p>Nesta etapa, não calcularemos a energia das
+                transformações. O foco é reconhecer o tipo de
+                decaimento, escrever a equação nuclear e acompanhar as
+                mudanças de \(A\) e
+                \(Z\). A energia de
+                reação será tratada posteriormente, quando estudarmos
+                reações nucleares induzidas.</p>
+<figure>
+<img alt="Comparação qualitativa entre os poderes de penetração de alfa, beta e gama. A energia e o material sempre devem ser especificados numa análise real. Fonte: Stannered, Wikimedia Commons, CC BY-SA 3.0." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Alfa_beta_gamma_radiation.svg" style="width:48.0%"/>
+<figcaption aria-hidden="true">Comparação qualitativa
+                entre os poderes de penetração de alfa, beta e gama. A
+                energia e o material sempre devem ser especificados numa
+                análise real. Fonte: Stannered, Wikimedia Commons, CC
+                BY-SA 3.0.</figcaption>
+</figure>
+<p>Na figura, a folha de papel ilustra por que uma alfa
+                externa é facilmente atenuada, enquanto uma blindagem
+                mais espessa é necessária para fótons gama. A seta beta
+                não deve ser lida como uma regra universal de alcance: a
+                energia da partícula e o material alteram a distância
+                percorrida. A comparação organiza as ideias de ionização
+                e penetração, mas não substitui um projeto real de
+                proteção radiológica.</p>
+<figure>
+<img alt="Mapa de modos de decaimento na carta de nuclídeos. Alfa desloca o núcleo em A e Z; \beta^-, \beta^+ e captura eletrônica deslocam-no em direções distintas. Fonte: MarsRover, Wikimedia Commons, GFDL; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Radioactive_decay_modes.svg" style="width:44.0%"/>
+<figcaption aria-hidden="true">Mapa de modos de
+                decaimento na carta de nuclídeos. Alfa desloca o núcleo
+                em \(A\) e \(Z\); \(\beta^-\), \(\beta^+\) e captura
+                eletrônica deslocam-no em direções distintas. Fonte:
+                MarsRover, Wikimedia Commons, GFDL; ver
+                referências.</figcaption>
+</figure>
+<p>Leia o mapa como uma orientação na carta de
+                nuclídeos: decaimento alfa move o ponto duas colunas
+                para a esquerda e quatro unidades de massa abaixo; \(\beta^-\) leva a uma
+                unidade maior de \(Z\);
+                \(\beta^+\) e captura
+                eletrônica fazem o movimento oposto. A figura resume
+                visualmente as mesmas conservações usadas para balancear
+                as equações.</p>
+<h2 id="neutrinos-e-antineutrinos-nas-transformações-beta">Neutrinos
+                e antineutrinos nas transformações beta</h2>
+<p>Neutrinos são partículas elementares sem carga
+                elétrica e com massa muito pequena, mas não nula.
+                Interagem principalmente pela <strong>interação
+                fraca</strong>; por isso atravessam enormes quantidades
+                de matéria antes de interagir e não são detectados pelos
+                instrumentos usuais de laboratório escolar. O índice
+                \(e\) em \(\nu_e\) e \(\bar{\nu}_e\) identifica a
+                família eletrônica.</p>
+<p>No decaimento \(\beta^-\), ocorre</p>
+<p>\[\ce{n -&gt;
+                p}+\beta^-+\bar{\nu}_e. \]</p>
+<p>O elétron tem número leptônico eletrônico \(+1\); para conservar esse
+                número, o processo emite um <strong>antineutrino
+                eletrônico</strong>, cujo número leptônico é \(-1\). Já em \(\beta^+\) e captura
+                eletrônica, os processos são</p>
+<p>\[
+                \ce{p -&gt; n}+\beta^++\nu_e,
+                \qquad
+                \ce{p + e^- -&gt; n + \nu_e},
+                \]</p>
+<p>e produzem um <strong>neutrino eletrônico</strong>.
+                Além de participar das conservações, o neutrino ou
+                antineutrino transporta momento; sua introdução resolveu
+                a aparente violação de conservação observada nos
+                espectros beta. Em alfa e gama, não há neutrino na
+                equação elementar de emissão, embora outras etapas de
+                uma cadeia possam envolver processos beta.</p>
+<h3 id="exemplo-4.1-qual-partícula-falta">Exemplo 4.1:
+                Qual partícula falta?</h3>
+<p>Complete:</p>
+<p>\[\ce{^{32}_{15}P -&gt;
+                ^{32}_{16}S}+\beta^-+\text{partícula desconhecida}.
+                \]</p>
+<p>Como \(Z\) aumenta
+                de 15 para 16, trata-se de \(\beta^-\). A partícula
+                faltante é o antineutrino eletrônico:</p>
+<p>\[\ce{^{32}_{15}P -&gt;
+                ^{32}_{16}S}+\beta^-+\bar{\nu}_e. \]</p>
+<h2 id="decaimento-alfa">Decaimento alfa</h2>
+<p>No decaimento alfa, o núcleo emite um núcleo de
+                hélio-4:</p>
+<p>\[\ce{^A_ZX -&gt;
+                ^{A-4}_{Z-2}Y + ^4_2He}. \]</p>
+<p>Ele é frequente em núcleos muito pesados. A partícula
+                alfa está ligada ao núcleo, mas a mecânica quântica
+                permite uma probabilidade finita de atravessar a
+                barreira coulombiana por <strong>tunelamento</strong>. A
+                meia-vida resulta dessa probabilidade e da estrutura do
+                núcleo.</p>
+<figure>
+<img alt="Esquema livre de decaimento alfa: uma partícula alfa deixa um núcleo pesado, produzindo um núcleo-filho com dois prótons e dois nêutrons a menos. Fonte: Inductiveload, Wikimedia Commons, domínio público; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Alpha_Decay.svg" style="width:62.0%"/>
+<figcaption aria-hidden="true">Esquema livre de
+                decaimento alfa: uma partícula alfa deixa um núcleo
+                pesado, produzindo um núcleo-filho com dois prótons e
+                dois nêutrons a menos. Fonte: Inductiveload, Wikimedia
+                Commons, domínio público; ver referências.</figcaption>
+</figure>
+<p>Na figura, compare o núcleo antes e depois da
+                emissão: o filho possui dois prótons e dois nêutrons a
+                menos, que formam a partícula alfa. O desenho
+                esquemático não mostra a escala de alcance no ar ou em
+                um material; ele serve para visualizar a conservação de
+                \(A\) e \(Z\) na transformação.</p>
+<h3 id="características-e-situações-do-cotidiano">Características
+                e situações do cotidiano</h3>
+<p>A alfa é uma partícula relativamente pesada, com
+                carga \(+2\). Ela perde
+                energia rapidamente ao atravessar a matéria e, por isso,
+                tem <strong>alto poder de ionização</strong> e
+                <strong>pequeno alcance</strong>: uma folha de papel, a
+                camada externa da pele ou poucos centímetros de ar já
+                reduzem muito sua passagem. Essa descrição não autoriza
+                manuseio de fontes: o risco muda profundamente quando um
+                emissor alfa é inalado ou ingerido, porque a energia é
+                então depositada em um volume muito pequeno de
+                tecido.</p>
+<p>Um exemplo cotidiano relevante é o
+                <strong>radônio</strong>, gás radioativo produzido em
+                etapas das séries do urânio e do tório. Ele pode se
+                acumular em ambientes pouco ventilados, como porões e
+                térreos. Detectores de fumaça por ionização também
+                empregaram historicamente pequenas fontes seladas de
+                amerício-241; qualquer descarte deve seguir as
+                orientações do fabricante e da coleta autorizada, nunca
+                desmontagem doméstica.</p>
+<h3 id="exemplo-4.2-urânio-238">Exemplo 4.2:
+                Urânio-238</h3>
+<p>\[\ce{^{238}_{92}U -&gt;
+                ^{234}_{90}Th + ^4_2He}. \]</p>
+<p>O exemplo mostra a regra de identificação: a emissão
+                de \(\ce{^4_2He}\)
+                reduz \(A\) de 238 para
+                234 e \(Z\) de 92 para
+                90. Portanto, urânio transforma-se em tório. A partícula
+                alfa tem carga \(+2\) e
+                é fortemente ionizante, mas possui alcance pequeno em
+                materiais comuns.</p>
+<h2 id="decaimento-beta-menos">Decaimento beta
+                menos</h2>
+<p>Em um núcleo rico em nêutrons, a interação fraca pode
+                realizar</p>
+<p>\[\ce{n -&gt;
+                p}+\beta^-+\bar{\nu}_e,\qquad
+                \ce{^A_ZX -&gt; ^A_{Z+1}Y}+\beta^-+\bar{\nu}_e.
+                \]</p>
+<p>\(A\) não muda e
+                \(Z\) aumenta uma
+                unidade. O elétron não estava guardado no núcleo: ele é
+                criado no evento, junto com o antineutrino. Como há três
+                corpos no estado final, elétron, antineutrino e núcleo
+                de recuo compartilham momento; experimentalmente,
+                observa-se um espectro beta contínuo.</p>
+<figure>
+<img alt="Esquema livre de decaimento beta menos: um nêutron transforma-se em próton, com emissão de elétron e antineutrino. Fonte: Inductiveload, Wikimedia Commons, domínio público; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Beta-minus_Decay.svg" style="width:62.0%"/>
+<figcaption aria-hidden="true">Esquema livre de
+                decaimento beta menos: um nêutron transforma-se em
+                próton, com emissão de elétron e antineutrino. Fonte:
+                Inductiveload, Wikimedia Commons, domínio público; ver
+                referências.</figcaption>
+</figure>
+<p>O ponto central do esquema é a troca de um nêutron
+                por um próton no núcleo. Por isso, o número de núcleons
+                permanece constante e \(Z\) aumenta uma unidade; o
+                elétron e o antineutrino são criados no evento, não
+                estavam previamente armazenados no núcleo.</p>
+<h3 id="características-e-situações-do-cotidiano-1">Características
+                e situações do cotidiano</h3>
+<p>A radiação \(\beta^-\) é formada por
+                elétrons emitidos pelo núcleo. Ela costuma ter alcance
+                maior que a alfa e menor poder de ionização por unidade
+                de percurso; a blindagem depende da energia, e materiais
+                de baixo número atômico, como acrílico, são
+                frequentemente preferidos antes de blindagens metálicas
+                espessas. O ponto central é que \(A\) se conserva e \(Z\) aumenta em uma
+                unidade.</p>
+<p>O carbono-14, usado na datação de materiais
+                orgânicos, é um exemplo de emissor \(\beta^-\). Outros emissores
+                beta aparecem em medidores industriais de espessura e em
+                radiofármacos terapêuticos. Em todos esses casos,
+                aplicação útil não equivale a exposição livre: fonte,
+                atividade, blindagem, tempo e procedimento determinam o
+                risco.</p>
+<h3 id="exemplo-4.3-carbono-14">Exemplo 4.3:
+                Carbono-14</h3>
+<p>\[\ce{^{14}_{6}C -&gt;
+                ^{14}_{7}N}+\beta^-+\bar{\nu}_e. \]</p>
+<p>O número de massa continua 14 e o número atômico
+                aumenta de 6 para 7. É, portanto, uma transformação de
+                carbono em nitrogênio. Esse tipo de decaimento ajuda
+                núcleos com excesso de nêutrons a se aproximarem da
+                região de estabilidade.</p>
+<h2 id="decaimento-beta-mais">Decaimento beta mais</h2>
+<p>Núcleos ricos em prótons podem reduzir \(Z\) sem alterar \(A\). No beta mais,</p>
+<p>\[\ce{^A_ZX -&gt;
+                ^A_{Z-1}Y}+\beta^++\nu_e.\]</p>
+<p>No nível elementar, \(p\to
+                n+\beta^++\nu_e\). Assim como no \(\beta^-\), a transformação
+                é mediada pela interação fraca. Nesta aula, usaremos a
+                variação de \(A\) e
+                \(Z\) para identificar
+                o processo; o balanço de massas será retomado no estudo
+                de energia de reação.</p>
+<figure>
+<img alt="Esquema livre de decaimento beta mais: um próton transforma-se em nêutron, com emissão de pósitron e neutrino. Fonte: Master-m1000, Wikimedia Commons, domínio público; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Beta-plus_Decay.svg" style="width:62.0%"/>
+<figcaption aria-hidden="true">Esquema livre de
+                decaimento beta mais: um próton transforma-se em
+                nêutron, com emissão de pósitron e neutrino. Fonte:
+                Master-m1000, Wikimedia Commons, domínio público; ver
+                referências.</figcaption>
+</figure>
+<p>O esquema deve ser lido como a conversão de um próton
+                em nêutron: \(A\) não
+                varia e \(Z\) diminui
+                uma unidade. O pósitron e o neutrino aparecem juntos no
+                processo fraco; eles não têm o mesmo papel do fóton
+                gama, que representa uma desexcitação posterior de um
+                núcleo.</p>
+<p>O pósitron encontra um elétron e aniquila-se,
+                produzindo usualmente dois fótons de cerca de \(511\,\text{keV}\) em
+                direções quase opostas. Essa coincidência é a base
+                física da PET, que reconstrói estatisticamente a
+                distribuição do radiofármaco.</p>
+<figure>
+<img alt="Aniquilação elétron-pósitron: elétron e pósitron convergem para o ponto de aniquilação, do qual saem dois fótons gama em direções aproximadamente opostas. Fonte: Maxmath12, Wikimedia Commons, CC0; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Positron_annihilation.svg" style="width:78.0%"/>
+<figcaption aria-hidden="true">Aniquilação
+                elétron-pósitron: elétron e pósitron convergem para o
+                ponto de aniquilação, do qual saem dois fótons gama em
+                direções aproximadamente opostas. Fonte: Maxmath12,
+                Wikimedia Commons, CC0; ver referências.</figcaption>
+</figure>
+<p>O desenho separa duas etapas que não devem ser
+                confundidas: o decaimento \(\beta^+\) produz um
+                pósitron e um neutrino; depois, já no material ao redor,
+                o pósitron encontra um elétron e ocorre a aniquilação.
+                Os fótons não substituem o neutrino na equação nuclear —
+                eles pertencem ao evento posterior de aniquilação.</p>
+<figure>
+<img alt="Equipamento PET em uma instalação clínica. A imagem mostra o anel de detectores e a mesa do paciente; a imagem diagnóstica é reconstruída a partir de muitas coincidências, não fotografada diretamente. Fonte: Jens Maus, Wikimedia Commons, domínio público; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ECAT-Exact-HR--PET-Scanner.jpg" style="width:58.0%"/>
+<figcaption aria-hidden="true">Equipamento PET em uma
+                instalação clínica. A imagem mostra o anel de detectores
+                e a mesa do paciente; a imagem diagnóstica é
+                reconstruída a partir de muitas coincidências, não
+                fotografada diretamente. Fonte: Jens Maus, Wikimedia
+                Commons, domínio público; ver referências.</figcaption>
+</figure>
+<p>O anel ao redor do paciente contém detectores
+                distribuídos em muitas direções. Quando dois detectores
+                opostos registram fótons quase simultaneamente, o
+                sistema associa o par a uma linha de resposta; muitas
+                linhas, obtidas ao longo do exame, permitem reconstruir
+                a distribuição do radiofármaco.</p>
+<p>Na PET, radiofármacos marcados com emissores de
+                pósitron, como o flúor-18, acompanham processos
+                fisiológicos — por exemplo, a captação de uma molécula
+                análoga à glicose. Os detectores registram pares de
+                fótons em coincidência e o computador reconstrói linhas
+                de resposta. O exame informa distribuição funcional do
+                traçador; não mede diretamente uma “foto da
+                radiação”.</p>
+<h3 id="exemplo-4.4-carbono-11">Exemplo 4.4:
+                Carbono-11</h3>
+<p>\[\ce{^{11}_{6}C -&gt;
+                ^{11}_{5}B}+\beta^++\nu_e. \]</p>
+<p>O número de massa se mantém igual a 11, enquanto
+                \(Z\) diminui de 6 para
+                5. O pósitron emitido pode aniquilar-se com um elétron
+                do meio; os dois fótons produzidos quase em direções
+                opostas são a assinatura aproveitada em exames PET.</p>
+<h2 id="captura-eletrônica">Captura eletrônica</h2>
+<p>Na captura eletrônica, um elétron orbital é
+                absorvido:</p>
+<p>\[\ce{^A_ZX + e^- -&gt;
+                ^A_{Z-1}Y + \nu_e}. \]</p>
+<p>Assim como no \(\beta^+\), \(A\) permanece constante e
+                \(Z\) diminui uma
+                unidade. A diferença experimental é decisiva: não há
+                pósitron para aniquilar; em vez disso, a vacância
+                eletrônica criada pela captura pode produzir raios X
+                característicos ou elétrons Auger. Um exemplo natural é
+                o berílio-7; o iodo-125 é empregado, sob controle
+                especializado, em aplicações médicas.</p>
+<p>Na captura eletrônica, a vacância costuma surgir em
+                uma camada interna. Um elétron de uma camada mais
+                externa ocupa essa vaga. A diferença entre os níveis
+                pode sair como um <strong>raio X
+                característico</strong>, cujo valor depende do elemento
+                químico, ou ser transferida a outro elétron ligado.
+                Neste segundo caso, o elétron recebe energia suficiente
+                para deixar o átomo: é o <strong>elétron Auger</strong>.
+                A emissão Auger não é uma nova transformação nuclear; é
+                uma consequência do rearranjo eletrônico que se segue à
+                captura.</p>
+<figure>
+<img alt="Após a captura eletrônica, uma vacância em camada interna pode ser preenchida com emissão de fóton X ou com transferência de energia a outro elétron, que sai como elétron Auger. Fonte: Pamputt, Wikimedia Commons, CC BY-SA 4.0; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Atomic_rearrangement_following_an_electron_capture.svg" style="width:55.0%"/>
+<figcaption aria-hidden="true">Após a captura
+                eletrônica, uma vacância em camada interna pode ser
+                preenchida com emissão de fóton X ou com transferência
+                de energia a outro elétron, que sai como elétron Auger.
+                Fonte: Pamputt, Wikimedia Commons, CC BY-SA 4.0; ver
+                referências.</figcaption>
+</figure>
+<p>As duas possibilidades desenhadas partem da mesma
+                vacância: a transição pode liberar um fóton X, ou sua
+                energia pode ser entregue a outro elétron, que é ejetado
+                como Auger. Ambas acontecem na eletrosfera após a
+                captura; não mudam novamente \(A\) ou \(Z\) do núcleo já
+                transformado.</p>
+<p>Como raios X e elétrons Auger têm alcance curto em
+                matéria, emissores por captura eletrônica podem
+                depositar energia muito localmente quando incorporados a
+                um material. Essa característica é explorada em
+                contextos controlados de medicina nuclear e análise de
+                materiais; não é uma justificativa para exposição fora
+                de procedimentos autorizados.</p>
+<h3 id="exemplo-4.5-captura-eletrônica-do-berílio-7">Exemplo
+                4.5: Captura eletrônica do berílio-7</h3>
+<p>Complete a equação:</p>
+<p>\[\ce{^{7}_{4}Be + e^-
+                -&gt; X + \nu_e}. \]</p>
+<p>Na captura eletrônica, \(A\) não muda e \(Z\) diminui uma unidade.
+                Portanto,</p>
+<p>\[A_X=7,\qquad
+                Z_X=4-1=3,\]</p>
+<p>e o núcleo-filho é \(\ce{^{7}_{3}Li}\). A
+                vacância deixada na eletrosfera do berílio é a origem
+                possível de raios X característicos ou elétrons
+                Auger.</p>
+<h2 id="emissão-gama">Emissão gama</h2>
+<p>Um núcleo filho pode nascer excitado. A emissão gama
+                é sua desexcitação:</p>
+<p>\[\ce{^A_ZX^* -&gt; ^A_ZX
+                + \gamma}. \]</p>
+<p>Nem \(A\) nem \(Z\) mudam: muda somente o
+                estado interno do núcleo. Raios X e raios gama são
+                fótons; a distinção usual é a origem — transição
+                eletrônica para X, transição nuclear para gama.</p>
+<h3 id="diagramas-de-decaimento-e-leitura-de-níveis">Diagramas
+                de decaimento e leitura de níveis</h3>
+<p>Um <strong>diagrama de decaimento</strong> não
+                representa a posição espacial dos núcleos: a altura de
+                cada linha horizontal representa um nível de energia.
+                Setas inclinadas ou verticais mostram transições; uma
+                transição beta pode alimentar um estado excitado do
+                núcleo-filho e uma transição gama posterior o leva a um
+                nível mais baixo. Por isso, o mesmo processo pode exibir
+                uma partícula beta e, em seguida, fótons gama.</p>
+<figure>
+<img alt="Diagrama de decaimento do césio-137. As ramificações \beta alimentam estados do bário-137; a seta ondulada representa a transição gama do estado metaestável para o fundamental. Figura didática local, reutilizada das notas anteriores." src="images/diag-cesio-137.png" style="width:76.0%"/>
+<figcaption aria-hidden="true">Diagrama de decaimento do
+                césio-137. As ramificações \(\beta\) alimentam estados
+                do bário-137; a seta ondulada representa a transição
+                gama do estado metaestável para o fundamental. Figura
+                didática local, reutilizada das notas
+                anteriores.</figcaption>
+</figure>
+<p>No césio-137, acompanhe primeiro a seta beta até o
+                bário-137 metaestável e só então a seta gama até o nível
+                fundamental. Essa sequência mostra que a mudança de
+                elemento ocorre no beta; o gama subsequente apenas
+                remove energia do núcleo de bário já formado.</p>
+<p>Os três diagramas seguintes permitem praticar a mesma
+                leitura em situações diferentes. Observe que os números
+                junto às setas podem indicar energia, intensidade de uma
+                ramificação ou energia máxima de uma partícula beta. Não
+                é necessário memorizar esses valores: o essencial é
+                seguir o estado inicial, a seta e o nível final.</p>
+<figure>
+<img alt="Esquema de decaimento do sódio-22. As duas setas que saem de \ce{^{22}Na} alimentam o neônio-22, por \beta^+ ou captura eletrônica (\varepsilon); parte da população chega a um estado excitado, que se desexcita por gama de aproximadamente 1275\,\text{keV}. Fonte: Wikimedia Commons, CC0; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Na-22_decay_scheme.svg" style="width:86.0%"/>
+<figcaption aria-hidden="true">Esquema de decaimento do
+                sódio-22. As duas setas que saem de \(\ce{^{22}Na}\) alimentam o
+                neônio-22, por \(\beta^+\) ou captura
+                eletrônica (\(\varepsilon\)); parte da
+                população chega a um estado excitado, que se desexcita
+                por gama de aproximadamente \(1275\,\text{keV}\). Fonte:
+                Wikimedia Commons, CC0; ver referências.</figcaption>
+</figure>
+<p>No \(\ce{^{22}Na}\),
+                as setas inclinadas mudam o elemento de sódio para
+                neônio, pois representam \(\beta^+\) ou captura
+                eletrônica. A seta vertical dentro do neônio não muda
+                \(A\) nem \(Z\): ela é uma desexcitação
+                gama. Esse é um bom exemplo de que um mesmo nuclídeo
+                pode ter mais de uma ramificação e de que uma transição
+                gama pode ocorrer depois de uma transformação beta.</p>
+<figure>
+<img alt="Esquema do gerador molibdênio-99/tecnécio-99m. O molibdênio-99 produz tecnécio-99m por decaimento beta; o estado metaestável do tecnécio se desexcita por gama para tecnécio-99. Fonte: Yuri Tungsten, Wikimedia Commons, CC BY-SA 4.0; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Esquema_do_decaimento_do_Mo-99_para_o_Tc-99m.svg" style="width:88.0%"/>
+<figcaption aria-hidden="true">Esquema do gerador
+                molibdênio-99/tecnécio-99m. O molibdênio-99 produz
+                tecnécio-99m por decaimento beta; o estado metaestável
+                do tecnécio se desexcita por gama para tecnécio-99.
+                Fonte: Yuri Tungsten, Wikimedia Commons, CC BY-SA 4.0;
+                ver referências.</figcaption>
+</figure>
+<p>O esquema apresenta duas transformações distintas: na
+                primeira seta, o molibdênio-99 sofre \(\beta^-\) e forma
+                tecnécio-99m, portanto \(Z\) passa de 42 para 43; na
+                segunda, o tecnécio-99m emite gama e continua sendo
+                tecnécio-99. A meia-vida de cerca de seis horas indicada
+                para o estado metaestável explica por que esse nuclídeo
+                é importante em medicina nuclear e reforça que a
+                desexcitação gama não altera a contagem de núcleons.</p>
+<figure>
+<img alt="Esquema simplificado de decaimento do iodo-131. As ramificações \beta^- alimentam níveis excitados do xenônio-131, seguidos por setas gama. Fonte: Wikimedia Commons, domínio público; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Iodine-131-decay-scheme-simplified.svg" style="width:86.0%"/>
+<figcaption aria-hidden="true">Esquema simplificado de
+                decaimento do iodo-131. As ramificações \(\beta^-\) alimentam níveis
+                excitados do xenônio-131, seguidos por setas gama.
+                Fonte: Wikimedia Commons, domínio público; ver
+                referências.</figcaption>
+</figure>
+<p>No \(\ce{^{131}I}\),
+                a passagem de iodo (\(Z=53\)) para xenônio (\(Z=54\)) identifica o \(\beta^-\). As setas gama
+                desenhadas entre os níveis do xenônio mostram a
+                desexcitação posterior. Assim, o diagrama separa
+                claramente dois eventos: a transformação nuclear beta,
+                que muda \(Z\), e a
+                emissão gama, que apenas reduz a energia do
+                núcleo-filho.</p>
+<p>Para um fóton, o comprimento de onda é dado por</p>
+<p>\[
+                \lambda=\frac{hc}{E},
+                \qquad
+                hc=1240\,\text{MeV fm}.
+                \]</p>
+<p>Ao usar \(E\) em
+                MeV, \(\lambda\) sai em
+                fm. Por exemplo, para o fóton gama de \(0{,}662\,\text{MeV}\) do
+                diagrama, \(\lambda\approx
+                1240/0{,}662=1{,}87\times10^3\,\text{fm}\). A
+                relação permite comparar fótons gama: maior energia
+                corresponde a menor comprimento de onda. Ela não altera
+                \(A\) ou \(Z\) e não deve ser
+                confundida com a constante de decaimento radioativo,
+                também muitas vezes escrita como \(\lambda\).</p>
+<p>No cotidiano, emissão gama aparece em medicina
+                nuclear, esterilização industrial e inspeção
+                radiográfica de peças. Essas aplicações exigem proteção
+                radiológica específica, porque fótons de maior energia
+                podem atravessar mais material; a blindagem correta
+                depende da energia, da geometria e da taxa de
+                exposição.</p>
+<h3 id="exemplo-4.6-comprimento-de-onda-de-um-fóton-gama">Exemplo
+                4.6: Comprimento de onda de um fóton gama</h3>
+<p>No diagrama do césio-137 aparece um fóton gama de
+                \(E=0{,}662\,\text{MeV}\).
+                Assim,</p>
+<p>\[
+                \lambda=\frac{1240\,\text{MeV fm}}{0{,}662\,\text{MeV}}
+                =1{,}87\times10^3\,\text{fm}.
+                \]</p>
+<p>As unidades MeV se cancelam e resta fm. O cálculo
+                descreve o fóton gama; ele não muda a identidade do
+                núcleo, que permanece bário-137 antes e depois da
+                transição.</p>
+<h1 id="séries-radioativas">Séries radioativas</h1>
+<p>Em uma série, o núcleo-filho também é instável e a
+                sequência prossegue. Alfa reduz \(A\) em 4; os decaimentos
+                beta não alteram \(A\).
+                Portanto, o <strong>resto da divisão inteira de \(A\) por 4</strong> é
+                preservado ao longo de toda a cadeia.</p>
+<p>As séries naturais de maior importância incluem \(\ce{^{232}Th -&gt;
+                ^{208}Pb}\), \(\ce{^{238}U -&gt;
+                ^{206}Pb}\) e \(\ce{^{235}U -&gt;
+                ^{207}Pb}\). A série do netúnio tem origem
+                predominantemente artificial na Terra atual. O objetivo
+                não é decorar todos os intermediários, mas testar a
+                contabilidade de \(A\)
+                e \(Z\).</p>
+<h3 id="método-do-resto-da-divisão-por-4">Método do
+                resto da divisão por 4</h3>
+<p>Para determinar a família de um radionuclídeo, use
+                apenas o número de massa \(A\):</p>
+<ol type="1">
+<li>divida \(A\) por
+                4;</li>
+<li>anote o <strong>resto</strong>;</li>
+<li>associe o resto à família: resto 0 → tório; resto 1
+                → netúnio; resto 2 → urânio; resto 3 → actínio.</li>
+</ol>
+<p>Nas figuras, acompanhe uma seta por vez: cada alfa
+                muda \(A\) em \(-4\) e cada beta mantém
+                \(A\). Em ambos os
+                casos, o resto da divisão por 4 não muda. As quatro
+                imagens abaixo são versões locais de diagramas
+                disponíveis na categoria <a href="https://commons.wikimedia.org/wiki/Category:Decay_chain">Decay
+                chain da Wikimedia Commons</a>.</p>
+<p>As séries explicam por que o radônio pode surgir a
+                partir de materiais geológicos que contêm urânio ou
+                tório: ele é um descendente intermediário, não um
+                elemento “adicionado” ao ambiente. Ventilação e medição
+                apropriada são as medidas relevantes quando há suspeita
+                de concentração elevada em ambientes fechados.</p>
+<h3 id="exemplo-4.7-contabilidade-líquida">Exemplo 4.7:
+                Contabilidade líquida</h3>
+<p>Para \(\ce{^{232}_{90}Th
+                -&gt; ^{208}_{82}Pb}\), seis alfas são
+                necessários porque \(232-4x=208\), logo \(x=6\). Após as alfas, \(Z=90-12=78\); quatro \(\beta^-\) levam a \(Z=82\). A ordem real dos
+                intermediários requer dados nucleares, mas a conta
+                líquida verifica a cadeia.</p>
+<h3 id="exemplo-4.8-identificando-a-família-pelo-resto">Exemplo
+                4.8: Identificando a família pelo resto</h3>
+<p>Classifique o nuclídeo de massa \(A=227\). Faça a divisão
+                inteira:</p>
+<p>\[227\div4=56\quad\text{com
+                resto}\quad3.\]</p>
+<p>O resto é 3; pela regra acima, o nuclídeo pertence à
+                <strong>família do actínio</strong>. Não é preciso
+                decorar a expressão \(4n+3\): basta dividir o
+                número de massa por 4 e consultar o resto. Essa conta
+                não determina todos os núcleos da cadeia, mas é uma
+                verificação rápida de que emissões alfa e beta preservam
+                a família.</p>
+<h3 id="exemplo-4.9-beta-mais-e-neutrino">Exemplo 4.9:
+                Beta mais e neutrino</h3>
+<p>Complete:</p>
+<p>\[\ce{^{22}_{11}Na -&gt;
+                ^{22}_{10}Ne}+\beta^++\text{partícula desconhecida}.
+                \]</p>
+<p>O número de massa permanece 22 e \(Z\) diminui de 11 para 10,
+                identificando um \(\beta^+\). A partícula
+                faltante é o neutrino eletrônico:</p>
+<p>\[\ce{^{22}_{11}Na -&gt;
+                ^{22}_{10}Ne}+\beta^++\nu_e. \]</p>
+<p>O pósitron poderá aniquilar-se com um elétron do
+                meio; esse evento posterior não substitui o neutrino que
+                pertence à transformação nuclear.</p>
+<h1 id="síntese-da-aula">Síntese da aula</h1>
+<ul>
+<li>\(\alpha\): \(A\to A-4\), \(Z\to Z-2\); emissão pesada
+                e tunelamento.</li>
+<li>\(\beta^-\): \(A\) constante, \(Z\to Z+1\); elétron e
+                antineutrino.</li>
+<li>\(\beta^+\) e
+                captura: \(A\)
+                constante, \(Z\to
+                Z-1\); neutrino; no beta mais há emissão de
+                pósitron, e na captura um elétron orbital é
+                absorvido.</li>
+<li>\(\gamma\): o
+                nuclídeo não muda; apenas perde energia interna.</li>
+</ul>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<h2 id="questões-conceituais">Questões Conceituais</h2>
+<dl>
+<dt>4.1)</dt>
+<dd>
+                No decaimento \(\beta^-\), a partícula
+                emitida juntamente com o elétron é necessária, entre
+                outras razões, para conservar o número leptônico. Essa
+                partícula é:
+                </dd>
+</dl>
+<ol type="a">
+<li>um fóton gama.</li>
+<li>uma partícula alfa.</li>
+<li>um neutrino eletrônico.</li>
+<li>um antineutrino eletrônico.</li>
+<li>um elétron Auger.</li>
+</ol>
+<dl>
+<dt>4.2)</dt>
+<dd>
+                Os decaimentos \(\beta^+\) e por captura
+                eletrônica podem levar ao mesmo núcleo-filho. A
+                afirmação correta é:
+                </dd>
+</dl>
+<ol type="a">
+<li>na captura eletrônica, o núcleo emite um pósitron e
+                um antineutrino.</li>
+<li>ambos conservam \(A\), diminuem \(Z\) em uma unidade e emitem
+                um neutrino eletrônico; somente o \(\beta^+\) emite um
+                pósitron.</li>
+<li>no \(\beta^+\),
+                \(Z\) aumenta uma
+                unidade e o número de massa diminui quatro
+                unidades.</li>
+<li>somente a captura eletrônica produz um neutrino
+                eletrônico.</li>
+<li>os dois processos sempre produzem dois fótons de
+                \(511\,\text{keV}\)
+                diretamente no núcleo.</li>
+</ol>
+<dl>
+<dt>4.3)</dt>
+<dd>
+                Após uma captura eletrônica, uma vacância em camada
+                interna pode levar à emissão de raios X característicos
+                ou de elétrons Auger. O elétron Auger é emitido porque:
+                </dd>
+</dl>
+<ol type="a">
+<li>o núcleo emite uma segunda partícula beta.</li>
+<li>a energia da transição vem de uma transformação
+                nuclear adicional.</li>
+<li>a energia de um rearranjo eletrônico é transferida a
+                outro elétron ligado, que é ejetado como Auger.</li>
+<li>o antineutrino é absorvido pela eletrosfera.</li>
+<li>a massa do núcleo diminui em quatro unidades.</li>
+</ol>
+<dl>
+<dt>4.4)</dt>
+<dd>
+                Um diagrama mostra uma transformação beta que chega a um
+                estado excitado do núcleo-filho, seguida por uma seta
+                gama. A leitura correta é:
+                </dd>
+</dl>
+<ol type="a">
+<li>a transição beta muda \(Z\); a emissão gama
+                posterior reduz a energia interna sem mudar \(A\) nem \(Z\).</li>
+<li>a seta gama transforma o núcleo-pai em outro
+                elemento, e a beta apenas remove energia.</li>
+<li>ambas as setas representam captura eletrônica.</li>
+<li>a emissão gama reduz \(A\) em quatro
+                unidades.</li>
+<li>a sequência dispensa a conservação de carga, pois o
+                núcleo está excitado.</li>
+</ol>
+<dl>
+<dt>4.5)</dt>
+<dd>
+                Qual afirmação distingue corretamente a radiação alfa da
+                beta menos?
+                </dd>
+</dl>
+<ol type="a">
+<li>A alfa aumenta \(Z\) em uma unidade e emite
+                antineutrino.</li>
+<li>A beta menos reduz \(A\) em quatro
+                unidades.</li>
+<li>Ambas são fótons produzidos por desexcitação
+                nuclear.</li>
+<li>A beta menos é bloqueada sempre por uma folha de
+                papel.</li>
+<li>A alfa é um núcleo de hélio-4, fortemente ionizante
+                e de alcance curto em materiais comuns.</li>
+</ol>
+<h2 id="questões-de-cálculo">Questões de Cálculo</h2>
+<p>Em cada item, organize a conservação de \(A\) e \(Z\) antes de escolher a
+                alternativa. Para fótons gama, use \(hc=1240\,\text{MeV fm}\).
+                Esta aula não requer cálculo de energia de reação.</p>
+<dl>
+<dt>4.6)</dt>
+<dd>
+                Complete \(\ce{^{222}_{86}Rn
+                -&gt; X + ^4_2He}\).
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{218}_{82}Pb}\)</li>
+<li>\(\ce{^{218}_{86}Rn}\)</li>
+<li>\(\ce{^{218}_{84}Po}\)</li>
+<li>\(\ce{^{220}_{84}Po}\)</li>
+<li>\(\ce{^{226}_{88}Ra}\)</li>
+</ol>
+<dl>
+<dt>4.7)</dt>
+<dd>
+                Complete \(\ce{^{35}_{16}S
+                -&gt; X}+\beta^-+\bar{\nu}_e\).
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{35}_{15}P}\)</li>
+<li>\(\ce{^{31}_{14}Si}\)</li>
+<li>\(\ce{^{36}_{17}Cl}\)</li>
+<li>\(\ce{^{35}_{17}Cl}\)</li>
+<li>\(\ce{^{35}_{16}S}\)</li>
+</ol>
+<dl>
+<dt>4.8)</dt>
+<dd>
+                Em um radiofármaco PET, complete o decaimento \(\beta^+\) do flúor-18:
+                \(\ce{^{18}_{9}F -&gt;
+                X}+\beta^++\nu_e\).
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{18}_{9}F}\)</li>
+<li>\(\ce{^{18}_{8}O}\)</li>
+<li>\(\ce{^{18}_{10}Ne}\)</li>
+<li>\(\ce{^{14}_{7}N}\)</li>
+<li>\(\ce{^{19}_{8}O}\)</li>
+</ol>
+<dl>
+<dt>4.9)</dt>
+<dd>
+                O iodo-125 pode sofrer captura eletrônica. Complete
+                \(\ce{^{125}_{53}I + e^- -&gt;
+                X + \nu_e}\).
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{125}_{52}Te}\)</li>
+<li>\(\ce{^{125}_{53}I}\)</li>
+<li>\(\ce{^{125}_{54}Xe}\)</li>
+<li>\(\ce{^{121}_{51}Sb}\)</li>
+<li>\(\ce{^{126}_{52}Te}\)</li>
+</ol>
+<dl>
+<dt>4.10)</dt>
+<dd>
+                Para o fóton gama de aproximadamente \(140{,}5\,\text{keV}\)
+                emitido na desexcitação do tecnécio-99m, o comprimento
+                de onda é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(8{,}83\,\text{fm}\)</li>
+<li>\(88{,}3\,\text{fm}\)</li>
+<li>\(883\,\text{fm}\)</li>
+<li>\(1{,}13\times10^3\,\text{fm}\)</li>
+<li>\(8{,}83\times10^3\,\text{fm}\)</li>
+</ol>
+<dl>
+<dt>4.11)</dt>
+<dd>
+                No trecho de diagrama \(\ce{^{131}_{53}I -&gt;[\beta^-]
+                ^{131}_{54}Xe^* -&gt;[\gamma] X}\), o núcleo
+                final \(X\) é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{127}_{51}Sb}\)</li>
+<li>\(\ce{^{131}_{53}I}\)</li>
+<li>\(\ce{^{131}_{54}Xe}\)</li>
+<li>\(\ce{^{131}_{52}Te}\)</li>
+<li>\(\ce{^{135}_{55}Cs}\)</li>
+</ol>
+<dl>
+<dt>4.12)</dt>
+<dd>
+                Uma emissão alfa seguida de duas emissões \(\beta^-\), partindo de
+                \(\ce{^{226}_{88}Ra}\),
+                leva a:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{222}_{86}Rn}\)</li>
+<li>\(\ce{^{222}_{87}Fr}\)</li>
+<li>\(\ce{^{226}_{86}Rn}\)</li>
+<li>\(\ce{^{222}_{88}Ra}\)</li>
+<li>\(\ce{^{218}_{86}Rn}\)</li>
+</ol>
+<dl>
+<dt>4.13)</dt>
+<dd>
+                Na transformação líquida \(\ce{^{238}_{92}U -&gt;
+                ^{206}_{82}Pb}\), o número de emissões é:
+                </dd>
+</dl>
+<ol type="a">
+<li>6 alfas e 4 \(\beta^-\)</li>
+<li>8 alfas e 6 \(\beta^-\)</li>
+<li>8 alfas e 4 \(\beta^-\)</li>
+<li>6 alfas e 6 \(\beta^-\)</li>
+<li>8 alfas e 8 \(\beta^-\)</li>
+</ol>
+<dl>
+<dt>4.14)</dt>
+<dd>
+                Ao dividir o número de massa \(A=229\) por 4, o resto é 1.
+                Pelo método do resto, o radionuclídeo pertence à
+                família:
+                </dd>
+</dl>
+<ol type="a">
+<li>família do netúnio (\(4n+1\))</li>
+<li>família do tório (\(4n\))</li>
+<li>família do urânio (\(4n+2\))</li>
+<li>família do actínio (\(4n+3\))</li>
+<li>não pertence a uma família radioativa</li>
+</ol>
+<dl>
+<dt>4.15)</dt>
+<dd>
+                Na transformação líquida \(\ce{^{235}_{92}U -&gt;
+                ^{207}_{82}Pb}\), são necessários:
+                </dd>
+</dl>
+<ol type="a">
+<li>6 alfas e 4 \(\beta^-\)</li>
+<li>7 alfas e 3 \(\beta^-\)</li>
+<li>8 alfas e 6 \(\beta^-\)</li>
+<li>7 alfas e 5 \(\beta^-\)</li>
+<li>7 alfas e 4 \(\beta^-\)</li>
+</ol>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=8LfMAIBMsyg&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=45" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física Nuclear - Parte 2" loading="lazy" src="./images/thumbs/ytb-univesp-fisica-nuclear.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física Nuclear - Parte 2</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=8LfMAIBMsyg&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=45" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP TV</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=8LfMAIBMsyg&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=45" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Vídeo em português para retomar estabilidade nuclear,
+                transformações e a leitura de processos radioativos.</p>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física Nuclear - Parte 3" loading="lazy" src="./images/thumbs/ytb-univesp-fisica-nuclear-3.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física Nuclear - Parte 3</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP TV</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Continuação da sequência da UNIVESP, útil para
+                relacionar decaimentos às conservações de número de
+                massa e carga.</p>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=BKnmAQJh7TU" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Radioatividade — meia-vida e partículas" loading="lazy" src="./images/thumbs/radioatividade-particulas.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Radioatividade — meia-vida e partículas</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=BKnmAQJh7TU" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Marcos Aba</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=BKnmAQJh7TU" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Revisão visual, em português, de radioatividade,
+                partículas e meia-vida; serve como apoio à identificação
+                de emissões alfa, beta e gama.</p>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=hKum6_oc6jA" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Leis da Radioatividade e Captura Eletrônica" loading="lazy" src="./images/thumbs/ytb-captura-eletronica.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Leis da Radioatividade e Captura Eletrônica</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=hKum6_oc6jA" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Química Completa — Prof. Cláudio Perdigão</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=hKum6_oc6jA" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Vídeo em português sobre leis da radioatividade e
+                captura de elétron da camada K; use-o para retomar por
+                que \(A\) se conserva e
+                \(Z\) diminui uma
+                unidade.</p>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=_f0O3mGisww" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Characteristic X-rays and Auger electrons" loading="lazy" src="./images/thumbs/ytb-auger-raios-x.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Characteristic X-rays and Auger electrons</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=_f0O3mGisww" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">NucClearMedicine</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=_f0O3mGisww" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<p>Vídeo complementar, em inglês, dedicado ao rearranjo
+                eletrônico, aos raios X característicos e aos elétrons
+                Auger após a formação de uma vacância interna.</p>
+<h1 id="referências-utilizadas-nesta-aula">Referências
+                Utilizadas Nesta Aula</h1>
+<ul>
+<li>KRANE, K. S. <em>Introductory Nuclear Physics</em>.
+                Wiley, 1988.</li>
+<li>LILLEY, J. <em>Nuclear Physics: Principles and
+                Applications</em>. Wiley, 2001.</li>
+<li>MARTIN, B. R. <em>Nuclear and Particle Physics</em>.
+                Wiley, 2009.</li>
+<li>WANG, M. et al. The AME 2020 atomic mass evaluation
+                (II). <em>Chinese Physics C</em>, 2021.</li>
+<li>WIKIMEDIA COMMONS. <a href="https://commons.wikimedia.org/wiki/File:Radioactive_decay_modes.svg">Radioactive
+                decay modes</a>, <a href="https://commons.wikimedia.org/wiki/File:Alpha_Decay.svg">Alpha
+                decay</a>, <a href="https://commons.wikimedia.org/wiki/File:Beta-minus_Decay.svg">Beta-minus
+                decay</a> e <a href="https://commons.wikimedia.org/wiki/File:Beta-plus_Decay.svg">Beta-plus
+                decay</a>. Créditos e licenças indicados nas
+                legendas.</li>
+<li>MAXMATH12. <a href="https://commons.wikimedia.org/wiki/File:Positron_annihilation.svg"><em>Positron
+                annihilation.svg</em></a>, CC0; MAUS, Jens. <a href="https://commons.wikimedia.org/wiki/File:ECAT-Exact-HR--PET-Scanner.jpg"><em>ECAT-Exact-HR–PET-Scanner.jpg</em></a>,
+                domínio público; PAMPUTT. <a href="https://commons.wikimedia.org/wiki/File:Atomic_rearrangement_following_an_electron_capture.svg"><em>Atomic
+                rearrangement following an electron capture</em></a>, CC
+                BY-SA 4.0.</li>
+<li>WIKIMEDIA COMMONS. <a href="https://commons.wikimedia.org/wiki/File:Na-22_decay_scheme.svg">Na-22
+                decay scheme</a>, CC0; TUNGSTEN, Yuri. <a href="https://commons.wikimedia.org/wiki/File:Esquema_do_decaimento_do_Mo-99_para_o_Tc-99m.svg"><em>Esquema
+                do decaimento do Mo-99 para o Tc-99m</em></a>, CC BY-SA
+                4.0; <a href="https://commons.wikimedia.org/wiki/File:Iodine-131-decay-scheme-simplified.svg">Iodine-131
+                decay scheme</a>, domínio público.</li>
+<li>WIKIMEDIA COMMONS. <a href="https://commons.wikimedia.org/wiki/Category:Decay_chain">Category:
+                Decay chain</a>; diagramas das famílias radioativas,
+                conforme créditos nas figuras.</li>
+</ul>
+<h1 id="apêndice-a-família-do-tório-4n">Apêndice A —
+                Família do tório (\(4n\))</h1>
+<p>O tório-232 inicia a família \(4n\), que termina em
+                chumbo-208. Leia as setas alfa e beta menos como
+                transformações sucessivas: elas preservam o resto de
+                \(A\) por quatro.</p>
+<figure>
+<img alt="Diagrama em alta resolução da família do tório. Fonte: Wikimedia Commons; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Decay_chain(4n,Thorium_series).PNG" style="width:58.0%"/>
+<figcaption aria-hidden="true">Diagrama em alta
+                resolução da família do tório. Fonte: Wikimedia Commons;
+                ver referências.</figcaption>
+</figure>
+<p>Comece no tório-232 e siga uma única seta por vez até
+                o chumbo-208. As setas alfa diminuem simultaneamente
+                \(A\) e \(Z\), enquanto as setas
+                \(\beta^-\) mantêm
+                \(A\) e aumentam \(Z\); por isso todos os
+                núcleos da figura permanecem na classe \(4n\).</p>
+<h1 id="apêndice-b-família-do-netúnio-4n1">Apêndice B —
+                Família do netúnio (\(4n+1\))</h1>
+<p>A família \(4n+1\) é
+                associada ao netúnio. Seus integrantes têm presença
+                muito menor na Terra atual do que as famílias iniciadas
+                por tório-232, urânio-238 e urânio-235.</p>
+<figure>
+<img alt="Diagrama em alta resolução da família do netúnio. Fonte: Wikimedia Commons; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Decay_chain(4n%2B1,Neptunium_series).PNG" style="width:58.0%"/>
+<figcaption aria-hidden="true">Diagrama em alta
+                resolução da família do netúnio. Fonte: Wikimedia
+                Commons; ver referências.</figcaption>
+</figure>
+<p>Nesta família, os números de massa são sempre da
+                forma \(4n+1\). A
+                figura é útil para perceber que uma série pode ter
+                muitas etapas e ramificações sem perder essa identidade
+                modular: alfa altera \(A\) em quatro e beta menos
+                não o altera.</p>
+<h1 id="apêndice-c-família-do-actínio-4n3">Apêndice C —
+                Família do actínio (\(4n+3\))</h1>
+<p>A família do actínio é a cadeia iniciada pelo
+                urânio-235 e termina em chumbo-207. O diagrama permite
+                acompanhar ramificações, núcleos-filho e os modos de
+                decaimento em sequência.</p>
+<figure>
+<img alt="Diagrama em alta resolução da família do actínio, no mesmo padrão visual das famílias do tório e netúnio. Fonte: Tosaka, Wikimedia Commons, CC BY 3.0; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Decay_chain(4n%2B3,_Actinium_series).PNG" style="width:58.0%"/>
+<figcaption aria-hidden="true">Diagrama em alta
+                resolução da família do actínio, no mesmo padrão visual
+                das famílias do tório e netúnio. Fonte: Tosaka,
+                Wikimedia Commons, CC BY 3.0; ver
+                referências.</figcaption>
+</figure>
+<p>O diagrama parte do urânio-235, cujo número de massa
+                deixa resto 3 na divisão por quatro. Ao percorrer uma
+                ramificação, use as setas para conferir a contabilidade
+                local antes de tentar reconhecer o núcleo seguinte;
+                assim, o diagrama vira uma aplicação direta das regras
+                de \(A\) e \(Z\).</p>
+<h1 id="apêndice-d-família-do-urânio-4n2">Apêndice D —
+                Família do urânio (\(4n+2\))</h1>
+<p>A família do urânio é associada ao urânio-238 e
+                termina em chumbo-206. Ela contém o radônio como
+                intermediário, conexão importante com a radioatividade
+                em ambientes geológicos.</p>
+<figure>
+<img alt="Diagrama em alta resolução da família do urânio-rádio, no mesmo padrão visual das demais famílias. Fonte: Tosaka, Wikimedia Commons, CC BY 3.0; ver referências." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Decay_chain(4n%2B2,_Uranium_series).PNG" style="width:58.0%"/>
+<figcaption aria-hidden="true">Diagrama em alta
+                resolução da família do urânio-rádio, no mesmo padrão
+                visual das demais famílias. Fonte: Tosaka, Wikimedia
+                Commons, CC BY 3.0; ver referências.</figcaption>
+</figure>
+<p>Aqui o urânio-238 inicia a classe \(4n+2\) e a cadeia termina
+                em chumbo-206. Localize o radônio como um intermediário
+                e observe que sua presença decorre de sucessivas
+                transformações da cadeia; ele não é uma etapa
+                independente da família.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+
+                <a href="/disciplinas/aula-3-decaimento-radioativo-natural.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
