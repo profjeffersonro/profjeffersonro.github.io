@@ -127,6 +127,9 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1AKtPAPjakS87GktN5-iLRP4_IE5wiHEO/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/18JohcO_XpSkBOzSw3Z98LL2gTduy4g9s/view?usp=drive_link"
         answers_released: false
+      - name: "Aula 5 - Reações Nucleares"
+        html: "content/aulas/ES-FM2/Aula-5/fm2-aula-5.html"
+        pdf: "https://drive.google.com/file/d/1Y0ZIwh-UBcFK_Q6R76UPi0gGZHe1ZpCM/view?usp=drive_link"
   - disciplina: "Seminários Integrados"
     aulas:
       - name: "Determinismo x Probabilismo: probabilidade, caos, mundo quântico, inteligência artificial e mudanças climáticas"

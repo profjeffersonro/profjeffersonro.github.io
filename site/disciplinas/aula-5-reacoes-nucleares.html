@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 5 - Reações Nucleares | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 5 - Reações Nucleares de Física Moderna 2.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-5-reacoes-nucleares.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 5 - Reações Nucleares | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 5 - Reações Nucleares de Física Moderna 2.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-5-reacoes-nucleares.html">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Física Moderna 2</li>
+                </ol>
+            </nav>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 5 - Reações Nucleares</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Física Moderna 2</p>
+                </div>
+                <div class="card-body">
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1Y0ZIwh-UBcFK_Q6R76UPi0gGZHe1ZpCM/view?usp=drive_link"
+                       class="btn btn-success btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+
+                    <div class="aula-content">
+                        <h1 id="introdução">Introdução</h1>
+<p>Nas aulas anteriores, estudamos a radioatividade como
+                transformação de núcleos instáveis. Agora reunimos essas
+                transformações e as colisões nucleares em uma mesma
+                linguagem: a <strong>reação nuclear</strong>. Em toda
+                reação há reagentes nucleares, produtos nucleares e uma
+                contabilidade rigorosa de número de massa, carga,
+                energia e momento.</p>
+<p>A pergunta central é: <strong>a reação libera energia
+                ou precisa recebê-la?</strong> A resposta vem do valor
+                \(Q\), a energia de
+                reação. Ela explica tanto a emissão espontânea de uma
+                partícula alfa quanto a energia mínima que um feixe deve
+                possuir para produzir um novo nuclídeo em
+                laboratório.</p>
+<h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, devemos ser capazes de:</p>
+<ul>
+<li>definir reação nuclear, reagentes e produtos
+                nucleares;</li>
+<li>distinguir processos espontâneos (naturais) de
+                reações artificiais (induzidas);</li>
+<li>calcular e interpretar a energia de reação \(Q\);</li>
+<li>demonstrar quando e por que massas nucleares podem
+                ser substituídas por massas atômicas;</li>
+<li>reconhecer reações exoenergéticas e
+                endoenergéticas;</li>
+<li>calcular \(Q\) em
+                emissões \(\alpha\),
+                \(\beta^-\), \(\beta^+\) e captura
+                eletrônica;</li>
+<li>identificar partícula incidente, núcleo-alvo, núcleo
+                composto, núcleo-produto e partícula ejetada;</li>
+<li>estimar a energia cinética mínima de uma reação
+                endoenergética e distinguir limiar cinemático de
+                barreira de Coulomb.</li>
+</ul>
+<h1 id="reações-nucleares-e-energia">Reações nucleares e
+                energia</h1>
+<h2 id="reagentes-produtos-e-conservações">Reagentes,
+                produtos e conservações</h2>
+<p>Uma <strong>reação nuclear</strong> é uma
+                transformação que altera um núcleo ou produz novos
+                núcleos. Os objetos à esquerda da seta são os
+                <strong>reagentes nucleares</strong>; à direita estão os
+                <strong>produtos nucleares</strong>. Uma forma geral
+                para uma reação induzida é</p>
+<p>\[{}^{A}_{Z}\mathrm{X}+{}^{a}_{z}\mathrm{x}
+                \longrightarrow{}^{A'}_{Z'}\mathrm{X}'+{}^{a'}_{z'}\mathrm{x}'.\]</p>
+<p>As letras maiúsculas (\(A\), \(A'\)) indicam números
+                de massa dos núcleos pesados; as minúsculas (\(a\), \(a'\)), os das
+                partículas. As letras \(Z\), \(Z'\), \(z\) e \(z'\) representam os
+                respectivos números atômicos; o primo indica uma espécie
+                no lado final da reação. Em cada evento, conservam-se o
+                número de massa e a carga elétrica:</p>
+<p>\[A+a=A'+a',\qquad
+                Z+z=Z'+z'.\]</p>
+<p>O balanceamento de \(A\) e \(Z\) identifica produtos
+                possíveis, mas não garante que a reação possa ocorrer.
+                Para isso, também verificamos energia e momento.</p>
+<figure>
+<img alt="Ilustração geral de uma transformação nuclear, usada aqui para introduzir a leitura de reagentes e produtos. Fonte: Michalsmid, Wikimedia Commons." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/NuclearReaction.svg" style="width:46.0%"/>
+<figcaption aria-hidden="true">Ilustração geral de uma
+                transformação nuclear, usada aqui para introduzir a
+                leitura de reagentes e produtos. Fonte: Michalsmid,
+                Wikimedia Commons.</figcaption>
+</figure>
+<h2 id="espontâneas-e-artificiais">Espontâneas e
+                artificiais</h2>
+<p>Uma reação <strong>espontânea</strong>, usualmente
+                chamada de decaimento radioativo natural, ocorre sem que
+                uma partícula externa seja lançada contra o núcleo. Um
+                núcleo-pai instável transforma-se em núcleo-filho e pode
+                emitir \(\alpha\),
+                \(\beta^-\), \(\beta^+\), neutrino,
+                antineutrino ou radiação gama.</p>
+<p>Uma reação <strong>artificial</strong> ou
+                <strong>induzida</strong> começa com uma partícula
+                incidente: próton, nêutron, deuteron, alfa ou outra. Ela
+                colide com um núcleo-alvo e pode formar produtos
+                diferentes. Natural e artificial não significam “com” e
+                “sem” conservação: ambas obedecem exatamente às mesmas
+                leis físicas.</p>
+<p>Em um decaimento espontâneo, a instabilidade já está
+                no núcleo-pai; por exemplo, o carbono-14 presente em
+                seres vivos decai por \(\beta^-\) e permite
+                técnicas de datação. Em uma reação induzida, o
+                laboratório escolhe o projétil e sua energia: prótons
+                podem produzir radioisótopos para medicina nuclear,
+                enquanto nêutrons são particularmente eficientes para
+                iniciar reações porque não sofrem repulsão de Coulomb na
+                entrada. Em ambos os casos, a energia liberada não é
+                “massa que desaparece”: é a redução da energia de
+                repouso total, associada à reorganização dos núcleons e
+                de suas energias de ligação.</p>
+<figure>
+<img alt="Fissão induzida por nêutron: a absorção inicial produz um núcleo excitado que se divide em fragmentos e emite novos nêutrons. É um exemplo de reação artificial cujo projétil neutro não enfrenta barreira de Coulomb de entrada. Fonte: MikeRun, Wikimedia Commons, CC BY-SA 4.0." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nuclear_fission_reaction.svg" style="width:62.0%"/>
+<figcaption aria-hidden="true">Fissão induzida por
+                nêutron: a absorção inicial produz um núcleo excitado
+                que se divide em fragmentos e emite novos nêutrons. É um
+                exemplo de reação artificial cujo projétil neutro não
+                enfrenta barreira de Coulomb de entrada. Fonte: MikeRun,
+                Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+</figure>
+<h2 id="energia-da-reação-valor-q">Energia da reação:
+                valor \(Q\)</h2>
+<p>Definimos a energia de reação por</p>
+<p>\[Q=\left(\sum m_{\rm
+                reagentes}-\sum m_{\rm produtos}\right)c^2.\]</p>
+<p>Com massas em unidade de massa atômica, usamos \(c^2=931{,}5\,\text{MeV/u}\);
+                isto é, na conta,</p>
+<p>\[\Delta m\,c^2=\Delta
+                m\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right).\]</p>
+<p><strong>Padrão numérico.</strong> Em cada cálculo,
+                mantenha todos os algarismos fornecidos durante as
+                operações e arredonde uma única vez, no resultado final.
+                O resultado não pode ter mais precisão que o dado menos
+                preciso: \(c^2=931{,}5\,\text{MeV/u}\)
+                impõe, no máximo, quatro algarismos significativos, mas
+                uma diferença de massas pequena pode reduzir esse
+                número. Em somas e subtrações, respeite também a casa
+                decimal menos precisa do dado fornecido.</p>
+<p><strong>Dados de massa usados nesta aula.</strong> Os
+                valores são apresentados com seis casas decimais. Quando
+                um nuclídeo não aparece na tabela selecionada fornecida
+                aos estudantes, seu valor foi conferido na tabela
+                AME2020 completa disponível no material da disciplina;
+                nesta aula, isso ocorre para \(\ce{^{17}O}\), \(\ce{^{18}F}\) e \(\ce{^{234}Th}\). Os demais
+                valores empregados constam na tabela selecionada em
+                português. Nessa tabela, o deutério \(\ce{^2H}\) aparece como
+                <strong>D</strong> e o trítio \(\ce{^3H}\) aparece como
+                <strong>T</strong>.</p>
+<ul>
+<li><strong>Reação exoenergética:</strong> \(Q&gt;0\). A massa de
+                repouso total diminui e a diferença aparece como energia
+                cinética dos produtos, radiação ou excitação.</li>
+<li><strong>Reação endoenergética:</strong> \(Q&lt;0\). A massa de
+                repouso final é maior; é necessário fornecer energia
+                cinética ao sistema.</li>
+</ul>
+<p>Se o alvo está inicialmente em repouso e não há
+                outras formas de energia relevantes,</p>
+<p>\[T_{\rm produtos}=T_{\rm
+                incidente}+Q.\]</p>
+<p>Essa igualdade é útil, mas não substitui a
+                conservação do momento. Por isso, em uma reação
+                endoenergética o projétil precisa fornecer um pouco mais
+                que \(|Q|\) no
+                laboratório.</p>
+<h2 id="massas-nucleares-e-massas-atômicas">Massas
+                nucleares e massas atômicas</h2>
+<p>As tabelas de massas normalmente fornecem a
+                <strong>massa atômica</strong> \(M({}^A_ZX)\), isto é, a
+                massa do núcleo junto com seus \(Z\) elétrons. Mais
+                precisamente,</p>
+<p>\[M=m_{\rm
+                nuc}+Zm_e-\frac{B_e}{c^2},\]</p>
+<p>em que \(B_e\) é a
+                energia de ligação total dos elétrons. Como \(B_e\) está na escala de eV
+                ou keV, muito menor que a escala de MeV das reações
+                nucleares, nesta aula usamos</p>
+<p>\[m_{\rm
+                nuc}({}^A_ZX)\simeq M({}^A_ZX)-Zm_e.\]</p>
+<p>Para uma reação formada apenas por núcleos,</p>
+<p>\[{}^{A}_{Z}\mathrm{X}+{}^{a}_{z}\mathrm{x}
+                \longrightarrow{}^{A'}_{Z'}\mathrm{X}'+{}^{a'}_{z'}\mathrm{x}',\]</p>
+<p>a diferença de massa nuclear é</p>
+<p>\[\begin{aligned}
+                \Delta m_{\rm nuc}
+                &amp;=[M_X-Zm_e]+[M_x-zm_e]\\
+                &amp;\quad-[M_{X'}-Z'm_e]-[M_{x'}-z'm_e]\\
+                &amp;=(M_X+M_x-M_{X'}-M_{x'})\\
+                &amp;\quad-(Z+z-Z'-z')m_e.
+                \end{aligned}\]</p>
+<p>Como a carga se conserva, \(Z+z=Z'+z'\); logo,
+                o último termo é zero. Portanto,</p>
+<p>\[\boxed{\Delta m_{\rm
+                nuc}\simeq M_X+M_x-M_{X'}-M_{x'}.}\]</p>
+<p>O cancelamento das <strong>massas de repouso</strong>
+                dos elétrons é consequência direta da conservação da
+                carga. A aproximação indicada por \(\simeq\) vem somente das
+                pequenas energias de ligação eletrônica, que são
+                desprezadas em comparação com MeV. Nas próximas seções,
+                aplicaremos essa escrita geral no próprio contexto de
+                cada decaimento e de cada projétil.</p>
+<h3 id="exemplo-5.1-valor-q-de-uma-reação-exoenergética">Exemplo
+                5.1: valor \(Q\) de uma
+                reação exoenergética</h3>
+<p>Na reação \(\ce{^7_3Li +
+                ^1_1H -&gt;}2\alpha\), usando massas atômicas
+                \(M(\ce{^7Li})=7{,}016003\,\text{u}\),
+                \(M(\ce{^1H})=1{,}007825\,\text{u}\)
+                e \(M(\ce{^4He})=4{,}002603\,\text{u}\),</p>
+<p>\[\begin{aligned}
+                Q&amp;=[7{,}016003+1{,}007825-2(4{,}002603)]\,\text{u}\\
+                &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=17{,}35\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>Logo, a reação é exoenergética. Se o próton incidente
+                tivesse \(T_p=0{,}50\,\text{MeV}\), a
+                energia cinética total dos dois alfas seria \(17{,}85\,\text{MeV}\),
+                repartida entre eles de acordo com a conservação do
+                momento.</p>
+<h1 id="reações-nucleares-espontâneas">Reações nucleares
+                espontâneas</h1>
+<p>Nos decaimentos abaixo, usaremos os resultados
+                demonstrados na seção anterior: massas atômicas neutras
+                podem ser usadas diretamente, desde que os elétrons
+                emitidos ou capturados sejam contabilizados
+                corretamente.</p>
+<h2 id="emissão-alfa">Emissão alfa</h2>
+<p>\[\ce{^A_ZX -&gt;
+                ^{A-4}_{Z-2}Y +}\alpha.\]</p>
+<p>\[Q_\alpha=[M(X)-M(Y)-M(\ce{^4He})]c^2.\]</p>
+<p>Como a alfa é o próprio núcleo de hélio-4, sua massa
+                nuclear é</p>
+<p>\[m_\alpha=m_{\rm
+                nuc}(\ce{^4He})\simeq M(\ce{^4He})-2m_e.\]</p>
+<p>Assim, a troca por massa atômica do hélio é
+                justificada diretamente:</p>
+<p>\[\begin{aligned}
+                \Delta m&amp;\simeq[M_X-Zm_e]-[M_Y-(Z-2)m_e]\\
+                &amp;\quad-[M_{\ce{^4He}}-2m_e]\\
+                &amp;=M_X-M_Y-M_{\ce{^4He}}.
+                \end{aligned}\]</p>
+<h3 id="exemplo-5.2-decaimento-alfa-do-urânio-238">Exemplo
+                5.2: decaimento alfa do urânio-238</h3>
+<p>\[\ce{^{238}_{92}U -&gt;
+                ^{234}_{90}Th +}\alpha.\]</p>
+<p><strong>Dado adicional para este exemplo:</strong>
+                como \(\ce{^{234}Th}\)
+                não consta na tabela selecionada em PDF, use diretamente
+                \(M(\ce{^{234}Th})=234{,}043600\,\text{u}\).</p>
+<p>\[\begin{aligned}
+                Q_\alpha&amp;=[238{,}050787-234{,}043600\\
+                &amp;\quad-4{,}002603]\,\text{u}\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)=4{,}270\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>O valor positivo confirma que o decaimento é
+                energeticamente permitido; a maior parcela aparece como
+                energia cinética da alfa, e uma menor parcela como recuo
+                do tório.</p>
+<h2 id="emissão-beta-menos">Emissão beta menos</h2>
+<p>No decaimento \(\beta^-\), um nêutron
+                nuclear transforma-se em próton; são emitidos um elétron
+                e um antineutrino:</p>
+<p>\[\ce{^A_ZX -&gt;
+                ^A_{Z+1}Y + e^- + \bar{\nu}_e}.\]</p>
+<p>\[Q_{\beta^-}=[M(X)-M(Y)]c^2.\]</p>
+<p>Aqui o núcleo-filho tem um próton a mais e o elétron
+                emitido precisa aparecer como produto:</p>
+<p>\[\begin{aligned}
+                \Delta m&amp;\simeq[M_X-Zm_e]-[M_Y-(Z+1)m_e]-m_e\\
+                &amp;=M_X-M_Y.
+                \end{aligned}\]</p>
+<p>O elétron que falta na massa atômica do átomo-filho e
+                o elétron beta emitido cancelam-se exatamente no termo
+                de massa de repouso; a pequena diferença de energia de
+                ligação eletrônica é desprezada.</p>
+<h3 id="exemplo-5.3-carbono-14">Exemplo 5.3:
+                carbono-14</h3>
+<p>\[\ce{^{14}_{6}C -&gt;
+                ^{14}_{7}N + e^- + \bar{\nu}_e}.\]</p>
+<p>\[\begin{aligned}
+                Q_{\beta^-}&amp;=[14{,}003242-14{,}003074]\,\text{u}
+                \left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=0{,}156\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>Como o antineutrino pode levar uma fração variável de
+                energia, o elétron beta não sai sempre com a mesma
+                energia cinética.</p>
+<h2 id="emissão-beta-mais">Emissão beta mais</h2>
+<p>No decaimento \(\beta^+\), um próton
+                nuclear transforma-se em nêutron e são emitidos pósitron
+                e neutrino:</p>
+<p>\[\ce{^A_ZX -&gt;
+                ^A_{Z-1}Y + e^+ + \nu_e}.\]</p>
+<p>\[Q_{\beta^+}=[M(X)-M(Y)-2m_e]c^2.\]</p>
+<p>O núcleo-filho tem um próton a menos e o pósitron
+                emitido também possui massa \(m_e\):</p>
+<p>\[\begin{aligned}
+                \Delta m&amp;\simeq[M_X-Zm_e]-[M_Y-(Z-1)m_e]-m_e\\
+                &amp;=M_X-M_Y-2m_e.
+                \end{aligned}\]</p>
+<p>As duas massas de elétron têm origens distintas: uma
+                é a diferença entre as eletrosferas dos átomos neutros,
+                e a outra é a massa do pósitron emitido.</p>
+<h3 id="exemplo-5.4-flúor-18">Exemplo 5.4: flúor-18</h3>
+<p>\[\ce{^{18}_{9}F -&gt;
+                ^{18}_{8}O + e^+ + \nu_e}.\]</p>
+<p><strong>Dado adicional para este exemplo:</strong>
+                como \(\ce{^{18}F}\)
+                não consta na tabela selecionada em PDF, use diretamente
+                \(M(\ce{^{18}F})=18{,}000937\,\text{u}\).</p>
+<p>\[\begin{aligned}
+                Q_{\beta^+}&amp;=[18{,}000937-17{,}999160-0{,}001098]\,\text{u}\\
+                &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=0{,}632\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>O pósitron pode posteriormente se aniquilar com um
+                elétron, produzindo dois fótons gama; essa aniquilação é
+                uma etapa posterior ao decaimento nuclear.</p>
+<h2 id="captura-eletrônica">Captura eletrônica</h2>
+<p>Na captura eletrônica, o núcleo captura um elétron
+                orbital, usualmente de uma camada interna:</p>
+<p>\[\ce{^A_ZX + e^- -&gt;
+                ^A_{Z-1}Y + \nu_e}.\]</p>
+<p>\[Q_{CE}=[M(X)-M(Y)]c^2.\]</p>
+<p>O elétron capturado entra como reagente e o
+                núcleo-filho possui carga \(Z-1\):</p>
+<p>\[\begin{aligned}
+                \Delta m&amp;\simeq[M_X-Zm_e]+m_e-[M_Y-(Z-1)m_e]\\
+                &amp;=M_X-M_Y.
+                \end{aligned}\]</p>
+<p>Portanto, para massas atômicas, a massa do elétron
+                capturado se cancela.</p>
+<h3 id="exemplo-5.5-berílio-7">Exemplo 5.5:
+                berílio-7</h3>
+<p>\[\ce{^{7}_{4}Be + e^-
+                -&gt; ^{7}_{3}Li + \nu_e}.\]</p>
+<p>\[\begin{aligned}
+                Q_{CE}&amp;=[7{,}016929-7{,}016003]\,\text{u}
+                \left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=0{,}863\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>Depois da captura, a lacuna eletrônica pode produzir
+                raios X característicos ou elétrons Auger. Isso é
+                rearranjo da eletrosfera, não uma nova reação
+                nuclear.</p>
+<h1 id="reações-nucleares-artificiais">Reações nucleares
+                artificiais</h1>
+<h2 id="exemplo-histórico-a-descoberta-do-nêutron">Exemplo
+                histórico: a descoberta do nêutron</h2>
+<p>Em 1932, James Chadwick usou uma fonte de partículas
+                alfa para bombardear berílio. A reação nuclear principal
+                pode ser escrita como</p>
+<p>\[\alpha+\ce{^9_4Be -&gt;
+                ^{12}_6C + ^1_0n}.\]</p>
+<p>O nêutron é a <strong>partícula ejetada</strong>
+                nessa reação; a alfa é a partícula incidente, o
+                berílio-9 é o núcleo-alvo e o carbono-12 é o
+                núcleo-produto. Como o alvo era leve, esse experimento
+                também mostra que uma reação artificial não precisa
+                necessariamente ser uma fissão ou exigir um grande
+                acelerador.</p>
+<p>Com massas atômicas, \(M(\ce{^4He})=4{,}002603\,\text{u}\),
+                \(M(\ce{^9Be})=9{,}012183\,\text{u}\),
+                \(M(\ce{^{12}C})=12{,}000000\,\text{u}\)
+                e \(m_n=1{,}008665\,\text{u}\),
+                obtemos</p>
+<p>\[
+                \begin{aligned}
+                Q&amp;=[4{,}002603+9{,}012183\\
+                &amp;\quad-12{,}000000-1{,}008665]\,\text{u}\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=5{,}702\,\text{MeV}.
+                \end{aligned}
+                \]</p>
+<p>O resultado é exoenergético. A evidência decisiva,
+                porém, não foi apenas o balanço de massas: a radiação
+                neutra ejetava prótons rápidos de uma placa de parafina.
+                Chadwick comparou as energias desses prótons de recuo
+                com as previsões para fótons gama e concluiu que o
+                agente deveria ser uma partícula sem carga e com massa
+                próxima à do próton — o nêutron. Esse encadeamento entre
+                reação nuclear, partícula ejetada e detecção indireta é
+                um modelo importante de investigação experimental.</p>
+<h2 id="partícula-incidente-alvo-e-produtos">Partícula
+                incidente, alvo e produtos</h2>
+<p>Para ler a notação \(\ce{A(a,b)B}\), acompanhe a
+                sequência física:</p>
+<p>\[\ce{a + A -&gt; C^*
+                -&gt; B + b}.\]</p>
+<ul>
+<li>\(a\):
+                <strong>partícula incidente</strong> ou projétil;</li>
+<li>\(A\):
+                <strong>núcleo-alvo</strong>, geralmente em repouso no
+                laboratório;</li>
+<li>\(C^*\):
+                <strong>núcleo composto</strong>, estado intermediário
+                excitado;</li>
+<li>\(B\):
+                <strong>núcleo-produto</strong> ou núcleo residual;</li>
+<li>\(b\):
+                <strong>partícula ejetada</strong>, que sai ao
+                final.</li>
+</ul>
+<p>O <strong>modelo do núcleo composto</strong> descreve
+                uma colisão em que o projétil é absorvido por tempo
+                muito curto. A energia se redistribui entre os núcleons
+                do sistema \(C^*\); em
+                seguida, ele se desfaz emitindo uma partícula e deixando
+                o núcleo-produto. Não devemos confundir \(C^*\) com o produto final:
+                ele é a etapa intermediária.</p>
+<p>O processo pode ser lido em três etapas:
+                <strong>(1)</strong> a partícula incidente aproxima-se
+                do núcleo reagente (o alvo); <strong>(2)</strong> ocorre
+                a captura e forma-se o núcleo composto excitado \(C^*\); <strong>(3)</strong>
+                esse sistema se reorganiza e sai como núcleo-produto
+                \(B\) mais partícula
+                ejetada \(b\). O
+                desenho é esquemático — os tamanhos não estão em escala
+                —, mas conserva a ideia essencial de que a etapa
+                intermediária contém todos os núcleons do projétil e do
+                alvo.</p>
+<figure>
+<img alt="Modelo do núcleo composto em três etapas: à esquerda, partícula incidente e núcleo-alvo; ao centro, núcleo composto excitado; à direita, núcleo-produto e partícula ejetada. Ilustração didática criada para esta aula; prótons em vermelho e nêutrons em cinza, sem escala." src="images/fig-nucleo-composto-tres-etapas-gerada.png" style="width:94.0%"/>
+<figcaption aria-hidden="true">Modelo do núcleo composto
+                em três etapas: à esquerda, partícula incidente e
+                núcleo-alvo; ao centro, núcleo composto excitado; à
+                direita, núcleo-produto e partícula ejetada. Ilustração
+                didática criada para esta aula; prótons em vermelho e
+                nêutrons em cinza, sem escala.</figcaption>
+</figure>
+<figure>
+<img alt="Experimento de Rutherford: um feixe de partículas alfa incide sobre uma lâmina, e o espalhamento revela a interação com os núcleos. É um exemplo histórico de partícula incidente e alvo, não um diagrama de decaimento. Fonte: Dombob Wiki, Wikimedia Commons, CC0." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rutherford_Experiment.svg" style="width:82.0%"/>
+<figcaption aria-hidden="true">Experimento de
+                Rutherford: um feixe de partículas alfa incide sobre uma
+                lâmina, e o espalhamento revela a interação com os
+                núcleos. É um exemplo histórico de partícula incidente e
+                alvo, não um diagrama de decaimento. Fonte: Dombob Wiki,
+                Wikimedia Commons, CC0.</figcaption>
+</figure>
+<h3 id="exemplo-5.6-identificando-as-etapas">Exemplo
+                5.6: identificando as etapas</h3>
+<p>\[\ce{^{14}_{7}N
+                +}\alpha\ce{-&gt; ^{18}_{9}F^* -&gt; ^{17}_{8}O +
+                ^1_1H}.\]</p>
+<p>Aqui, a alfa é a incidente, o nitrogênio-14 é o alvo,
+                o flúor-18 excitado é o núcleo composto, o oxigênio-17 é
+                o núcleo-produto e o próton é a partícula ejetada.</p>
+<h2 id="energia-cinética-mínima-limiar-e-barreira">Energia
+                cinética mínima: limiar e barreira</h2>
+<p>Considere a reação de dois corpos \(\ce{a+A -&gt; B+b}\) no
+                referencial do laboratório, com o alvo \(A\) inicialmente em
+                repouso. A conservação da energia (sem incluir as massas
+                de repouso, já reunidas em \(Q\)) e do momento linear
+                fornece</p>
+<p>\[T_a+Q=T_B+T_b,\qquad
+                \vec p_a=\vec p_B+\vec p_b.\]</p>
+<p>No limiar de uma reação endoenergética, os produtos
+                não podem ter movimento relativo: eles se deslocam
+                juntos, com a mesma velocidade \(\vec V\). Assim,</p>
+<p>\[\vec p_a=(m_B+m_b)\vec
+                V\]</p>
+<p>e, pela conservação do momento,</p>
+<p>\[
+                \begin{aligned}
+                T_B+T_b
+                &amp;=\frac12m_BV^2+\frac12m_bV^2\\
+                &amp;=\frac{p_a^2}{2(m_B+m_b)}.
+                \end{aligned}
+                \]</p>
+<p>Como \(p_a^2=2m_aT_a\), a
+                conservação da energia fica</p>
+<p>\[T_a+Q=\frac{m_a}{m_B+m_b}T_a.\]</p>
+<p>No limiar, \(T_a=E_{\rm
+                lim}\). Como \(|Q|\ll
+                m_ic^2\), podemos usar \(m_B+m_b\approx m_a+m_A\);
+                portanto,</p>
+<p>\[
+                \begin{aligned}
+                E_{\rm lim}\left(1-\frac{m_a}{m_a+m_A}\right)&amp;=-Q,\\
+                \boxed{E_{\rm lim}\approx
+                -Q\left(1+\frac{m_a}{m_A}\right).}
+                \end{aligned}
+                \]</p>
+<p>O fator adicional é a energia cinética do movimento
+                conjunto dos produtos, exigida pela conservação do
+                momento linear. Por isso, \(E_{\rm lim}&gt;|Q|\). Para
+                \(Q&gt;0\), o limiar
+                cinemático é zero; isso não elimina a repulsão elétrica
+                entre partículas carregadas.</p>
+<p>Como estudado na <strong>Aula 2</strong>, a energia
+                potencial elétrica entre projétil e alvo é \(V_C=kZ_aZ_Ae^2/r\). Para
+                estimar a barreira, tomamos a distância de contato
+                nuclear \(r\approx
+                R_a+R_A\), com \(R=1{,}2A^{1/3}\,\text{fm}\)
+                e \(k
+                e^2=1{,}44\,\text{MeV}\,\text{fm}\). Logo,</p>
+<p>\[V_C\approx\frac{1{,}44Z_aZ_A}{1{,}2\left(A_a^{1/3}+A_A^{1/3}\right)}\,\text{MeV}.\]</p>
+<p>Esta é a mesma ideia da distância de maior
+                aproximação da Aula 2, agora avaliada aproximadamente no
+                contato entre os núcleos. Ela é uma barreira de
+                aproximação, não um termo a ser somado mecanicamente ao
+                limiar. Para projéteis carregados, a energia de feixe
+                deve permitir aproximação suficiente; abaixo da
+                barreira, ainda há possibilidade de tunelamento.
+                Nêutrons, por terem \(Z_a=0\), não enfrentam
+                barreira de Coulomb.</p>
+<p>Há, portanto, duas perguntas independentes. O sinal
+                de \(Q\) responde se a
+                reação é energeticamente favorável depois de atingido o
+                estado nuclear adequado. A barreira de Coulomb responde
+                se dois núcleos carregados conseguem se aproximar o
+                bastante para que a força nuclear de curto alcance atue.
+                Em estrelas e em plasmas de fusão, o tunelamento permite
+                que algumas colisões ocorram mesmo abaixo da barreira
+                clássica; a probabilidade é pequena e cresce com a
+                energia relativa dos núcleos.</p>
+<p><strong>Por que aparecem aproximações?</strong> Há
+                três níveis distintos nesta aula: (i) ao trocar massa
+                nuclear por massa atômica, desprezamos energias de
+                ligação dos elétrons, pequenas diante de MeV; (ii) no
+                limiar, usamos cinemática não relativística e \(m_B+m_b\approx m_a+m_A\),
+                válida porque \(|Q|\ll
+                m_ic^2\); (iii) na barreira de Coulomb, usamos
+                raios nucleares médios e uma descrição clássica de
+                contato. Essa última estimativa não proíbe reações
+                abaixo de \(V_C\), pois
+                o tunelamento quântico ainda pode ocorrer.</p>
+<h2 id="quatro-projéteis-quatro-exemplos-resolvidos">Quatro
+                projéteis, quatro exemplos resolvidos</h2>
+<p>Em todos os exemplos, primeiro calculamos \(Q\) por massas atômicas.
+                Depois, usamos \(T_{\rm
+                produtos}=T_{\rm incidente}+Q\); quando \(Q&lt;0\), calculamos também
+                o limiar.</p>
+<h3 id="próton-incidente-ce7lipalphaalpha">Próton
+                incidente: \(\ce{^7Li(p,\alpha)}\alpha\)</h3>
+<p>\[\ce{^7_3Li + ^1_1H
+                -&gt;}2\alpha.\]</p>
+<p>O próton é o núcleo de hidrogênio, portanto \(m_p=M(\ce{^1H})-m_e\).
+                Nesta reação,</p>
+<p>\[\begin{aligned}
+                m_p+m_{\ce{^7Li}}-2m_\alpha
+                &amp;=[M_{\ce{^1H}}-m_e]+[M_{\ce{^7Li}}-3m_e]\\
+                &amp;\quad-2[M_{\ce{^4He}}-2m_e]\\
+                &amp;=M_{\ce{^1H}}+M_{\ce{^7Li}}-2M_{\ce{^4He}}.
+                \end{aligned}\]</p>
+<p>Assim, podem-se usar diretamente as massas atômicas
+                de hidrogênio, lítio e hélio.</p>
+<p>\[\begin{aligned}
+                Q&amp;=[7{,}016003+1{,}007825\\
+                &amp;\quad-2(4{,}002603)]\,\text{u}\\
+                &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=17{,}35\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>É exoenergética: para \(T_p=0{,}50\,\text{MeV}\),
+                \(T_{\rm
+                produtos}=0{,}50+17{,}346\ldots=17{,}85\,\text{MeV}\),
+                arredondado somente no final. O limiar cinemático é
+                zero, mas próton e lítio são positivos e existe barreira
+                de Coulomb.</p>
+<h3 id="nêutron-incidente-ce14nnp14c">Nêutron incidente:
+                \(\ce{^{14}N(n,p)^{14}C}\)</h3>
+<p>\[\ce{^{14}_{7}N + ^1_0n
+                -&gt; ^{14}_{6}C + ^1_1H}.\]</p>
+<p>O nêutron não tem eletrosfera; portanto, usa-se
+                diretamente sua massa tabelada, \(m_n\). Já o próton e os
+                núcleos são convertidos por</p>
+<p>\[\begin{aligned}
+                m_n+m_{\ce{^{14}N}}-m_{\ce{^{14}C}}-m_p
+                &amp;=M_n+[M_{\ce{^{14}N}}-7m_e]\\
+                &amp;\quad-[M_{\ce{^{14}C}}-6m_e]\\
+                &amp;\quad-[M_{\ce{^1H}}-m_e]\\
+                &amp;=M_n+M_{\ce{^{14}N}}-M_{\ce{^{14}C}}\\
+                &amp;\quad-M_{\ce{^1H}}.
+                \end{aligned}\]</p>
+<p>\[\begin{aligned}
+                Q&amp;=[14{,}003074+1{,}008665-14{,}003242\\
+                &amp;\quad-1{,}007825]\,\text{u}\\
+                &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=0{,}626\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>Para um nêutron de \(0{,}20\,\text{MeV}\), os
+                produtos recebem juntos \(0{,}20+0{,}625968\ldots=0{,}83\,\text{MeV}\);
+                o resultado final respeita a casa dos centésimos da
+                energia incidente. Como o nêutron é neutro, não há
+                barreira de Coulomb de entrada; a probabilidade da
+                reação, porém, ainda depende da energia e da seção de
+                choque.</p>
+<h3 id="deuteron-incidente-ce6lidp7li">Deuteron
+                incidente: \(\ce{^6Li(d,p)^7Li}\)</h3>
+<p>\[\ce{^6_3Li + ^2_1H -&gt;
+                ^7_3Li + ^1_1H}.\]</p>
+<p>O deuteron é o núcleo do deutério: \(m_d\simeq
+                M(\ce{^2H})-m_e\). Na tabela fornecida aos
+                estudantes, o deutério (\(\ce{^2H}\)) aparece com o
+                símbolo <strong>D</strong>. Portanto,</p>
+<p>\[\begin{aligned}
+                m_d+m_{\ce{^6Li}}-m_{\ce{^7Li}}-m_p
+                &amp;=[M_{\ce{^2H}}-m_e]+[M_{\ce{^6Li}}-3m_e]\\
+                &amp;\quad-[M_{\ce{^7Li}}-3m_e]\\
+                &amp;\quad-[M_{\ce{^1H}}-m_e]\\
+                &amp;=M_{\ce{^2H}}+M_{\ce{^6Li}}-M_{\ce{^7Li}}\\
+                &amp;\quad-M_{\ce{^1H}}.
+                \end{aligned}\]</p>
+<p>\[\begin{aligned}
+                Q&amp;=[6{,}015123+2{,}014102-7{,}016003\\
+                &amp;\quad-1{,}007825]\,\text{u}\\
+                &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=5{,}027\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>Com \(T_d=1{,}00\,\text{MeV}\), a
+                energia cinética total final é \(1{,}00+5{,}027305\ldots=6{,}03\,\text{MeV}\),
+                com um único arredondamento final. Como o deuteron tem
+                carga \(+1\), a
+                barreira de Coulomb afeta a chance de ocorrer, embora o
+                \(Q\) seja
+                positivo.</p>
+<h3 id="exemplo-5.8-fusão-deutériotrítio">Exemplo 5.8:
+                fusão deutério–trítio</h3>
+<p>Uma reação importante em estudos de fusão é</p>
+<p>\[\ce{^2_1H + ^3_1H
+                -&gt;}\alpha+\ce{^1_0n}.\]</p>
+<p>Ela pode ser interpretada como uma reação artificial
+                entre um feixe de deutério e um alvo de trítio, ou como
+                colisões em um plasma quente. Na tabela fornecida, eles
+                aparecem como <strong>D</strong> (\(\ce{^2H}\)) e
+                <strong>T</strong> (\(\ce{^3H}\)). Como há dois
+                elétrons nos reagentes atômicos e dois no átomo de hélio
+                do produto, as massas atômicas podem ser usadas
+                diretamente:</p>
+<p>\[
+                \begin{aligned}
+                Q&amp;=[M(\ce{^2H})+M(\ce{^3H})-M(\ce{^4He})-m_n]c^2\\
+                &amp;=[2{,}014102+3{,}016049-4{,}002603-1{,}008665]\,\text{u}\\
+                &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=17{,}59\,\text{MeV}.
+                \end{aligned}
+                \]</p>
+<p>É uma reação exoenergética. Se os reagentes chegam
+                com energia cinética total desprezível, os produtos
+                levam aproximadamente \(17{,}59\,\text{MeV}\). Como
+                os dois saem com momentos de mesmo módulo, a maior
+                parcela vai para o nêutron, mais leve: cerca de \(14{,}05\,\text{MeV}\) para
+                o nêutron e \(3{,}540\,\text{MeV}\) para
+                a alfa. A dificuldade prática não é um limiar cinemático
+                (\(Q&gt;0\)), mas
+                vencer ou tunelar a barreira entre dois núcleos de carga
+                \(+1\).</p>
+<figure>
+<img alt="Fusão entre deutério e trítio: os núcleos leves produzem hélio-4, um nêutron rápido e energia cinética. A reação ilustra por que um exemplo com deutério é central para discutir barreira de Coulomb e fusão controlada. Fonte: Wykis, Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Deuterium-tritium_fusion.svg" style="width:52.0%"/>
+<figcaption aria-hidden="true">Fusão entre deutério e
+                trítio: os núcleos leves produzem hélio-4, um nêutron
+                rápido e energia cinética. A reação ilustra por que um
+                exemplo com deutério é central para discutir barreira de
+                Coulomb e fusão controlada. Fonte: Wykis, Wikimedia
+                Commons, domínio público.</figcaption>
+</figure>
+<h3 id="alfa-incidente-ce14nalphap17o">Alfa incidente:
+                \(\ce{^{14}N(\alpha,p)^{17}O}\)</h3>
+<p>\[\ce{^{14}_{7}N
+                +}\alpha\ce{-&gt; ^{17}_{8}O + ^1_1H}.\]</p>
+<p><strong>Dado adicional para este exemplo:</strong>
+                como \(\ce{^{17}O}\)
+                não consta na tabela selecionada em PDF, use diretamente
+                \(M(\ce{^{17}O})=16{,}999132\,\text{u}\).</p>
+<p>Como \(m_\alpha=M(\ce{^4He})-2m_e\)
+                e \(m_p=M(\ce{^1H})-m_e\),</p>
+<p>\[\begin{aligned}
+                m_\alpha+m_{\ce{^{14}N}}-m_{\ce{^{17}O}}-m_p
+                &amp;=[M_{\ce{^4He}}-2m_e]\\
+                &amp;\quad+[M_{\ce{^{14}N}}-7m_e]\\
+                &amp;\quad-[M_{\ce{^{17}O}}-8m_e]\\
+                &amp;\quad-[M_{\ce{^1H}}-m_e]\\
+                &amp;=M_{\ce{^4He}}+M_{\ce{^{14}N}}-M_{\ce{^{17}O}}\\
+                &amp;\quad-M_{\ce{^1H}}.
+                \end{aligned}\]</p>
+<p>\[\begin{aligned}
+                Q&amp;=[14{,}003074+4{,}002603-16{,}999132\\
+                &amp;\quad-1{,}007825]\,\text{u}\\
+                &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
+                &amp;=-1{,}192\,\text{MeV}.
+                \end{aligned}\]</p>
+<p>Como \(Q&lt;0\),</p>
+<p>\[E_{\rm
+                lim}\approx(1{,}192320\ldots\,\text{MeV})\left(1+\frac4{14}\right)=1{,}533\,\text{MeV}.\]</p>
+<p>Esse é o limiar cinemático. A estimativa da barreira
+                de Coulomb para alfa (\(Z=2\)) e nitrogênio (\(Z=7\)) é \(V_C=4{,}202\ldots\,\text{MeV}\approx4{,}2\,\text{MeV}\),
+                limitada a dois algarismos significativos por \(R_0=1{,}2\,\text{fm}\);
+                assim, em uma descrição clássica, a energia prática de
+                feixe precisa também enfrentar a repulsão elétrica. Se
+                \(T_\alpha=5{,}00\,\text{MeV}\),
+                a energia cinética total dos produtos é \(5{,}00-1{,}192320\ldots=3{,}81\,\text{MeV}\).</p>
+<h1 id="síntese-da-aula">Síntese da aula</h1>
+<h2 id="roteiro-de-resolução">Roteiro de resolução</h2>
+<p>Ao encontrar uma reação nuclear, siga sempre esta
+                ordem:</p>
+<ol type="1">
+<li><strong>Leia a seta:</strong> identifique reagentes
+                e produtos; em uma reação induzida, identifique também
+                projétil, alvo, núcleo composto, núcleo-produto e
+                partícula ejetada.</li>
+<li><strong>Balanceie:</strong> confira conservação do
+                número de massa \(A\) e
+                da carga \(Z\).</li>
+<li><strong>Escolha as massas:</strong> use massas
+                atômicas quando possível. Lembre-se da correção de \(2m_e\) apenas no decaimento
+                \(\beta^+\); em \(\alpha\), \(\beta^-\) e captura
+                eletrônica, os elétrons se cancelam conforme
+                demonstrado.</li>
+<li><strong>Calcule e interprete \(Q\):</strong> mantenha os
+                algarismos durante a conta e arredonde somente no
+                resultado final. Se \(Q&gt;0\), a reação é
+                exoenergética; se \(Q&lt;0\), é
+                endoenergética.</li>
+<li><strong>Analise o contexto físico:</strong> numa
+                reação artificial endoenergética, calcule o limiar; para
+                núcleos carregados, compare também com a barreira de
+                Coulomb. Limiar e barreira são efeitos diferentes.</li>
+</ol>
+<h2 id="tabela-prática-que-massa-usar">Tabela prática:
+                que massa usar?</h2>
+<p>Use esta tabela depois de balancear \(A\) e \(Z\). As trocas indicadas
+                valem para o cálculo de \(\Delta m\) ou de \(Q\) com massas atômicas, na
+                aproximação em que energias de ligação eletrônica são
+                desprezadas.</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 13%"/>
+<col style="width: 45%"/>
+<col style="width: 40%"/>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Situação</th>
+<th style="text-align: left;">Troca prática na
+                conta</th>
+<th style="text-align: left;">Por quê?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Reação nuclear
+                balanceada</td>
+<td style="text-align: left;">Troque cada massa nuclear
+                \(m\) pela massa
+                atômica \(M\) do mesmo
+                nuclídeo.</td>
+<td style="text-align: left;">A soma das massas de
+                repouso dos elétrons se cancela porque a carga total se
+                conserva.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Partícula \(\alpha\)</td>
+<td style="text-align: left;">Em uma reação completa,
+                use \(m_\alpha\to
+                M(\ce{^4He})\). Isoladamente: \(m_\alpha\simeq
+                M(\ce{^4He})-2m_e\).</td>
+<td style="text-align: left;">A alfa é o núcleo do
+                hélio-4; seus dois elétrons são compensados no balanço
+                completo.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Emissão \(\beta^-\)</td>
+<td style="text-align: left;">Não acrescente nem
+                subtraia \(m_e\): \(Q\simeq[M(X)-M(Y)]c^2\).</td>
+<td style="text-align: left;">O elétron emitido compensa
+                o elétron que falta na massa atômica do filho.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Captura eletrônica</td>
+<td style="text-align: left;">Não acrescente nem
+                subtraia \(m_e\): \(Q\simeq[M(X)-M(Y)]c^2\).</td>
+<td style="text-align: left;">O elétron capturado
+                compensa a diferença de um elétron entre os átomos.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Emissão \(\beta^+\)</td>
+<td style="text-align: left;">Subtraia \(2m_e\): \(Q\simeq[M(X)-M(Y)-2m_e]c^2\).</td>
+<td style="text-align: left;">Um termo vem da
+                eletrosfera do filho; o outro, da massa do pósitron
+                emitido.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Próton incidente ou
+                ejetado</td>
+<td style="text-align: left;">Em uma reação completa,
+                use \(m_p\to
+                M(\ce{^1H})\). Isoladamente: \(m_p\simeq
+                M(\ce{^1H})-m_e\).</td>
+<td style="text-align: left;">O próton é o núcleo de
+                hidrogênio; o elétron é compensado pela reação
+                balanceada.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nêutron</td>
+<td style="text-align: left;">Use diretamente a massa
+                tabelada \(m_n\).</td>
+<td style="text-align: left;">O nêutron não possui
+                elétrons.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Deuteron (núcleo do
+                deutério)</td>
+<td style="text-align: left;">Em uma reação completa,
+                use \(m_d\to
+                M(\ce{^2H})=M(\mathrm{D})\). Isoladamente: \(m_d\simeq
+                M(\mathrm{D})-m_e\).</td>
+<td style="text-align: left;">D é o símbolo da tabela
+                para o deutério; o deuteron tem um elétron a menos que o
+                átomo neutro.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ideia-chave:</strong> a conservação de \(A\) e \(Z\) diz quais produtos são
+                possíveis; o valor de \(Q\) diz se a reação libera
+                ou requer energia; a conservação do momento explica por
+                que o limiar, quando existe, é maior que \(|Q|\) no laboratório.</p>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<h2 id="questões-conceituais">Questões Conceituais</h2>
+<dl>
+<dt>5.1)</dt>
+<dd>
+                Em uma reação nuclear, reagentes e produtos são:
+                </dd>
+</dl>
+<ol type="a">
+<li>apenas elétrons.</li>
+<li>objetos antes e depois da transformação
+                nuclear.</li>
+<li>sempre dois núcleos iguais.</li>
+<li>somente fótons.</li>
+<li>nomes para energia cinética.</li>
+</ol>
+<dl>
+<dt>5.2)</dt>
+<dd>
+                Uma reação com \(Q&lt;0\) é:
+                </dd>
+</dl>
+<ol type="a">
+<li>exoenergética.</li>
+<li>impossível em qualquer situação.</li>
+<li>endoenergética.</li>
+<li>necessariamente um decaimento alfa.</li>
+<li>sem conservação de energia.</li>
+</ol>
+<dl>
+<dt>5.3)</dt>
+<dd>
+                Em um experimento de ativação, um feixe de partículas
+                alfa incide sobre uma lâmina de alumínio-27 e são
+                detectados nêutrons. A reação é escrita na forma
+                compacta \(\ce{^{27}Al(\alpha,n)^{30}P}\).
+                Antes da ejeção do nêutron, qual é o núcleo composto
+                formado pela absorção da alfa pelo alvo?
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^{27}Al}\).</li>
+<li>\(\ce{^{30}P}\).</li>
+<li>\(\ce{^{31}P^*}\).</li>
+<li>\(\ce{^{31}S^*}\).</li>
+<li>\(\ce{^{30}Si^*}\).</li>
+</ol>
+<dl>
+<dt>5.4)</dt>
+<dd>
+                No modelo do núcleo composto, \(C^*\) representa:
+                </dd>
+</dl>
+<ol type="a">
+<li>o alvo inalterado.</li>
+<li>um elétron ejetado.</li>
+<li>estado intermediário excitado.</li>
+<li>o produto final estável.</li>
+<li>uma colisão elástica.</li>
+</ol>
+<dl>
+<dt>5.5)</dt>
+<dd>
+                No experimento de Chadwick, prótons rápidos ejetados de
+                uma placa de parafina foram uma evidência importante
+                porque:
+                </dd>
+</dl>
+<ol type="a">
+<li>mostravam que a radiação incidente tinha carga
+                positiva igual à da alfa.</li>
+<li>permitiam inferir que uma radiação neutra transferia
+                momento aos núcleos de hidrogênio.</li>
+<li>provavam que o berílio sofria decaimento beta menos
+                espontâneo.</li>
+<li>eliminavam a necessidade de conservar energia e
+                momento na reação.</li>
+<li>demonstravam que o nêutron é uma partícula sem
+                massa.</li>
+</ol>
+<h2 id="questões-de-cálculo">Questões de Cálculo</h2>
+<p>Use, quando necessário, \(c^2=931{,}5\,\text{MeV/u}\),
+                \(m_e=0{,}000549\,\text{u}\),
+                \(m_n=1{,}008665\,\text{u}\)
+                e \(R=1{,}2A^{1/3}\,\text{fm}\).
+                Em cada item, primeiro organize a conservação de \(A\) e \(Z\); ao calcular \(Q\), use massas atômicas
+                conforme as demonstrações desta aula e escreva o fator
+                unitário \(\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\).
+                Mantenha todas as casas dos dados durante a conta e
+                arredonde somente o resultado final, conforme os
+                algarismos significativos.</p>
+<dl>
+<dt>5.6)</dt>
+<dd>
+                Complete \(\ce{^{27}_{13}Al +
+                ^4_2He -&gt; ^{30}_{15}P + X}\). Qual é \(X\)?
+                </dd>
+</dl>
+<ol type="a">
+<li>\(\ce{^1_0n}\)</li>
+<li>\(\ce{^1_1H}\)</li>
+<li>\(\ce{^4_2He}\)</li>
+<li>\(\ce{^0_{-1}e}\)</li>
+<li>\(\ce{^2_1H}\)</li>
+</ol>
+<dl>
+<dt>5.7)</dt>
+<dd>
+                A partícula alfa é o núcleo de hélio-4. Usando \(M(\ce{^4He})=4{,}002603\,\text{u}\)
+                e \(m_e=0{,}000549\,\text{u}\),
+                sua massa <strong>nuclear</strong> é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(4{,}002603\,\text{u}\)</li>
+<li>\(4{,}001505\,\text{u}\)</li>
+<li>\(4{,}003701\,\text{u}\)</li>
+<li>\(4{,}000407\,\text{u}\)</li>
+<li>\(4{,}002054\,\text{u}\)</li>
+</ol>
+<dl>
+<dt>5.8)</dt>
+<dd>
+                Para o decaimento alfa \(\ce{^{210}_{84}Po -&gt;
+                ^{206}_{82}Pb +}\alpha\), use \(M(\ce{^{210}Po})=209{,}982874\,\text{u}\),
+                \(M(\ce{^{206}Pb})=205{,}974465\,\text{u}\)
+                e \(M(\ce{^4He})=4{,}002603\,\text{u}\).
+                O valor de \(Q\) é
+                aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}541\,\text{MeV}\)</li>
+<li>\(5{,}408\,\text{MeV}\)</li>
+<li>\(4{,}10\,\text{MeV}\)</li>
+<li>\(18{,}6\,\text{MeV}\)</li>
+<li>\(5{,}41\,\text{keV}\)</li>
+</ol>
+<dl>
+<dt>5.9)</dt>
+<dd>
+                No decaimento \(\beta^-\) do trítio, \(\ce{^3_1H -&gt; ^3_2He + e^- +
+                \bar{\nu}_e}\), use \(M(\ce{^3H})=3{,}016049\,\text{u}\)
+                e \(M(\ce{^3He})=3{,}016029\,\text{u}\).
+                A energia de reação é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(19\,\text{keV}\)</li>
+<li>\(0{,}186\,\text{MeV}\)</li>
+<li>\(1{,}86\,\text{MeV}\)</li>
+<li>\(18{,}6\,\text{MeV}\)</li>
+<li>\(-18{,}6\,\text{keV}\)</li>
+</ol>
+<dl>
+<dt>5.10)</dt>
+<dd>
+                Para o decaimento \(\beta^+\) do sódio-22, use
+                \(M(\ce{^{22}Na})=21{,}994438\,\text{u}\)
+                e \(M(\ce{^{22}Ne})=21{,}991385\,\text{u}\).
+                Com massas atômicas, o valor de \(Q_{\beta^+}\) é
+                aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}800\,\text{MeV}\)</li>
+<li>\(1{,}02\,\text{MeV}\)</li>
+<li>\(1{,}82\,\text{MeV}\)</li>
+<li>\(2{,}84\,\text{MeV}\)</li>
+<li>\(3{,}87\,\text{MeV}\)</li>
+</ol>
+<dl>
+<dt>5.11)</dt>
+<dd>
+                O potássio-40 pode decair por captura eletrônica para
+                argônio-40. Use \(M(\ce{^{40}K})=39{,}963998\,\text{u}\)
+                e \(M(\ce{^{40}Ar})=39{,}962383\,\text{u}\).
+                O valor de \(Q_{CE}\) é
+                aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}508\,\text{MeV}\)</li>
+<li>\(1{,}504\,\text{MeV}\)</li>
+<li>\(2{,}53\,\text{MeV}\)</li>
+<li>\(1{,}02\,\text{MeV}\)</li>
+<li>\(3{,}02\,\text{MeV}\)</li>
+</ol>
+<dl>
+<dt>5.12)</dt>
+<dd>
+                Para a reação induzida \(\ce{^6_3Li + ^1_0n
+                -&gt;}\alpha+\ce{^3_1H}\), use \(M(\ce{^6Li})=6{,}015123\,\text{u}\),
+                \(M(\ce{^4He})=4{,}002603\,\text{u}\)
+                e \(M(\ce{^3H})=3{,}016049\,\text{u}\).
+                O valor de \(Q\) é
+                aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(-4{,}78\,\text{MeV}\)</li>
+<li>\(0{,}478\,\text{MeV}\)</li>
+<li>\(4{,}784\,\text{MeV}\)</li>
+<li>\(17{,}6\,\text{MeV}\)</li>
+<li>\(47{,}8\,\text{MeV}\)</li>
+</ol>
+<dl>
+<dt>5.13)</dt>
+<dd>
+                Na fusão \(\ce{^2H + ^3H
+                -&gt;}\alpha+\ce{n}\), suponha energia cinética
+                inicial desprezível e \(Q=17{,}59\,\text{MeV}\).
+                Como os produtos saem com momentos de mesmo módulo, use
+                \(M(\ce{^4He})=4{,}002603\,\text{u}\)
+                e \(m_n=1{,}008665\,\text{u}\)
+                para estimar a energia cinética do nêutron.
+                </dd>
+</dl>
+<ol type="a">
+<li>\(3{,}54\,\text{MeV}\)</li>
+<li>\(14{,}05\,\text{MeV}\)</li>
+<li>\(17{,}59\,\text{MeV}\)</li>
+<li>\(0\,\text{MeV}\)</li>
+<li>\(5{,}58\,\text{MeV}\)</li>
+</ol>
+<dl>
+<dt>5.14)</dt>
+<dd>
+                Uma reação endoenergética tem \(Q=-3{,}00\,\text{MeV}\) e é
+                produzida por um projétil com \(m_a/m_A=1/12\). O limiar
+                cinemático não relativístico é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(2{,}75\,\text{MeV}\)</li>
+<li>\(3{,}00\,\text{MeV}\)</li>
+<li>\(3{,}25\,\text{MeV}\)</li>
+<li>\(3{,}50\,\text{MeV}\)</li>
+<li>\(36{,}0\,\text{MeV}\)</li>
+</ol>
+<dl>
+<dt>5.15)</dt>
+<dd>
+                Estime a barreira de Coulomb para uma partícula alfa
+                (\(A_a=4\), \(Z_a=2\)) aproximar-se de um
+                núcleo de carbono-12 (\(A_A=12\), \(Z_A=6\)). O valor mais
+                próximo é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0\,\text{MeV}\)</li>
+<li>\(1{,}20\,\text{MeV}\)</li>
+<li>\(2{,}40\,\text{MeV}\)</li>
+<li>\(3{,}7\,\text{MeV}\)</li>
+<li>\(7{,}42\,\text{MeV}\)</li>
+</ol>
+<h1 id="recomendações">Recomendações</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Física Nuclear — Parte 3" loading="lazy" src="./images/thumbs/ytb-univesp-fisica-nuclear-3.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Física Nuclear — Parte 3</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">UNIVESP TV</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=FDPzHi-ZvGM&amp;list=PLxI8Can9yAHcR8o-NtBu1zrfZ0R4mQ4EQ&amp;index=46" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=c3nGE8Z3-lo" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="The Strong Nuclear Force" loading="lazy" src="./images/thumbs/ytb-fermilab-forca-forte.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">The Strong Nuclear Force</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=c3nGE8Z3-lo" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Fermilab</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=c3nGE8Z3-lo" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=kZAFntUFx8I" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="The Q-Equation — The Most General Nuclear Reaction" loading="lazy" src="./images/ytb-mit-q-equation.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">The Q-Equation — The Most General Nuclear Reaction</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=kZAFntUFx8I" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">MIT OpenCourseWare</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=kZAFntUFx8I" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=hKum6_oc6jA" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Leis da Radioatividade e Captura Eletrônica" loading="lazy" src="./images/thumbs/ytb-captura-eletronica.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Leis da Radioatividade e Captura Eletrônica</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=hKum6_oc6jA" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Química Completa — Prof. Cláudio Perdigão</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=hKum6_oc6jA" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências-utilizadas-nesta-aula">Referências
+                utilizadas nesta aula</h1>
+<ul>
+<li>KRANE, K. S. <em>Introductory Nuclear Physics</em>.
+                Wiley, 1988.</li>
+<li>KAPLAN, I. <em>Nuclear Physics</em>. 2. ed. Reading,
+                MA: Addison-Wesley, 1963.</li>
+<li>LILLEY, J. <em>Nuclear Physics: Principles and
+                Applications</em>. Wiley, 2001.</li>
+<li>CHADWICK, J. <em>Possible Existence of a
+                Neutron</em>. Nature, v. 129, p. 312, 1932. <a class="uri" href="https://doi.org/10.1038/129312a0">https://doi.org/10.1038/129312a0</a>.</li>
+<li>WANG, M.; HUANG, W. J.; KONDEV, F. G.; AUDI, G.;
+                NAIMI, S. <em>The AME 2020 atomic mass evaluation (II):
+                Tables, graphs and references</em>. <strong>Chinese
+                Physics C</strong>, v. 45, n. 3, 030003, 2021. <a class="uri" href="https://doi.org/10.1088/1674-1137/abddaf">https://doi.org/10.1088/1674-1137/abddaf</a>.</li>
+<li>OLIVEIRA, J. R. <em>Tabela selecionada de massas
+                atômicas — AME2020, em português</em>. Material da
+                disciplina, 2026. A tabela fornecida aos estudantes é
+                uma seleção da avaliação AME2020; nela, D representa
+                \(\ce{^2H}\) e T
+                representa \(\ce{^3H}\).</li>
+<li>NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY. <a href="https://physics.nist.gov/cuu/Constants/index.html">Fundamental
+                Physical Constants — CODATA 2022</a>. Consulta para as
+                constantes físicas; nesta aula, são usados os valores
+                didaticamente arredondados informados nos
+                enunciados.</li>
+<li>INTERNATIONAL ATOMIC ENERGY AGENCY. <a href="https://nucleus.iaea.org/Pages/livechart-of-nuclides-av.aspx">LiveChart
+                of Nuclides</a>. Consulta complementar para propriedades
+                de nuclídeos e decaimentos.</li>
+<li>MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/22-01-introduction-to-nuclear-engineering-and-ionizing-radiation-fall-2016/resources/the-q-equation2014the-most-general-nuclear-reaction/">Lecture
+                6: The Q-Equation</a>.</li>
+<li>WIKIMEDIA COMMONS. <a href="https://commons.wikimedia.org/wiki/File:NuclearReaction.svg">NuclearReaction.svg</a>,
+                Michalsmid; <a href="https://commons.wikimedia.org/wiki/File:Rutherford_Experiment.svg">Rutherford
+                Experiment.svg</a>, Dombob Wiki, CC0. Créditos e
+                licenças nas legendas.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+
+                <a href="/disciplinas/aula-4-modos-de-decaimento-nuclear.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
