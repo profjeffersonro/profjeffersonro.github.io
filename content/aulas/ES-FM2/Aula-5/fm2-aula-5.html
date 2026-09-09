@@ -539,26 +539,35 @@ de Oliveira
                 <h1 id="objetivos">Objetivos</h1>
                 <p>Ao final desta aula, devemos ser capazes de:</p>
                 <ul>
-                <li>definir reação nuclear, reagentes e produtos
-                nucleares;</li>
-                <li>distinguir processos espontâneos (naturais) de
-                reações artificiais (induzidas);</li>
-                <li>calcular e interpretar a energia de reação <span
-                class="math inline">\(Q\)</span>;</li>
-                <li>demonstrar quando e por que massas nucleares podem
-                ser substituídas por massas atômicas;</li>
-                <li>reconhecer reações exoenergéticas e
+                <li><strong>Identificar</strong> reagentes, produtos,
+                número de massa e carga em uma reação nuclear;</li>
+                <li><strong>Definir</strong> reação nuclear e
+                <strong>distinguir</strong> processos espontâneos
+                (naturais) de reações artificiais (induzidas);</li>
+                <li><strong>Explicar</strong> os significados físico e
+                energético de reações exoenergéticas e
                 endoenergéticas;</li>
-                <li>calcular <span class="math inline">\(Q\)</span> em
+                <li><strong>Aplicar</strong> as conservações de <span
+                class="math inline">\(A\)</span> e <span
+                class="math inline">\(Z\)</span> para balancear reações
+                e reconhecer partícula incidente, núcleo-alvo, núcleo
+                composto, núcleo-produto e partícula ejetada;</li>
+                <li><strong>Calcular e interpretar</strong> a energia de
+                reação <span class="math inline">\(Q\)</span> em
                 emissões <span class="math inline">\(\alpha\)</span>,
                 <span class="math inline">\(\beta^-\)</span>, <span
-                class="math inline">\(\beta^+\)</span> e captura
-                eletrônica;</li>
-                <li>identificar partícula incidente, núcleo-alvo, núcleo
-                composto, núcleo-produto e partícula ejetada;</li>
-                <li>estimar a energia cinética mínima de uma reação
-                endoenergética e distinguir limiar cinemático de
-                barreira de Coulomb.</li>
+                class="math inline">\(\beta^+\)</span>, captura
+                eletrônica e reações induzidas;</li>
+                <li><strong>Analisar</strong> por que massas nucleares
+                podem ser substituídas por massas atômicas e quando
+                entram as correções associadas ao elétron;</li>
+                <li><strong>Derivar</strong> o limiar cinemático a
+                partir das conservações de energia e momento
+                linear;</li>
+                <li><strong>Avaliar</strong>, em uma situação
+                experimental, as funções distintas de <span
+                class="math inline">\(Q\)</span>, do limiar cinemático e
+                da barreira de Coulomb.</li>
                 </ul>
                 <h1 id="reações-nucleares-e-energia">Reações nucleares e
                 energia</h1>
@@ -651,6 +660,13 @@ de Oliveira
                 <p>Definimos a energia de reação por</p>
                 <p><span class="math display">\[Q=\left(\sum m_{\rm
                 reagentes}-\sum m_{\rm produtos}\right)c^2.\]</span></p>
+                <p>Esta é, por enquanto, a <strong>regra de
+                cálculo</strong>: a diferença entre as massas de repouso
+                inicial e final dá a energia total disponível. A seguir,
+                a seção <strong>Demonstração: por que usar massas
+                atômicas?</strong> justifica matematicamente as
+                substituições de massas que serão usadas nos
+                cálculos.</p>
                 <p>Com massas em unidade de massa atômica, usamos <span
                 class="math inline">\(c^2=931{,}5\,\text{MeV/u}\)</span>;
                 isto é, na conta,</p>
@@ -676,11 +692,14 @@ de Oliveira
                 class="math inline">\(\ce{^{18}F}\)</span> e <span
                 class="math inline">\(\ce{^{234}Th}\)</span>. Os demais
                 valores empregados constam na tabela selecionada em
-                português. Nessa tabela, o deutério <span
-                class="math inline">\(\ce{^2H}\)</span> aparece como
-                <strong>D</strong> e o trítio <span
-                class="math inline">\(\ce{^3H}\)</span> aparece como
-                <strong>T</strong>.</p>
+                português. Nessa tabela, os átomos de deutério e trítio
+                aparecem como <strong>D</strong> (<span
+                class="math inline">\(\ce{^2H}\)</span>) e
+                <strong>T</strong> (<span
+                class="math inline">\(\ce{^3H}\)</span>); nesta aula,
+                seus núcleos serão escritos em minúsculas: <span
+                class="math inline">\(d\)</span> (deuteron) e <span
+                class="math inline">\(t\)</span> (tríton).</p>
                 <ul>
                 <li><strong>Reação exoenergética:</strong> <span
                 class="math inline">\(Q&gt;0\)</span>. A massa de
@@ -692,7 +711,10 @@ de Oliveira
                 cinética ao sistema.</li>
                 </ul>
                 <p>Se o alvo está inicialmente em repouso e não há
-                outras formas de energia relevantes,</p>
+                outras formas de energia relevantes, sendo <span
+                class="math inline">\(T_{\rm produtos}\)</span> a
+                <strong>soma das energias cinéticas de todos os
+                produtos</strong>,</p>
                 <p><span class="math display">\[T_{\rm produtos}=T_{\rm
                 incidente}+Q.\]</span></p>
                 <p>Essa igualdade é útil, mas não substitui a
@@ -720,55 +742,91 @@ de Oliveira
                 class="math inline">\(Q\)</span>; por isso, a energia
                 medida da partícula beta forma um espectro contínuo, e
                 não um único valor.</p>
-                <h2 id="massas-nucleares-e-massas-atômicas">Massas
-                nucleares e massas atômicas</h2>
-                <p>As tabelas de massas normalmente fornecem a
-                <strong>massa atômica</strong> <span
-                class="math inline">\(M({}^A_ZX)\)</span>, isto é, a
-                massa do núcleo junto com seus <span
-                class="math inline">\(Z\)</span> elétrons. Mais
+                <h2
+                id="demonstração-por-que-usar-massas-atômicas">Demonstração:
+                por que usar massas atômicas?</h2>
+                <p>Agora justificamos a regra de cálculo anunciada
+                acima, antes de aplicá-la no Exemplo 5.1. A massa
+                atômica <span class="math inline">\(M(X)\)</span> inclui
+                o núcleo e seus <span class="math inline">\(Z\)</span>
+                elétrons; a massa nuclear correspondente será indicada
+                por <span class="math inline">\(m(X)\)</span>. Mais
                 precisamente,</p>
-                <p><span class="math display">\[M=m_{\rm
-                nuc}+Zm_e-\frac{B_e}{c^2},\]</span></p>
-                <p>em que <span class="math inline">\(B_e\)</span> é a
-                energia de ligação total dos elétrons. Como <span
-                class="math inline">\(B_e\)</span> está na escala de eV
-                ou keV, muito menor que a escala de MeV das reações
-                nucleares, nesta aula usamos</p>
-                <p><span class="math display">\[m_{\rm
-                nuc}({}^A_ZX)\simeq M({}^A_ZX)-Zm_e.\]</span></p>
+                <p><span
+                class="math display">\[M(X)=m(X)+Zm_e-\frac{B_e(X)}{c^2},\]</span></p>
+                <p>em que <span class="math inline">\(B_e(X)\)</span> é
+                a energia de ligação total da eletrosfera. Para átomos
+                leves, ela está tipicamente na escala de eV ou keV; para
+                átomos pesados, o total pode alcançar centenas de keV.
+                Nesta aula, a aproximação relevante é que a
+                <strong>diferença</strong> dessas energias entre
+                reagentes e produtos é pequena diante da escala de MeV
+                considerada; assim,</p>
+                <p><span class="math display">\[m(X)\simeq
+                M(X)-Zm_e.\]</span></p>
                 <p>Para uma reação formada apenas por núcleos,</p>
                 <p><span
                 class="math display">\[{}^{A}_{Z}\mathrm{X}+{}^{a}_{z}\mathrm{x}
                 \longrightarrow{}^{A&#39;}_{Z&#39;}\mathrm{X}&#39;+{}^{a&#39;}_{z&#39;}\mathrm{x}&#39;,\]</span></p>
-                <p>a diferença de massa nuclear é</p>
+                <p>a diferença de massa nuclear fica</p>
                 <p><span class="math display">\[\begin{aligned}
                 \Delta m_{\rm nuc}
-                &amp;=[M_X-Zm_e]+[M_x-zm_e]\\
-                &amp;\quad-[M_{X&#39;}-Z&#39;m_e]-[M_{x&#39;}-z&#39;m_e]\\
-                &amp;=(M_X+M_x-M_{X&#39;}-M_{x&#39;})\\
+                &amp;=[M(X)-Zm_e]+[M(x)-zm_e]\\
+                &amp;\quad-[M(X&#39;)-Z&#39;m_e]-[M(x&#39;)-z&#39;m_e]\\
+                &amp;=[M(X)+M(x)-M(X&#39;)-M(x&#39;)]\\
                 &amp;\quad-(Z+z-Z&#39;-z&#39;)m_e.
                 \end{aligned}\]</span></p>
                 <p>Como a carga se conserva, <span
                 class="math inline">\(Z+z=Z&#39;+z&#39;\)</span>; logo,
                 o último termo é zero. Portanto,</p>
                 <p><span class="math display">\[\boxed{\Delta m_{\rm
-                nuc}\simeq M_X+M_x-M_{X&#39;}-M_{x&#39;}.}\]</span></p>
-                <p>O cancelamento das <strong>massas de repouso</strong>
-                dos elétrons é consequência direta da conservação da
-                carga. A aproximação indicada por <span
-                class="math inline">\(\simeq\)</span> vem somente das
-                pequenas energias de ligação eletrônica, que são
-                desprezadas em comparação com MeV. Nas próximas seções,
-                aplicaremos essa escrita geral no próprio contexto de
-                cada decaimento e de cada projétil.</p>
+                nuc}\simeq M(X)+M(x)-M(X&#39;)-M(x&#39;).}\]</span></p>
+                <p>Pela relação de Einstein, <span
+                class="math inline">\(E=mc^2\)</span>, essa diferença de
+                massa é precisamente a origem da energia de reação. Para
+                a reação formada apenas por núcleos, retomamos a
+                definição apresentada no início da seção:</p>
+                <p><span class="math display">\[\boxed{Q_{\rm
+                nuc}=\left(\sum m_{\rm reagentes}-\sum m_{\rm
+                produtos}\right)c^2=\Delta m_{\rm nuc}c^2.}\]</span></p>
+                <p>Definindo</p>
+                <p><span class="math display">\[\Delta
+                B_e=B_e(X)+B_e(x)-B_e(X&#39;)-B_e(x&#39;),\]</span></p>
+                <p>a relação exata entre a diferença de massas nucleares
+                e as massas atômicas é</p>
+                <p><span class="math display">\[\Delta m_{\rm
+                nuc}c^2=[M(X)+M(x)-M(X&#39;)-M(x&#39;)]c^2+\Delta
+                B_e.\]</span></p>
+                <p>Ao desprezar <span class="math inline">\(\Delta
+                B_e\)</span>, para a precisão adotada nesta aula,
+                obtemos a regra prática:</p>
+                <p><span class="math display">\[\boxed{Q_{\rm
+                nuc}\simeq[M(X)+M(x)-M(X&#39;)-M(x&#39;)]c^2.}\]</span></p>
+                <p>Quando uma das partículas for um nêutron, sua
+                contribuição deve ser escrita diretamente como <span
+                class="math inline">\(m_n\)</span>: ele não possui
+                eletrosfera nem uma massa atômica neutra correspondente.
+                O cancelamento das <strong>massas de repouso</strong>
+                dos elétrons decorre da conservação da carga. A
+                aproximação <span class="math inline">\(\simeq\)</span>
+                vem somente de desprezar <span
+                class="math inline">\(\Delta B_e\)</span>. Nos exemplos
+                seguintes, escreveremos simplesmente <span
+                class="math inline">\(Q\)</span>, entendendo que essa
+                aproximação foi adotada. As demonstrações específicas de
+                <span class="math inline">\(\alpha\)</span>, <span
+                class="math inline">\(\beta^-\)</span>, <span
+                class="math inline">\(\beta^+\)</span> e captura
+                eletrônica mostrarão como essa regra geral se adapta a
+                cada caso.</p>
                 <h3
                 id="exemplo-5.1-valor-q-de-uma-reação-exoenergética">Exemplo
                 5.1: valor <span class="math inline">\(Q\)</span> de uma
                 reação exoenergética</h3>
-                <p>Na reação <span class="math inline">\(\ce{^7_3Li +
-                ^1_1H -&gt;}2\alpha\)</span>, usando massas atômicas
-                <span
+                <p>Na reação <span class="math inline">\(p+\ce{^7_3Li
+                -&gt;}2\alpha\)</span>, o próton incidente está à
+                esquerda e o alvo lítio-7, à direita. Usando massas
+                atômicas <span
                 class="math inline">\(M(\ce{^7Li})=7{,}016003\,\text{u}\)</span>,
                 <span
                 class="math inline">\(M(\ce{^1H})=1{,}007825\,\text{u}\)</span>
@@ -797,7 +855,7 @@ de Oliveira
                 <p><span class="math display">\[\ce{^A_ZX -&gt;
                 ^{A-4}_{Z-2}Y +}\alpha.\]</span></p>
                 <p><span
-                class="math display">\[Q_\alpha=[M(X)-M(Y)-M(\ce{^4He})]c^2.\]</span></p>
+                class="math display">\[Q_\alpha\simeq[M(X)-M(Y)-M(\ce{^4He})]c^2.\]</span></p>
                 <p>Como a alfa é o próprio núcleo de hélio-4, sua massa
                 nuclear é</p>
                 <p><span class="math display">\[m_\alpha=m_{\rm
@@ -805,9 +863,9 @@ de Oliveira
                 <p>Assim, a troca por massa atômica do hélio é
                 justificada diretamente:</p>
                 <p><span class="math display">\[\begin{aligned}
-                \Delta m&amp;\simeq[M_X-Zm_e]-[M_Y-(Z-2)m_e]\\
-                &amp;\quad-[M_{\ce{^4He}}-2m_e]\\
-                &amp;=M_X-M_Y-M_{\ce{^4He}}.
+                \Delta m&amp;\simeq[M(X)-Zm_e]-[M(Y)-(Z-2)m_e]\\
+                &amp;\quad-[M(\ce{^4He})-2m_e]\\
+                &amp;=M(X)-M(Y)-M(\ce{^4He}).
                 \end{aligned}\]</span></p>
                 <h3
                 id="exemplo-5.2-decaimento-alfa-do-urânio-238">Exemplo
@@ -835,12 +893,12 @@ de Oliveira
                 <p><span class="math display">\[\ce{^A_ZX -&gt;
                 ^A_{Z+1}Y + e^- + \bar{\nu}_e}.\]</span></p>
                 <p><span
-                class="math display">\[Q_{\beta^-}=[M(X)-M(Y)]c^2.\]</span></p>
+                class="math display">\[Q_{\beta^-}\simeq[M(X)-M(Y)]c^2.\]</span></p>
                 <p>Aqui o núcleo-filho tem um próton a mais e o elétron
                 emitido precisa aparecer como produto:</p>
                 <p><span class="math display">\[\begin{aligned}
-                \Delta m&amp;\simeq[M_X-Zm_e]-[M_Y-(Z+1)m_e]-m_e\\
-                &amp;=M_X-M_Y.
+                \Delta m&amp;\simeq[M(X)-Zm_e]-[M(Y)-(Z+1)m_e]-m_e\\
+                &amp;=M(X)-M(Y).
                 \end{aligned}\]</span></p>
                 <p>O elétron que falta na massa atômica do átomo-filho e
                 o elétron beta emitido cancelam-se exatamente no termo
@@ -866,13 +924,13 @@ de Oliveira
                 <p><span class="math display">\[\ce{^A_ZX -&gt;
                 ^A_{Z-1}Y + e^+ + \nu_e}.\]</span></p>
                 <p><span
-                class="math display">\[Q_{\beta^+}=[M(X)-M(Y)-2m_e]c^2.\]</span></p>
+                class="math display">\[Q_{\beta^+}\simeq[M(X)-M(Y)-2m_e]c^2.\]</span></p>
                 <p>O núcleo-filho tem um próton a menos e o pósitron
                 emitido também possui massa <span
                 class="math inline">\(m_e\)</span>:</p>
                 <p><span class="math display">\[\begin{aligned}
-                \Delta m&amp;\simeq[M_X-Zm_e]-[M_Y-(Z-1)m_e]-m_e\\
-                &amp;=M_X-M_Y-2m_e.
+                \Delta m&amp;\simeq[M(X)-Zm_e]-[M(Y)-(Z-1)m_e]-m_e\\
+                &amp;=M(X)-M(Y)-2m_e.
                 \end{aligned}\]</span></p>
                 <p>As duas massas de elétron têm origens distintas: uma
                 é a diferença entre as eletrosferas dos átomos neutros,
@@ -899,13 +957,13 @@ de Oliveira
                 <p><span class="math display">\[\ce{^A_ZX + e^- -&gt;
                 ^A_{Z-1}Y + \nu_e}.\]</span></p>
                 <p><span
-                class="math display">\[Q_{CE}=[M(X)-M(Y)]c^2.\]</span></p>
+                class="math display">\[Q_{CE}\simeq[M(X)-M(Y)]c^2.\]</span></p>
                 <p>O elétron capturado entra como reagente e o
                 núcleo-filho possui carga <span
                 class="math inline">\(Z-1\)</span>:</p>
                 <p><span class="math display">\[\begin{aligned}
-                \Delta m&amp;\simeq[M_X-Zm_e]+m_e-[M_Y-(Z-1)m_e]\\
-                &amp;=M_X-M_Y.
+                \Delta m&amp;\simeq[M(X)-Zm_e]+m_e-[M(Y)-(Z-1)m_e]\\
+                &amp;=M(X)-M(Y).
                 \end{aligned}\]</span></p>
                 <p>Portanto, para massas atômicas, a massa do elétron
                 capturado se cancela.</p>
@@ -936,7 +994,7 @@ de Oliveira
                 alfa para bombardear berílio. A reação nuclear principal
                 pode ser escrita como</p>
                 <p><span class="math display">\[\alpha+\ce{^9_4Be -&gt;
-                ^{12}_6C + ^1_0n}.\]</span></p>
+                ^{12}_6C}+n.\]</span></p>
                 <p>O nêutron é a <strong>partícula ejetada</strong>
                 nessa reação; a alfa é a partícula incidente, o
                 berílio-9 é o núcleo-alvo e o carbono-12 é o
@@ -1053,21 +1111,28 @@ de Oliveira
                 <h3 id="exemplo-5.6-identificando-as-etapas">Exemplo
                 5.6: identificando as etapas</h3>
                 <p><span
-                class="math display">\[{}^{14}_{7}\mathrm{N}+\alpha
+                class="math display">\[\alpha+{}^{14}_{7}\mathrm{N}
                 \longrightarrow[{}^{18}_{9}\mathrm{F}]^*
-                \longrightarrow{}^{17}_{8}\mathrm{O}+{}^{1}_{1}\mathrm{H}.\]</span></p>
+                \longrightarrow{}^{17}_{8}\mathrm{O}+p.\]</span></p>
                 <p>Aqui, a alfa é a incidente, o nitrogênio-14 é o alvo,
                 o flúor-18 excitado é o núcleo composto, o oxigênio-17 é
                 o núcleo-produto e o próton é a partícula ejetada.</p>
                 <h2
                 id="energia-cinética-mínima-limiar-e-barreira">Energia
                 cinética mínima: limiar e barreira</h2>
-                <p>Considere a reação de dois corpos <span
-                class="math inline">\(\ce{a+A -&gt; B+b}\)</span> no
-                referencial do laboratório, com o alvo <span
-                class="math inline">\(A\)</span> inicialmente em
-                repouso. A conservação da energia (sem incluir as massas
-                de repouso, já reunidas em <span
+                <p>Considere, por exemplo, a reação endoenergética <span
+                class="math inline">\(\alpha+\ce{^{14}_{7}N -&gt;
+                ^{17}_{8}O}+p\)</span>, discutida mais adiante. Ela tem
+                a forma geral <span class="math inline">\(a+A\to
+                B+b\)</span>: a partícula incidente <span
+                class="math inline">\(a\)</span> vem à esquerda, seguida
+                pelo alvo <span class="math inline">\(A\)</span>; à
+                direita ficam primeiro o núcleo-produto <span
+                class="math inline">\(B\)</span> e depois a partícula
+                ejetada <span class="math inline">\(b\)</span>. Com o
+                alvo inicialmente em repouso no laboratório, a
+                conservação da energia (sem incluir as massas de
+                repouso, já reunidas em <span
                 class="math inline">\(Q\)</span>) e do momento linear
                 fornece</p>
                 <p><span class="math display">\[T_a+Q=T_B+T_b,\qquad
@@ -1165,16 +1230,16 @@ de Oliveira
                 <h3 id="próton-incidente-ce7lipalphaalpha">Próton
                 incidente: <span
                 class="math inline">\(\ce{^7Li(p,\alpha)}\alpha\)</span></h3>
-                <p><span class="math display">\[\ce{^7_3Li + ^1_1H
+                <p><span class="math display">\[p+\ce{^7_3Li
                 -&gt;}2\alpha.\]</span></p>
                 <p>O próton é o núcleo de hidrogênio, portanto <span
-                class="math inline">\(m_p=M(\ce{^1H})-m_e\)</span>.
-                Nesta reação,</p>
+                class="math inline">\(m_p\simeq
+                M(\ce{^1H})-m_e\)</span>. Nesta reação,</p>
                 <p><span class="math display">\[\begin{aligned}
                 m_p+m_{\ce{^7Li}}-2m_\alpha
-                &amp;=[M_{\ce{^1H}}-m_e]+[M_{\ce{^7Li}}-3m_e]\\
-                &amp;\quad-2[M_{\ce{^4He}}-2m_e]\\
-                &amp;=M_{\ce{^1H}}+M_{\ce{^7Li}}-2M_{\ce{^4He}}.
+                &amp;=[M(\ce{^1H})-m_e]+[M(\ce{^7Li})-3m_e]\\
+                &amp;\quad-2[M(\ce{^4He})-2m_e]\\
+                &amp;=M(\ce{^1H})+M(\ce{^7Li})-2M(\ce{^4He}).
                 \end{aligned}\]</span></p>
                 <p>Assim, podem-se usar diretamente as massas atômicas
                 de hidrogênio, lítio e hélio.</p>
@@ -1194,19 +1259,19 @@ de Oliveira
                 <h3 id="nêutron-incidente-ce14nnp14c">Nêutron incidente:
                 <span
                 class="math inline">\(\ce{^{14}N(n,p)^{14}C}\)</span></h3>
-                <p><span class="math display">\[\ce{^{14}_{7}N + ^1_0n
-                -&gt; ^{14}_{6}C + ^1_1H}.\]</span></p>
+                <p><span class="math display">\[n+\ce{^{14}_{7}N -&gt;
+                ^{14}_{6}C}+p.\]</span></p>
                 <p>O nêutron não tem eletrosfera; portanto, usa-se
                 diretamente sua massa tabelada, <span
                 class="math inline">\(m_n\)</span>. Já o próton e os
                 núcleos são convertidos por</p>
                 <p><span class="math display">\[\begin{aligned}
                 m_n+m_{\ce{^{14}N}}-m_{\ce{^{14}C}}-m_p
-                &amp;=M_n+[M_{\ce{^{14}N}}-7m_e]\\
-                &amp;\quad-[M_{\ce{^{14}C}}-6m_e]\\
-                &amp;\quad-[M_{\ce{^1H}}-m_e]\\
-                &amp;=M_n+M_{\ce{^{14}N}}-M_{\ce{^{14}C}}\\
-                &amp;\quad-M_{\ce{^1H}}.
+                &amp;=m_n+[M(\ce{^{14}N})-7m_e]\\
+                &amp;\quad-[M(\ce{^{14}C})-6m_e]\\
+                &amp;\quad-[M(\ce{^1H})-m_e]\\
+                &amp;=m_n+M(\ce{^{14}N})-M(\ce{^{14}C})\\
+                &amp;\quad-M(\ce{^1H}).
                 \end{aligned}\]</span></p>
                 <p><span class="math display">\[\begin{aligned}
                 Q&amp;=[14{,}003074+1{,}008665-14{,}003242\\
@@ -1226,21 +1291,23 @@ de Oliveira
                 <h3 id="deuteron-incidente-ce6lidp7li">Deuteron
                 incidente: <span
                 class="math inline">\(\ce{^6Li(d,p)^7Li}\)</span></h3>
-                <p><span class="math display">\[\ce{^6_3Li + ^2_1H -&gt;
-                ^7_3Li + ^1_1H}.\]</span></p>
+                <p><span class="math display">\[d+\ce{^6_3Li -&gt;
+                ^7_3Li}+p.\]</span></p>
                 <p>O deuteron é o núcleo do deutério: <span
                 class="math inline">\(m_d\simeq
-                M(\ce{^2H})-m_e\)</span>. Na tabela fornecida aos
-                estudantes, o deutério (<span
-                class="math inline">\(\ce{^2H}\)</span>) aparece com o
-                símbolo <strong>D</strong>. Portanto,</p>
+                M(\mathrm{D})-m_e\)</span>. Nesta aula,
+                <strong>D</strong> designa o átomo de deutério, cuja
+                massa atômica é <span
+                class="math inline">\(M(\mathrm{D})\)</span>, e
+                <strong>d</strong> designa seu núcleo, o deuteron.
+                Portanto,</p>
                 <p><span class="math display">\[\begin{aligned}
-                m_d+m_{\ce{^6Li}}-m_{\ce{^7Li}}-m_p
-                &amp;=[M_{\ce{^2H}}-m_e]+[M_{\ce{^6Li}}-3m_e]\\
-                &amp;\quad-[M_{\ce{^7Li}}-3m_e]\\
-                &amp;\quad-[M_{\ce{^1H}}-m_e]\\
-                &amp;=M_{\ce{^2H}}+M_{\ce{^6Li}}-M_{\ce{^7Li}}\\
-                &amp;\quad-M_{\ce{^1H}}.
+                \Delta m&amp;=m_d+m_{\ce{^6Li}}-m_{\ce{^7Li}}-m_p\\
+                &amp;=[M(\mathrm{D})-m_e]+[M(\ce{^6Li})-3m_e]\\
+                &amp;\quad-[M(\ce{^7Li})-3m_e]\\
+                &amp;\quad-[M(\ce{^1H})-m_e]\\
+                &amp;=M(\mathrm{D})+M(\ce{^6Li})-M(\ce{^7Li})\\
+                &amp;\quad-M(\ce{^1H}).
                 \end{aligned}\]</span></p>
                 <p><span class="math display">\[\begin{aligned}
                 Q&amp;=[6{,}015123+2{,}014102-7{,}016003\\
@@ -1260,21 +1327,25 @@ de Oliveira
                 <h3 id="exemplo-5.8-fusão-deutériotrítio">Exemplo 5.8:
                 fusão deutério–trítio</h3>
                 <p>Uma reação importante em estudos de fusão é</p>
-                <p><span class="math display">\[\ce{^2_1H + ^3_1H
-                -&gt;}\alpha+\ce{^1_0n}.\]</span></p>
+                <p><span
+                class="math display">\[d+t\longrightarrow\alpha+n.\]</span></p>
                 <p>Ela pode ser interpretada como uma reação artificial
-                entre um feixe de deutério e um alvo de trítio, ou como
-                colisões em um plasma quente. Na tabela fornecida, eles
-                aparecem como <strong>D</strong> (<span
+                entre um feixe de deuterons (<span
+                class="math inline">\(d\)</span>) e um alvo de trítio,
+                ou como colisões em um plasma quente. Na tabela,
+                <strong>D</strong> (<span
                 class="math inline">\(\ce{^2H}\)</span>) e
                 <strong>T</strong> (<span
-                class="math inline">\(\ce{^3H}\)</span>). Como há dois
+                class="math inline">\(\ce{^3H}\)</span>) designam os
+                átomos; seus núcleos são, respectivamente, <span
+                class="math inline">\(d\)</span> (deuteron) e <span
+                class="math inline">\(t\)</span> (tríton). Como há dois
                 elétrons nos reagentes atômicos e dois no átomo de hélio
                 do produto, as massas atômicas podem ser usadas
                 diretamente:</p>
                 <p><span class="math display">\[
                 \begin{aligned}
-                Q&amp;=[M(\ce{^2H})+M(\ce{^3H})-M(\ce{^4He})-m_n]c^2\\
+                Q&amp;=[M(\mathrm{D})+M(\mathrm{T})-M(\ce{^4He})-m_n]c^2\\
                 &amp;=[2{,}014102+3{,}016049-4{,}002603-1{,}008665]\,\text{u}\\
                 &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
                 &amp;=17{,}59\,\text{MeV}.
@@ -1308,25 +1379,26 @@ de Oliveira
                 <h3 id="alfa-incidente-ce14nalphap17o">Alfa incidente:
                 <span
                 class="math inline">\(\ce{^{14}N(\alpha,p)^{17}O}\)</span></h3>
-                <p><span class="math display">\[\ce{^{14}_{7}N
-                +}\alpha\ce{-&gt; ^{17}_{8}O + ^1_1H}.\]</span></p>
+                <p><span class="math display">\[\alpha+\ce{^{14}_{7}N
+                -&gt; ^{17}_{8}O}+p.\]</span></p>
                 <p><strong>Dado adicional para este exemplo:</strong>
                 como <span class="math inline">\(\ce{^{17}O}\)</span>
                 não consta na tabela selecionada em PDF, use diretamente
                 <span
                 class="math inline">\(M(\ce{^{17}O})=16{,}999132\,\text{u}\)</span>.</p>
-                <p>Como <span
-                class="math inline">\(m_\alpha=M(\ce{^4He})-2m_e\)</span>
-                e <span
-                class="math inline">\(m_p=M(\ce{^1H})-m_e\)</span>,</p>
+                <p>Como <span class="math inline">\(m_\alpha\simeq
+                M(\ce{^4He})-2m_e\)</span> e <span
+                class="math inline">\(m_p\simeq
+                M(\ce{^1H})-m_e\)</span>,</p>
                 <p><span class="math display">\[\begin{aligned}
-                m_\alpha+m_{\ce{^{14}N}}-m_{\ce{^{17}O}}-m_p
-                &amp;=[M_{\ce{^4He}}-2m_e]\\
-                &amp;\quad+[M_{\ce{^{14}N}}-7m_e]\\
-                &amp;\quad-[M_{\ce{^{17}O}}-8m_e]\\
-                &amp;\quad-[M_{\ce{^1H}}-m_e]\\
-                &amp;=M_{\ce{^4He}}+M_{\ce{^{14}N}}-M_{\ce{^{17}O}}\\
-                &amp;\quad-M_{\ce{^1H}}.
+                \Delta
+                m&amp;=m_\alpha+m_{\ce{^{14}N}}-m_{\ce{^{17}O}}-m_p\\
+                &amp;=[M(\ce{^4He})-2m_e]\\
+                &amp;\quad+[M(\ce{^{14}N})-7m_e]\\
+                &amp;\quad-[M(\ce{^{17}O})-8m_e]\\
+                &amp;\quad-[M(\ce{^1H})-m_e]\\
+                &amp;=M(\ce{^4He})+M(\ce{^{14}N})-M(\ce{^{17}O})\\
+                &amp;\quad-M(\ce{^1H}).
                 \end{aligned}\]</span></p>
                 <p><span class="math display">\[\begin{aligned}
                 Q&amp;=[14{,}003074+4{,}002603-16{,}999132\\
@@ -1395,9 +1467,9 @@ de Oliveira
                 desprezadas.</p>
                 <table style="width:99%;">
                 <colgroup>
-                <col style="width: 13%" />
-                <col style="width: 45%" />
-                <col style="width: 40%" />
+                <col style="width: 10%" />
+                <col style="width: 53%" />
+                <col style="width: 35%" />
                 </colgroup>
                 <thead>
                 <tr>
@@ -1478,16 +1550,20 @@ de Oliveira
                 elétrons.</td>
                 </tr>
                 <tr>
-                <td style="text-align: left;">Deuteron (núcleo do
-                deutério)</td>
+                <td style="text-align: left;">Deuteron ou tríton</td>
                 <td style="text-align: left;">Em uma reação completa,
                 use <span class="math inline">\(m_d\to
-                M(\ce{^2H})=M(\mathrm{D})\)</span>. Isoladamente: <span
-                class="math inline">\(m_d\simeq
-                M(\mathrm{D})-m_e\)</span>.</td>
-                <td style="text-align: left;">D é o símbolo da tabela
-                para o deutério; o deuteron tem um elétron a menos que o
-                átomo neutro.</td>
+                M(\mathrm{D})\)</span> e <span
+                class="math inline">\(m_t\to M(\mathrm{T})\)</span>.
+                Isoladamente: <span class="math inline">\(m_d\simeq
+                M(\mathrm{D})-m_e\)</span> e <span
+                class="math inline">\(m_t\simeq
+                M(\mathrm{T})-m_e\)</span>.</td>
+                <td style="text-align: left;"><strong>D</strong> e
+                <strong>T</strong> são átomos de deutério e trítio;
+                <span class="math inline">\(d\)</span> e <span
+                class="math inline">\(t\)</span> são, respectivamente, o
+                deuteron e o tríton.</td>
                 </tr>
                 </tbody>
                 </table>
@@ -1610,14 +1686,15 @@ de Oliveira
                 <dl>
                 <dt>5.6)</dt>
                 <dd>
-                Complete <span class="math inline">\(\ce{^{27}_{13}Al +
-                ^4_2He -&gt; ^{30}_{15}P + X}\)</span>. Qual é <span
+                Complete <span
+                class="math inline">\(\alpha+\ce{^{27}_{13}Al -&gt;
+                ^{30}_{15}P}+X\)</span>. Qual é <span
                 class="math inline">\(X\)</span>?
                 </dd>
                 </dl>
                 <ol type="a">
-                <li><span class="math inline">\(\ce{^1_0n}\)</span></li>
-                <li><span class="math inline">\(\ce{^1_1H}\)</span></li>
+                <li><span class="math inline">\(n\)</span></li>
+                <li><span class="math inline">\(p\)</span></li>
                 <li><span
                 class="math inline">\(\ce{^4_2He}\)</span></li>
                 <li><span
@@ -1752,13 +1829,13 @@ de Oliveira
                 <dt>5.12)</dt>
                 <dd>
                 Para a reação induzida <span
-                class="math inline">\(\ce{^6_3Li + ^1_0n
-                -&gt;}\alpha+\ce{^3_1H}\)</span>, use <span
+                class="math inline">\(n+\ce{^6_3Li
+                -&gt;}\alpha+t\)</span>, use <span
                 class="math inline">\(M(\ce{^6Li})=6{,}015123\,\text{u}\)</span>,
                 <span
                 class="math inline">\(M(\ce{^4He})=4{,}002603\,\text{u}\)</span>
                 e <span
-                class="math inline">\(M(\ce{^3H})=3{,}016049\,\text{u}\)</span>.
+                class="math inline">\(M(\mathrm{T})=3{,}016049\,\text{u}\)</span>.
                 O valor de <span class="math inline">\(Q\)</span> é
                 aproximadamente:
                 </dd>
@@ -1778,9 +1855,9 @@ de Oliveira
                 <dl>
                 <dt>5.13)</dt>
                 <dd>
-                Na fusão <span class="math inline">\(\ce{^2H + ^3H
-                -&gt;}\alpha+\ce{n}\)</span>, suponha energia cinética
-                inicial desprezível e <span
+                Na fusão <span
+                class="math inline">\(d+t\to\alpha+n\)</span>, suponha
+                energia cinética inicial desprezível e <span
                 class="math inline">\(Q=17{,}59\,\text{MeV}\)</span>.
                 Como os produtos saem com momentos de mesmo módulo, use
                 <span
