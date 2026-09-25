@@ -9,6 +9,7 @@ dry-run obrigatório e delega a publicação real ao publish_lesson.py.
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import shlex
 import subprocess
@@ -127,6 +128,35 @@ def run(cmd: list[str], *, dry_run: bool = False) -> None:
     subprocess.run(cmd, cwd=REPO_ROOT, check=True)
 
 
+def git_push_with_ssh_443_fallback(*, dry_run: bool = False) -> None:
+    """Envia o branch e, se a porta SSH padrao falhar, tenta a porta 443."""
+    cmd = ["git", "push"]
+    print("$ " + " ".join(shlex.quote(part) for part in cmd), flush=True)
+    if dry_run:
+        return
+
+    result = subprocess.run(cmd, cwd=REPO_ROOT, text=True, capture_output=True)
+    if result.stdout:
+        print(result.stdout, end="", flush=True)
+    if result.stderr:
+        print(result.stderr, end="", file=sys.stderr, flush=True)
+    if result.returncode == 0:
+        return
+
+    # O GitHub disponibiliza SSH tambem em ssh.github.com:443. So tente
+    # esse caminho quando a conexao SSH normal (github.com:22) falhar;
+    # erros de autenticacao, permissao ou de outro remoto devem continuar
+    # sendo exibidos normalmente.
+    if "connect to host github.com port 22" not in result.stderr.lower():
+        raise subprocess.CalledProcessError(result.returncode, cmd, result.stdout, result.stderr)
+
+    print("Push SSH pela porta 22 falhou; tentando o GitHub SSH pela porta 443...", flush=True)
+    fallback_env = os.environ.copy()
+    fallback_env["GIT_SSH_COMMAND"] = "ssh -o HostName=ssh.github.com -p 443"
+    print("$ GIT_SSH_COMMAND='ssh -o HostName=ssh.github.com -p 443' git push", flush=True)
+    subprocess.run(cmd, cwd=REPO_ROOT, env=fallback_env, check=True)
+
+
 def git_status_short() -> str:
     result = subprocess.run(
         ["git", "status", "--short"],
@@ -201,7 +231,7 @@ def resolve_dirty_start(args: argparse.Namespace, dirty_before: str) -> str:
         if not args.no_push:
             branch = git_current_branch() if not args.dry_run else "(branch atual)"
             if args.yes or ask_yes_no(f"Fazer push desse commit atual para o GitHub ({branch})", default=False):
-                run(["git", "push"], dry_run=args.dry_run)
+                git_push_with_ssh_443_fallback(dry_run=args.dry_run)
         refreshed = git_status_short() if not args.dry_run else ""
         if refreshed:
             print("\nAinda ha alteracoes pendentes apos o commit atual:")
@@ -547,7 +577,7 @@ def commit_and_maybe_push(
     branch = git_current_branch() if not dry_run else "(branch atual)"
     should_push = yes or ask_yes_no(f"Fazer push para o GitHub agora ({branch})", default=True)
     if should_push:
-        run(["git", "push"], dry_run=dry_run)
+        git_push_with_ssh_443_fallback(dry_run=dry_run)
     else:
         print("Push nao executado.")
 
