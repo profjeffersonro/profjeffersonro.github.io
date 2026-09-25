@@ -128,8 +128,8 @@ def run(cmd: list[str], *, dry_run: bool = False) -> None:
     subprocess.run(cmd, cwd=REPO_ROOT, check=True)
 
 
-def git_push_with_ssh_443_fallback(*, dry_run: bool = False) -> None:
-    """Envia o branch e, se a porta SSH padrao falhar, tenta a porta 443."""
+def git_push_with_fallbacks(*, dry_run: bool = False) -> None:
+    """Envia o branch por SSH e usa SSH 443 ou HTTPS se a rede o bloquear."""
     cmd = ["git", "push"]
     print("$ " + " ".join(shlex.quote(part) for part in cmd), flush=True)
     if dry_run:
@@ -154,7 +154,37 @@ def git_push_with_ssh_443_fallback(*, dry_run: bool = False) -> None:
     fallback_env = os.environ.copy()
     fallback_env["GIT_SSH_COMMAND"] = "ssh -o HostName=ssh.github.com -p 443"
     print("$ GIT_SSH_COMMAND='ssh -o HostName=ssh.github.com -p 443' git push", flush=True)
-    subprocess.run(cmd, cwd=REPO_ROOT, env=fallback_env, check=True)
+    fallback_result = subprocess.run(
+        cmd,
+        cwd=REPO_ROOT,
+        env=fallback_env,
+        text=True,
+        capture_output=True,
+    )
+    if fallback_result.stdout:
+        print(fallback_result.stdout, end="", flush=True)
+    if fallback_result.stderr:
+        print(fallback_result.stderr, end="", file=sys.stderr, flush=True)
+    if fallback_result.returncode == 0:
+        return
+
+    if "connect to host ssh.github.com port 443" not in fallback_result.stderr.lower():
+        raise subprocess.CalledProcessError(fallback_result.returncode, cmd, fallback_result.stdout, fallback_result.stderr)
+
+    print("Push SSH pela porta 443 falhou; tentando HTTPS...", flush=True)
+    https_cmd = [
+        "git",
+        "-c",
+        "url.https://github.com/.insteadOf=git@github.com:",
+        "-c",
+        "url.https://github.com/.insteadOf=ssh://git@github.com/",
+        "push",
+    ]
+    print("$ " + " ".join(shlex.quote(part) for part in https_cmd), flush=True)
+    # As opcoes -c so valem para este comando. Elas substituem a URL SSH do
+    # remoto por HTTPS, inclusive quando o usuario tem uma regra global que
+    # normalmente converte URLs HTTPS do GitHub de volta para SSH.
+    subprocess.run(https_cmd, cwd=REPO_ROOT, check=True)
 
 
 def git_status_short() -> str:
@@ -231,7 +261,7 @@ def resolve_dirty_start(args: argparse.Namespace, dirty_before: str) -> str:
         if not args.no_push:
             branch = git_current_branch() if not args.dry_run else "(branch atual)"
             if args.yes or ask_yes_no(f"Fazer push desse commit atual para o GitHub ({branch})", default=False):
-                git_push_with_ssh_443_fallback(dry_run=args.dry_run)
+                git_push_with_fallbacks(dry_run=args.dry_run)
         refreshed = git_status_short() if not args.dry_run else ""
         if refreshed:
             print("\nAinda ha alteracoes pendentes apos o commit atual:")
@@ -577,7 +607,7 @@ def commit_and_maybe_push(
     branch = git_current_branch() if not dry_run else "(branch atual)"
     should_push = yes or ask_yes_no(f"Fazer push para o GitHub agora ({branch})", default=True)
     if should_push:
-        git_push_with_ssh_443_fallback(dry_run=dry_run)
+        git_push_with_fallbacks(dry_run=dry_run)
     else:
         print("Push nao executado.")
 
