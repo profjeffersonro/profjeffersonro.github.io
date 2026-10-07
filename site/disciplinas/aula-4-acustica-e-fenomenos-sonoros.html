@@ -327,15 +327,42 @@
 </figure>
 <h2 id="música-notas-e-frequências">Música: notas e
                 frequências</h2>
-<p>No padrão internacional de afinação, a nota Lá\(_4\) corresponde a \(440\,\text{Hz}\). Em
-                temperamento igual, avançar uma oitava dobra a
-                frequência; avançar um semitom multiplica-a por \(2^{1/12}\):</p>
+<p>No padrão internacional de afinação, a nota Lá\(_4\) corresponde a \(440\,\text{Hz}\). Na música
+                ocidental, uma <strong>oitava</strong> é o intervalo
+                entre uma nota e outra de mesmo nome, mais aguda ou mais
+                grave. Por exemplo, de Lá\(_4\) até Lá\(_5\) há uma oitava. A nota
+                mais aguda tem o dobro da frequência da mais grave; ao
+                descer uma oitava, a frequência é dividida por 2.</p>
+<p>No sistema de <strong>temperamento igual</strong>, a
+                oitava é dividida em 12 intervalos iguais chamados
+                <strong>semitons</strong>. Um semitom é, portanto, a
+                menor distância entre duas teclas consecutivas do piano,
+                sejam elas brancas ou pretas. Dois semitons formam um
+                <strong>tom</strong>. Exemplos: de Mi para Fá há um
+                semitom; de Dó para Ré há dois semitons, isto é, um
+                tom.</p>
+<p>Como 12 passos iguais devem produzir uma frequência
+                duas vezes maior, cada semitom multiplica a frequência
+                por \(2^{1/12}\approx1{,}0595\).
+                Assim, uma nota situada \(n\) semitons acima ou
+                abaixo de uma frequência de referência pode ser
+                calculada por:</p>
 <p>\[
                 f=f_{\mathrm{L\acute{a}_4}}\,2^{n/12}
                 \]</p>
-<p><strong>Exemplo numérico.</strong> Uma oitava acima,
-                \(n=12\): \(f=440\cdot2^{12/12}=880\,\text{Hz}\)
-                (Lá\(_5\)).</p>
+<p><strong>Exemplos numéricos.</strong> Partindo do
+                Lá\(_4=440\,\text{Hz}\):</p>
+<ul>
+<li>um semitom acima (\(n=1\)): \(f=440\cdot2^{1/12}\approx466\,\text{Hz}\)
+                (\({\mathrm{L\acute{a}}^{\sharp}}_4/{\mathrm{Si}^{\flat}}_4\),
+                isto é, Lá sustenido 4 ou Si bemol 4);</li>
+<li>um tom acima (\(n=2\)): \(f=440\cdot2^{2/12}\approx494\,\text{Hz}\)
+                (Si\(_4\));</li>
+<li>uma oitava acima (\(n=12\)): \(f=440\cdot2^{12/12}=880\,\text{Hz}\)
+                (Lá\(_5\));</li>
+<li>uma oitava abaixo (\(n=-12\)): \(f=440\cdot2^{-12/12}=220\,\text{Hz}\)
+                (Lá\(_3\)).</li>
+</ul>
 <p>Aqui, \(n\) é o
                 número de semitons em relação ao Lá\(_4\).</p>
 <p>Algumas referências úteis: Sol\(_3\approx196\,\text{Hz}\)
@@ -667,40 +694,59 @@
 <p>Para som no ar, a frequência percebida pode ser
                 calculada por:</p>
 <p>\[
-                \boxed{f'=f\left(\frac{v\pm v_o}{v\mp v_s}\right)}
+                \boxed{\frac{f_o}{f_f}=\frac{v_s\pm v_o}{v_s\mp v_f}}
                 \]</p>
+<p>Nessa notação, os índices ajudam a identificar cada
+                velocidade: <strong>\(f\) significa
+                fonte</strong> e <strong>\(o\) significa
+                observador</strong>. Assim:</p>
+<ul>
+<li>\(f_o\) é a
+                frequência percebida pelo observador;</li>
+<li>\(f_f\) é a
+                frequência emitida pela fonte;</li>
+<li>\(v_s\) é a
+                velocidade do som no meio;</li>
+<li>\(v_o\) é a
+                velocidade do observador;</li>
+<li>\(v_f\) é a
+                velocidade da fonte.</li>
+</ul>
 <p><strong>Exemplo numérico.</strong> Com fonte parada
-                (\(v_s=0\)), observador
-                aproximando-se a \(v_o=10\,\text{m/s}\), som
-                emitido em \(f=600\,\text{Hz}\) e \(v=340\,\text{m/s}\):</p>
+                (\(v_f=0\)), observador
+                aproximando-se a \(v_o=10\,\text{m/s}\),
+                frequência emitida \(f_f=600\,\text{Hz}\) e
+                \(v_s=340\,\text{m/s}\):</p>
 <p>\[
-                f'=600\left(\frac{340+10}{340}\right)\approx618\,\text{Hz}
+                \frac{f_o}{600}=\frac{340+10}{340}
+                \quad\Rightarrow\quad
+                f_o\approx618\,\text{Hz}
                 \]</p>
-<p>em que \(f'\) é
-                a frequência percebida, \(f\) é a frequência emitida,
-                \(v\) é a velocidade do
-                som, \(v_o\) é a
-                velocidade do observador e \(v_s\) é a velocidade da
-                fonte.</p>
 <p>Convenção prática:</p>
 <ul>
-<li>observador aproximando-se da fonte: usar \(v+v_o\) no numerador;</li>
-<li>observador afastando-se da fonte: usar \(v-v_o\) no numerador;</li>
-<li>fonte aproximando-se do observador: usar \(v-v_s\) no
+<li>observador aproximando-se da fonte: usar \(v_s+v_o\) no
+                numerador;</li>
+<li>observador afastando-se da fonte: usar \(v_s-v_o\) no
+                numerador;</li>
+<li>fonte aproximando-se do observador: usar \(v_s-v_f\) no
                 denominador;</li>
-<li>fonte afastando-se do observador: usar \(v+v_s\) no
+<li>fonte afastando-se do observador: usar \(v_s+v_f\) no
                 denominador.</li>
 </ul>
 <p>Se o observador está parado e a fonte se move:</p>
 <p>\[
-                f'_\text{aproxima}=\frac{fv}{v-v_s}
+                \frac{f_{o,\text{aproxima}}}{f_f}=\frac{v_s}{v_s-v_f}
                 \]</p>
-<p><strong>Exemplo numérico.</strong> Para \(f=700\,\text{Hz}\), \(v=340\,\text{m/s}\) e \(v_s=20\,\text{m/s}\), \(f'_\text{aproxima}=700\cdot340/(340-20)\approx744\,\text{Hz}\).</p>
+<p><strong>Exemplo numérico.</strong> Para \(f_f=700\,\text{Hz}\), \(v_s=340\,\text{m/s}\) e
+                \(v_f=20\,\text{m/s}\),
+                \(f_{o,\text{aproxima}}/700=340/(340-20)\),
+                portanto \(f_{o,\text{aproxima}}\approx744\,\text{Hz}\).</p>
 <p>\[
-                f'_\text{afasta}=\frac{fv}{v+v_s}
+                \frac{f_{o,\text{afasta}}}{f_f}=\frac{v_s}{v_s+v_f}
                 \]</p>
 <p><strong>Exemplo numérico.</strong> Mantendo os mesmos
-                valores, \(f'_\text{afasta}=700\cdot340/(340+20)\approx661\,\text{Hz}\).</p>
+                valores, \(f_{o,\text{afasta}}/700=340/(340+20)\),
+                portanto \(f_{o,\text{afasta}}\approx661\,\text{Hz}\).</p>
 <h1 id="exemplos-resolvidos">Exemplos Resolvidos</h1>
 <h2 id="exemplo-4.1---comprimento-de-onda">Exemplo 4.1 -
                 Comprimento de Onda</h2>
@@ -803,31 +849,31 @@
 <h2 id="exemplo-4.8---doppler-com-fonte-aproximando-se">Exemplo
                 4.8 - Doppler com Fonte Aproximando-se</h2>
 <p>Uma ambulância emite sirene de \(700\,\text{Hz}\) e se
-                aproxima de um observador parado com velocidade \(v_s=20\,\text{m/s}\).
-                Considere \(v=340\,\text{m/s}\).
+                aproxima de um observador parado com velocidade \(v_f=20\,\text{m/s}\).
+                Considere \(v_s=340\,\text{m/s}\).
                 Determine a frequência percebida.</p>
 <p>\[
-                f'=\frac{fv}{v-v_s}
+                \frac{f_o}{f_f}=\frac{v_s}{v_s-v_f}
                 \]</p>
 <p>\[
-                f'=\frac{700\cdot340}{340-20}
-                =\frac{238000}{320}
-                \approx744\,\text{Hz}
+                \frac{f_o}{700}=\frac{340}{340-20}
+                =\frac{340}{320}
+                \quad\Rightarrow\quad f_o\approx744\,\text{Hz}
                 \]</p>
 <p><strong>Resposta:</strong> aproximadamente \(744\,\text{Hz}\), som mais
                 agudo.</p>
 <h2 id="exemplo-4.9---doppler-com-fonte-afastando-se">Exemplo
                 4.9 - Doppler com Fonte Afastando-se</h2>
 <p>A mesma ambulância emite \(700\,\text{Hz}\), mas agora
-                se afasta do observador parado com \(v_s=20\,\text{m/s}\).
-                Considere \(v=340\,\text{m/s}\).</p>
+                se afasta do observador parado com \(v_f=20\,\text{m/s}\).
+                Considere \(v_s=340\,\text{m/s}\).</p>
 <p>\[
-                f'=\frac{fv}{v+v_s}
+                \frac{f_o}{f_f}=\frac{v_s}{v_s+v_f}
                 \]</p>
 <p>\[
-                f'=\frac{700\cdot340}{340+20}
-                =\frac{238000}{360}
-                \approx661\,\text{Hz}
+                \frac{f_o}{700}=\frac{340}{340+20}
+                =\frac{340}{360}
+                \quad\Rightarrow\quad f_o\approx661\,\text{Hz}
                 \]</p>
 <p><strong>Resposta:</strong> aproximadamente \(661\,\text{Hz}\), som mais
                 grave.</p>
@@ -900,6 +946,7 @@
 </ul>
 <h1 id="exercícios-de-fixação">Exercícios de
                 Fixação</h1>
+<p>Quando necessário, use as aproximações \(\pi=\dfrac{22}{7}\), \(\log 2=0{,}30\) e \(\log 3=0{,}48\).</p>
 <dl>
 <dt>4.1)</dt>
 <dd>
@@ -933,32 +980,36 @@
 <dl>
 <dt>4.3)</dt>
 <dd>
-                Uma onda sonora transporta potência \(P=18\,\text{W}\) através de
-                uma área de \(6\,\text{m}^2\). A
-                intensidade sonora média nessa área é:
+                Uma fonte sonora puntiforme emite igualmente em todas as
+                direções, com potência \(P=44\,\text{W}\). Determine
+                a intensidade sonora a uma distância \(r=1{,}4\,\text{m}\) da
+                fonte. Considere \(I=\dfrac{P}{4\pi r^2}\) e
+                \(\pi=\dfrac{22}{7}\).
                 </dd>
 </dl>
 <ol type="a">
-<li>\(108\,\text{W/m}^2\).</li>
-<li>\(24\,\text{W/m}^2\).</li>
-<li>\(12\,\text{W/m}^2\).</li>
-<li>\(3\,\text{W/m}^2\).</li>
-<li>\(\frac{1}{3}\,\text{W/m}^2\).</li>
+<li>\(0{,}56\,\text{W/m}^2\).</li>
+<li>\(1{,}4\,\text{W/m}^2\).</li>
+<li>\(1{,}57\,\text{W/m}^2\).</li>
+<li>\(1{,}8\,\text{W/m}^2\).</li>
+<li>\(3{,}14\,\text{W/m}^2\).</li>
 </ol>
 <dl>
 <dt>4.4)</dt>
 <dd>
-                Um som tem intensidade \(I=10^{-9}\,\text{W/m}^2\).
+                Um som tem intensidade \(I=4{,}5\times10^{-9}\,\text{W/m}^2\).
                 Usando \(I_0=10^{-12}\,\text{W/m}^2\),
-                seu nível sonoro é:
+                \(\log 2=0{,}30\) e
+                \(\log 3=0{,}48\), seu
+                nível sonoro é aproximadamente:
                 </dd>
 </dl>
 <ol type="a">
-<li>\(3\,\text{dB}\).</li>
-<li>\(9\,\text{dB}\).</li>
+<li>\(6{,}6\,\text{dB}\).</li>
 <li>\(30\,\text{dB}\).</li>
-<li>\(90\,\text{dB}\).</li>
-<li>\(120\,\text{dB}\).</li>
+<li>\(36{,}6\,\text{dB}\).</li>
+<li>\(45\,\text{dB}\).</li>
+<li>\(66\,\text{dB}\).</li>
 </ol>
 <dl>
 <dt>4.5)</dt>
@@ -1007,54 +1058,24 @@
 <dl>
 <dt>4.8)</dt>
 <dd>
-                Duas fontes coerentes emitem som de comprimento de onda
-                \(\lambda=0{,}70\,\text{m}\).
-                Em um ponto, a diferença de caminho é \(\Delta
-                d=0{,}35\,\text{m}\). Nesse ponto ocorre:
+                Uma fonte emite a nota Lá com frequência \(f_f=440\,\text{Hz}\) e se
+                aproxima de um observador com velocidade \(v_f=72\,\text{km/h}\).
+                Simultaneamente, o observador se aproxima da fonte com
+                velocidade \(v_o=18\,\text{m/s}\).
+                Considerando a velocidade do som \(v_s=340\,\text{m/s}\), a
+                frequência \(f_o\)
+                percebida pelo observador é aproximadamente:
                 </dd>
 </dl>
 <ol type="a">
-<li>interferência construtiva, pois \(\Delta d=\lambda\).</li>
-<li>eco, pois \(\Delta
-                d=2\lambda\).</li>
-<li>interferência destrutiva, pois \(\Delta d=\lambda/2\).</li>
-<li>refração, pois a frequência mudou.</li>
-<li>efeito Doppler, pois a fonte está parada.</li>
+<li>\(404\,\text{Hz}\).</li>
+<li>\(440\,\text{Hz}\).</li>
+<li>\(466\,\text{Hz}\).</li>
+<li>\(492\,\text{Hz}\).</li>
+<li>\(540\,\text{Hz}\).</li>
 </ol>
 <dl>
 <dt>4.9)</dt>
-<dd>
-                Uma coluna de ar aberta em uma extremidade e fechada na
-                outra tem comprimento \(L=0{,}66\,\text{m}\).
-                Considerando \(v=330\,\text{m/s}\), sua
-                frequência fundamental é:
-                </dd>
-</dl>
-<ol type="a">
-<li>\(62{,}5\,\text{Hz}\).</li>
-<li>\(125\,\text{Hz}\).</li>
-<li>\(250\,\text{Hz}\).</li>
-<li>\(330\,\text{Hz}\).</li>
-<li>\(500\,\text{Hz}\).</li>
-</ol>
-<dl>
-<dt>4.10)</dt>
-<dd>
-                Uma sirene emite \(540\,\text{Hz}\) e se
-                aproxima de um observador parado com \(v_s=15\,\text{m/s}\).
-                Considere \(v=330\,\text{m/s}\). A
-                frequência percebida é aproximadamente:
-                </dd>
-</dl>
-<ol type="a">
-<li>\(515\,\text{Hz}\).</li>
-<li>\(540\,\text{Hz}\).</li>
-<li>\(566\,\text{Hz}\).</li>
-<li>\(615\,\text{Hz}\).</li>
-<li>\(675\,\text{Hz}\).</li>
-</ol>
-<dl>
-<dt>4.11)</dt>
 <dd>
                 Um avião voa a \(u=990\,\text{m/s}\) em uma
                 região onde a velocidade do som é \(330\,\text{m/s}\). Seu
@@ -1069,19 +1090,22 @@
 <li>\(300\).</li>
 </ol>
 <dl>
-<dt>4.12)</dt>
+<dt>4.10)</dt>
 <dd>
-                Em uma gravação, duas cristas consecutivas estão
-                separadas por \(T=0{,}0080\,\text{s}\). A
-                frequência medida é:
+                Uma fonte sonora produz intensidade \(I=2{,}5\times10^{-4}\,\text{W/m}^2\).
+                Considerando \(I_0=10^{-12}\,\text{W/m}^2\),
+                \(\log 2=0{,}30\),
+                \(\log 3=0{,}48\) e
+                \(\log 5=0{,}70\), o
+                nível sonoro produzido é:
                 </dd>
 </dl>
 <ol type="a">
-<li>\(8\,\text{Hz}\).</li>
-<li>\(80\,\text{Hz}\).</li>
-<li>\(100\,\text{Hz}\).</li>
-<li>\(125\,\text{Hz}\).</li>
-<li>\(800\,\text{Hz}\).</li>
+<li>\(74\,\text{dB}\).</li>
+<li>\(80\,\text{dB}\).</li>
+<li>\(84\,\text{dB}\).</li>
+<li>\(88\,\text{dB}\).</li>
+<li>\(94\,\text{dB}\).</li>
 </ol>
 <h1 id="atividade-de-encerramento-voz-e-ondas-sonoras-no-audacity">Atividade
                 de Encerramento — voz e ondas sonoras no Audacity</h1>
