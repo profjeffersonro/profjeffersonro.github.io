@@ -63,6 +63,7 @@ class AssistantError(RuntimeError):
 
 
 DEFAULT_CONTEXTS: tuple[tuple[str, publish.LessonContext], ...] = (
+    ("/SI/", publish.LessonContext("Seminários Integrados", "ES-SI")),
     ("FM2", publish.LessonContext("Física Moderna 2", "ES-FM2")),
     ("FM1", publish.LessonContext("Física Moderna 1", "ES-FM1")),
     ("MecFlu", publish.LessonContext("Mecânica dos Fluidos", "ES-MecFlu")),
@@ -360,8 +361,22 @@ def discover_lesson_dirs(base_path: Path) -> list[Path]:
         raise AssistantError(f"Caminho nao e pasta: {base_path}")
 
     try:
-        source_pdf = publish.resolve_source_pdf(base_path, None, None)
-        publish.resolve_source_html(base_path, None, source_pdf)
+        # Comece pelo HTML: materiais auxiliares frequentemente acrescentam
+        # PDFs na mesma pasta, enquanto o PDF principal costuma ter o mesmo
+        # nome-base do HTML da aula.
+        html_matches = sorted(
+            path
+            for path in base_path.glob("*.html")
+            if not path.name.endswith("-auto.html")
+            and not path.name.startswith("resp-")
+            and ".backup." not in path.name
+        )
+        if len(html_matches) == 1:
+            source_html = html_matches[0].resolve()
+            publish.resolve_source_pdf(base_path, None, source_html)
+        else:
+            source_pdf = publish.resolve_source_pdf(base_path, None, None)
+            publish.resolve_source_html(base_path, None, source_pdf)
         return [base_path]
     except publish.PublishError:
         pass
@@ -377,8 +392,19 @@ def discover_lesson_dirs(base_path: Path) -> list[Path]:
 
 def resolve_lesson_files(lesson_dir: Path, index: ConfigIndex) -> tuple[Path, Path, str | None]:
     try:
-        source_pdf = publish.resolve_source_pdf(lesson_dir, None, None)
-        source_html = publish.resolve_source_html(lesson_dir, None, source_pdf)
+        html_matches = sorted(
+            path
+            for path in lesson_dir.glob("*.html")
+            if not path.name.endswith("-auto.html")
+            and not path.name.startswith("resp-")
+            and ".backup." not in path.name
+        )
+        if len(html_matches) == 1:
+            source_html = html_matches[0].resolve()
+            source_pdf = publish.resolve_source_pdf(lesson_dir, None, source_html)
+        else:
+            source_pdf = publish.resolve_source_pdf(lesson_dir, None, None)
+            source_html = publish.resolve_source_html(lesson_dir, None, source_pdf)
         matches = index.html_by_filename.get(source_html.name, [])
         if len(matches) > 1:
             raise AssistantError(f"mais de uma entrada no config.yaml usa {source_html.name}")
@@ -534,6 +560,10 @@ def publish_command(
         str(SCRIPT_DIR / "publish_lesson.py"),
         "--lesson-dir",
         str(plan.lesson_dir),
+        "--html",
+        plan.source_html.name,
+        "--pdf",
+        plan.source_pdf.name,
         "--lesson-name",
         plan.title,
         "--discipline-name",

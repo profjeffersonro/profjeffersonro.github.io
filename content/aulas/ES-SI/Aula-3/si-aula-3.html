@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminários Integrados</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- MathJax sem configuração -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <style>
+        /* Seu CSS adaptado com Bootstrap */
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #6c757d;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container-main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Header estilizado */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary-color), #1e3c72);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .document-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .document-subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+        
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .exercise-separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #666,
+                transparent
+            );
+            margin: 1.5rem 0;
+            opacity: 0.85;
+        }
+
+        .answer-capsule {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .answer-summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c5aa0;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .answer-summary:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1e3c72;
+        }
+
+        .answer-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .answer-summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .answer-capsule[open] .answer-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .answer-content code {
+            background: #1e3c72;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* TOC moderno */
+        #TOC {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        #TOC ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #TOC > ul {
+            padding-left: 0;
+        }
+        
+        #TOC li {
+            margin: 0.7rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #TOC li:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        #TOC a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        #TOC a::before {
+            content: '▸';
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        #TOC a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Conteúdo principal */
+        .content-section {
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .content-section h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+        
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 500;
+        }
+        
+        
+        /* ============================================
+        FIX: Exercícios no estilo "1.2) Enunciado"
+        (Pandoc definition list: <dl><dt>...</dt><dd>...</dd></dl>)
+        - Junta dt + início do dd na mesma linha
+        - Mantém listas (ol/ul) em bloco abaixo
+        ============================================ */
+
+        .content-section dl {
+            margin: 1.2rem 0;
+        }
+
+        .content-section dl > dt {
+            display: inline;
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+
+        .content-section dl > dd {
+            display: inline;
+            margin: 0;
+        }
+
+        /* 1º parágrafo do enunciado na mesma linha */
+        .content-section dl > dd > p:first-child {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Garante quebra depois de cada questão */
+        .content-section dl > dd::after {
+            content: "";
+            display: block;
+            margin-bottom: 1.0rem;
+        }
+
+        /* Se houver listas dentro da questão, elas descem normalmente */
+        .content-section dl > dd > ol,
+        .content-section dl > dd > ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Listas estilizadas */
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .content-section ul li::marker {
+            color: var(--accent-color);
+        }
+        
+        .content-section ol li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FIX: Alternativas a) no HTML (Pandoc)
+           - Exibe a) em vez de a.
+           - Mantém "a) Enunciado" na mesma linha
+           ============================================ */
+        .content-section ol[type="a"] > li::marker {
+            content: counter(list-item, lower-alpha) ") ";
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .content-section ol[type="a"] > li > p {
+            display: inline;
+            margin: 0;
+        }
+        /* (Opcional) melhora alinhamento visual das alternativas */
+        .content-section ol[type="a"] {
+            padding-left: 1.5rem; /* mantém consistente com o restante do template */
+        }
+        
+        /* Figuras e legendas - Seu CSS adaptado */
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 100%;
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.95rem;
+            max-width: 80%;
+        }
+        
+        /* Imagens responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Código e blocos */
+        code {
+            background: #f1f5f9;
+            color: #dc2626;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            background: var(--light-bg);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .document-footer {
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        /* Matemática */
+        .math {
+            font-size: 1.1em;
+        }
+        
+        /* Responsividade - Seu CSS adaptado */
+        @media (max-width: 768px) {
+            .container-main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .document-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            figcaption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container-main {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            
+            .document-header {
+                padding: 1.5rem 1rem;
+                border-radius: 10px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            figcaption {
+                font-size: 12px;
+            }
+            
+            #TOC {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animações suaves */
+        .content-section * {
+            transition: all 0.3s ease;
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="container-main col-lg-10 col-xl-8 mx-auto">
+            <!-- Header -->
+            <header class="document-header">
+                                <h1 class="document-title display-4">Seminários
+Integrados</h1>
+                                
+                                <h2 class="document-subtitle display-6">Cadeias
+de Markov e simulação de Monte Carlo: chuva, extremos e o Vale do
+Ribeira</h2>
+                                
+                                <div class="author-info">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-person-fill me-2"></i>
+                        </div>
+                        <div class="col">
+                            <strong>Autor:</strong> Jefferson Rodrigues
+de Oliveira
+                        </div>
+                    </div>
+                                    </div>
+                            </header>
+
+            <!-- TOC -->
+            
+            <!-- Conteúdo principal -->
+            <main class="content-section">
+                <h1 id="objetivos">Objetivos</h1>
+                <p>Ao final desta aula, devemos ser capazes de:</p>
+                <ul>
+                <li>distinguir <strong>tempo meteorológico</strong> de
+                <strong>clima</strong>;</li>
+                <li>representar uma sequência diária de chuva por
+                estados discretos;</li>
+                <li>interpretar e estimar uma matriz de transição de
+                Markov;</li>
+                <li>simular muitas trajetórias possíveis a partir de um
+                modelo probabilístico;</li>
+                <li>construir, no quadro, exemplos introdutórios de
+                PageRank e de estimativa de <span
+                class="math inline">\(\pi\)</span>;</li>
+                <li>investigar persistência, frequência e duração de
+                extremos;</li>
+                <li>separar dados observados, parâmetros calculados e
+                cenários hipotéticos.</li>
+                </ul>
+                <h1 id="problema-de-pesquisa">Problema de pesquisa</h1>
+                <p>Se hoje está chovendo, qual é a probabilidade de
+                amanhã continuar chovendo? E, se repetirmos esse sorteio
+                milhares de vezes, com que frequência aparecerão
+                sequências longas de chuva forte?</p>
+                <p>Essas perguntas não procuram adivinhar exatamente o
+                tempo de um dia futuro. Elas procuram descrever um
+                <strong>regime probabilístico</strong>: sob determinadas
+                condições e com determinadas probabilidades de
+                transição, quais sequências de estados são plausíveis?
+                Cadeias de Markov e simulação de Monte Carlo nos dão uma
+                linguagem simples para começar essa investigação.</p>
+                <h1 id="dois-aquecimentos-para-o-quadro">Dois
+                aquecimentos para o quadro</h1>
+                <p>Antes de olhar uma série meteorológica longa e um
+                script em Python, vamos construir duas ideias à mão. O
+                primeiro exemplo mostra como probabilidades de transição
+                podem produzir um ranqueamento; o segundo mostra como
+                sorteios repetidos podem estimar uma quantidade
+                conhecida. Eles são pequenos o bastante para caber no
+                quadro, mas contêm exatamente os ingredientes que
+                usaremos depois com os dados de chuva.</p>
+                <h2
+                id="aquecimento-1-pagerank-como-caminhada-de-markov">Aquecimento
+                1: PageRank como caminhada de Markov</h2>
+                <p>O <strong>PageRank</strong> é um exemplo histórico de
+                análise de links na Web: representamos páginas por nós e
+                hyperlinks por setas. Imagine um navegador que, ao
+                chegar a uma página, escolhe aleatoriamente um dos links
+                disponíveis. A página recebe uma pontuação alta quando
+                esse navegante tende a visitá-la muitas vezes depois de
+                muitos passos. Essa interpretação é uma cadeia de
+                Markov.</p>
+                <p>Vamos desenhar apenas três páginas no quadro:</p>
+                <p><span class="math display">\[
+                A\rightarrow B,C,\qquad B\rightarrow C,\qquad
+                C\rightarrow A.
+                \]</span></p>
+                <p>Se a ordem dos estados é <span
+                class="math inline">\((A,B,C)\)</span>, a matriz de
+                transição é</p>
+                <p><span class="math display">\[
+                P=
+                \begin{pmatrix}
+                0 &amp; 1/2 &amp; 1/2\\
+                0 &amp; 0 &amp; 1\\
+                1 &amp; 0 &amp; 0
+                \end{pmatrix}.
+                \]</span></p>
+                <p>Começamos sem preferência, com <span
+                class="math inline">\(r^{(0)}=(1/3,1/3,1/3)\)</span>, e
+                usamos vetores-linha: <span
+                class="math inline">\(r^{(t+1)}=r^{(t)}P\)</span>. A
+                turma pode fazer as duas primeiras rodadas:</p>
+                <p><span class="math display">\[
+                r^{(1)}=(1/3,1/6,1/2),\qquad
+                r^{(2)}=(1/2,1/6,1/3).
+                \]</span></p>
+                <p>Ao repetir a atualização, chegamos a <span
+                class="math inline">\(r=(0{,}4,0{,}2,0{,}4)\)</span>.
+                Isto quer dizer que, neste grafo simplificado, o
+                navegador passa aproximadamente 40% do tempo em <span
+                class="math inline">\(A\)</span>, 20% em <span
+                class="math inline">\(B\)</span> e 40% em <span
+                class="math inline">\(C\)</span>. Não é necessário
+                calcular muitas linhas no quadro: o ponto é perceber que
+                a importância “flui” pelos links e que o vetor
+                estacionário resume o comportamento após muitos
+                passos.</p>
+                <p>O PageRank real introduz detalhes adicionais, como a
+                possibilidade de o navegador saltar para uma página
+                aleatória, e sistemas modernos de busca usam muitos
+                outros sinais além de links. Portanto, o exemplo não
+                tenta reproduzir o ranqueamento atual de uma busca: ele
+                ilustra a ideia de cadeia de Markov que tornou o
+                PageRank tão instrutivo.</p>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=pT4MWD8fbRk&t=1500s" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-pagerank-sistemas-lineares.png" alt="PAPMEM — Sistemas lineares: trecho sobre PageRank" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">PAPMEM — Sistemas lineares: trecho sobre PageRank</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=pT4MWD8fbRk&t=1500s" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">IMPA / YouTube — iniciar em 25:00</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=pT4MWD8fbRk&t=1500s" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>O trecho a partir de 25:00 é a referência para esta
+                atividade. Podemos pausar depois da apresentação da rede
+                e pedir que a turma execute uma atualização antes de ver
+                a continuação.</p>
+                <h2
+                id="aquecimento-2-estimando-pi-com-monte-carlo">Aquecimento
+                2: estimando <span class="math inline">\(\pi\)</span>
+                com Monte Carlo</h2>
+                <p>Agora vamos usar aleatoriedade de outro modo.
+                Desenhamos no quadro um quadrado de lado 1 e, dentro
+                dele, um quarto de círculo de raio 1. Cada dupla gera
+                pares aleatórios <span
+                class="math inline">\((x,y)\)</span> com <span
+                class="math inline">\(0\leq x,y\leq 1\)</span> – pela
+                tecla <code>Rand</code> da calculadora, uma tabela de
+                números aleatórios ou um aplicativo simples – e marca
+                seus pontos no desenho.</p>
+                <p>Um ponto cai dentro do quarto de círculo quando</p>
+                <p><span class="math display">\[
+                x^2+y^2\leq 1.
+                \]</span></p>
+                <p>Se <span class="math inline">\(N\)</span> é o número
+                total de pontos e <span class="math inline">\(M\)</span>
+                é o número de pontos internos, a razão das áreas
+                fornece</p>
+                <p><span class="math display">\[
+                \frac{M}{N}\approx\frac{\pi}{4}
+                \qquad\Longrightarrow\qquad
+                \pi\approx4\frac{M}{N}.
+                \]</span></p>
+                <p>Por exemplo, se a turma obtiver <span
+                class="math inline">\(M=31\)</span> pontos internos em
+                <span class="math inline">\(N=40\)</span> lançamentos,
+                terá <span
+                class="math inline">\(\pi\approx4(31/40)=3{,}10\)</span>.
+                O número não precisa ser perfeito; pelo contrário, a
+                diferença para <span class="math inline">\(\pi\)</span>
+                mostra a flutuação amostral. Ao juntar os pontos de toda
+                a sala, <span class="math inline">\(N\)</span> aumenta e
+                a estimativa tende a estabilizar.</p>
+                <h2 id="a-ponte-para-a-chuva">A ponte para a chuva</h2>
+                <p>Os dois aquecimentos têm papéis diferentes. No
+                PageRank, repetimos uma <strong>regra de
+                transição</strong> para entender o estado de longo
+                prazo; o cálculo pode ser feito deterministicamente por
+                multiplicação de matrizes. Na estimativa de <span
+                class="math inline">\(\pi\)</span>, fazemos muitos
+                <strong>sorteios independentes</strong> e observamos uma
+                frequência. No estudo meteorológico, combinaremos as
+                duas ideias: a matriz de Markov especifica como escolher
+                o próximo estado de chuva, e Monte Carlo repete essa
+                caminhada milhares de vezes para investigar sequências
+                inteiras.</p>
+                <h1
+                id="um-caso-que-pede-cuidado-vale-do-ribeira-em-setembro-de-2026">Um
+                caso que pede cuidado: Vale do Ribeira em setembro de
+                2026</h1>
+                <p>O Vale do Ribeira é um contexto interessante porque
+                combina umidade, influência oceânica, relevo e episódios
+                de chuva persistente. Em 14 de setembro de 2026, o INMET
+                informou acumulados parciais de 242,6 mm em Registro,
+                331,2 mm em Iguape e 248,2 mm em Barra do Turvo nos
+                primeiros 14 dias do mês. A nota associa a instabilidade
+                à passagem de uma frente fria no Atlântico e à entrada
+                de ar frio sobre o centro-sul do Brasil.</p>
+                <p>Esses números são <strong>observações
+                meteorológicas</strong>, não uma demonstração de
+                causalidade climática. Um evento isolado não prova, por
+                si só, que tenha sido causado pelas mudanças climáticas.
+                Para discutir atribuição precisaríamos de séries
+                históricas, sazonalidade, variabilidade natural,
+                condições oceânicas, modelos climáticos e comparações
+                entre cenários. Aqui, o episódio serve como motivação
+                para estudar a ocorrência e a persistência de estados de
+                chuva.</p>
+                <figure>
+                <img src="images/fluxo-markov-monte-carlo.png"
+                style="width:96.0%"
+                alt="Esquema didático da passagem de dados diários para estados meteorológicos e trajetórias simuladas. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Esquema didático da
+                passagem de dados diários para estados meteorológicos e
+                trajetórias simuladas. Fonte: elaboração
+                própria.</figcaption>
+                </figure>
+                <h1 id="tempo-não-é-clima">Tempo não é clima</h1>
+                <p>O <strong>tempo meteorológico</strong> descreve o
+                estado da atmosfera em uma escala curta: chuva hoje,
+                temperatura amanhã, vento durante uma tarde. O
+                <strong>clima</strong> é o comportamento estatístico
+                observado em períodos longos: médias, variabilidade,
+                frequências, extremos e tendências.</p>
+                <p>Uma cadeia de Markov diária pode ser um modelo de
+                tempo. A comparação cuidadosa de matrizes estimadas em
+                diferentes décadas, estações ou cenários pode contribuir
+                para perguntas sobre clima. Os dois níveis se
+                relacionam, mas não são sinônimos: uma sequência chuvosa
+                é tempo; uma alteração persistente na distribuição de
+                sequências é uma questão climática.</p>
+                <h1 id="da-chuva-medida-ao-estado-do-sistema">Da chuva
+                medida ao estado do sistema</h1>
+                <p>Vamos começar com uma classificação didática da
+                precipitação diária. Os limites abaixo são escolhas
+                metodológicas; em uma pesquisa, podemos justificá-los
+                por literatura, percentis ou pela distribuição dos
+                próprios dados.</p>
+                <table>
+                <thead>
+                <tr>
+                <th style="text-align: center;">Estado</th>
+                <th style="text-align: left;">Nome</th>
+                <th style="text-align: right;">Precipitação diária</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td style="text-align: center;"><span
+                class="math inline">\(S_0\)</span></td>
+                <td style="text-align: left;">seco</td>
+                <td style="text-align: right;">menor que 1 mm</td>
+                </tr>
+                <tr>
+                <td style="text-align: center;"><span
+                class="math inline">\(S_1\)</span></td>
+                <td style="text-align: left;">chuva leve a moderada</td>
+                <td style="text-align: right;">de 1 a menor que 20
+                mm</td>
+                </tr>
+                <tr>
+                <td style="text-align: center;"><span
+                class="math inline">\(S_2\)</span></td>
+                <td style="text-align: left;">chuva forte</td>
+                <td style="text-align: right;">de 20 a menor que 50
+                mm</td>
+                </tr>
+                <tr>
+                <td style="text-align: center;"><span
+                class="math inline">\(S_3\)</span></td>
+                <td style="text-align: left;">chuva muito forte</td>
+                <td style="text-align: right;">50 mm ou mais</td>
+                </tr>
+                </tbody>
+                </table>
+                <p>Por exemplo, a sequência de valores</p>
+                <p><span class="math display">\[
+                0,\ 0,\ 3{,}2,\ 18{,}4,\ 57{,}8,\ 12{,}1,\ 0\ \text{mm}
+                \]</span></p>
+                <p>vira a sequência de estados</p>
+                <p><span class="math display">\[
+                S_0,\ S_0,\ S_1,\ S_1,\ S_3,\ S_1,\ S_0.
+                \]</span></p>
+                <p>Essa simplificação perde detalhes sobre o volume
+                exato de cada chuva, mas torna visível uma pergunta
+                essencial: como um estado tende a ser seguido por
+                outro?</p>
+                <h1 id="cadeia-de-markov">Cadeia de Markov</h1>
+                <p>Uma <strong>cadeia de Markov</strong> é um modelo
+                para uma sequência que muda de estado: hoje seco, amanhã
+                chuva leve, depois chuva forte, por exemplo. A palavra
+                <em>cadeia</em> não significa que os resultados sejam
+                determinados; ela indica que cada estado está ligado ao
+                próximo por probabilidades. No modelo de primeira ordem,
+                a distribuição do próximo estado depende do estado
+                atual:</p>
+                <p><span class="math display">\[
+                P(X_{t+1}\mid X_t,X_{t-1},\ldots,X_0)=P(X_{t+1}\mid
+                X_t).
+                \]</span></p>
+                <p>Isso não quer dizer que a atmosfera realmente não
+                tenha memória física. Quer dizer que <strong>nosso
+                modelo</strong> resume a informação usada no instante
+                <span class="math inline">\(t\)</span> ao estado atual.
+                É uma aproximação que deve ser verificada e, se
+                necessário, ampliada com estação do ano, temperatura,
+                umidade ou estados de ordem maior.</p>
+                <h2
+                id="contexto-histórico-dependência-sem-independência">Contexto
+                histórico: dependência sem independência</h2>
+                <p>O matemático russo <strong>Andrei A. Markov</strong>
+                publicou, em 1906, trabalhos que mostravam algo
+                importante para a probabilidade: ainda podemos obter
+                regularidades estatísticas quando as observações
+                sucessivas <strong>não são independentes</strong>. A
+                questão era justamente entender sequências em que o
+                resultado seguinte guarda alguma relação com o anterior.
+                Mais tarde, Markov analisou sucessões de vogais e
+                consoantes em <em>Eugene Onegin</em>, de Pushkin, como
+                uma cadeia de símbolos.</p>
+                <p>Essa origem ajuda a evitar uma confusão comum. Uma
+                cadeia de Markov não é uma previsão mágica e nem exige
+                que o sistema seja aleatório “sem regra”. Ela é uma
+                forma de representar <strong>dependência
+                probabilística</strong> com uma memória resumida. No
+                nosso caso, trocamos letras por classes de chuva e
+                perguntamos como a classe de hoje se relaciona com a de
+                amanhã.</p>
+                <figure>
+                <img src="images/diagrama-estados-chuva.png"
+                style="width:88.0%"
+                alt="Diagrama de estados de uma cadeia meteorológica simplificada. As setas indicam transições possíveis; os valores estimados aparecem no estudo de caso a seguir. Fonte: elaboração própria." />
+                <figcaption aria-hidden="true">Diagrama de estados de
+                uma cadeia meteorológica simplificada. As setas indicam
+                transições possíveis; os valores estimados aparecem no
+                estudo de caso a seguir. Fonte: elaboração
+                própria.</figcaption>
+                </figure>
+                <h2 id="a-matriz-de-transição">A matriz de
+                transição</h2>
+                <p>Se <span class="math inline">\(N_{ij}\)</span> é o
+                número de dias em que observamos a passagem de <span
+                class="math inline">\(S_i\)</span> para <span
+                class="math inline">\(S_j\)</span>, estimamos</p>
+                <p><span class="math display">\[
+                \hat p_{ij}=\frac{N_{ij}}{\sum_j N_{ij}}.
+                \]</span></p>
+                <p>Cada linha da matriz deve somar 1, pois ela lista
+                todos os destinos possíveis a partir de um mesmo estado.
+                Linhas são estados de hoje; colunas, estados de amanhã,
+                sempre na ordem <span
+                class="math inline">\(S_0,S_1,S_2,S_3\)</span>. Um valor
+                grande na diagonal mede a <strong>persistência de um dia
+                para o seguinte</strong>.</p>
+                <h1
+                id="estudo-de-caso-com-dados-observados-registrosp">Estudo
+                de caso com dados observados: Registro/SP</h1>
+                <h2 id="fonte-local-e-intervalo-temporal">Fonte, local e
+                intervalo temporal</h2>
+                <p>O exemplo usa <strong>dados observados</strong>, não
+                uma previsão nem uma série inventada: são leituras
+                horárias da estação meteorológica automática
+                <strong>INMET A766 – Registro/SP</strong> (latitude
+                <span class="math inline">\(-24{,}5331^\circ\)</span>,
+                longitude <span
+                class="math inline">\(-47{,}8642^\circ\)</span>,
+                altitude 35 m). O INMET disponibiliza os arquivos
+                históricos; para facilitar a leitura e manter os
+                metadados de controle de qualidade, usamos a cópia
+                harmonizada METBRA25Y, cuja procedência aponta de volta
+                aos arquivos públicos do INMET.</p>
+                <p>A série horária recebida cobre <strong>09/02/2017 a
+                31/08/2025</strong>, em UTC. Nem toda hora contém uma
+                medida de precipitação: há períodos sem leitura. Para
+                não inventar chuva onde o sensor não registrou,
+                mantivemos somente dias UTC com as <strong>24 leituras
+                horárias válidas e não negativas</strong>. Isso deixou
+                <strong>1.660 dias completos</strong>, no intervalo
+                efetivamente analisado de <strong>11/02/2017 a
+                23/10/2024</strong>, e <strong>1.526 pares de dias
+                consecutivos</strong> para estimar transições. Lacunas
+                interrompem a contagem: um dia antes e outro depois de
+                uma lacuna não são tratados como dias vizinhos.</p>
+                <p>Os dados brutos, o CSV diário derivado e o script que
+                produz todos os números estão em <code>data/</code> e
+                <code>scripts/analisar_registro.py</code>. A variável é
+                a precipitação horária em milímetros; o acumulado diário
+                é a soma das 24 horas UTC. Esta escolha de dia UTC deve
+                ser declarada: para uma análise operacional local,
+                poderíamos deslocar o dia para BRT e repetir o
+                cálculo.</p>
+                <h2 id="como-os-dados-viraram-matriz-e-gráfico">Como os
+                dados viraram matriz e gráfico</h2>
+                <p>O processamento foi deliberadamente simples e
+                rastreável.</p>
+                <ol type="1">
+                <li>Lemos a coluna <code>PRECIPITATION_MM</code>,
+                descartando leitura ausente ou negativa.</li>
+                <li>Para cada data UTC, exigimos 24 valores horários e
+                somamos esses valores para obter a chuva diária.</li>
+                <li>Classificamos cada total diário em <span
+                class="math inline">\(S_0\)</span>, <span
+                class="math inline">\(S_1\)</span>, <span
+                class="math inline">\(S_2\)</span> ou <span
+                class="math inline">\(S_3\)</span> com os limiares
+                definidos no início da aula.</li>
+                <li>Para cada par de dias realmente consecutivos,
+                contamos a passagem <span
+                class="math inline">\(S_i\rightarrow S_j\)</span>; essa
+                é a contagem <span
+                class="math inline">\(N_{ij}\)</span>.</li>
+                <li>Dividimos cada linha por seu total. Assim, a linha
+                passa a responder “dado o estado de hoje, como se
+                repartiram os estados de amanhã?”</li>
+                </ol>
+                <p>O <strong>mapa de calor</strong> abaixo mostra o
+                resultado dessa divisão: cor mais escura significa
+                probabilidade estimada maior; <code>n=</code> é o número
+                bruto de passagens que sustentou cada célula. Portanto,
+                o gráfico não mostra chuva futura; ele resume a
+                frequência de transições no recorte observado.</p>
+                <p>Com os mesmos quatro limiares da tabela anterior, as
+                probabilidades estimadas foram:</p>
+                <p><span class="math display">\[
+                \hat P=
+                \begin{pmatrix}
+                0{,}781 &amp; 0{,}185 &amp; 0{,}030 &amp; 0{,}004\\
+                0{,}451 &amp; 0{,}441 &amp; 0{,}087 &amp; 0{,}021\\
+                0{,}259 &amp; 0{,}593 &amp; 0{,}148 &amp; 0{,}000\\
+                0{,}154 &amp; 0{,}538 &amp; 0{,}231 &amp; 0{,}077
+                \end{pmatrix}.
+                \]</span></p>
+                <p>As linhas <span
+                class="math inline">\(S_0,S_1,S_2,S_3\)</span> tiveram,
+                respectivamente, 1.006, 426, 81 e 13 transições
+                disponíveis. As contagens de cada célula aparecem na
+                figura.</p>
+                <figure>
+                <img src="images/matriz-transicao-registro-a766.png"
+                style="width:94.0%"
+                alt="Matriz calculada a partir da série observada de Registro (A766). Os valores entre parênteses são contagens, para mostrar o pouco suporte das transições raras. Fonte: elaboração própria a partir de dados INMET/METBRA25Y." />
+                <figcaption aria-hidden="true">Matriz calculada a partir
+                da série observada de Registro (A766). Os valores entre
+                parênteses são contagens, para mostrar o pouco suporte
+                das transições raras. Fonte: elaboração própria a partir
+                de dados INMET/METBRA25Y.</figcaption>
+                </figure>
+                <p>O zero em <span class="math inline">\(P(S_3\mid
+                S_2)\)</span> não prova que essa passagem seja
+                impossível na atmosfera: nesta amostra ela apenas não
+                ocorreu nas 81 transições que começaram em <span
+                class="math inline">\(S_2\)</span>. A última linha
+                também tem somente 13 transições. Por isso, os números
+                de extremos precisam ser lidos junto com seus tamanhos
+                amostrais.</p>
+                <h1
+                id="exemplo-resolvido-uma-atualização-de-um-dia-observado">Exemplo
+                resolvido: uma atualização de um dia observado</h1>
+                <p>Suponhamos que hoje seja classificado como <span
+                class="math inline">\(S_2\)</span>, chuva forte. A
+                terceira linha estimada com Registro fornece
+                diretamente:</p>
+                <p><span class="math display">\[
+                \begin{aligned}
+                P(S_0\mid S_2)&amp;=0{,}259, &amp; P(S_1\mid
+                S_2)&amp;=0{,}593,\\
+                P(S_2\mid S_2)&amp;=0{,}148, &amp; P(S_3\mid
+                S_2)&amp;=0{,}000.
+                \end{aligned}
+                \]</span></p>
+                <p>Para simular amanhã, sorteamos um número uniforme
+                <span class="math inline">\(u\)</span> entre 0 e 1. Se
+                <span class="math inline">\(u=0{,}71\)</span>, ele cai
+                no intervalo acumulado de 0,259 a 0,852 e o próximo
+                estado será <span class="math inline">\(S_1\)</span>.
+                Repetimos o procedimento usando agora a linha de <span
+                class="math inline">\(S_1\)</span>. A cada passo há
+                sorteio, mas as probabilidades usadas dependem do estado
+                presente.</p>
+                <h1 id="monte-carlo-muitas-histórias-possíveis">Monte
+                Carlo: muitas histórias possíveis</h1>
+                <p>Uma <strong>simulação de Monte Carlo</strong> usa
+                sorteios repetidos para explorar as consequências
+                numéricas de um modelo. Em vez de tentar escolher “a”
+                trajetória correta, geramos muitas trajetórias possíveis
+                e contamos seus resultados. Aqui, cada sorteio escolhe o
+                estado de amanhã de acordo com a linha correspondente da
+                matriz de Markov. Uma única trajetória simulada é só uma
+                possibilidade; o conjunto delas permite estimar
+                frequências e intervalos. Se simularmos 20 mil anos
+                sintéticos de 365 dias, podemos estimar, dentro deste
+                modelo:</p>
+                <ul>
+                <li>a fração de dias em <span
+                class="math inline">\(S_3\)</span>;</li>
+                <li>o número anual de dias com chuva forte ou muito
+                forte;</li>
+                <li>a probabilidade de ocorrer uma sequência com pelo
+                menos três dias <span class="math inline">\(S_2\)</span>
+                ou <span class="math inline">\(S_3\)</span>;</li>
+                <li>a maior duração anual de uma sequência chuvosa;</li>
+                <li>a distribuição do acumulado, se cada estado também
+                receber uma regra para volumes de chuva.</li>
+                </ul>
+                <h2
+                id="contexto-histórico-por-que-o-nome-monte-carlo">Contexto
+                histórico: por que o nome Monte Carlo?</h2>
+                <p>O nome remete ao famoso cassino de Monte Carlo, em
+                Mônaco, porque o método explora sorteios como os jogos
+                de azar, mas com uma finalidade científica. A forma
+                moderna do método foi desenvolvida no contexto de
+                problemas físicos difíceis no Laboratório de Los Alamos,
+                nos anos 1940, por pesquisadores como <strong>Stanisław
+                Ulam</strong>, <strong>John von Neumann</strong> e
+                <strong>Nicholas Metropolis</strong>. O artigo de
+                Metropolis e Ulam de 1949 consolidou o nome e apresentou
+                o método como uma abordagem estatística para problemas
+                de física matemática.</p>
+                <p>Há uma ligação bonita entre os dois temas da aula:
+                uma cadeia de Markov fornece as probabilidades de cada
+                próximo passo; Monte Carlo usa números pseudoaleatórios
+                para percorrer repetidamente essa cadeia. Isso não deve
+                ser confundido com o método <strong>Markov chain Monte
+                Carlo (MCMC)</strong> usado para amostrar distribuições
+                complexas em estatística: nesta aula estamos simulando
+                diretamente uma cadeia estimada de chuva.</p>
+                <p>Para tornar o resultado auditável, executamos
+                <strong>20.000 trajetórias</strong> de 365 dias com a
+                matriz observada, distribuição inicial empírica e
+                semente <code>20260923</code>. Em cada trajetória,
+                sorteamos o primeiro estado de acordo com a frequência
+                observada e, nos 364 passos seguintes, sorteamos o
+                próximo estado usando a linha da matriz correspondente
+                ao estado corrente. Depois contamos dias <span
+                class="math inline">\(S_2\)</span> ou <span
+                class="math inline">\(S_3\)</span>, sequências extremas
+                e durações. Neste experimento, a média foi <strong>23,17
+                dias/ano</strong> em <span
+                class="math inline">\(S_2\)</span> ou <span
+                class="math inline">\(S_3\)</span> (intervalo percentil
+                5–95: <strong>15 a 32</strong>) e
+                <strong>41,22%</strong> das trajetórias tiveram ao menos
+                uma sequência de três ou mais dias consecutivos em <span
+                class="math inline">\(S_2\)</span> ou <span
+                class="math inline">\(S_3\)</span>.</p>
+                <figure>
+                <img src="images/monte-carlo-registro-a766.png"
+                style="width:94.0%"
+                alt="Distribuição dos dias fortes ou muito fortes nas 20.000 trajetórias de Monte Carlo. Fonte: elaboração própria; simulações condicionadas à matriz estimada de Registro, não observações nem previsão." />
+                <figcaption aria-hidden="true">Distribuição dos dias
+                fortes ou muito fortes nas 20.000 trajetórias de Monte
+                Carlo. Fonte: elaboração própria; simulações
+                condicionadas à matriz estimada de Registro, não
+                observações nem previsão.</figcaption>
+                </figure>
+                <p>O ponto importante é que Monte Carlo não produz uma
+                profecia. Ele aproxima as consequências de hipóteses
+                explicitadas no modelo. Se a matriz, a classificação dos
+                estados ou o período usado forem inadequados, as
+                trajetórias simuladas também serão inadequadas.</p>
+                <h2 id="persistência-e-extremos">Persistência e
+                extremos</h2>
+                <p>Definimos, por exemplo, uma sequência extrema como
+                uma sequência de pelo menos três dias consecutivos em
+                <span class="math inline">\(S_2\)</span> ou <span
+                class="math inline">\(S_3\)</span>. Para cada
+                trajetória, contamos quantas sequências apareceram e
+                qual foi a maior duração. A proporção de trajetórias que
+                contêm ao menos uma sequência extrema estima a
+                probabilidade desse evento <strong>sob a matriz
+                escolhida</strong>.</p>
+                <p>É diferente de dizer que um episódio real foi causado
+                pelo modelo, ou que uma simulação representa uma
+                previsão determinística. A distinção entre observação,
+                cálculo e cenário é parte do resultado científico, não
+                uma nota de rodapé.</p>
+                <h1 id="do-dado-real-à-matriz-roteiro-reproduzível">Do
+                dado real à matriz: roteiro reproduzível</h1>
+                <p>O estudo de caso anterior executa o fluxo abaixo. Ele
+                pode ser repetido com
+                <code>MPLCONFIGDIR=/tmp/matplotlib python3 scripts/analisar_registro.py</code>,
+                a partir de <code>Aula-3/</code>.</p>
+                <ol type="1">
+                <li>Obter os dados de precipitação do INMET ou do
+                CEMADEN e registrar a estação, período e unidade.</li>
+                <li>Verificar dados ausentes, duplicados, valores
+                impossíveis e mudanças de instrumento.</li>
+                <li>Agregar os registros para precipitação diária sem
+                somar intervalos sobrepostos.</li>
+                <li>Classificar cada dia em <span
+                class="math inline">\(S_0\)</span> a <span
+                class="math inline">\(S_3\)</span> e contar as
+                transições consecutivas.</li>
+                <li>Normalizar cada linha da contagem para estimar a
+                matriz.</li>
+                <li>Simular trajetórias, calcular métricas e comunicar a
+                incerteza.</li>
+                <li>Comparar períodos equivalentes do calendário, sem
+                misturar estações do ano de forma indiscriminada.</li>
+                </ol>
+                <p>O INMET disponibiliza dados históricos e o CEMADEN
+                mantém pluviômetros automáticos na região. Antes de
+                qualquer conclusão, devemos documentar a origem do dado
+                e todas as escolhas de tratamento. Nesta aula, a cópia
+                local inclui o arquivo horário selecionado e seu
+                SHA-256, para que o resultado não dependa de uma
+                planilha invisível.</p>
+                <h1
+                id="mudanças-climáticas-como-a-pergunta-muda">Mudanças
+                climáticas: como a pergunta muda</h1>
+                <p>Uma aplicação possível é estimar uma matriz para um
+                período histórico e construir cenários em que certas
+                transições ficam mais ou menos prováveis. Por exemplo,
+                aumentar hipoteticamente <span
+                class="math inline">\(P(S_3\mid S_2)\)</span> e reduzir
+                outro elemento da mesma linha para preservar a soma 1. A
+                simulação então responde: como mudariam as sequências
+                extremas <strong>se</strong> o regime de transição fosse
+                esse?</p>
+                <p>Isso é útil como experimento conceitual, mas não
+                equivale a uma projeção climática completa. A matriz
+                pode mudar com a estação, com teleconexões como El
+                Niño/La Niña, com variáveis atmosféricas não incluídas e
+                com tendências de longo prazo. Uma extensão é usar
+                matrizes diferentes para verão e inverno, ou tornar as
+                probabilidades funções do tempo e de covariáveis.</p>
+                <h1 id="limitações-que-precisamos-declarar">Limitações
+                que precisamos declarar</h1>
+                <ul>
+                <li>A escolha dos limiares para <span
+                class="math inline">\(S_0\)</span> a <span
+                class="math inline">\(S_3\)</span> afeta a matriz e os
+                resultados.</li>
+                <li>Eventos muito raros geram poucas transições
+                observadas; uma probabilidade estimada como zero pode
+                ser apenas ausência de dados.</li>
+                <li>Uma cadeia de primeira ordem pode ser curta demais
+                para representar persistência real.</li>
+                <li>Dias consecutivos e estações do ano não são
+                observações independentes.</li>
+                <li>Uma matriz estimada no passado não é automaticamente
+                válida no futuro.</li>
+                </ul>
+                <p>Esses limites não invalidam o método. Eles indicam
+                quais perguntas ele responde bem e quais exigem dados,
+                modelos ou variáveis adicionais.</p>
+                <h1
+                id="conclusões-o-que-aprendemos-e-por-que-importa">Conclusões:
+                o que aprendemos e por que importa</h1>
+                <p>Podemos tirar quatro conclusões deste estudo de
+                caso.</p>
+                <ol type="1">
+                <li>Na amostra disponível, dias secos foram
+                persistentes: <span class="math inline">\(P(S_0\mid
+                S_0)=0{,}781\)</span>. Isso descreve o recorte de dados
+                tratado; não significa que “sempre” ficará seco.</li>
+                <li>A transição mais provável após uma chuva forte
+                (<span class="math inline">\(S_2\)</span>) foi para
+                chuva leve ou moderada (<span
+                class="math inline">\(S_1\)</span>), com 0,593. Mas essa
+                linha tem 81 casos, muito menos que a linha de dias
+                secos, e deve ser interpretada com mais cautela.</li>
+                <li>Simulações de Monte Carlo transformam a matriz em
+                perguntas sobre sequências inteiras. O resultado de
+                41,22% é uma probabilidade <strong>condicional ao modelo
+                e ao período usado</strong>, não a probabilidade real e
+                imutável para qualquer ano futuro.</li>
+                <li>O método torna claras as escolhas que frequentemente
+                ficam escondidas: o que chamamos de “dia”, quais
+                limiares definem chuva forte, como tratamos lacunas e
+                qual período alimenta o modelo.</li>
+                </ol>
+                <p>A importância desses modelos está justamente nessa
+                combinação de simplicidade e transparência. Cadeias de
+                Markov ajudam a organizar dependências em dados
+                sequenciais; Monte Carlo traduz essas dependências em
+                cenários, frequências e faixas de variação. Eles são
+                úteis em meteorologia, física estatística, filas,
+                confiabilidade, finanças e muitos outros sistemas em que
+                não basta olhar valores isolados. Ao mesmo tempo, seu
+                valor científico depende de dados bem documentados,
+                hipóteses explícitas e comparação cuidadosa com
+                observações. Previsão, explicação causal e projeção
+                climática são tarefas mais exigentes; este modelo é uma
+                ferramenta para investigar e comunicar incerteza, não
+                para substituí-las.</p>
+                <h1 id="imagens-e-dados-de-uso-livre">Imagens e dados de
+                uso livre</h1>
+                <p>As figuras em <code>images/</code> foram elaboradas
+                para este material. O diagrama inicial é didático; a
+                matriz e o histograma de Monte Carlo foram gerados pelo
+                script da aula a partir da série observada documentada
+                em <code>data/</code>. As trajetórias de Monte Carlo
+                continuam sendo cenários simulados, não observações nem
+                previsão.</p>
+                <h1 id="vídeos-recomendados">Vídeos recomendados</h1>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=mLiGy8KND0E" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-markov-chains.png" alt="Cadeias de Markov: uma introdução visual" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Cadeias de Markov: uma introdução visual</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=mLiGy8KND0E" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">The Synthetic Mind / YouTube</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=mLiGy8KND0E" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>O vídeo apresenta estados, transições e a propriedade
+                de Markov com um exemplo ligado ao tempo. Pode ser
+                assistido depois da primeira leitura da matriz.</p>
+                <div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+                  <a href="https://www.youtube.com/watch?v=WjmNedsX1T0" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none;">
+                    <img src="./images/thumbs/ytb-monte-carlo.png" alt="Monte Carlo Simulation Explained Visually" style="display:block; width:100%; height:auto;" loading="lazy">
+                  </a>
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+                    <div style="line-height:1.25; min-width:200px;">
+                      <strong style="color:#222;">Monte Carlo Simulation Explained Visually</strong><br>
+                      Fonte: <a href="https://www.youtube.com/watch?v=WjmNedsX1T0" target="_blank" rel="noopener noreferrer" style="color:#0066cc;">The Synthetic Mind / YouTube</a>
+                    </div>
+                    <div>
+                      <a href="https://www.youtube.com/watch?v=WjmNedsX1T0" target="_blank" rel="noopener noreferrer"
+                         style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;"
+                         onmouseover="this.style.background='#f0f0f0'"
+                         onmouseout="this.style.background='#fff'">
+                        Abrir ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p>Esta indicação ajuda a visualizar por que muitas
+                repetições aleatórias podem estimar frequências e
+                distribuições, sem transformar a simulação em
+                certeza.</p>
+                <h1 id="questões-de-revisão-e-reflexão">Questões de
+                revisão e reflexão</h1>
+                <ol type="1">
+                <li>Por que uma sequência de chuva diária pode ser
+                representada por estados discretos?</li>
+                <li>O que a propriedade de Markov assume sobre a
+                informação usada para o próximo passo?</li>
+                <li>Por que cada linha de uma matriz de transição deve
+                somar 1?</li>
+                <li>Como interpretar um elemento diagonal grande na
+                matriz?</li>
+                <li>Qual é a diferença entre uma trajetória simulada e
+                uma previsão meteorológica?</li>
+                <li>Por que a ocorrência de um evento extremo isolado
+                não prova atribuição às mudanças climáticas?</li>
+                <li>Que problemas podem surgir ao estimar uma transição
+                rara com poucos dados?</li>
+                <li>Como você compararia dois períodos sem confundir
+                sazonalidade com mudança climática?</li>
+                </ol>
+                <h1 id="referências">Referências</h1>
+                <p>INSTITUTO NACIONAL DE METEOROLOGIA (INMET).
+                <strong>São Paulo registra recordes de chuva nos
+                primeiros 14 dias de setembro</strong>. Brasília, 14
+                set. 2026. <a
+                href="https://portal.inmet.gov.br/noticias/s%C3%A3o-paulo-registra-recordes-de-chuva-nos-primeiros-14-dias-de-setembro">Notícia
+                no portal do INMET</a>. Acesso em: 23 set. 2026.</p>
+                <p>INSTITUTO NACIONAL DE METEOROLOGIA (INMET).
+                <strong>Dados históricos</strong>. <a
+                href="https://portal.inmet.gov.br/dadoshistoricos">Portal
+                de dados</a>. Acesso em: 23 set. 2026.</p>
+                <p>CASTRO, Matheus Lima; VICHETE, William Dantas;
+                LUSQUINO FILHO, Leopoldo. <strong>METBRA25Y: Brazil
+                Surface Meteorology Archive with Harmonized Variables
+                and Quality Control</strong>. Zenodo, versão 1.0.0,
+                2026. DOI: <a
+                href="https://doi.org/10.5281/zenodo.19964979">10.5281/zenodo.19964979</a>.
+                Série usada:
+                <code>INMET_REGISTRO_SP_2000-01-01_2025-12-31.csv.gz</code>.</p>
+                <p>MARKOV, Andrei A. <strong>Extension of the law of
+                large numbers to dependent quantities</strong>. 1906.
+                Contexto histórico consultado em <em>Encyclopedia of
+                Mathematics</em>, <a
+                href="https://encyclopediaofmath.org/wiki/Markov%2C_Andrei_Andreevich">verbete
+                sobre Markov</a>.</p>
+                <p>METROPOLIS, Nicholas; ULAM, Stanislaw. <strong>The
+                Monte Carlo Method</strong>. <em>Journal of the American
+                Statistical Association</em>, v. 44, n. 247, p. 335–341,
+                1949. DOI: <a
+                href="https://doi.org/10.1080/01621459.1949.10483310">10.1080/01621459.1949.10483310</a>.</p>
+                <p>BRIN, Sergey; PAGE, Lawrence. <strong>The Anatomy of
+                a Large-Scale Hypertextual Web Search Engine</strong>.
+                <em>Computer Networks</em>, v. 30, p. 107–117, 1998. <a
+                href="https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/">Versão
+                no Google Research</a>. Para o contexto atual, consulte
+                também <a
+                href="https://developers.google.com/search/docs/appearance/ranking-systems-guide">os
+                sistemas de ranqueamento do Google</a>.</p>
+                <p>INSTITUTO DE MATEMÁTICA PURA E APLICADA (IMPA).
+                <strong>PAPMEM – Janeiro de 2013: Sistemas
+                lineares</strong>. YouTube. Trecho indicado: 25:00. <a
+                href="https://www.youtube.com/watch?v=pT4MWD8fbRk&amp;t=1500s">Vídeo</a>.</p>
+                <p>CENTRO NACIONAL DE MONITORAMENTO E ALERTAS DE
+                DESASTRES NATURAIS (CEMADEN). <strong>Mapa interativo e
+                consulta pluviométrica</strong>. <a
+                href="https://mapainterativo.cemaden.gov.br/">Portal do
+                CEMADEN</a>. Acesso em: 23 set. 2026.</p>
+                <p>NORRIS, J. R. <strong>Markov chains</strong>.
+                Cambridge: Cambridge University Press, 1997.</p>
+                <p>ROSS, Sheldon M. <strong>Introduction to probability
+                models</strong>. 12. ed. Amsterdam: Academic Press,
+                2019.</p>
+            </main>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                                <p class="lead mb-3">Estados
+meteorológicos, matrizes de transição, persistência, simulação de Monte
+Carlo e limites da interpretação climática</p>
+                                <p class="mb-0">
+                    <i class="bi bi-file-earmark-text me-1"></i>
+                    Gerado com Pandoc - N/A
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para MathJax -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>
