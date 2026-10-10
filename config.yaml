@@ -77,6 +77,14 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1UOuxv0g2C9TI5YSQlYS6AohMflihu1B6/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/19EkbpJi3IrIiT38o8b711LBS8bBWaqdL/view?usp=drive_link"
         answers_released: false
+  - disciplina: "Óptica"
+    aulas:
+      - name: "Aula 1 - Fundamentos da Óptica Geométrica"
+        html: "content/aulas/EM-Optica/Aula-1/optica-aula-1.html"
+        pdf: "https://drive.google.com/file/d/1fu-1WHWlk47Irl72HpNouM6y_eAl-uOY/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/1C9d4QdU5FonOsFxo8m5nkww6oY-eS_x9/view?usp=drive_link"
+        answers_released: false
+        answers_release_at: "14/08/26 00:00"
   - disciplina: "Física Moderna 1"
     aulas:
       - name: "Aula 1 - Concepções Históricas"

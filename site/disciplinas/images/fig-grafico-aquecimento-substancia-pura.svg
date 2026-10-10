@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#ffffff"/>
+  <style>
+    .title{font:700 52px Arial, sans-serif;fill:#172033}
+    .axisLabel{font:700 38px Arial, sans-serif;fill:#172033}
+    .phase{font:700 34px Arial, sans-serif;fill:#172033}
+    .note{font:500 27px Arial, sans-serif;fill:#44546f}
+    .tick{font:600 28px Arial, sans-serif;fill:#172033}
+    .axis{stroke:#172033;stroke-width:6;stroke-linecap:round}
+    .guide{stroke:#7b879a;stroke-width:4;stroke-dasharray:14 12}
+    .curve{fill:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+
+  <text x="800" y="78" text-anchor="middle" class="title">Curva de aquecimento de uma substância pura</text>
+
+  <line x1="220" y1="820" x2="1460" y2="820" class="axis"/>
+  <line x1="220" y1="820" x2="220" y2="145" class="axis"/>
+  <polygon points="1460,820 1422,798 1422,842" fill="#172033"/>
+  <polygon points="220,145 198,183 242,183" fill="#172033"/>
+
+  <text x="820" y="925" text-anchor="middle" class="axisLabel">Calor fornecido (Q)</text>
+  <text x="72" y="485" text-anchor="middle" class="axisLabel" transform="rotate(-90 72 485)">Temperatura</text>
+
+  <line x1="220" y1="615" x2="1410" y2="615" class="guide"/>
+  <line x1="220" y1="350" x2="1410" y2="350" class="guide"/>
+  <text x="195" y="624" text-anchor="end" class="tick">T fusão</text>
+  <text x="195" y="359" text-anchor="end" class="tick">T ebulição</text>
+
+  <polyline points="275,770 430,615" class="curve" stroke="#2f80ed"/>
+  <polyline points="430,615 705,615" class="curve" stroke="#20a464"/>
+  <polyline points="705,615 885,350" class="curve" stroke="#f2994a"/>
+  <polyline points="885,350 1195,350" class="curve" stroke="#9b51e0"/>
+  <polyline points="1195,350 1370,185" class="curve" stroke="#eb5757"/>
+
+  <circle cx="430" cy="615" r="11" fill="#172033"/>
+  <circle cx="705" cy="615" r="11" fill="#172033"/>
+  <circle cx="885" cy="350" r="11" fill="#172033"/>
+  <circle cx="1195" cy="350" r="11" fill="#172033"/>
+
+  <text x="345" y="740" text-anchor="middle" class="phase">Sólido</text>
+  <text x="345" y="774" text-anchor="middle" class="note">calor sensível</text>
+
+  <text x="568" y="560" text-anchor="middle" class="phase">Fusão</text>
+  <text x="568" y="593" text-anchor="middle" class="note">temperatura constante</text>
+
+  <text x="780" y="510" text-anchor="middle" class="phase">Líquido</text>
+  <text x="780" y="544" text-anchor="middle" class="note">calor sensível</text>
+
+  <text x="1040" y="285" text-anchor="middle" class="phase">Vaporização</text>
+  <text x="1040" y="318" text-anchor="middle" class="note">temperatura constante</text>
+
+  <text x="1290" y="210" text-anchor="middle" class="phase">Vapor</text>
+  <text x="1290" y="244" text-anchor="middle" class="note">calor sensível</text>
+
+  <rect x="260" y="858" width="42" height="20" fill="#2f80ed" rx="5"/>
+  <text x="320" y="878" class="note">trechos inclinados: temperatura varia</text>
+  <rect x="830" y="858" width="42" height="20" fill="#20a464" rx="5"/>
+  <rect x="882" y="858" width="42" height="20" fill="#9b51e0" rx="5"/>
+  <text x="942" y="878" class="note">patamares: mudança de fase</text>
+</svg>

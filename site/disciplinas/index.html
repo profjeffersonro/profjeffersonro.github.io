@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disciplinas | Meu Portal</title>
+    <meta name="description" content="Lista de disciplinas e aulas disponíveis no portal de física.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Disciplinas | Meu Portal">
+    <meta property="og:description" content="Lista de disciplinas e aulas disponíveis no portal de física.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">Disciplinas</li>
+        </ol>
+    </nav>
+
+    <h1 class="mb-4"><i class="bi bi-bookshelf"></i> Disciplinas</h1>
+    <p class="lead mb-4">Selecione uma disciplina e aula para começar seus estudos.</p>
+
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-bookmark"></i> Termodinâmica
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 1 - Conceitos Iniciais
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-1-conceitos-iniciais.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1kxr2MRukFEOscdmmH0-JRXcGjSaLzb1Q/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1XfSArOOQDilRaLlAa-98vcjiPFb15hVx/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 2 - Escalas Termométricas
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-2-escalas-termometricas.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1SMKy_yDz66XZ-aH1R35iCJ8mAyt28PsZ/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1F8XWHRJrIa273YByO9zPo_OXQ056JrQh/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 3 - Variação e Escalas Arbitrárias
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-3-variacao-e-escalas-arbitrarias.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1VBTwE__4T5X-AlBBJK-rpu8e84GdUF9D/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/10CvxzSkHeUHhu1P_lskT0F45EuMh8CNd/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 4 - Dilatação Térmica dos Sólidos
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-4-dilatacao-termica-dos-solidos.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1rkmVlq5IEYEXnvECwo-_KJsFgemDrN3b/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1cc5Tp9pwfO7NjAs37_FQ3vXdWMpP10Ts/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 5 - Calor com Mudança de Temperatura
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-5-calor-com-mudanca-de-temperatura.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1s5MbcoX73FKzRTQuxuV7ILT9sXlyIvbv/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/164E0twFjZaqyoAOCEOFqZwQ15n_Bdae0/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 6 - Calor com Mudança de Estado Físico
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-6-calor-com-mudanca-de-estado-fisico.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1aMtdC7-f8lWrEdrAXxAASWEOq9_sH4nJ/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1smTeIhhWFI3l-CZMd5q7OtOUjxvTdA67/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 7 - Processos de Propagação de Calor
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-7-processos-de-propagacao-de-calor.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1tbeEI66VeG9SRp4nJGm1Q3reCg1KDY1k/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-bookmark"></i> Ondulatória
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 1 - Conceitos, Classificação e Espectro Eletromagnético
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-1-conceitos-classificacao-e-espectro-eletromagnetico.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/10pkoATy2uxY-hBtWJFRYqbgZjt2hyOGm/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1S_wzJGESbAF6CbKsnQoCJfZtBnsR7q3r/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 2 - Grandezas, Gráficos e Equação Fundamental
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-2-grandezas-graficos-e-equacao-fundamental.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1Zy3ite-HjGqJF-pzuW-0tXjrmodNLVAY/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1tzSjMZvmM2PrZjaPl57iBtJNJK7ZUZUP/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 3 - Fenômenos Ondulatórios
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-3-fenomenos-ondulatorios.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1bG4YT0f7E9eoagIErCS8AvO7UqxgAqWw/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1UQdfI-_WrqqY-c7oijaqhduk_IYZtRgq/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 4 - Acústica e Fenômenos Sonoros
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-4-acustica-e-fenomenos-sonoros.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1UOuxv0g2C9TI5YSQlYS6AohMflihu1B6/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-bookmark"></i> Óptica
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 1 - Fundamentos da Óptica Geométrica
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-1-fundamentos-da-optica-geometrica.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1fu-1WHWlk47Irl72HpNouM6y_eAl-uOY/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1C9d4QdU5FonOsFxo8m5nkww6oY-eS_x9/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-bookmark"></i> Física Moderna 1
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 1 - Concepções Históricas
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-1-concepcoes-historicas.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1HVOpUChU1AqMkq-2gqXbgfrzgjvJVo7r/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 2 - Quantização da Carga: Experimentos de Thomson
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-2-quantizacao-da-carga-experimentos-de-thomson.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1sclyLmf2b4PVMojhf1FAnlKdScoOT1cQ/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 3 - Quantização da Carga: Experimento de Millikan
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-3-quantizacao-da-carga-experimento-de-millikan.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1rKq9cwEij5WhWVHnB0MXRGu_AjEN8PLk/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 4 - Radiação do Corpo Negro
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-4-radiacao-do-corpo-negro.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1Nn0KP96b6IrCm1vpae5H-PJLWvjE_pS3/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 5 - Efeito Fotoelétrico
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-5-efeito-fotoeletrico.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1lS4vi7C_pSABzBNrMgHILqjhN5Jwuv7e/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 6 - Efeito Compton e Difração de Elétrons
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-6-efeito-compton-e-difracao-de-eletrons.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1VBy33hw1v25VnYtj1CduFhYIx_FpHPa2/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-bookmark"></i> Física Moderna 2
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-1-concepcoes-historicas-e-fundamentos-da-fisica-nuclear.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1OWibXn_msjZqthNc7Aqz6fZXMiBg6t-0/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1XEH3K8h5T4cCRjORqvtja1NjvLlbpONP/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 2 - Estrutura Nuclear, Interação Nuclear e Energia de Ligação
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-2-estrutura-nuclear-interacao-nuclear-e-energia-de-ligacao.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1ILxHU3yiJXBxsFS0NLpVl2v_tqhpS7sV/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1JrMrvL0xKV_hZdifB9xLgTmemYZjRLO_/view?usp=drive_link" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
+                                        <i class="bi bi-check2-square"></i> Respostas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 3 - Decaimento Radioativo Natural
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-3-decaimento-radioativo-natural.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1bC6JBoTkT_WQ8NoYcUSsilGYSnL1iBUF/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 4 - Modos de Decaimento Nuclear
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-4-modos-de-decaimento-nuclear.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1AKtPAPjakS87GktN5-iLRP4_IE5wiHEO/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 5 - Reações Nucleares
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-5-reacoes-nucleares.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1Y0ZIwh-UBcFK_Q6R76UPi0gGZHe1ZpCM/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-bookmark"></i> Seminários Integrados
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Determinismo x Probabilismo: probabilidade, caos, mundo quântico, inteligência artificial e mudanças climáticas
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/determinismo-x-probabilismo-probabilidade-caos-mundo-quantico-inteligencia-artificial-e-mudancas-climaticas.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1xfHXucL8iVAGBgiV8HChg9nmhE14U8jB/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Inferência bayesiana: como evidências atualizam probabilidades
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/inferencia-bayesiana-como-evidencias-atualizam-probabilidades.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/16FP1gKL7fwr3KrtaOffo7waxxU3PXcp5/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Cadeias de Markov e simulação de Monte Carlo: chuva, extremos e o Vale do Ribeira
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/cadeias-de-markov-e-simulacao-de-monte-carlo-chuva-extremos-e-o-vale-do-ribeira.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1VKlwzS0wesFNWCw2c1BybQLd2opCtJqq/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 1 - Introdução à Mecânica dos Fluidos
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-1-introducao-a-mecanica-dos-fluidos.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1lgyDwLjXzPRQcCz-WivB5q2hd6nNzM7k/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 2 - Unidades de Medida e Conversões
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-2-unidades-de-medida-e-conversoes.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1R6hXrO9L4JE9NrelOfJgao8EAILLrFrB/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 3 - Teorema de Stevin
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-3-teorema-de-stevin.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1mZh6_FgNRZnxJRCdBwF-0x0c5gUJ-OMh/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 4 - Vasos Comunicantes com Líquidos Imiscíveis
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-4-vasos-comunicantes-com-liquidos-imisciveis.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1UgUqw9m_cmghVUHV1xHtE8VdEbxjHC-Y/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text text-primary"></i> Aula 5 - Manômetros e Princípio de Pascal
+                                </h5>
+                                <div class="mt-3">
+                                    <a href="/disciplinas/aula-5-manometros-e-principio-de-pascal.html" class="btn btn-outline-primary btn-sm me-2">
+                                        <i class="bi bi-file-text"></i> Ver Aula
+                                    </a>
+
+                                    <a href="https://drive.google.com/file/d/1l2wCa1yjOl3ApmS_SIZ7HZoqiiQAzWoB/view?usp=drive_link" class="btn btn-outline-success btn-sm" target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Voltar para Home
+        </a>
+    </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

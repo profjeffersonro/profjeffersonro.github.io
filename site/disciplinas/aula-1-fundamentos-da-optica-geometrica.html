@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1 - Fundamentos da Óptica Geométrica | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 1 - Fundamentos da Óptica Geométrica de Óptica.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-1-fundamentos-da-optica-geometrica.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 1 - Fundamentos da Óptica Geométrica | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 1 - Fundamentos da Óptica Geométrica de Óptica.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-1-fundamentos-da-optica-geometrica.html">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Óptica</li>
+                </ol>
+            </nav>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 1 - Fundamentos da Óptica Geométrica</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Óptica</p>
+                </div>
+                <div class="card-body">
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1fu-1WHWlk47Irl72HpNouM6y_eAl-uOY/view?usp=drive_link"
+                       class="btn btn-success btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1C9d4QdU5FonOsFxo8m5nkww6oY-eS_x9/view?usp=drive_link"
+                       class="btn btn-outline-secondary btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-check2-square"></i> Acessar Respostas
+                    </a>
+                </div>
+
+                    <div class="aula-content">
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li><strong>Reconhecer</strong> a luz visível como parte
+                do espectro eletromagnético e usar \(c\approx3{,}0\times10^8\,\text{m/s}\)
+                no vácuo.</li>
+<li><strong>Diferenciar</strong> fontes primárias e
+                secundárias, bem como meios transparentes, translúcidos
+                e opacos.</li>
+<li><strong>Aplicar</strong> os princípios de propagação
+                retilínea, reversibilidade e independência dos raios
+                luminosos.</li>
+<li><strong>Explicar</strong> sombra, penumbra, eclipses
+                e a formação de imagens na câmara escura.</li>
+<li><strong>Resolver</strong> problemas de semelhança de
+                triângulos envolvendo sombras e câmara escura.</li>
+<li><strong>Distinguir</strong> síntese aditiva (RGB) de
+                síntese subtrativa (CMY) e prever cores sob iluminação
+                colorida.</li>
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Óptica é a parte da Física que estuda a luz e os
+                fenômenos associados a ela. Nesta primeira aula,
+                adotaremos o modelo de <strong>óptica
+                geométrica</strong>: em situações nas quais as dimensões
+                dos objetos são muito maiores que o comprimento de onda
+                da luz, podemos representar sua trajetória por
+                <strong>raios luminosos</strong>, linhas orientadas que
+                indicam a direção da propagação da energia luminosa.</p>
+<p>Esse modelo explica por que vemos através de uma
+                janela, por que uma sombra tem contornos, como ocorrem
+                eclipses e como uma câmara escura forma uma imagem
+                invertida. Também permite compreender cores em telas,
+                tintas, fotografias e objetos iluminados.</p>
+<figure>
+<img alt="Espectro visível linear. Fonte: Gringer, Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/File:Linear_visible_spectrum.svg" style="width:100.0%"/>
+<figcaption aria-hidden="true">Espectro visível linear.
+                Fonte: Gringer, Wikimedia Commons, domínio
+                público.</figcaption>
+</figure>
+<h1 id="luz-visível-e-unidades-astronômicas">Luz visível
+                e unidades astronômicas</h1>
+<p>A luz visível é radiação eletromagnética detectada
+                pelo olho humano. Seu comprimento de onda está
+                aproximadamente entre \(380\,\text{nm}\) (violeta)
+                e \(750\,\text{nm}\)
+                (vermelho). No vácuo, todas as radiações
+                eletromagnéticas propagam-se com velocidade</p>
+<p>\[
+                \boxed{c\approx3{,}0\times10^8\,\text{m/s}}
+                \]</p>
+<p>Em materiais transparentes, a velocidade é menor que
+                \(c\). A cor não é
+                definida apenas pelo objeto: depende também da luz que o
+                ilumina e da resposta do nosso sistema visual.</p>
+<p>Como as distâncias entre estrelas são muito grandes,
+                usamos o <strong>ano-luz (al)</strong>: a distância
+                percorrida pela luz no vácuo durante um ano.</p>
+<p>\[
+                1\,\text{al}\approx9{,}46\times10^{12}\,\text{km}
+                \]</p>
+<p>Esse valor pode ser obtido com \(d=v\Delta t\). Adotando
+                \(1\,\text{ano}\approx3{,}156\times10^7\,\text{s}\):</p>
+<p>\[
+                d=(3{,}0\times10^5\,\text{km/s})(3{,}156\times10^7\,\text{s})
+                \approx9{,}46\times10^{12}\,\text{km}.
+                \]</p>
+<p>Portanto, <strong>ano-luz é unidade de
+                distância</strong>, apesar de seu nome conter a palavra
+                “ano”. Algumas escalas ajudam a interpretar essa
+                unidade:</p>
+<ul>
+<li>Terra–Lua: aproximadamente \(1{,}28\) segundo-luz;</li>
+<li>Sol–Terra: aproximadamente \(8{,}3\) minutos-luz;</li>
+<li>Proxima Centauri–Terra: aproximadamente \(4{,}24\) anos-luz.</li>
+</ul>
+<p>O <strong>parsec (pc)</strong> é outra unidade
+                astronômica, definida a partir da paralaxe. A relação
+                útil nesta aula é:</p>
+<p>\[
+                \boxed{1\,\text{pc}\approx3{,}26\,\text{al}\approx3{,}09\times10^{13}\,\text{km}}
+                \]</p>
+<p><strong>Exemplo.</strong> A luz do Sol leva cerca de
+                \(8{,}3\,\text{min}\)
+                para chegar à Terra. Logo, observar o Sol é vê-lo como
+                ele era há pouco mais de oito minutos, não exatamente
+                como ele é neste instante.</p>
+<h2 id="conversões-astronômicas">Conversões
+                astronômicas</h2>
+<p>Para converter unidades, escreva uma razão igual a 1
+                e cancele a unidade indesejada.</p>
+<p><strong>Exemplo 1 — de ano-luz para
+                quilômetro.</strong> Alpha Centauri A está a
+                aproximadamente \(4{,}37\,\text{al}\) da
+                Terra:</p>
+<p>\[
+                d=4{,}37\,\bcancel{\text{al}}
+                \left(\frac{9{,}46\times10^{12}\,\text{km}}{1\,\bcancel{\text{al}}}\right)
+                \approx\boxed{4{,}13\times10^{13}\,\text{km}}.
+                \]</p>
+<p><strong>Exemplo 2 — de parsec para ano-luz e
+                quilômetro.</strong> Para uma estrela a \(430\,\text{pc}\):</p>
+<p>\[
+                d=430\,\bcancel{\text{pc}}
+                \left(\frac{3{,}26\,\text{al}}{1\,\bcancel{\text{pc}}}\right)
+                \approx1{,}40\times10^3\,\text{al}
+                \approx\boxed{1{,}33\times10^{16}\,\text{km}}.
+                \]</p>
+<figure>
+<img alt="Paralaxe estelar e definição geométrica do parsec. Fonte: elaboração própria, CC BY 4.0." src="images/optica-paralaxe-v2.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Paralaxe estelar e
+                definição geométrica do parsec. Fonte: elaboração
+                própria, CC BY 4.0.</figcaption>
+</figure>
+<p><strong>Exemplo 3 — tempo de viagem.</strong> Uma
+                nave hipotética viaja a \(1{,}5\times10^3\,\text{km/s}\)
+                até Proxima Centauri b, a \(4{,}24\,\text{al}\). Como
+                essa velocidade é \(200\) vezes menor que \(c\approx3{,}0\times10^5\,\text{km/s}\),
+                o tempo de viagem é</p>
+<p>\[
+                \Delta
+                t=4{,}24\,\text{anos}\left(\frac{3{,}0\times10^5}{1{,}5\times10^3}\right)
+                =\boxed{848\,\text{anos}}.
+                \]</p>
+<p>Esse cálculo desconsidera aceleração, frenagem e
+                efeitos relativísticos; trata-se de uma estimativa com
+                velocidade constante.</p>
+<h1 id="fontes-e-feixes-de-luz">Fontes e feixes de
+                luz</h1>
+<p>Uma <strong>fonte primária</strong> emite luz
+                própria: Sol, chama, lâmpada acesa, tela ligada e
+                vaga-lume. Uma <strong>fonte secundária</strong> não
+                produz luz própria; ela é vista porque reflete ou
+                espalha luz recebida, como a Lua, um livro e uma
+                parede.</p>
+<figure>
+<img alt="Exemplos de fontes secundárias, vistas pela luz que refletem ou espalham. Fotografias livres: NASA/JPL e colaboradores do Wikimedia Commons; créditos detalhados nas referências." src="images/exemplos-fontes-secundarias-realistas.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Exemplos de fontes
+                secundárias, vistas pela luz que refletem ou espalham.
+                Fotografias livres: NASA/JPL e colaboradores do
+                Wikimedia Commons; créditos detalhados nas
+                referências.</figcaption>
+</figure>
+<p>Não confunda uma fonte quente com uma fonte luminosa:
+                uma pessoa pode emitir radiação infravermelha por estar
+                quente, mas não necessariamente luz visível suficiente
+                para ser vista no escuro.</p>
+<p>As fontes primárias também podem ser classificadas
+                pelo mecanismo de emissão. Nos exemplos a seguir, cada
+                conjunto reúne apenas fontes que funcionam pelo mesmo
+                fenômeno.</p>
+<h2 id="fontes-incandescentes">Fontes
+                incandescentes</h2>
+<p>Emitem luz visível por causa da <strong>alta
+                temperatura</strong>. O Sol, uma chama, uma brasa e o
+                filamento aquecido de uma lâmpada incandescente são
+                exemplos.</p>
+<figure>
+<img alt="Exemplos de fontes incandescentes: Sol, chama, brasa e filamento aquecido. Fotografias livres; créditos detalhados nas referências." src="images/fontes-incandescentes-realistas.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Exemplos de fontes
+                incandescentes: Sol, chama, brasa e filamento aquecido.
+                Fotografias livres; créditos detalhados nas
+                referências.</figcaption>
+</figure>
+<h2 id="fontes-fluorescentes">Fontes fluorescentes</h2>
+<p>Emitem luz enquanto recebem energia de excitação e,
+                em geral, deixam de emitir quase imediatamente quando o
+                estímulo termina. Lâmpadas fluorescentes possuem vapor
+                de mercúrio que produz radiação ultravioleta; o
+                revestimento interno do tubo absorve essa radiação e
+                emite luz visível.</p>
+<figure>
+<img alt="Exemplos de fontes fluorescentes: tubos e lâmpada fluorescente compacta. Fotografias livres; créditos detalhados nas referências." src="images/fontes-fluorescentes-realistas.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Exemplos de fontes
+                fluorescentes: tubos e lâmpada fluorescente compacta.
+                Fotografias livres; créditos detalhados nas
+                referências.</figcaption>
+</figure>
+<h2 id="fontes-fosforescentes">Fontes
+                fosforescentes</h2>
+<p>Continuam emitindo luz por algum tempo
+                <strong>depois</strong> que a excitação termina.
+                Pigmentos de placas, ponteiros e adesivos que brilham no
+                escuro armazenam parte da energia recebida e a liberam
+                gradualmente.</p>
+<figure>
+<img alt="Exemplos de fosforescência: pigmentos observados sob diferentes condições e o brilho residual após quatro minutos no escuro. Fotografias livres; créditos detalhados nas referências." src="images/fontes-fosforescentes-realistas.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Exemplos de
+                fosforescência: pigmentos observados sob diferentes
+                condições e o brilho residual após quatro minutos no
+                escuro. Fotografias livres; créditos detalhados nas
+                referências.</figcaption>
+</figure>
+<h2 id="fontes-quimioluminescentes">Fontes
+                quimioluminescentes</h2>
+<p>Convertem diretamente a energia de uma <strong>reação
+                química</strong> em luz, com pouca produção de calor. O
+                luminol e os bastões luminosos são exemplos.</p>
+<figure>
+<img alt="Exemplos de quimioluminescência: reação com luminol e bastões luminosos. Fotografias livres; créditos detalhados nas referências." src="images/fontes-quimioluminescentes-realistas.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Exemplos de
+                quimioluminescência: reação com luminol e bastões
+                luminosos. Fotografias livres; créditos detalhados nas
+                referências.</figcaption>
+</figure>
+<h2 id="fontes-bioluminescentes">Fontes
+                bioluminescentes</h2>
+<p>São fontes quimioluminescentes presentes em
+                <strong>seres vivos</strong>. Vaga-lumes e certos
+                organismos marinhos produzem luz por reações
+                bioquímicas.</p>
+<figure>
+<img alt="Exemplos de bioluminescência: vaga-lume e organismos marinhos. Fotografias livres; créditos detalhados nas referências." src="images/fontes-bioluminescentes-realistas.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Exemplos de
+                bioluminescência: vaga-lume e organismos marinhos.
+                Fotografias livres; créditos detalhados nas
+                referências.</figcaption>
+</figure>
+<p>Quanto à geometria, um feixe pode ser:</p>
+<ul>
+<li><strong>paralelo</strong>, com raios aproximadamente
+                paralelos, como os raios solares em uma pequena região
+                da Terra;</li>
+<li><strong>divergente</strong>, com raios que se
+                afastam, como os que saem de uma lâmpada pequena;</li>
+<li><strong>convergente</strong>, com raios que se
+                aproximam de uma região, como após uma lente
+                convergente.</li>
+</ul>
+<figure>
+<img alt="Feixes paralelo, convergente e divergente. Fonte: elaboração própria, CC BY 4.0." src="images/optica-feixes-v2.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Feixes paralelo,
+                convergente e divergente. Fonte: elaboração própria, CC
+                BY 4.0.</figcaption>
+</figure>
+<p>Quanto às dimensões, uma fonte pode ser considerada
+                <strong>pontual</strong> quando seu tamanho aparente é
+                desprezível na situação analisada. Caso seu tamanho
+                precise ser levado em conta, ela é
+                <strong>extensa</strong>. Essa classificação depende do
+                problema: uma lâmpada distante pode ser aproximadamente
+                pontual, mas a mesma lâmpada, observada de perto, é
+                extensa.</p>
+<h1 id="meios-de-propagação">Meios de propagação</h1>
+<p>Os materiais podem ser classificados de acordo com a
+                passagem e o espalhamento da luz.</p>
+<dl>
+<dt><strong>Transparente</strong></dt>
+<dd>
+                permite passagem regular da luz e visão nítida, como ar
+                limpo, água limpa e vidro comum.
+                </dd>
+<dt><strong>Translúcido</strong></dt>
+<dd>
+                permite passagem de luz, mas a espalha; há claridade,
+                porém sem imagem nítida, como vidro fosco, papel vegetal
+                e neblina.
+                </dd>
+<dt><strong>Opaco</strong></dt>
+<dd>
+                não permite a passagem da luz através de sua espessura;
+                a luz pode ser absorvida e/ou refletida, como em
+                madeira, metal e paredes.
+                </dd>
+</dl>
+<figure>
+<img alt="Comparação entre meios transparente, translúcido e opaco. Fonte: elaboração própria, CC BY 4.0." src="images/optica-meios-v2.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Comparação entre meios
+                transparente, translúcido e opaco. Fonte: elaboração
+                própria, CC BY 4.0.</figcaption>
+</figure>
+<h1 id="princípios-da-óptica-geométrica">Princípios da
+                óptica geométrica</h1>
+<h2 id="propagação-retilínea">Propagação retilínea</h2>
+<p>Em meio homogêneo e transparente, a luz se propaga em
+                linha reta. É uma aproximação muito útil: ao mudar de
+                meio ou atravessar uma região não homogênea, a direção
+                pode mudar por refração.</p>
+<h2 id="reversibilidade">Reversibilidade</h2>
+<p>Se um raio pode seguir de A até B por determinado
+                caminho óptico, ele também pode percorrer o mesmo
+                caminho de B até A, no sentido inverso. Esse princípio é
+                usado ao traçar raios em espelhos, lentes e instrumentos
+                ópticos.</p>
+<h2 id="independência-dos-raios">Independência dos
+                raios</h2>
+<p>No modelo geométrico usual, raios luminosos podem se
+                cruzar sem desviar uns aos outros. Uma lanterna não
+                impede a luz de outra lanterna de seguir seu
+                caminho.</p>
+<figure>
+<img alt="Representações dos princípios da óptica geométrica. Fonte: elaboração própria, CC BY 4.0." src="images/optica-principios-v2.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Representações dos
+                princípios da óptica geométrica. Fonte: elaboração
+                própria, CC BY 4.0.</figcaption>
+</figure>
+<h1 id="sombra-penumbra-e-eclipses">Sombra, penumbra e
+                eclipses</h1>
+<p>Uma fonte aproximadamente pontual produz uma região
+                de <strong>sombra</strong> com contorno bem definido:
+                nela não chega luz da fonte. Já uma fonte extensa
+                produz, além da sombra total, a
+                <strong>penumbra</strong>, região que recebe luz apenas
+                de parte da fonte.</p>
+<p>Na região de <strong>umbra</strong>, toda a fonte é
+                encoberta. Na <strong>penumbra</strong>, somente uma
+                parte dela é encoberta. Quando existe uma região além do
+                término da umbra na qual a fonte extensa aparece
+                parcialmente contornada pelo obstáculo, ela é chamada
+                <strong>antumbra</strong>; é nessa região que pode ser
+                observado um eclipse solar anular.</p>
+<figure>
+<img alt="Umbra, penumbra e antumbra. Fonte: Qarnos, Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/File:Diagram_of_umbra,_penumbra_%26_antumbra.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Umbra, penumbra e
+                antumbra. Fonte: Qarnos, Wikimedia Commons, domínio
+                público.</figcaption>
+</figure>
+<p>Os eclipses são aplicações diretas da propagação
+                retilínea:</p>
+<ul>
+<li>No <strong>eclipse solar</strong>, a Lua fica entre
+                o Sol e uma região da Terra. Quem está na umbra observa
+                eclipse total; quem está na penumbra observa eclipse
+                parcial.</li>
+<li>No <strong>eclipse lunar</strong>, a Terra fica
+                entre o Sol e a Lua, projetando sua sombra sobre a
+                Lua.</li>
+</ul>
+<figure>
+<img alt="Geometria de um eclipse solar total. Fonte: Sagredo, Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/File:Geometry_of_a_Total_Solar_Eclipse.svg" style="width:100.0%"/>
+<figcaption aria-hidden="true">Geometria de um eclipse
+                solar total. Fonte: Sagredo, Wikimedia Commons, domínio
+                público.</figcaption>
+</figure>
+<h2 id="semelhança-de-triângulos-nas-sombras">Semelhança
+                de triângulos nas sombras</h2>
+<p>Quando os raios solares são considerados paralelos,
+                os triângulos formados pelo objeto e sua sombra são
+                semelhantes. Assim,</p>
+<p>\[
+                \frac{H}{h}=\frac{S}{s}
+                \]</p>
+<p>em que \(H\) e \(S\) são altura e sombra do
+                objeto maior, e \(h\) e
+                \(s\) as do objeto de
+                referência.</p>
+<p><strong>Exemplo.</strong> Um poste de \(2{,}0\,\text{m}\) projeta
+                sombra de \(1{,}5\,\text{m}\). Ao mesmo
+                tempo, uma árvore projeta sombra de \(9{,}0\,\text{m}\).
+                Então:</p>
+<p>\[
+                H=2{,}0\cdot\frac{9{,}0}{1{,}5}=\boxed{12\,\text{m}}.
+                \]</p>
+<h2 id="fonte-pontual-e-ampliação-da-sombra">Fonte
+                pontual e ampliação da sombra</h2>
+<p>Quando a fonte está próxima, seus raios são
+                divergentes e a sombra pode ficar maior que o objeto.
+                Considere uma lâmpada puntiforme no teto, a \(3{,}0\,\text{m}\) do piso,
+                e uma mesa quadrada de lado \(0{,}40\,\text{m}\), cujo
+                tampo está a \(1{,}0\,\text{m}\) do piso.
+                A distância da lâmpada ao tampo é \(2{,}0\,\text{m}\). Pela
+                semelhança dos triângulos,</p>
+<p>\[
+                \frac{L}{0{,}40}=\frac{3{,}0}{2{,}0}
+                \qquad\Rightarrow\qquad
+                L=0{,}60\,\text{m}.
+                \]</p>
+<p>A área da sombra no piso será</p>
+<p>\[
+                A=L^2=(0{,}60)^2=\boxed{0{,}36\,\text{m}^2}.
+                \]</p>
+<figure>
+<img alt="Geometria da sombra produzida por uma fonte pontual próxima. Fonte: elaboração própria, CC BY 4.0." src="images/optica-sombra-v2.png" style="width:94.0%"/>
+<figcaption aria-hidden="true">Geometria da sombra
+                produzida por uma fonte pontual próxima. Fonte:
+                elaboração própria, CC BY 4.0.</figcaption>
+</figure>
+<h1 id="câmara-escura-de-orifício">Câmara escura de
+                orifício</h1>
+<p>Uma câmara escura é uma caixa vedada com um pequeno
+                orifício em uma face e um anteparo na face oposta. Raios
+                provenientes da parte superior do objeto chegam à parte
+                inferior do anteparo, e vice-versa. Por isso, a imagem é
+                <strong>real e invertida</strong>.</p>
+<figure>
+<img alt="Câmara escura, ilustração histórica. Fonte: Encyclopédie (1763), Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/File:Camera_obscura.png" style="width:82.0%"/>
+<figcaption aria-hidden="true">Câmara escura, ilustração
+                histórica. Fonte: Encyclopédie (1763), Wikimedia
+                Commons, domínio público.</figcaption>
+</figure>
+<p>Pela semelhança de triângulos:</p>
+<p>\[
+                \boxed{\frac{i}{o}=\frac{p'}{p}}
+                \]</p>
+<p>em que \(i\) é a
+                altura da imagem, \(o\)
+                a altura do objeto, \(p'\) a distância do
+                orifício ao anteparo e \(p\) a distância do objeto
+                ao orifício. As grandezas devem estar na mesma
+                unidade.</p>
+<p><strong>Exemplo.</strong> Uma pessoa de \(1{,}80\,\text{m}\) está a
+                \(6{,}0\,\text{m}\) do
+                orifício de uma câmara com \(p'=0{,}20\,\text{m}\).
+                A altura da imagem é:</p>
+<p>\[
+                i=1{,}80\cdot\frac{0{,}20}{6{,}0}=0{,}060\,\text{m}=\boxed{6{,}0\,\text{cm}}.
+                \]</p>
+<p>Quanto menor o orifício, mais nítida tende a ser a
+                imagem; se for pequeno demais, entra pouca luz e a
+                imagem fica escura. A abertura ideal equilibra nitidez e
+                luminosidade.</p>
+<p>Observe também como a equação permite prever
+                mudanças: mantendo o objeto parado, aumentar \(p'\) aumenta a imagem;
+                mantendo a câmara fixa, aproximar o objeto — diminuir
+                \(p\) — também aumenta
+                a imagem.</p>
+<h1 id="cores-luz-pigmento-e-iluminação">Cores: luz,
+                pigmento e iluminação</h1>
+<p>Em telas, usamos <strong>síntese aditiva</strong>: as
+                luzes primárias são vermelho (R), verde (G) e azul (B).
+                A soma de R, G e B intensos produz luz branca. Por
+                exemplo, verde + azul produz ciano.</p>
+<p>Em tintas e impressões, usamos uma aproximação de
+                <strong>síntese subtrativa</strong>: os pigmentos ciano
+                (C), magenta (M) e amarelo (Y) absorvem parte da luz
+                branca e refletem o restante. Ciano + amarelo refletem
+                principalmente verde; na impressão real, adiciona-se
+                preto (K) para melhorar contraste e economia de
+                tinta.</p>
+<figure>
+<img alt="Síntese aditiva RGB. Fonte: Wikimedia Commons, domínio público." src="https://commons.wikimedia.org/wiki/File:AdditiveColorMixingII.png" style="width:72.0%"/>
+<figcaption aria-hidden="true">Síntese aditiva RGB.
+                Fonte: Wikimedia Commons, domínio público.</figcaption>
+</figure>
+<figure>
+<img alt="Síntese subtrativa CMYK. Fonte: SharkD, Wikimedia Commons, CC0." src="https://commons.wikimedia.org/wiki/File:CMYK_subtractive_color_mixing.svg" style="width:72.0%"/>
+<figcaption aria-hidden="true">Síntese subtrativa CMYK.
+                Fonte: SharkD, Wikimedia Commons, CC0.</figcaption>
+</figure>
+<p>Um objeto vermelho iluminado por luz branca reflete
+                principalmente vermelho. Se for iluminado apenas por luz
+                azul, quase não há vermelho para refletir e ele tende a
+                parecer escuro. Portanto, cor percebida é resultado de
+                <strong>iluminação + propriedades do material +
+                visão</strong>.</p>
+<h2 id="quadro-de-misturas">Quadro de misturas</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sistema</th>
+<th style="text-align: left;">Mistura</th>
+<th style="text-align: left;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">luz (aditiva)</td>
+<td style="text-align: left;">vermelho + verde</td>
+<td style="text-align: left;">amarelo</td>
+</tr>
+<tr>
+<td style="text-align: left;">luz (aditiva)</td>
+<td style="text-align: left;">verde + azul</td>
+<td style="text-align: left;">ciano</td>
+</tr>
+<tr>
+<td style="text-align: left;">luz (aditiva)</td>
+<td style="text-align: left;">azul + vermelho</td>
+<td style="text-align: left;">magenta</td>
+</tr>
+<tr>
+<td style="text-align: left;">pigmento ideal
+                (subtrativa)</td>
+<td style="text-align: left;">ciano + amarelo</td>
+<td style="text-align: left;">verde</td>
+</tr>
+<tr>
+<td style="text-align: left;">pigmento ideal
+                (subtrativa)</td>
+<td style="text-align: left;">amarelo + magenta</td>
+<td style="text-align: left;">vermelho</td>
+</tr>
+<tr>
+<td style="text-align: left;">pigmento ideal
+                (subtrativa)</td>
+<td style="text-align: left;">magenta + ciano</td>
+<td style="text-align: left;">azul</td>
+</tr>
+</tbody>
+</table>
+<p>Nas misturas aditivas, cada cor secundária é
+                complementar à primária ausente: ciano complementa
+                vermelho, magenta complementa verde e amarelo
+                complementa azul. Quando duas luzes complementares são
+                somadas em intensidades adequadas, a percepção
+                resultante é aproximadamente branca.</p>
+<h2 id="cor-e-percepção-visual">Cor e percepção
+                visual</h2>
+<p>A cor não é uma propriedade isolada do objeto. O
+                sistema visual interpreta a luz que chega aos olhos
+                considerando o entorno e a iluminação provável. Por
+                isso, duas regiões que enviam a mesma composição de luz
+                podem parecer diferentes quando colocadas em contextos
+                distintos; inversamente, um objeto pode manter aparência
+                de cor semelhante sob iluminações diferentes, fenômeno
+                chamado <strong>constância de cor</strong>.</p>
+<p>Outro exemplo é o <strong>efeito Stroop</strong>:
+                costuma ser mais lento nomear a cor da tinta quando a
+                palavra escrita indica outra cor. O efeito evidencia a
+                interferência entre a leitura automatizada e a tarefa de
+                nomear cores; não deve ser reduzido a uma disputa
+                simples entre os “hemisférios esquerdo e direito”.</p>
+<figure>
+<img alt="Contexto visual e atividade inspirada no efeito Stroop, com estímulos em seis cores, incluindo preto. Fonte: elaboração própria, CC BY 4.0." src="images/optica-percepcao-v2.png" style="width:100.0%"/>
+<figcaption aria-hidden="true">Contexto visual e
+                atividade inspirada no efeito Stroop, com estímulos em
+                seis cores, incluindo preto. Fonte: elaboração própria,
+                CC BY 4.0.</figcaption>
+</figure>
+<h1 id="síntese-da-aula">Síntese da aula</h1>
+<p>O modelo de raios reúne fenômenos que, à primeira
+                vista, parecem separados. A propagação retilínea explica
+                sombras, eclipses e a câmara escura; a geometria permite
+                calcular alturas e tamanhos de imagens; e a interação
+                entre iluminação e matéria explica as cores observadas.
+                Antes de resolver um problema, identifique <strong>a
+                fonte</strong>, <strong>o meio</strong>, <strong>o
+                caminho da luz</strong> e <strong>o que o observador
+                recebe</strong>.</p>
+<h1 id="erros-comuns">Erros comuns</h1>
+<ul>
+<li>Ano-luz e parsec são unidades de
+                <strong>distância</strong>, não de tempo.</li>
+<li>Transparente não significa “invisível”: significa
+                que transmite luz com pouca dispersão.</li>
+<li>A Lua é fonte secundária; ela reflete a luz
+                solar.</li>
+<li>Sombra não é “um objeto preto”: é uma região que
+                recebe pouca ou nenhuma luz da fonte considerada.</li>
+<li>Na câmara escura, a imagem é invertida; a relação de
+                tamanhos exige unidades coerentes.</li>
+<li>RGB descreve mistura de luz; CMY descreve pigmentos.
+                Não use a mesma regra para tela e tinta.</li>
+</ul>
+<h1 id="exercícios-de-fixação">Exercícios de
+                Fixação</h1>
+<dl>
+<dt>1.1)</dt>
+<dd>
+                A luz percorre aproximadamente \(3{,}0\times10^8\,\text{m}\)
+                a cada segundo no vácuo. A distância percorrida em \(2{,}0\,\text{s}\) é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(6{,}0\times10^8\,\text{m}\).</li>
+<li>\(1{,}5\times10^8\,\text{m}\).</li>
+<li>\(3{,}0\times10^8\,\text{m}\).</li>
+<li>\(6{,}0\times10^{10}\,\text{m}\).</li>
+<li>\(1{,}5\times10^{10}\,\text{m}\).</li>
+</ol>
+<dl>
+<dt>1.2)</dt>
+<dd>
+                Uma estrela está a \(2{,}0\,\text{pc}\) da
+                Terra. Usando \(1\,\text{pc}\approx3{,}26\,\text{al}\),
+                sua distância é aproximadamente:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}61\,\text{al}\).</li>
+<li>\(1{,}63\,\text{al}\).</li>
+<li>\(3{,}26\,\text{al}\).</li>
+<li>\(6{,}52\,\text{al}\).</li>
+<li>\(9{,}78\,\text{al}\).</li>
+</ol>
+<dl>
+<dt>1.3)</dt>
+<dd>
+                Qual alternativa associa corretamente o mecanismo de
+                emissão ao exemplo?
+                </dd>
+</dl>
+<ol type="a">
+<li>incandescência — vaga-lume.</li>
+<li>fluorescência — brasa.</li>
+<li>fosforescência — adesivo que continua brilhando após
+                apagar a luz.</li>
+<li>quimioluminescência — Lua.</li>
+<li>bioluminescência — filamento aquecido.</li>
+</ol>
+<dl>
+<dt>1.4)</dt>
+<dd>
+                Os raios luminosos que saem de uma pequena lâmpada e se
+                afastam uns dos outros formam um feixe:
+                </dd>
+</dl>
+<ol type="a">
+<li>convergente.</li>
+<li>divergente.</li>
+<li>paralelo.</li>
+<li>reversível.</li>
+<li>translúcido.</li>
+</ol>
+<dl>
+<dt>1.5)</dt>
+<dd>
+                Dois fachos de lanterna se cruzam no ar e continuam suas
+                trajetórias sem desviar um ao outro. A situação ilustra
+                o princípio da:
+                </dd>
+</dl>
+<ol type="a">
+<li>propagação curva da luz.</li>
+<li>fosforescência.</li>
+<li>reversibilidade.</li>
+<li>refração.</li>
+<li>independência dos raios luminosos.</li>
+</ol>
+<dl>
+<dt>1.6)</dt>
+<dd>
+                Durante um eclipse solar, um observador situado na
+                penumbra projetada pela Lua vê:
+                </dd>
+</dl>
+<ol type="a">
+<li>eclipse solar parcial.</li>
+<li>eclipse solar total.</li>
+<li>eclipse lunar total.</li>
+<li>a Lua completamente iluminada.</li>
+<li>somente um eclipse anular.</li>
+</ol>
+<dl>
+<dt>1.7)</dt>
+<dd>
+                Um poste de \(1{,}5\,\text{m}\) projeta
+                uma sombra de \(2{,}0\,\text{m}\). No mesmo
+                instante, um prédio projeta sombra de \(24\,\text{m}\). A altura do
+                prédio é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(12\,\text{m}\).</li>
+<li>\(16\,\text{m}\).</li>
+<li>\(17\,\text{m}\).</li>
+<li>\(24\,\text{m}\).</li>
+<li>\(18\,\text{m}\).</li>
+</ol>
+<dl>
+<dt>1.8)</dt>
+<dd>
+                Uma lâmpada pontual está a \(3{,}0\,\text{m}\) do piso.
+                Uma mesa quadrada de lado \(0{,}40\,\text{m}\) tem o
+                tampo a \(1{,}0\,\text{m}\) do piso e
+                está diretamente abaixo da lâmpada. O lado da sombra
+                projetada no piso mede:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}20\,\text{m}\).</li>
+<li>\(0{,}40\,\text{m}\).</li>
+<li>\(0{,}60\,\text{m}\).</li>
+<li>\(0{,}80\,\text{m}\).</li>
+<li>\(1{,}20\,\text{m}\).</li>
+</ol>
+<dl>
+<dt>1.9)</dt>
+<dd>
+                Uma árvore de \(3{,}0\,\text{m}\) está a
+                \(12\,\text{m}\) de uma
+                câmara escura. A distância do orifício ao anteparo é
+                \(20\,\text{cm}\). A
+                altura da imagem, em centímetros, é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(2{,}5\).</li>
+<li>\(5{,}0\).</li>
+<li>\(20\).</li>
+<li>\(50\).</li>
+<li>\(0{,}5\).</li>
+</ol>
+<dl>
+<dt>1.10)</dt>
+<dd>
+                Na síntese aditiva de luz, a combinação de luz vermelha
+                e luz verde produz luz:
+                </dd>
+</dl>
+<ol type="a">
+<li>ciano.</li>
+<li>magenta.</li>
+<li>azul.</li>
+<li>amarela.</li>
+<li>preta.</li>
+</ol>
+<h1 id="atividade-de-encerramento-medindo-o-sol-por-sombras">Atividade
+                de encerramento — medindo o Sol por sombras</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Usar a semelhança de triângulos para estimar a altura
+                de um objeto da escola e discutir os limites do
+                modelo.</p>
+<h2 id="material-e-procedimento">Material e
+                procedimento</h2>
+<ol type="1">
+<li>Em um local seguro e ensolarado, finque uma haste
+                vertical de altura conhecida \(h\).</li>
+<li>Meça a sombra \(s\)
+                da haste e a sombra \(S\) do objeto escolhido, no
+                mesmo instante.</li>
+<li>Registre as medidas em metros e calcule \(H=hS/s\).</li>
+<li>Repita a medida por outro grupo e compare os
+                resultados.</li>
+</ol>
+<h2 id="discussão">Discussão</h2>
+<ul>
+<li>Por que as duas medidas devem ser feitas quase ao
+                mesmo tempo?</li>
+<li>Que erros surgem se a haste não estiver vertical ou
+                se o terreno for inclinado?</li>
+<li>Por que os raios solares podem ser considerados
+                paralelos nessa atividade?</li>
+</ul>
+<h1 id="materiais-complementares">Materiais
+                complementares</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=-kGpD70uuFc" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Introdução à Óptica: luz, meios, princípios e sombra" loading="lazy" src="./images/thumbs/ytb-optica-introducao.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Introdução à Óptica: luz, meios, princípios e sombra</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=-kGpD70uuFc" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Profª Aline Sá, YouTube</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=-kGpD70uuFc" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=8bhOXgmO_h8" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Princípios básicos da propagação da luz" loading="lazy" src="./images/thumbs/ytb-principios-propagacao-luz.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Princípios básicos da propagação da luz</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=8bhOXgmO_h8" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Descomplica, YouTube</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=8bhOXgmO_h8" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <em>Fundamentos de Física: óptica e física moderna</em>.
+                Rio de Janeiro: LTC.</li>
+<li>HEWITT, Paul G. <em>Física Conceitual</em>. Porto
+                Alegre: Bookman.</li>
+<li>BONJORNO, José Roberto; RAMOS, Clinton; BONJORNO,
+                Regina. <em>Física: termologia, óptica e ondas</em>. São
+                Paulo: FTD.</li>
+<li>PROFª ALINE SÁ. <em>Aula 01 — Introdução à
+                Óptica</em>. YouTube. Disponível em: <a class="uri" href="https://www.youtube.com/watch?v=-kGpD70uuFc">https://www.youtube.com/watch?v=-kGpD70uuFc</a>.
+                Acesso em: 24 set. 2026.</li>
+<li>DESCOMPLICA. <em>Princípios Básicos da Propagação da
+                Luz</em>. YouTube. Disponível em: <a class="uri" href="https://www.youtube.com/watch?v=8bhOXgmO_h8">https://www.youtube.com/watch?v=8bhOXgmO_h8</a>.
+                Acesso em: 24 set. 2026.</li>
+<li>GRINGER. <em>Linear visible spectrum.svg</em>.
+                Wikimedia Commons, domínio público. Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Linear_visible_spectrum.svg">https://commons.wikimedia.org/wiki/File:Linear_visible_spectrum.svg</a>.
+                Acesso em: 24 set. 2026.</li>
+<li>SAGREDO. <em>Geometry of a Total Solar
+                Eclipse.svg</em>. Wikimedia Commons, domínio público.
+                Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Geometry_of_a_Total_Solar_Eclipse.svg">https://commons.wikimedia.org/wiki/File:Geometry_of_a_Total_Solar_Eclipse.svg</a>.
+                Acesso em: 24 set. 2026.</li>
+<li><em>Camera obscura.png</em>. Encyclopédie (1763),
+                Wikimedia Commons, domínio público. Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Camera_obscura.png">https://commons.wikimedia.org/wiki/File:Camera_obscura.png</a>.
+                Acesso em: 24 set. 2026.</li>
+<li>WIKIMEDIA COMMONS.
+                <em>AdditiveColorMixingII.png</em>. Domínio público.
+                Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:AdditiveColorMixingII.png">https://commons.wikimedia.org/wiki/File:AdditiveColorMixingII.png</a>.
+                Acesso em: 24 set. 2026.</li>
+<li>SHARKD. <em>CMYK subtractive color mixing.svg</em>.
+                Wikimedia Commons, CC0. Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:CMYK_subtractive_color_mixing.svg">https://commons.wikimedia.org/wiki/File:CMYK_subtractive_color_mixing.svg</a>.
+                Acesso em: 24 set. 2026.</li>
+<li>QARNOS. <em>Diagram of umbra, penumbra &amp;
+                antumbra.png</em>. Wikimedia Commons, domínio público.
+                Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Diagram_of_umbra,_penumbra_%26_antumbra.png">https://commons.wikimedia.org/wiki/File:Diagram_of_umbra,_penumbra_%26_antumbra.png</a>.
+                Acesso em: 24 set. 2026.</li>
+<li>OLIVEIRA, Jefferson Rodrigues de. <em>Diagramas de
+                meios ópticos e princípios da óptica geométrica</em>.
+                Elaboração própria, CC BY 4.0, 2026.</li>
+<li>OLIVEIRA, Jefferson Rodrigues de. <em>Diagramas de
+                paralaxe, feixes, sombras e percepção visual</em>.
+                Elaboração própria, CC BY 4.0, 2026.</li>
+</ul>
+<h2 id="créditos-das-fotografias-de-fontes-luminosas">Créditos
+                das fotografias de fontes luminosas</h2>
+<ul>
+<li>NASA/SDO. <em>Sun disk.jpg</em>. Domínio público.
+                Wikimedia Commons.</li>
+<li>JON SULLIVAN. <em>Candle flame (1).jpg</em>. Domínio
+                público. Wikimedia Commons.</li>
+<li>MUUSLIMABONU. <em>Hot embers in night.jpg</em>. CC0.
+                Wikimedia Commons.</li>
+<li>GAURAVGGS. <em>Incandescent Lamp Filament.jpg</em>.
+                CC BY-SA 4.0. Wikimedia Commons.</li>
+<li>PUBLIC-DOMAIN-IMAGE.COM. <em>Fluorescent
+                lights.jpg</em>. Domínio público. Wikimedia
+                Commons.</li>
+<li>MATTHEW BOWDEN. <em>Fluorescent Lamp.jpg</em>. Uso
+                livre com atribuição. Wikimedia Commons.</li>
+<li>SPLARKA. <em>Phosphorescent.jpg</em>. Domínio
+                público. Wikimedia Commons.</li>
+<li>FK1954. <em>Phosphorescent pigments 4 min.jpg</em>.
+                Domínio público. Wikimedia Commons.</li>
+<li>TAVO ROMANN. <em>Chemiluminescence.jpg</em>. CC
+                BY-SA 4.0. Wikimedia Commons.</li>
+<li>ALEKSANDER SOBOLEWSKI. <em>Glowstick
+                reaction.jpg</em>. CC BY-SA 4.0. Wikimedia Commons.</li>
+<li>TERO KESKI-VALKAMA. <em>Lampyris Noctiluca Female
+                Firefly 3.jpg</em>. CC0. Wikimedia Commons.</li>
+<li>W. CARTER. <em>Mareel — Bioluminescence in Norra
+                Grundsund harbor 2.jpg</em>. CC0. Wikimedia
+                Commons.</li>
+<li>NASA/JPL. <em>Full moon.png</em>. Domínio público.
+                Wikimedia Commons.</li>
+<li>DOUG COLDWELL. <em>OpenBook.jpg</em>. CC BY-SA 3.0.
+                Wikimedia Commons.</li>
+<li>PUBLICDOMAINPICTURES.
+                <em>Brick-wall-260030.jpg</em>. CC0. Wikimedia
+                Commons.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
