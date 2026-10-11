@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2 - Reflexão e Espelhos Planos e Esféricos | Meu Portal</title>
+    <meta name="description" content="Notas da Aula 2 - Reflexão e Espelhos Planos e Esféricos de Óptica.">
+    <meta name="author" content="Jefferson Rodrigues de Oliveira">
+    <link rel="canonical" href="https://profjeffersonro.github.io/disciplinas/aula-2-reflexao-e-espelhos-planos-e-esfericos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aula 2 - Reflexão e Espelhos Planos e Esféricos | Meu Portal">
+    <meta property="og:description" content="Notas da Aula 2 - Reflexão e Espelhos Planos e Esféricos de Óptica.">
+    <meta property="og:url" content="https://profjeffersonro.github.io/disciplinas/aula-2-reflexao-e-espelhos-planos-e-esfericos.html">
+    <meta property="og:site_name" content="Meu Portal">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!-- MathJax Centralizado -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            packages: {'[+]': ['ams', 'physics', 'cancel']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        loader: {
+            load: ['[tex]/ams', '[tex]/physics', '[tex]/cancel']
+        },
+        startup: {
+            ready: () => {
+                console.log('MathJax is loaded and ready');
+                MathJax.startup.defaultReady();
+                window.dispatchEvent(new Event('MathJaxLoaded'));
+            }
+        }
+    };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-easel"></i> Meu Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/disciplinas/">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/blog/">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-4">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/disciplinas/">Disciplinas</a></li>
+                    <li class="breadcrumb-item active">Óptica</li>
+                </ol>
+            </nav>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Aula 2 - Reflexão e Espelhos Planos e Esféricos</h2>
+                    <p class="mb-0 mt-2"><i class="bi bi-journal-bookmark"></i> Óptica</p>
+                </div>
+                <div class="card-body">
+
+                <div class="text-center mb-4">
+                    <a href="https://drive.google.com/file/d/1-eIACvaExdjULwpiES4_dxA6UNYRQNtD/view?usp=drive_link"
+                       class="btn btn-success btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
+                    </a>
+                </div>
+
+                    <div class="aula-content">
+                        <h1 id="objetivos">Objetivos</h1>
+<p>Ao final desta aula, você deverá ser capaz de:</p>
+<ul>
+<li><strong>Aplicar</strong> as duas leis da reflexão e
+                distinguir reflexão regular de difusa.</li>
+<li><strong>Construir</strong> imagens em espelhos
+                planos e determinar distância, tamanho e deslocamento da
+                imagem.</li>
+<li><strong>Delimitar</strong> o campo visual e
+                determinar quais objetos podem ser vistos no
+                espelho.</li>
+<li><strong>Prever</strong> o número de imagens em
+                associações angulares de espelhos planos.</li>
+<li><strong>Identificar</strong> os elementos de
+                espelhos esféricos côncavos e convexos.</li>
+<li><strong>Construir e classificar</strong> imagens
+                usando raios notáveis.</li>
+<li><strong>Resolver</strong> problemas com a equação de
+                Gauss e o aumento linear transversal.</li>
+</ul>
+<h1 id="situação-problema-escolhendo-os-espelhos-de-uma-garagem">Situação-problema
+                — escolhendo os espelhos de uma garagem</h1>
+<p>Uma garagem precisa melhorar a segurança em três
+                locais. Na entrada, o motorista deve enxergar uma área
+                ampla e perceber veículos que se aproximam pela lateral.
+                Junto à bancada, uma pessoa precisa observar o próprio
+                rosto sem deformação. Na área de manutenção, é
+                necessário concentrar a luz de uma lâmpada sobre uma
+                pequena região.</p>
+<p>O responsável dispõe de um espelho
+                <strong>plano</strong>, um <strong>convexo</strong> e um
+                <strong>côncavo</strong>. Antes de instalá-los, surgem
+                algumas perguntas:</p>
+<ul>
+<li>Qual espelho deve ser usado em cada local?</li>
+<li>Por que o espelho que mostra uma área maior faz os
+                objetos parecerem menores?</li>
+<li>Em qual deles a imagem pode ser projetada sobre uma
+                tela?</li>
+<li>Como prever a posição e o tamanho de cada imagem sem
+                testar todas as possibilidades?</li>
+</ul>
+<p>Ao longo da aula, as leis da reflexão, os raios
+                notáveis e a equação de Gauss fornecerão os critérios
+                para resolver esse problema.</p>
+<h1 id="reflexão-da-luz">Reflexão da luz</h1>
+<p>Na <strong>reflexão</strong>, a luz encontra uma
+                superfície e retorna ao meio de origem. Em cada ponto da
+                superfície, traçamos a <strong>normal</strong>, reta
+                perpendicular à superfície. Os ângulos são medidos em
+                relação à normal — não em relação ao espelho.</p>
+<p>As leis da reflexão são:</p>
+<ol type="1">
+<li>o raio incidente, a normal e o raio refletido
+                pertencem ao mesmo plano;</li>
+<li>o ângulo de reflexão é igual ao ângulo de
+                incidência:</li>
+</ol>
+<p>\[
+                \boxed{\theta_r=\theta_i}.
+                \]</p>
+<figure>
+<img alt="Leis da reflexão. Fonte: elaboração própria, CC BY 4.0." src="diagramas/leis-reflexao.png" style="width:82.0%"/>
+<figcaption aria-hidden="true">Leis da reflexão. Fonte:
+                elaboração própria, CC BY 4.0.</figcaption>
+</figure>
+<p>Uma superfície polida produz <strong>reflexão
+                regular</strong>: raios paralelos permanecem organizados
+                e podem formar uma imagem. Em uma superfície rugosa, as
+                normais locais têm direções diferentes; ocorre
+                <strong>reflexão difusa</strong>. Cada raio ainda
+                obedece às leis da reflexão, mas o conjunto se espalha.
+                É a reflexão difusa que permite observar uma folha de
+                papel de várias posições.</p>
+<figure>
+<img alt="Reflexão regular e difusa. Em ambos os casos, cada raio obedece às leis da reflexão. Fonte: elaboração própria, CC BY 4.0." src="diagramas/reflexao-regular-difusa.png" style="width:88.0%"/>
+<figcaption aria-hidden="true">Reflexão regular e
+                difusa. Em ambos os casos, cada raio obedece às leis da
+                reflexão. Fonte: elaboração própria, CC BY
+                4.0.</figcaption>
+</figure>
+<p>Não é correto associar reflexão regular apenas a
+                “superfície brilhante” e difusa apenas a “superfície
+                fosca”: a classificação depende também da escala das
+                irregularidades em comparação com o comprimento de onda.
+                Uma superfície pode ser lisa para uma radiação e rugosa
+                para outra.</p>
+<p><strong>No cotidiano.</strong> A reflexão regular
+                permite formar imagens em espelhos, superfícies
+                metálicas polidas e água calma. A reflexão difusa
+                permite enxergar paredes, roupas e páginas de um livro
+                de diferentes posições, pois a luz refletida se espalha
+                em várias direções. Pinturas foscas também ajudam a
+                reduzir reflexos intensos em salas de aula e ambientes
+                de trabalho.</p>
+<p><strong>Exemplo 1.</strong> Um raio faz \(35^\circ\) com a superfície
+                de um espelho plano. Como a normal faz \(90^\circ\) com a
+                superfície,</p>
+<p>\[
+                \theta_i=90^\circ-35^\circ=55^\circ
+                \quad\Rightarrow\quad
+                \boxed{\theta_r=55^\circ}.
+                \]</p>
+<h1 id="espelhos-planos">Espelhos planos</h1>
+<p>Para localizar a imagem de um ponto, traçamos dois
+                raios refletidos e prolongamos suas trajetórias para
+                trás do espelho. Os prolongamentos se cruzam na imagem.
+                Como a luz não passa realmente por esse ponto, a imagem
+                é <strong>virtual</strong>.</p>
+<figure>
+<img alt="Construção da imagem em um espelho plano. Fonte: elaboração própria, CC BY 4.0." src="diagramas/espelho-plano.png" style="width:88.0%"/>
+<figcaption aria-hidden="true">Construção da imagem em
+                um espelho plano. Fonte: elaboração própria, CC BY
+                4.0.</figcaption>
+</figure>
+<p>Em um espelho plano, a imagem é:</p>
+<ul>
+<li><strong>virtual</strong> e
+                <strong>direita</strong>;</li>
+<li>do <strong>mesmo tamanho</strong> que o objeto;</li>
+<li>simétrica em relação ao plano do espelho: \(d_i=d_o\);</li>
+<li>enantiomorfa: objeto e imagem têm quiralidade
+                oposta.</li>
+</ul>
+<p>O espelho não troca esquerda e direita de modo
+                especial: ele inverte a direção perpendicular à sua
+                superfície, isto é, frente e trás. A aparente troca
+                lateral surge quando nos imaginamos girando para ocupar
+                o lugar da imagem.</p>
+<p><strong>Aplicações práticas.</strong> Espelhos planos
+                são usados em banheiros, provadores, salões de beleza e
+                espelhos retrovisores internos porque preservam o
+                tamanho aparente e não curvam as linhas da cena. Em
+                elevadores e corredores, também aumentam a sensação de
+                profundidade. Em instrumentos como periscópios, mudam a
+                direção dos raios sem produzir ampliação.</p>
+<h2 id="distâncias-e-velocidades">Distâncias e
+                velocidades</h2>
+<p>Se uma pessoa está a \(2{,}0\,\text{m}\) do
+                espelho, sua imagem está \(2{,}0\,\text{m}\) atrás
+                dele; a distância pessoa–imagem é \(4{,}0\,\text{m}\). Se a
+                pessoa se aproxima do espelho com velocidade \(v\), a imagem também se
+                aproxima do espelho com módulo \(v\). A distância entre
+                ambas diminui com velocidade \(2v\).</p>
+<p><strong>Exemplo 2.</strong> Uma pessoa está a \(3{,}0\,\text{m}\) de um
+                espelho e caminha em direção a ele a \(0{,}50\,\text{m/s}\). Após
+                \(4{,}0\,\text{s}\),
+                encontra-se a \(1{,}0\,\text{m}\) do
+                espelho. A distância até a imagem passou de \(6{,}0\,\text{m}\) para
+                \(2{,}0\,\text{m}\).</p>
+<p>Se o espelho se desloca mantendo o objeto parado, seu
+                plano mediador também muda. Um deslocamento \(\Delta x\) do espelho,
+                perpendicularmente a si mesmo, desloca a imagem em \(2\Delta x\) em relação ao
+                objeto. Se o espelho gira de um ângulo \(\beta\) enquanto o raio
+                incidente mantém sua direção, a normal também gira \(\beta\) e o raio refletido
+                gira \(2\beta\).</p>
+<h2 id="associação-de-espelhos-planos">Associação de
+                espelhos planos</h2>
+<p>Dois espelhos que formam um ângulo \(\alpha\) podem produzir
+                múltiplas imagens por reflexões sucessivas. Cada imagem
+                formada em um espelho pode funcionar como objeto para o
+                outro.</p>
+<figure>
+<img alt="Associação angular de dois espelhos planos e formação de imagens sucessivas. Fonte: elaboração própria, CC BY 4.0." src="diagramas/associacao-espelhos.png" style="width:82.0%"/>
+<figcaption aria-hidden="true">Associação angular de
+                dois espelhos planos e formação de imagens sucessivas.
+                Fonte: elaboração própria, CC BY 4.0.</figcaption>
+</figure>
+<p>Quando \(m=360^\circ/\alpha\) é
+                inteiro:</p>
+<p>\[
+                N=\begin{cases}
+                m-1, &amp; m\text{ par};\\
+                m-1, &amp; m\text{ ímpar e objeto no bissetor};\\
+                m, &amp; m\text{ ímpar e objeto fora do bissetor}.
+                \end{cases}
+                \]</p>
+<p>Nos casos escolares mais usuais, com \(m\) inteiro e par ou com o
+                objeto sobre o bissetor, usamos \(N=360^\circ/\alpha-1\). Se
+                os espelhos forem paralelos, as reflexões sucessivas
+                produzem uma sequência teoricamente infinita.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Ângulo \(\alpha\)</th>
+<th style="text-align: right;">\(360^\circ/\alpha\)</th>
+<th style="text-align: right;">Número usual de imagens
+                \(N\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">\(120^\circ\)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2, se o objeto estiver no
+                bissetor</td>
+</tr>
+<tr>
+<td style="text-align: right;">\(90^\circ\)</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">\(60^\circ\)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td style="text-align: right;">\(45^\circ\)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td style="text-align: right;">\(30^\circ\)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo 3.</strong> Para \(\alpha=60^\circ\), \(m=6\) é par e \(N=6-1=\boxed{5}\)
+                imagens.</p>
+<h2 id="campo-visual">Campo visual</h2>
+<p>O campo visual depende do tamanho e da posição do
+                espelho e da posição do observador. Um método seguro é
+                refletir o olho do observador para trás do espelho e
+                ligar essa imagem às extremidades do espelho. A região
+                entre essas retas, à frente do espelho, é o campo
+                visual.</p>
+<figure>
+<img alt="Construção do campo visual por simetria, análoga à atividade da aula opt-geo-2. Os pontos C, D, E, F e H estão dentro da região visível; A, B e G estão fora. Fonte: elaboração própria, CC BY 4.0." src="diagramas/campo-visual.png" style="width:90.0%"/>
+<figcaption aria-hidden="true">Construção do campo
+                visual por simetria, análoga à atividade da aula
+                opt-geo-2. Os pontos C, D, E, F e H estão dentro da
+                região visível; A, B e G estão fora. Fonte: elaboração
+                própria, CC BY 4.0.</figcaption>
+</figure>
+<h2 id="reflexões-sucessivas-e-aplicações">Reflexões
+                sucessivas e aplicações</h2>
+<p>Em dois espelhos, a imagem produzida pelo primeiro
+                pode funcionar como objeto para o segundo. A cada
+                reflexão, a trajetória obedece localmente a \(\theta_i=\theta_r\). Esse
+                princípio permite acompanhar feixes em corredores
+                espelhados, caleidoscópios e periscópios.</p>
+<p>Um periscópio simples usa dois espelhos planos
+                paralelos, inclinados a \(45^\circ\). Cada reflexão
+                desvia a luz em \(90^\circ\); depois das duas
+                reflexões, o feixe volta a se propagar paralelamente à
+                direção inicial. O instrumento muda a linha de visada,
+                sem ampliar a imagem.</p>
+<figure>
+<img alt="Princípio de funcionamento de periscópios com espelhos e prismas. Fonte: Christian Schirm, Wikimedia Commons, domínio público." src="images/commons-periscope.png" style="width:78.0%"/>
+<figcaption aria-hidden="true">Princípio de
+                funcionamento de periscópios com espelhos e prismas.
+                Fonte: Christian Schirm, Wikimedia Commons, domínio
+                público.</figcaption>
+</figure>
+<h1 id="espelhos-esféricos">Espelhos esféricos</h1>
+<p>Um espelho esférico é uma calota de esfera refletora.
+                No <strong>côncavo</strong>, a face refletora é interna;
+                no <strong>convexo</strong>, é externa. Seus elementos
+                principais são:</p>
+<ul>
+<li><strong>vértice</strong> \(V\): centro da calota;</li>
+<li><strong>centro de curvatura</strong> \(C\): centro da esfera;</li>
+<li><strong>raio de curvatura</strong> \(R=VC\);</li>
+<li><strong>foco principal</strong> \(F\): paraxialmente, ponto
+                médio entre \(V\) e
+                \(C\);</li>
+<li><strong>distância focal</strong> \(f=VF=R/2\);</li>
+<li><strong>eixo principal</strong>: reta que contém
+                \(V\), \(F\) e \(C\).</li>
+</ul>
+<figure>
+<img alt="Diferença entre espelhos esféricos: no côncavo, C e F ficam à frente da superfície e o foco é real; no convexo, ficam atrás e o foco é virtual. Fonte: elaboração própria, CC BY 4.0." src="diagramas/elementos-esfericos.png" style="width:90.0%"/>
+<figcaption aria-hidden="true">Diferença entre espelhos
+                esféricos: no côncavo, C e F ficam à frente da
+                superfície e o foco é real; no convexo, ficam atrás e o
+                foco é virtual. Fonte: elaboração própria, CC BY
+                4.0.</figcaption>
+</figure>
+<p>As relações desta aula são aproximações de
+                <strong>Gauss</strong>: espelho com pequena abertura e
+                raios próximos do eixo principal (paraxiais). Fora
+                dessas condições aparece aberração esférica.</p>
+<h2 id="raios-notáveis">Raios notáveis</h2>
+<p>Para construir imagens, bastam dois dos seguintes
+                raios:</p>
+<ol type="1">
+<li>raio paralelo ao eixo reflete passando por \(F\) (ou seu prolongamento
+                parece vir de \(F\), no
+                convexo);</li>
+<li>raio que passa por \(F\) reflete paralelo ao
+                eixo;</li>
+<li>raio dirigido a \(C\) retorna sobre si
+                mesmo;</li>
+<li>raio que atinge \(V\) reflete simetricamente
+                em relação ao eixo.</li>
+</ol>
+<figure>
+<img alt="Raio paralelo ao eixo principal: depois da reflexão, passa pelo foco. Fonte: elaboração própria, CC BY 4.0." src="diagramas/raio-paralelo.png" style="width:82.0%"/>
+<figcaption aria-hidden="true">Raio paralelo ao eixo
+                principal: depois da reflexão, passa pelo foco. Fonte:
+                elaboração própria, CC BY 4.0.</figcaption>
+</figure>
+<figure>
+<img alt="Raio dirigido ao foco principal: depois da reflexão, segue paralelo ao eixo. Fonte: elaboração própria, CC BY 4.0." src="diagramas/raio-foco.png" style="width:82.0%"/>
+<figcaption aria-hidden="true">Raio dirigido ao foco
+                principal: depois da reflexão, segue paralelo ao eixo.
+                Fonte: elaboração própria, CC BY 4.0.</figcaption>
+</figure>
+<figure>
+<img alt="Raio dirigido ao centro de curvatura: incide perpendicularmente ao espelho e retorna sobre si mesmo. Fonte: elaboração própria, CC BY 4.0." src="diagramas/raio-centro.png" style="width:82.0%"/>
+<figcaption aria-hidden="true">Raio dirigido ao centro
+                de curvatura: incide perpendicularmente ao espelho e
+                retorna sobre si mesmo. Fonte: elaboração própria, CC BY
+                4.0.</figcaption>
+</figure>
+<figure>
+<img alt="Raio que incide no vértice: os ângulos de incidência e reflexão são medidos em relação ao eixo principal, que é a normal nesse ponto. Fonte: elaboração própria, CC BY 4.0." src="diagramas/raio-vertice.png" style="width:82.0%"/>
+<figcaption aria-hidden="true">Raio que incide no
+                vértice: os ângulos de incidência e reflexão são medidos
+                em relação ao eixo principal, que é a normal nesse
+                ponto. Fonte: elaboração própria, CC BY
+                4.0.</figcaption>
+</figure>
+<h2 id="formação-de-imagens">Formação de imagens</h2>
+<p>No espelho <strong>convexo</strong>, para qualquer
+                objeto real, a imagem é sempre virtual, direita e menor,
+                formada entre \(V\) e
+                \(F\). Seu campo visual
+                amplo explica o uso em retrovisores laterais e espelhos
+                de segurança; a imagem reduzida faz os objetos parecerem
+                mais distantes.</p>
+<figure>
+<img alt="Espelho convexo de trânsito empregado para ampliar o campo visual em uma curva. Fotografia: Neil Theasby, Wikimedia Commons, CC BY-SA 2.0." src="images/commons-convex-mirror.png" style="width:52.0%"/>
+<figcaption aria-hidden="true">Espelho convexo de
+                trânsito empregado para ampliar o campo visual em uma
+                curva. Fotografia: Neil Theasby, Wikimedia Commons, CC
+                BY-SA 2.0.</figcaption>
+</figure>
+<p>No espelho <strong>côncavo</strong>, o resultado
+                depende da posição do objeto:</p>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 23%"/>
+<col style="width: 23%"/>
+<col style="width: 28%"/>
+<col style="width: 21%"/>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Posição do objeto</th>
+<th style="text-align: left;">Posição da imagem</th>
+<th style="text-align: left;">Natureza e orientação</th>
+<th style="text-align: left;">Tamanho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">além de \(C\)</td>
+<td style="text-align: left;">entre \(C\) e \(F\)</td>
+<td style="text-align: left;">real, invertida</td>
+<td style="text-align: left;">menor</td>
+</tr>
+<tr>
+<td style="text-align: left;">em \(C\)</td>
+<td style="text-align: left;">em \(C\)</td>
+<td style="text-align: left;">real, invertida</td>
+<td style="text-align: left;">igual</td>
+</tr>
+<tr>
+<td style="text-align: left;">entre \(C\) e \(F\)</td>
+<td style="text-align: left;">além de \(C\)</td>
+<td style="text-align: left;">real, invertida</td>
+<td style="text-align: left;">maior</td>
+</tr>
+<tr>
+<td style="text-align: left;">em \(F\)</td>
+<td style="text-align: left;">no infinito</td>
+<td style="text-align: left;">imprópria</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">entre \(F\) e \(V\)</td>
+<td style="text-align: left;">atrás do espelho</td>
+<td style="text-align: left;">virtual, direita</td>
+<td style="text-align: left;">maior</td>
+</tr>
+</tbody>
+</table>
+<p>Nas construções a seguir, partem da extremidade
+                superior do objeto <strong>dois raios notáveis</strong>.
+                A posição em que os dois raios refletidos se encontram
+                determina a extremidade da imagem \(I\). Quando os raios
+                refletidos divergem, prolongamos suas trajetórias para
+                trás do espelho: o encontro dos prolongamentos determina
+                uma imagem virtual.</p>
+<figure>
+<img alt="Objeto além de C: imagem entre C e F, real, invertida e menor. Fonte: elaboração própria, CC BY 4.0." src="diagramas/concavo-alem-c.png" style="width:86.0%"/>
+<figcaption aria-hidden="true">Objeto além de C: imagem
+                entre C e F, real, invertida e menor. Fonte: elaboração
+                própria, CC BY 4.0.</figcaption>
+</figure>
+<figure>
+<img alt="Objeto em C: imagem em C, real, invertida e de mesmo tamanho. Fonte: elaboração própria, CC BY 4.0." src="diagramas/concavo-em-c.png" style="width:86.0%"/>
+<figcaption aria-hidden="true">Objeto em C: imagem em C,
+                real, invertida e de mesmo tamanho. Fonte: elaboração
+                própria, CC BY 4.0.</figcaption>
+</figure>
+<figure>
+<img alt="Objeto entre C e F: imagem além de C, real, invertida e maior. Fonte: elaboração própria, CC BY 4.0." src="diagramas/concavo-entre-c-f.png" style="width:86.0%"/>
+<figcaption aria-hidden="true">Objeto entre C e F:
+                imagem além de C, real, invertida e maior. Fonte:
+                elaboração própria, CC BY 4.0.</figcaption>
+</figure>
+<figure>
+<img alt="Objeto em F: os raios refletidos são paralelos e a imagem é imprópria, localizada no infinito. Fonte: elaboração própria, CC BY 4.0." src="diagramas/concavo-em-f.png" style="width:86.0%"/>
+<figcaption aria-hidden="true">Objeto em F: os raios
+                refletidos são paralelos e a imagem é imprópria,
+                localizada no infinito. Fonte: elaboração própria, CC BY
+                4.0.</figcaption>
+</figure>
+<figure>
+<img alt="Objeto entre F e V: imagem atrás do espelho, virtual, direita e maior. Fonte: elaboração própria, CC BY 4.0." src="diagramas/concavo-entre-f-v.png" style="width:86.0%"/>
+<figcaption aria-hidden="true">Objeto entre F e V:
+                imagem atrás do espelho, virtual, direita e maior.
+                Fonte: elaboração própria, CC BY 4.0.</figcaption>
+</figure>
+<p>Imagem <strong>real</strong> é formada pelo encontro
+                dos próprios raios e pode ser projetada em uma tela.
+                Imagem <strong>virtual</strong> é formada pelo encontro
+                dos prolongamentos e não pode ser projetada.</p>
+<h2 id="aplicações-práticas-dos-espelhos-esféricos">Aplicações
+                práticas dos espelhos esféricos</h2>
+<ul>
+<li><strong>Espelhos convexos:</strong> aparecem em
+                estacionamentos, saídas de garagem, corredores de lojas
+                e retrovisores laterais. A imagem reduzida permite
+                observar uma região maior, mas exige cuidado ao estimar
+                distâncias.</li>
+<li><strong>Espelhos côncavos com o objeto entre \(F\) e \(V\):</strong> produzem
+                imagem virtual, direita e ampliada; por isso são usados
+                em espelhos de maquiagem, de barbear e em alguns
+                instrumentos de inspeção.</li>
+<li><strong>Espelhos côncavos com a fonte próxima de
+                \(F\):</strong> fazem a
+                luz refletida sair aproximadamente paralela ao eixo,
+                aplicação presente em faróis, lanternas e
+                refletores.</li>
+<li><strong>Espelhos côncavos recebendo luz quase
+                paralela:</strong> concentram a energia perto do foco,
+                princípio empregado em telescópios refletores e
+                concentradores solares. Nunca se deve olhar diretamente
+                para uma fonte intensa nem concentrar luz solar sem
+                proteção e supervisão.</li>
+</ul>
+<p>Retomando a situação-problema: o espelho
+                <strong>convexo</strong> atende à entrada da garagem, o
+                <strong>plano</strong> é adequado à bancada e o
+                <strong>côncavo</strong> pode direcionar ou concentrar a
+                iluminação da área de manutenção.</p>
+<h2 id="equação-de-gauss-e-aumento">Equação de Gauss e
+                aumento</h2>
+<p>Adotando a convenção de sinais de Gauss para
+                espelhos:</p>
+<p>\[
+                \boxed{\frac{1}{f}=\frac{1}{p}+\frac{1}{p'}}
+                \qquad\text{e}\qquad
+                \boxed{A=\frac{i}{o}=-\frac{p'}{p}}.
+                \]</p>
+<p>Para objeto real, \(p&gt;0\). No espelho
+                côncavo, \(f&gt;0\); no
+                convexo, \(f&lt;0\).
+                Imagem real tem \(p'&gt;0\) e imagem
+                virtual, \(p'&lt;0\). Para o
+                aumento, \(A&gt;0\)
+                indica imagem direita e \(A&lt;0\), invertida; \(|A|\) compara os
+                tamanhos.</p>
+<p><strong>Exemplo 4 — espelho côncavo.</strong> Um
+                objeto está a \(30\,\text{cm}\) de um
+                espelho côncavo com \(f=10\,\text{cm}\):</p>
+<p>\[
+                \frac1{p'}=\frac1{10}-\frac1{30}=\frac1{15}
+                \]</p>
+<p>\[
+                p'=15\,\text{cm}
+                \qquad\text{e}\qquad
+                A=-\frac{15}{30}=-0{,}50.
+                \]</p>
+<p>A imagem é real, invertida e tem metade do tamanho do
+                objeto.</p>
+<p><strong>Exemplo 5 — espelho convexo.</strong> Um
+                objeto está a \(30\,\text{cm}\) de um
+                espelho convexo com \(f=-20\,\text{cm}\):</p>
+<p>\[
+                \frac1{p'}=-\frac1{20}-\frac1{30}=-\frac1{12}
+                \]</p>
+<p>\[
+                p'=-12\,\text{cm}
+                \qquad\text{e}\qquad
+                A=-\frac{-12}{30}=+0{,}40.
+                \]</p>
+<p>A imagem é virtual, direita e reduzida, a \(12\,\text{cm}\) atrás do
+                espelho.</p>
+<h2 id="verificação-entre-cálculo-e-diagrama">Verificação
+                entre cálculo e diagrama</h2>
+<p>O desenho e a equação devem concordar. Antes de
+                calcular, estime a região em que a imagem deve aparecer.
+                Depois, verifique os sinais:</p>
+<ul>
+<li>\(p'&gt;0\):
+                imagem real, diante do espelho;</li>
+<li>\(p'&lt;0\):
+                imagem virtual, atrás do espelho;</li>
+<li>\(A&lt;0\): imagem
+                invertida;</li>
+<li>\(A&gt;0\): imagem
+                direita;</li>
+<li>\(|A|&gt;1\), \(=1\) ou \(&lt;1\): imagem maior,
+                igual ou menor.</li>
+</ul>
+<p>Essa conferência detecta erros de sinal. Por exemplo,
+                um espelho convexo com objeto real não pode fornecer
+                \(p'&gt;0\) nem
+                \(|A|&gt;1\).</p>
+<h1 id="síntese-da-aula">Síntese da aula</h1>
+<p>A normal é a referência para medir os ângulos da
+                reflexão. O espelho plano produz uma imagem virtual e
+                simétrica. Nos espelhos esféricos, a geometria dos raios
+                notáveis antecipa a natureza da imagem; a equação de
+                Gauss fornece sua posição e o aumento fornece orientação
+                e tamanho.</p>
+<h1 id="erros-comuns">Erros comuns</h1>
+<ul>
+<li>Medir \(\theta_i\)
+                a partir da superfície, em vez da normal.</li>
+<li>Dizer que reflexão difusa desobedece às leis da
+                reflexão.</li>
+<li>Usar apenas \(d_i=d_o\) e esquecer que a
+                distância objeto–imagem é \(2d_o\).</li>
+<li>Aplicar \(N=360^\circ/\alpha-1\) sem
+                verificar suas condições.</li>
+<li>Confundir espelho convexo com lente convergente por
+                causa do formato.</li>
+<li>Ignorar os sinais de \(f\), \(p'\) e \(A\) na equação de
+                Gauss.</li>
+</ul>
+<h1 id="exercícios-de-fixação">Exercícios de
+                fixação</h1>
+<dl>
+<dt>2.1)</dt>
+<dd>
+                Um raio luminoso forma \(25^\circ\) com a superfície
+                de um espelho plano. O menor ângulo entre o raio
+                incidente e o raio refletido é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(50^\circ\).</li>
+<li>\(25^\circ\).</li>
+<li>\(65^\circ\).</li>
+<li>\(130^\circ\).</li>
+<li>\(155^\circ\).</li>
+</ol>
+<dl>
+<dt>2.2)</dt>
+<dd>
+                Uma pessoa está a \(1{,}8\,\text{m}\) de um
+                espelho plano. A distância entre a pessoa e sua imagem
+                é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(0{,}9\,\text{m}\).</li>
+<li>\(3{,}6\,\text{m}\).</li>
+<li>\(1{,}8\,\text{m}\).</li>
+<li>\(2{,}7\,\text{m}\).</li>
+<li>\(7{,}2\,\text{m}\).</li>
+</ol>
+<dl>
+<dt>2.3)</dt>
+<dd>
+                Para determinar geometricamente o campo visual de um
+                observador diante de um espelho plano finito, deve-se:
+                </dd>
+</dl>
+<ol type="a">
+<li>prolongar a normal somente até o observador.</li>
+<li>duplicar o comprimento do espelho em cada
+                extremidade.</li>
+<li>refletir o observador para trás do espelho e ligar
+                sua imagem às extremidades do espelho.</li>
+<li>ligar diretamente os objetos ao centro do espelho,
+                sem usar a posição do observador.</li>
+<li>considerar visíveis apenas os objetos sobre a normal
+                ao espelho.</li>
+</ol>
+<dl>
+<dt>2.4)</dt>
+<dd>
+                Dois espelhos planos formam entre si um ângulo de \(45^\circ\). Considerando
+                espelhos ideais e um objeto próximo ao vértice, o número
+                de imagens formadas é:
+                </dd>
+</dl>
+<ol type="a">
+<li>6.</li>
+<li>8.</li>
+<li>9.</li>
+<li>7.</li>
+<li>infinito.</li>
+</ol>
+<dl>
+<dt>2.5)</dt>
+<dd>
+                Um objeto real é colocado além do centro de curvatura
+                \(C\) de um espelho
+                côncavo. A imagem formada é:
+                </dd>
+</dl>
+<ol type="a">
+<li>virtual, direita e maior.</li>
+<li>real, direita e igual.</li>
+<li>virtual, invertida e menor.</li>
+<li>imprópria, localizada no infinito.</li>
+<li>real, invertida e menor.</li>
+</ol>
+<dl>
+<dt>2.6)</dt>
+<dd>
+                O módulo do raio de curvatura de um espelho esférico é
+                \(40\,\text{cm}\). O
+                módulo de sua distância focal é:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(20\,\text{cm}\).</li>
+<li>\(10\,\text{cm}\).</li>
+<li>\(40\,\text{cm}\).</li>
+<li>\(80\,\text{cm}\).</li>
+<li>\(160\,\text{cm}\).</li>
+</ol>
+<dl>
+<dt>2.7)</dt>
+<dd>
+                Um objeto está a \(60\,\text{cm}\) de um
+                espelho côncavo de distância focal \(20\,\text{cm}\). A posição
+                e as características da imagem são:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(p'=15\,\text{cm}\);
+                virtual, direita e menor.</li>
+<li>\(p'=30\,\text{cm}\);
+                real, invertida e menor.</li>
+<li>\(p'=20\,\text{cm}\);
+                real, direita e igual.</li>
+<li>\(p'=40\,\text{cm}\);
+                real, invertida e maior.</li>
+<li>\(p'=-30\,\text{cm}\);
+                virtual, direita e maior.</li>
+</ol>
+<dl>
+<dt>2.8)</dt>
+<dd>
+                Um espelho convexo tem \(f=-15\,\text{cm}\) e recebe
+                um objeto real a \(30\,\text{cm}\). A posição
+                da imagem e o aumento linear são:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(p'=+10\,\text{cm}\) e
+                \(A=-1/3\).</li>
+<li>\(p'=+15\,\text{cm}\) e
+                \(A=-1/2\).</li>
+<li>\(p'=-10\,\text{cm}\) e
+                \(A=+1/3\).</li>
+<li>\(p'=-15\,\text{cm}\) e
+                \(A=+1/2\).</li>
+<li>\(p'=-30\,\text{cm}\) e
+                \(A=+1\).</li>
+</ol>
+<dl>
+<dt>2.9)</dt>
+<dd>
+                Um objeto permanece parado enquanto um espelho plano é
+                deslocado \(12\,\text{cm}\),
+                perpendicularmente ao seu plano, afastando-se do objeto.
+                Em relação ao objeto, a imagem desloca-se:
+                </dd>
+</dl>
+<ol type="a">
+<li>\(6\,\text{cm}\).</li>
+<li>\(12\,\text{cm}\).</li>
+<li>\(18\,\text{cm}\).</li>
+<li>\(24\,\text{cm}\).</li>
+<li>\(36\,\text{cm}\).</li>
+</ol>
+<dl>
+<dt>2.10)</dt>
+<dd>
+                Um objeto real está a \(10\,\text{cm}\) de um
+                espelho côncavo cuja distância focal é \(20\,\text{cm}\). A imagem
+                é:
+                </dd>
+</dl>
+<ol type="a">
+<li>real, invertida e menor.</li>
+<li>real, invertida e maior.</li>
+<li>real, direita e igual.</li>
+<li>virtual, direita e menor.</li>
+<li>virtual, direita e maior.</li>
+</ol>
+<h1 id="atividade-encontrando-o-foco-de-um-espelho-côncavo">Atividade
+                — encontrando o foco de um espelho côncavo</h1>
+<p>Em ambiente seguro, aponte um espelho côncavo para
+                uma cena distante e mova uma folha branca até obter uma
+                imagem nítida. A distância folha–vértice aproxima \(f\), pois para \(p\gg f\) a equação de Gauss
+                fornece \(p'\approx
+                f\). <strong>Nunca direcione o espelho ao Sol nem
+                observe luz intensa pelo espelho.</strong> Compare a
+                medida com \(R/2\), se
+                o raio for conhecido.</p>
+<h1 id="materiais-complementares">Materiais
+                complementares</h1>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=iQlFFa7qzC8" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Espelhos esféricos: o que são e raios notáveis" loading="lazy" src="./images/video-espelhos.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Espelhos esféricos: o que são e raios notáveis</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=iQlFFa7qzC8" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">Universo Narrado, YouTube</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=iQlFFa7qzC8" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=mWIPF7yI6Ow" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Espelhos planos: formação de imagens e campo de visão" loading="lazy" src="./images/video-campo-visual.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Espelhos planos: formação de imagens e campo de visão</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=mWIPF7yI6Ow" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">YouTube</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=mWIPF7yI6Ow" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=eWaoU0DuR4M" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Exercícios de espelhos esféricos: Gauss, aumento e raios notáveis" loading="lazy" src="./images/video-exercicios.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Exercícios de espelhos esféricos: Gauss, aumento e raios notáveis</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=eWaoU0DuR4M" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">YouTube</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=eWaoU0DuR4M" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<div class="iframe-card" style="width:80%; margin:1.5rem auto; box-shadow:0 2px 15px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; max-width:100%;">
+<a href="https://www.youtube.com/watch?v=dh7ebqwWHgg" rel="noopener noreferrer" style="display:block; text-decoration:none;" target="_blank">
+<img alt="Associação de espelhos planos" loading="lazy" src="./images/video-associacao.png" style="display:block; width:100%; height:auto;"/>
+</a>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:#f9f9f9; font-size:0.9em; color:#666; flex-wrap:wrap;">
+<div style="line-height:1.25; min-width:200px;">
+<strong style="color:#222;">Associação de espelhos planos</strong><br/>
+                      Fonte: <a href="https://www.youtube.com/watch?v=dh7ebqwWHgg" rel="noopener noreferrer" style="color:#0066cc;" target="_blank">YouTube</a>
+</div>
+<div>
+<a href="https://www.youtube.com/watch?v=dh7ebqwWHgg" onmouseout="this.style.background='#fff'" onmouseover="this.style.background='#f0f0f0'" rel="noopener noreferrer" style="display:inline-block; padding:7px 16px; border-radius:8px; border:1px solid #bbb; background:#fff; color:#222; text-decoration:none; font-weight:500; transition:all 0.2s;" target="_blank">
+                        Abrir ↗
+                      </a>
+</div>
+</div>
+</div>
+<h1 id="referências">Referências</h1>
+<ul>
+<li>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.
+                <em>Fundamentos de Física: óptica e física moderna</em>.
+                Rio de Janeiro: LTC.</li>
+<li>HEWITT, Paul G. <em>Física Conceitual</em>. Porto
+                Alegre: Bookman.</li>
+<li>BONJORNO, José Roberto et al. <em>Física:
+                termologia, óptica e ondas</em>. São Paulo: FTD.</li>
+<li>UNIVERSO NARRADO. <em>Espelhos esféricos: o que são
+                + raios notáveis</em>. YouTube. Disponível em: <a class="uri" href="https://www.youtube.com/watch?v=iQlFFa7qzC8">https://www.youtube.com/watch?v=iQlFFa7qzC8</a>.
+                Acesso em: 11 out. 2026.</li>
+<li><em>Espelhos Planos — Formação de Imagens, Campo de
+                Visão e Exercícios</em>. YouTube. Disponível em: <a class="uri" href="https://www.youtube.com/watch?v=mWIPF7yI6Ow">https://www.youtube.com/watch?v=mWIPF7yI6Ow</a>.
+                Acesso em: 10 out. 2026.</li>
+<li><em>5 exercícios: espelhos esféricos — equação de
+                Gauss, aumento, formação de imagens e raios
+                notáveis</em>. YouTube. Disponível em: <a class="uri" href="https://www.youtube.com/watch?v=eWaoU0DuR4M">https://www.youtube.com/watch?v=eWaoU0DuR4M</a>.
+                Acesso em: 10 out. 2026.</li>
+<li><em>Associação de espelhos planos — Física para
+                concurso</em>. YouTube. Disponível em: <a class="uri" href="https://www.youtube.com/watch?v=dh7ebqwWHgg">https://www.youtube.com/watch?v=dh7ebqwWHgg</a>.
+                Acesso em: 10 out. 2026.</li>
+<li>OLIVEIRA, Jefferson Rodrigues de. <em>Diagramas de
+                reflexão e espelhos</em>. Elaboração própria, CC BY 4.0,
+                2026.</li>
+<li>SCHIRM, Christian. <em>Periscope simple.svg</em>.
+                Wikimedia Commons, domínio público. Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Periscope_simple.svg">https://commons.wikimedia.org/wiki/File:Periscope_simple.svg</a>.
+                Acesso em: 10 out. 2026.</li>
+<li>THEASBY, Neil. <em>Convex traffic mirror by a bend
+                at Ford</em>. Wikimedia Commons, CC BY-SA 2.0.
+                Disponível em: <a class="uri" href="https://commons.wikimedia.org/wiki/File:Convex_traffic_mirror_by_a_bend_at_Ford_-_geograph.org.uk_-_6059314.jpg">https://commons.wikimedia.org/wiki/File:Convex_traffic_mirror_by_a_bend_at_Ford_-_geograph.org.uk_-_6059314.jpg</a>.
+                Acesso em: 10 out. 2026.</li>
+</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between gap-2">
+                <div>
+
+                <a href="/disciplinas/aula-1-fundamentos-da-optica-geometrica.html" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Aula anterior
+                </a>
+
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                <a href="/disciplinas/" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Voltar para Disciplinas
+                </a>
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-house"></i> Ir para Home
+                </a>
+
+                </div>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="h6">Meu Portal</h5>
+                    <p class="small mb-2">Portal de notas de aulas de física criado por Jefferson Rodrigues de Oliveira.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="h6">Contato</h5>
+                    <p class="small mb-2">
+                        <i class="bi bi-envelope"></i> jefferson.rodrigues@ifsp.edu.br<br>
+                        <i class="bi bi-github"></i>
+                        <a href="https://github.com/profjeffersonro" class="text-white">GitHub</a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <p class="mb-0 small">&copy; 2026 Meu Portal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Personalizado -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -84,6 +84,11 @@ disciplinas:
         pdf: "https://drive.google.com/file/d/1fu-1WHWlk47Irl72HpNouM6y_eAl-uOY/view?usp=drive_link"
         answers_pdf: "https://drive.google.com/file/d/1C9d4QdU5FonOsFxo8m5nkww6oY-eS_x9/view?usp=drive_link"
         answers_released: false
+      - name: "Aula 2 - Reflexão e Espelhos Planos e Esféricos"
+        html: "content/aulas/EM-Optica/Aula-2/opt-aula-2.html"
+        pdf: "https://drive.google.com/file/d/1-eIACvaExdjULwpiES4_dxA6UNYRQNtD/view?usp=drive_link"
+        answers_pdf: "https://drive.google.com/file/d/1l7yxx3_OTnuazr-mP6inlc1x0pE8g8XE/view?usp=drive_link"
+        answers_released: false
   - disciplina: "Física Moderna 1"
     aulas:
       - name: "Aula 1 - Concepções Históricas"
