@@ -99,22 +99,64 @@
     <h1 class="mb-4"><i class="bi bi-bookshelf"></i> Disciplinas</h1>
     <p class="lead mb-4">Selecione uma disciplina e aula para começar seus estudos.</p>
 
+    <div class="alert alert-primary d-flex align-items-start gap-3" role="note">
+        <i class="bi bi-info-circle-fill fs-4" aria-hidden="true"></i>
+        <div>
+            <strong>Como usar esta página</strong>
+            <p class="mb-0">Toque ou clique no nome de uma disciplina para mostrar ou esconder suas aulas. Se preferir, use a busca e os filtros abaixo para encontrar o material.</p>
+        </div>
+    </div>
 
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> Termodinâmica
-                </h3>
+    <div class="lesson-filters card card-body mb-4">
+        <label for="lesson-search" class="form-label fw-semibold">Buscar aulas</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input id="lesson-search" class="form-control" type="search"
+                   placeholder="Digite o nome da aula ou disciplina" autocomplete="off">
+            <button id="lesson-search-clear" class="btn btn-outline-secondary" type="button" aria-label="Limpar busca">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filtrar materiais">
+            <button class="btn btn-primary btn-sm lesson-filter active" type="button" data-filter="all">Todas</button>
+            <button class="btn btn-outline-primary btn-sm lesson-filter" type="button" data-filter="answers">Respostas liberadas</button>
+            <button class="btn btn-outline-primary btn-sm lesson-filter" type="button" data-filter="study">PDF para estudo</button>
+        </div>
+        <p id="lesson-results-summary" class="small text-secondary mt-3 mb-0" aria-live="polite"></p>
+    </div>
+
+    <div id="lesson-no-results" class="alert alert-light border text-center d-none" role="status">
+        <i class="bi bi-search"></i> Nenhuma aula encontrada com esses critérios.
+    </div>
+
+
+        <section class="card mb-3 discipline-section" data-discipline="termodinâmica">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle "
+                            type="button" data-bs-toggle="collapse" data-bs-target="#disciplina-termodinamica"
+                            aria-expanded="true" aria-controls="disciplina-termodinamica">
+                        <span><i class="bi bi-journal-bookmark"></i> Termodinâmica</span>
+                        <span class="discipline-count">7 aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
             </div>
+            <div id="disciplina-termodinamica" class="collapse show discipline-collapse">
             <div class="card-body">
                 <div class="row">
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="termodinâmica aula 1 - conceitos iniciais"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 1 - Conceitos Iniciais
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-1-conceitos-iniciais.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -137,12 +179,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="termodinâmica aula 2 - escalas termométricas"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 2 - Escalas Termométricas
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-2-escalas-termometricas.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -165,12 +213,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="termodinâmica aula 3 - variação e escalas arbitrárias"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 3 - Variação e Escalas Arbitrárias
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-3-variacao-e-escalas-arbitrarias.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -193,12 +247,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="termodinâmica aula 4 - dilatação térmica dos sólidos"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 4 - Dilatação Térmica dos Sólidos
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-4-dilatacao-termica-dos-solidos.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -221,12 +281,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="termodinâmica aula 5 - calor com mudança de temperatura"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 5 - Calor com Mudança de Temperatura
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-5-calor-com-mudanca-de-temperatura.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -249,12 +315,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="termodinâmica aula 6 - calor com mudança de estado físico"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 6 - Calor com Mudança de Estado Físico
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-6-calor-com-mudanca-de-estado-fisico.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -277,12 +349,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="termodinâmica aula 7 - processos de propagação de calor"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 7 - Processos de Propagação de Calor
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-7-processos-de-propagacao-de-calor.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -307,23 +385,36 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> Ondulatória
-                </h3>
             </div>
+        </section>
+
+        <section class="card mb-3 discipline-section" data-discipline="ondulatória">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle collapsed"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#disciplina-ondulatoria"
+                            aria-expanded="false" aria-controls="disciplina-ondulatoria">
+                        <span><i class="bi bi-journal-bookmark"></i> Ondulatória</span>
+                        <span class="discipline-count">4 aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
+            </div>
+            <div id="disciplina-ondulatoria" class="collapse  discipline-collapse">
             <div class="card-body">
                 <div class="row">
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="ondulatória aula 1 - conceitos, classificação e espectro eletromagnético"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 1 - Conceitos, Classificação e Espectro Eletromagnético
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-1-conceitos-classificacao-e-espectro-eletromagnetico.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -346,12 +437,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="ondulatória aula 2 - grandezas, gráficos e equação fundamental"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 2 - Grandezas, Gráficos e Equação Fundamental
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-2-grandezas-graficos-e-equacao-fundamental.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -374,12 +471,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="ondulatória aula 3 - fenômenos ondulatórios"
+                         data-has-study="true"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 3 - Fenômenos Ondulatórios
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-primary-subtle text-primary-emphasis"><i class="bi bi-easel2"></i> Estudo</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-3-fenomenos-ondulatorios.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -409,12 +512,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="ondulatória aula 4 - acústica e fenômenos sonoros"
+                         data-has-study="true"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 4 - Acústica e Fenômenos Sonoros
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-primary-subtle text-primary-emphasis"><i class="bi bi-easel2"></i> Estudo</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-4-acustica-e-fenomenos-sonoros.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -446,23 +555,36 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> Óptica
-                </h3>
             </div>
+        </section>
+
+        <section class="card mb-3 discipline-section" data-discipline="óptica">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle collapsed"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#disciplina-optica"
+                            aria-expanded="false" aria-controls="disciplina-optica">
+                        <span><i class="bi bi-journal-bookmark"></i> Óptica</span>
+                        <span class="discipline-count">2 aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
+            </div>
+            <div id="disciplina-optica" class="collapse  discipline-collapse">
             <div class="card-body">
                 <div class="row">
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="óptica aula 1 - fundamentos da óptica geométrica"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 1 - Fundamentos da Óptica Geométrica
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-1-fundamentos-da-optica-geometrica.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -485,12 +607,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="óptica aula 2 - reflexão e espelhos planos e esféricos"
+                         data-has-study="true"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 2 - Reflexão e Espelhos Planos e Esféricos
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-primary-subtle text-primary-emphasis"><i class="bi bi-easel2"></i> Estudo</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-2-reflexao-e-espelhos-planos-e-esfericos.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -522,23 +650,36 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> Física Moderna 1
-                </h3>
             </div>
+        </section>
+
+        <section class="card mb-3 discipline-section" data-discipline="física moderna 1">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle collapsed"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#disciplina-fisica-moderna-1"
+                            aria-expanded="false" aria-controls="disciplina-fisica-moderna-1">
+                        <span><i class="bi bi-journal-bookmark"></i> Física Moderna 1</span>
+                        <span class="discipline-count">6 aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
+            </div>
+            <div id="disciplina-fisica-moderna-1" class="collapse  discipline-collapse">
             <div class="card-body">
                 <div class="row">
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 1 aula 1 - concepções históricas"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 1 - Concepções Históricas
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-1-concepcoes-historicas.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -561,12 +702,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 1 aula 2 - quantização da carga: experimentos de thomson"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 2 - Quantização da Carga: Experimentos de Thomson
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-2-quantizacao-da-carga-experimentos-de-thomson.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -589,12 +736,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 1 aula 3 - quantização da carga: experimento de millikan"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 3 - Quantização da Carga: Experimento de Millikan
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-3-quantizacao-da-carga-experimento-de-millikan.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -617,12 +770,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 1 aula 4 - radiação do corpo negro"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 4 - Radiação do Corpo Negro
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-4-radiacao-do-corpo-negro.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -645,12 +804,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 1 aula 5 - efeito fotoelétrico"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 5 - Efeito Fotoelétrico
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-5-efeito-fotoeletrico.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -673,12 +838,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 1 aula 6 - efeito compton e difração de elétrons"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 6 - Efeito Compton e Difração de Elétrons
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-6-efeito-compton-e-difracao-de-eletrons.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -703,23 +874,36 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> Física Moderna 2
-                </h3>
             </div>
+        </section>
+
+        <section class="card mb-3 discipline-section" data-discipline="física moderna 2">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle collapsed"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#disciplina-fisica-moderna-2"
+                            aria-expanded="false" aria-controls="disciplina-fisica-moderna-2">
+                        <span><i class="bi bi-journal-bookmark"></i> Física Moderna 2</span>
+                        <span class="discipline-count">5 aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
+            </div>
+            <div id="disciplina-fisica-moderna-2" class="collapse  discipline-collapse">
             <div class="card-body">
                 <div class="row">
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 2 aula 1 - concepções históricas e fundamentos da física nuclear"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 1 - Concepções Históricas e Fundamentos da Física Nuclear
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-1-concepcoes-historicas-e-fundamentos-da-fisica-nuclear.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -742,12 +926,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 2 aula 2 - estrutura nuclear, interação nuclear e energia de ligação"
+                         data-has-study="false"
+                         data-answers-released="true">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 2 - Estrutura Nuclear, Interação Nuclear e Energia de Ligação
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-2-estrutura-nuclear-interacao-nuclear-e-energia-de-ligacao.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -770,12 +960,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 2 aula 3 - decaimento radioativo natural"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 3 - Decaimento Radioativo Natural
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-3-decaimento-radioativo-natural.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -798,12 +994,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 2 aula 4 - modos de decaimento nuclear"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 4 - Modos de Decaimento Nuclear
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-4-modos-de-decaimento-nuclear.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -826,12 +1028,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="física moderna 2 aula 5 - reações nucleares"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 5 - Reações Nucleares
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-5-reacoes-nucleares.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -856,23 +1064,36 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> Seminários Integrados
-                </h3>
             </div>
+        </section>
+
+        <section class="card mb-3 discipline-section" data-discipline="seminários integrados">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle collapsed"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#disciplina-seminarios-integrados"
+                            aria-expanded="false" aria-controls="disciplina-seminarios-integrados">
+                        <span><i class="bi bi-journal-bookmark"></i> Seminários Integrados</span>
+                        <span class="discipline-count">3 aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
+            </div>
+            <div id="disciplina-seminarios-integrados" class="collapse  discipline-collapse">
             <div class="card-body">
                 <div class="row">
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="seminários integrados determinismo x probabilismo: probabilidade, caos, mundo quântico, inteligência artificial e mudanças climáticas"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Determinismo x Probabilismo: probabilidade, caos, mundo quântico, inteligência artificial e mudanças climáticas
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/determinismo-x-probabilismo-probabilidade-caos-mundo-quantico-inteligencia-artificial-e-mudancas-climaticas.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -895,12 +1116,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="seminários integrados inferência bayesiana: como evidências atualizam probabilidades"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Inferência bayesiana: como evidências atualizam probabilidades
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/inferencia-bayesiana-como-evidencias-atualizam-probabilidades.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -923,12 +1150,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="seminários integrados cadeias de markov e simulação de monte carlo: chuva, extremos e o vale do ribeira"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Cadeias de Markov e simulação de Monte Carlo: chuva, extremos e o Vale do Ribeira
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/cadeias-de-markov-e-simulacao-de-monte-carlo-chuva-extremos-e-o-vale-do-ribeira.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -953,23 +1186,36 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos
-                </h3>
             </div>
+        </section>
+
+        <section class="card mb-3 discipline-section" data-discipline="mecânica dos fluidos">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle collapsed"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#disciplina-mecanica-dos-fluidos"
+                            aria-expanded="false" aria-controls="disciplina-mecanica-dos-fluidos">
+                        <span><i class="bi bi-journal-bookmark"></i> Mecânica dos Fluidos</span>
+                        <span class="discipline-count">5 aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
+            </div>
+            <div id="disciplina-mecanica-dos-fluidos" class="collapse  discipline-collapse">
             <div class="card-body">
                 <div class="row">
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="mecânica dos fluidos aula 1 - introdução à mecânica dos fluidos"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 1 - Introdução à Mecânica dos Fluidos
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-1-introducao-a-mecanica-dos-fluidos.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -992,12 +1238,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="mecânica dos fluidos aula 2 - unidades de medida e conversões"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 2 - Unidades de Medida e Conversões
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-2-unidades-de-medida-e-conversoes.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -1020,12 +1272,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="mecânica dos fluidos aula 3 - teorema de stevin"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 3 - Teorema de Stevin
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-3-teorema-de-stevin.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -1048,12 +1306,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="mecânica dos fluidos aula 4 - vasos comunicantes com líquidos imiscíveis"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 4 - Vasos Comunicantes com Líquidos Imiscíveis
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-4-vasos-comunicantes-com-liquidos-imisciveis.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -1076,12 +1340,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="mecânica dos fluidos aula 5 - manômetros e princípio de pascal"
+                         data-has-study="false"
+                         data-answers-released="false">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> Aula 5 - Manômetros e Princípio de Pascal
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    <span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span> <span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/aula-5-manometros-e-principio-de-pascal.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -1106,7 +1376,8 @@
 
                 </div>
             </div>
-        </div>
+            </div>
+        </section>
 
 
     <div class="text-center mt-4">

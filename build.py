@@ -262,6 +262,29 @@ def render_lesson_resource_buttons(aula, compact=False):
 
     return '\n'.join(buttons)
 
+
+def render_lesson_badges(aula):
+    """Resume a disponibilidade dos materiais para leitura rapida no indice."""
+    badges = []
+    if aula.get('pdf'):
+        badges.append('<span class="badge text-bg-success-subtle text-success-emphasis"><i class="bi bi-printer"></i> Impressão</span>')
+    if aula.get('study_pdf'):
+        badges.append('<span class="badge text-bg-primary-subtle text-primary-emphasis"><i class="bi bi-easel2"></i> Estudo</span>')
+
+    if answers_are_released(aula):
+        badges.append('<span class="badge text-bg-secondary"><i class="bi bi-check-circle"></i> Respostas liberadas</span>')
+    else:
+        release_label = format_release_at(aula.get('answers_release_at'))
+        if release_label and aula.get('answers_pdf'):
+            badges.append(
+                f'<span class="badge text-bg-warning-subtle text-warning-emphasis">'
+                f'<i class="bi bi-calendar-event"></i> Respostas em {release_label}</span>'
+            )
+        else:
+            badges.append('<span class="badge text-bg-light text-secondary border"><i class="bi bi-lock"></i> Respostas indisponíveis</span>')
+
+    return ' '.join(badges)
+
 def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.github.io/"):
     """
     Gera sitemap.xml para melhor SEO no GitHub Pages.
@@ -1044,14 +1067,23 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
     # Gerar conteúdo
     disciplinas_html = ''
     
-    for disciplina in config['disciplinas']:
+    for disciplina_index, disciplina in enumerate(config['disciplinas']):
+        disciplina_slug = create_slug(disciplina['disciplina'])
+        collapse_id = f'disciplina-{disciplina_slug}'
+        expanded = disciplina_index == 0
         disciplinas_html += f'''
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="bi bi-journal-bookmark"></i> {disciplina['disciplina']}
-                </h3>
+        <section class="card mb-3 discipline-section" data-discipline="{html_lib.escape(disciplina['disciplina'].lower(), quote=True)}">
+            <div class="card-header bg-primary text-white p-0">
+                <h2 class="mb-0">
+                    <button class="discipline-toggle {'collapsed' if not expanded else ''}"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#{collapse_id}"
+                            aria-expanded="{'true' if expanded else 'false'}" aria-controls="{collapse_id}">
+                        <span><i class="bi bi-journal-bookmark"></i> {disciplina['disciplina']}</span>
+                        <span class="discipline-count">{len(disciplina['aulas'])} aulas <i class="bi bi-chevron-down"></i></span>
+                    </button>
+                </h2>
             </div>
+            <div id="{collapse_id}" class="collapse {'show' if expanded else ''} discipline-collapse">
             <div class="card-body">
                 <div class="row">
         '''
@@ -1060,12 +1092,18 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
             aula_slug = create_slug(aula['name'])
             
             disciplinas_html += f'''
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
+                    <div class="col-md-6 mb-3 lesson-card-column"
+                         data-search="{html_lib.escape((disciplina['disciplina'] + ' ' + aula['name']).lower(), quote=True)}"
+                         data-has-study="{'true' if aula.get('study_pdf') else 'false'}"
+                         data-answers-released="{'true' if answers_are_released(aula) else 'false'}">
+                        <div class="card h-100 lesson-index-card">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> {aula['name']}
                                 </h5>
+                                <div class="lesson-availability mb-3" aria-label="Materiais disponíveis">
+                                    {render_lesson_badges(aula)}
+                                </div>
                                 <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/{aula_slug}.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
@@ -1083,7 +1121,8 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
         disciplinas_html += '''
                 </div>
             </div>
-        </div>
+            </div>
+        </section>
         '''
     
     content = f'''
@@ -1096,6 +1135,36 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
     
     <h1 class="mb-4"><i class="bi bi-bookshelf"></i> Disciplinas</h1>
     <p class="lead mb-4">Selecione uma disciplina e aula para começar seus estudos.</p>
+
+    <div class="alert alert-primary d-flex align-items-start gap-3" role="note">
+        <i class="bi bi-info-circle-fill fs-4" aria-hidden="true"></i>
+        <div>
+            <strong>Como usar esta página</strong>
+            <p class="mb-0">Toque ou clique no nome de uma disciplina para mostrar ou esconder suas aulas. Se preferir, use a busca e os filtros abaixo para encontrar o material.</p>
+        </div>
+    </div>
+
+    <div class="lesson-filters card card-body mb-4">
+        <label for="lesson-search" class="form-label fw-semibold">Buscar aulas</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input id="lesson-search" class="form-control" type="search"
+                   placeholder="Digite o nome da aula ou disciplina" autocomplete="off">
+            <button id="lesson-search-clear" class="btn btn-outline-secondary" type="button" aria-label="Limpar busca">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filtrar materiais">
+            <button class="btn btn-primary btn-sm lesson-filter active" type="button" data-filter="all">Todas</button>
+            <button class="btn btn-outline-primary btn-sm lesson-filter" type="button" data-filter="answers">Respostas liberadas</button>
+            <button class="btn btn-outline-primary btn-sm lesson-filter" type="button" data-filter="study">PDF para estudo</button>
+        </div>
+        <p id="lesson-results-summary" class="small text-secondary mt-3 mb-0" aria-live="polite"></p>
+    </div>
+
+    <div id="lesson-no-results" class="alert alert-light border text-center d-none" role="status">
+        <i class="bi bi-search"></i> Nenhuma aula encontrada com esses critérios.
+    </div>
     
     {disciplinas_html}
     
@@ -1737,6 +1806,8 @@ document.addEventListener('DOMContentLoaded', function() {{
             button.setAttribute('data-bs-title', 'PDF com as respostas da aula.');
             button.setAttribute('aria-label', 'PDF com as respostas da aula.');
             tooltip?.setContent({{ '.tooltip-inner': 'PDF com as respostas da aula.' }});
+            const lessonCard = button.closest('.lesson-card-column');
+            if (lessonCard) lessonCard.dataset.answersReleased = 'true';
         }}
     }});
 
@@ -1744,6 +1815,63 @@ document.addEventListener('DOMContentLoaded', function() {{
         const lockedButton = event.target.closest('.resource-button-locked');
         if (lockedButton) event.preventDefault();
     }});
+
+    // Busca, filtros e expansao inteligente da pagina de disciplinas
+    const lessonSearch = document.getElementById('lesson-search');
+    const lessonCards = Array.from(document.querySelectorAll('.lesson-card-column'));
+    const disciplineSections = Array.from(document.querySelectorAll('.discipline-section'));
+    const filterButtons = Array.from(document.querySelectorAll('.lesson-filter'));
+    const resultsSummary = document.getElementById('lesson-results-summary');
+    const noResults = document.getElementById('lesson-no-results');
+    let activeFilter = 'all';
+
+    const normalizeSearch = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+    function updateLessonFilters() {{
+        if (!lessonSearch) return;
+        const term = normalizeSearch(lessonSearch.value);
+        let visibleCount = 0;
+
+        lessonCards.forEach(card => {{
+            const matchesText = normalizeSearch(card.dataset.search || '').includes(term);
+            const matchesFilter = activeFilter === 'all'
+                || (activeFilter === 'answers' && card.dataset.answersReleased === 'true')
+                || (activeFilter === 'study' && card.dataset.hasStudy === 'true');
+            const visible = matchesText && matchesFilter;
+            card.classList.toggle('d-none', !visible);
+            if (visible) visibleCount += 1;
+        }});
+
+        disciplineSections.forEach(section => {{
+            const hasVisibleLessons = Boolean(section.querySelector('.lesson-card-column:not(.d-none)'));
+            section.classList.toggle('d-none', !hasVisibleLessons);
+            if (hasVisibleLessons && (term || activeFilter !== 'all')) {{
+                const collapse = section.querySelector('.discipline-collapse');
+                bootstrap.Collapse.getOrCreateInstance(collapse, {{ toggle: false }}).show();
+            }}
+        }});
+
+        if (resultsSummary) resultsSummary.textContent = `${{visibleCount}} aula${{visibleCount === 1 ? '' : 's'}} encontrada${{visibleCount === 1 ? '' : 's'}}.`;
+        noResults?.classList.toggle('d-none', visibleCount !== 0);
+    }}
+
+    lessonSearch?.addEventListener('input', updateLessonFilters);
+    document.getElementById('lesson-search-clear')?.addEventListener('click', () => {{
+        lessonSearch.value = '';
+        lessonSearch.focus();
+        updateLessonFilters();
+    }});
+    filterButtons.forEach(button => button.addEventListener('click', () => {{
+        activeFilter = button.dataset.filter;
+        filterButtons.forEach(item => {{
+            const selected = item === button;
+            item.classList.toggle('active', selected);
+            item.classList.toggle('btn-primary', selected);
+            item.classList.toggle('btn-outline-primary', !selected);
+        }});
+        updateLessonFilters();
+    }}));
+    updateLessonFilters();
     
     // Log para debug (apenas em desenvolvimento)
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {{

@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             button.setAttribute('data-bs-title', 'PDF com as respostas da aula.');
             button.setAttribute('aria-label', 'PDF com as respostas da aula.');
             tooltip?.setContent({ '.tooltip-inner': 'PDF com as respostas da aula.' });
+            const lessonCard = button.closest('.lesson-card-column');
+            if (lessonCard) lessonCard.dataset.answersReleased = 'true';
         }
     });
 
@@ -50,6 +52,63 @@ document.addEventListener('DOMContentLoaded', function() {
         const lockedButton = event.target.closest('.resource-button-locked');
         if (lockedButton) event.preventDefault();
     });
+
+    // Busca, filtros e expansao inteligente da pagina de disciplinas
+    const lessonSearch = document.getElementById('lesson-search');
+    const lessonCards = Array.from(document.querySelectorAll('.lesson-card-column'));
+    const disciplineSections = Array.from(document.querySelectorAll('.discipline-section'));
+    const filterButtons = Array.from(document.querySelectorAll('.lesson-filter'));
+    const resultsSummary = document.getElementById('lesson-results-summary');
+    const noResults = document.getElementById('lesson-no-results');
+    let activeFilter = 'all';
+
+    const normalizeSearch = value => value.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+
+    function updateLessonFilters() {
+        if (!lessonSearch) return;
+        const term = normalizeSearch(lessonSearch.value);
+        let visibleCount = 0;
+
+        lessonCards.forEach(card => {
+            const matchesText = normalizeSearch(card.dataset.search || '').includes(term);
+            const matchesFilter = activeFilter === 'all'
+                || (activeFilter === 'answers' && card.dataset.answersReleased === 'true')
+                || (activeFilter === 'study' && card.dataset.hasStudy === 'true');
+            const visible = matchesText && matchesFilter;
+            card.classList.toggle('d-none', !visible);
+            if (visible) visibleCount += 1;
+        });
+
+        disciplineSections.forEach(section => {
+            const hasVisibleLessons = Boolean(section.querySelector('.lesson-card-column:not(.d-none)'));
+            section.classList.toggle('d-none', !hasVisibleLessons);
+            if (hasVisibleLessons && (term || activeFilter !== 'all')) {
+                const collapse = section.querySelector('.discipline-collapse');
+                bootstrap.Collapse.getOrCreateInstance(collapse, { toggle: false }).show();
+            }
+        });
+
+        if (resultsSummary) resultsSummary.textContent = `${visibleCount} aula${visibleCount === 1 ? '' : 's'} encontrada${visibleCount === 1 ? '' : 's'}.`;
+        noResults?.classList.toggle('d-none', visibleCount !== 0);
+    }
+
+    lessonSearch?.addEventListener('input', updateLessonFilters);
+    document.getElementById('lesson-search-clear')?.addEventListener('click', () => {
+        lessonSearch.value = '';
+        lessonSearch.focus();
+        updateLessonFilters();
+    });
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+        activeFilter = button.dataset.filter;
+        filterButtons.forEach(item => {
+            const selected = item === button;
+            item.classList.toggle('active', selected);
+            item.classList.toggle('btn-primary', selected);
+            item.classList.toggle('btn-outline-primary', !selected);
+        });
+        updateLessonFilters();
+    }));
+    updateLessonFilters();
     
     // Log para debug (apenas em desenvolvimento)
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {

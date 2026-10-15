@@ -207,6 +207,63 @@ main {
     box-shadow: none;
 }
 
+.lesson-filters {
+    position: sticky;
+    top: 4.75rem;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+}
+
+.discipline-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    color: white;
+    font: inherit;
+    text-align: left;
+    background: transparent;
+    border: 0;
+}
+
+.discipline-toggle:hover,
+.discipline-toggle:focus-visible {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.discipline-count {
+    flex: 0 0 auto;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.discipline-toggle .bi-chevron-down {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.discipline-toggle:not(.collapsed) .bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+.lesson-index-card {
+    border-color: #e1e5eb;
+}
+
+.lesson-availability {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.lesson-availability .badge {
+    white-space: normal;
+    text-align: left;
+}
+
 /* Breadcrumb personalizado */
 .breadcrumb {
     background-color: #f8f9fa;
@@ -270,6 +327,19 @@ footer a:hover {
     .btn-lg {
         padding: 0.5rem 1rem;
         font-size: 1rem;
+    }
+
+    .lesson-filters {
+        position: static;
+    }
+
+    .lesson-resource-actions .btn {
+        flex: 1 1 100%;
+        margin-right: 0 !important;
+    }
+
+    .discipline-toggle {
+        align-items: flex-start;
     }
     
     .jumbotron h1 {
