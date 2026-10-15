@@ -75,8 +75,9 @@ disciplinas:
       - name: "Aula 4 - Acústica e Fenômenos Sonoros"
         html: "content/aulas/EM-Ondas/Aula-4/ondas-aula-4.html"
         pdf: "https://drive.google.com/file/d/1UOuxv0g2C9TI5YSQlYS6AohMflihu1B6/view?usp=drive_link"
-        answers_pdf: "https://drive.google.com/file/d/19EkbpJi3IrIiT38o8b711LBS8bBWaqdL/view?usp=drive_link"
-        answers_released: false
+        answers_pdf: "https://drive.google.com/file/d/1L1g4Z47V1O5QKfibNb-5B9X3B_2Vc_b-/view?usp=drive_link"
+        answers_released: true
+        study_pdf: "https://drive.google.com/file/d/16tCko_8Y-RpAPfAng-_QTHkVoekzLAey/view?usp=drive_link"
   - disciplina: "Óptica"
     aulas:
       - name: "Aula 1 - Fundamentos da Óptica Geométrica"
