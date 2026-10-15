@@ -69,9 +69,10 @@ disciplinas:
       - name: "Aula 3 - Fenômenos Ondulatórios"
         html: "content/aulas/EM-Ondas/Aula-3/ondas-aula-3.html"
         pdf: "https://drive.google.com/file/d/1bG4YT0f7E9eoagIErCS8AvO7UqxgAqWw/view?usp=drive_link"
-        answers_pdf: "https://drive.google.com/file/d/1UQdfI-_WrqqY-c7oijaqhduk_IYZtRgq/view?usp=drive_link"
-        answers_released: false
+        answers_pdf: "https://drive.google.com/file/d/1ECMk89ASNWExNBmsnHATdVdQ9EQ2A7Q7/view?usp=drive_link"
+        answers_released: true
         answers_release_at: "18/09/26 00:00"
+        study_pdf: "https://drive.google.com/file/d/1l0hV03vHabrdPMB7C0YTDVrPZ6eB9NBW/view?usp=drive_link"
       - name: "Aula 4 - Acústica e Fenômenos Sonoros"
         html: "content/aulas/EM-Ondas/Aula-4/ondas-aula-4.html"
         pdf: "https://drive.google.com/file/d/1UOuxv0g2C9TI5YSQlYS6AohMflihu1B6/view?usp=drive_link"
