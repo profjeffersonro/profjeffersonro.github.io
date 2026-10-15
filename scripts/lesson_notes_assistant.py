@@ -40,6 +40,7 @@ class NotePlan:
     lesson_dir: Path
     source_html: Path
     source_pdf: Path
+    study_pdf: Path | None
     answers_pdf: Path | None
     title: str
     html_value: str
@@ -368,6 +369,7 @@ def discover_lesson_dirs(base_path: Path) -> list[Path]:
             path
             for path in base_path.glob("*.html")
             if not path.name.endswith("-auto.html")
+            and not path.name.endswith("-preview.html")
             and not path.name.startswith("resp-")
             and ".backup." not in path.name
         )
@@ -396,6 +398,7 @@ def resolve_lesson_files(lesson_dir: Path, index: ConfigIndex) -> tuple[Path, Pa
             path
             for path in lesson_dir.glob("*.html")
             if not path.name.endswith("-auto.html")
+            and not path.name.endswith("-preview.html")
             and not path.name.startswith("resp-")
             and ".backup." not in path.name
         )
@@ -440,6 +443,19 @@ def find_answers_pdf(lesson_dir: Path) -> tuple[Path | None, str | None]:
     return None, None
 
 
+def find_study_pdf(lesson_dir: Path, source_pdf: Path) -> tuple[Path | None, str | None]:
+    expected = lesson_dir / f"{source_pdf.stem}-slides-anotacoes.pdf"
+    if expected.is_file():
+        return expected.resolve(), None
+    matches = sorted(lesson_dir.glob("*-slides-anotacoes.pdf"))
+    if len(matches) == 1:
+        return matches[0].resolve(), None
+    if len(matches) > 1:
+        names = ", ".join(path.name for path in matches)
+        return None, f"mais de um *-slides-anotacoes.pdf encontrado: {names}"
+    return None, None
+
+
 def infer_context(lesson_dir: Path, index: ConfigIndex) -> publish.LessonContext | None:
     lesson_path = lesson_dir.as_posix()
     for group, discipline in sorted(index.discipline_by_group.items(), key=lambda item: len(item[0]), reverse=True):
@@ -459,8 +475,11 @@ def build_note_plan(lesson_dir: Path, index: ConfigIndex) -> NotePlan:
     warnings: list[str] = []
     source_html, source_pdf, existing_html = resolve_lesson_files(lesson_dir, index)
     answers_pdf, answers_warning = find_answers_pdf(lesson_dir)
+    study_pdf, study_warning = find_study_pdf(lesson_dir, source_pdf)
     if answers_warning:
         warnings.append(answers_warning)
+    if study_warning:
+        warnings.append(study_warning)
 
     context = infer_context(lesson_dir, index)
     if existing_html:
@@ -483,6 +502,7 @@ def build_note_plan(lesson_dir: Path, index: ConfigIndex) -> NotePlan:
         lesson_dir=lesson_dir,
         source_html=source_html,
         source_pdf=source_pdf,
+        study_pdf=study_pdf,
         answers_pdf=answers_pdf,
         title=extract_lesson_title(source_html, lesson_dir.name),
         html_value=html_value,
@@ -501,6 +521,7 @@ def print_plan_table(plans: list[NotePlan]) -> None:
             "config:sim" if plan.already_in_config else "config:nao",
             "content:sim" if plan.already_in_content else "content:nao",
             "resp:sim" if plan.answers_pdf else "resp:nao",
+            "estudo:sim" if plan.study_pdf else "estudo:nao",
         ]
         print(f"  {idx:>2}. {plan.lesson_dir.name} | {', '.join(status)} | {plan.title}")
         if plan.html_value:
@@ -573,6 +594,10 @@ def publish_command(
         "--content-html",
         plan.html_value,
     ]
+    if plan.study_pdf:
+        cmd.extend(["--study-pdf", plan.study_pdf.name])
+    else:
+        cmd.append("--no-study-pdf")
     if skip_build:
         cmd.append("--skip-build")
     if include_answers and plan.answers_pdf:

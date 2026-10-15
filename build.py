@@ -1117,28 +1117,40 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
             pdf_button = ''
             if aula.get('pdf'):
                 pdf_button = f'''
-                <div class="text-center mb-4">
-                    <a href="{aula['pdf']}" 
-                       class="btn btn-success btn-lg" 
-                       target="_blank" 
-                       rel="noopener noreferrer">
-                        <i class="bi bi-file-earmark-pdf"></i> Acessar PDF
-                    </a>
-                </div>
+                <a href="{aula['pdf']}"
+                   class="btn btn-success btn-lg"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="bi bi-file-earmark-pdf"></i> PDF da aula para impressão
+                </a>
+                '''
+            study_pdf_button = ''
+            if aula.get('study_pdf'):
+                study_pdf_button = f'''
+                <a href="{aula['study_pdf']}"
+                   class="btn btn-primary btn-lg"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="bi bi-easel2"></i> PDF da aula em slides
+                </a>
                 '''
             answers_pdf_button = ''
             if answers_are_released(aula):
                 answers_pdf_button = f'''
-                <div class="text-center mb-4">
-                    <a href="{aula['answers_pdf']}" 
-                       class="btn btn-outline-secondary btn-lg" 
-                       target="_blank" 
-                       rel="noopener noreferrer">
-                        <i class="bi bi-check2-square"></i> Acessar Respostas
-                    </a>
+                <a href="{aula['answers_pdf']}"
+                   class="btn btn-outline-secondary btn-lg"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="bi bi-check2-square"></i> Respostas da aula em PDF
+                </a>
+                '''
+            pdf_buttons = pdf_button + study_pdf_button + answers_pdf_button
+            if pdf_buttons:
+                pdf_buttons = f'''
+                <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 mb-4">
+                    {pdf_buttons}
                 </div>
                 '''
-            pdf_buttons = pdf_button + answers_pdf_button
 
             previous_aula = aulas_da_disciplina[index - 1] if index > 0 else None
             next_aula = aulas_da_disciplina[index + 1] if index < len(aulas_da_disciplina) - 1 else None

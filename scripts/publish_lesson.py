@@ -458,6 +458,10 @@ def update_yaml_answers_pdf(config_path: Path, html_value: str, answers_pdf_url:
     return update_yaml_field(config_path, html_value, "answers_pdf", answers_pdf_url, dry_run=dry_run)
 
 
+def update_yaml_study_pdf(config_path: Path, html_value: str, study_pdf_url: str, dry_run: bool = False) -> bool:
+    return update_yaml_field(config_path, html_value, "study_pdf", study_pdf_url, dry_run=dry_run)
+
+
 def update_yaml_bool(config_path: Path, html_value: str, field_name: str, field_value: bool, dry_run: bool = False) -> bool:
     lines = config_path.read_text(encoding="utf-8").splitlines(keepends=True)
     html_re = re.compile(r"^(\s*)html:\s*(['\"]?)([^'\"\n]+)(['\"]?)\s*$")
@@ -508,6 +512,7 @@ def build_new_lesson_block(
     pdf_url: str,
     indent: str,
     answers_pdf_url: str | None = None,
+    study_pdf_url: str | None = None,
     answers_released: bool = False,
 ) -> str:
     block = (
@@ -515,6 +520,8 @@ def build_new_lesson_block(
         f"{indent}  html: \"{html_value}\"\n"
         f"{indent}  pdf: \"{pdf_url}\"\n"
     )
+    if study_pdf_url:
+        block += f'{indent}  study_pdf: "{study_pdf_url}"\n'
     if answers_pdf_url:
         block += f"{indent}  answers_pdf: \"{answers_pdf_url}\"\n"
         block += f"{indent}  answers_released: {'true' if answers_released else 'false'}\n"
@@ -528,6 +535,7 @@ def insert_new_lesson_entry(
     html_value: str,
     pdf_url: str,
     answers_pdf_url: str | None = None,
+    study_pdf_url: str | None = None,
     answers_released: bool = False,
     dry_run: bool = False,
 ) -> bool:
@@ -559,6 +567,7 @@ def insert_new_lesson_entry(
         lesson_name,
         html_value,
         pdf_url,
+        study_pdf_url=study_pdf_url,
         answers_pdf_url=answers_pdf_url,
         answers_released=answers_released,
         indent=base_indent + "    ",
@@ -623,6 +632,8 @@ def resolve_source_file(lesson_dir: Path, value: str | None, suffix: str) -> Pat
         path
         for path in matches
         if not path.name.endswith(f"-auto{suffix}")
+        and not path.name.endswith(f"-preview{suffix}")
+        and not (suffix == ".pdf" and "-slides-anotacoes" in path.stem)
         and not path.name.startswith("resp-")
         and ".backup." not in path.name
         and not (suffix == ".pdf" and re.search(r"\.\d+\.pdf$", path.name))
@@ -647,6 +658,7 @@ def resolve_source_html(lesson_dir: Path, value: str | None, source_pdf: Path) -
         path
         for path in matches
         if not path.name.endswith("-auto.html")
+        and not path.name.endswith("-preview.html")
         and not path.name.startswith("resp-")
         and ".backup." not in path.name
     ]
@@ -688,11 +700,27 @@ def resolve_answers_pdf(lesson_dir: Path, value: str | None, auto_detect: bool =
     raise PublishError(f"Mais de um PDF de respostas encontrado. Use --answers-pdf.\n  - {formatted}")
 
 
+def resolve_study_pdf(lesson_dir: Path, value: str | None, auto_detect: bool = True) -> Path | None:
+    if value:
+        return resolve_source_file(lesson_dir, value, ".pdf")
+    if not auto_detect:
+        return None
+    matches = sorted(lesson_dir.glob("*-slides-anotacoes.pdf"))
+    if len(matches) == 1:
+        return matches[0].resolve()
+    if not matches:
+        return None
+    formatted = "\n  - ".join(path.name for path in matches)
+    raise PublishError(f"Mais de um PDF de estudo encontrado. Use --study-pdf.\n  - {formatted}")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Publica HTML/PDF de aula no portal e no Google Drive.")
     parser.add_argument("--lesson-dir", default=".", help="Pasta da aula gerada pelo make.sh.")
     parser.add_argument("--html", help="HTML gerado. Padrao: unico *.html da pasta, exceto *-auto.html.")
     parser.add_argument("--pdf", help="PDF gerado. Padrao: unico *.pdf da pasta.")
+    parser.add_argument("--study-pdf", help="PDF de estudo/slides com anotacoes. Padrao: unico *-slides-anotacoes.pdf.")
+    parser.add_argument("--no-study-pdf", action="store_true", help="Nao publica o PDF de estudo, mesmo quando detectado.")
     parser.add_argument("--answers-pdf", help="PDF de respostas/solucoes, normalmente resp-*.pdf.")
     parser.add_argument("--auto-answers", action="store_true", help="Publica automaticamente o unico resp-*.pdf da pasta.")
     parser.add_argument("--answers-released", action="store_true", help="Marca as respostas como liberadas no config.yaml.")
@@ -718,6 +746,7 @@ def main(argv: list[str] | None = None) -> int:
 
     lesson_dir = Path(args.lesson_dir).expanduser().resolve()
     source_pdf = resolve_source_pdf(lesson_dir, args.pdf, None)
+    source_study_pdf = resolve_study_pdf(lesson_dir, args.study_pdf, not args.no_study_pdf)
     source_answers_pdf = resolve_answers_pdf(lesson_dir, args.answers_pdf, args.auto_answers)
     answers_drive_folder_parts = parse_drive_folder_parts(args.answers_drive_folder)
     source_html = resolve_source_html(lesson_dir, args.html, source_pdf)
@@ -753,6 +782,7 @@ def main(argv: list[str] | None = None) -> int:
 
     pdf_url = None
     answers_pdf_url = None
+    study_pdf_url = None
     if not args.skip_drive:
         client = DriveClient.from_config_dir(Path(args.drive_config).expanduser())
         folder_parts = drive_folder_parts(client, source_pdf)
@@ -761,6 +791,16 @@ def main(argv: list[str] | None = None) -> int:
         log(f"Enviando PDF para o Drive: {source_pdf.name}")
         pdf_url = client.upload_pdf(source_pdf, folder_id, dry_run=args.dry_run)
         log(f"Link do PDF: {pdf_url}")
+        if source_study_pdf:
+            study_folder_parts = drive_folder_parts(client, source_study_pdf)
+            if study_folder_parts != folder_parts:
+                raise PublishError(
+                    "O PDF de estudo precisa estar na mesma pasta da aula principal. "
+                    f"Aula: {'/'.join(folder_parts)}; estudo: {'/'.join(study_folder_parts)}"
+                )
+            log(f"Enviando PDF de estudo para o Drive: {source_study_pdf.name}")
+            study_pdf_url = client.upload_pdf(source_study_pdf, folder_id, dry_run=args.dry_run)
+            log(f"Link do PDF de estudo: {study_pdf_url}")
         if source_answers_pdf:
             answers_folder_parts = answers_drive_folder_parts or drive_folder_parts(client, source_answers_pdf)
             if answers_drive_folder_parts is None and answers_folder_parts != folder_parts:
@@ -786,6 +826,7 @@ def main(argv: list[str] | None = None) -> int:
                 lesson_name=lesson_name,
                 html_value=html_value,
                 pdf_url=pdf_url,
+                study_pdf_url=study_pdf_url,
                 answers_pdf_url=answers_pdf_url,
                 answers_released=args.answers_released,
                 dry_run=args.dry_run,
@@ -793,6 +834,8 @@ def main(argv: list[str] | None = None) -> int:
                 touched.append(config_path)
         else:
             if update_yaml_pdf(config_path, html_value, pdf_url, dry_run=args.dry_run):
+                touched.append(config_path)
+            if study_pdf_url and update_yaml_study_pdf(config_path, html_value, study_pdf_url, dry_run=args.dry_run):
                 touched.append(config_path)
             if answers_pdf_url and update_yaml_answers_pdf(config_path, html_value, answers_pdf_url, dry_run=args.dry_run):
                 touched.append(config_path)
