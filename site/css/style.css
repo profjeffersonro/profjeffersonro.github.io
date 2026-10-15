@@ -183,6 +183,30 @@ main {
     background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
 }
 
+/* Ações de aula e PDFs */
+.lesson-resource-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lesson-resource-button {
+    white-space: normal;
+}
+
+.resource-button-locked,
+.resource-button-locked:hover,
+.resource-button-locked:focus {
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+    cursor: not-allowed;
+    opacity: 0.72;
+    transform: none;
+    box-shadow: none;
+}
+
 /* Breadcrumb personalizado */
 .breadcrumb {
     background-color: #f8f9fa;

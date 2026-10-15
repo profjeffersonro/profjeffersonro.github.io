@@ -25,12 +25,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Adicionar tooltips para botões PDF
-    const pdfButtons = document.querySelectorAll('a[href*=".pdf"]');
-    pdfButtons.forEach(button => {
-        button.setAttribute('title', 'Abrir PDF em nova aba');
-        button.setAttribute('target', '_blank');
-        button.setAttribute('rel', 'noopener noreferrer');
+    // Tooltips dos recursos e liberacao automatica das respostas agendadas
+    const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipElements.forEach(element => new bootstrap.Tooltip(element));
+
+    document.querySelectorAll('.resource-button-locked').forEach(button => {
+        const releaseAt = button.dataset.releaseAt;
+        const resourceHref = button.dataset.resourceHref;
+        if (releaseAt && resourceHref && Date.now() >= new Date(releaseAt).getTime()) {
+            button.href = resourceHref;
+            button.target = '_blank';
+            button.rel = 'noopener noreferrer';
+            button.classList.remove('resource-button-locked');
+            button.removeAttribute('aria-disabled');
+            button.querySelector('i')?.classList.replace('bi-lock', 'bi-check2-square');
+            const tooltip = bootstrap.Tooltip.getInstance(button);
+            button.setAttribute('data-bs-title', 'PDF com as respostas da aula.');
+            button.setAttribute('aria-label', 'PDF com as respostas da aula.');
+            tooltip?.setContent({ '.tooltip-inner': 'PDF com as respostas da aula.' });
+        }
+    });
+
+    document.addEventListener('click', event => {
+        const lockedButton = event.target.closest('.resource-button-locked');
+        if (lockedButton) event.preventDefault();
     });
     
     // Log para debug (apenas em desenvolvimento)

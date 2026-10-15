@@ -183,6 +183,85 @@ def answers_are_released(aula):
     now = datetime.now(ZoneInfo('America/Sao_Paulo'))
     return now >= release_at
 
+
+def format_release_at(value):
+    """Formata a data de liberacao das respostas para exibicao em pt-BR."""
+    release_at = parse_answers_release_at(value)
+    if release_at is None:
+        return None
+    return release_at.strftime('%d/%m/%Y às %H:%M')
+
+
+def tooltip_attributes(message):
+    """Retorna atributos de tooltip acessiveis para botoes de recursos."""
+    escaped_message = html_lib.escape(message, quote=True)
+    return (
+        'data-bs-toggle="tooltip" data-bs-placement="top" '
+        f'data-bs-title="{escaped_message}" aria-label="{escaped_message}"'
+    )
+
+
+def render_lesson_resource_buttons(aula, compact=False):
+    """Gera botoes de PDF consistentes para o indice e para as paginas de aula."""
+    size_class = 'btn-sm' if compact else 'btn-lg'
+    label_print = 'Impressão' if compact else 'PDF para impressão'
+    label_study = 'Estudo' if compact else 'PDF para estudo'
+    label_answers = 'Respostas' if compact else 'PDF de respostas'
+    buttons = []
+
+    if aula.get('pdf'):
+        buttons.append(f'''
+        <a href="{html_lib.escape(str(aula['pdf']), quote=True)}"
+           class="btn btn-outline-success {size_class} lesson-resource-button"
+           target="_blank" rel="noopener noreferrer"
+           {tooltip_attributes('PDF em coluna dupla para economia de tinta e papel.')}>
+            <i class="bi bi-file-earmark-pdf"></i> {label_print}
+        </a>''')
+
+    if aula.get('study_pdf'):
+        buttons.append(f'''
+        <a href="{html_lib.escape(str(aula['study_pdf']), quote=True)}"
+           class="btn btn-outline-primary {size_class} lesson-resource-button"
+           target="_blank" rel="noopener noreferrer"
+           {tooltip_attributes('PDF em formato de slides com barra lateral para anotações.')}>
+            <i class="bi bi-easel2"></i> {label_study}
+        </a>''')
+
+    answers_pdf = aula.get('answers_pdf')
+    released = answers_are_released(aula)
+    release_at = parse_answers_release_at(aula.get('answers_release_at'))
+
+    if released:
+        answers_attrs = (
+            f'href="{html_lib.escape(str(answers_pdf), quote=True)}" '
+            'target="_blank" rel="noopener noreferrer"'
+        )
+        answers_class = ''
+        answers_icon = 'bi-check2-square'
+        answers_tooltip = 'PDF com as respostas da aula.'
+    else:
+        answers_class = ' resource-button-locked'
+        answers_icon = 'bi-lock'
+        answers_attrs = 'href="#" aria-disabled="true"'
+        if answers_pdf:
+            answers_attrs += f' data-resource-href="{html_lib.escape(str(answers_pdf), quote=True)}"'
+        if release_at:
+            answers_attrs += f' data-release-at="{release_at.isoformat()}"'
+            answers_tooltip = f'Respostas disponíveis a partir de {format_release_at(release_at)}.'
+        elif answers_pdf:
+            answers_tooltip = 'Respostas ainda não liberadas.'
+        else:
+            answers_tooltip = 'PDF de respostas ainda não disponível.'
+
+    buttons.append(f'''
+        <a {answers_attrs}
+           class="btn btn-outline-secondary {size_class} lesson-resource-button{answers_class}"
+           {tooltip_attributes(answers_tooltip)}>
+            <i class="bi {answers_icon}"></i> {label_answers}
+        </a>''')
+
+    return '\n'.join(buttons)
+
 def generate_sitemap(config, output_dir, base_url="https://profjeffersonro.github.io/"):
     """
     Gera sitemap.xml para melhor SEO no GitHub Pages.
@@ -987,25 +1066,12 @@ def generate_disciplinas_page_with_cache(config, output_dir, cache, file_hashes)
                                 <h5 class="card-title">
                                     <i class="bi bi-journal-text text-primary"></i> {aula['name']}
                                 </h5>
-                                <div class="mt-3">
+                                <div class="lesson-resource-actions mt-3">
                                     <a href="/disciplinas/{aula_slug}.html" class="btn btn-outline-primary btn-sm me-2">
                                         <i class="bi bi-file-text"></i> Ver Aula
                                     </a>
             '''
-            
-            if aula.get('pdf'):
-                disciplinas_html += f'''
-                                    <a href="{aula['pdf']}" class="btn btn-outline-success btn-sm" target="_blank">
-                                        <i class="bi bi-file-earmark-pdf"></i> PDF
-                                    </a>
-                '''
-
-            if answers_are_released(aula):
-                disciplinas_html += f'''
-                                    <a href="{aula['answers_pdf']}" class="btn btn-outline-secondary btn-sm ms-2" target="_blank">
-                                        <i class="bi bi-check2-square"></i> Respostas
-                                    </a>
-                '''
+            disciplinas_html += render_lesson_resource_buttons(aula, compact=True)
             
             disciplinas_html += '''
                                 </div>
@@ -1113,44 +1179,11 @@ def generate_aula_pages_with_cache(config, output_dir, cache, file_hashes):
             if copied_images > 0:
                 print(f"       📸 Copiadas {copied_images} imagens")
             
-            # Gerar botão para PDF
-            pdf_button = ''
-            if aula.get('pdf'):
-                pdf_button = f'''
-                <a href="{aula['pdf']}"
-                   class="btn btn-success btn-lg"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="bi bi-file-earmark-pdf"></i> PDF da aula para impressão
-                </a>
-                '''
-            study_pdf_button = ''
-            if aula.get('study_pdf'):
-                study_pdf_button = f'''
-                <a href="{aula['study_pdf']}"
-                   class="btn btn-primary btn-lg"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="bi bi-easel2"></i> PDF da aula em slides
-                </a>
-                '''
-            answers_pdf_button = ''
-            if answers_are_released(aula):
-                answers_pdf_button = f'''
-                <a href="{aula['answers_pdf']}"
-                   class="btn btn-outline-secondary btn-lg"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="bi bi-check2-square"></i> Respostas da aula em PDF
-                </a>
-                '''
-            pdf_buttons = pdf_button + study_pdf_button + answers_pdf_button
-            if pdf_buttons:
-                pdf_buttons = f'''
-                <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 mb-4">
-                    {pdf_buttons}
+            pdf_buttons = f'''
+                <div class="lesson-resource-actions justify-content-center mb-4">
+                    {render_lesson_resource_buttons(aula)}
                 </div>
-                '''
+            '''
 
             previous_aula = aulas_da_disciplina[index - 1] if index > 0 else None
             next_aula = aulas_da_disciplina[index + 1] if index < len(aulas_da_disciplina) - 1 else None
@@ -1686,12 +1719,30 @@ document.addEventListener('DOMContentLoaded', function() {{
         }});
     }}
     
-    // Adicionar tooltips para botões PDF
-    const pdfButtons = document.querySelectorAll('a[href*=".pdf"]');
-    pdfButtons.forEach(button => {{
-        button.setAttribute('title', 'Abrir PDF em nova aba');
-        button.setAttribute('target', '_blank');
-        button.setAttribute('rel', 'noopener noreferrer');
+    // Tooltips dos recursos e liberacao automatica das respostas agendadas
+    const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipElements.forEach(element => new bootstrap.Tooltip(element));
+
+    document.querySelectorAll('.resource-button-locked').forEach(button => {{
+        const releaseAt = button.dataset.releaseAt;
+        const resourceHref = button.dataset.resourceHref;
+        if (releaseAt && resourceHref && Date.now() >= new Date(releaseAt).getTime()) {{
+            button.href = resourceHref;
+            button.target = '_blank';
+            button.rel = 'noopener noreferrer';
+            button.classList.remove('resource-button-locked');
+            button.removeAttribute('aria-disabled');
+            button.querySelector('i')?.classList.replace('bi-lock', 'bi-check2-square');
+            const tooltip = bootstrap.Tooltip.getInstance(button);
+            button.setAttribute('data-bs-title', 'PDF com as respostas da aula.');
+            button.setAttribute('aria-label', 'PDF com as respostas da aula.');
+            tooltip?.setContent({{ '.tooltip-inner': 'PDF com as respostas da aula.' }});
+        }}
+    }});
+
+    document.addEventListener('click', event => {{
+        const lockedButton = event.target.closest('.resource-button-locked');
+        if (lockedButton) event.preventDefault();
     }});
     
     // Log para debug (apenas em desenvolvimento)
