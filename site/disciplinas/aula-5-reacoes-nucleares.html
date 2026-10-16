@@ -113,7 +113,14 @@
             <i class="bi bi-file-earmark-pdf"></i> PDF para impressão
         </a>
 
-        <a href="#" aria-disabled="true" data-resource-href="https://drive.google.com/file/d/1p7Huw2gGhFGzXJkQx5BCt0B0drnxDgBE/view?usp=drive_link"
+        <a href="https://drive.google.com/file/d/1ewSX8lrvxCxSziGudtIcNcjW0PxRV-TQ/view?usp=drive_link"
+           class="btn btn-outline-primary btn-lg lesson-resource-button"
+           target="_blank" rel="noopener noreferrer"
+           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PDF em formato de slides com barra lateral para anotações." aria-label="PDF em formato de slides com barra lateral para anotações.">
+            <i class="bi bi-easel2"></i> PDF para estudo
+        </a>
+
+        <a href="#" aria-disabled="true" data-resource-href="https://drive.google.com/file/d/1v4DRx9CCbhq5UUP1rU9Th0W9DbCC3cqs/view?usp=drive_link"
            class="btn btn-outline-secondary btn-lg lesson-resource-button resource-button-locked"
            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Respostas ainda não liberadas." aria-label="Respostas ainda não liberadas.">
             <i class="bi bi-lock"></i> PDF de respostas
@@ -175,16 +182,20 @@
                 <strong>reagentes nucleares</strong>; à direita estão os
                 <strong>produtos nucleares</strong>. Uma forma geral
                 para uma reação induzida é</p>
-<p>\[{}^{A}_{Z}\mathrm{X}+{}^{a}_{z}\mathrm{x}
+<p>\[{}^{a}_{z}\mathrm{x}+{}^{A}_{Z}\mathrm{X}
                 \longrightarrow{}^{A'}_{Z'}\mathrm{X}'+{}^{a'}_{z'}\mathrm{x}'.\]</p>
-<p>As letras maiúsculas (\(A\), \(A'\)) indicam números
+<p>Nessa notação, \(x\)
+                é a partícula incidente, \(X\) é o núcleo-alvo, \(X'\) é o núcleo-produto
+                e \(x'\) é a
+                partícula ejetada. As letras maiúsculas (\(A\), \(A'\)) indicam números
                 de massa dos núcleos pesados; as minúsculas (\(a\), \(a'\)), os das
                 partículas. As letras \(Z\), \(Z'\), \(z\) e \(z'\) representam os
-                respectivos números atômicos; o primo indica uma espécie
-                no lado final da reação. Em cada evento, conservam-se o
+                respectivos números atômicos; o primo identifica as
+                espécies no lado final, distinguindo-se o núcleo \(X'\) da partícula \(x'\) pela letra
+                maiúscula ou minúscula. Em cada evento, conservam-se o
                 número de massa e a carga elétrica:</p>
-<p>\[A+a=A'+a',\qquad
-                Z+z=Z'+z'.\]</p>
+<p>\[a+A=A'+a',\qquad
+                z+Z=Z'+z'.\]</p>
 <p>O balanceamento de \(A\) e \(Z\) identifica produtos
                 possíveis, mas não garante que a reação possa ocorrer.
                 Para isso, também verificamos energia e momento.</p>
@@ -323,20 +334,20 @@
 <p>\[m(X)\simeq
                 M(X)-Zm_e.\]</p>
 <p>Para uma reação formada apenas por núcleos,</p>
-<p>\[{}^{A}_{Z}\mathrm{X}+{}^{a}_{z}\mathrm{x}
+<p>\[{}^{a}_{z}\mathrm{x}+{}^{A}_{Z}\mathrm{X}
                 \longrightarrow{}^{A'}_{Z'}\mathrm{X}'+{}^{a'}_{z'}\mathrm{x}',\]</p>
 <p>a diferença de massa nuclear fica</p>
 <p>\[\begin{aligned}
                 \Delta m_{\rm nuc}
-                &amp;=[M(X)-Zm_e]+[M(x)-zm_e]\\
+                &amp;=[M(x)-zm_e]+[M(X)-Zm_e]\\
                 &amp;\quad-[M(X')-Z'm_e]-[M(x')-z'm_e]\\
-                &amp;=[M(X)+M(x)-M(X')-M(x')]\\
-                &amp;\quad-(Z+z-Z'-z')m_e.
+                &amp;=[M(x)+M(X)-M(X')-M(x')]\\
+                &amp;\quad-(z+Z-Z'-z')m_e.
                 \end{aligned}\]</p>
-<p>Como a carga se conserva, \(Z+z=Z'+z'\); logo,
+<p>Como a carga se conserva, \(z+Z=Z'+z'\); logo,
                 o último termo é zero. Portanto,</p>
 <p>\[\boxed{\Delta m_{\rm
-                nuc}\simeq M(X)+M(x)-M(X')-M(x').}\]</p>
+                nuc}\simeq M(x)+M(X)-M(X')-M(x').}\]</p>
 <p>Pela relação de Einstein, \(E=mc^2\), essa diferença de
                 massa é precisamente a origem da energia de reação. Para
                 a reação formada apenas por núcleos, retomamos a
@@ -346,17 +357,17 @@
                 produtos}\right)c^2=\Delta m_{\rm nuc}c^2.}\]</p>
 <p>Definindo</p>
 <p>\[\Delta
-                B_e=B_e(X)+B_e(x)-B_e(X')-B_e(x'),\]</p>
+                B_e=B_e(x)+B_e(X)-B_e(X')-B_e(x'),\]</p>
 <p>a relação exata entre a diferença de massas nucleares
                 e as massas atômicas é</p>
 <p>\[\Delta m_{\rm
-                nuc}c^2=[M(X)+M(x)-M(X')-M(x')]c^2+\Delta
+                nuc}c^2=[M(x)+M(X)-M(X')-M(x')]c^2+\Delta
                 B_e.\]</p>
 <p>Ao desprezar \(\Delta
                 B_e\), para a precisão adotada nesta aula,
                 obtemos a regra prática:</p>
 <p>\[\boxed{Q_{\rm
-                nuc}\simeq[M(X)+M(x)-M(X')-M(x')]c^2.}\]</p>
+                nuc}\simeq[M(x)+M(X)-M(X')-M(x')]c^2.}\]</p>
 <p>Quando uma das partículas for um nêutron, sua
                 contribuição deve ser escrita diretamente como \(m_n\): ele não possui
                 eletrosfera nem uma massa atômica neutra correspondente.
@@ -396,9 +407,8 @@
                 emitidos ou capturados sejam contabilizados
                 corretamente.</p>
 <h2 id="emissão-alfa">Emissão alfa</h2>
-<p>\[\ce{^A_ZX -&gt;
-                ^{A-4}_{Z-2}Y +}\alpha.\]</p>
-<p>\[Q_\alpha\simeq[M(X)-M(Y)-M(\ce{^4He})]c^2.\]</p>
+<p>\[{}^{A}_{Z}X\longrightarrow{}^{A-4}_{Z-2}X'+\alpha.\]</p>
+<p>\[Q_\alpha\simeq[M(X)-M(X')-M(\ce{^4He})]c^2.\]</p>
 <p>Como a alfa é o próprio núcleo de hélio-4, sua massa
                 nuclear é</p>
 <p>\[m_\alpha=m_{\rm
@@ -406,9 +416,9 @@
 <p>Assim, a troca por massa atômica do hélio é
                 justificada diretamente:</p>
 <p>\[\begin{aligned}
-                \Delta m&amp;\simeq[M(X)-Zm_e]-[M(Y)-(Z-2)m_e]\\
+                \Delta m&amp;\simeq[M(X)-Zm_e]-[M(X')-(Z-2)m_e]\\
                 &amp;\quad-[M(\ce{^4He})-2m_e]\\
-                &amp;=M(X)-M(Y)-M(\ce{^4He}).
+                &amp;=M(X)-M(X')-M(\ce{^4He}).
                 \end{aligned}\]</p>
 <h3 id="exemplo-5.2-decaimento-alfa-do-urânio-238">Exemplo
                 5.2: decaimento alfa do urânio-238</h3>
@@ -428,16 +438,17 @@
                 do tório.</p>
 <h2 id="emissão-beta-menos">Emissão beta menos</h2>
 <p>No decaimento \(\beta^-\), um nêutron
-                nuclear transforma-se em próton; são emitidos um elétron
-                e um antineutrino:</p>
-<p>\[\ce{^A_ZX -&gt;
-                ^A_{Z+1}Y + e^- + \bar{\nu}_e}.\]</p>
-<p>\[Q_{\beta^-}\simeq[M(X)-M(Y)]c^2.\]</p>
+                nuclear transforma-se em próton; são emitidos a
+                partícula \(\beta^-\)
+                (um elétron) e um antineutrino:</p>
+<p>\[{}^{A}_{Z}X\longrightarrow{}^{A}_{Z+1}X'+\beta^-+\bar{\nu}_e.\]</p>
+<p>\[Q_{\beta^-}\simeq[M(X)-M(X')]c^2.\]</p>
 <p>Aqui o núcleo-filho tem um próton a mais e o elétron
                 emitido precisa aparecer como produto:</p>
 <p>\[\begin{aligned}
-                \Delta m&amp;\simeq[M(X)-Zm_e]-[M(Y)-(Z+1)m_e]-m_e\\
-                &amp;=M(X)-M(Y).
+                \Delta
+                m&amp;\simeq[M(X)-Zm_e]-[M(X')-(Z+1)m_e]-m_e\\
+                &amp;=M(X)-M(X').
                 \end{aligned}\]</p>
 <p>O elétron que falta na massa atômica do átomo-filho e
                 o elétron beta emitido cancelam-se exatamente no termo
@@ -446,7 +457,7 @@
 <h3 id="exemplo-5.3-carbono-14">Exemplo 5.3:
                 carbono-14</h3>
 <p>\[\ce{^{14}_{6}C -&gt;
-                ^{14}_{7}N + e^- + \bar{\nu}_e}.\]</p>
+                ^{14}_{7}N}+\beta^-+\bar{\nu}_e.\]</p>
 <p>\[\begin{aligned}
                 Q_{\beta^-}&amp;=[14{,}003242-14{,}003074]\,\text{u}
                 \left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
@@ -457,23 +468,24 @@
                 energia cinética.</p>
 <h2 id="emissão-beta-mais">Emissão beta mais</h2>
 <p>No decaimento \(\beta^+\), um próton
-                nuclear transforma-se em nêutron e são emitidos pósitron
-                e neutrino:</p>
-<p>\[\ce{^A_ZX -&gt;
-                ^A_{Z-1}Y + e^+ + \nu_e}.\]</p>
-<p>\[Q_{\beta^+}\simeq[M(X)-M(Y)-2m_e]c^2.\]</p>
+                nuclear transforma-se em nêutron e são emitidos a
+                partícula \(\beta^+\)
+                (um pósitron) e um neutrino:</p>
+<p>\[{}^{A}_{Z}X\longrightarrow{}^{A}_{Z-1}X'+\beta^++\nu_e.\]</p>
+<p>\[Q_{\beta^+}\simeq[M(X)-M(X')-2m_e]c^2.\]</p>
 <p>O núcleo-filho tem um próton a menos e o pósitron
                 emitido também possui massa \(m_e\):</p>
 <p>\[\begin{aligned}
-                \Delta m&amp;\simeq[M(X)-Zm_e]-[M(Y)-(Z-1)m_e]-m_e\\
-                &amp;=M(X)-M(Y)-2m_e.
+                \Delta
+                m&amp;\simeq[M(X)-Zm_e]-[M(X')-(Z-1)m_e]-m_e\\
+                &amp;=M(X)-M(X')-2m_e.
                 \end{aligned}\]</p>
 <p>As duas massas de elétron têm origens distintas: uma
                 é a diferença entre as eletrosferas dos átomos neutros,
                 e a outra é a massa do pósitron emitido.</p>
 <h3 id="exemplo-5.4-flúor-18">Exemplo 5.4: flúor-18</h3>
 <p>\[\ce{^{18}_{9}F -&gt;
-                ^{18}_{8}O + e^+ + \nu_e}.\]</p>
+                ^{18}_{8}O}+\beta^++\nu_e.\]</p>
 <p><strong>Dado adicional para este exemplo:</strong>
                 como \(\ce{^{18}F}\)
                 não consta na tabela selecionada em PDF, use diretamente
@@ -489,14 +501,14 @@
 <h2 id="captura-eletrônica">Captura eletrônica</h2>
 <p>Na captura eletrônica, o núcleo captura um elétron
                 orbital, usualmente de uma camada interna:</p>
-<p>\[\ce{^A_ZX + e^- -&gt;
-                ^A_{Z-1}Y + \nu_e}.\]</p>
-<p>\[Q_{CE}\simeq[M(X)-M(Y)]c^2.\]</p>
+<p>\[{}^{A}_{Z}X+e^-\longrightarrow{}^{A}_{Z-1}X'+\nu_e.\]</p>
+<p>\[Q_{CE}\simeq[M(X)-M(X')]c^2.\]</p>
 <p>O elétron capturado entra como reagente e o
                 núcleo-filho possui carga \(Z-1\):</p>
 <p>\[\begin{aligned}
-                \Delta m&amp;\simeq[M(X)-Zm_e]+m_e-[M(Y)-(Z-1)m_e]\\
-                &amp;=M(X)-M(Y).
+                \Delta
+                m&amp;\simeq[M(X)-Zm_e]+m_e-[M(X')-(Z-1)m_e]\\
+                &amp;=M(X)-M(X').
                 \end{aligned}\]</p>
 <p>Portanto, para massas atômicas, a massa do elétron
                 capturado se cancela.</p>
@@ -539,13 +551,11 @@
                 \(M(\ce{^{12}C})=12{,}000000\,\text{u}\)
                 e \(m_n=1{,}008665\,\text{u}\),
                 obtemos</p>
-<p>\[
-                \begin{aligned}
+<p>\[\begin{aligned}
                 Q&amp;=[4{,}002603+9{,}012183\\
                 &amp;\quad-12{,}000000-1{,}008665]\,\text{u}\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
                 &amp;=5{,}702\,\text{MeV}.
-                \end{aligned}
-                \]</p>
+                \end{aligned}\]</p>
 <p>O resultado é exoenergético. A evidência decisiva,
                 porém, não foi apenas o balanço de massas: a radiação
                 neutra ejetava prótons rápidos de uma placa de parafina.
@@ -557,32 +567,32 @@
                 um modelo importante de investigação experimental.</p>
 <h2 id="partícula-incidente-alvo-e-produtos">Partícula
                 incidente, alvo e produtos</h2>
-<p>Para ler a notação \(\ce{A(a,b)B}\), acompanhe a
-                sequência física:</p>
-<p>\[a+A\longrightarrow[C]^*\longrightarrow
-                B+b.\]</p>
+<p>Para ler a notação \(X(x,x')X'\),
+                acompanhe a sequência física:</p>
+<p>\[x+X\longrightarrow[Y]^*\longrightarrow
+                X'+x'.\]</p>
 <ul>
-<li>\(a\):
+<li>\(x\):
                 <strong>partícula incidente</strong> ou projétil;</li>
-<li>\(A\):
+<li>\(X\):
                 <strong>núcleo-alvo</strong>, geralmente em repouso no
                 laboratório;</li>
-<li>\([C]^*\):
+<li>\([Y]^*\):
                 <strong>núcleo composto</strong>, estado intermediário
                 excitado;</li>
-<li>\(B\):
+<li>\(X'\):
                 <strong>núcleo-produto</strong> ou núcleo residual;</li>
-<li>\(b\):
+<li>\(x'\):
                 <strong>partícula ejetada</strong>, que sai ao
                 final.</li>
 </ul>
 <p>O <strong>modelo do núcleo composto</strong> descreve
                 uma colisão em que o projétil é absorvido por tempo
                 muito curto. A energia se redistribui entre os núcleons
-                do sistema \([C]^*\);
+                do sistema \([Y]^*\);
                 em seguida, ele se desfaz emitindo uma partícula e
                 deixando o núcleo-produto. Os colchetes destacam que
-                \([C]^*\) é uma etapa
+                \([Y]^*\) é uma etapa
                 intermediária, não um produto final.</p>
 <p><strong>A excitação sempre produz radiação
                 gama?</strong> Não. O asterisco indica energia interna
@@ -591,22 +601,23 @@
                 permanecer no núcleo residual ou ser emitida como fóton
                 gama. Se o residual permanecer excitado, escrevemos
                 explicitamente</p>
-<p>\[a+A\longrightarrow[C]^*\longrightarrow
-                b+B^*
-                \longrightarrow b+B+\gamma.\]</p>
+<p>\[x+X\longrightarrow[Y]^*\longrightarrow
+                X'^*+x'
+                \longrightarrow X'+x'+\gamma.\]</p>
 <p>Portanto, o gama é uma possibilidade comum de
                 desexcitação, não uma consequência obrigatória de todo
                 núcleo composto excitado.</p>
 <p>O processo pode ser lido em três etapas:
                 <strong>(1)</strong> a partícula incidente aproxima-se
                 do núcleo reagente (o alvo); <strong>(2)</strong> ocorre
-                a captura e forma-se o núcleo composto excitado \([C]^*\);
+                a captura e forma-se o núcleo composto excitado \([Y]^*\);
                 <strong>(3)</strong> esse sistema se reorganiza e sai
-                como núcleo-produto \(B\) mais partícula ejetada
-                \(b\). O desenho é
-                esquemático — os tamanhos não estão em escala —, mas
-                conserva a ideia essencial de que a etapa intermediária
-                contém todos os núcleons do projétil e do alvo.</p>
+                como núcleo-produto \(X'\) mais partícula
+                ejetada \(x'\). O
+                desenho é esquemático — os tamanhos não estão em escala
+                —, mas conserva a ideia essencial de que a etapa
+                intermediária contém todos os núcleons do projétil e do
+                alvo.</p>
 <figure>
 <img alt="Modelo do núcleo composto em três etapas: à esquerda, partícula incidente e núcleo-alvo; ao centro, núcleo composto excitado; à direita, núcleo-produto e partícula ejetada. Ilustração didática criada para esta aula; prótons em vermelho e nêutrons em cinza, sem escala." src="images/fig-nucleo-composto-tres-etapas-gerada.png" style="width:94.0%"/>
 <figcaption aria-hidden="true">Modelo do núcleo composto
@@ -637,44 +648,40 @@
                 cinética mínima: limiar e barreira</h2>
 <p>Considere, por exemplo, a reação endoenergética \(\alpha+\ce{^{14}_{7}N -&gt;
                 ^{17}_{8}O}+p\), discutida mais adiante. Ela tem
-                a forma geral \(a+A\to
-                B+b\): a partícula incidente \(a\) vem à esquerda, seguida
-                pelo alvo \(A\); à
-                direita ficam primeiro o núcleo-produto \(B\) e depois a partícula
-                ejetada \(b\). Com o
-                alvo inicialmente em repouso no laboratório, a
-                conservação da energia (sem incluir as massas de
-                repouso, já reunidas em \(Q\)) e do momento linear
-                fornece</p>
-<p>\[T_a+Q=T_B+T_b,\qquad
-                \vec p_a=\vec p_B+\vec p_b.\]</p>
+                a forma geral \(x+X\to
+                X'+x'\): a partícula incidente \(x\) vem à esquerda, seguida
+                pelo alvo \(X\); à
+                direita ficam primeiro o núcleo-produto \(X'\) e depois a
+                partícula ejetada \(x'\). Com o alvo
+                inicialmente em repouso no laboratório, a conservação da
+                energia (sem incluir as massas de repouso, já reunidas
+                em \(Q\)) e do momento
+                linear fornece</p>
+<p>\[T_x+Q=T_{X'}+T_{x'},\qquad
+                \vec p_x=\vec p_{X'}+\vec p_{x'}.\]</p>
 <p>No limiar de uma reação endoenergética, os produtos
                 não podem ter movimento relativo: eles se deslocam
                 juntos, com a mesma velocidade \(\vec V\). Assim,</p>
-<p>\[\vec p_a=(m_B+m_b)\vec
-                V\]</p>
+<p>\[\vec
+                p_x=(m_{X'}+m_{x'})\vec V\]</p>
 <p>e, pela conservação do momento,</p>
-<p>\[
-                \begin{aligned}
-                T_B+T_b
-                &amp;=\frac12m_BV^2+\frac12m_bV^2\\
-                &amp;=\frac{p_a^2}{2(m_B+m_b)}.
-                \end{aligned}
-                \]</p>
-<p>Como \(p_a^2=2m_aT_a\), a
+<p>\[\begin{aligned}
+                T_{X'}+T_{x'}
+                &amp;=\frac12m_{X'}V^2+\frac12m_{x'}V^2\\
+                &amp;=\frac{p_x^2}{2(m_{X'}+m_{x'})}.
+                \end{aligned}\]</p>
+<p>Como \(p_x^2=2m_xT_x\), a
                 conservação da energia fica</p>
-<p>\[T_a+Q=\frac{m_a}{m_B+m_b}T_a.\]</p>
-<p>No limiar, \(T_a=E_{\rm
+<p>\[T_x+Q=\frac{m_x}{m_{X'}+m_{x'}}T_x.\]</p>
+<p>No limiar, \(T_x=E_{\rm
                 lim}\). Como \(|Q|\ll
-                m_ic^2\), podemos usar \(m_B+m_b\approx m_a+m_A\);
-                portanto,</p>
-<p>\[
-                \begin{aligned}
-                E_{\rm lim}\left(1-\frac{m_a}{m_a+m_A}\right)&amp;=-Q,\\
+                m_ic^2\), podemos usar \(m_{X'}+m_{x'}\approx
+                m_x+m_X\); portanto,</p>
+<p>\[\begin{aligned}
+                E_{\rm lim}\left(1-\frac{m_x}{m_x+m_X}\right)&amp;=-Q,\\
                 \boxed{E_{\rm lim}\approx
-                -Q\left(1+\frac{m_a}{m_A}\right).}
-                \end{aligned}
-                \]</p>
+                -Q\left(1+\frac{m_x}{m_X}\right).}
+                \end{aligned}\]</p>
 <p>O fator adicional é a energia cinética do movimento
                 conjunto dos produtos, exigida pela conservação do
                 momento linear. Por isso, \(E_{\rm lim}&gt;|Q|\). Para
@@ -682,13 +689,13 @@
                 cinemático é zero; isso não elimina a repulsão elétrica
                 entre partículas carregadas.</p>
 <p>Como estudado na <strong>Aula 2</strong>, a energia
-                potencial elétrica entre projétil e alvo é \(V_C=kZ_aZ_Ae^2/r\). Para
+                potencial elétrica entre projétil e alvo é \(V_C=kZ_xZ_Xe^2/r\). Para
                 estimar a barreira, tomamos a distância de contato
                 nuclear \(r\approx
-                R_a+R_A\), com \(R=1{,}2A^{1/3}\,\text{fm}\)
+                R_x+R_X\), com \(R=1{,}2A^{1/3}\,\text{fm}\)
                 e \(k
                 e^2=1{,}44\,\text{MeV}\,\text{fm}\). Logo,</p>
-<p>\[V_C\approx\frac{1{,}44Z_aZ_A}{1{,}2\left(A_a^{1/3}+A_A^{1/3}\right)}\,\text{MeV}.\]</p>
+<p>\[V_C\approx\frac{1{,}44Z_xZ_X}{1{,}2\left(A_x^{1/3}+A_X^{1/3}\right)}\,\text{MeV}.\]</p>
 <p>Esta é a mesma ideia da distância de maior
                 aproximação da Aula 2, agora avaliada aproximadamente no
                 contato entre os núcleos. Ela é uma barreira de
@@ -696,7 +703,7 @@
                 limiar. Para projéteis carregados, a energia de feixe
                 deve permitir aproximação suficiente; abaixo da
                 barreira, ainda há possibilidade de tunelamento.
-                Nêutrons, por terem \(Z_a=0\), não enfrentam
+                Nêutrons, por terem \(Z_x=0\), não enfrentam
                 barreira de Coulomb.</p>
 <p>Há, portanto, duas perguntas independentes. O sinal
                 de \(Q\) responde se a
@@ -712,13 +719,12 @@
                 três níveis distintos nesta aula: (i) ao trocar massa
                 nuclear por massa atômica, desprezamos energias de
                 ligação dos elétrons, pequenas diante de MeV; (ii) no
-                limiar, usamos cinemática não relativística e \(m_B+m_b\approx m_a+m_A\),
-                válida porque \(|Q|\ll
-                m_ic^2\); (iii) na barreira de Coulomb, usamos
-                raios nucleares médios e uma descrição clássica de
-                contato. Essa última estimativa não proíbe reações
-                abaixo de \(V_C\), pois
-                o tunelamento quântico ainda pode ocorrer.</p>
+                limiar, usamos cinemática não relativística e \(m_{X'}+m_{x'}\approx
+                m_x+m_X\), válida porque \(|Q|\ll m_ic^2\); (iii) na
+                barreira de Coulomb, usamos raios nucleares médios e uma
+                descrição clássica de contato. Essa última estimativa
+                não proíbe reações abaixo de \(V_C\), pois o tunelamento
+                quântico ainda pode ocorrer.</p>
 <h2 id="quatro-projéteis-quatro-exemplos-resolvidos">Quatro
                 projéteis, quatro exemplos resolvidos</h2>
 <p>Em todos os exemplos, primeiro calculamos \(Q\) por massas atômicas.
@@ -823,14 +829,12 @@
                 elétrons nos reagentes atômicos e dois no átomo de hélio
                 do produto, as massas atômicas podem ser usadas
                 diretamente:</p>
-<p>\[
-                \begin{aligned}
+<p>\[\begin{aligned}
                 Q&amp;=[M(\mathrm{D})+M(\mathrm{T})-M(\ce{^4He})-m_n]c^2\\
                 &amp;=[2{,}014102+3{,}016049-4{,}002603-1{,}008665]\,\text{u}\\
                 &amp;\quad\times\left(\frac{931{,}5\,\text{MeV}}{1\,\text{u}}\right)\\
                 &amp;=17{,}59\,\text{MeV}.
-                \end{aligned}
-                \]</p>
+                \end{aligned}\]</p>
 <p>É uma reação exoenergética. Se os reagentes chegam
                 com energia cinética total desprezível, os produtos
                 levam aproximadamente \(17{,}59\,\text{MeV}\). Como
@@ -959,20 +963,20 @@
 <tr>
 <td style="text-align: left;">Emissão \(\beta^-\)</td>
 <td style="text-align: left;">Não acrescente nem
-                subtraia \(m_e\): \(Q\simeq[M(X)-M(Y)]c^2\).</td>
+                subtraia \(m_e\): \(Q\simeq[M(X)-M(X')]c^2\).</td>
 <td style="text-align: left;">O elétron emitido compensa
                 o elétron que falta na massa atômica do filho.</td>
 </tr>
 <tr>
 <td style="text-align: left;">Captura eletrônica</td>
 <td style="text-align: left;">Não acrescente nem
-                subtraia \(m_e\): \(Q\simeq[M(X)-M(Y)]c^2\).</td>
+                subtraia \(m_e\): \(Q\simeq[M(X)-M(X')]c^2\).</td>
 <td style="text-align: left;">O elétron capturado
                 compensa a diferença de um elétron entre os átomos.</td>
 </tr>
 <tr>
 <td style="text-align: left;">Emissão \(\beta^+\)</td>
-<td style="text-align: left;">Subtraia \(2m_e\): \(Q\simeq[M(X)-M(Y)-2m_e]c^2\).</td>
+<td style="text-align: left;">Subtraia \(2m_e\): \(Q\simeq[M(X)-M(X')-2m_e]c^2\).</td>
 <td style="text-align: left;">Um termo vem da
                 eletrosfera do filho; o outro, da massa do pósitron
                 emitido.</td>
@@ -1065,7 +1069,7 @@
 <dl>
 <dt>5.4)</dt>
 <dd>
-                No modelo do núcleo composto, \([C]^*\) representa:
+                No modelo do núcleo composto, \([Y]^*\) representa:
                 </dd>
 </dl>
 <ol type="a">
@@ -1110,7 +1114,7 @@
 <dt>5.6)</dt>
 <dd>
                 Complete \(\alpha+\ce{^{27}_{13}Al -&gt;
-                ^{30}_{15}P}+X\). Qual é \(X\)?
+                ^{30}_{15}P}+x'\). Qual é \(x'\)?
                 </dd>
 </dl>
 <ol type="a">
@@ -1156,8 +1160,8 @@
 <dl>
 <dt>5.9)</dt>
 <dd>
-                No decaimento \(\beta^-\) do trítio, \(\ce{^3_1H -&gt; ^3_2He + e^- +
-                \bar{\nu}_e}\), use \(M(\ce{^3H})=3{,}016049\,\text{u}\)
+                No decaimento \(\beta^-\) do trítio, \(\ce{^3_1H -&gt;
+                ^3_2He}+\beta^-+\bar{\nu}_e\), use \(M(\ce{^3H})=3{,}016049\,\text{u}\)
                 e \(M(\ce{^3He})=3{,}016029\,\text{u}\).
                 A energia de reação é aproximadamente:
                 </dd>
@@ -1182,7 +1186,7 @@
 <ol type="a">
 <li>\(0{,}800\,\text{MeV}\)</li>
 <li>\(1{,}02\,\text{MeV}\)</li>
-<li>\(1{,}82\,\text{MeV}\)</li>
+<li>\(1{,}821\,\text{MeV}\)</li>
 <li>\(2{,}84\,\text{MeV}\)</li>
 <li>\(3{,}87\,\text{MeV}\)</li>
 </ol>
@@ -1243,7 +1247,7 @@
 <dt>5.14)</dt>
 <dd>
                 Uma reação endoenergética tem \(Q=-3{,}00\,\text{MeV}\) e é
-                produzida por um projétil com \(m_a/m_A=1/12\). O limiar
+                produzida por um projétil com \(m_x/m_X=1/12\). O limiar
                 cinemático não relativístico é aproximadamente:
                 </dd>
 </dl>
@@ -1258,8 +1262,8 @@
 <dt>5.15)</dt>
 <dd>
                 Estime a barreira de Coulomb para uma partícula alfa
-                (\(A_a=4\), \(Z_a=2\)) aproximar-se de um
-                núcleo de carbono-12 (\(A_A=12\), \(Z_A=6\)). O valor mais
+                (\(A_x=4\), \(Z_x=2\)) aproximar-se de um
+                núcleo de carbono-12 (\(A_X=12\), \(Z_X=6\)). O valor mais
                 próximo é:
                 </dd>
 </dl>
