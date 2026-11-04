@@ -163,6 +163,9 @@ disciplinas:
       - name: "Cadeias de Markov e simulação de Monte Carlo: chuva, extremos e o Vale do Ribeira"
         html: "content/aulas/ES-SI/Aula-3/si-aula-3.html"
         pdf: "https://drive.google.com/file/d/1VKlwzS0wesFNWCw2c1BybQLd2opCtJqq/view?usp=drive_link"
+      - name: "Além da sala de aula: áreas de atuação para licenciados em Física"
+        html: "content/aulas/ES-SI/Aula-4/si-aula-4.html"
+        pdf: "https://drive.google.com/file/d/1wdE58il4YH6aAldQ8wqXTUbQQYOK5i15/view?usp=drive_link"
   - disciplina: "Mecânica dos Fluidos"
     aulas:
       - name: "Aula 1 - Introdução à Mecânica dos Fluidos"
